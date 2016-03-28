@@ -19,7 +19,6 @@ builder run open-static
 
 # If all looks good, let's commit!
 git add build && git commit build -m "Rebuild site"
-npm run push-gh-pages # Push to gh-pages to keep builder.formidable.com in sync
 git push origin master
 ```
 
