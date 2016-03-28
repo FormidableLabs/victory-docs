@@ -1,0 +1,37 @@
+{
+  "name": "victory-docs",
+  "version": "0.0.1",
+  "description": "Documentation site for Victory",
+  "main": "webpack.config.dev.js",
+  "scripts": {
+    "start": "builder run dev",
+    "test": "builder run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/victory-docs.git"
+  },
+  "author": "paula.lavalle@formidable.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/victory-docs/issues"
+  },
+  "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
+  "devDependencies": {
+    "builder-docs-archetype-dev": "^0.0.4"
+  },
+  "dependencies": {
+    "builder": "^2.9.1",
+    "builder-docs-archetype": "^0.0.4",
+    "formidable-landers": "0.0.12",
+    "marked": "^0.3.5",
+    "prismjs": "^1.4.1",
+    "radium": "^0.16.2",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5",
+    "victory": "FormidableLabs/victory",
+    "victory-chart": "FormidableLabs/victory-chart",
+    "victory-core": "FormidableLabs/victory-core",
+    "victory-pie": "FormidableLabs/victory-pie"
+  }
+}
