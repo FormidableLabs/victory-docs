@@ -77,7 +77,7 @@ class App extends React.Component {
             Victory is a trademark of Formidable Labs, Inc.
           </div>
         </Footer>
-      <Style rules={VictoryTheme} />
+        <Style rules={VictoryTheme} />
       </StyleRoot>
     );
   }
