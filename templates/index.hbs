@@ -13,9 +13,15 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:800,700,400" rel="stylesheet" type="text/css">
   <!-- Syntax highlighting theme -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.4.1/themes/prism-solarizedlight.min.css" rel="stylesheet" type="text/css">
+  {{!-- Code Mirror --}}
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"/>
 </head>
 <body>
   <div id="content">{{{content}}}</div>
   <script async defer type="text/javascript" src="{{bundleJs}}"></script>
+  {{!-- Code Mirror --}}
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/mode/javascript/javascript.min.js"></script>
 </body>
 </html>

@@ -1,54 +1,31 @@
 import React from "react";
 import Radium, { Style, StyleRoot } from "radium";
-import { Header, Footer } from "formidable-landers";
+import { Link } from "react-router";
 
 // Child components
-import Docs from "./docs";
-import Hero from "./hero";
-import Introduction from "./introduction";
+import Home from "../screens/home/index";
 
 // Variables and Stylesheet
-import settings from "../spectacle-variables";
-import theme from "../spectacle-theme";
+import { Header, Footer, VictorySettings, VictoryTheme } from "formidable-landers";
+
 
 class App extends React.Component {
   getHeaderStyles() {
     return {
       overrides: {
         backgroundColor: "transparent",
-        borderTop: `1em solid ${settings.text}`,
-        borderRight: `1em solid ${settings.text}`,
+        borderTop: `1em solid ${VictorySettings.text}`,
+        borderRight: `1em solid ${VictorySettings.text}`,
         borderBottom: "0",
-        borderLeft: `1em solid ${settings.text}`
+        borderLeft: `1em solid ${VictorySettings.text}`
       },
       linkStyles: {
-        color: settings.orange,
-        borderColor: settings.orange,
+        color: VictorySettings.orange,
+        borderColor: VictorySettings.orange,
         ":hover": {
-          color: settings.text,
-          boxShadow: `inset 0 -0.2em ${settings.orange}`
+          color: VictorySettings.text,
+          boxShadow: `inset 0 -0.2em ${VictorySettings.orange}`
         }
-      }
-    };
-  }
-  getCircleStyles() {
-    return {
-      base: {
-        position: "absolute",
-        top: "0",
-        left: "0",
-        right: "0",
-        bottom: "0",
-
-        zIndex: "0"
-      },
-      small: {
-        clipPath: "circle(75vmax at 0% 100%)",
-        background: `linear-gradient(0deg, ${settings.orange}, transparent 2%)`
-      },
-      large: {
-        clipPath: "circle(105vmax at 100% 100%)",
-        background: `linear-gradient(0deg, ${settings.yellow}, ${settings.white} 5%)`
       }
     };
   }
@@ -61,43 +38,46 @@ class App extends React.Component {
         margin: "0",
 
         borderTop: "0",
-        borderRight: `1em solid ${settings.text}`,
-        borderBottom: `1em solid ${settings.text}`,
-        borderLeft: `1em solid ${settings.text}`
+        borderRight: `1em solid ${VictorySettings.text}`,
+        borderBottom: `1em solid ${VictorySettings.text}`,
+        borderLeft: `1em solid ${VictorySettings.text}`
       },
       linkStyles: {
-        color: settings.text,
-        borderColor: settings.red,
+        color: VictorySettings.text,
+        borderColor: VictorySettings.red,
         ":hover": {
-          color: settings.red,
-          boxShadow: `inset 0 -0.2em ${settings.red}`
+          color: VictorySettings.red,
+          boxShadow: `inset 0 -0.2em ${VictorySettings.red}`
         }
       }
     };
   }
 
   render() {
-    const circle = this.getCircleStyles();
     const headerStyles = this.getHeaderStyles();
     const footerStyles = this.getFooterStyles();
     return (
       <StyleRoot>
         <Header
-          styleOverrides={headerStyles.overrides}
-          linkStyles={headerStyles.linkStyles}
-        />
-        <Hero />
-        <Introduction />
-        <Docs />
+          backgroundColor={VictorySettings.palestSand}
+          styleOverrides={{display: "block"}}
+        >
+          Looking for a custom dashboard? Need help leveling up your data visualizations? Let’s talk!
+        </Header>
+
+        <Link className="Button Button--spotlight" to="docs">Get Started</Link>
+
+        <Home />
+
         <Footer
+          backgroundColor={VictorySettings.palestSand}
           logoColor="black"
-          backgroundColor={"transparent"}
-          styleOverrides={footerStyles.overrides}
-          linkStyles={footerStyles.linkStyles}
-        />
-        <div style={[circle.base, circle.large]}></div>
-        <div style={[circle.base, circle.small]}></div>
-        <Style rules={theme} />
+        >
+          <div style={{margin: "2em 0", fontSize: "0.8rem"}}>
+            Victory is a trademark of Formidable Labs, Inc.
+          </div>
+        </Footer>
+      <Style rules={VictoryTheme} />
       </StyleRoot>
     );
   }
