@@ -21,6 +21,7 @@ class Docs extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div style={this.getStyles()}>
         <Sidebar />

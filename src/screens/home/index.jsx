@@ -44,7 +44,7 @@ class Home extends React.Component {
 
         <div>
           <Ecology
-            overview={require("!!raw!./playgrounds.md")}
+            overview={require("!!raw!./examples.md")}
             scope={{React, ReactDOM, VictoryChart, VictoryLine, VictoryPie}}
             playgroundtheme="base16-dark"
           />
