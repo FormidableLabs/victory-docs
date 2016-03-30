@@ -1,16 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Radium from "radium";
+import find from "lodash/find";
 import marked from "marked";
-import Ecology from "ecology";
 
-// Docs
-import { VictoryChart, VictoryLine, VictoryPie } from "victory";
-import * as V from "victory";
-import victoryREADME from "!!raw!victory/README.md";
+// VictoryComponent Docs
+import { components } from "../../../components/config";
 
-// /open-source/victory/docs route.
-class Docs extends React.Component {
+class MarkdownDocs extends React.Component {
   getStyles() {
     return {
       margin: "1rem 0 0 0",
@@ -22,22 +18,36 @@ class Docs extends React.Component {
       }
     };
   }
-
-
+  renderDocsContent(activeComponent) {
+    if (activeComponent === "index") {
+      const indexDocs = marked(require("../getting-started.md"));
+      return (
+        <div
+          className="Ecology Overview"
+          dangerouslySetInnerHTML={{__html: indexDocs}}
+        />
+      );
+    }
+    const Docs = find(components, {slug: activeComponent}).docs;
+    return (<Docs />);
+  }
   render() {
-    // const victoryDocs = marked(!!raw!victoryREADME);
     return (
       <main
         style={this.getStyles()}
       >
-      <Ecology
-        overview={require("!!raw!victory/README.md")}
-        scope={{React, ReactDOM, V, VictoryChart, VictoryLine, VictoryPie}}
-        playgroundtheme="elegant"
-      />
+        {this.renderDocsContent(this.props.active)}
       </main>
     );
   }
 }
 
-export default Radium(Docs);
+MarkdownDocs.propTypes = {
+  active: React.PropTypes.string
+};
+
+MarkdownDocs.defaultProps = {
+  active: "index"
+};
+
+export default Radium(MarkdownDocs);
