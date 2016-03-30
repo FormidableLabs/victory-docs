@@ -6,12 +6,9 @@ import App from "./components/app";
 import Home from "./screens/home/index";
 import Docs from "./screens/docs/index";
 
-// Analytics
+// TODO: Analytics https://github.com/FormidableLabs/victory-docs/issues/1
 // import ga from "react-ga";
 // ga.initialize("UA-43290258-1");
-
-// TODO:
-// <Route path="docs/:component" component={ComponentDocs} />
 
 module.exports = (
   <Route path="/" component={App}>

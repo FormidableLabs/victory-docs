@@ -9,9 +9,6 @@ import { VictoryChart, VictoryLine, VictoryPie } from "victory";
 // Child Components
 import Hero from "./components/hero";
 
-// Settings
-import { VictorySettings } from "formidable-landers";
-
 class Home extends React.Component {
   getStyles() {
     return {

@@ -1,6 +1,7 @@
 import React from "react";
 import Radium from "radium";
 
+// Settings
 import { VictorySettings } from "formidable-landers";
 import logotype from "../../../../static/logotype-hero.svg";
 

@@ -51,7 +51,7 @@ class Sidebar extends React.Component {
       ":hover": {
         color: VictorySettings.navy
       }
-    }
+    };
   }
 
 
