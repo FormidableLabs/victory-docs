@@ -21,14 +21,25 @@ class Docs extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const active = this.props.params.component ?
+      this.props.params.component :
+      "index";
     return (
       <div style={this.getStyles()}>
-        <Sidebar />
-        <Markdown />
+        <Sidebar active={active} />
+        <Markdown active={active} />
       </div>
     );
   }
 }
+
+Docs.propTypes = {
+  params: React.PropTypes.object
+};
+
+Docs.defaultProps = {
+  params: null
+};
+
 
 export default Radium(Docs);

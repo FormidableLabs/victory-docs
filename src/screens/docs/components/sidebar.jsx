@@ -1,8 +1,10 @@
 import React from "react";
 import Radium from "radium";
-// import { components, routing as routingConfig } from "../config";
-import { Link } from "react-router";
-const RadiumLink = Radium(Link);
+
+// Children
+import { components } from "../../../components/config";
+import NavLink from "../../../components/navlink";
+import VictoryIcon from "../../../../static/icon-victory.svg";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -41,50 +43,25 @@ class Sidebar extends React.Component {
     };
   }
 
-  getLinkStyles() {
+  getVictoryIconLinkStyles() {
     return {
-      base: {
-        boxShadow: "none",
-        color: VictorySettings.darkSand,
-        fontWeight: "normal",
-        ":hover": {
-          color: VictorySettings.red
-        }
-      },
-      active: {
-        boxShadow: "none",
-        color: VictorySettings.red,
-        fontWeight: "bold",
-        ":hover": {
-          color: VictorySettings.red
-        }
+      width: "50px",
+      height: "50px",
+      color: VictorySettings.navy,
+      ":hover": {
+        color: VictorySettings.navy
       }
-    };
+    }
   }
 
-  generateListItems(items) {
-    const styles = this.getSidebarStyles();
-    const linkStyles = this.getLinkStyles();
 
-    // Add "Getting started" link to sidebar
-    // (must have `text` and `slug`)
-    const sidebarList = [{
-      text: "Getting started",
-      slug: ""
-    }].concat(items);
-
-    return sidebarList.map((item) => {
-      const isSelected = item.slug === this.props.active;
-
-      const radiumLinkStyles = isSelected ?
-        linkStyles.active :
-        linkStyles.base;
-
+  renderListItems(items) {
+    return items.map((item) => {
       return (
-        <li style={styles.listItem} key={item.slug}>
-          <RadiumLink to={`docs/${item.slug}`} style={radiumLinkStyles}>
+        <li key={item.slug}>
+          <NavLink to={`docs/${item.slug}`}>
             {item.text}
-          </RadiumLink>
+          </NavLink>
         </li>
       );
     });
@@ -93,31 +70,38 @@ class Sidebar extends React.Component {
   render() {
     const styles = this.getSidebarStyles();
 
-    // {this.generateListItems(this.props.items)}
-
-
     /* eslint-disable max-len */
     return (
       <nav
-        style={styles.base}>
-        <Link to="#" className="Link--unstyled">
-          <img width="40px" height="40px" src={`./static/icon-victory.svg`} alt="Victory Homepage" />
-        </Link>
+        style={styles.base}
+      >
         <ul style={styles.list}>
-          <p>GENERATE LIST ITEMS</p>
+          <NavLink to="docs" className="Link--unstyled">
+            <div
+              dangerouslySetInnerHTML={{__html: VictoryIcon}}
+              style={this.getVictoryIconLinkStyles()}
+            />
+          </NavLink>
+          <li key="index">
+            <NavLink to="docs">
+              Getting Started
+            </NavLink>
+          </li>
+          {this.renderListItems(this.props.items)}
         </ul>
       </nav>
     );
   /* eslint-enable max-len */
   }
 }
+
 Sidebar.propTypes = {
   items: React.PropTypes.array,
   active: React.PropTypes.string
 };
 
 Sidebar.defaultProps = {
-  items: [],
+  items: components,
   active: null
 };
 
