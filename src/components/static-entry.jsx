@@ -1,6 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import { renderToString } from "react-dom/server";
+import { routing } from "./config";
 
 import App from "./app";
 import Index from "../../templates/index.hbs";
@@ -19,7 +20,8 @@ export default (locals, next) => {
   const content = renderToString(<App />);
   const html = Index({
     content,
-    bundleJs: assets
+    bundleJs: assets,
+    baseHref: routing.base
   });
 
   next(null, html);
