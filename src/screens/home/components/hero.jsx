@@ -22,7 +22,8 @@ class Hero extends React.Component {
         height: "100px",
         maxWidth: "758px",
         textAlign: "center",
-        fontSize: "72px"
+        fontSize: "72px",
+        borderBottom: "none"
       },
       headingMajor: {
         fontFamily: "Didot, serif",
@@ -37,6 +38,21 @@ class Hero extends React.Component {
         letterSpacing: "0.25em",
         textTransform: "uppercase",
         textAlign: "center"
+      },
+      installer: {
+        margin: `${VictorySettings.gutter*3}px auto 0`,
+        display: "block",
+        textAlign: "center"
+      },
+      code: {
+        display: "inline-block",
+        padding: "1.25em 1.75em",
+        backgroundColor: VictorySettings.mud,
+        boxShadow: `0 0 0 10px ${VictorySettings.palerSand}, 0 0 0 11px ${VictorySettings.mud}`,
+        color: VictorySettings.whiteSand,
+        fontFamily: VictorySettings.monospace,
+        fontSize: "18px",
+        lineHeight: 1.2
       }
     };
   }
@@ -50,6 +66,9 @@ class Hero extends React.Component {
         <p style={styles.headingMajor}>An ecosystem of modular data visualization components</p>
         <p style={styles.headingMinor}>for</p>
         <p style={styles.headingMajor}>React.js Developers</p>
+        <div style={styles.installer}>
+          <code style={styles.code}>npm install victory</code>
+        </div>
       </div>
     );
   }
