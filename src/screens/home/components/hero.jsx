@@ -9,12 +9,13 @@ class Hero extends React.Component {
   getStyles() {
     return {
       cover: {
-        backgroundImage: `linear-gradient(180deg, transparent 80%, #f6f2ee 100%), url(./static/bg-hero.png)`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "50% 0",
+        backgroundImage: `radial-gradient(ellipse farthest-corner at 50% 40%, transparent, ${VictorySettings.palerSand}), url(./static/bg-hero@2x.png), url(./static/bg-pattern.png)`,
+        backgroundRepeat: "repeat, no-repeat, repeat",
+        backgroundPosition: "center center, 50% 0, center center",
+        backgroundSize: "auto auto, 1280px auto, auto auto",
         padding: "80px 20px 60px 20px",
         margin: "40px",
-        boxShadow: `0 0 0 1px ${VictorySettings.navy}, 0 0 0 20px #f6f2ee, 0 0 0 23px ${VictorySettings.navy}`
+        boxShadow: `0 0 0 1px ${VictorySettings.mud}, 0 0 0 20px ${VictorySettings.palerSand}, 0 0 0 23px ${VictorySettings.mud}`
       },
       title: {
         margin: "0 auto 480px",
