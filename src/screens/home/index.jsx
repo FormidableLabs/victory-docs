@@ -15,30 +15,42 @@ import Hero from "./components/hero";
 class Home extends React.Component {
   getStyles() {
     return {
-      container: {
+      section: {
         display: "block"
       },
-      main: {
-        margin: "1rem 0 0 0",
-        padding: "1rem 0.5rem",
-        "@media (min-width: 70em)": {
-          flex: "1",
-          margin: 0,
-          padding: "60px 1rem"
-        }
+      padded: {
+        padding: `${VictorySettings.gutter*3}px ${VictorySettings.gutter*2}px`
+      },
+      copy: {
+        maxWidth: "760px",
+        marginLeft: "auto",
+        marginRight: "auto"
+      },
+      demo: {
+        marginTop: `${VictorySettings.gutter}px`,
+        backgroundColor: VictorySettings.palestSand
       },
       demoHeading: {
         marginTop: 0,
         color: VictorySettings.red
       },
-      demo: {
-        marginTop: `${VictorySettings.gutter}px`,
-        padding: `${VictorySettings.gutter*3}px ${VictorySettings.gutter*2}px`,
-        backgroundColor: VictorySettings.palestSand
-      },
       ecology: {
         marginLeft: `-${VictorySettings.gutter*2}px`,
         marginRight: `-${VictorySettings.gutter*2}px`
+      },
+      button: {
+        borderWidth: "60px",
+        borderStyle: "solid",
+        borderImage: `url("./static/btn-border.svg") 60 repeat stretch`,
+        color: VictorySettings.red,
+        display: "inline-block",
+        fontFamily: VictorySettings.serif,
+        fontSize: "18px",
+        fontWeight: "normal",
+        letterSpacing: "0.15em",
+        textTransform: "uppercase",
+        padding: "0 24px",
+        width: "100%"
       }
     };
   }
@@ -47,10 +59,10 @@ class Home extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <section style={styles.container}>
+      <section style={styles.section}>
         <Hero />
 
-        <div style={styles.demo}>
+        <div style={[styles.padded, styles.demo]}>
           <h2 style={styles.demoHeading}>Try it</h2>
           <p style={{maxWidth: "38em", marginLeft: "auto", marginRight: "auto"}}>
             <span className="Smallcaps">Editor’s note.</span>
@@ -67,47 +79,54 @@ class Home extends React.Component {
           </div>
         </div>
 
-        <h2>Benefits</h2>
+        <div style={styles.padded}>
+          <h2>Benefits</h2>
 
-        <h3>Friendly</h3>
-        <p>
-          <span className="Smallcaps">1.</span>
-          The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
-        </p>
+          <h3>Friendly</h3>
+          <p style={styles.copy}>
+            <span className="Smallcaps">1.</span>
+            The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
+          </p>
 
-        <h3>Flexible</h3>
-        <p>
-          <span className="Smallcaps">2.</span>
-          The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and DOM diffing to create a lightweight animation wrapper.
-        </p>
+          <h3>Flexible</h3>
+          <p style={styles.copy}>
+            <span className="Smallcaps">2.</span>
+            The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and DOM diffing to create a lightweight animation wrapper.
+          </p>
 
-        <h3>Composable</h3>
-        <p>
-          <span className="Smallcaps">3.</span>
-          When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
-        </p>
-
-        <div>
-          <Link className="Button Button--spotlight" to="docs">Get Started</Link>
+          <h3>Composable</h3>
+          <p style={styles.copy}>
+            <span className="Smallcaps">3.</span>
+            When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
+          </p>
         </div>
 
-        <h2>Quick links:</h2>
-        <p>
-          GitHub: <a href="https://github.com/FormidableLabs/victory">
-            https://github.com/FormidableLabs/victory
-          </a>
-        </p>
-        <p>
-          Gitter chatroom: <a href="https://gitter.im/FormidableLabs/victory">
-            https://gitter.im/FormidableLabs/victory
-          </a>
-        </p>
-        <p>
-          Roadmap: <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
-            ROADMAP.md
-          </a>
-        </p>
-        <p className="Copy">Component docs:</p>
+        <div style={styles.padded}>
+          <div style={{display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }}>
+            <Link style={styles.button} to="docs">Get Started</Link>
+          </div>
+        </div>
+
+        <div style={styles.padded}>
+
+          <h2>Quick links:</h2>
+          <p style={styles.copy}>
+            GitHub: <a href="https://github.com/FormidableLabs/victory">
+              https://github.com/FormidableLabs/victory
+            </a>
+          </p>
+          <p style={styles.copy}>
+            Gitter chatroom: <a href="https://gitter.im/FormidableLabs/victory">
+              https://gitter.im/FormidableLabs/victory
+            </a>
+          </p>
+          <p style={styles.copy}>
+            Roadmap: <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
+              ROADMAP.md
+            </a>
+          </p>
+          <p style={styles.copy}>Component docs:</p>
+        </div>
       </section>
     );
   }

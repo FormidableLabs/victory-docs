@@ -26,13 +26,13 @@ class Hero extends React.Component {
         borderBottom: "none"
       },
       headingMajor: {
-        fontFamily: "Didot, serif",
+        fontFamily: VictorySettings.serifHeadline,
         fontSize: "48px",
         lineHeight: "1.3",
         textAlign: "center"
       },
       headingMinor: {
-        fontFamily: "Georgia, serif",
+        fontFamily: VictorySettings.serif,
         fontSize: "24px",
         lineHeight: "1.5",
         letterSpacing: "0.25em",
