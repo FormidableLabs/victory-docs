@@ -36,22 +36,25 @@ class App extends React.Component {
     return (
       <StyleRoot>
         <Header
-          backgroundColor={VictorySettings.palestSand}
+          backgroundColor={"transparent"}
           styleOverrides={{display: "block"}}
           linkStyles={headerStyles.linkStyles}
         >
-          Looking for a custom dashboard? Need help leveling up your data visualizations? Let’s talk!
+          Looking for a custom dashboard? Need help leveling up your data visualizations? Let’s&nbsp;talk!
         </Header>
 
         {this.props.children}
 
         <Footer
-          backgroundColor={VictorySettings.palestSand}
-          logoColor="black"
+          backgroundColor={VictorySettings.mud}
+          logoColor="white"
+          styleOverrides={{color: VictorySettings.paleSand}}
           linkStyles={footerStyles.linkStyles}
         >
-          <div style={{margin: "2em 0", fontSize: "0.8rem"}}>
-            Victory is a trademark of Formidable Labs, Inc.
+          <div style={{margin: `${VictorySettings.gutter*2}px 0`}}>
+            <p>
+              Victory is a trademark of Formidable Labs, Inc.
+            </p>
           </div>
         </Footer>
         <Style rules={VictoryTheme} />

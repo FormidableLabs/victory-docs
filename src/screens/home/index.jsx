@@ -39,17 +39,23 @@ class Home extends React.Component {
         marginRight: `-${VictorySettings.gutter*2}px`
       },
       button: {
-        borderWidth: "60px",
-        borderStyle: "solid",
-        borderImage: `url("./static/btn-border.svg") 60 repeat stretch`,
+        borderImageSource: `url("./static/btn-border.svg")`,
+        borderImageSlice: "50 40 50 40",
+        borderImageWidth: "60px",
+        // borderImageOutset: 1,
+        borderImageRepeat: "repeat stretch",
+        // borderWidth: "60px",
+        // borderStyle: "solid",
+        // borderImage: `url("./static/btn-border.svg") 60 repeat stretch`, // top/bottom: repeat left/right: stretch
         color: VictorySettings.red,
         display: "inline-block",
         fontFamily: VictorySettings.serif,
         fontSize: "18px",
         fontWeight: "normal",
         letterSpacing: "0.15em",
+        lineHeight: 1,
         textTransform: "uppercase",
-        padding: "0 24px",
+        padding: "43px 24px",
         width: "100%"
       }
     };
