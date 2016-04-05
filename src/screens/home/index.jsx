@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Radium from "radium";
 
 import { Link } from "react-router";
+const RadiumLink = Radium(Link);
 import Ecology from "ecology";
 import { VictoryChart, VictoryLine, VictoryPie } from "victory";
 
@@ -11,6 +12,7 @@ import { VictorySettings } from "formidable-landers";
 
 // Child Components
 import Hero from "./components/hero";
+import Icon from "../../components/icon";
 
 class Home extends React.Component {
   getStyles() {
@@ -38,22 +40,27 @@ class Home extends React.Component {
         marginLeft: `-${VictorySettings.gutter * 2}px`,
         marginRight: `-${VictorySettings.gutter * 2}px`
       },
-      button: {
+      buttonLink: {
         borderStyle: "solid",
-        borderWidth: "59px 60px",
+        borderWidth: "39px 41px",
         borderImageSource: `url("./static/btn-border.svg")`,
-        borderImageSlice: "59 60",
+        borderImageSlice: "39 41",
         borderImageRepeat: "repeat round",
         color: VictorySettings.red,
         display: "inline-block",
         fontFamily: VictorySettings.serif,
         fontSize: "18px",
         fontWeight: "normal",
-        letterSpacing: "0.15em",
+        letterSpacing: "0.2em",
         lineHeight: 1,
         textTransform: "uppercase",
         padding: "32px 24px",
-        width: "100%"
+        width: "100%",
+        transition: "color 2s ease-out",
+        ":hover": {
+          color: VictorySettings.mud,
+          transition: "color 200ms ease"
+        }
       }
     };
   }
@@ -106,12 +113,13 @@ class Home extends React.Component {
 
         <div style={styles.padded}>
           <div style={{display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }}>
-            <Link style={styles.button} to="docs">Get Started</Link>
+            <RadiumLink style={styles.buttonLink} to="docs">
+              Get Started <Icon />
+            </RadiumLink>
           </div>
         </div>
 
         <div style={styles.padded}>
-
           <h2>Quick links:</h2>
           <p style={styles.copy}>
             GitHub: <a href="https://github.com/FormidableLabs/victory">

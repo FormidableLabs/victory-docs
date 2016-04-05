@@ -7,9 +7,12 @@ import logotype from "../../../../static/logotype-hero.svg";
 
 class Hero extends React.Component {
   getStyles() {
+    // Safari misinterprets "transparent" in gradients, e.g. http://codepen.io/cvn/pen/ozewK
+    // And this hack will default to the bg color at least
+    const transparentBg = "rgba(225, 215, 205, 0)";
     return {
       cover: {
-        backgroundImage: `radial-gradient(ellipse farthest-corner at 50% 40%, transparent, ${VictorySettings.palerSand}), url(./static/bg-hero@2x.png), url(./static/bg-pattern.png)`,
+        backgroundImage: `radial-gradient(ellipse farthest-corner at 50% 40%, ${transparentBg}, ${VictorySettings.palerSand}), url(./static/bg-hero@2x.png), url(./static/bg-pattern.png)`,
         backgroundRepeat: "repeat, no-repeat, repeat",
         backgroundPosition: "center center, 50% 0, center center",
         backgroundSize: "auto auto, 1280px auto, auto auto",
@@ -40,7 +43,7 @@ class Hero extends React.Component {
         textAlign: "center"
       },
       installer: {
-        margin: `${VictorySettings.gutter*3}px auto 0`,
+        margin: `${VictorySettings.gutter * 3}px auto 0`,
         display: "block",
         textAlign: "center"
       },
