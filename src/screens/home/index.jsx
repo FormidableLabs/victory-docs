@@ -19,7 +19,7 @@ class Home extends React.Component {
         display: "block"
       },
       padded: {
-        padding: `${VictorySettings.gutter*3}px ${VictorySettings.gutter*2}px`
+        padding: `${VictorySettings.gutter * 3}px ${VictorySettings.gutter * 2}px`
       },
       copy: {
         maxWidth: "760px",
@@ -35,18 +35,15 @@ class Home extends React.Component {
         color: VictorySettings.red
       },
       ecology: {
-        marginLeft: `-${VictorySettings.gutter*2}px`,
-        marginRight: `-${VictorySettings.gutter*2}px`
+        marginLeft: `-${VictorySettings.gutter * 2}px`,
+        marginRight: `-${VictorySettings.gutter * 2}px`
       },
       button: {
+        borderStyle: "solid",
+        borderWidth: "59px 60px",
         borderImageSource: `url("./static/btn-border.svg")`,
-        borderImageSlice: "50 40 50 40",
-        borderImageWidth: "60px",
-        // borderImageOutset: 1,
-        borderImageRepeat: "repeat stretch",
-        // borderWidth: "60px",
-        // borderStyle: "solid",
-        // borderImage: `url("./static/btn-border.svg") 60 repeat stretch`, // top/bottom: repeat left/right: stretch
+        borderImageSlice: "59 60",
+        borderImageRepeat: "repeat round",
         color: VictorySettings.red,
         display: "inline-block",
         fontFamily: VictorySettings.serif,
@@ -55,7 +52,7 @@ class Home extends React.Component {
         letterSpacing: "0.15em",
         lineHeight: 1,
         textTransform: "uppercase",
-        padding: "43px 24px",
+        padding: "32px 24px",
         width: "100%"
       }
     };
