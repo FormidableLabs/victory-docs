@@ -5,18 +5,29 @@ import Radium, { Style, StyleRoot } from "radium";
 import { Header, Footer, VictorySettings, VictoryTheme } from "formidable-landers";
 
 class App extends React.Component {
-  getHeaderStyles() {
+  getStyles() {
     return {
-      linkStyles: {
-        color: VictorySettings.orange,
-        borderColor: VictorySettings.orange,
+      header: {
+        backgroundColor: VictorySettings.darkMud,
+        // boxShadow: `0 0 0 10px ${VictorySettings.palerSand}, 0 0 0 11px ${VictorySettings.mud}`,
+        borderBottom: 0,
+        color: VictorySettings.palerSand
+      },
+      headerLinks: {
+        border: 0,
+        color: VictorySettings.sand,
+        fontWeight: "normal",
+        transition: "color 5s ease-out",
         ":hover": {
-          color: VictorySettings.text,
-          boxShadow: `inset 0 -0.2em ${VictorySettings.orange}`
+          color: VictorySettings.whiteSand,
+          border: 0,
+          boxShadow: "none",
+          transition: "color 200ms ease"
         }
       }
     };
   }
+
   getFooterStyles() {
     return {
       linkStyles: {
@@ -31,16 +42,18 @@ class App extends React.Component {
   }
 
   render() {
-    const headerStyles = this.getHeaderStyles();
+    const styles = this.getStyles();
+    // const headerStyles = this.getHeaderStyles();
     const footerStyles = this.getFooterStyles();
     return (
       <StyleRoot>
         <Header
-          backgroundColor={"transparent"}
-          styleOverrides={{display: "block"}}
-          linkStyles={headerStyles.linkStyles}
+          styleOverrides={styles.header}
+          linkStyles={styles.headerLinks}
         >
-          Looking for a custom dashboard? Need help leveling up your data visualizations? Let’s&nbsp;talk!
+          Looking for a <span className="Smallcaps">custom dashboard?</span>
+          <br/>
+          Need help leveling up your data visualizations? <span className="Smallcaps">Let’s&nbsp;talk!</span>
         </Header>
 
         {this.props.children}
@@ -51,7 +64,7 @@ class App extends React.Component {
           styleOverrides={{color: VictorySettings.paleSand}}
           linkStyles={footerStyles.linkStyles}
         >
-          <div style={{margin: `${VictorySettings.gutter*2}px 0`}}>
+          <div style={{margin: `${VictorySettings.gutter * 2}px 0`}}>
             <p>
               Victory is a trademark of Formidable Labs, Inc.
             </p>
