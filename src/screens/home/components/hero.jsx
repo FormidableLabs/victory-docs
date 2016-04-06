@@ -50,9 +50,9 @@ class Hero extends React.Component {
       code: {
         display: "inline-block",
         padding: "1.25em 1.75em",
-        backgroundColor: VictorySettings.mud,
+        backgroundColor: VictorySettings.darkMud,
         boxShadow: `0 0 0 10px ${VictorySettings.palerSand}, 0 0 0 11px ${VictorySettings.mud}`,
-        color: VictorySettings.whiteSand,
+        color: VictorySettings.palerSand,
         fontFamily: VictorySettings.monospace,
         fontSize: "18px",
         lineHeight: 1.2
