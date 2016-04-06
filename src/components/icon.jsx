@@ -2,12 +2,14 @@ import React from "react";
 import Radium from "radium";
 
 // Settings
-import { VictorySettings } from "formidable-landers";
+// import { VictorySettings } from "formidable-landers";
 
 // Icons
 import IconInternalLink from "../../static/icon-internal.svg";
+import IconExternalLink from "../../static/icon-external.svg";
+// Problem: We cannot add this to the links generated in READMEs...
 
-class NavLink extends React.Component {
+class Icon extends React.Component {
   getStyles() {
     return {
       base: {
@@ -20,13 +22,37 @@ class NavLink extends React.Component {
   }
   render() {
     const styles = this.getStyles();
-    return (
-      <span {...this.props} style={styles.base}
-        dangerouslySetInnerHTML={{__html: IconInternalLink}}
-      />
-    );
+    switch (this.props.glyph) {
+    case "external-link":
+      return (
+        <span
+          {...this.props}
+          style={styles.base}
+          dangerouslySetInnerHTML={{__html: IconExternalLink}}
+        />
+      );
+    case "internal-link":
+      return (
+        <span
+          {...this.props}
+          style={styles.base}
+          dangerouslySetInnerHTML={{__html: IconInternalLink}}
+        />
+      );
+    default:
+      return (
+        <span />
+      );
+    }
   }
 }
 
+Icon.propTypes = {
+  glyph: React.PropTypes.oneOf(["external-link", "internal-link"])
+};
 
-export default Radium(NavLink);
+Icon.defaultProps = {
+  glyph: "link"
+};
+
+export default Radium(Icon);
