@@ -7,17 +7,6 @@ import marked from "marked";
 import { components } from "../../../components/config";
 
 class MarkdownDocs extends React.Component {
-  getStyles() {
-    return {
-      margin: "1rem 0 0 0",
-      padding: "1rem 0.5rem",
-      "@media (min-width: 70em)": {
-        flex: "1",
-        margin: 0,
-        padding: "60px 1rem"
-      }
-    };
-  }
   renderDocsContent(activeComponent) {
     if (activeComponent === "index") {
       const indexDocs = marked(require("../getting-started.md"));
@@ -34,7 +23,7 @@ class MarkdownDocs extends React.Component {
   render() {
     return (
       <main
-        style={this.getStyles()}
+        style={this.props.style}
       >
         {this.renderDocsContent(this.props.active)}
       </main>
@@ -43,11 +32,13 @@ class MarkdownDocs extends React.Component {
 }
 
 MarkdownDocs.propTypes = {
-  active: React.PropTypes.string
+  active: React.PropTypes.string,
+  style: React.PropTypes.object
 };
 
 MarkdownDocs.defaultProps = {
-  active: "index"
+  active: "index",
+  style: null
 };
 
 export default Radium(MarkdownDocs);
