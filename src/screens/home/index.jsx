@@ -112,18 +112,18 @@ class Home extends React.Component {
           <p style={styles.copy}>
             View the source code on <a href="https://github.com/FormidableLabs/victory">
               <span className="Smallcaps" style={styles.boldSmallCaps}>Github:&thinsp;</span>
-              FormidableLabs/victory.
+              FormidableLabs/victory. <Icon glyph="external-link" />
             </a>
           </p>
           <p style={styles.copy}>
             Questions? Let’s chat on <a href="https://gitter.im/FormidableLabs/victory">
               <span className="Smallcaps" style={styles.boldSmallCaps}>Gitter:&thinsp;</span>
-              FormidableLabs/victory.
+              FormidableLabs/victory. <Icon glyph="external-link" />
             </a>
           </p>
           <p style={styles.copy}>
             We have a lot planned! Take a look at the <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
-              Roadmap.
+              Roadmap. <Icon glyph="external-link" />
             </a>
           </p>
           <h3>Victory Component Documentation</h3>

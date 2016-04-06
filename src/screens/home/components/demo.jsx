@@ -4,6 +4,9 @@ import Radium from "radium";
 import Ecology from "ecology";
 import { VictoryChart, VictoryLine, VictoryPie } from "victory";
 
+// Children
+import Icon from "../../../components/icon";
+
 // Settings
 import { VictorySettings } from "formidable-landers";
 
@@ -43,7 +46,7 @@ class Demo extends React.Component {
         <p style={styles.copy}>
           <span className="Smallcaps">Editor’s note.</span>
           All of the following code examples in Victory Documentation are powered by our very own <a href="https://github.com/FormidableLabs/component-playground">
-            Component Playground
+            Component Playground <Icon glyph="external-link" />
           </a>; it renders editable source code and automatically updates the preview of the rendered component.
         </p>
         <div style={styles.ecology}>

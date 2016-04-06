@@ -1,13 +1,11 @@
 import React from "react";
 import Radium from "radium";
 
-// Settings
-// import { VictorySettings } from "formidable-landers";
-
 // Icons
 import IconInternalLink from "../../static/icon-internal.svg";
 import IconExternalLink from "../../static/icon-external.svg";
-// Problem: We cannot add this to the links generated in READMEs...
+// Q: Can these icons get added to the links generated in READMEs?
+// https://github.com/FormidableLabs/victory-docs/issues/7
 
 class Icon extends React.Component {
   getStyles() {

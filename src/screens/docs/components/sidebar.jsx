@@ -54,7 +54,7 @@ class Sidebar extends React.Component {
       return (
         <li key={item.slug}>
           <NavLink to={`docs/${item.slug}`}>
-            {item.text}
+            {item.text} <Icon glyph="internal-link" />
           </NavLink>
         </li>
       );
@@ -70,7 +70,7 @@ class Sidebar extends React.Component {
         style={this.props.style}
       >
         <ul style={styles.list}>
-          <NavLink to="docs" className="Link--unstyled">
+          <NavLink to="/" className="Link--unstyled">
             <div
               dangerouslySetInnerHTML={{__html: VictoryIcon}}
               style={this.getVictoryIconLinkStyles()}
