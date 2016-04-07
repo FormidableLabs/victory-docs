@@ -29,14 +29,16 @@ class Hero extends React.Component {
         borderBottom: "none"
       },
       headingMajor: {
+        marginTop: `${VictorySettings.gutter * 1.5}px`,
         fontFamily: VictorySettings.serifHeadline,
-        fontSize: "48px",
+        fontSize: "2em",
         lineHeight: "1.3",
         textAlign: "center"
       },
       headingMinor: {
+        marginTop: `${VictorySettings.gutter * 1.5}px`,
         fontFamily: VictorySettings.serif,
-        fontSize: "24px",
+        fontSize: "1em",
         lineHeight: "1.5",
         letterSpacing: "0.25em",
         textTransform: "uppercase",
@@ -68,7 +70,7 @@ class Hero extends React.Component {
         <p style={styles.headingMinor}>containing</p>
         <p style={styles.headingMajor}>An ecosystem of modular data visualization components</p>
         <p style={styles.headingMinor}>for</p>
-        <p style={styles.headingMajor}>React.js Developers</p>
+        <p style={styles.headingMajor}>React.js developers</p>
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
         </div>
