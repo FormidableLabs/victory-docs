@@ -17,7 +17,7 @@ class App extends React.Component {
         backgroundColor: VictorySettings.palerSand,
         borderStyle: "solid",
         borderWidth: "61px 41px",
-        borderImageSource: `url("./static/border.svg")`,
+        borderImageSource: `url("./static/footer-border.svg")`,
         borderImageSlice: "61 41",
         borderImageRepeat: "repeat",
         color: VictorySettings.paleMud,
