@@ -9,11 +9,11 @@ class App extends React.Component {
     return {
       header: {
         backgroundColor: VictorySettings.darkMud,
-        // boxShadow: `0 0 0 10px ${VictorySettings.palerSand}, 0 0 0 11px ${VictorySettings.mud}`,
         borderBottom: 0,
-        color: VictorySettings.palerSand
+        color: VictorySettings.palerSand,
+        padding: `${VictorySettings.gutter}px`
       },
-      headerLinks: {
+      linkStyles: {
         border: 0,
         color: VictorySettings.sand,
         fontWeight: "normal",
@@ -28,28 +28,13 @@ class App extends React.Component {
     };
   }
 
-  getFooterStyles() {
-    return {
-      linkStyles: {
-        color: VictorySettings.text,
-        borderColor: VictorySettings.red,
-        ":hover": {
-          color: VictorySettings.red,
-          boxShadow: `inset 0 -0.2em ${VictorySettings.red}`
-        }
-      }
-    };
-  }
-
   render() {
     const styles = this.getStyles();
-    // const headerStyles = this.getHeaderStyles();
-    const footerStyles = this.getFooterStyles();
     return (
       <StyleRoot>
         <Header
           styleOverrides={styles.header}
-          linkStyles={styles.headerLinks}
+          linkStyles={styles.linkStyles}
         >
           Looking for a <span className="Smallcaps">custom dashboard?</span>
           <br/>
@@ -59,10 +44,10 @@ class App extends React.Component {
         {this.props.children}
 
         <Footer
-          backgroundColor={VictorySettings.mud}
+          backgroundColor={VictorySettings.darkMud}
           logoColor="white"
-          styleOverrides={{color: VictorySettings.paleSand}}
-          linkStyles={footerStyles.linkStyles}
+          styleOverrides={{color: VictorySettings.darkSand}}
+          linkStyles={styles.linkStyles}
         >
           <div style={{margin: `${VictorySettings.gutter * 2}px 0`}}>
             <p>

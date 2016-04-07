@@ -6,11 +6,13 @@ const RadiumLink = Radium(Link);
 
 // Settings
 import { VictorySettings } from "formidable-landers";
+import { components } from "../../components/config";
 
 // Child Components
 import Hero from "./components/hero";
 import Demo from "./components/demo";
 import Icon from "../../components/icon";
+import NavLink from "../../components/navlink";
 
 class Home extends React.Component {
   getStyles() {
@@ -41,6 +43,12 @@ class Home extends React.Component {
         marginLeft: "auto",
         marginRight: "auto"
       },
+      ol: {
+        columns: "260px",
+        columnGap: `${VictorySettings.gutter}px`,
+        listStyleType: "none",
+        padding: 0
+      },
       boldSmallCaps: {
         fontWeight: "bold",
         paddingRight: 0
@@ -70,6 +78,24 @@ class Home extends React.Component {
     };
   }
 
+
+  renderComponents(items) {
+    const bulletStyles = {
+      breakInside: "avoid",
+      marginRight: `${VictorySettings.gutter}px`,
+      fontSize: "0.85em"
+    };
+    return items.map((item, i) => {
+      return (
+        <li key={item.slug} style={{padding: `0.5em 0 0 0`}}>
+          <span style={bulletStyles}>{i + 1}.</span>
+          <NavLink to={`docs/${item.slug}`}>
+            {item.text}. <Icon glyph="internal-link" />
+          </NavLink>
+        </li>
+      );
+    });
+  }
 
   render() {
     const styles = this.getStyles();
@@ -108,30 +134,30 @@ class Home extends React.Component {
         </div>
 
         <div style={styles.padded}>
-          <h2 style={styles.noMarginTop}>Quick Links</h2>
+          <h2 style={styles.noMarginTop}>Learn more</h2>
+          <h3>Source Code</h3>
           <p style={styles.copy}>
-            View the source code on <a href="https://github.com/FormidableLabs/victory">
-              <span className="Smallcaps" style={styles.boldSmallCaps}>Github:&thinsp;</span>
-              FormidableLabs/victory. <Icon glyph="external-link" />
+            View the source at <a href="https://github.com/FormidableLabs/victory">
+              <span className="Smallcaps" style={styles.boldSmallCaps}>GitHub:</span>
+              FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
             </a>
           </p>
+          <h3>Support</h3>
           <p style={styles.copy}>
-            Questions? Let’s chat on <a href="https://gitter.im/FormidableLabs/victory">
-              <span className="Smallcaps" style={styles.boldSmallCaps}>Gitter:&thinsp;</span>
-              FormidableLabs/victory. <Icon glyph="external-link" />
-            </a>
+            Questions? Let’s chat at <a href="https://gitter.im/FormidableLabs/victory">
+              <span className="Smallcaps" style={styles.boldSmallCaps}>Gitter:</span>
+              FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
+          </a>
           </p>
+          <h3>Upcoming Features</h3>
           <p style={styles.copy}>
             We have a lot planned! Take a look at the <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
-              Roadmap. <Icon glyph="external-link" />
+              Roadmap.&nbsp;<Icon glyph="external-link" />
             </a>
           </p>
           <h3>Victory Component Documentation</h3>
-          <ol style={styles.copy}>
-            <li>VictoryLabel. <Icon glyph="internal-link" /></li>
-            <li>VictoryLine. <Icon glyph="internal-link" /></li>
-            <li>VictoryPie. <Icon glyph="internal-link" /></li>
-            <li>VictoryScatter. <Icon glyph="internal-link" /></li>
+          <ol style={[styles.ol, styles.copy]}>
+            {this.renderComponents(components)}
           </ol>
         </div>
       </section>

@@ -10,19 +10,12 @@ import { VictorySettings } from "formidable-landers";
 class NavLink extends React.Component {
   getStyles() {
     return {
-      base: {
-        boxShadow: "none",
-        color: VictorySettings.darkSand,
-        fontWeight: "normal",
-        ":hover": {
-          color: VictorySettings.red
-        }
-      },
       active: {
+        border: "none",
         boxShadow: "none",
         color: VictorySettings.red,
-        fontWeight: "bold",
         ":hover": {
+          border: "none",
           color: VictorySettings.red
         }
       }
@@ -31,7 +24,7 @@ class NavLink extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <RadiumLink {...this.props} style={styles.base} activeStyle={styles.active} />
+      <RadiumLink {...this.props} activeStyle={styles.active} />
     );
   }
 }
