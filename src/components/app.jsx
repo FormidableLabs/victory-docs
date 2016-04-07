@@ -13,6 +13,34 @@ class App extends React.Component {
         color: VictorySettings.palerSand,
         padding: `${VictorySettings.gutter}px`
       },
+      footer: {
+        backgroundColor: VictorySettings.palerSand,
+        borderStyle: "solid",
+        borderWidth: "61px 41px",
+        borderImageSource: `url("./static/border.svg")`,
+        borderImageSlice: "61 41",
+        borderImageRepeat: "repeat",
+        color: VictorySettings.paleMud,
+        margin: `${VictorySettings.gutter}px`,
+        padding: `${VictorySettings.gutter * 2}px`,
+        position: "relative"
+      },
+      footerTop: {
+        position: "absolute",
+        top: "-61px",
+        left: 0,
+        right: 0,
+        height: "62px",
+        background: `url("./static/footer-top.svg") top center / 80px 80px no-repeat`
+      },
+      footerBottom: {
+        position: "absolute",
+        bottom: "-63px",
+        left: 0,
+        right: 0,
+        height: "82px",
+        background: `url("./static/footer-bottom.svg") top center / 80px 80px no-repeat`
+      },
       linkStyles: {
         border: 0,
         color: VictorySettings.sand,
@@ -44,16 +72,14 @@ class App extends React.Component {
         {this.props.children}
 
         <Footer
-          backgroundColor={VictorySettings.darkMud}
-          logoColor="white"
-          styleOverrides={{color: VictorySettings.darkSand}}
-          linkStyles={styles.linkStyles}
+          logoColor="black"
+          styleOverrides={styles.footer}
         >
-          <div style={{margin: `${VictorySettings.gutter * 2}px 0`}}>
-            <p>
-              Victory is a trademark of Formidable Labs, Inc.
-            </p>
-          </div>
+          <span style={styles.footerTop}/>
+          <p style={{margin: `${VictorySettings.gutter}px 0 0 0`}}>
+            Victory is a trademark of Formidable Labs, Inc.
+          </p>
+          <span style={styles.footerBottom}/>
         </Footer>
         <Style rules={VictoryTheme} />
       </StyleRoot>
