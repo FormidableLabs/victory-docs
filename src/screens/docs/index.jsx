@@ -13,7 +13,6 @@ class Docs extends React.Component {
     return {
       container: {
         display: "flex",
-        flex: "1 0 auto",
         flexDirection: "column",
         margin: `${VictorySettings.gutter * 3}px auto`,
         padding: 0,
@@ -24,14 +23,18 @@ class Docs extends React.Component {
       },
       sidebar: {
         margin: 0,
-        padding: "0 1rem 0 0",
+        padding: `0 ${VictorySettings.gutter * 2}px 0 0`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          flex: "0 0 12em"
+          flex: "0 0 350px"
         }
       },
       markdown: {
-        marginTop: `${VictorySettings.gutter * 2}px`
+        flex: "1 1 auto",
+        paddingLeft: `${VictorySettings.gutter * 0.5}px`,
+        paddingRight: `0`, 
+        marginTop: `${VictorySettings.gutter * 2}px`,
+        marginBottom: `${VictorySettings.gutter * 3}px`
       }
     };
   }

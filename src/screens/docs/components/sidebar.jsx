@@ -17,10 +17,7 @@ class Sidebar extends React.Component {
       list: {
         margin: "0",
         padding: "6px",
-        listStyle: "none",
-        "@media (min-width: 70em)": {
-          position: "fixed"
-        }
+        listStyle: "none"
       },
       listItem: {
         marginTop: "0.3em",
