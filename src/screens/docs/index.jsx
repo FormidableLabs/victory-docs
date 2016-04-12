@@ -7,6 +7,7 @@ import { VictorySettings } from "formidable-landers";
 // Child components
 import Markdown from "./components/markdown";
 import Sidebar from "./components/sidebar";
+import Footer from "../../components/footer";
 
 class Docs extends React.Component {
   getStyles() {
@@ -14,7 +15,7 @@ class Docs extends React.Component {
       container: {
         display: "flex",
         flexDirection: "column",
-        margin: `${VictorySettings.gutter * 3}px auto`,
+        margin: "0 auto",
         padding: 0,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
@@ -22,17 +23,18 @@ class Docs extends React.Component {
         }
       },
       sidebar: {
+        backgroundColor: VictorySettings.paleSand,
         margin: 0,
-        padding: `0 ${VictorySettings.gutter * 2}px 0 0`,
+        padding: `0 ${VictorySettings.gutter * 2}px 0`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
           flex: "0 0 350px"
         }
       },
-      markdown: {
+      content: {
         flex: "1 1 auto",
-        paddingLeft: `${VictorySettings.gutter * 0.5}px`,
-        paddingRight: `0`, 
+        paddingLeft: `${VictorySettings.gutter * 2}px`,
+        paddingRight: `0`,
         marginTop: `${VictorySettings.gutter * 2}px`,
         marginBottom: `${VictorySettings.gutter * 3}px`
       }
@@ -47,7 +49,10 @@ class Docs extends React.Component {
     return (
       <div style={styles.container}>
         <Sidebar active={active} style={styles.sidebar} />
-        <Markdown active={active} style={styles.markdown} />
+        <div style={styles.content}>
+          <Markdown active={active} />
+          <Footer />
+        </div>
       </div>
     );
   }
