@@ -4,6 +4,7 @@ import Radium from "radium";
 // Children
 import { components } from "../../../components/config";
 import NavLink from "../../../components/navlink";
+import Icon from "../../../components/icon";
 import VictoryIcon from "../../../../static/icon-victory.svg";
 
 // Settings
@@ -13,13 +14,6 @@ class Sidebar extends React.Component {
 
   getSidebarStyles() {
     return {
-      base: {
-        margin: 0,
-        padding: "0 1rem 0 0",
-        "@media (min-width: 70em)": {
-          flex: "0 0 12em"
-        }
-      },
       list: {
         margin: "0",
         padding: "6px",
@@ -60,7 +54,7 @@ class Sidebar extends React.Component {
       return (
         <li key={item.slug}>
           <NavLink to={`docs/${item.slug}`}>
-            {item.text}
+            {item.text} <Icon glyph="internal-link" />
           </NavLink>
         </li>
       );
@@ -73,10 +67,10 @@ class Sidebar extends React.Component {
     /* eslint-disable max-len */
     return (
       <nav
-        style={styles.base}
+        style={this.props.style}
       >
         <ul style={styles.list}>
-          <NavLink to="docs" className="Link--unstyled">
+          <NavLink to="/" className="Link--unstyled">
             <div
               dangerouslySetInnerHTML={{__html: VictoryIcon}}
               style={this.getVictoryIconLinkStyles()}
@@ -84,7 +78,7 @@ class Sidebar extends React.Component {
           </NavLink>
           <li key="index">
             <NavLink to="docs">
-              Getting Started
+              Getting Started <Icon glyph="internal-link" />
             </NavLink>
           </li>
           {this.renderListItems(this.props.items)}
@@ -97,12 +91,14 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
   items: React.PropTypes.array,
-  active: React.PropTypes.string
+  active: React.PropTypes.string,
+  style: React.PropTypes.object
 };
 
 Sidebar.defaultProps = {
   items: components,
-  active: null
+  active: null,
+  style: null
 };
 
 export default Radium(Sidebar);
