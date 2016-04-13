@@ -15,28 +15,41 @@ class Docs extends React.Component {
       container: {
         display: "flex",
         flexDirection: "column",
-        margin: "0 auto",
-        padding: 0,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          "flexDirection": "row"
+          flexDirection: "row"
         }
       },
       sidebar: {
         backgroundColor: VictorySettings.paleSand,
-        margin: 0,
-        padding: `0 ${VictorySettings.gutter * 2}px 0`,
+        overflow: "auto",
+        padding: `0 ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          flex: "0 0 350px"
+          position: "fixed",
+          top: 0,
+          left: 0,
+          bottom: 0,
+          width: "360px"
         }
       },
       content: {
-        flex: "1 1 auto",
-        paddingLeft: `${VictorySettings.gutter * 2}px`,
-        paddingRight: `0`,
-        marginTop: `${VictorySettings.gutter * 2}px`,
-        marginBottom: `${VictorySettings.gutter * 3}px`
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px`,
+
+        [`@media ${VictorySettings.mediaQueries.medium}`]: {
+          marginLeft: "360px",
+          padding: `${VictorySettings.gutter * 2}px`
+        },
+        [`@media ${VictorySettings.mediaQueries.large}`]: {
+          padding: `${VictorySettings.gutter * 2}px 0 0 ${VictorySettings.gutter * 2}px`
+        }
+      },
+      foots: {
+        margin: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px`,
+
+        [`@media ${VictorySettings.mediaQueries.medium}`]: {
+          margin: `${VictorySettings.gutter * 3}px ${VictorySettings.gutter}px ${VictorySettings.gutter}px 0`
+        }
       }
     };
   }
@@ -47,11 +60,11 @@ class Docs extends React.Component {
       "index";
     const styles = this.getStyles();
     return (
-      <div style={styles.container}>
+      <div>
         <Sidebar active={active} style={styles.sidebar} />
         <div style={styles.content}>
           <Markdown active={active} />
-          <Footer />
+          <Footer style={styles.foots} />
         </div>
       </div>
     );

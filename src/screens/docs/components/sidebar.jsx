@@ -15,23 +15,26 @@ class Sidebar extends React.Component {
     return {
       icon: {
         color: VictorySettings.darkMud,
+        height: "50px",
         margin: `${VictorySettings.gutter * 2}px auto ${VictorySettings.gutter * 2}px`,
-        width: "50px",
-        height: "50px"
+        width: "50px"
       },
       navlink: {
-        borderBottom: 0
+        border: "none"
       },
       list: {
-        margin: "-100px 0 0",
-        padding: 0,
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
         listStyle: "none",
-        position: "fixed"
+        padding: 0
       },
       listItem: {
         borderBottom: `1px solid ${VictorySettings.sand}`,
+        flex: "1 0 220px",
         lineHeight: 1.3,
-        margin: `${VictorySettings.gutter * 0.5}px 0`
+        margin: `${VictorySettings.gutter * 0.5}px`
       }
     };
   }
@@ -43,7 +46,7 @@ class Sidebar extends React.Component {
       return (
         <li key={item.slug} style={styles.listItem}>
           <NavLink to={`docs/${item.slug}`} style={styles.navlink}>
-            {item.text} <Icon glyph="internal-link" />
+            {item.text}. <Icon glyph="internal-link" />
           </NavLink>
         </li>
       );
@@ -52,19 +55,17 @@ class Sidebar extends React.Component {
 
   render() {
     const styles = this.getStyles();
-    // <img src="/static/vicon@2x.png" width="100px" height="100px" style={styles.icon} alt="Victory Homepage"/>
-
 
     /* eslint-disable max-len */
     return (
       <nav style={this.props.style}>
+        <NavLink to="/" className="Link--unstyled" style={{display: "block", textAlign: "center"}}>
+          <div
+            dangerouslySetInnerHTML={{__html: VictoryIcon}}
+            style={styles.icon}
+          />
+        </NavLink>
         <ul style={styles.list}>
-          <NavLink to="/" className="Link--unstyled" style={{display: "block", textAlign: "center"}}>
-            <div
-              dangerouslySetInnerHTML={{__html: VictoryIcon}}
-              style={styles.icon}
-            />
-          </NavLink>
           <li key="index" style={styles.listItem}>
             <NavLink to="docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />

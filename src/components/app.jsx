@@ -11,7 +11,9 @@ class App extends React.Component {
         backgroundColor: VictorySettings.darkMud,
         borderBottom: 0,
         color: VictorySettings.palerSand,
-        padding: `${VictorySettings.gutter}px`
+        padding: `${VictorySettings.gutter}px`,
+        position: "relative",
+        zIndex: "1"
       },
       linkStyles: {
         border: 0,

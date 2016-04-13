@@ -43,7 +43,7 @@ class Foots extends React.Component {
     return (
       <Footer
         logoColor="black"
-        styleOverrides={styles.footer}
+        styleOverrides={[styles.footer, this.props.style]}
       >
         <span style={styles.footerTop}/>
         <p style={{margin: `${VictorySettings.gutter}px 0 0 0`}}>
@@ -56,11 +56,11 @@ class Foots extends React.Component {
 }
 
 Foots.propTypes = {
-  params: React.PropTypes.object
+  style: React.PropTypes.object
 };
 
 Foots.defaultProps = {
-  params: null
+  style: null
 };
 
 
