@@ -41,7 +41,7 @@ class Docs extends React.Component {
           padding: `${VictorySettings.gutter * 2}px`
         },
         [`@media ${VictorySettings.mediaQueries.large}`]: {
-          padding: `${VictorySettings.gutter * 2}px 0 0 ${VictorySettings.gutter * 2}px`
+          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px 0 ${VictorySettings.gutter * 2}px`
         }
       },
       foots: {
