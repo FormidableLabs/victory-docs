@@ -12,50 +12,42 @@ import VictoryIcon from "../../../../static/icon-victory.svg";
 import { VictorySettings } from "formidable-landers";
 
 class Sidebar extends React.Component {
-
-  getSidebarStyles() {
+  getStyles() {
     return {
+      icon: {
+        color: VictorySettings.darkMud,
+        height: "50px",
+        margin: `${VictorySettings.gutter * 2}px auto ${VictorySettings.gutter * 2}px`,
+        width: "50px"
+      },
+      navlink: {
+        border: "none"
+      },
       list: {
-        margin: "0",
-        padding: "6px",
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-around",
         listStyle: "none",
-        "@media (min-width: 70em)": {
-          position: "fixed"
-        }
+        padding: 0
       },
       listItem: {
-        marginTop: "0.3em",
-        position: "relative",
-        lineHeight: 1.4
-      },
-      nestedList: {
-        margin: "0",
-        padding: "0 0 0 1rem",
-        listStyle: "none",
-        fontSize: "0.9rem",
-        color: VictorySettings.navy
+        borderBottom: `1px solid ${VictorySettings.sand}`,
+        flex: "1 0 220px",
+        lineHeight: 1.3,
+        margin: `${VictorySettings.gutter * 0.5}px`
       }
     };
   }
-
-  getVictoryIconLinkStyles() {
-    return {
-      width: "50px",
-      height: "50px",
-      color: VictorySettings.navy,
-      ":hover": {
-        color: VictorySettings.navy
-      }
-    };
-  }
-
 
   renderListItems(items) {
+    const styles = this.getStyles();
+
     return items.map((item) => {
       return (
-        <li key={item.slug}>
-          <NavLink to={`docs/${item.slug}`}>
-            {item.text} <Icon glyph="internal-link" />
+        <li key={item.slug} style={styles.listItem}>
+          <NavLink to={`docs/${item.slug}`} style={styles.navlink}>
+            {item.text}. <Icon glyph="internal-link" />
           </NavLink>
         </li>
       );
@@ -63,22 +55,20 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const styles = this.getSidebarStyles();
+    const styles = this.getStyles();
 
     /* eslint-disable max-len */
     return (
-      <nav
-        style={this.props.style}
-      >
+      <nav style={this.props.style}>
+        <IndexLink to="/" className="Link--unstyled" style={{display: "block", textAlign: "center"}}>
+          <div
+            dangerouslySetInnerHTML={{__html: VictoryIcon}}
+            style={styles.icon}
+          />
+        </IndexLink>
         <ul style={styles.list}>
-          <IndexLink to="/" className="Link--unstyled">
-            <div
-              dangerouslySetInnerHTML={{__html: VictoryIcon}}
-              style={this.getVictoryIconLinkStyles()}
-            />
-          </IndexLink>
-          <li key="index">
-            <NavLink to="docs">
+          <li key="index" style={styles.listItem}>
+            <NavLink to="docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />
             </NavLink>
           </li>

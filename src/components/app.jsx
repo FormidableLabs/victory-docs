@@ -2,7 +2,7 @@ import React from "react";
 import Radium, { Style, StyleRoot } from "radium";
 
 // Variables and Stylesheet
-import { Header, Footer, VictorySettings, VictoryTheme } from "formidable-landers";
+import { Header, VictorySettings, VictoryTheme } from "formidable-landers";
 
 class App extends React.Component {
   getStyles() {
@@ -11,35 +11,9 @@ class App extends React.Component {
         backgroundColor: VictorySettings.darkMud,
         borderBottom: 0,
         color: VictorySettings.palerSand,
-        padding: `${VictorySettings.gutter}px`
-      },
-      footer: {
-        backgroundColor: VictorySettings.palerSand,
-        borderStyle: "solid",
-        borderWidth: "61px 41px",
-        borderImageSource: `url("./static/footer-border.svg")`,
-        borderImageSlice: "61 41",
-        borderImageRepeat: "repeat",
-        color: VictorySettings.paleMud,
-        margin: `${VictorySettings.gutter}px`,
-        padding: `${VictorySettings.gutter * 2}px`,
-        position: "relative"
-      },
-      footerTop: {
-        position: "absolute",
-        top: "-61px",
-        left: 0,
-        right: 0,
-        height: "62px",
-        background: `url("./static/footer-top.svg") top center / 80px 80px no-repeat`
-      },
-      footerBottom: {
-        position: "absolute",
-        bottom: "-63px",
-        left: 0,
-        right: 0,
-        height: "82px",
-        background: `url("./static/footer-bottom.svg") top center / 80px 80px no-repeat`
+        padding: `${VictorySettings.gutter}px`,
+        position: "relative",
+        zIndex: "1"
       },
       linkStyles: {
         border: 0,
@@ -71,16 +45,6 @@ class App extends React.Component {
 
         {this.props.children}
 
-        <Footer
-          logoColor="black"
-          styleOverrides={styles.footer}
-        >
-          <span style={styles.footerTop}/>
-          <p style={{margin: `${VictorySettings.gutter}px 0 0 0`}}>
-            Victory is a trademark of Formidable Labs, Inc.
-          </p>
-          <span style={styles.footerBottom}/>
-        </Footer>
         <Style rules={VictoryTheme} />
       </StyleRoot>
     );
