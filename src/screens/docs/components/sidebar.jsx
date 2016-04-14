@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import { IndexLink } from "react-router";
 
 // Children
 import { components } from "../../../components/config";
@@ -18,6 +19,14 @@ class Sidebar extends React.Component {
         height: "50px",
         margin: `${VictorySettings.gutter * 2}px auto ${VictorySettings.gutter * 2}px`,
         width: "50px"
+      },
+      iconLink: {
+        display: "block",
+        textAlign: "center",
+        border: "none",
+        ":hover": {
+          border: "none"
+        }
       },
       navlink: {
         border: "none"
@@ -59,12 +68,12 @@ class Sidebar extends React.Component {
     /* eslint-disable max-len */
     return (
       <nav style={this.props.style}>
-        <NavLink to="/" className="Link--unstyled" style={{display: "block", textAlign: "center"}}>
+        <IndexLink to="/" style={styles.iconLink}>
           <div
             dangerouslySetInnerHTML={{__html: VictoryIcon}}
             style={styles.icon}
           />
-        </NavLink>
+        </IndexLink>
         <ul style={styles.list}>
           <li key="index" style={styles.listItem}>
             <NavLink to="docs" style={styles.navlink}>

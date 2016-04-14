@@ -8,10 +8,6 @@ import VLineDocs from "victory-chart/docs/victory-line/docs";
 import VPieDocs from "victory-pie/docs/docs";
 import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
 
-export const routing = {
-  base: "/"
-};
-
 export const components = [
   {
     text: "VictoryAnimation",
