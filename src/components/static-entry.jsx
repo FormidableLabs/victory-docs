@@ -5,7 +5,7 @@ import { createHistory, createMemoryHistory } from 'history';
 import createBrowserHistory from "history/lib/createBrowserHistory";
 import useScroll from "scroll-behavior/lib/useStandardScroll";
 import { renderToString } from "react-dom/server";
-const routing = { base: "/" };
+const routing = { base: "/open-source/victory/" };
 
 import App from "./app";
 import Index from "../../templates/index.hbs";
@@ -36,22 +36,11 @@ export default (locals, callback) => {
   const history = createMemoryHistory();
   const location = history.createLocation(locals.path);
 
-  console.log("location: ", location);
-
   match({ routes, location }, (error, redirectLocation, renderProps) => {
-    if (error) {
-      console.log('Error', error);
-    } else if (renderProps) {
-      console.log("render props!!", renderProps);
-      callback(null, Index({
-        content: renderToString(<RouterContext {...renderProps} />),
-        html: renderToString(<RouterContext {...renderProps} />),
-        assets: locals.assets,
-        bundleJs: locals.assets.main,
-        baseHref: routing.base
-      }));
-    } else {
-      console.log('404 Not Found');
-    }
+    callback(null, Index({
+      content: renderToString(<RouterContext {...renderProps} />),
+      bundleJs: locals.assets.main,
+      baseHref: routing.base
+    }));
   });
 };

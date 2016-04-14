@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import { IndexLink } from "react-router";
 
 // Children
 import { components } from "../../../components/config";
@@ -70,12 +71,12 @@ class Sidebar extends React.Component {
         style={this.props.style}
       >
         <ul style={styles.list}>
-          <NavLink to="/" className="Link--unstyled">
+          <IndexLink to="/" className="Link--unstyled">
             <div
               dangerouslySetInnerHTML={{__html: VictoryIcon}}
               style={this.getVictoryIconLinkStyles()}
             />
-          </NavLink>
+          </IndexLink>
           <li key="index">
             <NavLink to="docs">
               Getting Started <Icon glyph="internal-link" />
