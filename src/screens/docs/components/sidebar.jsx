@@ -20,6 +20,14 @@ class Sidebar extends React.Component {
         margin: `${VictorySettings.gutter * 2}px auto ${VictorySettings.gutter * 2}px`,
         width: "50px"
       },
+      iconLink: {
+        display: "block",
+        textAlign: "center",
+        border: "none",
+        ":hover": {
+          border: "none"
+        }
+      },
       navlink: {
         border: "none"
       },
@@ -60,7 +68,7 @@ class Sidebar extends React.Component {
     /* eslint-disable max-len */
     return (
       <nav style={this.props.style}>
-        <IndexLink to="/" className="Link--unstyled" style={{display: "block", textAlign: "center"}}>
+        <IndexLink to="/" style={styles.iconLink}>
           <div
             dangerouslySetInnerHTML={{__html: VictoryIcon}}
             style={styles.icon}
