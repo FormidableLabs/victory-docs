@@ -7,31 +7,49 @@ import { VictorySettings } from "formidable-landers";
 // Child components
 import Markdown from "./components/markdown";
 import Sidebar from "./components/sidebar";
+import Footer from "../../components/footer";
 
 class Docs extends React.Component {
   getStyles() {
     return {
       container: {
         display: "flex",
-        flex: "1 0 auto",
         flexDirection: "column",
-        margin: `${VictorySettings.gutter * 3}px auto`,
-        padding: 0,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          "flexDirection": "row"
+          flexDirection: "row"
         }
       },
       sidebar: {
-        margin: 0,
-        padding: "0 1rem 0 0",
+        backgroundColor: VictorySettings.paleSand,
+        overflow: "auto",
+        padding: `0 ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          flex: "0 0 12em"
+          position: "fixed",
+          top: 0,
+          left: 0,
+          bottom: 0,
+          width: "360px"
         }
       },
-      markdown: {
-        marginTop: `${VictorySettings.gutter * 2}px`
+      content: {
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px`,
+
+        [`@media ${VictorySettings.mediaQueries.medium}`]: {
+          marginLeft: "360px",
+          padding: `${VictorySettings.gutter * 2}px`
+        },
+        [`@media ${VictorySettings.mediaQueries.large}`]: {
+          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px 0 ${VictorySettings.gutter * 2}px`
+        }
+      },
+      foots: {
+        margin: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px`,
+
+        [`@media ${VictorySettings.mediaQueries.medium}`]: {
+          margin: `${VictorySettings.gutter * 3}px ${VictorySettings.gutter}px ${VictorySettings.gutter}px 0`
+        }
       }
     };
   }
@@ -42,9 +60,12 @@ class Docs extends React.Component {
       "index";
     const styles = this.getStyles();
     return (
-      <div style={styles.container}>
+      <div>
         <Sidebar active={active} style={styles.sidebar} />
-        <Markdown active={active} style={styles.markdown} />
+        <div style={styles.content}>
+          <Markdown active={active} />
+          <Footer style={styles.foots} />
+        </div>
       </div>
     );
   }

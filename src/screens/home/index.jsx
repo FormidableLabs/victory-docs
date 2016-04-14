@@ -13,6 +13,7 @@ import Hero from "./components/hero";
 import Demo from "./components/demo";
 import Icon from "../../components/icon";
 import NavLink from "../../components/navlink";
+import Footer from "../../components/footer";
 
 class Home extends React.Component {
   getStyles() {
@@ -160,6 +161,7 @@ class Home extends React.Component {
             {this.renderComponents(components)}
           </ol>
         </div>
+        <Footer />
       </section>
     );
   }
