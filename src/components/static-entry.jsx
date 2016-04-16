@@ -1,16 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
 import { Router, RouterContext, match, useRouterHistory } from "react-router";
-import { createHistory, createMemoryHistory } from 'history';
+import { createMemoryHistory } from "history";
 import createBrowserHistory from "history/lib/createBrowserHistory";
 import useScroll from "scroll-behavior/lib/useStandardScroll";
 import { renderToString } from "react-dom/server";
 const routing = { base: "/open-source/victory/" };
 
-import App from "./app";
 import Index from "../../templates/index.hbs";
 import routes from "../routes";
-import staticRoutes from "../../static-routes.js";
 
 // ----------------------------------------------------------------------------
 // With `static-site-generator-webpack-plugin`, the same bundle is responsible for
