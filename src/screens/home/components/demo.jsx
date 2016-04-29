@@ -18,7 +18,7 @@ class Demo extends React.Component {
         backgroundColor: VictorySettings.palestSand
       },
       headingMajor: {
-        marginTop: 0,
+        marginTop: `${VictorySettings.gutter}px`,
         color: VictorySettings.red
       },
       ecology: {
@@ -31,7 +31,7 @@ class Demo extends React.Component {
         }
       },
       copy: {
-        maxWidth: "38em",
+        maxWidth: "900px",
         marginLeft: "auto",
         marginRight: "auto"
       }
@@ -42,7 +42,7 @@ class Demo extends React.Component {
     const styles = this.getStyles();
     return (
       <div style={[this.props.style, styles.container]}>
-        <h2 style={styles.headingMajor}>Try it</h2>
+        <h2 style={[styles.headingMajor, styles.copy]}>Try it</h2>
         <p style={styles.copy}>
           <span className="Smallcaps">Editor’s note.</span>
           All of the following code examples in Victory Documentation are powered by our very own <a href="https://github.com/FormidableLabs/component-playground">

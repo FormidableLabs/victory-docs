@@ -32,33 +32,49 @@ class Sidebar extends React.Component {
         border: "none"
       },
       list: {
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-around",
+        boxSizing: "border-box",
+        columns: "3 220px",
+        columnGap: `${VictorySettings.gutter * 2}`,
         listStyle: "none",
         padding: 0
       },
       listItem: {
         borderBottom: `1px solid ${VictorySettings.sand}`,
-        flex: "1 0 220px",
-        lineHeight: 1.3,
-        margin: `${VictorySettings.gutter * 0.5}px`
+        columnBreakInside: "avoid",
+        pageBreakInside: "avoid",
+        breakInside: "avoid",
+        lineHeight: 1.4,
+        margin: `0`,
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px 0 0`
+      },
+      listItemHeading: {
+        columnBreakInside: "avoid",
+        pageBreakInside: "avoid",
+        breakInside: "avoid",
+        textTransform: "uppercase",
+        marginTop: `${VictorySettings.gutter}px`,
+        paddingTop: `${VictorySettings.gutter}px`,
+        letterSpacing: "0.15em",
+        lineHeight: 1.5,
+        color: VictorySettings.mud,
+        fontSize: "0.75em"
       }
     };
   }
 
-  renderListItems(items) {
+  renderListItems(items, category) {
     const styles = this.getStyles();
 
     return items.map((item) => {
-      return (
-        <li key={item.slug} style={styles.listItem}>
-          <NavLink to={`docs/${item.slug}`} style={styles.navlink}>
-            {item.text}. <Icon glyph="internal-link" />
-          </NavLink>
-        </li>
-      );
+      if (item.category === category) {
+        return (
+          <li key={item.slug} style={styles.listItem}>
+            <NavLink to={`docs/${item.slug}`} style={styles.navlink}>
+              {item.text}. <Icon glyph="internal-link" />
+            </NavLink>
+          </li>
+        );
+      }
     });
   }
 
@@ -75,12 +91,26 @@ class Sidebar extends React.Component {
           />
         </IndexLink>
         <ul style={styles.list}>
+          <li style={[styles.listItemHeading, {marginTop: 0}]}>
+            Welcome
+          </li>
           <li key="index" style={styles.listItem}>
             <NavLink to="docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />
             </NavLink>
           </li>
-          {this.renderListItems(this.props.items)}
+          <li style={styles.listItemHeading}>
+            Core
+          </li>
+          {this.renderListItems(this.props.items, "core")}
+          <li style={styles.listItemHeading}>
+            Chart
+          </li>
+          {this.renderListItems(this.props.items, "chart")}
+          <li style={styles.listItemHeading}>
+            Pie
+          </li>
+          {this.renderListItems(this.props.items, "pie")}
         </ul>
       </nav>
     );

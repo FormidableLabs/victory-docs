@@ -21,7 +21,7 @@ class Docs extends React.Component {
         }
       },
       sidebar: {
-        backgroundColor: VictorySettings.paleSand,
+        backgroundColor: "#D6CCC1",
         overflow: "auto",
         padding: `0 ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
 
@@ -34,14 +34,14 @@ class Docs extends React.Component {
         }
       },
       content: {
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px`,
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
           marginLeft: "360px",
           padding: `${VictorySettings.gutter * 2}px`
         },
         [`@media ${VictorySettings.mediaQueries.large}`]: {
-          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px 0 ${VictorySettings.gutter * 2}px`
+          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter * 3}px 0 ${VictorySettings.gutter * 3}px`
         }
       },
       foots: {
