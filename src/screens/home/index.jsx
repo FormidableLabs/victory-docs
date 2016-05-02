@@ -204,6 +204,12 @@ class Home extends React.Component {
             <ul style={styles.list}>
               <li className="Smallcaps" style={styles.marginTop}>Core</li>
               {this.renderComponents(components, "core")}
+              <li style={styles.listItem}>
+                VictoryConstraints. <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+              </li>
+              <li style={styles.listItem}>
+                VictoryTooltip. <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+              </li>
             </ul>
             <ul style={styles.list}>
               <li className="Smallcaps" style={styles.marginTop}>Chart</li>
@@ -214,19 +220,11 @@ class Home extends React.Component {
               </li>
               <ul style={styles.nestedList}>
                 {this.renderComponents(components, "chart", true)}
-                <li style={styles.listItem}>
-                  <b style={styles.bullet} />
-                  VictoryConstraints. <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
-                </li>
-                <li style={styles.listItem}>
-                  <b style={styles.bullet} />
-                  VictoryTooltip. <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
-                </li>
               </ul>
             </ul>
             <ul style={styles.list}>
-              <li className="Smallcaps" style={styles.marginTop}>Pie</li>
-              {this.renderComponents(components, "pie")}
+              <li className="Smallcaps" style={styles.marginTop}>More</li>
+              {this.renderComponents(components, "more")}
             </ul>
           </div>
         </div>

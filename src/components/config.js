@@ -47,7 +47,7 @@ export const components = [
   }, {
     text: "VictoryPie",
     slug: "victory-pie",
-    category: "pie",
+    category: "more",
     docs: VPieDocs
   }, {
     text: "VictoryScatter",

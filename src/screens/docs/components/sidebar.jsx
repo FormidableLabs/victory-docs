@@ -108,9 +108,9 @@ class Sidebar extends React.Component {
           </li>
           {this.renderListItems(this.props.items, "chart")}
           <li style={styles.listItemHeading}>
-            Pie
+            More
           </li>
-          {this.renderListItems(this.props.items, "pie")}
+          {this.renderListItems(this.props.items, "more")}
         </ul>
       </nav>
     );
