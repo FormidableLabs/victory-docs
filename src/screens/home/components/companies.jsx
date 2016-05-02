@@ -5,7 +5,6 @@ import Radium from "radium";
 import { VictorySettings } from "formidable-landers";
 import OOKLA from "../../../../static/logo-ookla.svg";
 import VIACOM from "../../../../static/logo-viacom.svg";
-import NCR from "../../../../static/logo-ncr.svg";
 import POSTMARK from "../../../../static/logo-postmark.svg";
 import ICONHEART from "../../../../static/icon-heart.svg";
 
@@ -49,7 +48,6 @@ class Companies extends React.Component {
         <ul style={styles.list}>
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: OOKLA}} />
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: VIACOM}} />
-          <li style={styles.logo} dangerouslySetInnerHTML={{__html: NCR}} />
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: POSTMARK}} />
         </ul>
       </div>
