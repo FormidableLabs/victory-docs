@@ -38,9 +38,9 @@ class App extends React.Component {
           styleOverrides={styles.header}
           linkStyles={styles.linkStyles}
         >
-          Looking for a <span className="Smallcaps">custom dashboard?</span>
+          We like your style. <span className="Smallcaps">Join us.</span>
           <br/>
-          Need help leveling up your data visualizations? <span className="Smallcaps">Let’s&nbsp;talk!</span>
+          We’re hiring!
         </Header>
 
         {this.props.children}
