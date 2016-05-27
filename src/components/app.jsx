@@ -2,7 +2,7 @@ import React from "react";
 import Radium, { Style, StyleRoot } from "radium";
 
 // Variables and Stylesheet
-import { Header, VictorySettings, VictoryTheme } from 'formidable-landers';
+import { Header, VictorySettings, VictoryTheme } from "formidable-landers";
 
 class App extends React.Component {
   getStyles() {

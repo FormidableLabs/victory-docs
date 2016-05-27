@@ -16,6 +16,5 @@ install:
 script:
   - npm test
 
-  # Prune deps to just production and ensure we can build the site
-  # - npm prune --production
-  # - builder run build-static
+  # run webpack, copy assets to /build folder
+  - builder run build-static
