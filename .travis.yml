@@ -26,4 +26,4 @@ script:
   - NODE_ENV=production builder run build-static
 
 after_success:
-  - scp --keyfile deploy_static.pem -rp ./build/* formidable@192.241.218.94:/home/formidable/static/test
+  - scp -i deploy_static.pem -rp ./build/* formidable@192.241.218.94:/home/formidable/static/test
