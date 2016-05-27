@@ -14,6 +14,9 @@ addons:
   ssh_known_hosts:
     - 192.241.218.94
 
+env:
+  - NODE_ENV=production
+
 install:
   - npm install
 
