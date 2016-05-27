@@ -14,9 +14,6 @@ addons:
   ssh_known_hosts:
     - 192.241.218.94
 
-env:
-  - NODE_ENV=production
-
 install:
   - npm install
 
@@ -24,7 +21,7 @@ script:
   - npm test
 
   # run webpack, copy assets to /build folder
-  - builder run build-static
+  - NODE_ENV=production builder run build-static
 
 after_success:
   - eval "$(ssh-agent -s)" # start the ssh-agent
