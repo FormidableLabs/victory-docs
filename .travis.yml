@@ -28,7 +28,7 @@ install:
 
 script:
   - npm test
-  - NODE_ENV=production builder run build-static
+  - NODE_ENV=production node_modules/.bin/builder run build-static
 
 after_success:
   - chmod 600 deploy_static.pem
