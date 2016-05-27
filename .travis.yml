@@ -10,21 +10,16 @@ branches:
   only:
     - task-deployAllTheThings
 
-addons:
-  ssh_known_hosts:
-    - 192.241.218.94
+before_install:
+  - openssl aes-256-cbc -K $encrypted_94338e915bdd_key -iv $encrypted_94338e915bdd_iv
+    - in deploy_static.pem.enc -out ~\/.ssh/deploy_static.pem -d
 
 install:
   - npm install
 
 script:
   - npm test
-
-  # run webpack, copy assets to /build folder
   - NODE_ENV=production builder run build-static
 
 after_success:
-  - eval "$(ssh-agent -s)" # start the ssh-agent
-  - chmod 600 .travis/deploy_key.pem # this key should have push access
-  - ssh-add .travis/deploy_key.pem
-  - scp -rp ./build/* formidable@192.241.218.94:/home/formidable/static/test
+  - scp --keyfile ~\/.ssh/deploy_static.pem -rp ./build/* formidable@192.241.218.94:/home/formidable/static/test
