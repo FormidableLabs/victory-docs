@@ -6,6 +6,10 @@ node_js:
 # Use container-based Travis infrastructure.
 sudo: false
 
+addons:
+  ssh_known_hosts:
+  - 192.241.218.94
+
 branches:
   only:
     - task-deployAllTheThings
