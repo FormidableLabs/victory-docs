@@ -167,25 +167,22 @@ class Home extends React.Component {
     return (
       <section style={styles.section}>
         <Hero />
-        <Demo style={styles.padded} />
-        <div style={[styles.padded, styles.copy]} className="Home">
-          <h2>Benefits</h2>
+        <div style={styles.padded} className="Home">
+          <h2 style={styles.copy}>Why Victory?</h2>
 
-          <h3>Friendly</h3>
-          <p>
-            <span className="Smallcaps">1.</span>
+          <h3 style={styles.copy}>Friendly</h3>
+          <p style={styles.copy}>
             The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
           </p>
 
-          <h3>Flexible</h3>
-          <p>
-            <span className="Smallcaps">2.</span>
+          <Demo />
+          <h3 style={styles.copy}>Flexible</h3>
+          <p style={styles.copy}>
             The use of sensible default props makes getting started very easy, without sacrificing flexibility. <em>Victory</em> also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
           </p>
 
-          <h3>Composable</h3>
-          <p>
-            <span className="Smallcaps">3.</span>
+          <h3 style={styles.copy}>Composable</h3>
+          <p style={styles.copy}>
             When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
           </p>
         </div>

@@ -1,9 +1,13 @@
 import React from "react";
 import Radium from "radium";
+import Hyperlink from "../../../components/navlink";
+import Icon from "../../../components/icon";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
 import logotype from "../../../../static/logotype-hero.svg";
+import GITHUBLOGO from "../../../../static/logo-github.svg";
+import GITTERLOGO from "../../../../static/logo-gitter.svg";
 
 class Hero extends React.Component {
   getStyles() {
@@ -58,6 +62,17 @@ class Hero extends React.Component {
         fontFamily: VictorySettings.monospace,
         fontSize: "18px",
         lineHeight: 1.2
+      },
+      list: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "center",
+        listStyleType: "none",
+        margin: `${VictorySettings.gutter * 3}px 0 0`,
+        padding: 0
+      },
+      listItem: {
+        margin: `0 ${VictorySettings.gutter}px`
       }
     };
   }
@@ -74,6 +89,18 @@ class Hero extends React.Component {
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
         </div>
+        <ul style={styles.list}>
+          <li style={styles.listItem}>
+            <a href="https://github.com/FormidableLabs/victory">
+              <span dangerouslySetInnerHTML={{ __html: GITHUBLOGO }} />
+            </a>
+          </li>
+          <li style={styles.listItem}>
+            <a href="https://gitter.im/FormidableLabs/victory">
+              <span dangerouslySetInnerHTML={{ __html: GITTERLOGO }} />
+            </a>
+          </li>
+        </ul>
       </div>
     );
   }
