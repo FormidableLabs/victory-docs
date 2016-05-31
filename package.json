@@ -43,6 +43,6 @@
     "scroll-behavior": "^0.3.3",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "victory": "FormidableLabs/victory"
+    "victory": "*"
   }
 }
