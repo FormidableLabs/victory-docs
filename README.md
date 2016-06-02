@@ -18,8 +18,16 @@ builder run server-static
 builder run open-static
 
 # If all looks good, let's commit!
-git add build && git commit build -m "Rebuild site"
 git push origin master
 ```
 
-Once the `build/` is committed, go to [FormidableLabs/formidable.com](https://github.com/FormidableLabs/formidable.com) and update the `victory-docs` dependency!
+# Travis
+
+Automatic deployment is handled by Travis. Server access is possible by storing the key on travis and encrypting the file here, `deploy_static.pem.enc`. This is done with by:
+
+```
+gem install travis
+travis encrypt-file ~/.ssh/deploy_static.pem --add
+```
+
+Make sure the travis config does not preserve the `~/.ssh/` filepath.

@@ -6,7 +6,10 @@ import { createMemoryHistory } from "history";
 import createBrowserHistory from "history/lib/createBrowserHistory";
 import useScroll from "scroll-behavior/lib/useStandardScroll";
 import { renderToString } from "react-dom/server";
-const routing = { base: "/open-source/victory/" };
+
+const routing = {
+  base: process.env.NODE_ENV === "production" ? "/open-source/victory/" : "/"
+};
 
 import Index from "../../templates/index.hbs";
 import routes from "../routes";
