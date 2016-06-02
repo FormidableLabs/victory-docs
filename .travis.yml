@@ -12,7 +12,7 @@ addons:
 
 branches:
   only:
-    - task-deployAllTheThings
+    - master
 
 before_install:
   # GUI for real browsers.
