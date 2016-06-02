@@ -4,9 +4,6 @@ import Radium from "radium";
 import Ecology from "ecology";
 import { VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie } from "victory";
 
-// Children
-import Icon from "../../../components/icon";
-
 // Settings
 import { VictorySettings } from "formidable-landers";
 

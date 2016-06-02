@@ -92,7 +92,7 @@ class MultipleAxes extends React.Component {
       // DATA SET ONE
       axisOne: {
         grid: {
-          stroke: (tick) => tick === -10 ? "transparent" : "#ffffff",
+          stroke: (tick) => tick === -10 ? "transparent" : "#ffffff", //eslint-disable-line no-arrow-condition
           strokeWidth: 2
         },
         axis: {
