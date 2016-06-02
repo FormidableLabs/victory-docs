@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Radium from "radium";
 import Ecology from "ecology";
-import { VictoryChart, VictoryLine, VictoryPie } from "victory";
+import { VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie } from "victory";
 
 // Children
 import Icon from "../../../components/icon";
@@ -24,8 +24,8 @@ class Demo extends React.Component {
     return (
       <div style={[this.props.style, styles.container]}>
         <Ecology
-          overview={require("!!raw!../examples.md")}
-          scope={{React, ReactDOM, VictoryChart, VictoryLine, VictoryPie}}
+          overview={this.props.src}
+          scope={{React, ReactDOM, VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie}}
           playgroundtheme="elegant"
         />
       </div>
@@ -34,6 +34,7 @@ class Demo extends React.Component {
 }
 
 Demo.propTypes = {
+  src: React.PropTypes.string,
   style: React.PropTypes.object
 };
 

@@ -73,6 +73,12 @@ class Hero extends React.Component {
       },
       listItem: {
         margin: `0 ${VictorySettings.gutter}px`
+      },
+      linkIcon: {
+        borderBottom: 0,
+        ":hover": {
+          borderBottom: 0
+        }
       }
     };
   }
@@ -91,12 +97,12 @@ class Hero extends React.Component {
         </div>
         <ul style={styles.list}>
           <li style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory">
+            <a href="https://github.com/FormidableLabs/victory" style={styles.linkIcon} key="heroLinkIconGithub">
               <span dangerouslySetInnerHTML={{ __html: GITHUBLOGO }} />
             </a>
           </li>
           <li style={styles.listItem}>
-            <a href="https://gitter.im/FormidableLabs/victory">
+            <a href="https://gitter.im/FormidableLabs/victory" style={styles.linkIcon} key="heroLinkIconGitter">
               <span dangerouslySetInnerHTML={{ __html: GITTERLOGO }} />
             </a>
           </li>

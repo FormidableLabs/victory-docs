@@ -11,6 +11,7 @@ import { components } from "../../components/config";
 // Child Components
 import Hero from "./components/hero";
 import Demo from "./components/demo";
+import DemoFlexible from "./components/flexible";
 import Companies from "./components/companies";
 import Icon from "../../components/icon";
 import NavLink from "../../components/navlink";
@@ -124,6 +125,14 @@ class Home extends React.Component {
           color: VictorySettings.mud,
           transition: "color 200ms ease"
         }
+      },
+      demoComponent: {
+        backgroundColor: VictorySettings.whiteSand,
+        display: "block",
+        margin: `${VictorySettings.gutter}px auto 0`,
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px ${VictorySettings.gutter * 1.5}px`,
+        maxWidth: "600px",
+        width: "100%"
       }
     };
   }
@@ -165,7 +174,7 @@ class Home extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <section style={styles.section}>
+      <section style={styles.section} className="playgroundsMaxHeight">
         <Hero />
         <div style={styles.padded} className="Home">
           <h2 style={styles.copy}>Why Victory?</h2>
@@ -174,16 +183,43 @@ class Home extends React.Component {
           <p style={styles.copy}>
             The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
           </p>
+        </div>
 
-          <Demo />
+        <Demo src={require("!!raw!./components/examples/friendly.md")} />
+
+        <div style={styles.padded} className="Home">
           <h3 style={styles.copy}>Flexible</h3>
           <p style={styles.copy}>
-            The use of sensible default props makes getting started very easy, without sacrificing flexibility. <em>Victory</em> also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
+            The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
           </p>
+        </div>
 
+        <div className="Interactive" style={{backgroundColor: "transparent"}}>
+          <div className="playground">
+            <div className="fancyBorder" style={styles.demoComponent}>
+              <DemoFlexible />
+            </div>
+          </div>
+          <p style={{textAlign: "center"}}>
+            <a href="https://github.com/FormidableLabs/victory-examples">
+              <span className="Smallcaps" style={styles.boldSmallCaps}>View the source.</span> <Icon glyph="external-link" />
+            </a>
+          </p>
+        </div>
+
+        <div style={styles.padded} className="Home">
           <h3 style={styles.copy}>Composable</h3>
           <p style={styles.copy}>
             When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
+          </p>
+        </div>
+
+        <Demo src={require("!!raw!./components/examples/composable.md")} />
+
+        <div style={styles.padded} className="Home">
+          <h3 style={styles.copy}>Native</h3>
+          <p style={styles.copy}>
+            Extend the Victory experience on Android and iOS platforms with an identical API.
           </p>
         </div>
 
