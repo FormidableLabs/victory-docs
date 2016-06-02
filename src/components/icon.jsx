@@ -12,8 +12,8 @@ class Icon extends React.Component {
   getStyles() {
     return {
       base: {
-        margin: "0",
-        padding: "0",
+        margin: 0,
+        padding: 0,
         display: "inline-block",
         verticalAlign: "middle"
       }

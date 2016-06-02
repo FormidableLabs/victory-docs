@@ -44,7 +44,7 @@ class Sidebar extends React.Component {
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
         lineHeight: 1.4,
-        margin: `0`,
+        margin: 0,
         padding: `${VictorySettings.gutter * 0.3}px ${VictorySettings.gutter * 0.5}px 0 0`,
       },
       listItemHeading: {
