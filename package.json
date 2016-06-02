@@ -26,7 +26,7 @@
   "dependencies": {
     "babel-preset-stage-1": "^6.5.0",
     "builder": "^2.9.1",
-    "builder-docs-archetype": "^1.0.0",
+    "builder-docs-archetype": "^1.0.1",
     "chai": "^3.2.0",
     "ecology": "^1.2.0",
     "formidable-landers": "^1.1.0",
@@ -43,6 +43,6 @@
     "scroll-behavior": "^0.3.3",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "victory": "latest"
+    "victory": "*"
   }
 }
