@@ -30,8 +30,9 @@ script:
   - npm test
   - NODE_ENV=production node_modules/.bin/builder run build-static
 
-after_success:
-  - chmod 600 deploy_static.pem
-  - ssh -i deploy_static.pem formidable@192.241.218.94 "rm -rf static/victory-docs-staging && mkdir static/victory-docs-staging"
-  - scp -i deploy_static.pem -rp ./build/* formidable@192.241.218.94:/home/formidable/static/victory-docs-staging
-  - ssh -i deploy_static.pem formidable@192.241.218.94 "rm -rf static/victory-test && mv static/victory-docs-staging/ static/victory-test"
+# Once build on Travis is working, automatically deploy it to the site:
+# after_success:
+#   - chmod 600 deploy_static.pem
+#   - ssh -i deploy_static.pem formidable@192.241.218.94 "rm -rf static/victory-docs-staging && mkdir static/victory-docs-staging"
+#   - scp -i deploy_static.pem -rp ./build/* formidable@192.241.218.94:/home/formidable/static/victory-docs-staging
+#   - ssh -i deploy_static.pem formidable@192.241.218.94 "rm -rf static/victory-test && mv static/victory-docs-staging/ static/victory-test"
