@@ -1,7 +1,5 @@
 import React from "react";
 import Radium from "radium";
-import Hyperlink from "../../../components/navlink";
-import Icon from "../../../components/icon";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
