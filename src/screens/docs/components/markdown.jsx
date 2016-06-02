@@ -22,9 +22,7 @@ class MarkdownDocs extends React.Component {
   }
   render() {
     return (
-      <main
-        style={this.props.style}
-      >
+      <main className="Main" style={this.props.style}>
         {this.renderDocsContent(this.props.active)}
       </main>
     );
