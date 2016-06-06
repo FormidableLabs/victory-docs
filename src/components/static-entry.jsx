@@ -20,8 +20,10 @@ import routes from "../routes";
 // ----------------------------------------------------------------------------
 
 // Client render (optional):
-if (typeof document !== "undefined") {
-  const appHistory = useScroll(useRouterHistory(createBrowserHistory))();
+// `static-site-generator-webpack-plugin` supports shimming browser globals
+// so instead of checking whether the document is undefined (always false),
+// check whether it’s being shimmed
+if (!document.shim) {
   render(
     <Router
       history={browserHistory}
