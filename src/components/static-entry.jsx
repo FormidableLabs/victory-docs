@@ -22,8 +22,8 @@ import routes from "../routes";
 // Client render (optional):
 // `static-site-generator-webpack-plugin` supports shimming browser globals
 // so instead of checking whether the document is undefined (always false),
-// check whether it’s being shimmed
-if (!document.shim) {
+// Check whether it’s being shimmed
+if (window && window.__STATIC_GENERATOR !== true) {
   render(
     <Router
       history={browserHistory}
