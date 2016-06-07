@@ -67,6 +67,7 @@ class Hero extends React.Component {
         justifyContent: "center",
         listStyleType: "none",
         margin: `${VictorySettings.gutter * 3}px 0 0`,
+        maxHeight: "50px",
         padding: 0
       },
       listItem: {
