@@ -201,7 +201,7 @@ class Home extends React.Component {
             </div>
           </div>
           <p style={{textAlign: "center"}}>
-            <a href="https://github.com/FormidableLabs/victory-examples">
+            <a href="https://github.com/FormidableLabs/victory-examples/blob/master/demo/tutorials/custom-theme.jsx">
               <span className="Smallcaps" style={styles.boldSmallCaps}>View the source.</span> <Icon glyph="external-link" />
             </a>
           </p>
