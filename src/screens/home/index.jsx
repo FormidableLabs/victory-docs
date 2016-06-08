@@ -219,7 +219,7 @@ class Home extends React.Component {
         <div style={styles.padded} className="Home">
           <h3 style={styles.copy}>Native</h3>
           <p style={styles.copy}>
-            Extend the Victory experience on Android and iOS platforms with an identical API.
+            Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
           </p>
         </div>
 

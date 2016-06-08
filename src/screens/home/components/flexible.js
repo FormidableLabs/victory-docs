@@ -180,7 +180,7 @@ class MultipleAxes extends React.Component {
           verticalAnchor="end"
           style={styles.labelNumber}
         >
-          {"1"}
+          1
         </VictoryLabel>
 
         <VictoryLabel
@@ -195,7 +195,7 @@ class MultipleAxes extends React.Component {
             fontWeight: "bold"
           }}
         >
-          {"An outlook"}
+          An outlook
         </VictoryLabel>
 
         <VictoryLabel
