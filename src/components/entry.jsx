@@ -1,17 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
-import { Router, useRouterHistory } from "react-router";
-import createBrowserHistory from "history/lib/createBrowserHistory";
-import useScroll from "scroll-behavior/lib/useStandardScroll";
+import { Router, applyRouterMiddleware, browserHistory } from "react-router";
+import useScroll from "react-router-scroll";
 // import routes and pass them into <Router/>
 import routes from "../routes";
 
-const appHistory = useScroll(useRouterHistory(createBrowserHistory))();
-
 render(
   <Router
-    history={appHistory}
+    history={browserHistory}
     routes={routes}
+    render={applyRouterMiddleware(useScroll())}
   />,
   document.getElementById("content")
 );

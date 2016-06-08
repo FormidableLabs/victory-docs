@@ -35,29 +35,29 @@ class Sidebar extends React.Component {
         boxSizing: "border-box",
         columns: "3 220px",
         columnGap: `${VictorySettings.gutter * 2}`,
+        fontSize: "20px",
         listStyle: "none",
         padding: 0
       },
       listItem: {
-        borderBottom: `1px solid ${VictorySettings.sand}`,
+        breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        breakInside: "avoid",
         lineHeight: 1.4,
-        margin: `0`,
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px 0 0`
+        margin: 0,
+        padding: `${VictorySettings.gutter * 0.3}px ${VictorySettings.gutter * 0.5}px 0 0`
       },
       listItemHeading: {
+        breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        breakInside: "avoid",
-        textTransform: "uppercase",
-        marginTop: `${VictorySettings.gutter}px`,
-        paddingTop: `${VictorySettings.gutter}px`,
+        color: VictorySettings.mud,
+        fontSize: "0.75em",
         letterSpacing: "0.15em",
         lineHeight: 1.5,
-        color: VictorySettings.mud,
-        fontSize: "0.75em"
+        marginTop: `${VictorySettings.gutter}px`,
+        paddingTop: `${VictorySettings.gutter}px`,
+        textTransform: "uppercase"
       }
     };
   }
