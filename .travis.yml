@@ -32,6 +32,7 @@ script:
 
 # Once build on Travis is working, automatically deploy it on master only:
 deploy:
+  skip_cleanup: true
   provider: script
   script: ./deploy.sh
   on:
