@@ -30,14 +30,15 @@ class Docs extends React.Component {
           top: 0,
           left: 0,
           bottom: 0,
-          width: "300px"
+          padding: `0 0 ${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px`,
+          width: "270px"
         }
       },
       content: {
         padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          marginLeft: "300px",
+          marginLeft: "270px",
           padding: `${VictorySettings.gutter * 2}px`
         },
         [`@media ${VictorySettings.mediaQueries.large}`]: {

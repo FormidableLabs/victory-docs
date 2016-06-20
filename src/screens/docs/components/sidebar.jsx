@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        lineHeight: 1.4,
+        lineHeight: 1.3,
         margin: 0,
         padding: `${VictorySettings.gutter * 0.3}px ${VictorySettings.gutter * 0.5}px 0 0`
       },
@@ -55,7 +55,7 @@ class Sidebar extends React.Component {
         fontSize: "0.75em",
         letterSpacing: "0.15em",
         lineHeight: 1.5,
-        marginTop: `${VictorySettings.gutter}px`,
+        marginTop: `${VictorySettings.gutter * 0.3}px`,
         paddingTop: `${VictorySettings.gutter}px`,
         textTransform: "uppercase"
       }
@@ -70,7 +70,7 @@ class Sidebar extends React.Component {
         return (
           <li key={item.slug} style={styles.listItem}>
             <NavLink to={`docs/${item.slug}`} style={styles.navlink}>
-              {item.text}. <Icon glyph="internal-link" />
+              {item.text} <Icon glyph="internal-link" />
             </NavLink>
           </li>
         );
@@ -111,6 +111,10 @@ class Sidebar extends React.Component {
             More
           </li>
           {this.renderListItems(this.props.items, "more")}
+          <li style={styles.listItemHeading}>
+            Advanced
+          </li>
+          {this.renderListItems(this.props.items, "tutorials")}
         </ul>
       </nav>
     );
