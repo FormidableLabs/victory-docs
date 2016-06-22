@@ -38,4 +38,4 @@ class HelloWorld extends React.Component {
 ```
 
 ### Contributing and source
-Interested in helping out or seeing what's happening under the hood? Victory is maintained at [https://github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md).
+Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md).
