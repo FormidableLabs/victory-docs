@@ -6,7 +6,7 @@ import { VictorySettings } from "formidable-landers";
 
 // Child components
 import Markdown from "./components/markdown";
-import Sidebar from "./components/sidebar";
+import Sidebar from "../../components/sidebar";
 import Footer from "../../components/footer";
 
 class Docs extends React.Component {
@@ -56,15 +56,15 @@ class Docs extends React.Component {
   }
 
   render() {
-    const active = this.props.params.component ?
+    const activePage = this.props.params.component ?
       this.props.params.component :
       "index";
     const styles = this.getStyles();
     return (
       <div>
-        <Sidebar active={active} style={styles.sidebar} />
+        <Sidebar active={activePage} style={styles.sidebar} />
         <div style={styles.content}>
-          <Markdown active={active} />
+          <Markdown active={activePage} />
           <Footer style={styles.foots} />
         </div>
       </div>
