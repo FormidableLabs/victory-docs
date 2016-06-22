@@ -11,5 +11,11 @@ module.exports = [
   "docs/victory-line",
   "docs/victory-scatter",
   "docs/victory-animation",
-  "docs/victory-label"
+  "docs/victory-label",
+  "recipes",
+  "recipes/custom-central-axis",
+  "recipes/custom-data-component",
+  "recipes/custom-styles",
+  "recipes/multiple-axes",
+  "recipes/tooltip"
 ];

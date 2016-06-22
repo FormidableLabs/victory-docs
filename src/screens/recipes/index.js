@@ -5,11 +5,11 @@ import Radium from "radium";
 import { VictorySettings } from "formidable-landers";
 
 // Child components
-import Markdown from "./components/markdown";
+import Recipe from "./components/recipe";
 import Sidebar from "../../components/sidebar";
 import Footer from "../../components/footer";
 
-class Docs extends React.Component {
+class Recipes extends React.Component {
   getStyles() {
     return {
       container: {
@@ -56,15 +56,15 @@ class Docs extends React.Component {
   }
 
   render() {
-    const activePage = this.props.params.component ?
+    const activeRecipe = this.props.params.component ?
       this.props.params.component :
       "index";
     const styles = this.getStyles();
     return (
       <div>
-        <Sidebar active={activePage} style={styles.sidebar} />
+        <Sidebar active={activeRecipe} style={styles.sidebar} />
         <div style={styles.content}>
-          <Markdown active={activePage} />
+          <Recipe active={activeRecipe} />
           <Footer style={styles.foots} />
         </div>
       </div>
@@ -72,13 +72,13 @@ class Docs extends React.Component {
   }
 }
 
-Docs.propTypes = {
+Recipes.propTypes = {
   params: React.PropTypes.object
 };
 
-Docs.defaultProps = {
+Recipes.defaultProps = {
   params: null
 };
 
 
-export default Radium(Docs);
+export default Radium(Recipes);
