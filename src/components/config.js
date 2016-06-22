@@ -8,8 +8,6 @@ import VLabelDocs from "victory-core/docs/victory-label/docs";
 import VLineDocs from "victory-chart/docs/victory-line/docs";
 import VPieDocs from "victory-pie/docs/docs";
 import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
-// victory-examples
-import CustomStyles from "victory-examples/docs/custom-styles/docs";
 
 export const components = [
   {
@@ -57,10 +55,5 @@ export const components = [
     slug: "victory-scatter",
     category: "chart",
     docs: VScatterDocs
-  }, {
-    text: "Custom Styles",
-    slug: "custom-styles",
-    category: "tutorials",
-    docs: CustomStyles
   }
 ];
