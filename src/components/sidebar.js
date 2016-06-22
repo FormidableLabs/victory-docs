@@ -3,10 +3,11 @@ import Radium from "radium";
 import { IndexLink } from "react-router";
 
 // Children
-import { components } from "../../../components/config";
-import NavLink from "../../../components/navlink";
-import Icon from "../../../components/icon";
-import VictoryIcon from "../../../../static/icon-victory.svg";
+import { components } from "./config";
+import { recipesComponents } from "./config-recipes";
+import NavLink from "./navlink";
+import Icon from "./icon";
+import VictoryIcon from "../../static/icon-victory.svg";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -47,29 +48,42 @@ class Sidebar extends React.Component {
         margin: 0,
         padding: `${VictorySettings.gutter * 0.3}px ${VictorySettings.gutter * 0.5}px 0 0`
       },
-      listItemHeading: {
+      listItemCategoryHeading: {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
+        borderBottom: `1px solid ${VictorySettings.sand}`,
         color: VictorySettings.mud,
         fontSize: "0.75em",
         letterSpacing: "0.15em",
         lineHeight: 1.5,
-        marginTop: `${VictorySettings.gutter * 0.3}px`,
-        paddingTop: `${VictorySettings.gutter}px`,
+        marginTop: `${VictorySettings.gutter * 0.5}px`,
+        marginBottom: `${VictorySettings.gutter * -0.25}px`,
+        paddingTop: `${VictorySettings.gutter * 1.5}px`,
         textTransform: "uppercase"
+      },
+      listItemHeading: {
+        breakInside: "avoid",
+        columnBreakInside: "avoid",
+        pageBreakInside: "avoid",
+        color: VictorySettings.paleMud,
+        fontFamily: VictorySettings.sansSerif,
+        fontSize: "0.9em",
+        lineHeight: 1.1,
+        marginTop: `${VictorySettings.gutter * 0.5}px`,
+        paddingTop: `${VictorySettings.gutter * 0.5}px`
       }
     };
   }
 
-  renderListItems(items, category) {
+  renderListItems(items, route, category) {
     const styles = this.getStyles();
 
     return items.map((item) => {
       if (item.category === category) {
         return (
           <li key={item.slug} style={styles.listItem}>
-            <NavLink to={`docs/${item.slug}`} style={styles.navlink}>
+            <NavLink to={`${route}/${item.slug}`} style={styles.navlink}>
               {item.text} <Icon glyph="internal-link" />
             </NavLink>
           </li>
@@ -91,30 +105,37 @@ class Sidebar extends React.Component {
           />
         </IndexLink>
         <ul style={styles.list}>
-          <li style={[styles.listItemHeading, {marginTop: 0}]}>
-            Welcome
-          </li>
           <li key="index" style={styles.listItem}>
             <NavLink to="docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />
             </NavLink>
           </li>
+          <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
+            Documentation
+          </li>
           <li style={styles.listItemHeading}>
             Core
           </li>
-          {this.renderListItems(this.props.items, "core")}
+          {this.renderListItems(this.props.docs, "docs", "core")}
           <li style={styles.listItemHeading}>
             Chart
           </li>
-          {this.renderListItems(this.props.items, "chart")}
+          {this.renderListItems(this.props.docs, "docs", "chart")}
           <li style={styles.listItemHeading}>
             More
           </li>
-          {this.renderListItems(this.props.items, "more")}
-          <li style={styles.listItemHeading}>
-            Advanced
+          {this.renderListItems(this.props.docs, "docs", "more")}
+          <li style={styles.listItemCategoryHeading}>
+            Recipes
           </li>
-          {this.renderListItems(this.props.items, "tutorials")}
+          <li style={styles.listItemHeading}>
+            Customize
+          </li>
+          {this.renderListItems(this.props.recipes, "recipes", "customize")}
+          <li style={styles.listItemHeading}>
+            Events
+          </li>
+          {this.renderListItems(this.props.recipes, "recipes", "events")}
         </ul>
       </nav>
     );
@@ -123,13 +144,15 @@ class Sidebar extends React.Component {
 }
 
 Sidebar.propTypes = {
-  items: React.PropTypes.array,
+  docs: React.PropTypes.array,
+  recipes: React.PropTypes.array,
   active: React.PropTypes.string,
   style: React.PropTypes.object
 };
 
 Sidebar.defaultProps = {
-  items: components,
+  docs: components,
+  recipes: recipesComponents,
   active: null,
   style: null
 };
