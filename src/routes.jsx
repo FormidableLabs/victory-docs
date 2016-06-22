@@ -5,6 +5,7 @@ import { Route, IndexRoute } from "react-router";
 import App from "./components/app";
 import Home from "./screens/home/index";
 import Docs from "./screens/docs/index";
+import Recipes from "./screens/recipes/index";
 
 // TODO: Analytics https://github.com/FormidableLabs/victory-docs/issues/1
 // import ga from "react-ga";
@@ -15,5 +16,7 @@ module.exports = (
     <IndexRoute component={Home}/>
     <Route path="/docs" component={Docs}/>
     <Route path="/docs/:component" component={Docs} />
+    <Route path="/recipes" component={Recipes}/>
+    <Route path="/recipes/:component" component={Recipes} />
   </Route>
 );
