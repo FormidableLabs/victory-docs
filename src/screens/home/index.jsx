@@ -7,6 +7,7 @@ const RadiumLink = Radium(Link);
 // Settings
 import { VictorySettings } from "formidable-landers";
 import { components } from "../../components/config";
+import { recipesComponents } from "../../components/config-recipes";
 
 // Child Components
 import Hero from "./components/hero";
@@ -138,10 +139,10 @@ class Home extends React.Component {
   }
 
 
-  renderComponents(items, category, isNested) {
+  renderComponents(items, route, category) {
     const styles = this.getStyles();
 
-    if (isNested) {
+    if (category === "chart") {
       return items.map((item) => {
         if (item.slug === "victory-chart") {
           return null;
@@ -150,8 +151,8 @@ class Home extends React.Component {
           return (
             <li key={item.slug} style={styles.listItem}>
               <b style={styles.bullet} />
-              <NavLink to={`docs/${item.slug}`}>
-                {item.text}. <Icon glyph="internal-link" />
+              <NavLink to={`${route}/${item.slug}`}>
+                {item.text} <Icon glyph="internal-link" />
               </NavLink>
             </li>
           );
@@ -162,8 +163,8 @@ class Home extends React.Component {
       if (item.category === category) {
         return (
           <li key={item.slug} style={styles.listItem}>
-            <NavLink to={`docs/${item.slug}`}>
-              {item.text}. <Icon glyph="internal-link" />
+            <NavLink to={`${route}/${item.slug}`}>
+              {item.text} <Icon glyph="internal-link" />
             </NavLink>
           </li>
         );
@@ -236,28 +237,42 @@ class Home extends React.Component {
           <div style={styles.columns}>
             <ul style={styles.list}>
               <li className="Smallcaps" style={styles.marginTop}>Core</li>
-              {this.renderComponents(components, "core")}
+              {this.renderComponents(components, "docs", "core")}
               <li style={styles.listItem}>
-                VictoryConstraints. <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+                VictoryConstraints <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
               </li>
               <li style={styles.listItem}>
-                VictoryTooltip. <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+                VictoryTooltip <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
               </li>
             </ul>
             <ul style={styles.list}>
               <li className="Smallcaps" style={styles.marginTop}>Chart</li>
               <li key="victory-chart2" style={styles.listItem}>
                 <NavLink to="docs/victory-chart">
-                  VictoryChart. <Icon glyph="internal-link" />
+                  VictoryChart <Icon glyph="internal-link" />
                 </NavLink>
               </li>
               <ul style={styles.nestedList}>
-                {this.renderComponents(components, "chart", true)}
+                {this.renderComponents(components, "docs", "chart")}
               </ul>
             </ul>
             <ul style={styles.list}>
               <li className="Smallcaps" style={styles.marginTop}>More</li>
-              {this.renderComponents(components, "more")}
+              {this.renderComponents(components, "docs", "more")}
+            </ul>
+          </div>
+        </div>
+
+        <div style={styles.padded}>
+          <h2 style={[styles.noMarginTop, styles.copy]}>Recipes</h2>
+          <div style={styles.columns}>
+            <ul style={styles.list}>
+              <li className="Smallcaps" style={styles.marginTop}>Customize</li>
+              {this.renderComponents(recipesComponents, "recipes", "customize")}
+            </ul>
+            <ul style={styles.list}>
+              <li className="Smallcaps" style={styles.marginTop}>Events</li>
+              {this.renderComponents(recipesComponents, "recipes", "events")}
             </ul>
           </div>
         </div>
