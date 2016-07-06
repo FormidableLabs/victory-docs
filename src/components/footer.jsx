@@ -8,7 +8,6 @@ class Foots extends React.Component {
   getStyles() {
     return {
       footer: {
-        backgroundColor: VictorySettings.palerSand,
         borderStyle: "solid",
         borderWidth: "61px 41px",
         borderImageSource: `url("./static/footer-border.svg")`,
@@ -43,6 +42,7 @@ class Foots extends React.Component {
     return (
       <Footer
         logoColor="black"
+        background={VictorySettings.palerSand}
         styleOverrides={[styles.footer, this.props.style]}
       >
         <span style={styles.footerTop}/>
