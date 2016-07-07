@@ -13,7 +13,6 @@ class App extends React.Component {
   getStyles() {
     return {
       header: {
-        backgroundColor: VictorySettings.darkMud,
         borderBottom: 0,
         color: VictorySettings.palerSand,
         padding: `${VictorySettings.gutter}px`,
@@ -42,14 +41,13 @@ class App extends React.Component {
         <Header
           styleOverrides={styles.header}
           linkStyles={styles.linkStyles}
+          background={VictorySettings.darkMud}
         >
           We like your style. <span className="Smallcaps">Join us.</span>
           <br/>
           We’re hiring!
         </Header>
-
         {this.props.children}
-
         <Style rules={VictoryTheme} />
       </StyleRoot>
     );
