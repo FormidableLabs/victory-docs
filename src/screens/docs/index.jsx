@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import TitleMeta from "../../components/title-meta";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -61,13 +62,15 @@ class Docs extends React.Component {
       "index";
     const styles = this.getStyles();
     return (
-      <div>
-        <Sidebar active={activePage} style={styles.sidebar} />
-        <div style={styles.content}>
-          <Markdown active={activePage} />
-          <Footer style={styles.foots} />
+      <TitleMeta title="Victory | Documentation">
+        <div>
+          <Sidebar active={activePage} style={styles.sidebar} />
+          <div style={styles.content}>
+            <Markdown active={activePage} />
+            <Footer style={styles.foots} />
+          </div>
         </div>
-      </div>
+      </TitleMeta>
     );
   }
 }

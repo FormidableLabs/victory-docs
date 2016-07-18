@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import TitleMeta from "../../../components/title-meta";
 import find from "lodash/find";
 import marked from "marked";
 
@@ -11,20 +12,25 @@ class RecipeDocs extends React.Component {
     if (activeComponent === "index") {
       const indexDocs = marked(require("../index.md"));
       return (
-        <div
-          className="Ecology Overview"
-          dangerouslySetInnerHTML={{__html: indexDocs}}
-        />
+        <TitleMeta title="Victory Recipes">
+          <div
+            className="Ecology Overview"
+            dangerouslySetInnerHTML={{__html: indexDocs}}
+          />
+        </TitleMeta>
       );
     }
-    const Docs = find(recipesComponents, {slug: activeComponent}).docs;
+    const conf = find(recipesComponents, {slug: activeComponent});
+    const Docs = conf.docs;
     // This structure matches the <Ecology> /docs components:
     return (
-      <div className="Ecology">
-        <div className="Overview">
-          <Docs />
+      <TitleMeta title={`${conf.text} | Victory Recipes`}>
+        <div className="Ecology">
+          <div className="Overview">
+            <Docs />
+          </div>
         </div>
-      </div>
+      </TitleMeta>
     );
   }
   render() {

@@ -1,5 +1,6 @@
 import React from "react";
 import Radium from "radium";
+import TitleMeta from "../../../components/title-meta";
 import find from "lodash/find";
 import marked from "marked";
 
@@ -17,8 +18,13 @@ class MarkdownDocs extends React.Component {
         />
       );
     }
-    const Docs = find(components, {slug: activeComponent}).docs;
-    return (<Docs />);
+    const conf = find(components, {slug: activeComponent});
+    const Docs = conf.docs;
+    return (
+      <TitleMeta title={`${conf.text} | Documentation`}>
+        <Docs />
+      </TitleMeta>
+    );
   }
   render() {
     return (
