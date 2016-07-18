@@ -20,7 +20,7 @@ class RecipeDocs extends React.Component {
     const Docs = find(recipesComponents, {slug: activeComponent}).docs;
     // This structure matches the <Ecology> /docs components:
     return (
-      <div className="Ecology playgroundsMaxHeight">
+      <div className="Ecology">
         <div className="Overview">
           <Docs />
         </div>
