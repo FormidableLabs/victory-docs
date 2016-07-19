@@ -4,6 +4,7 @@ import { renderToString } from "react-dom/server";
 import { Router, RouterContext, match, applyRouterMiddleware, browserHistory } from "react-router";
 import { createMemoryHistory } from "history";
 import useScroll from "react-router-scroll";
+import { renderAsHTML } from "./title-meta";
 
 const routing = {
   base: process.env.NODE_ENV === "production" ? "/open-source/victory/" : "/"
@@ -40,8 +41,10 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path);
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
+    const content = renderToString(<RouterContext {...renderProps} />);
     callback(null, Index({
-      content: renderToString(<RouterContext {...renderProps} />),
+      titleMeta: renderAsHTML(),
+      content,
       bundleJs: locals.assets.main,
       baseHref: routing.base
     }));

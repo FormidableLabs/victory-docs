@@ -1,6 +1,7 @@
 import React from "react";
 import Radium from "radium";
 
+import TitleMeta from "../../components/title-meta";
 import { Link } from "react-router";
 const RadiumLink = Radium(Link);
 
@@ -175,135 +176,137 @@ class Home extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <section style={styles.section} className="playgroundsMaxHeight">
-        <Hero />
-        <div style={styles.padded} className="Home">
-          <h2 style={styles.copy}>Why Victory?</h2>
+      <TitleMeta title="Victory">
+        <section style={styles.section} className="playgroundsMaxHeight">
+          <Hero />
+          <div style={styles.padded} className="Home">
+            <h2 style={styles.copy}>Why Victory?</h2>
 
-          <h3 style={styles.copy}>Friendly</h3>
-          <p style={styles.copy}>
-            The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
-          </p>
-        </div>
+            <h3 style={styles.copy}>Friendly</h3>
+            <p style={styles.copy}>
+              The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
+            </p>
+          </div>
 
-        <Demo src={require("!!raw!./components/examples/friendly.md")} />
+          <Demo src={require("!!raw!./components/examples/friendly.md")} />
 
-        <div style={styles.padded} className="Home">
-          <h3 style={styles.copy}>Flexible</h3>
-          <p style={styles.copy}>
-            The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
-          </p>
-        </div>
+          <div style={styles.padded} className="Home">
+            <h3 style={styles.copy}>Flexible</h3>
+            <p style={styles.copy}>
+              The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
+            </p>
+          </div>
 
-        <div className="Interactive" style={{backgroundColor: "transparent"}}>
-          <div className="playground">
-            <div className="fancyBorder" style={styles.demoComponent}>
-              <DemoFlexible />
+          <div className="Interactive" style={{backgroundColor: "transparent"}}>
+            <div className="playground">
+              <div className="fancyBorder" style={styles.demoComponent}>
+                <DemoFlexible />
+              </div>
+            </div>
+            <p style={{textAlign: "center"}}>
+              <a href="https://github.com/FormidableLabs/victory-examples/blob/master/src/components/custom-styles.js">
+                <span className="Smallcaps" style={styles.boldSmallCaps}>View the source.</span> <Icon glyph="external-link" />
+              </a>
+            </p>
+          </div>
+
+          <div style={styles.padded} className="Home">
+            <h3 style={styles.copy}>Composable</h3>
+            <p style={styles.copy}>
+              When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
+            </p>
+          </div>
+
+          <Demo src={require("!!raw!./components/examples/composable.md")} />
+
+          <div style={styles.padded} className="Home">
+            <h3 style={styles.copy}>Native</h3>
+            <p style={styles.copy}>
+              Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
+            </p>
+          </div>
+
+          <div style={styles.padded}>
+            <div style={[styles.copy, {display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }]}>
+              <RadiumLink style={styles.buttonLink} to="docs">
+                Getting Started Guide <Icon glyph="internal-link" />
+              </RadiumLink>
             </div>
           </div>
-          <p style={{textAlign: "center"}}>
-            <a href="https://github.com/FormidableLabs/victory-examples/blob/master/src/components/custom-styles.js">
-              <span className="Smallcaps" style={styles.boldSmallCaps}>View the source.</span> <Icon glyph="external-link" />
-            </a>
-          </p>
-        </div>
 
-        <div style={styles.padded} className="Home">
-          <h3 style={styles.copy}>Composable</h3>
-          <p style={styles.copy}>
-            When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
-          </p>
-        </div>
-
-        <Demo src={require("!!raw!./components/examples/composable.md")} />
-
-        <div style={styles.padded} className="Home">
-          <h3 style={styles.copy}>Native</h3>
-          <p style={styles.copy}>
-            Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
-          </p>
-        </div>
-
-        <div style={styles.padded}>
-          <div style={[styles.copy, {display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }]}>
-            <RadiumLink style={styles.buttonLink} to="docs">
-              Getting Started Guide <Icon glyph="internal-link" />
-            </RadiumLink>
-          </div>
-        </div>
-
-        <div style={styles.padded}>
-          <h2 style={[styles.noMarginTop, styles.copy]}>Documentation</h2>
-          <div style={styles.columns}>
-            <ul style={styles.list}>
-              <li className="Smallcaps" style={styles.marginTop}>Core</li>
-              {this.renderComponents(components, "docs", "core")}
-              <li style={styles.listItem}>
-                VictoryConstraints <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
-              </li>
-              <li style={styles.listItem}>
-                VictoryTooltip <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
-              </li>
-            </ul>
-            <ul style={styles.list}>
-              <li className="Smallcaps" style={styles.marginTop}>Chart</li>
-              <li key="victory-chart2" style={styles.listItem}>
-                <NavLink to="docs/victory-chart">
-                  VictoryChart <Icon glyph="internal-link" />
-                </NavLink>
-              </li>
-              <ul style={styles.nestedList}>
-                {this.renderComponents(components, "docs", "chart")}
+          <div style={styles.padded}>
+            <h2 style={[styles.noMarginTop, styles.copy]}>Documentation</h2>
+            <div style={styles.columns}>
+              <ul style={styles.list}>
+                <li className="Smallcaps" style={styles.marginTop}>Core</li>
+                {this.renderComponents(components, "docs", "core")}
+                <li style={styles.listItem}>
+                  VictoryConstraints <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+                </li>
+                <li style={styles.listItem}>
+                  VictoryTooltip <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+                </li>
               </ul>
-            </ul>
-            <ul style={styles.list}>
-              <li className="Smallcaps" style={styles.marginTop}>More</li>
-              {this.renderComponents(components, "docs", "more")}
-            </ul>
+              <ul style={styles.list}>
+                <li className="Smallcaps" style={styles.marginTop}>Chart</li>
+                <li key="victory-chart2" style={styles.listItem}>
+                  <NavLink to="docs/victory-chart">
+                    VictoryChart <Icon glyph="internal-link" />
+                  </NavLink>
+                </li>
+                <ul style={styles.nestedList}>
+                  {this.renderComponents(components, "docs", "chart")}
+                </ul>
+              </ul>
+              <ul style={styles.list}>
+                <li className="Smallcaps" style={styles.marginTop}>More</li>
+                {this.renderComponents(components, "docs", "more")}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div style={styles.padded}>
-          <h2 style={[styles.noMarginTop, styles.copy]}>Recipes</h2>
-          <div style={styles.columns}>
-            <ul style={styles.list}>
-              <li className="Smallcaps" style={styles.marginTop}>Customize</li>
-              {this.renderComponents(recipesComponents, "recipes", "customize")}
-            </ul>
-            <ul style={styles.list}>
-              <li className="Smallcaps" style={styles.marginTop}>Events</li>
-              {this.renderComponents(recipesComponents, "recipes", "events")}
-            </ul>
+          <div style={styles.padded}>
+            <h2 style={[styles.noMarginTop, styles.copy]}>Recipes</h2>
+            <div style={styles.columns}>
+              <ul style={styles.list}>
+                <li className="Smallcaps" style={styles.marginTop}>Customize</li>
+                {this.renderComponents(recipesComponents, "recipes", "customize")}
+              </ul>
+              <ul style={styles.list}>
+                <li className="Smallcaps" style={styles.marginTop}>Events</li>
+                {this.renderComponents(recipesComponents, "recipes", "events")}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div style={[styles.padded, styles.copy]}>
-          <h2>Learn more</h2>
-          <h3>Source Code</h3>
-          <p>
-            View the source at <a href="https://github.com/FormidableLabs/victory">
-              <span className="Smallcaps" style={styles.boldSmallCaps}>GitHub:</span>
-              FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
+          <div style={[styles.padded, styles.copy]}>
+            <h2>Learn more</h2>
+            <h3>Source Code</h3>
+            <p>
+              View the source at <a href="https://github.com/FormidableLabs/victory">
+                <span className="Smallcaps" style={styles.boldSmallCaps}>GitHub:</span>
+                FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
+              </a>
+            </p>
+            <h3>Support</h3>
+            <p>
+              Questions? Let’s chat at <a href="https://gitter.im/FormidableLabs/victory">
+                <span className="Smallcaps" style={styles.boldSmallCaps}>Gitter:</span>
+                FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
             </a>
-          </p>
-          <h3>Support</h3>
-          <p>
-            Questions? Let’s chat at <a href="https://gitter.im/FormidableLabs/victory">
-              <span className="Smallcaps" style={styles.boldSmallCaps}>Gitter:</span>
-              FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
-          </a>
-          </p>
-          <h3>Upcoming Releases</h3>
-          <p>
-            We have a lot planned! Want to make a request for a new feature? See our <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
-              Roadmap.&nbsp;<Icon glyph="external-link" />
-          </a>
-          </p>
-        </div>
+            </p>
+            <h3>Upcoming Releases</h3>
+            <p>
+              We have a lot planned! Want to make a request for a new feature? See our <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
+                Roadmap.&nbsp;<Icon glyph="external-link" />
+            </a>
+            </p>
+          </div>
 
-        <Companies style={[styles.padded, styles.copy]} />
-        <Footer />
-      </section>
+          <Companies style={[styles.padded, styles.copy]} />
+          <Footer />
+        </section>
+      </TitleMeta>
     );
   }
 }
