@@ -228,7 +228,7 @@ class Home extends React.Component {
 
           <div style={styles.padded}>
             <div style={[styles.copy, {display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }]}>
-              <RadiumLink style={styles.buttonLink} to="docs">
+              <RadiumLink style={styles.buttonLink} to="/docs">
                 Getting Started Guide <Icon glyph="internal-link" />
               </RadiumLink>
             </div>
