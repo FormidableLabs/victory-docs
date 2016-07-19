@@ -7,7 +7,7 @@ class TitleMeta extends React.Component {
       title: this.props.title,
       meta: {
         property: {
-          'og:title': this.props.title
+          "og:title": this.props.title
         }
       }
     };
@@ -16,7 +16,7 @@ class TitleMeta extends React.Component {
       <DocumentMeta {...titleMeta}>
         {this.props.children}
       </DocumentMeta>
-    )
+    );
   }
 }
 
@@ -27,6 +27,6 @@ TitleMeta.propTypes = {
 
 export default TitleMeta;
 
-export function renderAsHTML() {
+export const renderAsHTML = function () {
   return DocumentMeta.renderAsHTML();
 };
