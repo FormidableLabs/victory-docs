@@ -83,7 +83,7 @@ class Sidebar extends React.Component {
       if (item.category === category) {
         return (
           <li key={item.slug} style={styles.listItem}>
-            <NavLink to={`${route}/${item.slug}`} style={styles.navlink}>
+            <NavLink to={`/${route}/${item.slug}`} style={styles.navlink}>
               {item.text} <Icon glyph="internal-link" />
             </NavLink>
           </li>
@@ -106,7 +106,7 @@ class Sidebar extends React.Component {
         </IndexLink>
         <ul style={styles.list}>
           <li key="index" style={styles.listItem}>
-            <NavLink to="docs" style={styles.navlink}>
+            <NavLink to="/docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />
             </NavLink>
           </li>
