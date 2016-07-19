@@ -47,7 +47,7 @@ export default (locals, callback) => {
       titleMeta: renderAsHTML(),
       content,
       bundleJs: locals.assets.main,
-      baseHref: routing.base + "/"
+      baseHref: `${routing.base}/`
     }));
   });
 };
