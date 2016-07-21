@@ -175,7 +175,7 @@ class Home extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <section style={styles.section} className="playgroundsMaxHeight">
+      <section style={styles.section}>
         <Hero />
         <div style={styles.padded} className="Home">
           <h2 style={styles.copy}>Why Victory?</h2>
