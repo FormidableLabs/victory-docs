@@ -1,12 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 import { renderToString } from "react-dom/server";
-import { Router, RouterContext, match, applyRouterMiddleware, browserHistory } from "react-router";
-import { createMemoryHistory } from "history";
+import { Router, RouterContext, match, applyRouterMiddleware, useRouterHistory } from "react-router";
+import { createMemoryHistory, createHistory } from "history";
 import useScroll from "react-router-scroll";
+import { renderAsHTML } from "./title-meta";
 
 const routing = {
-  base: process.env.NODE_ENV === "production" ? "/open-source/victory/" : "/"
+  base: process.env.NODE_ENV === "production" ? "/open-source/victory" : ""
 };
 
 import Index from "../../templates/index.hbs";
@@ -24,9 +25,10 @@ import routes from "../routes";
 // so instead of checking whether the document is undefined (always false),
 // Check whether it’s being shimmed
 if (typeof window !== "undefined" && window.__STATIC_GENERATOR !== true) { //eslint-disable-line no-undef
+  const history = useRouterHistory(createHistory)({ basename: routing.base });
   render(
     <Router
-      history={browserHistory}
+      history={history}
       routes={routes}
       render={applyRouterMiddleware(useScroll())}
     />,
@@ -40,10 +42,12 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path);
 
   match({ routes, location }, (error, redirectLocation, renderProps) => {
+    const content = renderToString(<RouterContext {...renderProps} />);
     callback(null, Index({
-      content: renderToString(<RouterContext {...renderProps} />),
+      titleMeta: renderAsHTML(),
+      content,
       bundleJs: locals.assets.main,
-      baseHref: routing.base
+      baseHref: `${routing.base}/`
     }));
   });
 };
