@@ -1,3 +1,4 @@
+/* global window */
 import React from "react";
 import ga from "react-ga";
 import Radium, { Style, StyleRoot } from "radium";
@@ -36,8 +37,9 @@ class App extends React.Component {
 
   render() {
     const styles = this.getStyles();
+    const isBrowser = typeof window !== "undefined" && window.__STATIC_GENERATOR !== true;
     return (
-      <StyleRoot>
+      <StyleRoot radiumConfig={isBrowser ? { userAgent: window.navigator.userAgent } : null}>
         <Header
           styleOverrides={styles.header}
           linkStyles={styles.linkStyles}
