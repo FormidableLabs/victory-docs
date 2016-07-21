@@ -77,6 +77,9 @@ class Hero extends React.Component {
         borderBottom: 0,
         ":hover": {
           borderBottom: 0
+        },
+        ":visited": {
+          color: VictorySettings.darkMud
         }
       }
     };
