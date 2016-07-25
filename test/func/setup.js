@@ -1,5 +1,3 @@
-"use strict";
-
 var rowdy = require("rowdy");
 var MochaAdapter = rowdy.adapters.mocha;
 

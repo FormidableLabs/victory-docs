@@ -1,5 +1,3 @@
-"use strict";
-
 var adapter = require("../setup").adapter;
 var assert = require("chai").assert;
 

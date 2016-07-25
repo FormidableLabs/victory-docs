@@ -1,5 +1,4 @@
 /* eslint-disable global-require, no-console */
-"use strict";
 
 var adapter = require("../setup").adapter;
 var path = require("path");
@@ -69,7 +68,8 @@ before(function (done) {
   case "dev": return serveDev(done);
   case "remote":
     if (!process.env.TEST_FUNC_BASE_URL) {
-      console.warn("No TEST_FUNC_BASE_URL environment variable set. Defaulting to " + global.TEST_FUNC_BASE_URL + "\n");
+      console.warn("No TEST_FUNC_BASE_URL environment variable set. Defaulting to " +
+        global.TEST_FUNC_BASE_URL + "\n");
     }
     return done();
   }
