@@ -1,0 +1,4 @@
+test/func/spec/**/*.spec.js
+--require ./test/func/setup.js
+--recursive
+--timeout 50000
