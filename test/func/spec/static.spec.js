@@ -1,10 +1,12 @@
 "use strict";
 
-var { adapter } = require("../setup");
-var { assert } = require("chai");
+var adapter = require("../setup").adapter;
+var assert = require("chai").assert;
+
+var TIMEOUT = 50000;
 
 describe("Titles and links", function () {
-  this.timeout(50000)
+  this.timeout(TIMEOUT);
 
   it("should render docs page with proper title", function () {
     return adapter.client

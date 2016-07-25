@@ -9,4 +9,4 @@ rowdy(config);
 
 module.exports = {
   adapter: new MochaAdapter()
-}
+};
