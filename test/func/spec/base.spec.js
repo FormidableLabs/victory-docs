@@ -1,7 +1,6 @@
 /* eslint-disable global-require, no-console */
 
 var adapter = require("../setup").adapter;
-var path = require("path");
 
 var ELEM_WAIT = 200;
 
@@ -29,7 +28,7 @@ var serveDev = function (cb) {
   var webpack = require("webpack");
   var WebpackDevServer = require("webpack-dev-server");
 
-  var webpackCfg = require(path.resolve("./node_modules", "builder-docs-archetype", "config", "webpack", "webpack.config.dev.js"));
+  var webpackCfg = require("builder-docs-archetype/config/webpack/webpack.config.dev");
 
   var compiler = webpack(webpackCfg);
   var wdsServer = new WebpackDevServer(compiler, {
