@@ -27,4 +27,12 @@ describe("Titles and links", function () {
         assert.strictEqual(title, "VictoryAnimation | Documentation");
       });
   });
+
+  it("should render component playgrounds", function () {
+    return adapter.client
+      .url(global.TEST_FUNC_BASE_URL + "docs/victory-animation")
+      .elements(".Interactive > .playground", function (err, res) {
+        assert.strictEqual(true, res.value.length >= 1);
+      });
+  });
 });
