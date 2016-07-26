@@ -1,4 +1,4 @@
-var adapter = require("builder-docs-archetype-dev/spec-helper").adapter;
+var adapter = require("builder-docs-archetype-dev/spec-setup").adapter;
 var assert = require("chai").assert;
 
 var TIMEOUT = 50000;
