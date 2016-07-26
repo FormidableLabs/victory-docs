@@ -19,7 +19,7 @@ describe("Titles and links", function () {
       .url(global.TEST_FUNC_BASE_URL + "docs")
       .click("nav > ul > li:nth-child(4) > a")
       .getUrl().then(function (url) {
-        assert.strictEqual(url, global.TEST_FUNC_BASE_URL + "docs/victory-animation");
+        assert.strictEqual(url.indexOf(global.TEST_FUNC_BASE_URL + "docs/victory-animation"), 0);
       })
       .getTitle().then(function (title) {
         assert.strictEqual(title, "VictoryAnimation | Documentation");

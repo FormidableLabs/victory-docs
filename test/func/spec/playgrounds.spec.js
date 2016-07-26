@@ -6,7 +6,7 @@ var TIMEOUT = 50000;
 describe("Playgrounds", function () {
   this.timeout(TIMEOUT);
 
-  it("should render component playgrounds", function () {
+  it("should render", function () {
     return adapter.client
       .url(global.TEST_FUNC_BASE_URL + "docs/victory-animation")
       .elements(".Interactive > .playground", function (err, res) {
