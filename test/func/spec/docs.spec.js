@@ -3,15 +3,21 @@ var expect = require("chai").expect;
 
 var routes = require("../../../static-routes");
 
+/* eslint-disable no-console */
+
 var validateRelative = function (abs) {
+  console.log("abs, ", abs);
   // check if link belongs to our app
   if (abs.indexOf(global.TEST_FUNC_BASE_URL) === 0) {
     // strip base url out
     var rel = abs.substr(global.TEST_FUNC_BASE_URL.length);
+    console.log("rel, ", rel);
     // trim trailing slash
     if (rel !== "/" && rel[rel.length - 1] === "/") {
       rel = rel.substr(0, rel.length - 1);
     }
+
+    console.log("rel-post", rel);
     // ensure it's in static-routes
     expect(routes.indexOf(rel)).to.be.at.least(0);
   }

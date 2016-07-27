@@ -3,6 +3,8 @@ var expect = require("chai").expect;
 
 var WAIT = 20000;
 
+/* eslint-disable no-console, no-magic-numbers */
+
 describe("Playgrounds", function () {
   it("should render", function () {
     return adapter.client
@@ -18,8 +20,12 @@ describe("Playgrounds", function () {
   it("should reflect changes", function () {
     return adapter.client
       .url("/docs/victory-animation")
+      .waitUntil(function () {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, 20000);
+        });
+      })
       .getHTML("body").then(function (html) {
-        /* eslint-disable no-console */
         console.log(html);
       })
       .waitForExist(".Interactive > .playground", WAIT)
