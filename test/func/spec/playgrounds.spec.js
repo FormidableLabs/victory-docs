@@ -19,6 +19,7 @@ describe("Playgrounds", function () {
     return adapter.client
       .url("/docs/victory-animation")
       .getHTML("body").then(function (html) {
+        /* eslint-disable no-console */
         console.log(html);
       })
       .waitForExist(".Interactive > .playground", WAIT)
