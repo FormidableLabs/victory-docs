@@ -1,28 +1,39 @@
 var adapter = require("builder-docs-archetype-dev/spec-setup").adapter;
-var assert = require("chai").assert;
+var expect = require("chai").expect;
 
-var TIMEOUT = 50000;
+var routes = require("../../../static-routes");
 
-describe("Titles and links", function () {
-  this.timeout(TIMEOUT);
+// Prefix all routes with /
+routes = routes.map(function (r) {
+  return r.indexOf("/") === 0 ? r : "/" + r;
+});
 
-  it("should render docs page with proper title", function () {
+describe("Docs", function () {
+  it("should render a page with proper title", function () {
     return adapter.client
-      .url(global.TEST_FUNC_BASE_URL + "docs")
+      .url("/docs")
       .getTitle().then(function (title) {
-        assert.strictEqual(title, "Victory | Documentation");
+        expect(title).to.eq("Victory | Documentation");
       });
   });
 
-  it("should have correct relative links in navigation", function () {
-    return adapter.client
-      .url(global.TEST_FUNC_BASE_URL + "docs")
-      .click("nav > ul > li:nth-child(4) > a")
-      .getUrl().then(function (url) {
-        assert.strictEqual(url.indexOf(global.TEST_FUNC_BASE_URL + "docs/victory-animation"), 0);
-      })
-      .getTitle().then(function (title) {
-        assert.strictEqual(title, "VictoryAnimation | Documentation");
-      });
+  // Render every static route
+  routes.forEach(function (r) {
+    it("should render route: " + r, function () {
+      return adapter.client
+        .url(r)
+        .elements("#content").then(function (res) {
+          expect(res.value.length).to.eq(1);
+        })
+        // find every relative link
+        .getAttribute("a[href]", "href").then(function (urls) {
+          urls.forEach(function (u) {
+            if (u.indexOf("http") !== 0) {
+              // if it's relative, ensure it's in static-routes
+              expect(routes.indexOf(u.substr(global.TEST_FUNC_BASE_URL.length))).to.not.eq(-1);
+            }
+          });
+        });
+    });
   });
 });
