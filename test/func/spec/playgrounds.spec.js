@@ -1,7 +1,7 @@
 var adapter = require("builder-docs-archetype-dev/spec-setup").adapter;
 var expect = require("chai").expect;
 
-var WAIT = 5000;
+var WAIT = 20000;
 
 describe("Playgrounds", function () {
   it("should render", function () {

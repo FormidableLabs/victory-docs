@@ -29,7 +29,7 @@ describe("Docs", function () {
           // find every relative link
           .getAttribute("a[href]", "href").then(function (urls) {
             urls.forEach(function (u) {
-              if (u.indexOf("http") !== 0) {
+              if (u.indexOf(global.TEST_FUNC_BASE_URL) === 0) {
                 // if it's relative, ensure it's in static-routes
                 expect(routes.indexOf(u.substr(global.TEST_FUNC_BASE_URL.length)))
                   .to.be.at.least(0);
