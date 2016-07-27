@@ -19,21 +19,24 @@ describe("Docs", function () {
 
   // Render every static route
   routes.forEach(function (r) {
-    it("should render route: " + r, function () {
-      return adapter.client
-        .url(r)
-        .elements("#content").then(function (res) {
-          expect(res.value.length).to.eq(1);
-        })
-        // find every relative link
-        .getAttribute("a[href]", "href").then(function (urls) {
-          urls.forEach(function (u) {
-            if (u.indexOf("http") !== 0) {
-              // if it's relative, ensure it's in static-routes
-              expect(routes.indexOf(u.substr(global.TEST_FUNC_BASE_URL.length))).to.be.at.least(0);
-            }
+    describe("Route " + r, function () {
+      it("should render with no broken links", function () {
+        return adapter.client
+          .url(r)
+          .elements("#content").then(function (res) {
+            expect(res.value.length).to.eq(1);
+          })
+          // find every relative link
+          .getAttribute("a[href]", "href").then(function (urls) {
+            urls.forEach(function (u) {
+              if (u.indexOf("http") !== 0) {
+                // if it's relative, ensure it's in static-routes
+                expect(routes.indexOf(u.substr(global.TEST_FUNC_BASE_URL.length)))
+                  .to.be.at.least(0);
+              }
+            });
           });
-        });
+      });
     });
   });
 });
