@@ -18,6 +18,9 @@ describe("Playgrounds", function () {
   it("should reflect changes", function () {
     return adapter.client
       .url("/docs/victory-animation")
+      .getHTML("body").then(function (html) {
+        console.log(html);
+      })
       .waitForExist(".Interactive > .playground", WAIT)
       .selectorExecute(".Interactive > .playground", function (els) {
         var editor = els[0].querySelector(".CodeMirror").CodeMirror;
