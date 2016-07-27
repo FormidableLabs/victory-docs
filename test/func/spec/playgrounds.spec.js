@@ -3,8 +3,6 @@ var expect = require("chai").expect;
 
 var WAIT = 20000;
 
-/* eslint-disable no-console, no-magic-numbers */
-
 describe("Playgrounds", function () {
   it("should render", function () {
     return adapter.client
