@@ -30,7 +30,7 @@ describe("Docs", function () {
           urls.forEach(function (u) {
             if (u.indexOf("http") !== 0) {
               // if it's relative, ensure it's in static-routes
-              expect(routes.indexOf(u.substr(global.TEST_FUNC_BASE_URL.length))).to.not.eq(-1);
+              expect(routes.indexOf(u.substr(global.TEST_FUNC_BASE_URL.length))).to.be.at.least(0);
             }
           });
         });
