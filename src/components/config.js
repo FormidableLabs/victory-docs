@@ -6,7 +6,7 @@ import VBarDocs from "victory-chart/docs/victory-bar/docs";
 import VChartDocs from "victory-chart/docs/victory-chart/docs";
 import VLabelDocs from "victory-core/docs/victory-label/docs";
 import VLineDocs from "victory-chart/docs/victory-line/docs";
-import VPieDocs from "victory-pie/docs/docs";
+import VPieDocs from "victory-pie/docs/victory-pie/docs";
 import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
 
 export const components = [
