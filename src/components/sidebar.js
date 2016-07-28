@@ -35,7 +35,7 @@ class Sidebar extends React.Component {
       list: {
         boxSizing: "border-box",
         columns: "3 220px",
-        columnGap: `${VictorySettings.gutter * 2}`,
+        columnGap: `${VictorySettings.gutter * 2}px`,
         fontSize: "20px",
         listStyle: "none",
         padding: 0

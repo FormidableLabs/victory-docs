@@ -21,11 +21,12 @@ class Icon extends React.Component {
   }
   render() {
     const styles = this.getStyles();
+    const { glyph, ...otherProps } = this.props;
     switch (this.props.glyph) {
     case "external-link":
       return (
         <span
-          {...this.props}
+          {...otherProps}
           style={styles.base}
           dangerouslySetInnerHTML={{__html: IconExternalLink}}
         />
@@ -33,7 +34,7 @@ class Icon extends React.Component {
     case "internal-link":
       return (
         <span
-          {...this.props}
+          {...otherProps}
           style={styles.base}
           dangerouslySetInnerHTML={{__html: IconInternalLink}}
         />
@@ -41,7 +42,7 @@ class Icon extends React.Component {
     case "coming-soon":
       return (
         <span
-          {...this.props}
+          {...otherProps}
           style={styles.base}
           dangerouslySetInnerHTML={{__html: IconBarrier}}
         />
