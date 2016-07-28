@@ -35,7 +35,8 @@ script:
   - npm test
   - NODE_ENV=production node_modules/.bin/builder run build-static
   - node_modules/.bin/builder run install-selenium
-  - node_modules/.bin/builder run test-func-static-prod
+  - ROWDY_SETTINGS=local.firefox node_modules/.bin/builder run test-func-static
+  - ROWDY_SETTINGS=local.phantomjs node_modules/.bin/builder run test-func-static
 
 # Once build on Travis is working, automatically deploy it on master only:
 deploy:
