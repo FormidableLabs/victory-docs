@@ -8,12 +8,16 @@ var validateRelative = function (abs) {
   if (abs.indexOf(global.TEST_FUNC_BASE_URL) === 0) {
     // strip base url out
     var rel = abs.substr(global.TEST_FUNC_BASE_URL.length);
+    // strip query/hash out
+    rel = rel.split(/[?#]/)[0];
     // trim trailing slash
     if (rel !== "/" && rel[rel.length - 1] === "/") {
       rel = rel.substr(0, rel.length - 1);
     }
-    // ensure it's in static-routes
-    expect(routes.indexOf(rel)).to.be.at.least(0);
+    // throw a helpful error if it's not in static-routes
+    if (routes.indexOf(rel) < 0) {
+      throw new Error(rel + " not a valid relative link");
+    }
   }
 };
 
