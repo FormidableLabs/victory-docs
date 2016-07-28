@@ -6,12 +6,9 @@ import { createMemoryHistory, createHistory } from "history";
 import useScroll from "react-router-scroll";
 import { renderAsHTML } from "./title-meta";
 
-const routing = {
-  base: process.env.NODE_ENV === "production" ? "/open-source/victory" : ""
-};
-
 import Index from "../../templates/index.hbs";
 import routes from "../routes";
+import basename from "../basename";
 
 // ----------------------------------------------------------------------------
 // With `static-site-generator-webpack-plugin`, the same bundle is responsible for
@@ -25,7 +22,7 @@ import routes from "../routes";
 // so instead of checking whether the document is undefined (always false),
 // Check whether it’s being shimmed
 if (typeof window !== "undefined" && window.__STATIC_GENERATOR !== true) { //eslint-disable-line no-undef
-  const history = useRouterHistory(createHistory)({ basename: routing.base });
+  const history = useRouterHistory(createHistory)({ basename });
   render(
     <Router
       history={history}
@@ -43,16 +40,15 @@ export default (locals, callback) => {
     userAgent: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2454.85 Safari/537.36"
   };
 
-  const history = createMemoryHistory();
+  const history = useRouterHistory(createMemoryHistory)({ basename });
   const location = history.createLocation(locals.path);
-
-  match({ routes, location }, (error, redirectLocation, renderProps) => {
+  match({ routes, location, history }, (error, redirectLocation, renderProps) => {
     const content = renderToString(<RouterContext {...renderProps} />);
     callback(null, Index({
       titleMeta: renderAsHTML(),
       content,
       bundleJs: locals.assets.main,
-      baseHref: `${routing.base}/`
+      baseHref: `${basename}/`
     }));
   });
 };
