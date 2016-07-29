@@ -8,6 +8,8 @@ import VLabelDocs from "victory-core/docs/victory-label/docs";
 import VLineDocs from "victory-chart/docs/victory-line/docs";
 import VPieDocs from "victory-pie/docs/victory-pie/docs";
 import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
+import VCandlestickDocs from "victory-chart/docs/victory-candlestick/docs";
+import VErrorbarDocs from "victory-chart/docs/victory-errorbar/docs";
 
 export const components = [
   {
@@ -55,5 +57,15 @@ export const components = [
     slug: "victory-scatter",
     category: "chart",
     docs: VScatterDocs
+  }, {
+    text: "VictoryCandlestick",
+    slug: "victory-candlestick",
+    category: "chart",
+    docs: VCandlestickDocs
+  }, {
+    text: "VictoryErrorbar",
+    slug: "victory-errorbar",
+    category: "chart",
+    docs: VErrorbarDocs
   }
 ];
