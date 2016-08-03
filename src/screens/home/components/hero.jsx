@@ -3,37 +3,32 @@ import Radium from "radium";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
+import Demo from "./demo";
 import logotype from "../../../../static/logotype-hero.svg";
 import GITHUBLOGO from "../../../../static/logo-github.svg";
 import GITTERLOGO from "../../../../static/logo-gitter.svg";
 
 class Hero extends React.Component {
+  // boxShadow: `0 0 0 1px ${VictorySettings.mud}, 0 0 0 20px ${VictorySettings.palerSand}, 0 0 0 23px ${VictorySettings.mud}`
   getStyles() {
-    // Safari misinterprets "transparent" in gradients, e.g. http://codepen.io/cvn/pen/ozewK
-    // And this hack will default to the bg color at least
-    const transparentBg = "rgba(225, 215, 205, 0)";
     return {
       cover: {
-        backgroundImage: `radial-gradient(ellipse farthest-corner at 50% 40%, ${transparentBg}, ${VictorySettings.palerSand}), url(./static/bg-hero@2x.png), url(./static/bg-pattern.png)`,
-        backgroundRepeat: "repeat, no-repeat, repeat",
-        backgroundPosition: "center center, 50% 0, center center",
-        backgroundSize: "auto auto, 1280px auto, auto auto",
-        padding: "80px 20px 60px 20px",
-        margin: "40px",
-        boxShadow: `0 0 0 1px ${VictorySettings.mud}, 0 0 0 20px ${VictorySettings.palerSand}, 0 0 0 23px ${VictorySettings.mud}`
+        margin: 0,
+        padding: `${VictorySettings.gutter * 4}px 0 ${VictorySettings.gutter * 3}px`
       },
       title: {
-        margin: "0 auto 480px",
+        margin: "0 auto",
         height: "100px",
-        maxWidth: "758px",
+        maxWidth: "658px",
         textAlign: "center",
         fontSize: "72px",
         borderBottom: "none"
       },
       headingMajor: {
         marginTop: `${VictorySettings.gutter * 1.5}px`,
+        padding: "0 20px",
         fontFamily: VictorySettings.serifHeadline,
-        fontSize: "2em",
+        fontSize: "1.75em",
         lineHeight: "1.3",
         textAlign: "center"
       },
@@ -47,7 +42,7 @@ class Hero extends React.Component {
         textAlign: "center"
       },
       installer: {
-        margin: `${VictorySettings.gutter * 3}px auto 0`,
+        margin: `${VictorySettings.gutter}px auto 0`,
         display: "block",
         textAlign: "center"
       },
@@ -74,13 +69,10 @@ class Hero extends React.Component {
         margin: `0 ${VictorySettings.gutter}px`
       },
       linkIcon: {
-        borderBottom: 0,
-        ":hover": {
-          borderBottom: 0
-        },
-        ":visited": {
-          color: VictorySettings.darkMud
-        }
+        display: "inline-block",
+        marginRight: "4px",
+        width: "22px",
+        verticalAlign: "middle"
       }
     };
   }
@@ -90,22 +82,20 @@ class Hero extends React.Component {
     return (
       <div style={styles.cover}>
         <h1 dangerouslySetInnerHTML={{__html: logotype}} style={styles.title} />
-        <p style={styles.headingMinor}>containing</p>
         <p style={styles.headingMajor}>An ecosystem of modular data visualization components</p>
-        <p style={styles.headingMinor}>for</p>
-        <p style={styles.headingMajor}>React.js developers</p>
+        <Demo src={require("!!raw!./examples/friendly.md")} />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
         </div>
         <ul style={styles.list}>
           <li style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory" style={styles.linkIcon} key="heroLinkIconGithub">
-              <span dangerouslySetInnerHTML={{ __html: GITHUBLOGO }} />
+            <a href="https://github.com/FormidableLabs/victory" key="heroLinkIconGithub">
+              <span style={styles.linkIcon} dangerouslySetInnerHTML={{ __html: GITHUBLOGO }} /> View Source Code
             </a>
           </li>
           <li style={styles.listItem}>
-            <a href="https://gitter.im/FormidableLabs/victory" style={styles.linkIcon} key="heroLinkIconGitter">
-              <span dangerouslySetInnerHTML={{ __html: GITTERLOGO }} />
+            <a href="https://gitter.im/FormidableLabs/victory" key="heroLinkIconGitter">
+              <span style={styles.linkIcon} dangerouslySetInnerHTML={{ __html: GITTERLOGO }} /> Chat about Victory
             </a>
           </li>
         </ul>

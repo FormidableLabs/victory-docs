@@ -4,22 +4,10 @@ import Radium from "radium";
 import Ecology from "ecology";
 import { VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie } from "victory";
 
-// Settings
-import { VictorySettings } from "formidable-landers";
-
 class Demo extends React.Component {
-  getStyles() {
-    return {
-      container: {
-        marginTop: `${VictorySettings.gutter}px`
-      }
-    };
-  }
-
   render() {
-    const styles = this.getStyles();
     return (
-      <div style={[this.props.style, styles.container]}>
+      <div style={this.props.style}>
         <Ecology
           overview={this.props.src}
           scope={{React, ReactDOM, VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie}}
