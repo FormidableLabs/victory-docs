@@ -19,5 +19,6 @@ module.exports = [
   "/recipes/custom-data-component",
   "/recipes/custom-styles",
   "/recipes/multiple-axes",
+  "/recipes/candlestick-dashboard",
   "/recipes/tooltip"
 ];
