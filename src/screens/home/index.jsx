@@ -177,7 +177,7 @@ class Home extends React.Component {
             {/* Friendly */}
             <h3 style={styles.copy}>Friendly</h3>
             <p style={styles.copy}>
-              The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
+              The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors. Sensible default props make getting started easy!
             </p>
           </div>
 
