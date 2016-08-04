@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Radium from "radium";
 import Ecology from "ecology";
-import { VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie } from "victory";
+import {
+  VictoryStack, VictoryBar, VictoryChart, VictoryLine, VictoryPie, VictoryTheme, VictoryAxis
+} from "victory";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -22,7 +24,10 @@ class Demo extends React.Component {
       <div style={[this.props.style, styles.container]}>
         <Ecology
           overview={this.props.src}
-          scope={{React, ReactDOM, VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie}}
+          scope={{
+            React, ReactDOM, VictoryStack, VictoryTheme, VictoryBar, VictoryChart,
+            VictoryLine, VictoryPie, VictoryAxis
+          }}
           playgroundtheme="elegant"
         />
       </div>

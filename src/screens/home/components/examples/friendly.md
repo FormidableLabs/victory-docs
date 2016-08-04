@@ -1,5 +1,5 @@
 ```playground
-<VictoryChart>
+<VictoryChart theme={VictoryTheme.material}>
   <VictoryLine
     y={(data) => Math.sin(1.5 * Math.PI * data.x)} />
   <VictoryLine

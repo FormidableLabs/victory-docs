@@ -4,7 +4,7 @@ import ga from "react-ga";
 import Radium, { Style, StyleRoot } from "radium";
 
 // Variables and Stylesheet
-import { Header, VictorySettings, VictoryTheme } from "formidable-landers";
+import { Header, VictorySettings, VictoryTheme as VictoryStyleSheet } from "formidable-landers";
 
 class App extends React.Component {
   componentDidMount() {
@@ -50,7 +50,7 @@ class App extends React.Component {
           We’re hiring!
         </Header>
         {this.props.children}
-        <Style rules={VictoryTheme} />
+        <Style rules={VictoryStyleSheet} />
       </StyleRoot>
     );
   }
