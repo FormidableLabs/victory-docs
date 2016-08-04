@@ -18,7 +18,8 @@ class App extends React.Component {
         color: VictorySettings.palerSand,
         padding: `${VictorySettings.gutter}px`,
         position: "relative",
-        zIndex: "1"
+        textAlign: "right",
+        zIndex: "0"
       },
       linkStyles: {
         border: 0,
@@ -31,6 +32,12 @@ class App extends React.Component {
           boxShadow: "none",
           transition: "color 200ms ease"
         }
+      },
+      smallCaps: {
+        textTransform: "uppercase",
+        fontSize: "0.75em",
+        fontWeight: "normal",
+        letterSpacing: "0.1em"
       }
     };
   }
@@ -45,9 +52,7 @@ class App extends React.Component {
           linkStyles={styles.linkStyles}
           background={VictorySettings.darkMud}
         >
-          We like your style. <span className="Smallcaps">Join us.</span>
-          <br/>
-          We’re hiring!
+          We like your style. <span style={styles.smallCaps}>Join us.</span> We’re hiring!
         </Header>
         {this.props.children}
         <Style rules={VictoryStyleSheet} />

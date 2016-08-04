@@ -33,10 +33,20 @@ export const components = [
     category: "chart",
     docs: VBarDocs
   }, {
+    text: "VictoryCandlestick",
+    slug: "victory-candlestick",
+    category: "chart",
+    docs: VCandlestickDocs
+  }, {
     text: "VictoryChart",
     slug: "victory-chart",
     category: "chart",
     docs: VChartDocs
+  }, {
+    text: "VictoryErrorbar",
+    slug: "victory-errorbar",
+    category: "chart",
+    docs: VErrorbarDocs
   }, {
     text: "VictoryLabel",
     slug: "victory-label",
@@ -57,15 +67,5 @@ export const components = [
     slug: "victory-scatter",
     category: "chart",
     docs: VScatterDocs
-  }, {
-    text: "VictoryCandlestick",
-    slug: "victory-candlestick",
-    category: "chart",
-    docs: VCandlestickDocs
-  }, {
-    text: "VictoryErrorbar",
-    slug: "victory-errorbar",
-    category: "chart",
-    docs: VErrorbarDocs
   }
 ];

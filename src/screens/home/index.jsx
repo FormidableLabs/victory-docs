@@ -27,14 +27,7 @@ class Home extends React.Component {
         paddingBottom: `${VictorySettings.gutter * 3}px`
       },
       padded: {
-        padding: `${VictorySettings.gutter * 1.5}px ${VictorySettings.gutter * 1.5}px`,
-
-        [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          padding: `${VictorySettings.gutter * 3}px ${VictorySettings.gutter * 2}px`
-        }
-      },
-      noMarginTop: {
-        marginTop: 0
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px 0`
       },
       marginTop: {
         marginTop: `${VictorySettings.gutter}px`
@@ -87,7 +80,7 @@ class Home extends React.Component {
            inset 1px 0 0 ${VictorySettings.darkSand}`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          boxShadow: `inset 0 -19px 0 ${VictorySettings.palerSand},
+          boxShadow: `inset 0 -15px 0 ${VictorySettings.palerSand},
              inset 1px 0 0 ${VictorySettings.darkSand}`
         }
       },
@@ -131,7 +124,7 @@ class Home extends React.Component {
       demoComponent: {
         backgroundColor: VictorySettings.whiteSand,
         display: "block",
-        margin: `${VictorySettings.gutter}px auto 0`,
+        margin: "0 auto",
         padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px ${VictorySettings.gutter * 1.5}px`,
         maxWidth: "600px",
         width: "100%"
@@ -235,7 +228,7 @@ class Home extends React.Component {
           </div>
 
           <div style={styles.padded}>
-            <h2 style={[styles.noMarginTop, styles.copy]}>Documentation</h2>
+            <h2 style={styles.copy}>Documentation</h2>
             <div style={styles.columns}>
               <ul style={styles.list}>
                 <li className="Smallcaps" style={styles.marginTop}>Core</li>
@@ -266,7 +259,7 @@ class Home extends React.Component {
           </div>
 
           <div style={styles.padded}>
-            <h2 style={[styles.noMarginTop, styles.copy]}>Recipes</h2>
+            <h2 style={styles.copy}>Recipes</h2>
             <div style={styles.columns}>
               <ul style={styles.list}>
                 <li className="Smallcaps" style={styles.marginTop}>Customize</li>
@@ -279,7 +272,7 @@ class Home extends React.Component {
             </div>
           </div>
 
-          <div style={[styles.padded, styles.copy]}>
+          <div style={[styles.padded, styles.copy, {textAlign: "center"}]}>
             <h2>Learn more</h2>
             <h3>Source Code</h3>
             <p>

@@ -25,6 +25,7 @@ class Docs extends React.Component {
         backgroundColor: "#D6CCC1",
         overflow: "auto",
         padding: `0 ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
+        zIndex: "1",
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
           position: "fixed",
