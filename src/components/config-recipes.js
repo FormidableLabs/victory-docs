@@ -28,14 +28,14 @@ export const recipesComponents = [
     category: "customize",
     docs: MultipleAxes
   }, {
-    text: "Tooltip",
-    slug: "tooltip",
-    category: "events",
-    docs: Tooltip
-  }, {
     text: "Candlestick Dashboard",
     slug: "candlestick-dashboard",
     category: "customize",
     docs: CandlestickDashboard
+  }, {
+    text: "Tooltip",
+    slug: "tooltip",
+    category: "events",
+    docs: Tooltip
   }
 ];
