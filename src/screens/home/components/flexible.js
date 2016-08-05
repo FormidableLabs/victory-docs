@@ -175,7 +175,7 @@ class MultipleAxes extends React.Component {
         <rect x="420" y="10" width="20" height="20" fill="#458ca8" />
 
         <VictoryLabel
-          x={430} y={27}
+          x={430} y={25}
           textAnchor="middle"
           verticalAnchor="end"
           style={styles.labelNumber}
@@ -184,7 +184,7 @@ class MultipleAxes extends React.Component {
         </VictoryLabel>
 
         <VictoryLabel
-          x={25} y={15}
+          x={25} y={25}
           textAnchor="start"
           verticalAnchor="start"
           lineHeight={1.2}

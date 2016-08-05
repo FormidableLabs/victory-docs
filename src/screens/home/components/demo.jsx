@@ -7,24 +7,17 @@ import { VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie } from 
 class Demo extends React.Component {
   render() {
     return (
-      <div style={this.props.style}>
-        <Ecology
-          overview={this.props.src}
-          scope={{React, ReactDOM, VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie}}
-          playgroundtheme="elegant"
-        />
-      </div>
+      <Ecology
+        overview={this.props.src}
+        scope={{React, ReactDOM, VictoryGroup, VictoryBar, VictoryChart, VictoryLine, VictoryPie}}
+        playgroundtheme="elegant"
+      />
     );
   }
 }
 
 Demo.propTypes = {
-  src: React.PropTypes.string,
-  style: React.PropTypes.object
-};
-
-Demo.defaultProps = {
-  style: null
+  src: React.PropTypes.string
 };
 
 export default Radium(Demo);

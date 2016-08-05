@@ -5,11 +5,9 @@ import Radium from "radium";
 import { VictorySettings } from "formidable-landers";
 import Demo from "./demo";
 import logotype from "../../../../static/logotype-hero.svg";
-import GITHUBLOGO from "../../../../static/logo-github.svg";
-import GITTERLOGO from "../../../../static/logo-gitter.svg";
+import Icon from "../../../components/icon";
 
 class Hero extends React.Component {
-  // boxShadow: `0 0 0 1px ${VictorySettings.mud}, 0 0 0 20px ${VictorySettings.palerSand}, 0 0 0 23px ${VictorySettings.mud}`
   getStyles() {
     return {
       cover: {
@@ -57,21 +55,23 @@ class Hero extends React.Component {
         lineHeight: 1.2
       },
       list: {
+        alignItems: "center",
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
         listStyleType: "none",
-        margin: `${VictorySettings.gutter * 3}px 0 0`,
-        maxHeight: "50px",
+        margin: `${VictorySettings.gutter * 2}px auto 0`,
+        maxWidth: "720px",
         padding: 0
       },
       listItem: {
-        margin: `0 ${VictorySettings.gutter}px`
+        padding: `${VictorySettings.gutter}px`
       },
-      linkIcon: {
+      icon: {
         display: "inline-block",
-        marginRight: "4px",
-        width: "22px",
+        marginRight: "0.5em",
+        width: "30px",
         verticalAlign: "middle"
       }
     };
@@ -90,12 +90,22 @@ class Hero extends React.Component {
         <ul style={styles.list}>
           <li style={styles.listItem}>
             <a href="https://github.com/FormidableLabs/victory" key="heroLinkIconGithub">
-              <span style={styles.linkIcon} dangerouslySetInnerHTML={{ __html: GITHUBLOGO }} /> View Source Code
+              Source Code <Icon glyph="external-link" />
             </a>
           </li>
           <li style={styles.listItem}>
             <a href="https://gitter.im/FormidableLabs/victory" key="heroLinkIconGitter">
-              <span style={styles.linkIcon} dangerouslySetInnerHTML={{ __html: GITTERLOGO }} /> Chat about Victory
+              Chat <Icon glyph="external-link" />
+            </a>
+          </li>
+          <li style={styles.listItem}>
+            <a href="/docs" key="heroLinkDocs">
+              Docs <Icon glyph="internal-link" />
+            </a>
+          </li>
+          <li style={styles.listItem}>
+            <a href="/recipes" key="heroLinkDocs">
+              Recipes <Icon glyph="internal-link" />
             </a>
           </li>
         </ul>

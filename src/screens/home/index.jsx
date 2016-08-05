@@ -125,7 +125,6 @@ class Home extends React.Component {
         backgroundColor: VictorySettings.whiteSand,
         display: "block",
         margin: "0 auto",
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px ${VictorySettings.gutter * 1.5}px`,
         maxWidth: "600px",
         width: "100%"
       }
