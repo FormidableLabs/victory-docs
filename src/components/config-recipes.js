@@ -4,6 +4,7 @@ import CustomDataComponent from "victory-examples/docs/custom-data-component/doc
 import CustomStyles from "victory-examples/docs/custom-styles/docs";
 import MultipleAxes from "victory-examples/docs/multiple-axes/docs";
 import Tooltip from "victory-examples/docs/tooltip/docs";
+import CandlestickDashboard from "victory-examples/docs/candlestick-dashboard/docs";
 
 export const recipesComponents = [
   {
@@ -26,6 +27,11 @@ export const recipesComponents = [
     slug: "multiple-axes",
     category: "customize",
     docs: MultipleAxes
+  }, {
+    text: "Candlestick Dashboard",
+    slug: "candlestick-dashboard",
+    category: "customize",
+    docs: CandlestickDashboard
   }, {
     text: "Tooltip",
     slug: "tooltip",
