@@ -17,9 +17,9 @@ class Sidebar extends React.Component {
     return {
       icon: {
         color: VictorySettings.darkMud,
-        height: "50px",
-        margin: `${VictorySettings.gutter * 2}px auto ${VictorySettings.gutter * 2}px`,
-        width: "50px"
+        height: "40px",
+        margin: `${VictorySettings.gutter}px auto`,
+        width: "40px"
       },
       iconLink: {
         display: "block",
@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
         boxSizing: "border-box",
         columns: "3 220px",
         columnGap: `${VictorySettings.gutter * 2}px`,
-        fontSize: "20px",
+        fontSize: "16px",
         listStyle: "none",
         padding: 0
       },
@@ -44,9 +44,9 @@ class Sidebar extends React.Component {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        lineHeight: 1.3,
+        lineHeight: 1.1,
         margin: 0,
-        padding: `${VictorySettings.gutter * 0.3}px ${VictorySettings.gutter * 0.5}px 0 0`
+        padding: `0 ${VictorySettings.gutter * 0.5}px 0 0`
       },
       listItemCategoryHeading: {
         breakInside: "avoid",
@@ -54,12 +54,12 @@ class Sidebar extends React.Component {
         pageBreakInside: "avoid",
         borderBottom: `1px solid ${VictorySettings.sand}`,
         color: VictorySettings.mud,
-        fontSize: "0.75em",
+        fontSize: "0.8em",
         letterSpacing: "0.15em",
         lineHeight: 1.5,
         marginTop: `${VictorySettings.gutter * 0.5}px`,
         marginBottom: `${VictorySettings.gutter * -0.25}px`,
-        paddingTop: `${VictorySettings.gutter * 1.5}px`,
+        paddingTop: `${VictorySettings.gutter}px`,
         textTransform: "uppercase"
       },
       listItemHeading: {
@@ -68,9 +68,10 @@ class Sidebar extends React.Component {
         pageBreakInside: "avoid",
         color: VictorySettings.paleMud,
         fontFamily: VictorySettings.sansSerif,
-        fontSize: "0.9em",
+        fontSize: "1em",
         lineHeight: 1.1,
         marginTop: `${VictorySettings.gutter * 0.5}px`,
+        marginBottom: `${VictorySettings.gutter * 0.25}px`,
         paddingTop: `${VictorySettings.gutter * 0.5}px`
       }
     };
@@ -108,6 +109,11 @@ class Sidebar extends React.Component {
           <li key="index" style={styles.listItem}>
             <NavLink to="/docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />
+            </NavLink>
+          </li>
+          <li key="index" style={styles.listItem}>
+            <NavLink to="/recipes" style={styles.navlink}>
+              Recipes <Icon glyph="internal-link" />
             </NavLink>
           </li>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
