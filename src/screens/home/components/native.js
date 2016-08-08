@@ -13,7 +13,7 @@ class Native extends React.Component {
   }
 
   getData() {
-    return [1, 2, 3, 4, 5].map((index) => {
+    return [1, 2, 3, 4, 5].map((index) => { // eslint-disable-line no-unused-vars
       return [
         {x: 1, y: Math.random()},
         {x: 2, y: Math.random()},
