@@ -14,6 +14,7 @@ import { recipesComponents } from "../../components/config-recipes";
 import Hero from "./components/hero";
 import Demo from "./components/demo";
 import DemoFlexible from "./components/flexible";
+import DemoNative from "./components/native";
 import Companies from "./components/companies";
 import Icon from "../../components/icon";
 import NavLink from "../../components/navlink";
@@ -125,7 +126,6 @@ class Home extends React.Component {
         backgroundColor: VictorySettings.whiteSand,
         display: "block",
         margin: "0 auto",
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px ${VictorySettings.gutter * 1.5}px`,
         maxWidth: "600px",
         width: "100%"
       }
@@ -220,6 +220,18 @@ class Home extends React.Component {
             <p style={styles.copy}>
               Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
             </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              justifyContent: "center"
+            }}
+          >
+            <DemoNative />
+            <DemoNative alt />
           </div>
 
           <div style={styles.padded}>

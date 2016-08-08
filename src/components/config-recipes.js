@@ -8,6 +8,12 @@ import CandlestickDashboard from "victory-examples/docs/candlestick-dashboard/do
 
 export const recipesComponents = [
   {
+    text: "Candlestick Dashboard",
+    slug: "candlestick-dashboard",
+    category: "customize",
+    docs: CandlestickDashboard
+  },
+  {
     text: "Central Axis",
     slug: "custom-central-axis",
     category: "customize",
@@ -18,20 +24,15 @@ export const recipesComponents = [
     category: "customize",
     docs: CustomDataComponent
   }, {
-    text: "Styles",
-    slug: "custom-styles",
-    category: "customize",
-    docs: CustomStyles
-  }, {
     text: "Multiple Axes",
     slug: "multiple-axes",
     category: "customize",
     docs: MultipleAxes
   }, {
-    text: "Candlestick Dashboard",
-    slug: "candlestick-dashboard",
+    text: "Styles",
+    slug: "custom-styles",
     category: "customize",
-    docs: CandlestickDashboard
+    docs: CustomStyles
   }, {
     text: "Tooltip",
     slug: "tooltip",

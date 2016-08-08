@@ -9,27 +9,20 @@ import {
 class Demo extends React.Component {
   render() {
     return (
-      <div style={this.props.style}>
-        <Ecology
-          overview={this.props.src}
-          scope={{
-            React, ReactDOM, VictoryStack, VictoryTheme, VictoryBar, VictoryChart,
-            VictoryLine, VictoryPie, VictoryAxis
-          }}
-          playgroundtheme="elegant"
-        />
-      </div>
+      <Ecology
+        overview={this.props.src}
+        scope={{
+          React, ReactDOM, VictoryStack, VictoryTheme, VictoryBar, VictoryChart,
+          VictoryLine, VictoryPie, VictoryAxis
+        }}
+        playgroundtheme="elegant"
+      />
     );
   }
 }
 
 Demo.propTypes = {
-  src: React.PropTypes.string,
-  style: React.PropTypes.object
-};
-
-Demo.defaultProps = {
-  style: null
+  src: React.PropTypes.string
 };
 
 export default Radium(Demo);
