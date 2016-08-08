@@ -100,7 +100,7 @@ class Hero extends React.Component {
           </li>
           <li style={styles.listItem}>
             <a href="/docs" key="heroLinkDocs">
-              Docs <Icon glyph="internal-link" />
+              Get Started <Icon glyph="internal-link" />
             </a>
           </li>
           <li style={styles.listItem}>

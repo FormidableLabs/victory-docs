@@ -219,7 +219,17 @@ class Home extends React.Component {
             </p>
           </div>
 
-          <DemoNative />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: "nowrap",
+              justifyContent: "center"
+            }}
+          >
+            <DemoNative />
+            <DemoNative alt />
+          </div>
 
           <div style={styles.padded}>
             <div style={[styles.copy, {display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }]}>

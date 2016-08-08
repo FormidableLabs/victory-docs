@@ -17,9 +17,11 @@ class Native extends React.Component {
   }
 
   getStyles() {
+    const bgImg = this.props.alt ?
+      `url(./static/native-alt.svg)` : `url(./static/native.svg)`;
     return {
-      wrapper: {
-        backgroundImage: `url(./static/native.svg)`,
+      phone: {
+        backgroundImage: bgImg,
         backgroundPosition: "top center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% auto",
@@ -27,9 +29,9 @@ class Native extends React.Component {
         flexDirection: "column",
         flexWrap: "nowrap",
         justifyContent: "space-around",
-        margin: "0 auto",
+        margin: "0 20px",
         height: "470px",
-        padding: "55px 25px",
+        padding: "60px 25px 50px",
         width: "250px"
       }
     };
@@ -37,15 +39,14 @@ class Native extends React.Component {
 
   render() {
     const styles = this.getStyles();
-    const data = this.getData();
 
     return (
-      <div style={styles.wrapper}>
+      <div style={styles.phone}>
         <VictoryChart
           width={200}
           height={250}
           padding={{
-            top: 5,
+            top: 10,
             bottom: 50,
             left: 5,
             right: 5
@@ -58,12 +59,12 @@ class Native extends React.Component {
               {x: 2, y: 2.5},
               {x: 3, y: 4},
               {x: 4, y: 2.5},
-              {x: 5, y: 1},
+              {x: 5, y: 1}
             ]}
             interpolation="linear"
           />
         </VictoryChart>
-        <VictoryStack
+        <VictoryChart
           width={200}
           height={250}
           padding={{
@@ -73,27 +74,45 @@ class Native extends React.Component {
             right: 5
           }}
         >
-          <VictoryArea
-            data={[
-              {x: 1, y: 2},
-              {x: 2, y: 1},
-              {x: 3, y: 1}
-            ]}
-          />
-          <VictoryArea
-            style={{ data: {
-              fill: "#000"
-            }}}
-            data={[
-              {x: 1, y: 3},
-              {x: 2, y: 4},
-              {x: 3, y: 2}
-            ]}
-          />
-        </VictoryStack>
+          <VictoryStack>
+            <VictoryArea
+              data={[
+                {x: 1, y: 2},
+                {x: 2, y: 1},
+                {x: 3, y: 1}
+              ]}
+            />
+            <VictoryArea
+              data={[
+                {x: 1, y: 1},
+                {x: 2, y: 2},
+                {x: 3, y: 0}
+              ]}
+            />
+            <VictoryArea
+              data={[
+                {x: 1, y: 3},
+                {x: 2, y: 4},
+                {x: 3, y: 2}
+              ]}
+            />
+            <VictoryArea
+              data={[
+                {x: 1, y: 4},
+                {x: 2, y: 3},
+                {x: 3, y: 5}
+              ]}
+            />
+          </VictoryStack>
+          <VictoryAxis />
+        </VictoryChart>
       </div>
     );
   }
 }
+
+Native.propTypes = {
+  alt: React.PropTypes.bool
+};
 
 export default Radium(Native); // eslint-disable-line new-cap
