@@ -5,15 +5,31 @@ import Radium from "radium";
 import { VictoryArea, VictoryAxis, VictoryBar, VictoryChart, VictoryStack } from "victory-chart";
 
 class Native extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: this.getData()
+    };
+  }
+
   getData() {
-    return [
-      {x: new Date(2000, 1, 1), y: 12},
-      {x: new Date(2001, 1, 1), y: 5},
-      {x: new Date(2002, 1, 1), y: 4},
-      {x: new Date(2003, 1, 1), y: 6},
-      {x: new Date(2004, 1, 1), y: 5},
-      {x: new Date(2005, 1, 1), y: 7}
-    ];
+    return [1, 2, 3, 4, 5].map((index) => {
+      return [
+        {x: 1, y: Math.random()},
+        {x: 2, y: Math.random()},
+        {x: 3, y: Math.random()},
+        {x: 4, y: Math.random()},
+        {x: 5, y: Math.random()}
+      ];
+    });
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ // eslint-disable-line react/no-did-mount-set-state
+        data: this.getData()
+      });
+    }, 2000);
   }
 
   getStyles() {
@@ -64,47 +80,31 @@ class Native extends React.Component {
             interpolation="linear"
           />
         </VictoryChart>
+
         <VictoryChart
+          animate={{ duration: 2000 }}
           width={200}
           height={250}
           padding={{
-            top: 5,
+            top: 10,
             bottom: 50,
             left: 5,
             right: 5
           }}
         >
           <VictoryStack>
-            <VictoryArea
-              data={[
-                {x: 1, y: 2},
-                {x: 2, y: 1},
-                {x: 3, y: 1}
-              ]}
-            />
-            <VictoryArea
-              data={[
-                {x: 1, y: 1},
-                {x: 2, y: 2},
-                {x: 3, y: 0}
-              ]}
-            />
-            <VictoryArea
-              data={[
-                {x: 1, y: 3},
-                {x: 2, y: 4},
-                {x: 3, y: 2}
-              ]}
-            />
-            <VictoryArea
-              data={[
-                {x: 1, y: 4},
-                {x: 2, y: 3},
-                {x: 3, y: 5}
-              ]}
-            />
+            {this.state.data.map((data, i) => {
+              const key = this.props.alt ? `alt${i}` : i;
+              return (
+                <VictoryArea
+                  key={key}
+                  data={data}
+                />
+              );
+            })}
           </VictoryStack>
           <VictoryAxis />
+          <VictoryAxis dependentAxis />
         </VictoryChart>
       </div>
     );
