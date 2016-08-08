@@ -299,6 +299,7 @@ class MultipleAxes extends React.Component {
               x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
               y: [-10, 15]
             }}
+            interpolation="monotoneX"
             scale={{x: "time", y: "linear"}}
             standalone={false}
             style={styles.lineThree}
@@ -310,6 +311,7 @@ class MultipleAxes extends React.Component {
               x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
               y: [-10, 15]
             }}
+            interpolation="monotoneX"
             scale={{x: "time", y: "linear"}}
             standalone={false}
             style={styles.lineOne}
@@ -321,7 +323,7 @@ class MultipleAxes extends React.Component {
               x: [new Date(1999, 1, 1), new Date(2016, 1, 1)],
               y: [0, 50]
             }}
-            interpolation="linear"
+            interpolation="monotoneX"
             scale={{x: "time", y: "linear"}}
             standalone={false}
             style={styles.lineTwo}

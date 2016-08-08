@@ -83,7 +83,7 @@ class Hero extends React.Component {
       <div style={styles.cover}>
         <h1 dangerouslySetInnerHTML={{__html: logotype}} style={styles.title} />
         <p style={styles.headingMajor}>An ecosystem of modular data visualization components</p>
-        <Demo src={require("!!raw!./examples/friendly.md")} />
+        <Demo src={require("!!raw!./examples/hero.md")} />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
         </div>

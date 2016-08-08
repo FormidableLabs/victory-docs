@@ -174,15 +174,26 @@ class Home extends React.Component {
           <Hero />
           <div style={styles.padded} className="Home">
             <h2 style={styles.copy}>Why Victory?</h2>
-
+            {/* Friendly */}
             <h3 style={styles.copy}>Friendly</h3>
             <p style={styles.copy}>
-              The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors.
+              The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors. Sensible default props make getting started easy!
             </p>
           </div>
 
           <Demo src={require("!!raw!./components/examples/friendly.md")} />
 
+          {/* Composable */}
+          <div style={styles.padded} className="Home">
+            <h3 style={styles.copy}>Composable</h3>
+            <p style={styles.copy}>
+              When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
+            </p>
+          </div>
+
+          <Demo src={require("!!raw!./components/examples/composable.md")} />
+
+          {/* Flexible */}
           <div style={styles.padded} className="Home">
             <h3 style={styles.copy}>Flexible</h3>
             <p style={styles.copy}>
@@ -203,15 +214,7 @@ class Home extends React.Component {
             </p>
           </div>
 
-          <div style={styles.padded} className="Home">
-            <h3 style={styles.copy}>Composable</h3>
-            <p style={styles.copy}>
-              When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
-            </p>
-          </div>
-
-          <Demo src={require("!!raw!./components/examples/composable.md")} />
-
+          {/* Native */}
           <div style={styles.padded} className="Home">
             <h3 style={styles.copy}>Native</h3>
             <p style={styles.copy}>
