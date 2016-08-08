@@ -13,7 +13,7 @@ class Native extends React.Component {
   }
 
   getData() {
-    return [1, 2, 3, 4, 5].map((index) => { // eslint-disable-line no-unused-vars
+    return [1, 2, 3, 4, 5].map(() => {
       return [
         {x: 1, y: Math.random()},
         {x: 2, y: Math.random()},
@@ -60,7 +60,7 @@ class Native extends React.Component {
       <div style={styles.phone}>
         <VictoryChart
           width={200}
-          height={250}
+          height={200}
           padding={{
             top: 10,
             bottom: 50,
@@ -84,7 +84,7 @@ class Native extends React.Component {
         <VictoryChart
           animate={{ duration: 2000 }}
           width={200}
-          height={250}
+          height={300}
           padding={{
             top: 10,
             bottom: 50,
