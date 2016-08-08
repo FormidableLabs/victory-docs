@@ -14,6 +14,7 @@ import { recipesComponents } from "../../components/config-recipes";
 import Hero from "./components/hero";
 import Demo from "./components/demo";
 import DemoFlexible from "./components/flexible";
+import DemoNative from "./components/native";
 import Companies from "./components/companies";
 import Icon from "../../components/icon";
 import NavLink from "../../components/navlink";
@@ -217,6 +218,8 @@ class Home extends React.Component {
               Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
             </p>
           </div>
+
+          <DemoNative />
 
           <div style={styles.padded}>
             <div style={[styles.copy, {display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }]}>
