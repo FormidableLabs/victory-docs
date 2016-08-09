@@ -1,5 +1,7 @@
 import React from "react";
 import Radium from "radium";
+import { Link } from "react-router";
+const RadiumLink = Radium(Link);
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -99,14 +101,14 @@ class Hero extends React.Component {
             </a>
           </li>
           <li style={styles.listItem}>
-            <a href="/docs" key="heroLinkDocs">
+            <RadiumLink to="/docs">
               Get Started <Icon glyph="internal-link" />
-            </a>
+            </RadiumLink>
           </li>
           <li style={styles.listItem}>
-            <a href="/recipes" key="heroLinkDocs">
+            <RadiumLink to="/recipes">
               Recipes <Icon glyph="internal-link" />
-            </a>
+            </RadiumLink>
           </li>
         </ul>
       </div>
