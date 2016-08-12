@@ -15,7 +15,7 @@ class Icon extends React.Component {
         margin: 0,
         padding: 0,
         display: "inline-block",
-        verticalAlign: "middle"
+        verticalAlign: "-3px"
       }
     };
   }

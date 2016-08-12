@@ -1,5 +1,5 @@
 ```playground
-<VictoryPie theme={VictoryTheme.material}
+<VictoryPie
   // Try changing the data
   data={[
     {x: "Cat", y: 62},

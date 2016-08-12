@@ -13,7 +13,7 @@ class Companies extends React.Component {
   getStyles() {
     return {
       heart: {
-        color: VictorySettings.darkMud,
+        color: VictorySettings.red,
         width: "50px"
       },
       img: {
@@ -45,7 +45,9 @@ class Companies extends React.Component {
 
     return (
       <div style={this.props.style}>
-        <h2><span style={styles.heart} dangerouslySetInnerHTML={{__html: ICONHEART}} /></h2>
+        <h2>
+          <span style={styles.heart} dangerouslySetInnerHTML={{__html: ICONHEART}} /> See Victory in use 
+        </h2>
         <ul style={styles.list}>
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: OOKLA}} />

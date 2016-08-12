@@ -1,8 +1,8 @@
 ```playground
-<VictoryChart theme={VictoryTheme.material}>
+<VictoryChart>
   <VictoryLine
     // Try changing 1.5 to 5
-    y={(data) => Math.sin(1.5 * Math.PI * data.x)} 
+    y={(data) => Math.sin(1.5 * Math.PI * data.x)}
   />
   <VictoryLine
     // Try adding a strokeWidth
