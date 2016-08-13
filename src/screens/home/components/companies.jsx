@@ -46,7 +46,7 @@ class Companies extends React.Component {
     return (
       <div style={this.props.style}>
         <h2>
-          <span style={styles.heart} dangerouslySetInnerHTML={{__html: ICONHEART}} /> See Victory in use 
+          <span style={styles.heart} dangerouslySetInnerHTML={{__html: ICONHEART}} /> See Victory in use
         </h2>
         <ul style={styles.list}>
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
