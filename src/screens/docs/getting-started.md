@@ -304,7 +304,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### Override VictoryTheme's color scale
+### 9. Override VictoryTheme's color scale
 
 Finally, let's add a ```colorScale``` to VictoryStack to override the one that's being passed down from ```VictoryTheme.material```. (See the commit [here](https://github.com/FormidableLabs/victory-tutorial/tree/9c77240e45db4e9fde4123ae29304461739a7035).)
 
