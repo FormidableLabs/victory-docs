@@ -2,26 +2,6 @@
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations.
 
-# First heading
-
-A paragraph. A paragraph. A paragraph.
-
-## Second heading
-
-A paragraph. A paragraph. A paragraph.
-
-### Third heading
-
-A paragraph. A paragraph. A paragraph.
-
-#### Fourth Heading
-
-A paragraph. A paragraph. A paragraph.
-
-##### Fifth heading
-
-A paragraph. A paragraph. A paragraph. 
-
 ## Your first Victory component
 
 Add Victory to your project:
