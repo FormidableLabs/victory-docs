@@ -2,7 +2,7 @@
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations.
 
-### Your first Victory component
+## Your first Victory component
 
 Add Victory to your project:
 ```bash

@@ -52,12 +52,13 @@ class MultipleAxes extends React.Component {
       parent: {
         boxSizing: "border-box",
         display: "block",
-        margin: 0,
+        margin: "0 auto",
         padding: 0,
         backgroundColor: BABY_BLUE_COLOR,
         fontFamily: "'Fira Sans', 'Helvetica Neue', Helvetica, sans-serif",
-        width: "100%",
-        height: "auto"
+        width: "auto",
+        height: "100%",
+        maxHeight: "280px"
       },
       labelNumber: {
         fill: "#ffffff",
@@ -169,7 +170,11 @@ class MultipleAxes extends React.Component {
     const dataSetTwo = this.getDataSetTwo();
 
     return (
-      <svg style={styles.parent} viewBox="0 0 450 350">
+      <svg
+        className="fancyBorder"
+        style={styles.parent}
+        viewBox="0 0 450 350"
+      >
         <rect x="0" y="0" width="10" height="30" fill="#f01616"/>
 
         <rect x="420" y="10" width="20" height="20" fill="#458ca8" />
