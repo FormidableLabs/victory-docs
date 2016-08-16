@@ -27,8 +27,9 @@ if (typeof window !== "undefined" && window.__STATIC_GENERATOR !== true) { //esl
   // Add Google Analytics tracking for each page
   ReactGA.initialize("UA-43290258-1");
   history.listen((location) => {
-    ReactGA.set({ page: location.pathname });
-    ReactGA.pageview(location.pathname);
+    const fullLocation = basename + location.pathname;
+    ReactGA.set({ page: fullLocation });
+    ReactGA.pageview(fullLocation);
   });
   render(
     <Router
