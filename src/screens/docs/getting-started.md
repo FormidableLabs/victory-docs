@@ -2,11 +2,7 @@
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. 
 
-<<<<<<< HEAD
 ## Tutorial
-=======
-## Your first Victory component
->>>>>>> master
 
 In this guide, we’ll show you how to get started with Victory and walk you through the creation and customization of a composed chart. We’ve created a GitHub repository with the completed project, and will link to the corresponding commit where appropriate to help you follow along. If you want, you can [view the completed tutorial here](https://github.com/FormidableLabs/victory-tutorial/blob/master/src/js/client.js).
 
