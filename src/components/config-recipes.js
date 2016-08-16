@@ -5,7 +5,7 @@ import CustomStyles from "victory-examples/docs/custom-styles/docs";
 import MultipleAxes from "victory-examples/docs/multiple-axes/docs";
 import Tooltip from "victory-examples/docs/tooltip/docs";
 import CandlestickDashboard from "victory-examples/docs/candlestick-dashboard/docs";
-import ThemePark from "victory-examples/docs/theme-park/docs";
+import ThemePark from "../screens/recipes/components/theme-park";
 
 export const recipesComponents = [
   {
