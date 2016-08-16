@@ -7,10 +7,6 @@ import Home from "./screens/home/index";
 import Docs from "./screens/docs/index";
 import Recipes from "./screens/recipes/index";
 
-// TODO: Analytics https://github.com/FormidableLabs/victory-docs/issues/1
-// import ga from "react-ga";
-// ga.initialize("UA-43290258-1");
-
 module.exports = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
