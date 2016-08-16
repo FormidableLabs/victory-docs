@@ -13,10 +13,11 @@ class NavLink extends React.Component {
       active: {
         border: "none",
         boxShadow: "none",
-        color: VictorySettings.red,
+        fontWeight: "bold",
+        color: VictorySettings.darkMud,
         ":hover": {
           border: "none",
-          color: VictorySettings.red
+          color: VictorySettings.darkMud
         }
       }
     };

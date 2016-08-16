@@ -5,6 +5,7 @@ import CustomStyles from "victory-examples/docs/custom-styles/docs";
 import MultipleAxes from "victory-examples/docs/multiple-axes/docs";
 import Tooltip from "victory-examples/docs/tooltip/docs";
 import CandlestickDashboard from "victory-examples/docs/candlestick-dashboard/docs";
+import ThemePark from "victory-examples/docs/theme-park/docs";
 
 export const recipesComponents = [
   {
@@ -33,6 +34,11 @@ export const recipesComponents = [
     slug: "custom-styles",
     category: "customize",
     docs: CustomStyles
+  }, {
+    text: "Theme Park",
+    slug: "theme-park",
+    category: "customize",
+    docs: ThemePark
   }, {
     text: "Tooltip",
     slug: "tooltip",

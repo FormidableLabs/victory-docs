@@ -16,8 +16,8 @@ class App extends React.Component {
       header: {
         borderBottom: 0,
         color: VictorySettings.palerSand,
-        fontSize: "16px",
-        padding: `${VictorySettings.gutter}px`,
+        fontSize: "18px",
+        padding: `${VictorySettings.gutter * 0.5}px ${VictorySettings.gutter}px`,
         position: "relative",
         textAlign: "right",
         zIndex: "0"

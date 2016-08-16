@@ -1,60 +1,48 @@
 import React from "react";
 import Radium from "radium";
-
-import TitleMeta from "../../components/title-meta";
 import { Link } from "react-router";
 const RadiumLink = Radium(Link);
 
-// Settings
+// Common
 import { VictorySettings } from "formidable-landers";
 import { components } from "../../components/config";
 import { recipesComponents } from "../../components/config-recipes";
+import Icon from "../../components/icon";
+import TitleMeta from "../../components/title-meta";
+import Footer from "../../components/footer";
 
 // Child Components
 import Hero from "./components/hero";
-import Demo from "./components/demo";
-import DemoFlexible from "./components/flexible";
-import DemoNative from "./components/native";
+import Benefits from "./components/benefits";
 import Companies from "./components/companies";
-import Icon from "../../components/icon";
-import NavLink from "../../components/navlink";
-import Footer from "../../components/footer";
 
 class Home extends React.Component {
   getStyles() {
     return {
       section: {
+        background: `linear-gradient(180deg, #efe9e3, ${VictorySettings.palerSand} 75%)`,
         display: "block",
         paddingBottom: `${VictorySettings.gutter * 3}px`
       },
-      padded: {
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px 0`
-      },
-      marginTop: {
-        marginTop: `${VictorySettings.gutter}px`
-      },
-      code: {
-        background: VictorySettings.palestSand,
-        borderRadius: 3,
-        color: VictorySettings.mud,
-        fontFamily: VictorySettings.monospace,
-        padding: "0 0.25em"
-      },
       copy: {
-        maxWidth: "840px",
-        marginLeft: "auto",
-        marginRight: "auto"
+        maxWidth: "38em",
+        marginLeft: "3vw"
       },
       columns: {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "flex-start",
         alignItems: "flex-start",
-
-        [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          justifyContent: "center"
-        }
+        marginLeft: "3vw"
+      },
+      headingCategory: {
+        color: VictorySettings.paleMud,
+        fontFamily: VictorySettings.sansSerif,
+        fontSize: "0.8em",
+        letterSpacing: "0.15em",
+        marginBottom: `${VictorySettings.gutter * 0.5}px`,
+        textTransform: "uppercase"
       },
       list: {
         listStyleType: "none",
@@ -68,20 +56,19 @@ class Home extends React.Component {
         }
       },
       listItem: {
-        color: VictorySettings.darkestSand,
-        lineHeight: 1.5,
-        marginTop: `${VictorySettings.gutter * 0.5}px`,
+        lineHeight: 1.4,
+        margin: `0 0 0 ${VictorySettings.gutter * 0.5}px`,
         position: "relative"
       },
       nestedList: {
         listStyleType: "none",
-        margin: `0 0 ${VictorySettings.gutter * 0.5}px 7px`,
-        padding: `0 0 0 ${VictorySettings.gutter}px`,
+        margin: `0 0 ${VictorySettings.gutter * 0.5}px 17px`,
+        padding: `0 0 0 ${VictorySettings.gutter * 0.5}px`,
         boxShadow: `inset 0 -15px 0 ${VictorySettings.palerSand},
            inset 1px 0 0 ${VictorySettings.darkSand}`,
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          boxShadow: `inset 0 -15px 0 ${VictorySettings.palerSand},
+          boxShadow: `inset 0 -16px 0 ${VictorySettings.palerSand},
              inset 1px 0 0 ${VictorySettings.darkSand}`
         }
       },
@@ -96,42 +83,16 @@ class Home extends React.Component {
         height: 3,
         borderTop: `1px solid ${VictorySettings.darkSand}`
       },
-      boldSmallCaps: {
-        fontWeight: "bold",
-        paddingRight: 0
-      },
-      buttonLink: {
-        borderStyle: "solid",
-        borderWidth: "39px 41px",
-        borderImageSource: `url("./static/btn-border.svg")`,
-        borderImageSlice: "39 41",
-        borderImageRepeat: "repeat stretch",
-        color: VictorySettings.red,
-        display: "inline-block",
-        fontFamily: VictorySettings.serif,
+      smallCaps: {
+        fontFamily: VictorySettings.sansSerif,
         fontSize: "0.75em",
         fontWeight: "normal",
         letterSpacing: "0.2em",
         lineHeight: 1,
-        textTransform: "uppercase",
-        padding: "30px 24px",
-        width: "100%",
-        transition: "color 2s ease-out",
-        ":hover": {
-          color: VictorySettings.mud,
-          transition: "color 200ms ease"
-        }
-      },
-      demoComponent: {
-        backgroundColor: VictorySettings.whiteSand,
-        display: "block",
-        margin: "0 auto",
-        maxWidth: "600px",
-        width: "100%"
+        textTransform: "uppercase"
       }
     };
   }
-
 
   renderComponents(items, route, category) {
     const styles = this.getStyles();
@@ -145,9 +106,9 @@ class Home extends React.Component {
           return (
             <li key={item.slug} style={styles.listItem}>
               <b style={styles.bullet} />
-              <NavLink to={`${route}/${item.slug}`}>
+              <RadiumLink to={`${route}/${item.slug}`}>
                 {item.text} <Icon glyph="internal-link" />
-              </NavLink>
+              </RadiumLink>
             </li>
           );
         }
@@ -157,9 +118,9 @@ class Home extends React.Component {
       if (item.category === category) {
         return (
           <li key={item.slug} style={styles.listItem}>
-            <NavLink to={`${route}/${item.slug}`}>
+            <RadiumLink to={`${route}/${item.slug}`}>
               {item.text} <Icon glyph="internal-link" />
-            </NavLink>
+            </RadiumLink>
           </li>
         );
       }
@@ -172,146 +133,76 @@ class Home extends React.Component {
       <TitleMeta title="Victory">
         <section style={styles.section} className="playgroundsMaxHeight">
           <Hero />
-          <div style={styles.padded} className="Home">
-            <h2 style={styles.copy}>Why Victory?</h2>
-            {/* Friendly */}
-            <h3 style={styles.copy}>Friendly</h3>
-            <p style={styles.copy}>
-              The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors. Sensible default props make getting started easy!
-            </p>
-          </div>
+          <Benefits />
 
-          <Demo src={require("!!raw!./components/examples/friendly.md")} />
-
-          {/* Composable */}
-          <div style={styles.padded} className="Home">
-            <h3 style={styles.copy}>Composable</h3>
-            <p style={styles.copy}>
-              When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
-            </p>
-          </div>
-
-          <Demo src={require("!!raw!./components/examples/composable.md")} />
-
-          {/* Flexible */}
-          <div style={styles.padded} className="Home">
-            <h3 style={styles.copy}>Flexible</h3>
-            <p style={styles.copy}>
-              The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
-            </p>
-          </div>
-
-          <div className="Interactive" style={{backgroundColor: "transparent"}}>
-            <div className="playground">
-              <div className="fancyBorder" style={styles.demoComponent}>
-                <DemoFlexible />
-              </div>
-            </div>
-            <p style={{textAlign: "center"}}>
-              <a href="https://github.com/FormidableLabs/victory-examples/blob/master/src/components/custom-styles.js">
-                <span className="Smallcaps" style={styles.boldSmallCaps}>View the source.</span> <Icon glyph="external-link" />
-              </a>
-            </p>
-          </div>
-
-          {/* Native */}
-          <div style={styles.padded} className="Home">
-            <h3 style={styles.copy}>Native</h3>
-            <p style={styles.copy}>
-              Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              flexWrap: "nowrap",
-              justifyContent: "center"
-            }}
-          >
-            <DemoNative />
-            <DemoNative alt />
-          </div>
-
-          <div style={styles.padded}>
-            <div style={[styles.copy, {display: "block", marginTop: `${VictorySettings.gutter}px`, textAlign: "center" }]}>
-              <RadiumLink style={styles.buttonLink} to="/docs">
-                Getting Started Guide <Icon glyph="internal-link" />
-              </RadiumLink>
-            </div>
-          </div>
-
-          <div style={styles.padded}>
-            <h2 style={styles.copy}>Documentation</h2>
-            <div style={styles.columns}>
-              <ul style={styles.list}>
-                <li className="Smallcaps" style={styles.marginTop}>Core</li>
-                {this.renderComponents(components, "docs", "core")}
-                <li style={styles.listItem}>
-                  VictoryConstraints <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
-                </li>
-                <li style={styles.listItem}>
-                  VictoryTooltip <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
-                </li>
+          <h2 style={styles.copy}>
+            Let’s Get Started!
+          </h2>
+          <p style={styles.copy}>
+            Victory documentation is automatically generated from GitHub, so it’s always in sync. Dig in deeper knowing you’re reading about the latest release of Victory.
+          </p>
+          <h3 style={styles.copy}>Documentation</h3>
+          <div style={styles.columns}>
+            <ul style={styles.list}>
+              <li style={styles.headingCategory}>Core</li>
+              {this.renderComponents(components, "docs", "core")}
+              <li style={[styles.listItem, {color: VictorySettings.darkerSand}]}>
+                VictoryTooltip <abbr title="Coming soon"><Icon glyph="coming-soon" /></abbr>
+              </li>
+            </ul>
+            <ul style={styles.list}>
+              <li style={styles.headingCategory}>Chart</li>
+              <li key="victory-chart2" style={styles.listItem}>
+                <RadiumLink to="docs/victory-chart">
+                  VictoryChart <Icon glyph="internal-link" />
+                </RadiumLink>
+              </li>
+              <ul style={styles.nestedList}>
+                {this.renderComponents(components, "docs", "chart")}
               </ul>
-              <ul style={styles.list}>
-                <li className="Smallcaps" style={styles.marginTop}>Chart</li>
-                <li key="victory-chart2" style={styles.listItem}>
-                  <NavLink to="docs/victory-chart">
-                    VictoryChart <Icon glyph="internal-link" />
-                  </NavLink>
-                </li>
-                <ul style={styles.nestedList}>
-                  {this.renderComponents(components, "docs", "chart")}
-                </ul>
-              </ul>
-              <ul style={styles.list}>
-                <li className="Smallcaps" style={styles.marginTop}>More</li>
-                {this.renderComponents(components, "docs", "more")}
-              </ul>
-            </div>
+            </ul>
+            <ul style={styles.list}>
+              <li style={styles.headingCategory}>More</li>
+              {this.renderComponents(components, "docs", "more")}
+            </ul>
+          </div>
+          <h3 style={styles.copy}>Recipes</h3>
+          <p style={styles.copy}>
+            The <RadiumLink to="/recipes">Recipes&nbsp;<Icon glyph="internal-link" /></RadiumLink> show examples of customized, complex, and extendable charts.
+          </p>
+          <div style={styles.columns}>
+            <ul style={styles.list}>
+              <li style={styles.headingCategory}>Customize</li>
+              {this.renderComponents(recipesComponents, "recipes", "customize")}
+            </ul>
+            <ul style={styles.list}>
+              <li style={styles.headingCategory}>Events</li>
+              {this.renderComponents(recipesComponents, "recipes", "events")}
+            </ul>
           </div>
 
-          <div style={styles.padded}>
-            <h2 style={styles.copy}>Recipes</h2>
-            <div style={styles.columns}>
-              <ul style={styles.list}>
-                <li className="Smallcaps" style={styles.marginTop}>Customize</li>
-                {this.renderComponents(recipesComponents, "recipes", "customize")}
-              </ul>
-              <ul style={styles.list}>
-                <li className="Smallcaps" style={styles.marginTop}>Events</li>
-                {this.renderComponents(recipesComponents, "recipes", "events")}
-              </ul>
-            </div>
-          </div>
+          <h3 style={styles.copy}>Source Code</h3>
+          <p style={styles.copy}>
+            View the source at <a href="https://github.com/FormidableLabs/victory">
+              <span style={styles.smallCaps}>GitHub:</span>
+              FormidableLabs/victory&nbsp;<Icon glyph="external-link" />
+            </a>.
+          </p>
+          <h3 style={styles.copy}>Support</h3>
+          <p style={styles.copy}>
+            Questions? Let’s chat at <a href="https://gitter.im/FormidableLabs/victory">
+              <span style={styles.smallCaps}>Gitter:</span>
+              FormidableLabs/victory&nbsp;<Icon glyph="external-link" />
+            </a>.
+          </p>
+          <h3 style={styles.copy}>Upcoming Releases</h3>
+          <p style={styles.copy}>
+            We have a lot planned! Want to make a request for a new feature? See our <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
+              Roadmap&nbsp;<Icon glyph="external-link" />
+          </a>.
+          </p>
 
-          <div style={[styles.padded, styles.copy, {textAlign: "center"}]}>
-            <h2>Learn more</h2>
-            <h3>Source Code</h3>
-            <p>
-              View the source at <a href="https://github.com/FormidableLabs/victory">
-                <span className="Smallcaps" style={styles.boldSmallCaps}>GitHub:</span>
-                FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
-              </a>
-            </p>
-            <h3>Support</h3>
-            <p>
-              Questions? Let’s chat at <a href="https://gitter.im/FormidableLabs/victory">
-                <span className="Smallcaps" style={styles.boldSmallCaps}>Gitter:</span>
-                FormidableLabs/victory.&nbsp;<Icon glyph="external-link" />
-            </a>
-            </p>
-            <h3>Upcoming Releases</h3>
-            <p>
-              We have a lot planned! Want to make a request for a new feature? See our <a href="https://github.com/FormidableLabs/victory/blob/master/ROADMAP.md">
-                Roadmap.&nbsp;<Icon glyph="external-link" />
-            </a>
-            </p>
-          </div>
-
-          <Companies style={[styles.padded, styles.copy]} />
+          <Companies style={styles.copy} />
           <Footer />
         </section>
       </TitleMeta>

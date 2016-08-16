@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
         boxSizing: "border-box",
         columns: "3 220px",
         columnGap: `${VictorySettings.gutter * 2}px`,
-        fontSize: "16px",
+        fontSize: "18px",
         listStyle: "none",
         padding: 0
       },
@@ -44,35 +44,35 @@ class Sidebar extends React.Component {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        lineHeight: 1.1,
-        margin: 0,
+        lineHeight: 1.3,
+        margin: `0 0 0 ${VictorySettings.gutter * 0.5}px`,
         padding: `0 ${VictorySettings.gutter * 0.5}px 0 0`
       },
       listItemCategoryHeading: {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        borderBottom: `1px solid ${VictorySettings.sand}`,
         color: VictorySettings.mud,
-        fontSize: "0.8em",
-        letterSpacing: "0.15em",
-        lineHeight: 1.5,
+        fontSize: "1.2em",
+        fontWeight: "bold",
+        lineHeight: 1,
         marginTop: `${VictorySettings.gutter * 0.5}px`,
         marginBottom: `${VictorySettings.gutter * -0.25}px`,
-        paddingTop: `${VictorySettings.gutter}px`,
-        textTransform: "uppercase"
+        paddingTop: `${VictorySettings.gutter}px`
       },
       listItemHeading: {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        color: VictorySettings.paleMud,
+        color: VictorySettings.palerMud,
         fontFamily: VictorySettings.sansSerif,
-        fontSize: "1em",
-        lineHeight: 1.1,
+        fontSize: "0.8em",
+        letterSpacing: "0.15em",
+        lineHeight: 1.2,
         marginTop: `${VictorySettings.gutter * 0.5}px`,
         marginBottom: `${VictorySettings.gutter * 0.25}px`,
-        paddingTop: `${VictorySettings.gutter * 0.5}px`
+        paddingTop: `${VictorySettings.gutter * 0.5}px`,
+        textTransform: "uppercase"
       }
     };
   }
@@ -106,15 +106,18 @@ class Sidebar extends React.Component {
           />
         </IndexLink>
         <ul style={styles.list}>
-          <li key="index" style={styles.listItem}>
+          <li style={[styles.listItemCategoryHeading, {marginTop: 0, marginBottom: "10px" }]}>
+            Introduction to Victory
+          </li>
+          <li key="navlink-index" style={styles.listItem}>
             <NavLink to="/docs" style={styles.navlink}>
               Getting Started <Icon glyph="internal-link" />
             </NavLink>
           </li>
-          <li key="index" style={styles.listItem}>
-            <NavLink to="/recipes" style={styles.navlink}>
-              Recipes <Icon glyph="internal-link" />
-            </NavLink>
+          <li key="navlink-contributing" style={styles.listItem}>
+            <a href="https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md" style={styles.navlink}>
+              Contributing <Icon glyph="external-link" />
+            </a>
           </li>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
             Documentation

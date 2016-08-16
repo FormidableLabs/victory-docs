@@ -1,9 +1,10 @@
 ```playground
-<VictoryChart 
+<VictoryChart
   domain={{x: [0.5, 3.5]}}
-  theme={VictoryTheme.material}
+  // Uncomment the theme!
+  // theme={VictoryTheme.material}
 >
-  <VictoryAxis 
+  <VictoryAxis
     tickValues={[1, 2, 3]}
     tickFormat={["first", "second", "third"]}
   />

@@ -14,7 +14,7 @@ class Hero extends React.Component {
     return {
       cover: {
         margin: 0,
-        padding: `${VictorySettings.gutter * 4}px 0 ${VictorySettings.gutter * 3}px`
+        padding: `${VictorySettings.gutter * 4}px 0 0`
       },
       title: {
         margin: "0 auto",
@@ -25,12 +25,15 @@ class Hero extends React.Component {
         borderBottom: "none"
       },
       headingMajor: {
-        marginTop: `${VictorySettings.gutter * 1.5}px`,
+        marginTop: `${VictorySettings.gutter}px`,
         padding: "0 20px",
-        fontFamily: VictorySettings.serifHeadline,
-        fontSize: "1.75em",
+        fontFamily: VictorySettings.serif,
+        fontSize: "1.5em",
         lineHeight: "1.3",
         textAlign: "center"
+      },
+      italic: {
+        fontStyle: "italic"
       },
       headingMinor: {
         marginTop: `${VictorySettings.gutter * 1.5}px`,
@@ -42,7 +45,7 @@ class Hero extends React.Component {
         textAlign: "center"
       },
       installer: {
-        margin: `${VictorySettings.gutter}px auto 0`,
+        margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
         display: "block",
         textAlign: "center"
       },
@@ -50,8 +53,8 @@ class Hero extends React.Component {
         display: "inline-block",
         padding: "1.25em 1.75em",
         backgroundColor: VictorySettings.darkMud,
-        boxShadow: `0 0 0 10px ${VictorySettings.palerSand}, 0 0 0 11px ${VictorySettings.mud}`,
-        color: VictorySettings.palerSand,
+        boxShadow: `0 0 0 10px #efe9e3, 0 0 0 11px ${VictorySettings.mud}`,
+        color: VictorySettings.whiteSand,
         fontFamily: VictorySettings.monospace,
         fontSize: "18px",
         lineHeight: 1.2
@@ -61,9 +64,9 @@ class Hero extends React.Component {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "center",
         listStyleType: "none",
-        margin: `${VictorySettings.gutter * 2}px auto 0`,
+        margin: `${VictorySettings.gutter}px auto 0`,
         maxWidth: "720px",
         padding: 0
       },
@@ -75,6 +78,28 @@ class Hero extends React.Component {
         marginRight: "0.5em",
         width: "30px",
         verticalAlign: "middle"
+      },
+      linkGettingStarted: {
+        borderStyle: "solid",
+        borderWidth: "39px 41px",
+        borderImageSource: `url("./static/btn-border.svg")`,
+        borderImageSlice: "39 41",
+        borderImageRepeat: "repeat stretch",
+        color: VictorySettings.red,
+        display: "inline-block",
+        fontFamily: VictorySettings.sansSerif,
+        fontSize: "0.75em",
+        fontWeight: "normal",
+        letterSpacing: "0.2em",
+        lineHeight: 1,
+        textTransform: "uppercase",
+        padding: "30px 24px",
+        width: "100%",
+        transition: "color 300ms ease-out",
+        ":hover": {
+          color: VictorySettings.mud,
+          transition: "color 300ms ease"
+        }
       }
     };
   }
@@ -84,7 +109,11 @@ class Hero extends React.Component {
     return (
       <div style={styles.cover}>
         <h1 dangerouslySetInnerHTML={{__html: logotype}} style={styles.title} />
-        <p style={styles.headingMajor}>An ecosystem of modular data visualization components</p>
+        <p style={styles.headingMajor}>
+          An ecosystem <span style={styles.italic}>of</span> modular
+          <br/> data visualization components
+          <br/> <span style={styles.italic}>for</span> React.js developers
+        </p>
         <Demo src={require("!!raw!./examples/hero.md")} />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
@@ -92,25 +121,29 @@ class Hero extends React.Component {
         <ul style={styles.list}>
           <li style={styles.listItem}>
             <a href="https://github.com/FormidableLabs/victory" key="heroLinkIconGithub">
-              Source Code <Icon glyph="external-link" />
+              Source Code on GitHub <Icon glyph="external-link" />
             </a>
           </li>
           <li style={styles.listItem}>
             <a href="https://gitter.im/FormidableLabs/victory" key="heroLinkIconGitter">
-              Chat <Icon glyph="external-link" />
+              Chat on Gitter <Icon glyph="external-link" />
             </a>
           </li>
-          <li style={styles.listItem}>
-            <RadiumLink to="/docs">
-              Get Started <Icon glyph="internal-link" />
-            </RadiumLink>
-          </li>
-          <li style={styles.listItem}>
-            <RadiumLink to="/recipes">
-              Recipes <Icon glyph="internal-link" />
-            </RadiumLink>
-          </li>
         </ul>
+        <div
+          style={{
+            display: "block",
+            fontFamily: VictorySettings.sansSerif,
+            marginTop: `${VictorySettings.gutter}px`,
+            marginRight: "3vw",
+            marginLeft: "3vw",
+            textAlign: "center"
+          }}
+        >
+          <RadiumLink style={styles.linkGettingStarted} to="/docs">
+            Getting Started Guide <Icon glyph="internal-link" />
+          </RadiumLink>
+        </div>
       </div>
     );
   }
