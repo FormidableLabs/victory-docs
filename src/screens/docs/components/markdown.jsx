@@ -4,7 +4,7 @@ import Radium from "radium";
 import TitleMeta from "../../../components/title-meta";
 import find from "lodash/find";
 import Ecology from "ecology";
-import { VictoryPie } from "victory";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 
 // VictoryComponent Docs
 import { components } from "../../../components/config";
@@ -17,7 +17,7 @@ class GettingStarted extends React.Component {
       <Ecology
         overview={overview}
         scope={{
-          React, ReactDOM, VictoryPie
+          React, ReactDOM, VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack
         }}
         playgroundtheme="elegant"
       />
