@@ -5,6 +5,7 @@ import { Router, RouterContext, match, applyRouterMiddleware, useRouterHistory }
 import { createMemoryHistory, createHistory } from "history";
 import useScroll from "react-router-scroll";
 import { renderAsHTML } from "./title-meta";
+import ReactGA from "react-ga";
 
 import Index from "../../templates/index.hbs";
 import routes from "../routes";
@@ -23,6 +24,12 @@ import basename from "../basename";
 // Check whether it’s being shimmed
 if (typeof window !== "undefined" && window.__STATIC_GENERATOR !== true) { //eslint-disable-line no-undef
   const history = useRouterHistory(createHistory)({ basename });
+  // Add Google Analytics tracking for each page
+  ReactGA.initialize("UA-43290258-1");
+  history.listen((location) => {
+    ReactGA.set({ page: location.pathname });
+    ReactGA.pageview(location.pathname);
+  });
   render(
     <Router
       history={history}
