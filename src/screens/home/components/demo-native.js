@@ -25,11 +25,15 @@ class Native extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
+    this.setStateInterval = setInterval(() => {
       this.setState({ // eslint-disable-line react/no-did-mount-set-state
         data: this.getData()
       });
     }, 2000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.setStateInterval);
   }
 
   getStyles() {
