@@ -82,7 +82,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 5. Add a VictoryChart wrapper
+### 5. Add a Chart wrapper
 
 Our chart would look better with some axes to give the data context. The easiest way to do that with Victory is to add a VictoryChart wrapper around all of the components that you'd like to include in the same chart.
 Let's import VictoryChart, so that our import statements now look like so:
@@ -128,7 +128,7 @@ import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 ```
 
-In the chart below, we've modified the axes to better fit our needs. If you want to retain a vertical axis, remember to add a second axis component with the ```dependentAxis``` prop set to ```true```. We've modified the format of the tick labels on our vertical axis with the ```tickLabelFormat``` prop, and have included only the tick values that we need on the horizontal axis by passing an array to the ```tickValues``` prop. We've also added the ```domainPadding``` prop to our VictoryChart component for good measure, so that the bars of our chart don't overlap the vertical axis. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/c5be2277266d6e78f9402a610decb08e07642de2).)
+In the chart below, we've modified the axes to better fit our needs. If you want to retain a vertical axis, remember to add a second axis component with the ```dependentAxis``` prop set to ```true```. We've modified the format of the tick labels on our vertical axis with the ```tickFormat``` prop, and have included only the tick values that we need on the horizontal axis by passing an array to the ```tickValues``` prop. We've also added the ```domainPadding``` prop to our VictoryChart component for good measure, so that the bars of our chart don't overlap the vertical axis. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/c5be2277266d6e78f9402a610decb08e07642de2).)
 
 ```playground_norender
 const data = [
@@ -144,7 +144,7 @@ class App extends React.Component {
       <VictoryChart
         // domainPadding will add space to each side of VictoryBar to
         // prevent it from overlapping the axis
-        domainPadding={10}
+        domainPadding={20}
       >
         <VictoryAxis
           // tickValues specifies both the number of ticks and what the
@@ -198,7 +198,7 @@ class App extends React.Component {
       <VictoryChart
         // adding the material theme provided with Victory
         theme={VictoryTheme.material}
-        domainPadding={10}
+        domainPadding={20}
       >
         <VictoryAxis
           tickValues={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
@@ -266,7 +266,7 @@ class App extends React.Component {
   render() {
     return (
       <VictoryChart
-        domainPadding={10}
+        domainPadding={20}
         theme={VictoryTheme.material}
       >
         <VictoryAxis
@@ -306,7 +306,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 9. Override VictoryTheme's color scale
+### 9. Override theme's color scale
 
 Finally, let's add a ```colorScale``` to VictoryStack to override the one that's being passed down from ```VictoryTheme.material```. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9c77240e45db4e9fde4123ae29304461739a7035).)
 
@@ -343,7 +343,7 @@ class App extends React.Component {
   render() {
     return (
       <VictoryChart
-        domainPadding={10}
+        domainPadding={20}
         theme={VictoryTheme.material}
       >
         <VictoryAxis
