@@ -1,6 +1,6 @@
 /* global window */
 import React from "react";
-import ga from "react-ga";
+import ReactGA from "react-ga";
 import Radium, { Style, StyleRoot } from "radium";
 
 // Variables and Stylesheet
@@ -8,7 +8,8 @@ import { Header, VictorySettings, VictoryTheme as VictoryStyleSheet } from "form
 
 class App extends React.Component {
   componentDidMount() {
-    ga.initialize("UA-43290258-1");
+    ReactGA.initialize("UA-43290258-1");
+    ReactGA.set({ "page": "/open-source/victory" });
   }
 
   getStyles() {
