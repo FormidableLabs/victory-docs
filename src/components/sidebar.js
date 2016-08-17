@@ -119,6 +119,16 @@ class Sidebar extends React.Component {
               Contributing <Icon glyph="external-link" />
             </a>
           </li>
+          <li key="navlink-source" style={styles.listItem}>
+            <a href="https://github.com/FormidableLabs/victory" style={styles.navlink}>
+              Source Code <Icon glyph="external-link" />
+            </a>
+          </li>
+          <li key="navlink-gitter" style={styles.listItem}>
+            <a href="https://gitter.im/FormidableLabs/victory" style={styles.navlink}>
+              Gitter Channel <Icon glyph="external-link" />
+            </a>
+          </li>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
             Documentation
           </li>
