@@ -10,8 +10,8 @@
 */
 
 // Colors
-const deepOrange600 = "#F4511E";
 const yellow200 = "#FFF59D";
+const deepOrange600 = "#F4511E";
 const lime300 = "#DCE775";
 const lightGreen500 = "#8BC34A";
 const teal700 = "#00796B";
@@ -28,20 +28,24 @@ const blueGrey50 = "#ECEFF1";
 const blueGrey300 = "#90A4AE";
 const blueGrey700 = "#455A64";
 const grey900 = "#212121";
-
-// Typography
+// *
+// * Typography
+// *
 const sansSerif = "'Roboto', 'Helvetica Neue', Helvetica, sans-serif";
 const letterSpacing = "normal";
-const fontSize = 16;
-
-// Layout
+const fontSize = 12;
+// *
+// * Layout
+// *
 const padding = 8;
 const baseProps = {
   width: 350,
-  height: 350
+  height: 350,
+  padding: 50
 };
-
-// Labels
+// *
+// * Labels
+// *
 const baseLabelStyles = {
   fontFamily: sansSerif,
   fontSize,
@@ -49,152 +53,148 @@ const baseLabelStyles = {
   padding,
   fill: blueGrey700
 };
-
-// Strokes
+// *
+// * Strokes
+// *
 const strokeDasharray = "10, 5";
 const strokeLinecap = "round";
 const strokeLinejoin = "round";
 
-// Put it all together...
-const theme = {
-  area: {
-    data: {
-      fill: grey900
-    },
-    labels: baseLabelStyles,
-    parent: {}
-  },
-  axis: {
-    axis: {
-      fill: "none",
-      stroke: blueGrey300,
-      strokeWidth: 2,
-      strokeLinecap,
-      strokeLinejoin
-    },
-    axisLabel: assign({}, baseLabelStyles,
-      {
+export default {
+  area: Object.assign({
+    style: {
+      data: {
+        fill: grey900
+      },
+      labels: baseLabelStyles
+    }
+  }, baseProps),
+  axis: Object.assign({
+    style: {
+      axis: {
+        fill: "none",
+        stroke: blueGrey300,
+        strokeWidth: 2,
+        strokeLinecap,
+        strokeLinejoin
+      },
+      axisLabel: Object.assign({}, baseLabelStyles, {
         padding,
         stroke: "transparent"
       }),
-    grid: {
-      fill: "none",
-      stroke: blueGrey50,
-      strokeDasharray,
-      strokeLinecap,
-      strokeLinejoin
-    },
-    ticks: {
-      fill: "none",
-      padding,
-      size: 5,
-      stroke: blueGrey300,
-      strokeWidth: 1,
-      strokeLinecap,
-      strokeLinejoin
-    },
-    tickLabels: assign({}, baseLabelStyles,
-      {
+      grid: {
+        fill: "none",
+        stroke: blueGrey50,
+        strokeDasharray,
+        strokeLinecap,
+        strokeLinejoin
+      },
+      ticks: {
+        fill: "none",
+        padding,
+        size: 5,
+        stroke: blueGrey300,
+        strokeWidth: 1,
+        strokeLinecap,
+        strokeLinejoin
+      },
+      tickLabels: Object.assign({}, baseLabelStyles, {
         fill: blueGrey700,
         stroke: "transparent"
       })
-  },
-  bar: {
-    data: {
-      fill: blueGrey700,
-      opacity: 1,
-      padding,
-      stroke: "transparent",
-      strokeWidth: 0,
-      width: 5
+    }
+  }, baseProps),
+  bar: Object.assign({
+    style: {
+      data: {
+        fill: blueGrey700,
+        padding,
+        stroke: "transparent",
+        strokeWidth: 0,
+        width: 5
+      },
+      labels: baseLabelStyles
+    }
+  }, baseProps),
+  candlestick: Object.assign({
+    style: {
+      data: {
+        stroke: blueGrey700
+      },
+      labels: baseLabelStyles
     },
-    labels: baseLabelStyles,
-    parent: {}
-  },
-  candlestick: {
-    data: {
-      stroke: blueGrey700
-    },
-    labels: baseLabelStyles,
-    parent: {},
-    props: assign({}, baseProps,
-      {
-        candeColors: {
-          positive: "#ffffff",
-          negative: blueGrey700
-        }
+    candleColors: {
+      positive: "#ffffff",
+      negative: blueGrey700
+    }
+  }, baseProps),
+  chart: baseProps,
+  errorbar: Object.assign({
+    style: {
+      data: {
+        fill: "none",
+        opacity: 1,
+        stroke: blueGrey700,
+        strokeWidth: 2
+      },
+      labels: Object.assign({}, baseLabelStyles, {
+        stroke: "transparent",
+        strokeWidth: 0,
+        textAnchor: "start"
       })
-  },
-  errorbar: {
-    data: {
-      fill: "none",
-      opacity: 1,
-      stroke: blueGrey700,
-      strokeWidth: 2
-    },
-    labels: assign({}, baseLabelStyles,
-      {
+    }
+  }, baseProps),
+  group: Object.assign({
+    colorScale: colors
+  }, baseProps),
+  line: Object.assign({
+    style: {
+      data: {
+        fill: "none",
+        opacity: 1,
+        stroke: blueGrey700,
+        strokeWidth: 2
+      },
+      labels: Object.assign({}, baseLabelStyles, {
         stroke: "transparent",
         strokeWidth: 0,
         textAnchor: "start"
-      }),
-    parent: {}
-  },
-  line: {
-    data: {
-      fill: "none",
-      opacity: 1,
-      stroke: blueGrey700,
-      strokeWidth: 2
-    },
-    labels: assign({}, baseLabelStyles,
-      {
-        stroke: "transparent",
-        strokeWidth: 0,
-        textAnchor: "start"
-      }),
-    parent: {}
-  },
-  pie: {
-    props: assign({}, baseProps,
-      {
-        colorScale: colors
-      }),
+      })
+    }
+  }, baseProps),
+  pie: Object.assign({
+    colorScale: colors,
     style: {
       data: {
         padding,
         stroke: blueGrey50,
         strokeWidth: 1
       },
-      labels: assign({}, baseLabelStyles,
-        {
-          padding: 95,
-          stroke: "transparent",
-          strokeWidth: 0,
-          textAnchor: "middle"
-        }),
-      parent: {}
+      labels: Object.assign({}, baseLabelStyles, {
+        padding: 200,
+        stroke: "transparent",
+        strokeWidth: 0,
+        textAnchor: "middle"
+      })
     }
-  },
-  scatter: {
-    data: {
-      fill: blueGrey700,
-      opacity: 1,
-      stroke: "transparent",
-      strokeWidth: 0
-    },
-    labels: Object.assign({}, baseLabelStyles,
-      {
+  }, baseProps),
+  scatter: Object.assign({
+    style: {
+      data: {
+        fill: blueGrey700,
+        opacity: 1,
+        stroke: "transparent",
+        strokeWidth: 0
+      },
+      labels: Object.assign({}, baseLabelStyles, {
         stroke: "transparent",
         textAnchor: "middle"
-      }),
-    parent: {}
-  },
-  props: Object.assign({}, baseProps,
-    {
-      colorScale: colors
+      })
     }
-  )
+  }, baseProps),
+  stack: Object.assign({
+    colorScale: colors
+  }, baseProps)
 };
 
 ReactDOM.render(<DemoVictoryComponent theme={theme}/>, mountNode);
