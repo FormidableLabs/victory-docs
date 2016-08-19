@@ -1,10 +1,10 @@
-  import React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import Radium, { Style } from "radium";
 import Playground from "component-playground";
 import { assign, times } from "lodash";
 import {
-  VictoryChart, VictoryScatter, VictoryPie, VictoryLine, VictoryStack, VictoryBar, VictoryAxis
+  VictoryChart, VictoryScatter, VictoryPie, VictoryLine, VictoryStack, VictoryBar, VictoryAxis, VictoryTheme
 } from "victory";
 
 import { VictorySettings } from "formidable-landers";
@@ -30,7 +30,13 @@ class DemoVictoryComponent extends React.Component {
         style={{height: "auto", width: "100%"}}
       >
         <g transform={positions[0].transform}>
-          <VictoryPie theme={theme} standalone={false} height={200}/>
+          <VictoryPie
+            theme={theme}
+            standalone={false}
+            style={{labels: {padding: 100}}}
+            height={200}
+            width={200}
+          />
         </g>
 
         <g transform={positions[1].transform}>
@@ -45,7 +51,7 @@ class DemoVictoryComponent extends React.Component {
         </g>
 
         <g transform={positions[2].transform}>
-          <VictoryChart theme={theme} standalone={false} height={250} width={200}>
+          <VictoryChart theme={theme} standalone={false} height={250} width={250}>
             <VictoryAxis tickCount={4} domain={[0, 3]} tickFormat={toInteger}/>
             <VictoryAxis tickCount={4} dependentAxis domain={[0, 10]}/>
             <VictoryLine
@@ -236,7 +242,8 @@ class ThemePark extends React.Component {
                   React,
                   ReactDOM,
                   assign,
-                  DemoVictoryComponent
+                  DemoVictoryComponent,
+                  VictoryTheme
                 }}
                 theme="elegant"
                 noRender={false}

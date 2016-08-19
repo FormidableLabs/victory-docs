@@ -10,8 +10,8 @@
 */
 
 // Colors
-const yellow200 = "#FFF59D";
 const deepOrange600 = "#F4511E";
+const yellow200 = "#FFF59D";
 const lime300 = "#DCE775";
 const lightGreen500 = "#8BC34A";
 const teal700 = "#00796B";
@@ -28,24 +28,20 @@ const blueGrey50 = "#ECEFF1";
 const blueGrey300 = "#90A4AE";
 const blueGrey700 = "#455A64";
 const grey900 = "#212121";
-// *
-// * Typography
-// *
+
+// Typography
 const sansSerif = "'Roboto', 'Helvetica Neue', Helvetica, sans-serif";
 const letterSpacing = "normal";
-const fontSize = 12;
-// *
-// * Layout
-// *
+const fontSize = 16;
+
+// Layout
 const padding = 8;
 const baseProps = {
   width: 350,
-  height: 350,
-  padding: 50
+  height: 350
 };
-// *
-// * Labels
-// *
+
+// Labels
 const baseLabelStyles = {
   fontFamily: sansSerif,
   fontSize,
@@ -53,15 +49,15 @@ const baseLabelStyles = {
   padding,
   fill: blueGrey700
 };
-// *
-// * Strokes
-// *
+
+// Strokes
 const strokeDasharray = "10, 5";
 const strokeLinecap = "round";
 const strokeLinejoin = "round";
 
-export default {
-  area: Object.assign({
+// Put it all together...
+const theme = {
+  area: assign({
     style: {
       data: {
         fill: grey900
@@ -69,7 +65,7 @@ export default {
       labels: baseLabelStyles
     }
   }, baseProps),
-  axis: Object.assign({
+  axis: assign({
     style: {
       axis: {
         fill: "none",
@@ -78,7 +74,7 @@ export default {
         strokeLinecap,
         strokeLinejoin
       },
-      axisLabel: Object.assign({}, baseLabelStyles, {
+      axisLabel: assign({}, baseLabelStyles, {
         padding,
         stroke: "transparent"
       }),
@@ -98,13 +94,13 @@ export default {
         strokeLinecap,
         strokeLinejoin
       },
-      tickLabels: Object.assign({}, baseLabelStyles, {
+      tickLabels: assign({}, baseLabelStyles, {
         fill: blueGrey700,
         stroke: "transparent"
       })
     }
   }, baseProps),
-  bar: Object.assign({
+  bar: assign({
     style: {
       data: {
         fill: blueGrey700,
@@ -116,7 +112,7 @@ export default {
       labels: baseLabelStyles
     }
   }, baseProps),
-  candlestick: Object.assign({
+  candlestick: assign({
     style: {
       data: {
         stroke: blueGrey700
@@ -129,7 +125,7 @@ export default {
     }
   }, baseProps),
   chart: baseProps,
-  errorbar: Object.assign({
+  errorbar: assign({
     style: {
       data: {
         fill: "none",
@@ -137,17 +133,17 @@ export default {
         stroke: blueGrey700,
         strokeWidth: 2
       },
-      labels: Object.assign({}, baseLabelStyles, {
+      labels: assign({}, baseLabelStyles, {
         stroke: "transparent",
         strokeWidth: 0,
         textAnchor: "start"
       })
     }
   }, baseProps),
-  group: Object.assign({
+  group: assign({
     colorScale: colors
   }, baseProps),
-  line: Object.assign({
+  line: assign({
     style: {
       data: {
         fill: "none",
@@ -155,14 +151,14 @@ export default {
         stroke: blueGrey700,
         strokeWidth: 2
       },
-      labels: Object.assign({}, baseLabelStyles, {
+      labels: assign({}, baseLabelStyles, {
         stroke: "transparent",
         strokeWidth: 0,
         textAnchor: "start"
       })
     }
   }, baseProps),
-  pie: Object.assign({
+  pie: assign({
     colorScale: colors,
     style: {
       data: {
@@ -170,7 +166,7 @@ export default {
         stroke: blueGrey50,
         strokeWidth: 1
       },
-      labels: Object.assign({}, baseLabelStyles, {
+      labels: assign({}, baseLabelStyles, {
         padding: 200,
         stroke: "transparent",
         strokeWidth: 0,
@@ -178,7 +174,7 @@ export default {
       })
     }
   }, baseProps),
-  scatter: Object.assign({
+  scatter: assign({
     style: {
       data: {
         fill: blueGrey700,
@@ -186,13 +182,13 @@ export default {
         stroke: "transparent",
         strokeWidth: 0
       },
-      labels: Object.assign({}, baseLabelStyles, {
+      labels: assign({}, baseLabelStyles, {
         stroke: "transparent",
         textAnchor: "middle"
       })
     }
   }, baseProps),
-  stack: Object.assign({
+  stack: assign({
     colorScale: colors
   }, baseProps)
 };
