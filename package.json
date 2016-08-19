@@ -48,6 +48,7 @@
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
     "victory": "*",
+    "victory-chart": "^10.3.0",
     "victory-examples": "*"
   }
 }
