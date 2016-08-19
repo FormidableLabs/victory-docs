@@ -10,6 +10,7 @@ import Demo from "./demo";
 import DemoFlexible from "./demo-flexible";
 import DemoNative from "./demo-native";
 import DemoSharedEvents from "./demo-shared-events";
+import DemoLiveChart from "./demo-live-chart";
 
 class Benefits extends React.Component {
   getStyles() {
@@ -41,7 +42,7 @@ class Benefits extends React.Component {
       },
       flexItem: {
         flex: "1 0 auto",
-        margin: `${VictorySettings.gutter * 2}px 3vw 0`,
+        margin: `${VictorySettings.gutter * 2}px 1vw 0`,
         minWidth: "360px",
         textAlign: "center"
       },
@@ -83,10 +84,20 @@ class Benefits extends React.Component {
             </p>
           </div>
           <div style={styles.flexItem}>
-            <DemoSharedEvents />
+            <DemoSharedEvents/>
             <p>
               <a
                 href="https://github.com/FormidableLabs/victory-examples/blob/master/src/components/shared-events.js"
+              >
+                <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
+              </a>
+            </p>
+          </div>
+          <div style={styles.flexItem}>
+            <DemoLiveChart/>
+            <p>
+              <a
+                href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/livechart.js"
               >
                 <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
               </a>
