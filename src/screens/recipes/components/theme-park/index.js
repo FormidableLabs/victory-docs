@@ -27,7 +27,7 @@ class DemoVictoryComponent extends React.Component {
     ];
     return (
       <svg viewBox="0 0 400 400" role="img" aria-labelledby="title desc"
-        style={{height: "auto", width: "100%"}}
+        style={{maxHeight: "400px"}}
       >
         <g transform={positions[0].transform}>
           <VictoryPie theme={theme} standalone={false} height={200}/>
