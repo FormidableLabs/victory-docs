@@ -147,8 +147,8 @@ class App extends React.Component {
         domainPadding={20}
       >
         <VictoryAxis
-          // tickValues specifies both the number of ticks and what the
-          // tick labels should say
+          // tickValues specifies both the number of ticks and where
+          // they are placed on the axis
           tickValues={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
         />
         <VictoryAxis
