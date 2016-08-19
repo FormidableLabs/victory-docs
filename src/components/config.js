@@ -10,6 +10,7 @@ import VPieDocs from "victory-pie/docs/victory-pie/docs";
 import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
 import VCandlestickDocs from "victory-chart/docs/victory-candlestick/docs";
 import VErrorbarDocs from "victory-chart/docs/victory-errorbar/docs";
+import VThemeDocs from "victory-chart/docs/victory-theme/docs";
 
 export const components = [
   {
@@ -67,5 +68,10 @@ export const components = [
     slug: "victory-scatter",
     category: "chart",
     docs: VScatterDocs
+  }, {
+    text: "VictoryTheme",
+    slug: "victory-theme",
+    category: "chart",
+    docs: VThemeDocs
   }
 ];
