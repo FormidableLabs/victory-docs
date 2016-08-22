@@ -5,40 +5,37 @@
 /* global React, ReactDOM, DemoComponent, mountNode, assign */
 
 /*
-  "material" theme (VictoryTheme.material)
-  Try changing the theme. You could start with `colors` or `fontSize`.
+  "grayscale" theme (VictoryTheme.grayscale)
+  The grayscale is the default theme.
+  Try changing it. You could start with `colors` or `fontSize`.
 */
 
 // Colors
-const deepOrange600 = "#F4511E";
-const yellow200 = "#FFF59D";
-const lime300 = "#DCE775";
-const lightGreen500 = "#8BC34A";
-const teal700 = "#00796B";
-const cyan900 = "#006064";
 const colors = [
-  deepOrange600,
-  yellow200,
-  lime300,
-  lightGreen500,
-  teal700,
-  cyan900
+  "#ffffff",
+  "#f0f0f0",
+  "#d9d9d9",
+  "#bdbdbd",
+  "#969696",
+  "#737373",
+  "#525252",
+  "#252525",
+  "#000000"
 ];
-const blueGrey50 = "#ECEFF1";
-const blueGrey300 = "#90A4AE";
-const blueGrey700 = "#455A64";
-const grey900 = "#212121";
+
+const charcoal = "#252525";
 
 // Typography
-const sansSerif = "'Roboto', 'Helvetica Neue', Helvetica, sans-serif";
+const sansSerif = "'Gill Sans', 'Gill Sans MT', 'Ser­avek', 'Trebuchet MS', sans-serif";
 const letterSpacing = "normal";
-const fontSize = 16;
+const fontSize = 14;
 
 // Layout
-const padding = 8;
 const baseProps = {
-  width: 350,
-  height: 350
+  width: 450,
+  height: 300,
+  padding: 50,
+  colorScale: colors
 };
 
 // Labels
@@ -46,21 +43,21 @@ const baseLabelStyles = {
   fontFamily: sansSerif,
   fontSize,
   letterSpacing,
-  padding,
-  fill: blueGrey700
+  padding: 10,
+  fill: charcoal,
+  stroke: "transparent"
 };
 
 // Strokes
-const strokeDasharray = "10, 5";
 const strokeLinecap = "round";
 const strokeLinejoin = "round";
 
-// Put it all together...
+// Create the theme
 const theme = {
   area: assign({
     style: {
       data: {
-        fill: grey900
+        fill: charcoal
       },
       labels: baseLabelStyles
     }
@@ -69,45 +66,35 @@ const theme = {
     style: {
       axis: {
         fill: "none",
-        stroke: blueGrey300,
-        strokeWidth: 2,
-        strokeLinecap,
-        strokeLinejoin
-      },
-      axisLabel: assign({}, baseLabelStyles, {
-        padding,
-        stroke: "transparent"
-      }),
-      grid: {
-        fill: "none",
-        stroke: blueGrey50,
-        strokeDasharray,
-        strokeLinecap,
-        strokeLinejoin
-      },
-      ticks: {
-        fill: "none",
-        padding,
-        size: 5,
-        stroke: blueGrey300,
+        stroke: charcoal,
         strokeWidth: 1,
         strokeLinecap,
         strokeLinejoin
       },
-      tickLabels: assign({}, baseLabelStyles, {
-        fill: blueGrey700,
+      axisLabel: assign({}, baseLabelStyles, {
+        padding: 25
+      }),
+      grid: {
+        fill: "none",
         stroke: "transparent"
-      })
+      },
+      ticks: {
+        fill: "none",
+        padding: 10,
+        size: 1,
+        stroke: "transparent"
+      },
+      tickLabels: baseLabelStyles
     }
   }, baseProps),
   bar: assign({
     style: {
       data: {
-        fill: blueGrey700,
-        padding,
+        fill: charcoal,
+        padding: 10,
         stroke: "transparent",
         strokeWidth: 0,
-        width: 5
+        width: 8
       },
       labels: baseLabelStyles
     }
@@ -115,13 +102,17 @@ const theme = {
   candlestick: assign({
     style: {
       data: {
-        stroke: blueGrey700
+        stroke: charcoal,
+        strokeWidth: 1
       },
-      labels: baseLabelStyles
+      labels: assign({}, baseLabelStyles, {
+        padding: 25,
+        textAnchor: "end"
+      })
     },
     candleColors: {
       positive: "#ffffff",
-      negative: blueGrey700
+      negative: charcoal
     }
   }, baseProps),
   chart: baseProps,
@@ -129,13 +120,10 @@ const theme = {
     style: {
       data: {
         fill: "none",
-        opacity: 1,
-        stroke: blueGrey700,
+        stroke: charcoal,
         strokeWidth: 2
       },
       labels: assign({}, baseLabelStyles, {
-        stroke: "transparent",
-        strokeWidth: 0,
         textAnchor: "start"
       })
     }
@@ -147,43 +135,39 @@ const theme = {
     style: {
       data: {
         fill: "none",
-        opacity: 1,
-        stroke: blueGrey700,
+        stroke: charcoal,
         strokeWidth: 2
       },
       labels: assign({}, baseLabelStyles, {
-        stroke: "transparent",
-        strokeWidth: 0,
         textAnchor: "start"
       })
     }
   }, baseProps),
-  pie: assign({
-    colorScale: colors,
+  pie: {
     style: {
       data: {
-        padding,
-        stroke: blueGrey50,
+        padding: 10,
+        stroke: "none",
         strokeWidth: 1
       },
       labels: assign({}, baseLabelStyles, {
         padding: 200,
-        stroke: "transparent",
-        strokeWidth: 0,
         textAnchor: "middle"
       })
-    }
-  }, baseProps),
+    },
+    colorScale: colors,
+    width: 400,
+    height: 400,
+    padding: 50
+  },
   scatter: assign({
     style: {
       data: {
-        fill: blueGrey700,
-        opacity: 1,
+        fill: charcoal,
         stroke: "transparent",
         strokeWidth: 0
       },
-      labels: assign({}, baseLabelStyles, {
-        stroke: "transparent",
+      labels: Object.assign({}, baseLabelStyles, {
         textAnchor: "middle"
       })
     }
