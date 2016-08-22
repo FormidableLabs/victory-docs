@@ -2,7 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, DemoVictoryComponent, mountNode, VictoryTheme */
+/* global React, ReactDOM, VictoryTheme, DemoComponent, mountNode */
 /* eslint-disable no-constant-condition */
 
 /*
@@ -12,7 +12,6 @@
 */
 
 let theme = VictoryTheme.grayscale;
-
 
 if (false) { // won't run unless you change this to true!
 
@@ -54,4 +53,4 @@ if (false) { // won't run unless you change this to true!
   };
 }
 
-ReactDOM.render(<DemoVictoryComponent theme={theme}/>, mountNode);
+ReactDOM.render(<DemoComponent theme={theme}/>, mountNode);
