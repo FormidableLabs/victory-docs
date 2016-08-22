@@ -14,6 +14,7 @@ module.exports = [
   "/docs/victory-label",
   "/docs/victory-candlestick",
   "/docs/victory-errorbar",
+  "/docs/victory-theme",
   "/recipes",
   "/recipes/custom-central-axis",
   "/recipes/custom-data-component",
