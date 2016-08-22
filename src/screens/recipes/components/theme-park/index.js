@@ -4,21 +4,25 @@ import Radium, { Style } from "radium";
 import Playground from "component-playground";
 import { assign } from "lodash";
 import { VictorySettings } from "formidable-landers";
-import { VictoryTheme } from "victory";
-import PureRender from "./pure-render";
+import { Link } from "react-router";
 
+import Icon from "../../../../components/icon";
+
+import PureRender from "./pure-render";
 import DemoComponent from "./demo-component";
+
+const RadiumLink = Radium(Link);
 
 class ThemePark extends React.Component {
   constructor() {
     super();
     this.state = {
-      themeName: "default",
+      themeName: "grayscale",
       editted: false
     };
     // just load once
     this.themeTexts = {
-      default: this.processCodeText(require("!!raw!./default.example.js")),
+      grayscale: this.processCodeText(require("!!raw!./grayscale.example.js")),
       material: this.processCodeText(require("!!raw!./material.example.js"))
     };
   }
@@ -88,8 +92,8 @@ class ThemePark extends React.Component {
     return (
       <div className={menuClass}>
         <div className={barClass}>
-          <button onClick={this.resetTheme.bind(this, "default")}>
-            reset to <b>default</b>
+          <button onClick={this.resetTheme.bind(this, "grayscale")}>
+            reset to <b>grayscale</b>
           </button>
           <button onClick={this.resetTheme.bind(this, "material")}>
             reset to <b>material</b>
@@ -110,6 +114,10 @@ class ThemePark extends React.Component {
           <h1>Theme Park</h1>
           <p>
             Try out the Victory themes and make your own.
+            Check out
+            the <RadiumLink to="docs/victory-theme">
+              VictoryTheme documentation<Icon glyph="internal-link" />
+            </RadiumLink> for more details on themes.
           </p>
         </div>
         {this.renderMenu()}
@@ -122,7 +130,6 @@ class ThemePark extends React.Component {
                   React,
                   ReactDOM,
                   assign,
-                  VictoryTheme,
                   DemoComponent
                 }}
                 theme="elegant"
