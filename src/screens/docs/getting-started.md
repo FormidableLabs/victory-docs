@@ -8,7 +8,32 @@ In this guide, we’ll show you how to get started with Victory and walk you thr
 
 ### 1. Set up a basic React project
 
-You can do this on your own if you'd like, or you can clone down [this one that we've created for you](https://github.com/FormidableLabs/victory-tutorial/tree/260e1fddde48532707855177c0ecbc674b184823). If you're cloning down our example, remember to run an ```npm install``` to install all necessary dependencies. Once you've done this, you can run the webpack server with the command ```npm start```, and the project will render at ```localhost:8080```. All modifications will take place in your client.js file.
+You can do this on your own if you'd like, or you can... 
+
+* Clone down [this project we've started for you](https://github.com/FormidableLabs/victory-tutorial) using ```git clone [SSH or HTTPS clone link]```
+* ```cd victory-tutorial```
+* Replace the existing code in the ```client.js``` file with:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+class Main extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Victory Tutorial</h1>
+      </div>
+    );
+  }
+}
+
+const app = document.getElementById('app');
+ReactDOM.render(<Main />, app);
+```
+* Run ```npm install``` to install all necessary dependencies.
+
+Once you've completed these steps, you can run the webpack server with the command ```npm start```, and the project will render at ```localhost:8080```. All modifications will take place in your client.js file.
 
 ### 2. Add Victory
 
@@ -55,7 +80,7 @@ x={"quarter"}
 y={"earnings"}
 ```
 
-Now we have a chart that's rendering our data! ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/3a0951d78202e4333fc8ae07a673173732209ee5).)
+Now we have a chart that's rendering our data! ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/blob/3a0951d78202e4333fc8ae07a673173732209ee5/src/js/client.js).)
 
 ```playground_norender
 const data = [
@@ -92,7 +117,7 @@ import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart } from 'victory';
 ```
 
-Now we can wrap our VictoryBar component in VictoryChart to make the magic happen. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/15063b2f79cff843f668f43ddd46d4bcd7f96acd).)
+Now we can wrap our VictoryBar component in VictoryChart to make the magic happen. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/blob/15063b2f79cff843f668f43ddd46d4bcd7f96acd/src/js/client.js).)
 
 ```playground_norender
 const data = [
@@ -128,7 +153,7 @@ import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 ```
 
-In the chart below, we've modified the axes to better fit our needs. If you want to retain a vertical axis, remember to add a second axis component with the ```dependentAxis``` prop set to ```true```. We've modified the format of the tick labels on our vertical axis with the ```tickFormat``` prop, and have included only the tick values that we need on the horizontal axis by passing an array to the ```tickValues``` prop. We've also added the ```domainPadding``` prop to our VictoryChart component for good measure, so that the bars of our chart don't overlap the vertical axis. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/c5be2277266d6e78f9402a610decb08e07642de2).)
+In the chart below, we've modified the axes to better fit our needs. If you want to retain a vertical axis, remember to add a second axis component with the ```dependentAxis``` prop set to ```true```. We've modified the format of the tick labels on our vertical axis with the ```tickFormat``` prop, and have included only the tick values that we need on the horizontal axis by passing an array to the ```tickValues``` prop. We've also added the ```domainPadding``` prop to our VictoryChart component for good measure, so that the bars of our chart don't overlap the vertical axis. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/blob/c5be2277266d6e78f9402a610decb08e07642de2/src/js/client.js).)
 
 ```playground_norender
 const data = [
@@ -182,7 +207,7 @@ import { VictoryBar, VictoryChart, VictoryAxis,
         VictoryTheme } from 'victory';
 ```
 
-And here's the code and rendered component with our beautiful theme ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/fb904143eea6046e6841b4284e044360d4af5cf1)):
+And here's the code and rendered component with our beautiful theme ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/fb904143eea6046e6841b4284e044360d4af5cf1/src/js/client.js)):
 
 ```playground_norender
 const data = [
@@ -231,7 +256,7 @@ import { VictoryBar, VictoryChart, VictoryAxis,
         VictoryTheme, VictoryStack } from 'victory';
 ```
 
-VictoryStack should go inside of the VictoryChart wrapper, but around all four VictoryBar charts that it will be stacking. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9bf170061599027e4bd5fcf8128e47adb83c0e98).)
+VictoryStack should go inside of the VictoryChart wrapper, but around all four VictoryBar charts that it will be stacking. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9bf170061599027e4bd5fcf8128e47adb83c0e98/src/js/client.js).)
 
 ```playground_norender
 const data2012 = [
@@ -308,7 +333,7 @@ ReactDOM.render(<App/>, mountNode);
 
 ### 9. Override theme's color scale
 
-Finally, let's add a ```colorScale``` to VictoryStack to override the one that's being passed down from ```VictoryTheme.material```. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9c77240e45db4e9fde4123ae29304461739a7035).)
+Finally, let's add a ```colorScale``` to VictoryStack to override the one that's being passed down from ```VictoryTheme.material```. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9c77240e45db4e9fde4123ae29304461739a7035/src/js/client.js).)
 
 ```playground_norender
 const data2012 = [
