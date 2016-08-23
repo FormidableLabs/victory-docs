@@ -1,12 +1,16 @@
 import React from "react";
 
-const ShowcaseApp = (props) => (
-  <div>
-    <h3>{props.company}</h3>
-    <img src={props.screenshot.src} alt={props.screenshot.alt} />
-    <p>{props.description}</p>
-  </div>
-);
+class ShowcaseApp extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3>{this.props.company}</h3>
+        <img src={this.props.screenshot.src} alt={this.props.screenshot.alt} />
+        <p>{this.props.description}</p>
+      </div>
+    );
+  }
+}
 
 ShowcaseApp.propTypes = {
   screenshot: React.PropTypes.shape({
