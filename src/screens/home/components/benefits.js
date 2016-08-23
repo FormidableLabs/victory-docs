@@ -77,9 +77,9 @@ class Benefits extends React.Component {
             <DemoFlexible />
             <p>
               <a
-                href="https://github.com/FormidableLabs/victory-examples/blob/master/src/components/custom-styles.js"
+                href="./recipes/custom-styles"
               >
-                <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
+                <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="internal-link" />
               </a>
             </p>
           </div>
@@ -87,7 +87,7 @@ class Benefits extends React.Component {
             <DemoSharedEvents/>
             <p>
               <a
-                href="https://github.com/FormidableLabs/victory-examples/blob/master/src/components/shared-events.js"
+                href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/demo-shared-events.js"
               >
                 <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
               </a>
