@@ -2,6 +2,7 @@
 
 module.exports = [
   "/",
+  "/about",
   "/docs",
   "/docs/victory-axis",
   "/docs/victory-area",
