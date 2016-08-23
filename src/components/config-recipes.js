@@ -1,10 +1,9 @@
-// victory-examples
-import CustomCentralAxis from "victory-examples/docs/custom-central-axis/docs";
-import CustomDataComponent from "victory-examples/docs/custom-data-component/docs";
-import CustomStyles from "victory-examples/docs/custom-styles/docs";
-import MultipleAxes from "victory-examples/docs/multiple-axes/docs";
-import Tooltip from "victory-examples/docs/tooltip/docs";
-import CandlestickDashboard from "victory-examples/docs/candlestick-dashboard/docs";
+import CustomCentralAxis from "../screens/recipes/components/custom-central-axis/docs";
+import CustomDataComponent from "../screens/recipes/components/custom-data-component/docs";
+import CustomStyles from "../screens/recipes/components/custom-styles/docs";
+import MultipleAxes from "../screens/recipes/components/multiple-axes/docs";
+import Tooltip from "../screens/recipes/components/tooltip/docs";
+import CandlestickDashboard from "../screens/recipes/components/candlestick-dashboard/docs";
 import ThemePark from "../screens/recipes/components/theme-park";
 
 export const recipesComponents = [
