@@ -8,7 +8,11 @@ In this guide, we’ll show you how to get started with Victory and walk you thr
 
 ### 1. Set up a basic React project
 
-You can do this on your own if you'd like, or you can clone down [this one that we've created for you](https://github.com/FormidableLabs/victory-tutorial), and replace the existing code in the ```client.js``` file with:
+You can do this on your own if you'd like, or you can... 
+
+* Clone down [this project we've started for you](https://github.com/FormidableLabs/victory-tutorial) using ```git clone [SSH or HTTPS clone link]```
+* ```cd victory-tutorial```
+* Replace the existing code in the ```client.js``` file with:
 
 ```
 import React from 'react';
@@ -27,8 +31,9 @@ class Main extends React.Component {
 const app = document.getElementById('app');
 ReactDOM.render(<Main />, app);
 ```
+* Run ```npm install``` to install all necessary dependencies.
 
-If you're cloning down our example, remember to run an ```npm install``` to install all necessary dependencies. Once you've done this, you can run the webpack server with the command ```npm start```, and the project will render at ```localhost:8080```. All modifications will take place in your client.js file.
+Once you've completed these steps, you can run the webpack server with the command ```npm start```, and the project will render at ```localhost:8080```. All modifications will take place in your client.js file.
 
 ### 2. Add Victory
 
