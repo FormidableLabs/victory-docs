@@ -3,6 +3,7 @@ import CustomDataComponent from "../screens/recipes/components/custom-data-compo
 import CustomStyles from "../screens/recipes/components/custom-styles/docs";
 import MultipleAxes from "../screens/recipes/components/multiple-axes/docs";
 import Tooltip from "../screens/recipes/components/tooltip/docs";
+import SharedEvents from "../screens/recipes/components/shared-events/docs";
 import CandlestickDashboard from "../screens/recipes/components/candlestick-dashboard/docs";
 import ThemePark from "../screens/recipes/components/theme-park";
 
@@ -29,7 +30,7 @@ export const recipesComponents = [
     category: "customize",
     docs: MultipleAxes
   }, {
-    text: "Styles",
+    text: "Custom Styles",
     slug: "custom-styles",
     category: "customize",
     docs: CustomStyles
@@ -43,5 +44,10 @@ export const recipesComponents = [
     slug: "tooltip",
     category: "events",
     docs: Tooltip
+  }, {
+    text: "Shared Events",
+    slug: "shared-events",
+    category: "events",
+    docs: SharedEvents
   }
 ];
