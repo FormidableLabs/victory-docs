@@ -4,7 +4,6 @@ Shared Events
 ```playground_norender
 class SharedEvents extends React.Component {
   render() {
-    const parentStyle = {border: "1px solid #ccc", margin: "2%", maxWidth: "40%"};
     const lineData = [
       {x: 1, y: 39},
       {x: 2, y: 31},
@@ -35,7 +34,7 @@ class SharedEvents extends React.Component {
       {x: 20, y: 15, label: "Oct 2014"}
     ];
     return (
-          <svg width={1000} height={600} style={{parent: parentStyle}}>
+          <svg width={700} height={400} viewBox="0 0 800 400">
             <VictorySharedEvents
               events={[
                 {
@@ -90,26 +89,25 @@ class SharedEvents extends React.Component {
             >
               <VictoryBar
                 name="bar"
-                width={900}
-                height={600}
+                width={700}
+                height={400}
                 data={barData}
-                style={{data: {fill: "tomato"}, labels: {fill: "transparent"}}}
+                style={{data: {fill: "tomato", width: 25}, labels: {fill: "transparent"}}}
                 standalone={false}
               />
               <VictoryLine
                 name={"line"}
                 data={lineData}
-                width={900}
-                height={600}
+                width={700}
+                height={400}
                 standalone={false}
                 domain={{y: [0, 100]}}
                 style={{data: {stroke: "transparent"}}}
               />
               <VictoryAxis
                 standalone={false}
-                width={900}
-                label="Year"
-                height={600}
+                width={700}
+                height={400}
                 tickValues={["2010", "2011", "2012", "2013", "2014", "2015"]}
               />
           </VictorySharedEvents>

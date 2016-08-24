@@ -41,8 +41,7 @@ class CustomDataComponent extends React.Component {
         boxSizing: "border-box",
         display: "block",
         width: "100%",
-        height: "100%",
-        padding: 50
+        height: "100%"
       }
     };
   }

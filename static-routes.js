@@ -22,5 +22,6 @@ module.exports = [
   "/recipes/multiple-axes",
   "/recipes/candlestick-dashboard",
   "/recipes/tooltip",
+  "/recipes/shared-events",
   "/recipes/theme-park"
 ];
