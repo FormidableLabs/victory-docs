@@ -6,27 +6,20 @@ class About extends React.Component {
     return (
       <div>
         {/* the issues and source links will live in the header*/}
-        <a href="https://github.com/FormidableLabs/victory">Source Code on GitHub</a>
-        <br/>
-        <a href="https://github.com/FormidableLabs/victory/issues">Report an Issue</a>
-
         <h1>About Victory</h1>
         <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
         <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
         <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="158px" height="30px"></iframe>
-        <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&type=follow&count=true&size=large" frameBorder="0" scrolling="0" width="220px" height="30px"></iframe>
 
         <Showcase />
 
-        <h2>Origin of Victory</h2>
+        <h2>Victory's Story</h2>
         <p>
-          Victory is a lorem ipsum Dolor minim Excepteur eu eu sed commodo dolore nostrud in aute eu fugiat ea cillum
-          incididunt nulla sint nulla velit ea quis sunt tempor ut in culpa dolore esse deserunt sunt ullamco do Ut
-          veniam consectetur pariatur amet anim.
+          Victory is a sophisticated charting library powered by d3.js that aims to provide flexibility and customization
+           beyond what is offered elsewhere. You can it in your browser or in React Native apps with the same convenient API.
+           It is helmed and primarily maintained by Formidable's Lauren Eastridge.
         </p>
-
-        <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Contributors</a>
-        {/*add top 5 contributors if we can figure out a good way with the github API*/}
+        <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Contributors to Victory.</a>
 
         <h2>About Formidable</h2>
         <p>
