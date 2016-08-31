@@ -141,7 +141,7 @@ class Hero extends React.Component {
           }}
         >
           <RadiumLink style={styles.linkGettingStarted} to="/docs">
-            Getting Started Guide <Icon glyph="internal-link" />
+            Get Started with Victory <Icon glyph="internal-link" />
           </RadiumLink>
         </div>
       </div>
