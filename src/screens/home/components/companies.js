@@ -7,7 +7,6 @@ import OOKLA from "../../../../static/logo-ookla.svg";
 import VIACOM from "../../../../static/logo-viacom.svg";
 import POSTMARK from "../../../../static/logo-postmark.svg";
 import FIVETHIRTYEIGHT from "../../../../static/logo-fivethirtyeight.svg";
-import ICONHEART from "../../../../static/icon-heart.svg";
 
 class Companies extends React.Component {
   getStyles() {
@@ -23,7 +22,7 @@ class Companies extends React.Component {
         alignItems: "center",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         listStyleType: "none",
         marginTop: `${VictorySettings.gutter}px`,
         marginLeft: `${VictorySettings.gutter * -2}px`,
@@ -46,7 +45,7 @@ class Companies extends React.Component {
     return (
       <div style={this.props.style}>
         <h2>
-          <span style={styles.heart} dangerouslySetInnerHTML={{__html: ICONHEART}} /> See Victory in use
+          A few of our fans
         </h2>
         <ul style={styles.list}>
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />

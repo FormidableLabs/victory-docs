@@ -149,7 +149,7 @@ class Benefits extends React.Component {
           <div
             style={{
               display: "flex",
-              flex: "1 0 600px",
+              flex: "1 0 300px",
               flexDirection: "row",
               flexWrap: "nowrap",
               justifyContent: "center"

@@ -3,6 +3,7 @@ import Radium from "radium";
 
 // VComponents
 import { VictoryArea, VictoryAxis, VictoryBar, VictoryChart, VictoryStack } from "victory-chart";
+import { VictorySettings } from "formidable-landers";
 
 class Native extends React.Component {
   constructor(props) {
@@ -45,14 +46,17 @@ class Native extends React.Component {
         backgroundPosition: "top center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% auto",
-        display: "flex",
+        display: this.props.alt ? "none" : "flex",
         flexDirection: "column",
         flexWrap: "nowrap",
         justifyContent: "space-around",
         margin: "0 20px",
         height: "470px",
         padding: "60px 25px 50px",
-        width: "250px"
+        width: "250px",
+        [`@media ${VictorySettings.mediaQueries.small}`]: {
+          display: "flex"
+        }
       }
     };
   }
