@@ -11,6 +11,8 @@ import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
 import VCandlestickDocs from "victory-chart/docs/victory-candlestick/docs";
 import VErrorbarDocs from "victory-chart/docs/victory-errorbar/docs";
 import VThemeDocs from "victory-chart/docs/victory-theme/docs";
+import VTooltipDocs from "victory-chart/docs/victory-tooltip/docs";
+import VVoronoiDocs from "victory-chart/docs/victory-voronoi/docs";
 
 export const components = [
   {
@@ -73,5 +75,15 @@ export const components = [
     slug: "victory-theme",
     category: "chart",
     docs: VThemeDocs
+  }, {
+    text: "VictoryTooltip",
+    slug: "victory-tooltip",
+    category: "chart",
+    docs: VTooltipDocs
+  }, {
+    text: "VictoryVoronoi",
+    slug: "victory-voronoi",
+    category: "chart",
+    docs: VVoronoiDocs
   }
 ];
