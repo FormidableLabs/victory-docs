@@ -115,7 +115,7 @@ class Sidebar extends React.Component {
             </NavLink>
           </li>
           <li key="navlink-contributing" style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md" style={styles.navlink}>
+            <a href="https://github.com/FormidableLabs/victory/#contributing" style={styles.navlink}>
               Contributing <Icon glyph="external-link" />
             </a>
           </li>

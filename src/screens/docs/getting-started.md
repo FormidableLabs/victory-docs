@@ -1,6 +1,6 @@
 # Getting Started with Victory
 
-Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. 
+Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations.
 
 ## Tutorial
 
@@ -8,7 +8,7 @@ In this guide, we’ll show you how to get started with Victory and walk you thr
 
 ### 1. Set up a basic React project
 
-You can do this on your own if you'd like, or you can... 
+You can do this on your own if you'd like, or you can...
 
 * Clone down [this project we've started for you](https://github.com/FormidableLabs/victory-tutorial) using ```git clone [SSH or HTTPS clone link]```
 * ```cd victory-tutorial```
@@ -247,7 +247,7 @@ ReactDOM.render(<App/>, mountNode);
 
 ### 8. Stack multiple bar charts
 
-Excellent! We have a great looking chart. But wait - we actually have three more years' worth of quarterly earnings that we need to compare, along with four-year totals for each quarter. A great way to display this would be with a stacked bar chart. Luckily, with VictoryStack, we can do just that! 
+Excellent! We have a great looking chart. But wait - we actually have three more years' worth of quarterly earnings that we need to compare, along with four-year totals for each quarter. A great way to display this would be with a stacked bar chart. Luckily, with VictoryStack, we can do just that!
 
 ```js
 import React from 'react';
@@ -412,4 +412,4 @@ ReactDOM.render(<App/>, mountNode);
 
 ## Documentation, Contributing, and Source
 
-Congratulations! You’ve created your first chart with Victory. For more information about Victory and its components, check out the docs - see [VictoryChart](http://formidable.com/open-source/victory/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md). Happy charting.
+Congratulations! You’ve created your first chart with Victory. For more information about Victory and its components, check out the docs - see [VictoryChart](http://formidable.com/open-source/victory/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/#contributing). Happy charting.
