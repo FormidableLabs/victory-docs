@@ -1,6 +1,9 @@
 import React from "react";
 import ShowcaseApp from "./showcase-app";
 
+// Common
+// import { VictorySettings } from "formidable-landers";
+
 class Showcase extends React.Component {
   getShowcaseApps() {
     const showcaseAppData = [
@@ -51,7 +54,9 @@ class Showcase extends React.Component {
   render() {
     return (
       <div>
-        <h2 id="showcase">Showcase</h2>
+        <h2 id="showcase">
+          Showcase
+        </h2>
         {this.getShowcaseApps()}
       </div>
     );

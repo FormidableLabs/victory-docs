@@ -115,7 +115,7 @@ class Sidebar extends React.Component {
             </NavLink>
           </li>
           <li key="navlink-contributing" style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory/blob/master/CONTRIBUTING.md" style={styles.navlink}>
+            <a href="https://github.com/FormidableLabs/victory/#contributing" style={styles.navlink}>
               Contributing <Icon glyph="external-link" />
             </a>
           </li>
@@ -128,6 +128,11 @@ class Sidebar extends React.Component {
             <a href="https://gitter.im/FormidableLabs/victory" style={styles.navlink}>
               Gitter Channel <Icon glyph="external-link" />
             </a>
+          </li>
+          <li key="navlink-showcase" style={styles.listItem}>
+            <NavLink to="/about#showcase" style={styles.navlink}>
+              Showcase <Icon glyph="internal-link" />
+            </NavLink>
           </li>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
             Documentation
