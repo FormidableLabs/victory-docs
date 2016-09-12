@@ -129,6 +129,11 @@ class Sidebar extends React.Component {
               Gitter Channel <Icon glyph="external-link" />
             </a>
           </li>
+          <li key="navlink-showcase" style={styles.listItem}>
+            <NavLink to="/about#showcase" style={styles.navlink}>
+              Showcase <Icon glyph="internal-link" />
+            </NavLink>
+          </li>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
             Documentation
           </li>

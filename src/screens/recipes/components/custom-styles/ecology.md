@@ -42,7 +42,6 @@ class CustomTheme extends React.Component {
   }
 
   getStyles() {
-    const BABY_BLUE_COLOR = "#ccdee8";
     const BLUE_COLOR = "#00a3de";
     const RED_COLOR = "#7c270b";
 
@@ -51,7 +50,6 @@ class CustomTheme extends React.Component {
         boxSizing: "border-box",
         display: "inline",
         padding: 0,
-        backgroundColor: BABY_BLUE_COLOR,
         fontFamily: "'Fira Sans', sans-serif",
         width: "100%",
         height: "auto"
@@ -167,6 +165,12 @@ class CustomTheme extends React.Component {
         viewBox="0 0 450 350"
       >
         <rect
+          x="0" y="0"
+          width="450" height="350"
+          fill="#ccdee8"
+        />
+
+        <rect
           x="0"
           y="0"
           width="10"
@@ -183,7 +187,7 @@ class CustomTheme extends React.Component {
         />
 
         <VictoryLabel
-          x={430} y={27}
+          x={430} y={25}
           textAnchor="middle"
           verticalAnchor="end"
           style={styles.labelNumber}

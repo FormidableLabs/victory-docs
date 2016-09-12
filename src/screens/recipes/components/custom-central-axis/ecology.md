@@ -2,6 +2,24 @@ Custom Central Axis
 =============
 
 ```playground_norender
+// Data sets
+const dataA = [
+  {x: "Personal Drones", y: 57},
+  {x: "Smart Thermostat", y: 40},
+  {x: "Television", y: 38},
+  {x: "Smartwatch", y: 37},
+  {x: "Fitness Monitor", y: 25},
+  {x: "Tablet", y: 19},
+  {x: "Camera", y: 15},
+  {x: "Laptop", y: 13},
+  {x: "Phone", y: 12}
+];
+
+const dataB = dataA.map(point => {
+  const y = Math.round(point.y + 3 * (Math.random() - 0.5));
+  return { ...point, y };  
+});
+
 class CentralAxis extends React.Component {
   render() {
     return (
@@ -17,7 +35,6 @@ class CentralAxis extends React.Component {
           */
           height={300}
           width={500}
-          padding={50}
           standalone={false}
           style={{
             data: {width: 20},
@@ -26,34 +43,14 @@ class CentralAxis extends React.Component {
         >
           <VictoryBar
             style={{data: {fill: "tomato"}}}
-            data={[
-              {x: "Smartphone", y: 57},
-              {x: "Laptop", y: 36},
-              {x: "Televsion", y: 38},
-              {x: "Tablet", y: 38},
-              {x: "Fitness Monitor", y: 12},
-              {x: "Smartwatch", y: 12},
-              {x: "Surveillance Camera", y: 10},
-              {x: "Smart Thermostat", y: 9},
-              {x: "Personal Drones", y: 6}
-            ]}
+            data={dataA}
             x={"x"}
             y={(data) => (-Math.abs(data.y))}
             labels={(data) => (`${Math.abs(data.y)}%`)}
           />
           <VictoryBar
             style={{data: {fill: "orange"}}}
-            data={[
-              {x: "Smartphone", y: 48},
-              {x: "Laptop", y: 30},
-              {x: "Television", y: 30},
-              {x: "Tablet", y: 29},
-              {x: "Fitness Monitor", y: 13},
-              {x: "Smartwatch", y: 13},
-              {x: "Surveillance Camera", y: 11},
-              {x: "Smart Thermostat", y: 9},
-              {x: "Personal Drones", y: 7}
-            ]}
+            data={dataB}
             labels={(data) => (`${Math.abs(data.y)}%`)}
           />
         </VictoryStack>
@@ -61,11 +58,10 @@ class CentralAxis extends React.Component {
         <VictoryAxis dependentAxis
           height={300}
           width={500}
-          padding={50}
           style={{
             axis: {stroke: "transparent"},
             ticks: {stroke: "transparent"},
-            tickLabels: {fontSize: 7, fill: "black"}
+            tickLabels: {fontSize: 11, fill: "black"}
           }}
           /*
             Use a custom tickLabelComponent with an absolutely positioned x value
@@ -73,20 +69,10 @@ class CentralAxis extends React.Component {
             y values are still provided by VictoryAxis for each tick
           */
           tickLabelComponent={
-            <VictoryLabel x={250} textAnchor="middle" verticalAnchor="middle"/>
+            <VictoryLabel x={245} dy={-0.5} textAnchor="middle" verticalAnchor="start"/>
           }
           standalone={false}
-          tickValues={[
-            "Smartphone",
-            "Laptop",
-            "Television",
-            "Tablet",
-            "Fitness Monitor",
-            "Smartwatch",
-            "Surveillance Camera",
-            "Smart Thermostat",
-            "Personal Drones"
-          ]}
+          tickValues={dataA.map(point => point.x).reverse()}
         />
       </svg>
     );
