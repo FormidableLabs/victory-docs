@@ -75,10 +75,10 @@ class About extends React.Component {
           </h2>
           <p style={styles.copy}>
             Victory is a sophisticated charting library powered by d3.js that aims to provide flexibility and customization
-            beyond what is offered elsewhere. You can it in your browser or in React Native apps with the same convenient API.
+            beyond what is offered elsewhere in the realm of React charting. You can use it in your browser or in React Native apps with the same convenient API.
           </p>
           <p style={styles.copy}>
-            It is helmed and primarily maintained by Formidable’s Lauren Eastridge.
+            Victory is helmed and primarily maintained by Formidable’s Lauren Eastridge.
           </p>
           <p style={styles.copy}>
             <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Contributors to Victory <Icon glyph="external-link" /></a>
