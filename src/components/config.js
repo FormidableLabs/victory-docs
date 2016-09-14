@@ -4,6 +4,7 @@ import VAreaDocs from "victory-chart/docs/victory-area/docs";
 import VAxisDocs from "victory-chart/docs/victory-axis/docs";
 import VBarDocs from "victory-chart/docs/victory-bar/docs";
 import VChartDocs from "victory-chart/docs/victory-chart/docs";
+import VGroupDocs from "victory-chart/docs/victory-group/docs";
 import VLabelDocs from "victory-core/docs/victory-label/docs";
 import VLineDocs from "victory-chart/docs/victory-line/docs";
 import VPieDocs from "victory-pie/docs/victory-pie/docs";
@@ -50,6 +51,11 @@ export const components = [
     slug: "victory-errorbar",
     category: "chart",
     docs: VErrorbarDocs
+  }, {
+    text: "VictoryGroup",
+    slug: "victory-group",
+    category: "chart",
+    docs: VGroupDocs
   }, {
     text: "VictoryLabel",
     slug: "victory-label",

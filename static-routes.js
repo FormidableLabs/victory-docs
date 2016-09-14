@@ -18,6 +18,7 @@ module.exports = [
   "/docs/victory-theme",
   "/docs/victory-tooltip",
   "/docs/victory-voronoi",
+  "/docs/victory-group",
   "/recipes",
   "/recipes/custom-central-axis",
   "/recipes/custom-data-component",
