@@ -1,6 +1,5 @@
 import React from "react";
 import Radium from "radium";
-import { Link } from "react-router";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -54,8 +53,6 @@ class Companies extends React.Component {
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: VIACOM}} />
           <li style={styles.logo} dangerouslySetInnerHTML={{__html: POSTMARK}} />
         </ul>
-
-        <Link to="/about#showcase">View Showcase</Link>
       </div>
     );
   }

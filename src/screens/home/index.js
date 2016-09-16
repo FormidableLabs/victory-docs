@@ -5,11 +5,10 @@ const RadiumLink = Radium(Link);
 
 // Common
 import { VictorySettings } from "formidable-landers";
-// import { components } from "../../components/config";
-// import { recipesComponents } from "../../components/config-recipes";
+import Header from "../../components/header";
 import Icon from "../../components/icon";
 import TitleMeta from "../../components/title-meta";
-import Footer from "../../components/footer";
+import { Footer } from "formidable-landers";
 
 // Child Components
 import Hero from "./components/hero";
@@ -116,44 +115,14 @@ class Home extends React.Component {
     };
   }
 
-  renderComponents(items, route, category) {
-    const styles = this.getStyles();
-
-    if (category === "chart") {
-      return items.map((item) => {
-        if (item.slug === "victory-chart") {
-          return null;
-        }
-        if (item.category === category) {
-          return (
-            <li key={item.slug} style={styles.listItem}>
-              <b style={styles.bullet} />
-              <RadiumLink to={`${route}/${item.slug}`}>
-                {item.text} <Icon glyph="internal-link" />
-              </RadiumLink>
-            </li>
-          );
-        }
-      });
-    }
-    return items.map((item) => {
-      if (item.category === category) {
-        return (
-          <li key={item.slug} style={styles.listItem}>
-            <RadiumLink to={`${route}/${item.slug}`}>
-              {item.text} <Icon glyph="internal-link" />
-            </RadiumLink>
-          </li>
-        );
-      }
-    });
-  }
-
   render() {
     const styles = this.getStyles();
+    const trademark = <div className="default">Victory is a trademark of Formidable Labs, Inc.</div>;
+
     return (
       <TitleMeta title="Victory">
         <section style={styles.section} className="playgroundsMaxHeight">
+          <Header home />
           <Hero />
           <Benefits />
           <div
@@ -167,7 +136,7 @@ class Home extends React.Component {
             }}
           >
             <RadiumLink style={styles.linkGettingStarted} to="/docs">
-              Get Started with Victory <Icon glyph="internal-link" />
+              Get Started <Icon glyph="internal-link" />
             </RadiumLink>
           </div>
 
@@ -186,8 +155,13 @@ class Home extends React.Component {
             </a>.
           </p>
           <Companies style={styles.copy} />
-          <Footer />
         </section>
+        <Footer
+          containerStyle={{
+            margin: "0 3vw"
+          }}
+          trademark={trademark}
+        />
       </TitleMeta>
     );
   }
