@@ -6,7 +6,6 @@ const RadiumLink = Radium(Link);
 // Settings
 import { VictorySettings } from "formidable-landers";
 import Demo from "./demo";
-import logotype from "../../../../static/logotype-hero.svg";
 import Icon from "../../../components/icon";
 
 class Hero extends React.Component {
@@ -14,7 +13,7 @@ class Hero extends React.Component {
     return {
       cover: {
         margin: 0,
-        padding: `${VictorySettings.gutter * 4}px 0 0`
+        padding: `${VictorySettings.gutter}px 0 0`
       },
       title: {
         margin: "0 auto",
@@ -106,12 +105,11 @@ class Hero extends React.Component {
 
   render() {
     const styles = this.getStyles();
+
     return (
       <div style={styles.cover}>
-        <h1 dangerouslySetInnerHTML={{__html: logotype}} style={styles.title} />
         <p style={styles.headingMajor}>
-          An ecosystem <span style={styles.italic}>of</span> modular
-          <br/> data visualization components
+          An ecosystem <span style={styles.italic}>of</span> modular data visualization components
           <br/> <span style={styles.italic}>for</span> React.js developers
         </p>
         <Demo src={require("!!raw!./examples/hero.md")} />
@@ -121,7 +119,7 @@ class Hero extends React.Component {
         <ul style={styles.list}>
           <li style={styles.listItem}>
             <a href="https://github.com/FormidableLabs/victory" key="heroLinkIconGithub">
-              Source Code on GitHub <Icon glyph="external-link" />
+              GitHub <Icon glyph="external-link" />
             </a>
           </li>
           <li style={styles.listItem}>
@@ -141,7 +139,7 @@ class Hero extends React.Component {
           }}
         >
           <RadiumLink style={styles.linkGettingStarted} to="/docs">
-            Get Started with Victory <Icon glyph="internal-link" />
+            Get Started <Icon glyph="internal-link" />
           </RadiumLink>
         </div>
       </div>

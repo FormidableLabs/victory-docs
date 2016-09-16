@@ -1,64 +1,27 @@
 import React from "react";
 import Radium from "radium";
 
-// Common
-import { VictorySettings } from "formidable-landers";
-
-// Children
+// Child components
+import Icon from "../../components/icon";
+import InternalPage from "../../components/page-internal";
 import Showcase from "./components/showcase";
 import TitleMeta from "../../components/title-meta";
-import Footer from "../../components/footer";
-import Sidebar from "../../components/sidebar";
-import Icon from "../../components/icon";
 
 class About extends React.Component {
   getStyles() {
     return {
       copy: {
         maxWidth: "38em"
-      },
-      sidebar: {
-        backgroundColor: "#D6CCC1",
-        overflow: "auto",
-        padding: `0 ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
-        zIndex: "1",
-
-        [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          position: "fixed",
-          top: 0,
-          left: 0,
-          bottom: 0,
-          padding: `0 0 ${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px`,
-          width: "270px"
-        }
-      },
-      content: {
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px`,
-
-        [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          marginLeft: "270px",
-          padding: `${VictorySettings.gutter * 2}px`
-        },
-        [`@media ${VictorySettings.mediaQueries.large}`]: {
-          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter * 3}px 0 ${VictorySettings.gutter * 3}px`
-        }
-      },
-      foots: {
-        margin: `${VictorySettings.gutter}px ${VictorySettings.gutter * 0.5}px`,
-
-        [`@media ${VictorySettings.mediaQueries.medium}`]: {
-          margin: `${VictorySettings.gutter * 3}px ${VictorySettings.gutter}px ${VictorySettings.gutter}px 0`
-        }
       }
     };
   }
+
   render() {
     const styles = this.getStyles();
 
     return (
-      <TitleMeta title="Victory">
-        <Sidebar active="about" style={styles.sidebar} />
-        <div style={styles.content}>
+      <TitleMeta title="Victory | About">
+        <InternalPage sidebar="about">
           <h1 style={[styles.copy, {marginTop: 0}]}>
             About Victory
           </h1>
@@ -93,9 +56,7 @@ class About extends React.Component {
             some of the world’s biggest companies, while helping their internal teams develop smart, thoughtful, and
             scalable systems.
           </p>
-
-          <Footer style={styles.foots} />
-        </div>
+        </InternalPage>
       </TitleMeta>
     );
   }

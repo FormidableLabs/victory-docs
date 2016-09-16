@@ -107,7 +107,7 @@ class Sidebar extends React.Component {
         </IndexLink>
         <ul style={styles.list}>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0, marginBottom: "10px" }]}>
-            Introduction to Victory
+            Introduction
           </li>
           <li key="navlink-index" style={styles.listItem}>
             <NavLink to="/docs" style={styles.navlink}>
