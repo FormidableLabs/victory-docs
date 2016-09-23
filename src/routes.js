@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, IndexRoute } from "react-router";
+import { Route, IndexRoute, Redirect } from "react-router";
 
 // Components
 import App from "./components/app";
@@ -16,5 +16,8 @@ module.exports = (
     <Route path="/recipes" component={Recipes}/>
     <Route path="/recipes/:component" component={Recipes} />
     <Route path="/about" component={About} />
+    <Route path="/">
+      <Redirect from="index.html" to="/" />
+    </Route>
   </Route>
 );
