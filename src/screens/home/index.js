@@ -157,7 +157,7 @@ class Home extends React.Component {
           <Companies style={styles.copy} />
         </section>
         <Footer
-          containerStyle={{
+          styleContainer={{
             margin: "0 3vw"
           }}
           trademark={trademark}

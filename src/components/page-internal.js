@@ -55,7 +55,7 @@ class InternalPage extends React.Component {
             {this.props.children}
           </article>
           <Footer
-            containerStyle={{
+            styleContainer={{
               margin: "0 3vw"
             }}
             trademark={trademark}

@@ -26,6 +26,10 @@ class About extends React.Component {
             About Victory
           </h1>
           <p style={styles.copy}>
+            {/*
+              * TODO: Customize these buttons
+              * https://github.com/FormidableLabs/formidable-landers/issues/175
+              */}
             <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="158px" height="30px"></iframe>
