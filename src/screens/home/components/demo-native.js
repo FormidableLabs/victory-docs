@@ -2,6 +2,7 @@ import React from "react";
 import Radium from "radium";
 
 // VComponents
+import { VictoryTheme } from "victory-core";
 import { VictoryArea, VictoryAxis, VictoryBar, VictoryChart, VictoryStack } from "victory-chart";
 import { VictorySettings } from "formidable-landers";
 
@@ -99,6 +100,7 @@ class Native extends React.Component {
             left: 5,
             right: 5
           }}
+          theme={VictoryTheme.material}
         >
           <VictoryStack>
             {this.state.data.map((data, i) => {

@@ -5,7 +5,7 @@ const RadiumLink = Radium(Link);
 
 // Settings
 import { VictorySettings } from "formidable-landers";
-import Demo from "./demo";
+import HeroDemo from "./hero-demo";
 import Icon from "../../../components/icon";
 
 class Hero extends React.Component {
@@ -105,6 +105,16 @@ class Hero extends React.Component {
 
   render() {
     const styles = this.getStyles();
+    //
+    // <img
+    //   src="./static/hero.gif"
+    //   width="800"
+    //   height="467.5"
+    //   style={{
+    //     display: "block",
+    //     margin: "0 auto"
+    //   }}
+    // />
 
     return (
       <div style={styles.cover}>
@@ -112,7 +122,7 @@ class Hero extends React.Component {
           An ecosystem <span style={styles.italic}>of</span> modular data visualization components
           <br/> <span style={styles.italic}>for</span> React.js developers
         </p>
-        <Demo src={require("!!raw!./examples/hero.md")} />
+        <HeroDemo />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
         </div>
