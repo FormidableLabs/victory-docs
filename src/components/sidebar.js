@@ -38,6 +38,7 @@ class Sidebar extends React.Component {
         columnGap: `${VictorySettings.gutter * 2}px`,
         fontSize: "18px",
         listStyle: "none",
+        margin: 0,
         padding: 0
       },
       listItem: {
@@ -53,18 +54,18 @@ class Sidebar extends React.Component {
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
         color: VictorySettings.mud,
-        fontSize: "1.2em",
+        fontSize: "1em",
         fontWeight: "bold",
         lineHeight: 1,
         marginTop: `${VictorySettings.gutter * 0.5}px`,
-        marginBottom: `${VictorySettings.gutter * -0.25}px`,
+        marginBottom: `${VictorySettings.gutter * -0.5}px`,
         paddingTop: `${VictorySettings.gutter}px`
       },
       listItemHeading: {
         breakInside: "avoid",
         columnBreakInside: "avoid",
         pageBreakInside: "avoid",
-        color: VictorySettings.palerMud,
+        color: VictorySettings.paleMud,
         fontFamily: VictorySettings.sansSerif,
         fontSize: "0.8em",
         letterSpacing: "0.15em",
@@ -99,14 +100,8 @@ class Sidebar extends React.Component {
     /* eslint-disable max-len */
     return (
       <nav style={this.props.style}>
-        <IndexLink to="/" style={styles.iconLink}>
-          <div
-            dangerouslySetInnerHTML={{__html: VictoryIcon}}
-            style={styles.icon}
-          />
-        </IndexLink>
         <ul style={styles.list}>
-          <li style={[styles.listItemCategoryHeading, {marginTop: 0, marginBottom: "10px" }]}>
+          <li style={[styles.listItemCategoryHeading, { marginTop: 0, marginBottom: "5px" }]}>
             Introduction
           </li>
           <li key="navlink-index" style={styles.listItem}>
@@ -118,21 +113,6 @@ class Sidebar extends React.Component {
             <a href="https://github.com/FormidableLabs/victory/#contributing" style={styles.navlink}>
               Contributing <Icon glyph="external-link" />
             </a>
-          </li>
-          <li key="navlink-source" style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory" style={styles.navlink}>
-              Source Code <Icon glyph="external-link" />
-            </a>
-          </li>
-          <li key="navlink-gitter" style={styles.listItem}>
-            <a href="https://gitter.im/FormidableLabs/victory" style={styles.navlink}>
-              Gitter Channel <Icon glyph="external-link" />
-            </a>
-          </li>
-          <li key="navlink-showcase" style={styles.listItem}>
-            <NavLink to="/about#showcase" style={styles.navlink}>
-              Showcase <Icon glyph="internal-link" />
-            </NavLink>
           </li>
           <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
             Documentation

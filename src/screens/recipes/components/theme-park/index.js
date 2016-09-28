@@ -48,7 +48,7 @@ class ThemePark extends React.Component {
     const styleRules = {
       [`.${menuClass}`]: {
         backgroundColor: VictorySettings.whiteSand,
-        margin: "20px -40px -40px"
+        margin: "20px -40px -20px"
       },
       [`.${menuClass} button`]: {
         // remove button styling
