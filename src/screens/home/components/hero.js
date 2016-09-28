@@ -1,12 +1,9 @@
 import React from "react";
 import Radium from "radium";
-import { Link } from "react-router";
-const RadiumLink = Radium(Link);
 
 // Settings
 import { VictorySettings } from "formidable-landers";
 import HeroDemo from "./hero-demo";
-import Icon from "../../../components/icon";
 
 class Hero extends React.Component {
   getStyles() {
@@ -14,14 +11,6 @@ class Hero extends React.Component {
       cover: {
         margin: 0,
         padding: `${VictorySettings.gutter}px 0 0`
-      },
-      title: {
-        margin: "0 auto",
-        height: "100px",
-        maxWidth: "658px",
-        textAlign: "center",
-        fontSize: "72px",
-        borderBottom: "none"
       },
       headingMajor: {
         marginTop: `${VictorySettings.gutter}px`,
@@ -33,15 +22,6 @@ class Hero extends React.Component {
       },
       italic: {
         fontStyle: "italic"
-      },
-      headingMinor: {
-        marginTop: `${VictorySettings.gutter * 1.5}px`,
-        fontFamily: VictorySettings.serif,
-        fontSize: "1em",
-        lineHeight: "1.5",
-        letterSpacing: "0.25em",
-        textTransform: "uppercase",
-        textAlign: "center"
       },
       installer: {
         margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
@@ -58,27 +38,7 @@ class Hero extends React.Component {
         fontSize: "18px",
         lineHeight: 1.2
       },
-      list: {
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        listStyleType: "none",
-        margin: `${VictorySettings.gutter}px auto 0`,
-        maxWidth: "720px",
-        padding: 0
-      },
-      listItem: {
-        padding: `${VictorySettings.gutter}px`
-      },
-      icon: {
-        display: "inline-block",
-        marginRight: "0.5em",
-        width: "30px",
-        verticalAlign: "middle"
-      },
-      linkGettingStarted: {
+      link: {
         borderStyle: "solid",
         borderWidth: "39px 41px",
         borderImageSource: `url("./static/btn-border.svg")`,
@@ -105,16 +65,6 @@ class Hero extends React.Component {
 
   render() {
     const styles = this.getStyles();
-    //
-    // <img
-    //   src="./static/hero.gif"
-    //   width="800"
-    //   height="467.5"
-    //   style={{
-    //     display: "block",
-    //     margin: "0 auto"
-    //   }}
-    // />
 
     return (
       <div style={styles.cover}>
@@ -125,32 +75,6 @@ class Hero extends React.Component {
         <HeroDemo />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
-        </div>
-        <ul style={styles.list}>
-          <li style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory" key="heroLinkIconGithub">
-              GitHub <Icon glyph="external-link" />
-            </a>
-          </li>
-          <li style={styles.listItem}>
-            <a href="https://gitter.im/FormidableLabs/victory" key="heroLinkIconGitter">
-              Chat on Gitter <Icon glyph="external-link" />
-            </a>
-          </li>
-        </ul>
-        <div
-          style={{
-            display: "block",
-            fontFamily: VictorySettings.sansSerif,
-            marginTop: `${VictorySettings.gutter}px`,
-            marginRight: "3vw",
-            marginLeft: "3vw",
-            textAlign: "center"
-          }}
-        >
-          <RadiumLink style={styles.linkGettingStarted} to="/docs">
-            Get Started <Icon glyph="internal-link" />
-          </RadiumLink>
         </div>
       </div>
     );

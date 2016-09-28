@@ -10,7 +10,7 @@ import LOGO from "../../static/logotype-hero.svg";
 class VictoryHeader extends React.Component {
   render() {
     const padding = this.props.home ? "60px 0" : "40px 0";
-    const minWidth = this.props.home ? "904px" : "1193px";
+    const minWidth = this.props.home ? "945px" : "1230px";
 
     const victoryLogo = (
       <RadiumLink
@@ -48,8 +48,11 @@ class VictoryHeader extends React.Component {
           <a href="https://github.com/FormidableLabs/victory/issues">
             Issues
           </a>
+          <a href="https://gitter.im/FormidableLabs/victory">
+            Gitter
+          </a>
           <a href="https://github.com/FormidableLabs/victory">
-            View Source
+            Github
           </a>
         </div>
       </Header>

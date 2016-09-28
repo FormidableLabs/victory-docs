@@ -35,9 +35,9 @@ class RecipeDocs extends React.Component {
   }
   render() {
     return (
-      <main className="Main" style={this.props.style}>
+      <div className="Markdown" style={this.props.style}>
         {this.renderDocsContent(this.props.active)}
-      </main>
+      </div>
     );
   }
 }

@@ -54,9 +54,6 @@ class Showcase extends React.Component {
   render() {
     return (
       <div>
-        <h2 id="showcase">
-          Showcase
-        </h2>
         {this.getShowcaseApps()}
       </div>
     );

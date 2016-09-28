@@ -25,10 +25,11 @@ class Benefits extends React.Component {
       },
       code: {
         background: VictorySettings.whiteSand,
-        borderRadius: "3px",
-        color: VictorySettings.darkMud,
+        borderRadius: 3,
+        color: VictorySettings.mud,
         fontFamily: VictorySettings.monospace,
-        padding: "0 0.25em"
+        fontSize: "0.85em",
+        padding: "0.33em 0.333em 0.28em"
       },
       copy: {
         maxWidth: "38em",
@@ -79,7 +80,7 @@ class Benefits extends React.Component {
               <a
                 href="./recipes/custom-styles"
               >
-                <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="internal-link" />
+                <span style={styles.smallCaps}>View Recipe</span>&nbsp;<Icon glyph="internal-link" />
               </a>
             </p>
           </div>

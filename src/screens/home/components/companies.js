@@ -11,29 +11,28 @@ import FIVETHIRTYEIGHT from "../../../../static/logo-fivethirtyeight.svg";
 class Companies extends React.Component {
   getStyles() {
     return {
-      heart: {
-        color: VictorySettings.red,
-        width: "50px"
-      },
-      img: {
-        opacity: 0.4
+      heading: {
+        color: VictorySettings.darkerSand,
+        fontFamily: VictorySettings.sansSerif,
+        fontSize: "0.8em",
+        letterSpacing: "0.15em",
+        margin: `${VictorySettings.gutter}px 0 0`,
+        textTransform: "uppercase"
       },
       list: {
         alignItems: "center",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         listStyleType: "none",
-        marginTop: `${VictorySettings.gutter}px`,
-        marginLeft: `${VictorySettings.gutter * -2}px`,
+        marginTop: 0,
         padding: 0
       },
       logo: {
-        color: VictorySettings.darkSand,
+        color: VictorySettings.darkestSand,
         height: "50px",
         marginTop: `${VictorySettings.gutter}px`,
         marginBottom: `${VictorySettings.gutter * 2}px`,
-        maxWidth: "200px",
         paddingLeft: `${VictorySettings.gutter * 2}px`
       }
     };
@@ -44,14 +43,14 @@ class Companies extends React.Component {
 
     return (
       <div style={this.props.style}>
-        <h2>
+        <h2 style={styles.heading}>
           A few of our fans
         </h2>
         <ul style={styles.list}>
-          <li style={styles.logo} dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
-          <li style={styles.logo} dangerouslySetInnerHTML={{__html: OOKLA}} />
-          <li style={styles.logo} dangerouslySetInnerHTML={{__html: VIACOM}} />
-          <li style={styles.logo} dangerouslySetInnerHTML={{__html: POSTMARK}} />
+          <li style={[ styles.logo, { maxWidth: "200px" } ]} dangerouslySetInnerHTML={{__html: OOKLA}} />
+          <li style={[ styles.logo, { maxWidth: "200px" } ]} dangerouslySetInnerHTML={{__html: VIACOM}} />
+          <li style={[ styles.logo, { maxWidth: "300px" } ]} dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
+          <li style={[ styles.logo, { maxWidth: "200px" } ]} dangerouslySetInnerHTML={{__html: POSTMARK}} />
         </ul>
       </div>
     );
