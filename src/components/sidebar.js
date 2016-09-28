@@ -1,13 +1,11 @@
 import React from "react";
 import Radium from "radium";
-import { IndexLink } from "react-router";
 
 // Children
 import { components } from "./config";
 import { recipesComponents } from "./config-recipes";
 import NavLink from "./navlink";
 import Icon from "./icon";
-import VictoryIcon from "../../static/icon-victory.svg";
 
 // Settings
 import { VictorySettings } from "formidable-landers";
