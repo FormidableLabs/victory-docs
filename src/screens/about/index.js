@@ -55,8 +55,8 @@ class About extends React.Component {
           <h2 id="showcase">
             Showcase
           </h2>
-            <p style={styles.copy}>See how some companies are using Victory to enhance their
-             services, products, and publications.</p>
+          <p style={styles.copy}>See how some companies are using Victory to enhance their
+            services, products, and publications.</p>
           <Showcase />
 
           <h2 style={styles.copy}>
