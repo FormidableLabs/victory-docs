@@ -1,4 +1,7 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import Ecology from "ecology";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 import Radium from "radium";
 
 // Child components
@@ -19,6 +22,30 @@ class Docs extends React.Component {
     this.setState({tocArray});
   }
 
+  renderContent(activePage) {
+    if (activePage === "index") {
+      return (
+        <div className="Markdown">
+          <Ecology
+            overview={require("!!raw!../../../docs/index.md")}
+            scope={{
+              React, ReactDOM, VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack
+            }}
+            playgroundtheme="elegant"
+          />
+        </div>
+      );
+    }
+    return (
+      <Markdown
+        location={this.props.location}
+        params={this.props.params}
+        updateTocArray={this.updateTocArray.bind(this)}
+        active={activePage}
+      />
+    );
+  }
+
   render() {
     const activePage = this.props.params.component ?
       this.props.params.component :
@@ -27,12 +54,7 @@ class Docs extends React.Component {
     return (
       <TitleMeta title="Victory | Documentation">
         <InternalPage sidebar={activePage}>
-          <Markdown
-            location={this.props.location}
-            params={this.props.params}
-            updateTocArray={this.updateTocArray.bind(this)}
-            active={activePage}
-          />
+          { this.renderContent(activePage) }
         </InternalPage>
       </TitleMeta>
     );

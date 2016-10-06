@@ -14,7 +14,6 @@ import yaml from "prismjs/components/prism-yaml";
 import basename from "../../../basename";
 import { config } from "../../../components/config";
 
-
 class Markdown extends React.Component {
   constructor() {
     super();
@@ -42,10 +41,11 @@ class Markdown extends React.Component {
   }
 
   renderMd(props) {
+    if (props.active === "index") {
+      return;
+    }
     this.setMarkdownRenderer(props.location.pathname);
-    const activePage = props.params.component ?
-      props.params.component : "index";
-    const docsMarkdown = find(config, { slug: activePage }).docs;
+    const docsMarkdown = find(config, { slug: props.active }).docs;
     this.setState({
       renderedMd: this.md.render(docsMarkdown)
     });
@@ -93,7 +93,7 @@ class Markdown extends React.Component {
   render() {
     return (
       <div
-        className="Markdown"
+        className="Overview Markdown"
         dangerouslySetInnerHTML={{
           __html: this.state.renderedMd
         }}
@@ -103,12 +103,14 @@ class Markdown extends React.Component {
 }
 
 Markdown.propTypes = {
+  active: React.PropTypes.string.isRequired,
   location: React.PropTypes.object.isRequired,
   params: React.PropTypes.object,
   updateTocArray: React.PropTypes.func.isRequired
 };
 
 Markdown.defaultProps = {
+  active: "index",
   params: null
 };
 

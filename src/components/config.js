@@ -16,11 +16,6 @@ import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
 
 export const config = [
   {
-    text: "Docs",
-    slug: "index",
-    category: "core",
-    docs: VAreaDocs
-  }, {
     text: "VictoryAnimation",
     slug: "victory-animation",
     category: "core",
