@@ -2,8 +2,8 @@ import React from "react";
 import Radium from "radium";
 
 // Children
-import { components } from "./config";
-import { recipesComponents } from "./config-recipes";
+import { config } from "./config";
+import { configRecipes } from "./config-recipes";
 import NavLink from "./navlink";
 import Icon from "./icon";
 
@@ -153,8 +153,8 @@ Sidebar.propTypes = {
 };
 
 Sidebar.defaultProps = {
-  docs: components,
-  recipes: recipesComponents,
+  docs: config,
+  recipes: configRecipes,
   active: null,
   style: null
 };
