@@ -93,7 +93,7 @@ class Markdown extends React.Component {
   render() {
     return (
       <div
-        className="Overview Markdown"
+        className="Markdown"
         dangerouslySetInnerHTML={{
           __html: this.state.renderedMd
         }}

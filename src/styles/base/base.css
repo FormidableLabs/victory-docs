@@ -5,7 +5,7 @@ html {
   overflow-x: hidden; // Hide scrollbars sfor Playgrounds
 
   @media (--medium-viewport) {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
@@ -14,12 +14,12 @@ html {
 }
 
 body {
-  background-color: var(--whiteSand);
+  background-color: var(--lighterSand);
   color: var(--mud);
   counter-reset: "interactive";
   font-family: var(--fontBody);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.6;
   position: relative;
 }
 
@@ -48,7 +48,9 @@ h5,
 h6,
 figure,
 p,
-pre {
+pre,
+ol,
+ul {
   margin: 1.375em 0 0 0;
 }
 
@@ -93,7 +95,6 @@ iframe {
 ol,
 ul {
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 
@@ -110,8 +111,8 @@ h4,
 h5,
 h6 {
   font-family: var(--fontSubHeading);
-  font-weight: normal;
-  line-height: 1.2;
+  font-weight: bold;
+  line-height: 1.5;
 }
 
 h2 {
@@ -127,13 +128,17 @@ h3 {
 }
 
 h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
   font-size: 1.125rem;
   font-weight: normal;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-h5, h6 {
+h6 {
   font-size: 1.25rem;
 }
 
@@ -143,7 +148,10 @@ h3 code,
 h4 code,
 h5 code,
 h6 code {
-  font-size: 1em;
+  background-color: var(--lightestSand);
+  border: 0;
+  font-size: 0.85em;
+  padding: 0.25em 0.333em 0.20em;
 }
 
 
@@ -153,12 +161,13 @@ code {
 }
 
 pre {
-  margin-left: -5%;
-  margin-right: -5%;
-  padding: 2rem 5%;
+  margin-left: calc(-1 * var(--page));
+  margin-right: calc(-1 * var(--page));
+  padding: 2rem var(--page);
 }
 
-pre[class*="language-"] code {
+pre[class*="language-"] code,
+pre[class*="lang-"] code {
   display: block;
   margin: 0 auto;
   max-width: 100%;
@@ -171,6 +180,7 @@ pre code {
 code {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 1px;
+  font-variant-ligatures: none;
   padding: 0.33em .333em .28em;
 
   @media (--medium-viewport) {

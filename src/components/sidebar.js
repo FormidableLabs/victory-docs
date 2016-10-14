@@ -25,59 +25,63 @@ class Sidebar extends React.Component {
   render() {
     /* eslint-disable max-len */
     return (
-      <nav className="Nav" style={this.props.style}>
-        <p className="Nav-Heading u-noMargin u-noPadding">
-          Introduction
-        </p>
-        <ul className="Nav-List">
-          <li key="navlink-index" className="Nav-List-Item">
-            <NavLink to="/docs">
-              Getting Started <Icon glyph="internal-link" />
-            </NavLink>
-          </li>
-          <li key="navlink-contributing" className="Nav-List-Item">
-            <a href="https://github.com/FormidableLabs/victory/#contributing">
-              Contributing <Icon glyph="external-link" />
-            </a>
-          </li>
-        </ul>
-        <p className="Nav-Heading u-noMarginTop">
-          Documentation
-        </p>
-        <p className="Nav-SubHeading SubHeading">
-          Core
-        </p>
-        <ul className="Nav-List">
-          {this.renderListItems(this.props.docs, "docs", "core")}
-        </ul>
-        <p className="Nav-SubHeading SubHeading">
-          Chart
-        </p>
-        <ul className="Nav-List">
-          {this.renderListItems(this.props.docs, "docs", "chart")}
-        </ul>
-        <p className="Nav-SubHeading SubHeading">
-          More
-        </p>
-        <ul className="Nav-List">
-          {this.renderListItems(this.props.docs, "docs", "more")}
-        </ul>
-        <p className="Nav-Heading">
-          Recipes
-        </p>
-        <p className="Nav-SubHeading SubHeading">
-          Customize
-        </p>
-        <ul className="Nav-List">
-          {this.renderListItems(this.props.recipes, "recipes", "customize")}
-        </ul>
-        <p className="Nav-SubHeading SubHeading">
-          Events
-        </p>
-        <ul className="Nav-List">
-          {this.renderListItems(this.props.recipes, "recipes", "events")}
-        </ul>
-      </nav>
+      <div className="Sidebar">
+        <nav className="Nav" style={this.props.style}>
+          <div className="Nav-Grid">
+            <p className="Nav-Heading u-noMargin u-noPadding">
+              Introduction
+            </p>
+            <ul className="Nav-List">
+              <li key="navlink-index" className="Nav-List-Item">
+                <NavLink to="/docs">
+                  Getting Started <Icon glyph="internal-link" />
+                </NavLink>
+              </li>
+              <li key="navlink-contributing" className="Nav-List-Item">
+                <a href="https://github.com/FormidableLabs/victory/#contributing">
+                  Contributing <Icon glyph="external-link" />
+                </a>
+              </li>
+            </ul>
+            <p className="Nav-Heading u-noMarginTop">
+              Documentation
+            </p>
+            <p className="Nav-SubHeading SubHeading">
+              Core
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.docs, "docs", "core")}
+            </ul>
+            <p className="Nav-SubHeading SubHeading">
+              Chart
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.docs, "docs", "chart")}
+            </ul>
+            <p className="Nav-SubHeading SubHeading">
+              More
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.docs, "docs", "more")}
+            </ul>
+            <p className="Nav-Heading">
+              Recipes
+            </p>
+            <p className="Nav-SubHeading SubHeading">
+              Customize
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.recipes, "recipes", "customize")}
+            </ul>
+            <p className="Nav-SubHeading SubHeading">
+              Events
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.recipes, "recipes", "events")}
+            </ul>
+          </div>
+        </nav>
+      </div>
     );
   /* eslint-enable max-len */
   }

@@ -8,7 +8,7 @@ VictoryArea renders a dataset as a single area. VictoryArea can be composed with
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x] and [y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
-```
+```jsx
 <VictoryArea
   data={[{
     {month: "September", profit: 35000, loss: 2000},
@@ -43,22 +43,22 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 ### samples
 
 The `samples` prop specifies how many individual points to plot when plotting
-y as a function of x. The `samples` prop is ignored if `data` is supplied in props. 
+y as a function of x. The `samples` prop is ignored if `data` is supplied in props.
 
 *default:* `samples={50}`
 
 
 ### categories
 
-The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array. 
+The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
 *examples:* `categories={["dogs", "cats", "mice"]}`
 
 ### style
 
-The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. 
+The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart.
 
-```
+```jsx
 style={{
   data: {fill: "tomato", opacity: 0.7},
   labels: {fontSize: 12},
@@ -93,7 +93,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
 
@@ -107,29 +107,29 @@ The `interpolation` prop determines how data points should be connected when cre
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. 
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 
 *default:* `scale="linear"`
 
-### domain 
+### domain
 
-The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated from data, or other available information. 
+The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated from data, or other available information.
 
 *examples:* `domain={[-1, 1]}` `domain={{x: [0, 100], y: [0, 1]}}`
 
 ### domainPadding
 
-The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. 
+The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum.
 
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}` 
+*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
 **note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 
-### label 
+### label
 
-The `label` prop defines the label that will appear at the edge of the area. This prop should be given a string or as a function of data. If individual labels are required for each data point, they should be created by composing `VictoryArea` with `VictoryScatter`. 
+The `label` prop defines the label that will appear at the edge of the area. This prop should be given a string or as a function of data. If individual labels are required for each data point, they should be created by composing `VictoryArea` with `VictoryScatter`.
 
 *examples:* `label="Series 1"` , `label={(data) => "years x " + data.length }`
 
@@ -166,7 +166,7 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay, and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop. [Read more about animations and transitions]. 
+The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay, and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop. [Read more about animations and transitions].
 
 *examples:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})})}`
 
@@ -204,7 +204,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
 ### eventKey
 
 The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x and y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. [Read more about events here].
-     
+
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually. [Read more about events here].

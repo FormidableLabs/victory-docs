@@ -1,9 +1,8 @@
 /* global window */
 import React from "react";
-import Radium, { Style, StyleRoot } from "radium";
+import Radium, { StyleRoot } from "radium";
 
 // Variables and Stylesheet
-import { VictoryTheme as VictoryStyleSheet } from "formidable-landers";
 import "../styles/styles.css";
 
 class App extends React.Component {

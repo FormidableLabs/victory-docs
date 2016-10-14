@@ -5,3 +5,7 @@
 .u-noPadding {
   padding: 0 !important;
 }
+
+.u-textCenter {
+  text-align: center;
+}

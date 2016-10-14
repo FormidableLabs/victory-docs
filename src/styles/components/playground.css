@@ -1,7 +1,143 @@
+/** Interactive/Component Playground
+ * pre
+ * |- .Interactive
+ *    |- .playground
+ *        |- .playgroundCode
+ *        |  |- .playgroundStage
+ *        |- .playgroundPreview
+ *          |- div
+ *             |- .playgroundError
+ *              |- .previewArea
+ *                |- div
+**/
+.Ecology pre {
+  padding: 0;
+}
 
-/*
+.Ecology pre[class*="language-"],
+.Ecology pre code[class*="lang-"] {
+  margin-left: calc(-1 * var(--page));
+  margin-right: calc(-1 * var(--page));
+  padding: 2rem var(--page);
+}
+
+.playgroundsMaxHeight .Interactive .playgroundCode {
+  max-height: 340px;
+}
+
+.Interactive {
+  position: relative;
+  margin: var(--gutter-small) 0 0;
+  width: 100%;
+}
+
+.Interactive .playground {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0;
+
+  @media (--small-viewport) {
+    flex-direction: row;
+  }
+}
+
+.Interactive .playgroundCode {
+  background-color: var(--codeMirrorbgDim);
+  flex: auto;
+  order: 2;
+  margin: 0;
+  padding: 0;
+}
+
+.Interactive .playgroundStage {
+  padding: var(--gutter-small) var(--gutter);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transition: background-color 195ms ease-in;
+}
+
+.Interactive .playgroundStage.ReactCodeMirror--focused {
+  /* Focused state when editing code */
+  background-color: var(--codeMirrorbgFocused);
+  transition: background-color 250ms ease-out;
+}
+
+.Interactive .playgroundPreview {
+  align-items: center;
+  display: flex;
+  flex: 1 1 340px;
+  justify-content: center;
+  order: 1;
+  padding: 0 0 var(--gutter-small) 0;
+  position: relative;
+  text-align: center;
+}
+
+.Interactive .playgroundPreview > div:first-child {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.Interactive .previewArea {
+  height: 100%;
+  min-height: 100px;
+  width: auto;
+}
+
+.Interactive .previewArea > div:first-child {
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.Interactive .playgroundPreview svg {
+  height: inherit !important; /* override default Victory inline styles */
+  margin: 0 auto;
+  max-height: 280px;
+  width: auto !important; /* override default Victory inline styles */
+}
+
+.Interactive .playgroundPreview:after {
+  counter-increment: interactive;
+  content: "Fig. " counter(interactive) " ";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: var(--nearBlack);
+  font-family: var(--fontSubHeading);
+  font-weight: normal;
+  font-size: 18px;
+  margin: var(--gutter) var(--gutter-small) var(--gutter-small);
+  line-height: 1;
+  text-align: center;
+}
+
+.Interactive .playgroundError {
+  background: var(--darkRed);
+  color: var(--white);
+  font-family: var(--fontMonospace);
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.2;
+  overflow: scroll;
+  padding: var(--gutter-small);
+  text-align: left;
+  white-space: pre;
+  width: 100%;
+}
+
+/**
  * Code Mirror Color Theme
- */
+**/
+.CodeMirror-line {
+  background: none !important;
+}
+
 .cm-s-elegant.CodeMirror {
   height: auto;
   overflow: hidden;
@@ -22,14 +158,14 @@
   word-wrap: normal;
 }
 .cm-s-elegant .CodeMirror-selected { /* text selection */
-  background: var(--codeMirrorbgFocused);
+  background: var(--codeMirrorbgSelected);
   color: white;
 }
 .cm-s-elegant .CodeMirror-activeline {
-  background: var(--codeMirrorbgFocused);
+  background: var(--codeMirrorbgSelected);
 }
 .cm-s-elegant .CodeMirror-activeline-background {
-  background: var(--codeMirrorbgFocused);
+  background: var(--codeMirrorbgSelected);
 }
 .cm-s-elegant .CodeMirror-gutters {
   background: var(--codeMirrorbg) !important;
@@ -58,13 +194,13 @@
   color: black;
 }
 .cm-s-elegant span.cm-header {
-  color: var(--codeMirrorbgFocused);
+  color: var(--codeMirrorbgSelected);
 }
 .cm-s-elegant span.cm-keyword {
   color: var(--codeMirrorKeyword);
 }
 .cm-s-elegant span.cm-meta {
-  color: var(--codeMirrorbgFocused);
+  color: var(--codeMirrorbgSelected);
 }
 .cm-s-elegant span.cm-number {
   color: var(--codeMirrorNumber);

@@ -2,9 +2,9 @@
   --navIndent: 10px;
 }
 
-.Nav {
-  columns: 3 220px;
-  column-gap: calc(2 * var(--gutter));
+.Nav-Grid {
+  columns: 3 200px;
+  column-gap: var(--gutter);
   font-size: 18px;
 }
 
