@@ -30,7 +30,7 @@ class About extends React.Component {
         <Header />
         <article style={styles.container}>
           <h1 style={styles.copy}>
-            About Victory
+            Victory: Powerful React Charting
           </h1>
           <p style={styles.copy}>
             {/*
@@ -42,26 +42,26 @@ class About extends React.Component {
             <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="158px" height="30px"></iframe>
           </p>
           <p style={styles.copy}>
-            Victory is a sophisticated charting library powered by d3.js that aims to provide flexibility and customization
-            beyond what is offered elsewhere in the realm of React charting. You can use it in your browser or in React Native apps with the same convenient API.
+            Victory is a sophisticated React charting library that provides unparalled flexibility and customization.
+            Powered by d3, it provides an easy entry for simple charting, though is a powerful option for even the most complex data visualization.
+            Use in browser or in React Native apps with the same convenient API.
           </p>
           <p style={styles.copy}>
-            Victory is helmed and primarily maintained by Formidable’s Lauren Eastridge.
+            Victory is helmed by Formidable’s <a href="https://github.com/boygirl"> Lauren Eastridge <Icon glyph="external-link" /></a>.
           </p>
           <p style={styles.copy}>
             <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Contributors to Victory <Icon glyph="external-link" /></a>
           </p>
 
           <h2 id="showcase">
-            Showcase
+            Data Visualization Showcase
           </h2>
-          <p style={styles.copy}>See how some companies are using Victory to enhance their
-            services, products, and publications.</p>
+          <p style={styles.copy}>All across the web, Victory is used for publicly-consumed informational graphs to internal tracking and reporting.</p>
           <Showcase />
 
-          <h2 style={styles.copy}>
+          <h1 style={styles.copy}>
             About Formidable
-          </h2>
+          </h1>
           <p style={[styles.copy, {marginBottom: "40px"}]}>
             Formidable is a Seattle-based consultancy and development shop, focused on open-source, full-stack JavaScript
             using React.js and Node.js, and the architecture of large-scale JavaScript applications. We build products for

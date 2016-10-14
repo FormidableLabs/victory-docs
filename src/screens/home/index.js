@@ -1,7 +1,5 @@
 import React from "react";
 import Radium from "radium";
-import { Link } from "react-router";
-const RadiumLink = Radium(Link);
 
 // Common
 import { VictorySettings } from "formidable-landers";
@@ -133,36 +131,7 @@ class Home extends React.Component {
           <div style={styles.companies}>
             <Companies style={[ styles.copy, { margin: "0 auto" } ]} />
           </div>
-          <div
-            style={{
-              display: "block",
-              fontFamily: VictorySettings.sansSerif,
-              marginTop: `${VictorySettings.gutter}px`,
-              marginRight: "3vw",
-              marginLeft: "3vw",
-              textAlign: "center"
-            }}
-          >
-            <RadiumLink style={styles.link} to="/docs">
-              Get Started <Icon glyph="internal-link" />
-            </RadiumLink>
-          </div>
           <Benefits />
-          <div
-            style={{
-              display: "block",
-              fontFamily: VictorySettings.sansSerif,
-              marginTop: `${VictorySettings.gutter}px`,
-              marginRight: "3vw",
-              marginLeft: "3vw",
-              textAlign: "center"
-            }}
-          >
-            <RadiumLink style={styles.link} to="/docs">
-              Get Started <Icon glyph="internal-link" />
-            </RadiumLink>
-          </div>
-
           <h3 style={styles.copy}>Source Code</h3>
           <p style={styles.copy}>
             View the source at <a href="https://github.com/FormidableLabs/victory">
