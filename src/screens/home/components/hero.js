@@ -24,12 +24,9 @@ class Hero extends React.Component {
       italic: {
         fontStyle: "italic"
       },
-<<<<<<< HEAD
       center: {
         textAlign: "center"
       },
-=======
->>>>>>> feature-docs2markdown
       installer: {
         margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
         display: "block",
