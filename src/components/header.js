@@ -45,6 +45,9 @@ class VictoryHeader extends React.Component {
           <a href="https://gitter.im/FormidableLabs/victory">
             Gitter
           </a>
+          <a href="https://gitter.im/FormidableLabs/victory">
+            Gitter
+          </a>
           <a href="https://github.com/FormidableLabs/victory">
             Github
           </a>

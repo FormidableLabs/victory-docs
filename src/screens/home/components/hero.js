@@ -1,7 +1,5 @@
 import React from "react";
 import Radium from "radium";
-import { Link } from "react-router";
-const RadiumLink = Radium(Link);
 
 // Settings
 import { VictorySettings } from "formidable-landers";
@@ -26,9 +24,12 @@ class Hero extends React.Component {
       italic: {
         fontStyle: "italic"
       },
+<<<<<<< HEAD
       center: {
         textAlign: "center"
       },
+=======
+>>>>>>> feature-docs2markdown
       installer: {
         margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
         display: "block",
