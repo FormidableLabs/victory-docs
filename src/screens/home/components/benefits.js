@@ -1,14 +1,14 @@
 import React from "react";
 import Radium from "radium";
+import { Link } from "react-router";
+const RadiumLink = Radium(Link);
 
 // Common
 import { VictorySettings } from "formidable-landers";
 import Icon from "../../../components/icon";
 
 // Child Components
-import Demo from "./demo";
 import DemoFlexible from "./demo-flexible";
-import DemoNative from "./demo-native";
 import DemoSharedEvents from "./demo-shared-events";
 import DemoLiveChart from "./demo-live-chart";
 
@@ -47,6 +47,12 @@ class Benefits extends React.Component {
         minWidth: "360px",
         textAlign: "center"
       },
+      flexTextItem: {
+        flex: "1 0 30%",
+        margin: `${VictorySettings.gutter * 2}px 1vw 0`,
+        minWidth: "360px",
+        textAlign: "center"
+      },
       smallCaps: {
         fontFamily: VictorySettings.sansSerif,
         fontSize: "0.75em",
@@ -55,20 +61,27 @@ class Benefits extends React.Component {
         lineHeight: 1,
         textTransform: "uppercase"
       },
-      installer: {
-        margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
-        display: "block",
-        textAlign: "center"
-      },
-      installerCode: {
+      link: {
+        borderStyle: "solid",
+        borderWidth: "39px 41px",
+        borderImageSource: `url("./static/btn-border.svg")`,
+        borderImageSlice: "39 41",
+        borderImageRepeat: "repeat stretch",
+        color: VictorySettings.red,
         display: "inline-block",
-        padding: "1.25em 1.75em",
-        backgroundColor: VictorySettings.darkMud,
-        boxShadow: `0 0 0 10px #efe9e3, 0 0 0 11px ${VictorySettings.mud}`,
-        color: VictorySettings.whiteSand,
-        fontFamily: VictorySettings.monospace,
-        fontSize: "18px",
-        lineHeight: 1.2
+        fontFamily: VictorySettings.sansSerif,
+        fontSize: "0.75em",
+        fontWeight: "normal",
+        letterSpacing: "0.2em",
+        lineHeight: 1,
+        textTransform: "uppercase",
+        padding: "30px 24px",
+        width: "100%",
+        transition: "color 300ms ease-out",
+        ":hover": {
+          color: VictorySettings.mud,
+          transition: "color 300ms ease"
+        }
       }
     };
   }
@@ -77,16 +90,49 @@ class Benefits extends React.Component {
     const styles = this.getStyles();
     return (
       <div style={{ padding: `${VictorySettings.gutter}px 0` }}>
-        <h2 style={styles.copy}>
-          Why Victory?
-        </h2>
-        {/* Flexible */}
-        <h3 style={styles.copy}>
-          Robust and Flexible Charting
-        </h3>
-        <p style={styles.copy}>
-          The use of sensible default props makes getting started very easy, without sacrificing flexibility. Victory also leverages React lifecycle methods and <code style={styles.code}>DOM</code> diffing to create a lightweight animation wrapper.
-        </p>
+
+        <div style={styles.flex}>
+          <div style={styles.flexTextItem}>
+            <h3>
+              Robust
+            </h3>
+            <p>
+              Area charts. Scatter plots. Voronoi polygons. Easy-to-use components for complex charting.
+            </p>
+          </div>
+          <div style={styles.flexTextItem}>
+            <h3>
+              Flexible
+            </h3>
+            <p>
+              Fully-contained, reusable data visualization elements are responsible for their own styles and behaviors.
+            </p>
+          </div>
+          <div style={styles.flexTextItem}>
+            <h3>
+              Native
+            </h3>
+            <p>
+              Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API. <br/>
+              npm install victory-native
+            </p>
+          </div>
+        </div>
+
+        <div
+          style={{
+            display: "block",
+            fontFamily: VictorySettings.sansSerif,
+            marginTop: `${VictorySettings.gutter}px`,
+            marginRight: "3vw",
+            marginLeft: "3vw",
+            textAlign: "center"
+          }}
+        >
+          <RadiumLink style={styles.link} to="/docs">
+            Get Started <Icon glyph="internal-link" />
+          </RadiumLink>
+        </div>
 
         <div style={styles.flex}>
           <div style={styles.flexItem}>
@@ -118,64 +164,6 @@ class Benefits extends React.Component {
                 <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
               </a>
             </p>
-          </div>
-        </div>
-
-        {/* Friendly */}
-        <h3 style={styles.copy}>
-          Sensible Defaults
-        </h3>
-        <p style={styles.copy}>
-          The modular, componentized nature of React has allowed us to write fully-contained, reusable data visualization elements that are responsible for their own styles and behaviors. Sensible default props make getting started easy!
-        </p>
-
-        <Demo src={require("!!raw!./examples/friendly.md")} />
-
-        {/* Composable */}
-        <h3 style={styles.copy}>
-          Composable
-        </h3>
-        <p style={styles.copy}>
-          When combined, these features result in a set of components that are easy to use, and compose into more complicated visualizations.
-        </p>
-
-        <Demo src={require("!!raw!./examples/composable.md")} />
-
-        {/* Native */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "flex-start"
-          }}
-        >
-          <div
-            style={{
-              flex: "1 1 300px"
-            }}
-          >
-            <h3 style={styles.copy}>
-              Native Support
-            </h3>
-            <p style={styles.copy}>
-              Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
-            </p>
-            <div style={styles.installer}>
-              <code style={styles.installerCode}>npm install victory-native</code>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              flex: "1 0 300px",
-              flexDirection: "row",
-              flexWrap: "nowrap",
-              justifyContent: "center"
-            }}
-          >
-            <DemoNative />
-            <DemoNative alt />
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ class Hero extends React.Component {
         padding: `${VictorySettings.gutter}px 0 0`
       },
       headingMajor: {
+        color: "#000",
         marginTop: `${VictorySettings.gutter}px`,
         padding: "0 20px",
         fontFamily: VictorySettings.serif,
@@ -22,6 +23,9 @@ class Hero extends React.Component {
       },
       italic: {
         fontStyle: "italic"
+      },
+      center: {
+        textAlign: "center"
       },
       installer: {
         margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
@@ -59,6 +63,9 @@ class Hero extends React.Component {
           color: VictorySettings.mud,
           transition: "color 300ms ease"
         }
+      },
+      simpleLink: {
+        color: VictorySettings.red
       }
     };
   }
@@ -68,13 +75,17 @@ class Hero extends React.Component {
 
     return (
       <div style={styles.cover}>
-        <p style={styles.headingMajor}>
-          An ecosystem <span style={styles.italic}>of</span> modular data visualization components
-          <br/> <span style={styles.italic}>for</span> React.js developers
-        </p>
+        <h1 style={styles.headingMajor}>
+           React.js components <span style={styles.italic}>for</span>
+           <br/>
+          modular charting <span style={styles.italic}>and</span> data visualization
+        </h1>
         <HeroDemo />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
+        </div>
+        <div style={styles.center}>
+          Want a ready-made chart? Use <a href="/composed" style={styles.simpleLink}>Victory Composed</a> instead.
         </div>
       </div>
     );
