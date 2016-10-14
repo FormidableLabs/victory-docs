@@ -54,6 +54,21 @@ class Benefits extends React.Component {
         letterSpacing: "0.2em",
         lineHeight: 1,
         textTransform: "uppercase"
+      },
+      installer: {
+        margin: `${VictorySettings.gutter}px auto ${VictorySettings.gutter * 2}px`,
+        display: "block",
+        textAlign: "center"
+      },
+      installerCode: {
+        display: "inline-block",
+        padding: "1.25em 1.75em",
+        backgroundColor: VictorySettings.darkMud,
+        boxShadow: `0 0 0 10px #efe9e3, 0 0 0 11px ${VictorySettings.mud}`,
+        color: VictorySettings.whiteSand,
+        fontFamily: VictorySettings.monospace,
+        fontSize: "18px",
+        lineHeight: 1.2
       }
     };
   }
@@ -146,6 +161,9 @@ class Benefits extends React.Component {
             <p style={styles.copy}>
               Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API.
             </p>
+            <div style={styles.installer}>
+              <code style={styles.installerCode}>npm install victory-native</code>
+            </div>
           </div>
           <div
             style={{
