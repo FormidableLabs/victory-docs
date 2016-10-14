@@ -70,7 +70,6 @@ class Markdown extends React.Component {
     const defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, renderer) {
       return renderer.renderToken(tokens, idx, options);
     };
-    //
     // Update links to include the basename
     md.renderer.rules.link_open = function (tokens, idx, options, env, renderer) {
       const tokenAttrs = tokens[idx].attrs;

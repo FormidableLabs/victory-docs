@@ -39,14 +39,11 @@ class VictoryHeader extends React.Component {
           <RadiumLink to="/about">
             About
           </RadiumLink>
-          <RadiumLink to="/about#showcase">
-            Showcase
-          </RadiumLink>
           <RadiumLink to="/docs">
             Docs
           </RadiumLink>
-          <a href="https://github.com/FormidableLabs/victory/issues">
-            Issues
+          <a href="https://gitter.im/FormidableLabs/victory">
+            Gitter
           </a>
           <a href="https://gitter.im/FormidableLabs/victory">
             Gitter
@@ -54,6 +51,9 @@ class VictoryHeader extends React.Component {
           <a href="https://github.com/FormidableLabs/victory">
             Github
           </a>
+          <RadiumLink to="/composed">
+            Composed
+          </RadiumLink>
         </div>
       </Header>
     );
