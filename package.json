@@ -39,6 +39,7 @@
     "markdown-it-toc-and-anchor": "^4.1.1",
     "marked": "^0.3.5",
     "mocha": "^2.3.3",
+    "normalize.css": "^5.0.0",
     "prismjs": "^1.5.1",
     "radium": "0.17.2",
     "react": "^15.1.0",

@@ -1,0 +1,69 @@
+:root {
+  /*
+   * Colors
+   */
+  /* Brand Grays */
+  --black: #242121;
+  --nearBlack: #373534;
+  --darkestGray: #4a4746;
+  --darkerGray: #5f5c5b;
+  --darkGray: #737271;
+  --gray: #898685;
+  --lightGray: #a19e9d;
+  --lighterGray: #b7b4b3;
+  --lightestGray: #d1cecd;
+  --white: #e7e5e3;
+  /* Brand Reds */
+  --red: #c43a31;
+  --darkRed: #AD1B11;
+  /* Victory */
+  --whiteSand: #f6f2ee; //bg
+  /*--palestSand: #e8e0d8;*/
+  --sand: #e1d7cd;
+  /*--paleSand: #d1c7bc;*/
+  --darkSand: #b5aca3;
+  /*--sand: #b5aca3;*/
+  /*--darkSand: #948d85;*/
+  /*--darkerSand: #807973;*/
+  /*--darkestSand: #67615c;*/
+  /*--palerMud: #736357;*/
+  /*--paleMud: #4d4945;*/
+  --mud: #34302e;
+  --darkMud: #181615;
+  /* CodeMirror */
+  /*--codeMirrorbg: #f5f2f0; //OG */
+  --codeMirrorbg: #FFFEFC;
+  --codeMirrorbgFocused: #b3d4fc;
+  --codeMirrorComment: #586e75;
+  --codeMirrorPunctuation: #666;
+  --codeMirrorNumber: #905;
+  --codeMirrorSelector: #007A71;
+  --codeMirrorOperator: #8A633E;
+  --codeMirrorKeyword: #0671BD;
+  --codeMirrorFunction: #CC2345;
+  --codeMirrorVariable: #e90;
+  /*
+  * Fonts
+  */
+  --fontHeading: 'Playfair Display', 'Archivo Narrow', 'Georgia', 'Cambria', serif;
+  --fontSubHeading: 'freight-sans-pro', 'Work Sans', 'akkurat', 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Monaco', 'Courier', monospace;
+  --fontBody: 'ff-more-web-pro', 'Georgia', 'Cambria', serif;
+  --fontMonospace: 'akkurat', 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Monaco', 'Courier', monospace;
+
+  /* Notes:
+   * Libre Baskerville looks too slow, too playful
+   * Andada is PERFECT but lacks bold and italic weights
+   */
+  /*
+  * Layout
+  */
+  --gutter: 3.75rem;
+  --gutter-small: 1.375rem;
+}
+
+/*
+* Media Queries
+*/
+@custom-media --small-viewport only screen and (min-width: 650px);
+@custom-media --medium-viewport only screen and (min-width: 960px);
+@custom-media --large-viewport only screen and (min-width: 1200px);
