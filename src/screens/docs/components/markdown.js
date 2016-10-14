@@ -1,5 +1,5 @@
 import React from "react";
-import find from "lodash/find";
+import { find, findIndex } from "lodash";
 
 import MarkdownIt from "markdown-it";
 import markdownItTocAndAnchor from "markdown-it-toc-and-anchor";
@@ -70,15 +70,17 @@ class Markdown extends React.Component {
     const defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, renderer) {
       return renderer.renderToken(tokens, idx, options);
     };
-    //
-    // Update anchor links to include the basename
+    // Update links to include the basename
     md.renderer.rules.link_open = function (tokens, idx, options, env, renderer) {
-      const anchor = tokens[idx].attrs[1];
-      if (anchor.length > 0) {
-        const href = anchor[1];
-        if (href.indexOf("#") === 0) {
-          tokens[idx].attrs[1][1] = `${basename}${currentPath}${href}`;
-          tokens[idx].attrs.push(["aria-hidden", "true"]);
+      const tokenAttrs = tokens[idx].attrs;
+      const hrefIdx = findIndex(tokenAttrs, (arr) => arr.indexOf("href") >= 0);
+      if (hrefIdx >= 0) {
+        const href = tokenAttrs[hrefIdx];
+        if (href.length > 1) {
+          if (href[1].indexOf("#") === 0) {
+            href[1] = `${basename}${currentPath}${href[1]}`;
+            tokenAttrs.push(["aria-hidden", "true"]);
+          }
         }
       }
       return defaultRender(tokens, idx, options, env, renderer);
