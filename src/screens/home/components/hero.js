@@ -5,8 +5,7 @@ const RadiumLink = Radium(Link);
 
 // Settings
 import { VictorySettings } from "formidable-landers";
-import Demo from "./demo";
-import Icon from "../../../components/icon";
+import HeroDemo from "./hero-demo";
 
 class Hero extends React.Component {
   getStyles() {
@@ -15,15 +14,8 @@ class Hero extends React.Component {
         margin: 0,
         padding: `${VictorySettings.gutter}px 0 0`
       },
-      title: {
-        margin: "0 auto",
-        height: "100px",
-        maxWidth: "658px",
-        textAlign: "center",
-        fontSize: "72px",
-        borderBottom: "none"
-      },
       headingMajor: {
+        color: "#000",
         marginTop: `${VictorySettings.gutter}px`,
         padding: "0 20px",
         fontFamily: VictorySettings.serif,
@@ -34,13 +26,7 @@ class Hero extends React.Component {
       italic: {
         fontStyle: "italic"
       },
-      headingMinor: {
-        marginTop: `${VictorySettings.gutter * 1.5}px`,
-        fontFamily: VictorySettings.serif,
-        fontSize: "1em",
-        lineHeight: "1.5",
-        letterSpacing: "0.25em",
-        textTransform: "uppercase",
+      center: {
         textAlign: "center"
       },
       installer: {
@@ -58,27 +44,7 @@ class Hero extends React.Component {
         fontSize: "18px",
         lineHeight: 1.2
       },
-      list: {
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "center",
-        listStyleType: "none",
-        margin: `${VictorySettings.gutter}px auto 0`,
-        maxWidth: "720px",
-        padding: 0
-      },
-      listItem: {
-        padding: `${VictorySettings.gutter}px`
-      },
-      icon: {
-        display: "inline-block",
-        marginRight: "0.5em",
-        width: "30px",
-        verticalAlign: "middle"
-      },
-      linkGettingStarted: {
+      link: {
         borderStyle: "solid",
         borderWidth: "39px 41px",
         borderImageSource: `url("./static/btn-border.svg")`,
@@ -99,6 +65,9 @@ class Hero extends React.Component {
           color: VictorySettings.mud,
           transition: "color 300ms ease"
         }
+      },
+      simpleLink: {
+        color: VictorySettings.red
       }
     };
   }
@@ -108,39 +77,17 @@ class Hero extends React.Component {
 
     return (
       <div style={styles.cover}>
-        <p style={styles.headingMajor}>
-          An ecosystem <span style={styles.italic}>of</span> modular data visualization components
-          <br/> <span style={styles.italic}>for</span> React.js developers
-        </p>
-        <Demo src={require("!!raw!./examples/hero.md")} />
+        <h1 style={styles.headingMajor}>
+           React.js components <span style={styles.italic}>for</span>
+           <br/>
+          modular charting <span style={styles.italic}>and</span> data visualization
+        </h1>
+        <HeroDemo />
         <div style={styles.installer}>
           <code style={styles.code}>npm install victory</code>
         </div>
-        <ul style={styles.list}>
-          <li style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory" key="heroLinkIconGithub">
-              GitHub <Icon glyph="external-link" />
-            </a>
-          </li>
-          <li style={styles.listItem}>
-            <a href="https://gitter.im/FormidableLabs/victory" key="heroLinkIconGitter">
-              Chat on Gitter <Icon glyph="external-link" />
-            </a>
-          </li>
-        </ul>
-        <div
-          style={{
-            display: "block",
-            fontFamily: VictorySettings.sansSerif,
-            marginTop: `${VictorySettings.gutter}px`,
-            marginRight: "3vw",
-            marginLeft: "3vw",
-            textAlign: "center"
-          }}
-        >
-          <RadiumLink style={styles.linkGettingStarted} to="/docs">
-            Get Started <Icon glyph="internal-link" />
-          </RadiumLink>
+        <div style={styles.center}>
+          Want a ready-made chart? Use <a href="/composed" style={styles.simpleLink}>Victory Composed</a> instead.
         </div>
       </div>
     );

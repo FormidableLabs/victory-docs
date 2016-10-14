@@ -7,7 +7,7 @@ import SharedEvents from "../screens/recipes/components/shared-events/docs";
 import CandlestickDashboard from "../screens/recipes/components/candlestick-dashboard/docs";
 import ThemePark from "../screens/recipes/components/theme-park";
 
-export const recipesComponents = [
+export const configRecipes = [
   {
     text: "Candlestick Dashboard",
     slug: "candlestick-dashboard",

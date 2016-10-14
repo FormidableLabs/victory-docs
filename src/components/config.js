@@ -1,21 +1,20 @@
-// Victory Component Ecology Docs
-import VAnimationDocs from "victory-core/docs/victory-animation/docs";
-import VAreaDocs from "victory-chart/docs/victory-area/docs";
-import VAxisDocs from "victory-chart/docs/victory-axis/docs";
-import VBarDocs from "victory-chart/docs/victory-bar/docs";
-import VChartDocs from "victory-chart/docs/victory-chart/docs";
-import VGroupDocs from "victory-chart/docs/victory-group/docs";
-import VLabelDocs from "victory-core/docs/victory-label/docs";
-import VLineDocs from "victory-chart/docs/victory-line/docs";
-import VPieDocs from "victory-pie/docs/victory-pie/docs";
-import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
-import VCandlestickDocs from "victory-chart/docs/victory-candlestick/docs";
-import VErrorBarDocs from "victory-chart/docs/victory-errorbar/docs";
-import VThemeDocs from "victory-chart/docs/victory-theme/docs";
-import VTooltipDocs from "victory-chart/docs/victory-tooltip/docs";
-import VVoronoiDocs from "victory-chart/docs/victory-voronoi/docs";
+import VAnimationDocs from "../../docs/victory-animation/docs.md";
+import VAreaDocs from "../../docs/victory-area/docs.md";
+import VAxisDocs from "../../docs/victory-axis/docs.md";
+import VBarDocs from "../../docs/victory-bar/docs.md";
+import VChartDocs from "../../docs/victory-chart/docs.md";
+import VGroupDocs from "../../docs/victory-group/docs.md";
+import VLabelDocs from "../../docs/victory-label/docs.md";
+import VLineDocs from "../../docs/victory-line/docs.md";
+import VPieDocs from "../../docs/victory-pie/docs.md";
+import VScatterDocs from "../../docs/victory-scatter/docs.md";
+import VCandlestickDocs from "../../docs/victory-candlestick/docs.md";
+import VErrorBarDocs from "../../docs/victory-errorbar/docs.md";
+import VThemeDocs from "../../docs/victory-theme/docs.md";
+import VTooltipDocs from "../../docs/victory-tooltip/docs.md";
+import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
 
-export const components = [
+export const config = [
   {
     text: "VictoryAnimation",
     slug: "victory-animation",

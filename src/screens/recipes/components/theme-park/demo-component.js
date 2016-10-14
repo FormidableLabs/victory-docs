@@ -26,7 +26,7 @@ const DemoComponent = ({ theme }) => {
         <VictoryPie
           theme={theme}
           standalone={false}
-          style={{labels: {padding: 100}}}
+          style={{labels: {padding: 10}}}
           height={200}
           width={200}
         />

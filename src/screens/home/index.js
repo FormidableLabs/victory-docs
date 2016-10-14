@@ -1,7 +1,5 @@
 import React from "react";
 import Radium from "radium";
-import { Link } from "react-router";
-const RadiumLink = Radium(Link);
 
 // Common
 import { VictorySettings } from "formidable-landers";
@@ -26,6 +24,12 @@ class Home extends React.Component {
       copy: {
         maxWidth: "38em",
         marginLeft: "3vw"
+      },
+      companies: {
+        backgroundColor: VictorySettings.palerSand,
+        margin: `${VictorySettings.gutter}px 0 0`,
+        padding: `${VictorySettings.gutter}px 0`,
+        textAlign: "center"
       },
       columns: {
         display: "flex",
@@ -90,7 +94,7 @@ class Home extends React.Component {
         lineHeight: 1,
         textTransform: "uppercase"
       },
-      linkGettingStarted: {
+      link: {
         borderStyle: "solid",
         borderWidth: "39px 41px",
         borderImageSource: `url("./static/btn-border.svg")`,
@@ -124,22 +128,10 @@ class Home extends React.Component {
         <section style={styles.section} className="playgroundsMaxHeight">
           <Header home />
           <Hero />
-          <Benefits />
-          <div
-            style={{
-              display: "block",
-              fontFamily: VictorySettings.sansSerif,
-              marginTop: `${VictorySettings.gutter}px`,
-              marginRight: "3vw",
-              marginLeft: "3vw",
-              textAlign: "center"
-            }}
-          >
-            <RadiumLink style={styles.linkGettingStarted} to="/docs">
-              Get Started <Icon glyph="internal-link" />
-            </RadiumLink>
+          <div style={styles.companies}>
+            <Companies style={[ styles.copy, { margin: "0 auto" } ]} />
           </div>
-
+          <Benefits />
           <h3 style={styles.copy}>Source Code</h3>
           <p style={styles.copy}>
             View the source at <a href="https://github.com/FormidableLabs/victory">
@@ -154,10 +146,12 @@ class Home extends React.Component {
               FormidableLabs/victory&nbsp;<Icon glyph="external-link" />
             </a>.
           </p>
-          <Companies style={styles.copy} />
         </section>
         <Footer
-          containerStyle={{
+          style={{
+            margin: 0
+          }}
+          styleContainer={{
             margin: "0 3vw"
           }}
           trademark={trademark}

@@ -4,15 +4,16 @@ import Radium from "radium";
 // Child Components
 import Sidebar from "./sidebar";
 import Header from "./header";
-import { Footer, VictorySettings } from "formidable-landers";
+import Footer from "./footer";
+import { VictorySettings } from "formidable-landers";
 
 class InternalPage extends React.Component {
   getStyles() {
     return {
       sidebar: {
-        backgroundColor: "#D6CCC1",
+        backgroundColor: "#EBE7E4",
         overflow: "auto",
-        padding: `0 ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
+        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px ${VictorySettings.gutter * 2}px`,
         zIndex: "1",
 
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
@@ -20,7 +21,7 @@ class InternalPage extends React.Component {
           top: 0,
           left: 0,
           bottom: 0,
-          padding: `0 0 ${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px`,
+          padding: `${VictorySettings.gutter * 2}px 0 ${VictorySettings.gutter * 2}px ${VictorySettings.gutter}px`,
           width: "270px"
         }
       },
@@ -31,11 +32,13 @@ class InternalPage extends React.Component {
       },
       article: {
         padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px`,
+
         [`@media ${VictorySettings.mediaQueries.medium}`]: {
+          minHeight: "75vh", // gives appearance of a sticky footer
           padding: `${VictorySettings.gutter * 2}px`
         },
         [`@media ${VictorySettings.mediaQueries.large}`]: {
-          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter * 3}px 0 ${VictorySettings.gutter * 3}px`
+          padding: `${VictorySettings.gutter * 2}px ${VictorySettings.gutter * 3}px ${VictorySettings.gutter}px ${VictorySettings.gutter * 3}px`
         }
       }
     };
@@ -43,23 +46,17 @@ class InternalPage extends React.Component {
 
   render() {
     const styles = this.getStyles();
-    const trademark = <div className="default">Victory is a trademark of Formidable Labs, Inc.</div>;
 
     /* eslint-disable max-len */
     return (
       <div>
-        <Sidebar active={this.props.sidebar} style={styles.sidebar} />
         <main style={styles.content}>
           <Header />
+          <Sidebar active={this.props.sidebar} style={styles.sidebar} />
           <article style={styles.article}>
             {this.props.children}
           </article>
-          <Footer
-            containerStyle={{
-              margin: "0 3vw"
-            }}
-            trademark={trademark}
-          />
+          <Footer />
         </main>
       </div>
     );
