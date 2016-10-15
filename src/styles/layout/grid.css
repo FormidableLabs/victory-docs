@@ -1,0 +1,50 @@
+.Container {
+  margin: 0 auto;
+  max-width: 60em;
+  padding: 0 var(--page) var(--gutter);
+}
+
+.Container p {
+  max-width: 38em;
+}
+
+.Grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Grid--gutters {
+  margin: calc(-1 * var(--gutter)) 0 0 calc(-1 * var(--gutter));
+}
+
+.Grid--gutters > .Grid-cell {
+  padding: var(--gutter) 0 0 var(--gutter);
+}
+
+.Grid--fit > .Grid-cell {
+  flex: 1;
+}
+
+.Grid--full > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+.Grid--1of3 > .Grid-cell {
+  flex: 1 0 33%;
+}
+
+.Grid-cell {
+  flex: 1 0 auto;
+}
+
+@media (--medium-viewport) {
+  .medium-Grid--1of3 > .Grid-cell {
+    flex: 0 0 33%;
+  }
+
+  .medium-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+}

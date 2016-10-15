@@ -14,7 +14,7 @@ You can do this on your own if you'd like, or you can...
 * ```cd victory-tutorial```
 * Replace the existing code in the ```client.js``` file with:
 
-```
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 

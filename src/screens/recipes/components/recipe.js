@@ -14,7 +14,6 @@ class RecipeDocs extends React.Component {
       return (
         <TitleMeta title="Victory Recipes">
           <div
-            className="Ecology Overview"
             dangerouslySetInnerHTML={{__html: indexDocs}}
           />
         </TitleMeta>
@@ -25,17 +24,13 @@ class RecipeDocs extends React.Component {
     // This structure matches the <Ecology> /docs components:
     return (
       <TitleMeta title={`${conf.text} | Victory Recipes`}>
-        <div className="Ecology">
-          <div className="Overview">
-            <Docs />
-          </div>
-        </div>
+        <Docs />
       </TitleMeta>
     );
   }
   render() {
     return (
-      <div className="Markdown" style={this.props.style}>
+      <div style={this.props.style}>
         {this.renderDocsContent(this.props.active)}
       </div>
     );

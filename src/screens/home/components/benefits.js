@@ -15,52 +15,6 @@ import DemoLiveChart from "./demo-live-chart";
 class Benefits extends React.Component {
   getStyles() {
     return {
-      section: {
-        background: `linear-gradient(180deg, #efe9e3, ${VictorySettings.palerSand} 75%)`,
-        display: "block",
-        paddingBottom: `${VictorySettings.gutter * 3}px`
-      },
-      padded: {
-        padding: `${VictorySettings.gutter}px ${VictorySettings.gutter}px 0`
-      },
-      code: {
-        background: VictorySettings.whiteSand,
-        borderRadius: 3,
-        color: VictorySettings.mud,
-        fontFamily: VictorySettings.monospace,
-        fontSize: "0.85em",
-        padding: "0.33em 0.333em 0.28em"
-      },
-      copy: {
-        maxWidth: "38em",
-        marginLeft: "3vw"
-      },
-      flex: {
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        justifyContent: "space-between"
-      },
-      flexItem: {
-        flex: "1 0 auto",
-        margin: `${VictorySettings.gutter * 2}px 1vw 0`,
-        minWidth: "360px",
-        textAlign: "center"
-      },
-      flexTextItem: {
-        flex: "1 0 30%",
-        margin: `${VictorySettings.gutter * 2}px 1vw 0`,
-        minWidth: "360px",
-        textAlign: "center"
-      },
-      smallCaps: {
-        fontFamily: VictorySettings.sansSerif,
-        fontSize: "0.75em",
-        fontWeight: "normal",
-        letterSpacing: "0.2em",
-        lineHeight: 1,
-        textTransform: "uppercase"
-      },
       link: {
         borderStyle: "solid",
         borderWidth: "39px 41px",
@@ -69,8 +23,8 @@ class Benefits extends React.Component {
         borderImageRepeat: "repeat stretch",
         color: VictorySettings.red,
         display: "inline-block",
-        fontFamily: VictorySettings.sansSerif,
-        fontSize: "0.75em",
+        fontFamily: `'freight-sans-pro', 'Work Sans', 'akkurat', 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Monaco', 'Courier', monospace`,
+        fontSize: "1em",
         fontWeight: "normal",
         letterSpacing: "0.2em",
         lineHeight: 1,
@@ -89,83 +43,85 @@ class Benefits extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <div style={{ padding: `${VictorySettings.gutter}px 0` }}>
+      <div className="Benefits">
 
-        <div style={styles.flex}>
-          <div style={styles.flexTextItem}>
-            <h3>
-              Robust
-            </h3>
-            <p>
-              Area charts. Scatter plots. Voronoi polygons. Easy-to-use components for complex charting.
-            </p>
+        <div className="Container">
+          <div className="Grid Grid--gutters Grid--full medium-Grid--1of3">
+            <div className="Grid-cell u-textCenter">
+              <h3>
+                Robust
+              </h3>
+              <p>
+                Area charts. Scatter plots. Voronoi polygons. Easy-to-use components for complex charting.
+              </p>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <h3>
+                Flexible
+              </h3>
+              <p>
+                Fully-contained, reusable data visualization elements are responsible for their own styles and behaviors.
+              </p>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <h3>
+                Native
+              </h3>
+              <p>
+                Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API. <br/>
+                <code>npm install victory-native</code>
+              </p>
+            </div>
           </div>
-          <div style={styles.flexTextItem}>
-            <h3>
-              Flexible
-            </h3>
-            <p>
-              Fully-contained, reusable data visualization elements are responsible for their own styles and behaviors.
-            </p>
-          </div>
-          <div style={styles.flexTextItem}>
-            <h3>
-              Native
-            </h3>
-            <p>
-              Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API. <br/>
-              npm install victory-native
-            </p>
+
+          <div className="Benefits-btn">
+            <RadiumLink style={styles.link} to="/docs">
+              Get Started <Icon glyph="internal-link" />
+            </RadiumLink>
           </div>
         </div>
 
-        <div
-          style={{
-            display: "block",
-            fontFamily: VictorySettings.sansSerif,
-            marginTop: `${VictorySettings.gutter}px`,
-            marginRight: "3vw",
-            marginLeft: "3vw",
-            textAlign: "center"
-          }}
-        >
-          <RadiumLink style={styles.link} to="/docs">
-            Get Started <Icon glyph="internal-link" />
-          </RadiumLink>
+        <div className="Benefits-demos">
+          <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoFlexible />
+                <p className="SubHeading">
+                  <a
+                    href="./recipes/custom-styles"
+                  >
+                    View Recipe&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+                </div>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoSharedEvents/>
+                <p className="SubHeading">
+                  <a
+                    href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/demo-shared-events.js"
+                  >
+                    View source&nbsp;<Icon glyph="external-link" />
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoLiveChart/>
+                <p className="SubHeading">
+                  <a
+                    href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/livechart.js"
+                  >
+                    View source&nbsp;<Icon glyph="external-link" />
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div style={styles.flex}>
-          <div style={styles.flexItem}>
-            <DemoFlexible />
-            <p>
-              <a
-                href="./recipes/custom-styles"
-              >
-                <span style={styles.smallCaps}>View Recipe</span>&nbsp;<Icon glyph="internal-link" />
-              </a>
-            </p>
-          </div>
-          <div style={styles.flexItem}>
-            <DemoSharedEvents/>
-            <p>
-              <a
-                href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/demo-shared-events.js"
-              >
-                <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
-              </a>
-            </p>
-          </div>
-          <div style={styles.flexItem}>
-            <DemoLiveChart/>
-            <p>
-              <a
-                href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/livechart.js"
-              >
-                <span style={styles.smallCaps}>View source</span>&nbsp;<Icon glyph="external-link" />
-              </a>
-            </p>
-          </div>
-        </div>
       </div>
     );
   }

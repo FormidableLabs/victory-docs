@@ -1,0 +1,61 @@
+:root {
+  --navIndent: 10px;
+}
+
+.Nav-Grid {
+  columns: 3 200px;
+  column-gap: var(--gutter);
+  font-size: 18px;
+}
+
+.Nav-List {
+  list-style: none;
+  margin: var(--navIndent) 0 0 0;
+  padding: 0;
+}
+
+.Nav-List-Item {
+  break-inside: avoid;
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  font-family: var(--fontSubHeading);
+  line-height: 1.3;
+  margin: 0 0 0 var(--navIndent);
+  padding: 0 var(--navIndent) 0 0;
+}
+
+.Nav-Heading {
+  break-inside: avoid;
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  color: var(--darkestGray);
+  font-family: var(--fontSubHeading);
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: var(--navIndent);
+  margin-bottom: calc(-1 * var(--navIndent));
+  padding-top: var(--gutter-small);
+}
+
+.Nav-SubHeading {
+  break-inside: avoid;
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  color: var(--nearBlack);
+  margin: var(--navIndent) 0 0 0;
+  padding: var(--navIndent) 0 0 0;
+}
+
+.Nav a:link {
+  color: var(--black);
+}
+
+.Nav a:visited {
+  color: var(--darkGray);
+}
+
+.Nav a:focus,
+.Nav a:hover {
+  color: var(--darkRed);
+}

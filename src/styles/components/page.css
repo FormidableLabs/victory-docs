@@ -1,0 +1,33 @@
+@media (--medium-viewport) {
+  .Page {
+    margin-left: 270px;
+  }
+}
+
+.Sidebar {
+  background-color: var(--lightSand);
+  overflow: auto;
+  padding: var(--gutter-small) var(--gutter-small) var(--gutter);
+  z-index: 1;
+}
+@media (--medium-viewport) {
+  .Sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: var(--gutter) 0 var(--gutter) var(--gutter-small);
+    width: 270px;
+  }
+}
+
+.Article {
+  padding: var(--gutter-small) var(--page);
+}
+
+@media (--medium-viewport) {
+  .Article {
+    min-height: 75vh;
+    padding: var(--gutter) var(--page);
+  }
+}

@@ -1,0 +1,249 @@
+html {
+  background-color: var(--black);
+  box-sizing: border-box;
+  font-size: 16px;
+  overflow-x: hidden; // Hide scrollbars sfor Playgrounds
+
+  @media (--medium-viewport) {
+    font-size: 18px;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--lighterSand);
+  color: var(--mud);
+  counter-reset: "interactive";
+  font-family: var(--fontBody);
+  font-weight: 400;
+  line-height: 1.6;
+  position: relative;
+}
+
+/*
+ * Layer page content on top of body:before selector
+ */
+#content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/**
+ * Reset default spacing and border for appropriate elements.
+ * (suitcss-base)
+ */
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+p,
+pre,
+ol,
+ul {
+  margin: 1.375em 0 0 0;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Work around a Firefox/IE bug where the transparent `button` background
+ * results in a loss of the default `button` focus styles.
+ * (suitcss-base)
+ */
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+/**
+ * Suppress the focus outline on elements that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ * (suitcss-base)
+ */
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+iframe {
+  border: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--fontHeading);
+  font-size: 2.75rem;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--fontSubHeading);
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 1.75rem;
+
+  @media (--medium-viewport) {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem; /* 36px */
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  background-color: var(--lightestSand);
+  border: 0;
+  font-size: 0.85em;
+  padding: 0.25em 0.333em 0.20em;
+}
+
+
+pre,
+code {
+  font-family: var(--fontMonospace);
+}
+
+pre {
+  margin-left: calc(-1 * var(--page));
+  margin-right: calc(-1 * var(--page));
+  padding: 2rem var(--page);
+}
+
+pre[class*="language-"] code,
+pre[class*="lang-"] code {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+pre code {
+  border: 0;
+}
+
+code {
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 1px;
+  font-variant-ligatures: none;
+  padding: 0.33em .333em .28em;
+
+  @media (--medium-viewport) {
+    font-size: 0.875rem;
+  }
+}
+
+a:link {
+  color: var(--darkRed);
+  text-decoration: none;
+  transition: color 250ms ease-in;
+}
+
+a:visited {
+  color: var(--darkGray);
+}
+
+a:focus,
+a:hover {
+  color: var(--black);
+}
+
+a:active {
+  transition: color 300ms ease-out;
+}
+
+svg {
+  fill: currentColor;
+}
+
+table {
+  border-collapse: collapse;
+  display: block;
+  overflow: auto;
+  width: 100%;
+}
+
+thead,
+tbody {
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+thead {
+  font: inherit;
+  vertical-align: baseline;
+}
+
+tbody {
+  vertical-align: middle;
+}
+
+th,
+td {
+  border: 1px solid var(--darkSand);
+  padding: 0.425em 0.75em;
+  vertical-align: top;
+}
+
+th code,
+td code {
+  background: none;
+  color: var(--darkMud);
+}

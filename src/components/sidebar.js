@@ -7,83 +7,13 @@ import { configRecipes } from "./config-recipes";
 import NavLink from "./navlink";
 import Icon from "./icon";
 
-// Settings
-import { VictorySettings } from "formidable-landers";
-
 class Sidebar extends React.Component {
-  getStyles() {
-    return {
-      icon: {
-        color: VictorySettings.darkMud,
-        height: "40px",
-        margin: `${VictorySettings.gutter}px auto`,
-        width: "40px"
-      },
-      iconLink: {
-        display: "block",
-        textAlign: "center",
-        border: "none",
-        ":hover": {
-          border: "none"
-        }
-      },
-      navlink: {
-        border: "none"
-      },
-      list: {
-        boxSizing: "border-box",
-        columns: "3 220px",
-        columnGap: `${VictorySettings.gutter * 2}px`,
-        fontSize: "18px",
-        listStyle: "none",
-        margin: 0,
-        padding: 0
-      },
-      listItem: {
-        breakInside: "avoid",
-        columnBreakInside: "avoid",
-        pageBreakInside: "avoid",
-        lineHeight: 1.3,
-        margin: `0 0 0 ${VictorySettings.gutter * 0.5}px`,
-        padding: `0 ${VictorySettings.gutter * 0.5}px 0 0`
-      },
-      listItemCategoryHeading: {
-        breakInside: "avoid",
-        columnBreakInside: "avoid",
-        pageBreakInside: "avoid",
-        color: VictorySettings.mud,
-        fontSize: "1em",
-        fontWeight: "bold",
-        lineHeight: 1,
-        marginTop: `${VictorySettings.gutter * 0.5}px`,
-        marginBottom: `${VictorySettings.gutter * -0.5}px`,
-        paddingTop: `${VictorySettings.gutter}px`
-      },
-      listItemHeading: {
-        breakInside: "avoid",
-        columnBreakInside: "avoid",
-        pageBreakInside: "avoid",
-        color: VictorySettings.paleMud,
-        fontFamily: VictorySettings.sansSerif,
-        fontSize: "0.8em",
-        letterSpacing: "0.15em",
-        lineHeight: 1.2,
-        marginTop: `${VictorySettings.gutter * 0.5}px`,
-        marginBottom: `${VictorySettings.gutter * 0.25}px`,
-        paddingTop: `${VictorySettings.gutter * 0.5}px`,
-        textTransform: "uppercase"
-      }
-    };
-  }
-
   renderListItems(items, route, category) {
-    const styles = this.getStyles();
-
     return items.map((item) => {
       if (item.category === category) {
         return (
-          <li key={item.slug} style={styles.listItem}>
-            <NavLink to={`/${route}/${item.slug}`} style={styles.navlink}>
+          <li key={item.slug} className="Nav-List-Item">
+            <NavLink to={`/${route}/${item.slug}`}>
               {item.text} <Icon glyph="internal-link" />
             </NavLink>
           </li>
@@ -93,53 +23,65 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const styles = this.getStyles();
-
     /* eslint-disable max-len */
     return (
-      <nav style={this.props.style}>
-        <ul style={styles.list}>
-          <li style={[styles.listItemCategoryHeading, { marginTop: 0, marginBottom: "5px" }]}>
-            Introduction
-          </li>
-          <li key="navlink-index" style={styles.listItem}>
-            <NavLink to="/docs" style={styles.navlink}>
-              Getting Started <Icon glyph="internal-link" />
-            </NavLink>
-          </li>
-          <li key="navlink-contributing" style={styles.listItem}>
-            <a href="https://github.com/FormidableLabs/victory/#contributing" style={styles.navlink}>
-              Contributing <Icon glyph="external-link" />
-            </a>
-          </li>
-          <li style={[styles.listItemCategoryHeading, {marginTop: 0}]}>
-            Documentation
-          </li>
-          <li style={styles.listItemHeading}>
-            Core
-          </li>
-          {this.renderListItems(this.props.docs, "docs", "core")}
-          <li style={styles.listItemHeading}>
-            Chart
-          </li>
-          {this.renderListItems(this.props.docs, "docs", "chart")}
-          <li style={styles.listItemHeading}>
-            More
-          </li>
-          {this.renderListItems(this.props.docs, "docs", "more")}
-          <li style={styles.listItemCategoryHeading}>
-            Recipes
-          </li>
-          <li style={styles.listItemHeading}>
-            Customize
-          </li>
-          {this.renderListItems(this.props.recipes, "recipes", "customize")}
-          <li style={styles.listItemHeading}>
-            Events
-          </li>
-          {this.renderListItems(this.props.recipes, "recipes", "events")}
-        </ul>
-      </nav>
+      <div className="Sidebar">
+        <nav className="Nav" style={this.props.style}>
+          <div className="Nav-Grid">
+            <p className="Nav-Heading u-noMargin u-noPadding">
+              Introduction
+            </p>
+            <ul className="Nav-List">
+              <li key="navlink-index" className="Nav-List-Item">
+                <NavLink to="/docs">
+                  Getting Started <Icon glyph="internal-link" />
+                </NavLink>
+              </li>
+              <li key="navlink-contributing" className="Nav-List-Item">
+                <a href="https://github.com/FormidableLabs/victory/#contributing">
+                  Contributing <Icon glyph="external-link" />
+                </a>
+              </li>
+            </ul>
+            <p className="Nav-Heading u-noMarginTop">
+              Documentation
+            </p>
+            <p className="Nav-SubHeading SubHeading">
+              Core
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.docs, "docs", "core")}
+            </ul>
+            <p className="Nav-SubHeading SubHeading">
+              Chart
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.docs, "docs", "chart")}
+            </ul>
+            <p className="Nav-SubHeading SubHeading">
+              More
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.docs, "docs", "more")}
+            </ul>
+            <p className="Nav-Heading">
+              Recipes
+            </p>
+            <p className="Nav-SubHeading SubHeading">
+              Customize
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.recipes, "recipes", "customize")}
+            </ul>
+            <p className="Nav-SubHeading SubHeading">
+              Events
+            </p>
+            <ul className="Nav-List">
+              {this.renderListItems(this.props.recipes, "recipes", "events")}
+            </ul>
+          </div>
+        </nav>
+      </div>
     );
   /* eslint-enable max-len */
   }

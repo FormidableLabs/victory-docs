@@ -3,6 +3,13 @@ import ReactDOM from "react-dom";
 import Ecology from "ecology";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 import Radium from "radium";
+import Prism from "prismjs";
+/* eslint-disable no-unused-vars */
+// add more language support
+import jsx from "prismjs/components/prism-jsx";
+import sh from "prismjs/components/prism-bash";
+import yaml from "prismjs/components/prism-yaml";
+/* eslint-enable no-unused-vars */
 
 // Child components
 import InternalPage from "../../components/page-internal";
@@ -18,6 +25,14 @@ class Docs extends React.Component {
     };
   }
 
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
+  componentDidUpdate() { // is this the right one??
+    Prism.highlightAll();
+  }
+
   updateTocArray(tocArray) {
     this.setState({tocArray});
   }
@@ -25,7 +40,7 @@ class Docs extends React.Component {
   renderContent(activePage) {
     if (activePage === "index") {
       return (
-        <div className="Markdown">
+        <div className="Markdown playgroundsMaxHeight">
           <Ecology
             overview={require("!!raw!../../../docs/index.md")}
             scope={{
