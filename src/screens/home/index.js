@@ -4,7 +4,6 @@ import { Link } from "react-router";
 
 // Common
 import Header from "../../components/header";
-import Icon from "../../components/icon";
 import TitleMeta from "../../components/title-meta";
 import { Footer } from "formidable-landers";
 

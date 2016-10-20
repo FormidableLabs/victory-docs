@@ -9,14 +9,6 @@ import LOGO from "../../static/logotype-hero.svg";
 class VictoryHeader extends React.Component {
   render() {
     const padding = this.props.home ? "60px 0" : "40px 0";
-    const minWidth = this.props.home ? "945px" : "1230px";
-
-    // styleLogos={{
-    //   margin: "0 auto 50px auto",
-    //   [`@media only screen and (min-width: ${minWidth})`]: {
-    //     margin: "0 auto 0 0"
-    //   }
-    // }}
 
     const victoryLogo = (
       <Link
