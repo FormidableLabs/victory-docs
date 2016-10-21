@@ -26,7 +26,6 @@ module.exports = [
   "/docs/victory-theme",
   "/docs/victory-tooltip",
   "/docs/victory-transition",
-  "/docs/victory-util",
   "/docs/victory-voronoi",
   "/docs/victory-voronoi-tooltip",
   "/recipes",
