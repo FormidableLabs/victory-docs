@@ -12,7 +12,11 @@ class InternalPage extends React.Component {
       <div>
         <main className="Page">
           <Header />
-          <Sidebar active={this.props.sidebar} />
+          <Sidebar
+            active={this.props.sidebar}
+            tocArray={this.props.tocArray}
+            location={this.props.location}
+          />
           <article className="Article">
             {this.props.children}
           </article>
@@ -26,12 +30,15 @@ class InternalPage extends React.Component {
 
 InternalPage.propTypes = {
   children: React.PropTypes.node,
-  sidebar: React.PropTypes.string
+  location: React.PropTypes.object,
+  sidebar: React.PropTypes.string,
+  tocArray: React.PropTypes.array
 };
 
 InternalPage.defaultProps = {
   children: null,
-  sidebar: "index"
+  sidebar: "index",
+  tocArray: []
 };
 
 export default InternalPage;

@@ -59,3 +59,39 @@
 .Nav a:hover {
   color: var(--darkRed);
 }
+
+/* Nested Table of Contents under the active link in the sidebar */
+
+.Sidebar-toc {
+  font-size: 0.95em;
+  line-height: 1.2;
+  position: absolute;
+  visibility: hidden;
+}
+
+@media (--large-viewport) {
+  .Sidebar-toc {
+    position: static;
+    visibility: visible;
+  }
+}
+
+.Sidebar-toc-item {
+  padding: 0.166em 0 0.166em 0.5em;
+}
+
+.Sidebar-toc-item:last-child {
+  padding-bottom: 1em;
+}
+
+/* Nested Lists */
+.Sidebar-toc-item > .Sidebar-toc {
+  background-color: transparent;
+  border-left: 1px solid color(var(--black) alpha(-75%));
+  margin: 0 0 1em 0.125em;
+  padding: 0 0 0 0.75em;
+}
+
+.Sidebar-toc-item > .Sidebar-toc .Sidebar-toc-item {
+  padding: 0.166em 0;
+}

@@ -68,7 +68,11 @@ class Docs extends React.Component {
 
     return (
       <TitleMeta title="Victory | Documentation">
-        <InternalPage sidebar={activePage}>
+        <InternalPage
+          location={this.props.location}
+          sidebar={activePage}
+          tocArray={this.state.tocArray}
+        >
           { this.renderContent(activePage) }
         </InternalPage>
       </TitleMeta>
