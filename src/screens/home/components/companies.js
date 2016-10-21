@@ -1,9 +1,7 @@
 import React from "react";
 
 // Settings
-import OOKLA from "../../../../static/logo-ookla.svg";
 import VIACOM from "../../../../static/logo-viacom.svg";
-import POSTMARK from "../../../../static/logo-postmark.svg";
 import FIVETHIRTYEIGHT from "../../../../static/logo-fivethirtyeight.svg";
 
 class Companies extends React.Component {
@@ -14,10 +12,11 @@ class Companies extends React.Component {
           A few of our fans
         </h2>
         <ul className="Companies-List">
-          <li className="Companies-logo Companies-logo--max200" dangerouslySetInnerHTML={{__html: OOKLA}} />
-          <li className="Companies-logo Companies-logo--max200" dangerouslySetInnerHTML={{__html: VIACOM}} />
+          <li className="Companies-logo Companies-logo--max300">
+            <img src="./static/logo-airbnb.png" alt="Airbnb" className="Companies-logo-img" />
+          </li>
           <li className="Companies-logo Companies-logo--max300" dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
-          <li className="Companies-logo Companies-logo--max200" dangerouslySetInnerHTML={{__html: POSTMARK}} />
+          <li className="Companies-logo Companies-logo--max200" dangerouslySetInnerHTML={{__html: VIACOM}} />
         </ul>
       </div>
     );

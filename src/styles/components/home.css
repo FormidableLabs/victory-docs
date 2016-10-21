@@ -29,10 +29,10 @@
 }
 
 .Companies {
-  background-color: rgba(255, 254, 252, 0.5);
-  color: var(--darkSand);
+  background-color: var(--mud);
+  color: var(--white);
   margin: var(--gutter) 0 0;
-  padding: var(--gutter-small) 0;
+  padding: var(--gutter-small) 0 var(--gutter);
   text-align: center;
 }
 
@@ -40,18 +40,18 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   list-style-type: none;
   margin-top: 0;
   padding: 0;
 }
 
 .Companies-logo {
-  color: var(--darkSand);
-  height: 50px;
+  color: var(--white);
+  height: 70px;
   margin-top: var(--gutter-small);
-  margin-bottom: var(--gutter);
-  padding-left: var(--gutter);
+  padding-right: var(--gutter-small);
+  padding-left: var(--gutter-small);
 }
 
 .Companies-logo--max200 {
@@ -60,6 +60,10 @@
 
 .Companies-logo--max300 {
   max-width: 300px;
+}
+
+.Companies-logo-img {
+  height: 70px;
 }
 
 .Benefits {
