@@ -48,9 +48,7 @@ h5,
 h6,
 figure,
 p,
-pre,
-ol,
-ul {
+pre {
   margin: 1.375em 0 0 0;
 }
 
@@ -95,6 +93,7 @@ iframe {
 ol,
 ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
