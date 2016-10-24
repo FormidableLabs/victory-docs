@@ -15,8 +15,8 @@ class InternalPage extends React.Component {
         <main className="Page">
           <Sidebar
             active={this.props.sidebar}
-            tocArray={this.props.tocArray}
             location={this.props.location}
+            tocArray={this.props.tocArray}
           />
           <ScrollContainer scrollKey="page-content">
             <div className="Page-content">

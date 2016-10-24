@@ -7,7 +7,6 @@ import Home from "./screens/home/index";
 import Docs from "./screens/docs/index";
 import Recipes from "./screens/recipes/index";
 import About from "./screens/about/index";
-import Composed from "./screens/composed/index";
 
 module.exports = (
   <Route path="/" component={App}>
@@ -17,7 +16,6 @@ module.exports = (
     <Route path="/recipes" component={Recipes}/>
     <Route path="/recipes/:component" component={Recipes} />
     <Route path="/about" component={About} />
-    <Route path="/composed" component={Composed} />
     <Route path="/">
       <Redirect from="index.html" to="/" />
     </Route>
