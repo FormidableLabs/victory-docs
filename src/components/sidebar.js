@@ -106,7 +106,7 @@ class Sidebar extends React.Component {
   render() {
     /* eslint-disable max-len */
     return (
-      <div className="Sidebar">
+      <div className="Page-sidebar">
         <nav className="Nav" style={this.props.style}>
           <div className="Nav-Grid">
             <p className="Nav-Heading u-noMargin u-noPadding">

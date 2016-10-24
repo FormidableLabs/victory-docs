@@ -9,18 +9,20 @@ class InternalPage extends React.Component {
   render() {
     /* eslint-disable max-len */
     return (
-      <div>
+      <div className="u-fullHeight">
+        <Header />
         <main className="Page">
-          <Header />
           <Sidebar
             active={this.props.sidebar}
             tocArray={this.props.tocArray}
             location={this.props.location}
           />
-          <article className="Article">
-            {this.props.children}
-          </article>
-          <Footer />
+          <div className="Page-content">
+            <article className="Article">
+              {this.props.children}
+            </article>
+            <Footer />
+          </div>
         </main>
       </div>
     );

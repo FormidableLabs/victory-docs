@@ -70,8 +70,8 @@ class Composed extends React.Component {
     return (
       <TitleMeta title="Victory: React Charting Library from Formidable | Composed">
         <Header />
-        <article className="Container">
-          <h1>
+        <article className="Article">
+          <h1 className="u-noMargin">
             Victory Composed: Charts in a Flash
           </h1>
           <p>

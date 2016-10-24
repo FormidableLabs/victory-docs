@@ -31,6 +31,10 @@ body {
   z-index: 1;
 }
 
+html, body, #content {
+  height: 100%;
+}
+
 
 /**
  * Reset default spacing and border for appropriate elements.
@@ -48,7 +52,9 @@ h5,
 h6,
 figure,
 p,
-pre {
+pre,
+ol,
+ul {
   margin: 1.375em 0 0 0;
 }
 
@@ -90,9 +96,13 @@ iframe {
   border: 0;
 }
 
-ol,
 ul {
   list-style: none;
+  padding: 0;
+}
+
+ol ol,
+ul ul {
   margin: 0;
   padding: 0;
 }

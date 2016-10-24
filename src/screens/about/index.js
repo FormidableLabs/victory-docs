@@ -12,8 +12,8 @@ class About extends React.Component {
     return (
       <TitleMeta title="Victory | About">
         <Header />
-        <article className="Container">
-          <h1>
+        <article className="Article">
+          <h1 className="u-noMargin">
             Victory: Powerful React Charting
           </h1>
           <p>

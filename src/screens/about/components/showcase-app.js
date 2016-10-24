@@ -3,16 +3,16 @@ import React from "react";
 class ShowcaseApp extends React.Component {
   render() {
     return (
-      <div className="Showcase">
-        <div className="Showcase-Col Showcase-Col--img">
+      <div className="Grid Grid--guttersSm Grid--center Grid--full medium-Grid--fit u-textLarge">
+        <div className="Grid-cell Grid-cell--autoSize u-maxWidth">
           <img
             alt={this.props.screenshot.alt}
             className="Showcase-img fancyBorder"
             src={this.props.screenshot.src}
           />
         </div>
-        <div className="Showcase-Col">
-          <h3 className="u-noMargin">
+        <div className="Grid-cell">
+          <h3 className="SubHeading u-textLeft u-noMargin">
             {this.props.company}
           </h3>
           <p>

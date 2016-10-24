@@ -7,7 +7,7 @@ class Showcase extends React.Component {
       {
         company: "FiveThirtyEight",
         screenshot: {
-          src: "./static/fivethirtyeight-screenshot.png",
+          src: "./static/showcase-fivethirtyeight.png",
           alt: "FiveThirtyEight screenshot"
         },
         description: "FiveThirtyEight uses Victory for data visualizations, including this one about the history of sumo wrestling."
@@ -15,7 +15,7 @@ class Showcase extends React.Component {
       {
         company: "Postmark",
         screenshot: {
-          src: "./static/postmark-screenshot.png",
+          src: "./static/showcase-postmark.png",
           alt: "Postmark screenshot"
         },
         description: "Postmark uses Victory on its status page to let users know how their service is performing."
@@ -23,7 +23,7 @@ class Showcase extends React.Component {
       {
         company: "Tune",
         screenshot: {
-          src: "./static/tune-screenshot.png",
+          src: "./static/showcase-tune.png",
           alt: "Tune screenshot"
         },
         description: "Tune uses Victory in its Marketing Console, a tool for marketers to track all of their mobile data."
@@ -31,7 +31,7 @@ class Showcase extends React.Component {
       {
         company: "Cumul8",
         screenshot: {
-          src: "./static/cumul8-screenshot.png",
+          src: "./static/showcase-cumul8.png",
           alt: "Cumul8 screenshot"
         },
         description: "Cumul8 uses Victory for Cirrus, a SaaS platform for businesses to manage their internal data."
