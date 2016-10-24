@@ -1,5 +1,4 @@
 import React from "react";
-import Radium from "radium";
 import { Link } from "react-router";
 import MarkdownIt from "markdown-it";
 import { times } from "lodash";
@@ -107,7 +106,7 @@ class Sidebar extends React.Component {
     /* eslint-disable max-len */
     return (
       <div className="Page-sidebar">
-        <nav className="Nav" style={this.props.style}>
+        <nav className="Nav">
           <div className="Nav-Grid">
             <p className="Nav-Heading u-noMargin u-noPadding">
               Introduction
@@ -173,15 +172,13 @@ Sidebar.propTypes = {
   docs: React.PropTypes.array,
   location: React.PropTypes.object,
   recipes: React.PropTypes.array,
-  style: React.PropTypes.object,
   tocArray: React.PropTypes.array
 };
 
 Sidebar.defaultProps = {
   docs: config,
   recipes: configRecipes,
-  active: null,
-  style: null
+  active: null
 };
 
-export default Radium(Sidebar);
+export default Sidebar;

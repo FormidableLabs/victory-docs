@@ -1,5 +1,6 @@
 .Article {
   background-color: var(--lighterSand);
+  flex: 1 0 auto;
   padding: var(--gutter-small) var(--page);
 }
 

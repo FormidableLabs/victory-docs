@@ -11,19 +11,45 @@ import sh from "prismjs/components/prism-bash";
 import yaml from "prismjs/components/prism-yaml";
 /* eslint-enable no-unused-vars */
 
-// Child components
-import Header from "../../components/header";
-import Footer from "../../components/footer";
-import TitleMeta from "../../components/title-meta";
-import basename from "../../basename";
+import basename from "../basename";
 
-class Composed extends React.Component {
-  componentWillMount() {
-    this.setMarkdownRenderer(this.props.location.pathname);
+class Markdown extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      renderedMd: ""
+    };
   }
 
   componentDidMount() {
     Prism.highlightAll();
+  }
+
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
+
+  componentWillMount() {
+    this.renderMd(this.props);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.active !== this.props.active) {
+      this.renderMd(newProps);
+    }
+  }
+
+  renderMd(props) {
+    if (!props.location || !props.location.pathname) {
+      this.setState({
+        renderedMd: ""
+      });
+      return;
+    }
+    this.setMarkdownRenderer(props.location.pathname);
+    this.setState({
+      renderedMd: this.md.render(props.markdownFile)
+    });
   }
 
   /* eslint-disable camelcase, max-params */
@@ -38,7 +64,10 @@ class Composed extends React.Component {
 
     md.use(markdownItTocAndAnchor, {
       anchorLinkSymbol: "",
-      anchorClassName: "Anchor"
+      anchorClassName: "Anchor",
+      tocCallback: (tocMarkdown, tocArray) => {
+        this.props.updateTocArray(tocArray);
+      }
     });
 
     // store the original rule
@@ -65,46 +94,29 @@ class Composed extends React.Component {
     this.md = md;
   }
 
-
   render() {
     return (
-      <TitleMeta title="Victory: React Charting Library from Formidable | Composed">
-        <Header />
-        <article className="Article">
-          <h1 className="u-noMargin">
-            Victory Composed: Charts in a Flash
-          </h1>
-          <p>
-            <img
-              alt=""
-              className="fancyBorder"
-              src="http://i.imgur.com/RIoXvJB.gif"
-            />
-          </p>
-          <div
-            className="Markdown"
-            dangerouslySetInnerHTML={{
-              __html: this.md.render(require("!!raw!./components/markdown.md"))
-            }}
-          />
-          <h2>
-            About Formidable
-          </h2>
-          <p>
-            Formidable is a Seattle-based consultancy and development shop, focused on open-source, full-stack JavaScript
-            using React.js and Node.js, and the architecture of large-scale JavaScript applications. We build products for
-            some of the world’s biggest companies, while helping their internal teams develop smart, thoughtful, and
-            scalable systems.
-          </p>
-        </article>
-        <Footer />
-      </TitleMeta>
+      <div
+        className="Markdown"
+        dangerouslySetInnerHTML={{
+          __html: this.state.renderedMd
+        }}
+      />
     );
   }
 }
 
-Composed.propTypes = {
-  location: React.PropTypes.object.isRequired
+Markdown.propTypes = {
+  active: React.PropTypes.string.isRequired,
+  location: React.PropTypes.object.isRequired,
+  markdownFile: React.PropTypes.string,
+  params: React.PropTypes.object,
+  updateTocArray: React.PropTypes.func.isRequired
 };
 
-export default Composed;
+Markdown.defaultProps = {
+  active: "index",
+  params: null
+};
+
+export default Markdown;
