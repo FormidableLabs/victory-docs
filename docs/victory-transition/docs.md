@@ -6,11 +6,11 @@
 
 # children
 
-`VictoryTransiton` adds transitions to a single child
+`VictoryTransiton` adds transitions to a single child.
 
 # animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop. [Read more about animations and transitions].
+The `animate` prop specifies props for VictoryAnimation and VictoryTransition to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, but these may be modified, or overwritten with the `animate` prop. [Read more about animations and transitions].
 
 *examples:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})})}`
 

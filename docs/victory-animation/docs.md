@@ -1,6 +1,6 @@
 # VictoryAnimation
 
-`VictoryAnimation` animates prop changes for any React component. Just use a child function inside `VictoryAnimation` that accepts an object of tweened values and other animation information and returns a component to render. The 
+`VictoryAnimation` animates prop changes for any React component. Just use a child function inside `VictoryAnimation` that accepts an object of tweened values and other animation information and returns a component to render. 
 
 ```
 <VictoryAnimation {...animationProps} data={myComponentProps}>
@@ -38,13 +38,13 @@ The `delay` prop specifies a delay in milliseconds before the start of an animat
 
 ### easing 
 
-The `easing` prop specifies the type of easing to use for an animation. The supported types of easing are: "back", "backIn", "backOut", "backInOut", "bounce", "bounceIn", "bounceOut", "bounceInOut", "circle", "circleIn", "circleOut", "circleInOut", "linear", "linearIn", "linearOut", "linearInOut", "cubic", "cubicIn", "cubicOut", "cubicInOut", "elastic", "elasticIn", "elasticOut", "elasticInOut", "exp", "expIn", "expOut", "expInOut", "poly", "polyIn", "polyOut", "polyInOut", "quad", "quadIn", "quadOut", "quadInOut", "sin", "sinIn", "sinOut", "sinInOut".
+The `easing` prop specifies the type of easing to use for an animation. The supported types of easing are: *"back", "backIn", "backOut", "backInOut", "bounce", "bounceIn", "bounceOut", "bounceInOut", "circle", "circleIn", "circleOut", "circleInOut", "linear", "linearIn", "linearOut", "linearInOut", "cubic", "cubicIn", "cubicOut", "cubicInOut", "elastic", "elasticIn", "elasticOut", "elasticInOut", "exp", "expIn", "expOut", "expInOut", "poly", "polyIn", "polyOut", "polyInOut", "quad", "quadIn", "quadOut", "quadInOut", "sin", "sinIn", "sinOut", "sinInOut"*.
 
 *default:* `easing="quadInOut"`
 
 ### onEnd
 
-The `onEnd` prop specifies a function that will be called when the animation ends. If there are multiple animations in the queue, the `onEnd` function will be called after the last animation in the queue completes.s
+The `onEnd` prop specifies a function that will be called when the animation ends. If there are multiple animations in the queue, the `onEnd` function will be called after the last animation in the queue completes.
 
 [d3-interpolate]: https://github.com/d3/d3-interpolate
 [slight modifications]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-animation/util.js

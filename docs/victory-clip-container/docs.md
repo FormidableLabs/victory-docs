@@ -34,7 +34,7 @@ The `style` prop defines a set of styles to be applied to the rendered group.
 
 ### events
 
-The `events` prop attaches arbitrary event handlers to the group element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey when applicable.
+The `events` prop attaches arbitrary event handlers to the group element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an eventKey when applicable.
   
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
  

@@ -6,7 +6,7 @@
 
 ### children 
 
-`VictoryContainer` is a wrapper component that renders its children within an `svg>` element. If no children are provided, `VictoryContainer` will render an empty `<svg>` tag.
+`VictoryContainer` is a wrapper component that renders its children within an `<svg>` element. If no children are provided, `VictoryContainer` will render an empty `<svg>` tag.
 
 ### style
 
@@ -14,7 +14,7 @@ The `style` prop defines the style of the container. The `width` and `height` sh
 
 *examples:* `style={{border: "1px solid #ccc"}}`
 
-*default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme] for more detail
+*default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme] for more detail.
 
 ### width and height
 
