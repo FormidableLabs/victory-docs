@@ -19,7 +19,6 @@ import VStackDocs from "../../docs/victory-stack/docs.md";
 import VThemeDocs from "../../docs/victory-theme/docs.md";
 import VTooltipDocs from "../../docs/victory-tooltip/docs.md";
 import VTransitionDocs from "../../docs/victory-transition/docs.md";
-import VUtilDocs from "../../docs/victory-util/docs.md";
 import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
 import VVoronoiTooltipDocs from "../../docs/victory-voronoi-tooltip/docs.md";
 
@@ -129,11 +128,6 @@ export const config = [
     slug: "victory-transition",
     category: "core",
     docs: VTransitionDocs
-  }, {
-    text: "VictoryUtil",
-    slug: "victory-util",
-    category: "core",
-    docs: VUtilDocs
   }, {
     text: "VictoryVoronoi",
     slug: "victory-voronoi",

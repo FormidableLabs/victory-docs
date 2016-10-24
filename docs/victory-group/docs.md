@@ -1,6 +1,6 @@
 # VictoryGroup
 
-`VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack a several components on the same level _i.e._ stacked area charts with data markers.
+`VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack several components on the same level _i.e._ stacked area charts with data markers.
 
 `VictoryGroup` works with:
 [VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip].   
@@ -62,7 +62,7 @@ The `categories` prop specifies how categorical data for a chart should be order
 
 ### colorScale
 
-The `colorScale` prop is an optional prop that defines a color scale to be applied to the children of `VictoryGroup` This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryGroup` will assign colors to its children by index, unless they are explicitly specified in styles. Colors will repeat when there are more children than colors in the provided `colorScale`.
+The `colorScale` prop is an optional prop that defines a color scale to be applied to the children of `VictoryGroup`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryGroup` will assign colors to its children by index, unless they are explicitly specified in styles. Colors will repeat when there are more children than colors in the provided `colorScale`.
 
 *examples:* `colorScale={["red", "orange", "yellow", "green"]}`
 
@@ -98,7 +98,7 @@ The `theme` prop specifies a theme to use for determining styles and layout prop
 
 ### width and height
 
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container. `VictoryGroup` controls the `width` and `height` props of its children. If `VictoryGroup` is nested within `VictoryChart`, this responsibility will be deferred to `VictoryChart`.
+The `width` and `height` props determine the width and height of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container. `VictoryGroup` controls the `width` and `height` props of its children. If `VictoryGroup` is nested within `VictoryChart`, this responsibility will be deferred to `VictoryChart`.
 
 *default (provided by default theme):* `width={450} height={300}`
 
@@ -126,7 +126,6 @@ The `horizontal` prop determines whether the bars of any `VictoryBar` children s
 ### offset
 
 The `offset` prop derermines the number of pixels each element in a group should be offset from its original position of the on the independent axis. In the case of groups of bars, this number should be equal to the width of the bar plus the desired spacing between bars.
-
 
 ### scale
 
