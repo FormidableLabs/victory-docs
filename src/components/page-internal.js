@@ -1,4 +1,5 @@
 import React from "react";
+import { ScrollContainer } from "react-router-scroll";
 
 // Child Components
 import Sidebar from "./sidebar";
@@ -17,12 +18,14 @@ class InternalPage extends React.Component {
             tocArray={this.props.tocArray}
             location={this.props.location}
           />
-          <div className="Page-content">
-            <article className="Article">
-              {this.props.children}
-            </article>
-            <Footer />
-          </div>
+          <ScrollContainer scrollKey="page-content">
+            <div className="Page-content">
+                <article className="Article">
+                  {this.props.children}
+                </article>
+                <Footer />
+            </div>
+          </ScrollContainer>
         </main>
       </div>
     );
