@@ -30,6 +30,7 @@
 * sidebar:      <Sidebar /> styles, including the .Nav classes
 *
 */
+@import "./components/article.css";
 @import "./components/button.css";
 @import "./components/home.css";
 @import "./components/markdown.css";

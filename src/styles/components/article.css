@@ -1,0 +1,14 @@
+.Article {
+  background-color: var(--lighterSand);
+  padding: var(--gutter-small) var(--page);
+}
+
+@media (--medium-viewport) {
+  .Article {
+    padding: var(--gutter) var(--page);
+  }
+}
+
+.Article p {
+  max-width: 38em;
+}

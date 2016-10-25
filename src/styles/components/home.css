@@ -1,4 +1,5 @@
 .Home {
+  background-color: var(--lighterSand);
   display: block;
   padding: 0 0 var(--gutter);
 }

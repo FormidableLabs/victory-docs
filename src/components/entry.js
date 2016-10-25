@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { renderToString } from "react-dom/server";
 import { Router, RouterContext, match, applyRouterMiddleware, useRouterHistory } from "react-router";
 import { createMemoryHistory, createHistory } from "history";
-import useScroll from "react-router-scroll";
+import useScroll from "react-router-scroll/lib/useScroll";
 import { renderAsHTML } from "./title-meta";
 import ReactGA from "react-ga";
 import { anchorate } from "anchorate";

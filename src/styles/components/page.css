@@ -1,33 +1,44 @@
+/*
+* .Page
+*   .Page-sidebar
+*   .Page-content
+*/
+
+.Page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
 @media (--medium-viewport) {
   .Page {
-    margin-left: 270px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: calc(100% - 160px);
   }
 }
 
-.Sidebar {
+.Page-sidebar {
   background-color: var(--lightSand);
   overflow: auto;
   padding: var(--gutter-small) var(--gutter-small) var(--gutter);
   z-index: 1;
 }
+
 @media (--medium-viewport) {
-  .Sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    padding: var(--gutter) 0 var(--gutter) var(--gutter-small);
-    width: 270px;
+  .Page-sidebar {
+    flex: 0 0 270px;
   }
 }
 
-.Article {
-  padding: var(--gutter-small) var(--page);
+.Page-content {
+  flex: 1;
 }
 
 @media (--medium-viewport) {
-  .Article {
-    min-height: 75vh;
-    padding: var(--gutter) var(--page);
+  .Page-content {
+    height: 100%;
+    overflow-y: scroll;
   }
 }
