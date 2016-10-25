@@ -69,7 +69,7 @@
   visibility: hidden;
 }
 
-@media (--large-viewport) {
+@media (--medium-viewport) {
   .Sidebar-toc {
     position: static;
     visibility: visible;
