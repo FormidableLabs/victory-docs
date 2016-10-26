@@ -152,7 +152,8 @@ ReactDOM.render(<CustomDataComponent/>, mountNode)
 It may be desireable to alter some portion of a primitive component while leaving most behaviors intact. In this case, it might make sense to extend one of Victory's primitive components. This pattern is used to create react native compatible versions of Victory components. In the example code shown below, the react native compatible version of `Point` is created by extending `Point` and overriding the `renderPoint` method to render `react-native-svg` components rather than `svg` elements.
 
 
-```import React from "react";
+```
+import React from "react";
 import { Path } from "react-native-svg";
 import { NativeHelpers } from "../../index";
 import { Point } from "victory-core";
