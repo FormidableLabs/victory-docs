@@ -1,21 +1,28 @@
-// Victory Component Ecology Docs
-import VAnimationDocs from "victory-core/docs/victory-animation/docs";
-import VAreaDocs from "victory-chart/docs/victory-area/docs";
-import VAxisDocs from "victory-chart/docs/victory-axis/docs";
-import VBarDocs from "victory-chart/docs/victory-bar/docs";
-import VChartDocs from "victory-chart/docs/victory-chart/docs";
-import VGroupDocs from "victory-chart/docs/victory-group/docs";
-import VLabelDocs from "victory-core/docs/victory-label/docs";
-import VLineDocs from "victory-chart/docs/victory-line/docs";
-import VPieDocs from "victory-pie/docs/victory-pie/docs";
-import VScatterDocs from "victory-chart/docs/victory-scatter/docs";
-import VCandlestickDocs from "victory-chart/docs/victory-candlestick/docs";
-import VErrorBarDocs from "victory-chart/docs/victory-errorbar/docs";
-import VThemeDocs from "victory-chart/docs/victory-theme/docs";
-import VTooltipDocs from "victory-chart/docs/victory-tooltip/docs";
-import VVoronoiDocs from "victory-chart/docs/victory-voronoi/docs";
+import VAnimationDocs from "../../docs/victory-animation/docs.md";
+import VAreaDocs from "../../docs/victory-area/docs.md";
+import VAxisDocs from "../../docs/victory-axis/docs.md";
+import VBarDocs from "../../docs/victory-bar/docs.md";
+import VCandlestickDocs from "../../docs/victory-candlestick/docs.md";
+import VChartDocs from "../../docs/victory-chart/docs.md";
+import VClipContainerDocs from "../../docs/victory-clip-container/docs.md";
+import VContainerDocs from "../../docs/victory-container/docs.md";
+import VErrorBarDocs from "../../docs/victory-errorbar/docs.md";
+import VGroupDocs from "../../docs/victory-group/docs.md";
+import VLabelDocs from "../../docs/victory-label/docs.md";
+import VLineDocs from "../../docs/victory-line/docs.md";
+import VPieDocs from "../../docs/victory-pie/docs.md";
+import VPortalDocs from "../../docs/victory-portal/docs.md";
+import VPrimitivesDocs from "../../docs/victory-primitives/docs.md";
+import VScatterDocs from "../../docs/victory-scatter/docs.md";
+import VSharedEventsDocs from "../../docs/victory-shared-events/docs.md";
+import VStackDocs from "../../docs/victory-stack/docs.md";
+import VThemeDocs from "../../docs/victory-theme/docs.md";
+import VTooltipDocs from "../../docs/victory-tooltip/docs.md";
+import VTransitionDocs from "../../docs/victory-transition/docs.md";
+import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
+import VVoronoiTooltipDocs from "../../docs/victory-voronoi-tooltip/docs.md";
 
-export const components = [
+export const config = [
   {
     text: "VictoryAnimation",
     slug: "victory-animation",
@@ -47,6 +54,16 @@ export const components = [
     category: "chart",
     docs: VChartDocs
   }, {
+    text: "VictoryClipContainer",
+    slug: "victory-clip-container",
+    category: "core",
+    docs: VClipContainerDocs
+  }, {
+    text: "VictoryContainer",
+    slug: "victory-container",
+    category: "core",
+    docs: VContainerDocs
+  }, {
     text: "VictoryErrorBar",
     slug: "victory-errorbar",
     category: "chart",
@@ -72,24 +89,54 @@ export const components = [
     category: "more",
     docs: VPieDocs
   }, {
+    text: "VictoryPortal",
+    slug: "victory-portal",
+    category: "core",
+    docs: VPortalDocs
+  }, {
+    text: "VictoryPrimitives",
+    slug: "victory-primitives",
+    category: "core",
+    docs: VPrimitivesDocs
+  }, {
+    text: "VictorySharedEvents",
+    slug: "victory-shared-events",
+    category: "core",
+    docs: VSharedEventsDocs
+  }, {
     text: "VictoryScatter",
     slug: "victory-scatter",
     category: "chart",
     docs: VScatterDocs
   }, {
+    text: "VictoryStack",
+    slug: "victory-stack",
+    category: "chart",
+    docs: VStackDocs
+  }, {
     text: "VictoryTheme",
     slug: "victory-theme",
-    category: "chart",
+    category: "core",
     docs: VThemeDocs
   }, {
     text: "VictoryTooltip",
     slug: "victory-tooltip",
-    category: "chart",
+    category: "core",
     docs: VTooltipDocs
+  }, {
+    text: "VictoryTransition",
+    slug: "victory-transition",
+    category: "core",
+    docs: VTransitionDocs
   }, {
     text: "VictoryVoronoi",
     slug: "victory-voronoi",
     category: "chart",
     docs: VVoronoiDocs
+  }, {
+    text: "VictoryVoronoiTooltip",
+    slug: "victory-voronoi-tooltip",
+    category: "chart",
+    docs: VVoronoiTooltipDocs
   }
 ];

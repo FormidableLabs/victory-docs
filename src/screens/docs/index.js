@@ -1,12 +1,69 @@
 import React from "react";
+import ReactDOM from "react-dom";
+import Ecology from "ecology";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 import Radium from "radium";
+import Prism from "prismjs";
+import { find } from "lodash";
+/* eslint-disable no-unused-vars */
+// add more language support
+import jsx from "prismjs/components/prism-jsx";
+import sh from "prismjs/components/prism-bash";
+import yaml from "prismjs/components/prism-yaml";
+/* eslint-enable no-unused-vars */
 
 // Child components
+import { config } from "../../components/config";
 import InternalPage from "../../components/page-internal";
-import Markdown from "./components/markdown";
+import Markdown from "../../components/markdown";
 import TitleMeta from "../../components/title-meta";
 
 class Docs extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      tocArray: []
+    };
+  }
+
+  componentDidMount() {
+    Prism.highlightAll();
+  }
+
+  componentDidUpdate() { // is this the right one??
+    Prism.highlightAll();
+  }
+
+  updateTocArray(tocArray) {
+    this.setState({tocArray});
+  }
+
+  renderContent(activePage) {
+    if (activePage === "index") {
+      return (
+        <div className="Markdown playgroundsMaxHeight">
+          <Ecology
+            overview={require("!!raw!../../../docs/index.md")}
+            scope={{
+              React, ReactDOM, VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack
+            }}
+            playgroundtheme="elegant"
+          />
+        </div>
+      );
+    }
+    const markdownFile = find(config, { slug: activePage }).docs;
+    return (
+      <Markdown
+        location={this.props.location}
+        updateTocArray={this.updateTocArray.bind(this)}
+        active={activePage}
+        markdownFile={markdownFile}
+      />
+    );
+  }
+
   render() {
     const activePage = this.props.params.component ?
       this.props.params.component :
@@ -14,8 +71,12 @@ class Docs extends React.Component {
 
     return (
       <TitleMeta title="Victory | Documentation">
-        <InternalPage sidebar={activePage}>
-          <Markdown active={activePage} />
+        <InternalPage
+          location={this.props.location}
+          sidebar={activePage}
+          tocArray={this.state.tocArray}
+        >
+          { this.renderContent(activePage) }
         </InternalPage>
       </TitleMeta>
     );
@@ -23,6 +84,7 @@ class Docs extends React.Component {
 }
 
 Docs.propTypes = {
+  location: React.PropTypes.object,
   params: React.PropTypes.object
 };
 

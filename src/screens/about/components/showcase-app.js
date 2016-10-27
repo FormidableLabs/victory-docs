@@ -1,65 +1,21 @@
 import React from "react";
-import Radium from "radium";
-
-// Common
-import { VictorySettings } from "formidable-landers";
 
 class ShowcaseApp extends React.Component {
-  getStyles() {
-    return {
-      copy: {
-        maxWidth: "35em"
-      },
-      grid: {
-        display: "block",
-        margin: `${VictorySettings.gutter * 2}px 0 0 ${VictorySettings.gutter * -1}px`,
-        [`@media ${VictorySettings.mediaQueries.large}`]: {
-          alignItems: "center",
-          display: "flex",
-          flexDirection: "row",
-          flexWrap: "wrap",
-          margin: `0 0 0 ${VictorySettings.gutter * -2}px`
-        }
-      },
-      col: {
-        padding: `${VictorySettings.gutter}px`,
-        [`@media ${VictorySettings.mediaQueries.large}`]: {
-          flex: "1",
-          padding: `${VictorySettings.gutter * 2}px`
-        }
-      },
-      colImg: {
-        maxHeight: "360px",
-        [`@media ${VictorySettings.mediaQueries.large}`]: {
-          maxHeight: "none"
-        }
-      },
-      img: {
-        display: "block",
-        maxHeight: "320px",
-        [`@media ${VictorySettings.mediaQueries.large}`]: {
-          maxHeight: "100%"
-        }
-      }
-    };
-  }
   render() {
-    const styles = this.getStyles();
     return (
-      <div style={styles.grid}>
-        <div style={[styles.col, styles.colImg]}>
+      <div className="Grid Grid--guttersSm Grid--center Grid--full medium-Grid--fit u-textLarge">
+        <div className="Grid-cell Grid-cell--autoSize u-maxWidth">
           <img
             alt={this.props.screenshot.alt}
-            className="fancyBorder"
+            className="Showcase-img fancyBorder"
             src={this.props.screenshot.src}
-            style={styles.img}
           />
         </div>
-        <div style={styles.col}>
-          <h3 style={[styles.copy, {marginTop: 0}]}>
+        <div className="Grid-cell">
+          <h3 className="SubHeading u-textLeft u-noMargin">
             {this.props.company}
           </h3>
-          <p style={styles.copy}>
+          <p>
             {this.props.description}
           </p>
         </div>
@@ -75,7 +31,7 @@ ShowcaseApp.propTypes = {
   }),
   company: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
-  even: React.PropTypes.bool.isRequired
+  even: React.PropTypes.bool
 };
 
-export default Radium(ShowcaseApp);
+export default ShowcaseApp;

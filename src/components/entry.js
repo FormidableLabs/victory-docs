@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { renderToString } from "react-dom/server";
 import { Router, RouterContext, match, applyRouterMiddleware, useRouterHistory } from "react-router";
 import { createMemoryHistory, createHistory } from "history";
-import useScroll from "react-router-scroll";
+import useScroll from "react-router-scroll/lib/useScroll";
 import { renderAsHTML } from "./title-meta";
 import ReactGA from "react-ga";
 import { anchorate } from "anchorate";
@@ -37,7 +37,11 @@ if (typeof window !== "undefined" && window.__STATIC_GENERATOR !== true) { //esl
     <Router
       history={history}
       routes={routes}
-      render={applyRouterMiddleware(useScroll())}
+      render={applyRouterMiddleware(
+        useScroll((prevRouterProps, { location }) => (
+          prevRouterProps && location.pathname !== prevRouterProps.location.pathname
+        ))
+      )}
     />,
     document.getElementById("content")
   );
@@ -54,10 +58,12 @@ export default (locals, callback) => {
   const location = history.createLocation(locals.path);
   match({ routes, location, history }, (error, redirectLocation, renderProps) => {
     const content = renderToString(<RouterContext {...renderProps} />);
+    const source = JSON.parse(locals.webpackStats.compilation.assets["stats.json"].source());
     callback(null, Index({
       titleMeta: renderAsHTML(),
       content,
       bundleJs: locals.assets.main,
+      bundleCss: source.assetsByChunkName.main[1],
       baseHref: `${basename}/`
     }));
   });
