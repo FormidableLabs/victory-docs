@@ -23,7 +23,6 @@
   "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
   "devDependencies": {
     "builder-docs-archetype-dev": "^4.1.1",
-    "builder-react-component-dev": "^0.3.5",
     "react-docgen": "2.7.0"
   },
   "dependencies": {
@@ -31,7 +30,6 @@
     "babel-preset-stage-1": "^6.5.0",
     "builder": "^2.10.1",
     "builder-docs-archetype": "^4.1.1",
-    "builder-react-component": "^0.3.5",
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
     "formidable-landers": "^5.1.1",
@@ -53,6 +51,6 @@
     "react-router-scroll": "^0.3.2",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "victory": "*"
+    "victory": "latest"
   }
 }
