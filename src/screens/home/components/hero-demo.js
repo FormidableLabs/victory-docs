@@ -40,7 +40,7 @@ class Native extends React.Component {
   getStyles() {
     return {
       wrapper: {
-        margin: "0 auto",
+        margin: "60px auto 0",
         maxWidth: "800px"
       },
       backgroundImage: {

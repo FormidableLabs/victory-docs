@@ -1,0 +1,68 @@
+/** Recipes
+.Recipe
+* |- pre
+*    |- .Interactive
+*       |- .playground
+*          |- .playgroundCode
+*          |- .playgroundPreview
+**/
+.Recipe h1:first-child {
+  margin-top: 0;
+}
+
+.Recipe pre {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+}
+
+.Recipe p {
+  max-width: 38em;
+}
+
+.Recipe .Interactive {
+  margin: 0;
+}
+
+.Recipe .Interactive .playground {
+  flex-direction: column;
+}
+
+.Recipe .Interactive .playgroundPreview {
+  /*flex: 1 0 auto;*/
+  flex: none;
+  min-height: 400px;
+}
+
+.Recipe .Interactive .playgroundPreview:after {
+  counter-increment: none;
+  content: "";
+}
+
+.Recipe .Interactive .playgroundPreview svg {
+  max-height: 400px; /* make recipes bigger */
+}
+
+/** Theme Park Recipe
+*/
+
+.ThemeParkMenu {
+  margin: var(--gutter) var(--page) 0;
+}
+
+.ThemeParkMenu-Bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  max-width: 40em;
+}
+
+.ThemeParkMenu-Title {
+  font-weight: normal;
+  margin: 0 var(--gutter);
+  max-width: none;
+  padding: var(--gutter-small);
+  text-align: center;
+}
