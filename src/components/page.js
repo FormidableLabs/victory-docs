@@ -6,7 +6,7 @@ import Sidebar from "./sidebar";
 import Header from "./header";
 import Footer from "./footer";
 
-class InternalPage extends React.Component {
+class Page extends React.Component {
   render() {
     /* eslint-disable max-len */
     return (
@@ -20,10 +20,10 @@ class InternalPage extends React.Component {
           />
           <ScrollContainer scrollKey="page-content">
             <div className="Page-content">
-                <article className="Article">
-                  {this.props.children}
-                </article>
-                <Footer />
+              <article className="Article">
+                {this.props.children}
+              </article>
+              <Footer />
             </div>
           </ScrollContainer>
         </main>
@@ -33,17 +33,17 @@ class InternalPage extends React.Component {
   }
 }
 
-InternalPage.propTypes = {
+Page.propTypes = {
   children: React.PropTypes.node,
   location: React.PropTypes.object,
   sidebar: React.PropTypes.string,
   tocArray: React.PropTypes.array
 };
 
-InternalPage.defaultProps = {
+Page.defaultProps = {
   children: null,
   sidebar: "index",
   tocArray: []
 };
 
-export default InternalPage;
+export default Page;
