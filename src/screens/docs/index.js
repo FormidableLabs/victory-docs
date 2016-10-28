@@ -14,7 +14,7 @@ import yaml from "prismjs/components/prism-yaml";
 
 // Child components
 import { config } from "../../components/config";
-import InternalPage from "../../components/page-internal";
+import Page from "../../components/page";
 import Markdown from "../../components/markdown";
 import TitleMeta from "../../components/title-meta";
 
@@ -71,13 +71,13 @@ class Docs extends React.Component {
 
     return (
       <TitleMeta title="Victory | Documentation">
-        <InternalPage
+        <Page
           location={this.props.location}
           sidebar={activePage}
           tocArray={this.state.tocArray}
         >
           { this.renderContent(activePage) }
-        </InternalPage>
+        </Page>
       </TitleMeta>
     );
   }

@@ -19,6 +19,7 @@
 * Discrete components of the page: such as navigation, alert dialogs, buttons, etc.
 * Any new feature or component will be added to this section.
 *
+* article:      .Article is the content-only portion of /docs/*, nested in .Page-content
 * button:       .btn classes for <button> elements
 * home:         All styles on the front page/lander
 * markdown:     <Markdown /> styles

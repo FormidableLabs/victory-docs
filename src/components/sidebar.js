@@ -6,7 +6,6 @@ import { times } from "lodash";
 // Children
 import { config } from "./config";
 import { configRecipes } from "./config-recipes";
-import NavLink from "./navlink";
 import Icon from "./icon";
 import basename from "../basename";
 
@@ -91,21 +90,21 @@ class Sidebar extends React.Component {
     const listItems = items.map((item) => {
       if (item.category === category) {
         return (
-          <li key={item.slug} className="Nav-List-Item">
-            <NavLink to={`/${route}/${item.slug}`}>
+          <li key={item.slug} className="Sidebar-List-Item">
+            <Link to={`/${route}/${item.slug}`} activeClassName="is-active">
               {item.text} <Icon glyph="internal-link" />
-            </NavLink>
+            </Link>
             {this.renderToc(`/${route}/${item.slug}`)}
           </li>
         );
       }
     });
     return (
-      <div>
-        <p className="Nav-SubHeading SubHeading">
+      <div className="u-noMargin">
+        <p className="Sidebar-SubHeading SubHeading">
           {category}
         </p>
-        <ul className="Nav-List">
+        <ul className="Sidebar-List">
           {listItems}
         </ul>
       </div>
@@ -116,30 +115,30 @@ class Sidebar extends React.Component {
     /* eslint-disable max-len */
     return (
       <div className="Page-sidebar">
-        <nav className="Nav">
-          <div className="Nav-Grid">
-            <p className="Nav-Heading u-noMargin u-noPadding">
+        <nav className="Sidebar">
+          <div className="Sidebar-Grid">
+            <p className="Sidebar-Heading u-noMargin u-noPadding">
               Introduction
             </p>
-            <ul className="Nav-List">
-              <li key="navlink-index" className="Nav-List-Item">
-                <NavLink to="/docs">
+            <ul className="Sidebar-List">
+              <li key="sidebarlink-index" className="Sidebar-List-Item">
+                <Link to="/docs" activeClassName="is-active">
                   Getting Started <Icon glyph="internal-link" />
-                </NavLink>
+                </Link>
               </li>
-              <li key="navlink-contributing" className="Nav-List-Item">
+              <li key="sidebarlink-contributing" className="Sidebar-List-Item">
                 <a href="https://github.com/FormidableLabs/victory/#contributing">
                   Contributing <Icon glyph="external-link" />
                 </a>
               </li>
             </ul>
-            <p className="Nav-Heading u-noMarginTop">
+            <p className="Sidebar-Heading u-noMarginTop">
               Documentation
             </p>
             {this.renderList(this.props.docs, "docs", "core")}
             {this.renderList(this.props.docs, "docs", "chart")}
             {this.renderList(this.props.docs, "docs", "more")}
-            <p className="Nav-Heading">
+            <p className="Sidebar-Heading">
               Recipes
             </p>
             {this.renderList(this.props.recipes, "recipes", "customize")}
