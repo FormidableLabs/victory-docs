@@ -22,7 +22,7 @@ The `style` prop defines the style of chart container. The `width`, `height`, an
 
 *default (provided by default theme):* See [grayscale theme] for more detail
 
-### `theme`
+### theme
 
 The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. `VictoryChart` will set the `theme` prop on all of its children. By default, components use a [grayscale theme]. [Read more about themes here].
 

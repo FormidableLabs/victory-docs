@@ -25,7 +25,7 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 
 *default (provided by default theme):* See [grayscale theme] for more detail
 
-### `theme`
+### theme
 
 The `theme` prop specifies a theme to use for determining layout properties for a `VictoryStack`. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
