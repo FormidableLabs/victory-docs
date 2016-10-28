@@ -43,4 +43,4 @@ The `events` prop attaches arbitrary event handlers to the group element. This p
 The `transform` prop defines a transform to be applied to the rendered group.
 
 
-[ClipPath Component]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-primitives/clip-path.js
+[ClipPath Component]: https://formidable.com/open-source/victory/docs/victory-primitives#clippath

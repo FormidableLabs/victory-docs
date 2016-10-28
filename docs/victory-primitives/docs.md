@@ -5,7 +5,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ## Components
 
-### Area [src][area]
+### Area 
+
+**[src][area]**
 
 [VictoryArea] uses `Area` to represent an entire dataset. `Area` renders a `<path>` element, or a group of paths if the stroke of the area should be rendered in a different style from the filled section of the area.
 
@@ -20,7 +22,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `groupComponent` *element* the element used to group rendered elements
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Bar [src][bar]
+### Bar 
+
+**[src][bar]**
 
 [VictoryBar] uses `Bar` to represent a single data point as a bar extending horizontally or vertically from the independent axis. `Bar` renders a `<path>` element.
 
@@ -40,7 +44,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `role` *string* the aria role to assign to the element
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Candle [src][candle]
+### Candle 
+
+**[src][candle]**
 
 [VictoryCandlestick] uses `Candle` to represent a single data point as a candle. `Candle` renders a group with `<rect>` and `<line>` elements
 
@@ -64,7 +70,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
 
-### ClipPath [src][clippath]
+### ClipPath 
+
+**[src][clippath]**
 
 [VictoryClipContainer] uses `ClipPath` to render a rectangular clip path used in animating transitons for [VictoryArea] and [VictoryLine]. Transitions alter the `clipWidth` and `clipHeight` props of `ClipPath` in order to show and hide portions of a continuous chart so that new data transitions in and out smoothly. `ClipPath` renders `<defs>`, `<clipPath>` and `<rect>`.
 
@@ -78,7 +86,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `translateX` *number* determines the offset of the chart from the base x coordinate
 
 
-### Curve [src][curve]
+### Curve 
+
+**[src][curve]**
 
 [VictoryLine] uses `Curve` to represent an entire dataset as a line or curve. `Curve` renders a `<path>` element.
 
@@ -93,7 +103,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### ErrorBar [src][errorbar]
+### ErrorBar 
+
+**[src][errorbar]**
 
 [VictoryErrorBar] uses `ErrorBar` to render x and y error bars. `ErrorBar` renders a group of `<line>` elements.
 
@@ -114,7 +126,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Flyout [src][flyout]
+### Flyout 
+
+**[src][flyout]**
 
 [VictoryTooltip] uses `Flyout` to render a flyout style path around text. `Flyout` renders `<path>` element.
 
@@ -138,7 +152,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
 
-### Line [src][line]
+### Line 
+
+**[src][line]**
 
   The `Line` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis].
 
@@ -157,7 +173,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
 
 
-### Point [src][point]
+### Point 
+
+**[src][point]**
 
 [VictoryScatter] uses `Point` to render each point in a scatter plot. `Point` renders a `<path>` element.
 
@@ -175,7 +193,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `role` *string* the aria role to assign to the element
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Slice [src][slice]
+### Slice 
+
+**[src][slice]**
 
 [VictoryPie] uses `Slice` to render each slice in a pie chart. `Slice` renders a `<path>` element.
 
@@ -191,7 +211,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `style` *object* the styles to apply to the rendered element
   - `role` *string* the aria role to assign to the element
 
-### Voronoi [src][voronoi]
+### Voronoi 
+
+**[src][voronoi]**
 
   [VictoryVoronoi] uses `Voronoi` to render voronoi polygons. `Voronoi` renders either a `<path>` element corresponding to a voronoi polygon, or a circular `<path>` clipped with a `<clipPath>` defined by the path of the polygon.
 

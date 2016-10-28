@@ -2,7 +2,7 @@
 
 `VictoryAnimation` animates prop changes for any React component. Just use a child function inside `VictoryAnimation` that accepts an object of tweened values and other animation information and returns a component to render. 
 
-```
+```jsx
 <VictoryAnimation {...animationProps} data={myComponentProps}>
   {(tweenedProps, animationInfo) => {
     if (animationInfo.animating && animationInfo.progress < 1) {
