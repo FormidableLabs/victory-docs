@@ -87,8 +87,8 @@ class Sidebar extends React.Component {
     );
   }
 
-  renderListItems(items, route, category) {
-    return items.map((item) => {
+  renderList(items, route, category) {
+    const listItems = items.map((item) => {
       if (item.category === category) {
         return (
           <li key={item.slug} className="Nav-List-Item">
@@ -100,6 +100,16 @@ class Sidebar extends React.Component {
         );
       }
     });
+    return (
+      <div>
+        <p className="Nav-SubHeading SubHeading">
+          {category}
+        </p>
+        <ul className="Nav-List">
+          {listItems}
+        </ul>
+      </div>
+    );
   }
 
   render() {
@@ -126,39 +136,14 @@ class Sidebar extends React.Component {
             <p className="Nav-Heading u-noMarginTop">
               Documentation
             </p>
-            <p className="Nav-SubHeading SubHeading">
-              Core
-            </p>
-            <ul className="Nav-List">
-              {this.renderListItems(this.props.docs, "docs", "core")}
-            </ul>
-            <p className="Nav-SubHeading SubHeading">
-              Chart
-            </p>
-            <ul className="Nav-List">
-              {this.renderListItems(this.props.docs, "docs", "chart")}
-            </ul>
-            <p className="Nav-SubHeading SubHeading">
-              More
-            </p>
-            <ul className="Nav-List">
-              {this.renderListItems(this.props.docs, "docs", "more")}
-            </ul>
+            {this.renderList(this.props.docs, "docs", "core")}
+            {this.renderList(this.props.docs, "docs", "chart")}
+            {this.renderList(this.props.docs, "docs", "more")}
             <p className="Nav-Heading">
               Recipes
             </p>
-            <p className="Nav-SubHeading SubHeading">
-              Customize
-            </p>
-            <ul className="Nav-List">
-              {this.renderListItems(this.props.recipes, "recipes", "customize")}
-            </ul>
-            <p className="Nav-SubHeading SubHeading">
-              Events
-            </p>
-            <ul className="Nav-List">
-              {this.renderListItems(this.props.recipes, "recipes", "events")}
-            </ul>
+            {this.renderList(this.props.recipes, "recipes", "customize")}
+            {this.renderList(this.props.recipes, "recipes", "events")}
           </div>
         </nav>
       </div>
