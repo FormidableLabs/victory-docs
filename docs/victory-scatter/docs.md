@@ -8,7 +8,7 @@ VictoryScatter renders a dataset as a series of points. VictoryScatter can be co
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
-```
+```jsx
 <VictoryScatter
   data={[{
     {month: "September", profit: 35000, loss: 2000},
@@ -58,7 +58,7 @@ The `categories` prop specifies how categorical data for a chart should be order
 
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for any style property, and they will be evaluated with each datum.
 
-```
+```jsx
 style={{
   data: {fill: (d) => d.y > 0 ? "red" : "blue"},
   labels: {fontSize: 12},
@@ -189,7 +189,7 @@ The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition
 The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a point label), and the object returned from the mutation function will override the props of that element via object assignment. [Read more about events here].
 
 *examples:*
-```
+```jsx
  events={[
   {
     target: "data",

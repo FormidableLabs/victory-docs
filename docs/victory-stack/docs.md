@@ -116,16 +116,16 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation. When an `animate` prop is provided, `VictoryStack` will set the `animate` props on all of its children to coordinate animations. The behavior of `onEnter` and `onExit` and `onLoad` transitions will still be defined by each child component unless these are explicitly modified, or overwritten with the `animate` prop. [Read more about animations and transitions].
+The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation. When an `animate` prop is provided, `VictoryStack` will set the `animate` props on all of its children to coordinate animations. The behavior of `onEnter` and `onExit` and `onLoad` transitions will still be defined by each child component unless these are explicitly modified, or overwritten with the `animate` prop.
 
 *examples:* `animate={{duration: 2000}}`
 
 ### events
 
-`VictoryStack` uses the `VictorySharedEvents` wrapper to coordinate events between its children. The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, a `childName` and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this components like `VictoryBar`. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `childName` property may be given as a string or an array of strings to target multiple children. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target`, `childName` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment. [Read more about events here].
+`VictoryStack` uses the `VictorySharedEvents` wrapper to coordinate events between its children. The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, a `childName` and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this components like `VictoryBar`. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `childName` property may be given as a string or an array of strings to target multiple children. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target`, `childName` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
 
 *examples:*
-```
+```jsx
  <VictoryStack
   events={[{
     childName: ["bar-1", "bar-2"],
@@ -165,15 +165,15 @@ The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition
 
 ### eventKey
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object. [Read more about events here].
+The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
      
 ### sharedEvents
 
-The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually. [Read more about events here].
+The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
 
 ### name
 
-The `name` prop is used to reference a component instance when defining shared events. [Read more about events here].
+The `name` prop is used to reference a component instance when defining shared events.
 
 [VictoryArea]: https://formidable.com/open-source/docs/victory-area
 [VictoryAxis]: https://formidable.com/open-source/docs/victory-axis
@@ -192,5 +192,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
-[Read more about animations and transitions]: https://formidable.com/open-source/victory/docs/animations
-[Read more about events here]: https://formidable.com/open-source/victory/docs/events
+

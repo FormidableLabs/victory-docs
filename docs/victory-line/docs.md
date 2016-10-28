@@ -8,7 +8,7 @@ VictoryLine renders a dataset as a single line. VictoryLine can be composed with
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
-```
+```jsx
 <VictoryLine
   data={[{
     {month: "September", profit: 35000, loss: 2000},
@@ -58,7 +58,7 @@ The `categories` prop specifies how categorical data for a chart should be order
 
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. 
 
-```
+```jsx
 style={{
   data: {fill: "tomato", opacity: 0.7},
   labels: {fontSize: 12},
@@ -172,16 +172,16 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop. [Read more about animations and transitions].
+The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop.
 
 *examples:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})})}`
 
 ### events
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. Since VictoryLine only renders a single element, the `eventKey` property is not used. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a line), and the object returned from the mutation function will override the props of that element via object assignment. [Read more about events here].
+The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. Since VictoryLine only renders a single element, the `eventKey` property is not used. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a line), and the object returned from the mutation function will override the props of that element via object assignment.
 
 *examples:*
-```
+```jsx
  events={[
   {
     target: "data",
@@ -209,15 +209,15 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### eventKey
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. [Read more about events here].
+The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array.
      
 ### sharedEvents
 
-The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually. [Read more about events here].
+The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
 
 ### name
 
-The `name` prop is used to reference a component instance when defining shared events. [Read more about events here].
+The `name` prop is used to reference a component instance when defining shared events.
 
 
 [VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
@@ -231,5 +231,3 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryClipContainer]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-clip-container/victory-clip-container.js
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
-[Read more about animations and transitions]: https://formidable.com/open-source/victory/docs/animations
-[Read more about events here]: https://formidable.com/open-source/victory/docs/events

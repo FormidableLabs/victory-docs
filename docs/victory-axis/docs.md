@@ -54,7 +54,7 @@ The `label` prop defines the label that will appear with the axis. This prop sho
 
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `axis`, `axisLabel`, `grid`, `ticks`, and `tickLabels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `grid`, `tick`, and `tickLabel` style properties, and they will be evaluated with each tick.
 
-```
+```jsx
 style={{
   axis: {stroke: "#756f6a"}, 
   axisLabel: {fontSize: 16, padding: 20}},
@@ -179,16 +179,16 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] to use. The animate prop may be used to specify the duration, delay and easing of an animation. [Read more about animations and transitions].
+The `animate` prop specifies props for [VictoryAnimation] to use. The animate prop may be used to specify the duration, delay and easing of an animation.
 
 *examples:* `animate={{duration: 2000}}`
 
 ### events
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "axis" and "axisLabel", "grid", "ticks" and "tickValues" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment. [Read more about events here].
+The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "axis" and "axisLabel", "grid", "ticks" and "tickValues" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
 
 *examples:*
-```
+```jsx
  events={[
   {
     target: "ticks",
@@ -218,12 +218,11 @@ The `events` prop takes an array of event objects. Event objects are composed of
      
 ### sharedEvents
 
-The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually. [Read more about events here].
+The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
 
 ### name
 
-The `name` prop is used to reference a component instance when defining shared events. [Read more about events here].
-
+The `name` prop is used to reference a component instance when defining shared events.
 
 [VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
 [tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
@@ -236,5 +235,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
-[Read more about animations and transitions]: https://formidable.com/open-source/victory/docs/animations
-[Read more about events here]: https://formidable.com/open-source/victory/docs/events
+
