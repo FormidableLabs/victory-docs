@@ -6,7 +6,7 @@
 
 ### data
 
-Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x] and [y] data accessor props to define a custom data format. The `data` prop must be given as an array.
+Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
 ```
 <VictoryPie
@@ -200,8 +200,7 @@ The `sharedEvents` prop is used to coordinate events between Victory components 
 The `name` prop is used to reference a component instance when defining shared events. [Read more about events here].
 
 
-[x]: https://formidable.com/open-source/victory/docs/victory-pie#x
-[y]: https://formidable.com/open-source/victory/docs/victory-pie#y
+[x and y]: https://formidable.com/open-source/victory/docs/victory-pie#x-and-y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [width and height]: https://formidable.com/open-source/victory/docs/victory-pie#width-and-height

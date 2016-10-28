@@ -13,7 +13,7 @@
 
 ### data
 
-When `data` is provided for `VictoryGroup` it will be passed to every child in the group. Use this as a convenience in cases where all components should have identical data, for example, adding data points to a line, or adding voronoi tooltips to data. Omit this prop when child components should not share data. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x] and [y] data accessor props to define a custom data format. The `data` prop must be given as an array.
+When `data` is provided for `VictoryGroup` it will be passed to every child in the group. Use this as a convenience in cases where all components should have identical data, for example, adding data points to a line, or adding voronoi tooltips to data. Omit this prop when child components should not share data. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
 ```
 <VictoryGroup
@@ -249,8 +249,7 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryStack]: https://formidable.com/open-source/docs/victory-stack
 [VictoryVoronoi]: https://formidable.com/open-source/docs/victory-voronoi
 [VictoryVoronoiTooltip]: https://formidable.com/open-source/docs/victory-voronoi-tooltip
-[x]: https://formidable.com/open-source/victory/docs/victory-group#x
-[y]: https://formidable.com/open-source/victory/docs/victory-group#y
+[x and y]: https://formidable.com/open-source/victory/docs/victory-group#x-and-y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [width and height]: https://formidable.com/open-source/victory/docs/victory-group#width-and-height
