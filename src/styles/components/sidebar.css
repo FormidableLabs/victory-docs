@@ -1,0 +1,97 @@
+:root {
+  --navIndent: 10px;
+}
+
+.Nav-Grid {
+  columns: 3 200px;
+  column-gap: var(--gutter);
+  font-size: 18px;
+}
+
+.Nav-List {
+  list-style: none;
+  margin: var(--navIndent) 0 0 0;
+  padding: 0;
+}
+
+.Nav-List-Item {
+  break-inside: avoid;
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  font-family: var(--fontSubHeading);
+  line-height: 1.3;
+  margin: 0 0 0 var(--navIndent);
+  padding: 0 var(--navIndent) 0 0;
+}
+
+.Nav-Heading {
+  break-inside: avoid;
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  color: var(--darkestGray);
+  font-family: var(--fontSubHeading);
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  margin-top: var(--navIndent);
+  margin-bottom: calc(-1 * var(--navIndent));
+  padding-top: var(--gutter-small);
+}
+
+.Nav-SubHeading {
+  break-inside: avoid;
+  column-break-inside: avoid;
+  page-break-inside: avoid;
+  color: var(--nearBlack);
+  margin: var(--navIndent) 0 0 0;
+  padding: var(--navIndent) 0 0 0;
+}
+
+.Nav a:link {
+  color: var(--black);
+}
+
+.Nav a:visited {
+  color: var(--darkGray);
+}
+
+.Nav a:focus,
+.Nav a:hover {
+  color: var(--darkRed);
+}
+
+/* Nested Table of Contents under the active link in the sidebar */
+
+.Sidebar-toc {
+  font-size: 0.95em;
+  line-height: 1.2;
+  position: absolute;
+  visibility: hidden;
+}
+
+@media (--medium-viewport) {
+  .Sidebar-toc {
+    position: static;
+    visibility: visible;
+  }
+}
+
+.Sidebar-toc-item {
+  padding: 0.166em 0 0.166em 0.5em;
+}
+
+.Sidebar-toc-item:last-child {
+  padding-bottom: 1em;
+}
+
+/* Nested Lists */
+.Sidebar-toc-item > .Sidebar-toc {
+  background-color: transparent;
+  border-left: 1px solid color(var(--black) alpha(-75%));
+  margin: 0 0 1em 0.125em;
+  padding: 0 0 0 0.75em;
+}
+
+.Sidebar-toc-item > .Sidebar-toc .Sidebar-toc-item {
+  padding: 0.166em 0;
+}

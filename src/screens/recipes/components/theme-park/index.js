@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Radium, { Style } from "radium";
+import Radium from "radium";
 import Playground from "component-playground";
 import { assign } from "lodash";
-import { VictorySettings } from "formidable-landers";
 import { Link } from "react-router";
 
 import Icon from "../../../../components/icon";
@@ -42,84 +41,34 @@ class ThemePark extends React.Component {
     return this.themeTexts[this.state.themeName];
   }
   renderMenu() {
-    const menuClass = "ThemeParkMenu";
-    const barClass = "ThemeParkMenuBar";
-    const themeNameClass = "ThemeParkThemeName";
-    const styleRules = {
-      [`.${menuClass}`]: {
-        backgroundColor: VictorySettings.whiteSand,
-        margin: "20px -40px -20px"
-      },
-      [`.${menuClass} button`]: {
-        // remove button styling
-        margin: 0,
-        padding: 0,
-        border: 0,
-        background: "transparent",
-        fontSize: "inherit",
-        fontFamily: "inherit",
-        cursor: "pointer",
-        outline: "none",
-        // make it do the thing
-        marginLeft: "25px",
-        textAlign: "center"
-      },
-      [`.${menuClass} button:hover`]: {
-        textDecoration: "underline"
-      },
-      [`.${menuClass} h3.${themeNameClass}`]: { // theme name
-        textTransform: "none",
-        textAlign: "center",
-        padding: 30,
-        margin: "0 40px",
-        maxWidth: "none"
-      },
-      [`.${menuClass} .${barClass}`]: { // menu
-        padding: "17px 0 17px 40px",
-        backgroundColor: "rgba(0,0,0,0)"
-      },
-      [`.${menuClass} .${barClass}:hover`]: {
-        backgroundColor: "rgba(0,0,0,0.05)"
-      },
-      mediaQueries: {
-        [VictorySettings.mediaQueries.large]: {
-          [`.${menuClass}`]: {
-            margin: "20px -60px -40px"
-          }
-        }
-      }
-    };
     return (
-      <div className={menuClass}>
-        <div className={barClass}>
-          <button onClick={this.resetTheme.bind(this, "grayscale")}>
+      <div className="ThemeParkMenu">
+        <div className="ThemeParkMenu-Bar">
+          <button className="btn" onClick={this.resetTheme.bind(this, "grayscale")}>
             reset to <b>grayscale</b>
           </button>
-          <button onClick={this.resetTheme.bind(this, "material")}>
+          <button className="btn" onClick={this.resetTheme.bind(this, "material")}>
             reset to <b>material</b>
           </button>
         </div>
-        <h3 className={themeNameClass}>
-          {this.state.themeName}
-          {this.state.editted ? "*" : ""}
+        <h3 className="ThemeParkMenu-Title">
+          Viewing the <strong>{this.state.themeName}
+          {this.state.editted ? "*" : ""}</strong> theme
         </h3>
-        <Style rules={styleRules}/>
       </div>
     );
   }
   render() {
     return (
       <div className="Recipe">
-        <div className="Overview">
-          <h1>Theme Park</h1>
-          <p>
-            Try out the Victory themes and make your own.
-            Check out
-            the <RadiumLink to="docs/victory-theme">
-              VictoryTheme documentation<Icon glyph="internal-link" />
-            </RadiumLink> for more details on themes.
-          </p>
-        </div>
+        <h1>Theme Park</h1>
+        <p>
+          Try out the Victory themes and make your own.
+          Check out
+          the <RadiumLink to="docs/victory-theme">
+            VictoryTheme documentation<Icon glyph="internal-link" />
+          </RadiumLink> for more details on themes.
+        </p>
         {this.renderMenu()}
         <PureRender themeName={this.state.themeName} editted={this.state.editted}>
           <pre>

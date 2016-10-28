@@ -1,0 +1,46 @@
+/*
+* .Page
+*   .Page-sidebar
+*   .Page-content
+*/
+
+.Page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+@media (--medium-viewport) {
+  .Page {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: calc(100% - 160px);
+  }
+}
+
+.Page-sidebar {
+  background-color: var(--lightSand);
+  overflow: auto;
+  padding: var(--gutter-small) var(--gutter-small) var(--gutter);
+  z-index: 1;
+}
+
+@media (--medium-viewport) {
+  .Page-sidebar {
+    flex: 0 0 270px;
+  }
+}
+
+.Page-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+@media (--medium-viewport) {
+  .Page-content {
+    height: 100%;
+    overflow-y: scroll;
+  }
+}

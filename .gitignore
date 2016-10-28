@@ -12,3 +12,4 @@ phantomjsdriver\.log
 coverage
 Procfile
 build
+yarn.lock

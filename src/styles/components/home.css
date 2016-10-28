@@ -1,0 +1,88 @@
+.Home {
+  background-color: var(--lighterSand);
+  display: block;
+  padding: 0 0 var(--gutter);
+}
+
+.Hero {
+  margin: 0;
+  padding: var(--gutter-small) 0 0;
+}
+
+.Installer {
+  display: block;
+  margin: var(--gutter-small) auto var(--gutter);
+  text-align: center;
+}
+
+.Installer-code {
+  display: inline-block;
+  padding: 1.25em 1.75em;
+  background-color: var(--black);
+  border-radius: 0;
+  box-shadow:
+    0 0 0 10px #efe9e3,
+    0 0 0 11px var(--mud);
+  color: var(--lightestSand);
+  font-family: var(--fontMonospace);
+  font-size: 18px;
+  line-height: 1.2
+}
+
+.Companies {
+  background-color: var(--mud);
+  color: var(--white);
+  margin: var(--gutter) 0 0;
+  padding: var(--gutter-small) 0 var(--gutter);
+  text-align: center;
+}
+
+.Companies-List {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.Companies-logo {
+  color: var(--white);
+  height: 70px;
+  margin-top: var(--gutter-small);
+  padding-right: var(--gutter-small);
+  padding-left: var(--gutter-small);
+}
+
+.Companies-logo--max200 {
+  max-width: 200px;
+}
+
+.Companies-logo--max300 {
+  max-width: 300px;
+}
+
+.Companies-logo-img {
+  height: 70px;
+}
+
+.Benefits {
+  padding: var(--gutter) 0;
+}
+
+.Benefits-btn {
+  display: block;
+  font-family: var(--fontSubHeading);
+  margin: var(--gutter) var(--page) 0;
+  padding-top: var(--gutter);
+  text-align: center;
+}
+
+.Benefits-demos {
+  margin-top: var(--gutter);
+}
+
+.Benefits-demo {
+  padding: var(--gutter-small);
+}

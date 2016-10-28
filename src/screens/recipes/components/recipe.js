@@ -5,7 +5,7 @@ import find from "lodash/find";
 import marked from "marked";
 
 // VictoryComponent Docs
-import { recipesComponents } from "../../../components/config-recipes";
+import { configRecipes } from "../../../components/config-recipes";
 
 class RecipeDocs extends React.Component {
   renderDocsContent(activeComponent) {
@@ -14,28 +14,23 @@ class RecipeDocs extends React.Component {
       return (
         <TitleMeta title="Victory Recipes">
           <div
-            className="Ecology Overview"
             dangerouslySetInnerHTML={{__html: indexDocs}}
           />
         </TitleMeta>
       );
     }
-    const conf = find(recipesComponents, {slug: activeComponent});
+    const conf = find(configRecipes, {slug: activeComponent});
     const Docs = conf.docs;
     // This structure matches the <Ecology> /docs components:
     return (
       <TitleMeta title={`${conf.text} | Victory Recipes`}>
-        <div className="Ecology">
-          <div className="Overview">
-            <Docs />
-          </div>
-        </div>
+        <Docs />
       </TitleMeta>
     );
   }
   render() {
     return (
-      <div className="Markdown" style={this.props.style}>
+      <div style={this.props.style}>
         {this.renderDocsContent(this.props.active)}
       </div>
     );

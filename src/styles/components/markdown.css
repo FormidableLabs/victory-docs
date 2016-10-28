@@ -1,0 +1,55 @@
+.Markdown h1:first-child {
+  margin-top: 0;
+}
+
+.Markdown p {
+  max-width: 38em;
+}
+
+.Markdown pre {
+  background-color: var(--codeMirrorbg);
+}
+
+.Markdown hr {
+  background-color: var(--sand);
+  border: 0;
+  height: 1px;
+  margin: var(--gutter-small) auto;
+  position: relative;
+}
+
+.Markdown ul li {
+  list-style: disc;
+}
+
+.Markdown h1,
+.Markdown h2,
+.Markdown h3,
+.Markdown h4,
+.Markdown h5,
+.Markdown h6 {
+  position: relative;
+}
+
+.Anchor {
+  background: url("../../static/icon-link.svg") 0 no-repeat;
+  border-bottom: 0 !important;
+  position: absolute !important;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+
+  opacity: 0;
+  line-height: 1;
+  width: 24px;
+  speak: none; /* Wishing for .screenreader-hidden class */
+}
+
+.Markdown h1:hover .Anchor,
+.Markdown h2:hover .Anchor,
+.Markdown h3:hover .Anchor,
+.Markdown h4:hover .Anchor,
+.Markdown h5:hover .Anchor,
+.Markdown h6:hover .Anchor {
+  opacity: 1;
+}
