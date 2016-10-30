@@ -1,6 +1,5 @@
 import React from "react";
 import Radium from "radium";
-import { Link } from "react-router";
 
 // Common
 import Header from "../../components/header";
@@ -21,15 +20,6 @@ class Home extends React.Component {
         <Header home />
         <section className="Home playgroundsMaxHeight">
           <Hero />
-
-          <div className="u-textCenter">
-            <h2>
-              Want a ready-made chart?
-            </h2>
-            <p>
-              Use <Link to="/composed">Victory Composed</Link> instead.
-            </p>
-          </div>
 
           <Companies />
 

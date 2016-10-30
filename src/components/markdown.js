@@ -1,5 +1,5 @@
 import React from "react";
-import { find, findIndex } from "lodash";
+import { findIndex } from "lodash";
 
 import MarkdownIt from "markdown-it";
 import markdownItTocAndAnchor from "markdown-it-toc-and-anchor";
@@ -11,8 +11,7 @@ import sh from "prismjs/components/prism-bash";
 import yaml from "prismjs/components/prism-yaml";
 /* eslint-enable no-unused-vars */
 
-import basename from "../../../basename";
-import { config } from "../../../components/config";
+import basename from "../basename";
 
 class Markdown extends React.Component {
   constructor() {
@@ -26,7 +25,7 @@ class Markdown extends React.Component {
     Prism.highlightAll();
   }
 
-  componentDidUpdate() { // is this the right one??
+  componentDidUpdate() {
     Prism.highlightAll();
   }
 
@@ -35,16 +34,21 @@ class Markdown extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.location.pathname !== this.props.location.pathname) {
+    if (newProps.active !== this.props.active) {
       this.renderMd(newProps);
     }
   }
 
   renderMd(props) {
+    if (!props.location || !props.location.pathname) {
+      this.setState({
+        renderedMd: ""
+      });
+      return;
+    }
     this.setMarkdownRenderer(props.location.pathname);
-    const docsMarkdown = find(config, { slug: props.active }).docs;
     this.setState({
-      renderedMd: this.md.render(docsMarkdown)
+      renderedMd: this.md.render(props.markdownFile)
     });
   }
 
@@ -105,6 +109,7 @@ class Markdown extends React.Component {
 Markdown.propTypes = {
   active: React.PropTypes.string.isRequired,
   location: React.PropTypes.object.isRequired,
+  markdownFile: React.PropTypes.string,
   params: React.PropTypes.object,
   updateTocArray: React.PropTypes.func.isRequired
 };

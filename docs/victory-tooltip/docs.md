@@ -100,7 +100,7 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 When `renderInPortal` is true, rendered tooltips will be wrapped in [VictoryPortal] and rendered within the [Portal] element within [VictoryContainer]. _Note:_ This prop should _not_ be set to true when using a custom container element.
 
-[Flyout]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-primitives/flyout.js
+[Flyout]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [textSize]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal

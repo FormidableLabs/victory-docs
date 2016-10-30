@@ -1,3 +1,4 @@
+/* Layout */
 .u-noMargin {
   margin: 0 !important;
 }
@@ -6,6 +7,37 @@
   padding: 0 !important;
 }
 
+.u-padding {
+  padding: var(--gutter);
+}
+
+.u-paddingSm {
+  padding: var(--gutter-small);
+}
+
+/* Height and Width */
+.u-fullHeight {
+  height: 100% !important;
+}
+
+.u-maxWidth {
+  max-width: 100% !important;
+}
+
+/* Text Alignment */
 .u-textCenter {
-  text-align: center;
+  text-align: center !important;
+}
+
+.u-textLeft {
+  text-align: left !important;
+}
+
+/* Text Size */
+.u-textLarge {
+  font-size: 1.3em;
+}
+
+.u-textLarge p {
+  max-width: 30em !important;
 }

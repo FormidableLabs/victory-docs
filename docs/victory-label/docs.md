@@ -55,7 +55,7 @@ The `angle` prop specifies the angle to rotate the text around its anchor point.
 
 ### textAnchor
 
-The `textAnchor` prop defines how the text is horizontally positioned relative to the given `x` and `y` coordinates. Options are "start", "middle", "end", and "inherit"
+The `textAnchor` prop defines how the text is horizontally positioned relative to the given `x` and `y` coordinates. Options are "start", "middle", "end", and "inherit".
 
 ### verticalAnchor
 

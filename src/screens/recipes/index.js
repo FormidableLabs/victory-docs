@@ -2,7 +2,7 @@ import React from "react";
 import Radium from "radium";
 
 // Child components
-import InternalPage from "../../components/page-internal";
+import Page from "../../components/page";
 import Recipe from "./components/recipe";
 import TitleMeta from "../../components/title-meta";
 
@@ -14,9 +14,9 @@ class Recipes extends React.Component {
 
     return (
       <TitleMeta title="Victory | Recipes">
-        <InternalPage sidebar={activeRecipe}>
+        <Page sidebar={activeRecipe}>
           <Recipe active={activeRecipe} />
-        </InternalPage>
+        </Page>
       </TitleMeta>
     );
   }
