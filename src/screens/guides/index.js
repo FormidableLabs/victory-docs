@@ -2,7 +2,7 @@ import React from "react";
 import Radium from "radium";
 
 // Child components
-import InternalPage from "../../components/page-internal";
+import Page from "../../components/page";
 import Guide from "./components/guide";
 import TitleMeta from "../../components/title-meta";
 
@@ -14,9 +14,9 @@ class Guides extends React.Component {
 
     return (
       <TitleMeta title="Victory | Guides">
-        <InternalPage sidebar={activeGuide}>
+        <Page sidebar={activeGuide}>
           <Guide active={activeGuide} />
-        </InternalPage>
+        </Page>
       </TitleMeta>
     );
   }

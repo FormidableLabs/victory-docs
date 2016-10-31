@@ -1,53 +1,41 @@
-import CustomCentralAxis from "../screens/recipes/components/custom-central-axis/docs";
-import CustomDataComponent from "../screens/recipes/components/custom-data-component/docs";
-import CustomStyles from "../screens/recipes/components/custom-styles/docs";
-import MultipleAxes from "../screens/recipes/components/multiple-axes/docs";
-import Tooltip from "../screens/recipes/components/tooltip/docs";
-import SharedEvents from "../screens/recipes/components/shared-events/docs";
 import Animations from "../screens/guides/components/animations/docs";
+import CustomComponents from "../screens/guides/components/custom-components/docs";
+import DataAccessors from "../screens/guides/components/data-accessors/docs";
+import Events from "../screens/guides/components/events/docs";
+import ResponsiveContainers from "../screens/guides/components/responsive-containers/docs";
 import ThemePark from "../screens/recipes/components/theme-park";
 
 export const configGuides = [
   {
     text: "Animations",
     slug: "animations",
-    category: "customize",
+    category: "behavior",
     docs: Animations
   },
   {
-    text: "Central Axis",
-    slug: "custom-central-axis",
-    category: "customize",
-    docs: CustomCentralAxis
+    text: "Custom Components",
+    slug: "custom-components",
+    category: "layout",
+    docs: CustomComponents
   }, {
-    text: "Data Component",
-    slug: "custom-data-component",
-    category: "customize",
-    docs: CustomDataComponent
+    text: "Data Accessors",
+    slug: "data-accessors",
+    category: "behavior",
+    docs: DataAccessors
   }, {
-    text: "Multiple Axes",
-    slug: "multiple-axes",
-    category: "customize",
-    docs: MultipleAxes
+    text: "Events",
+    slug: "events",
+    category: "behavior",
+    docs: Events
   }, {
-    text: "Custom Styles",
-    slug: "custom-styles",
-    category: "customize",
-    docs: CustomStyles
+    text: "Responsive Containers",
+    slug: "responsive-containers",
+    category: "layout",
+    docs: ResponsiveContainers
   }, {
     text: "Theme Park",
     slug: "theme-park",
     category: "customize",
     docs: ThemePark
-  }, {
-    text: "Tooltip",
-    slug: "tooltip",
-    category: "events",
-    docs: Tooltip
-  }, {
-    text: "Shared Events",
-    slug: "shared-events",
-    category: "events",
-    docs: SharedEvents
   }
 ];
