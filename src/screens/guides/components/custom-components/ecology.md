@@ -4,7 +4,7 @@ Every element that a Victory component renders may be altered or completely repl
 
 ## Altering default components
 
-Victory components set props on their primitive components, but these may be overridden or augmented by setting props directly on the the primitive component instances provided via props. 
+Victory components set props on their primitive components, but these may be overridden or augmented by setting props directly on the the primitive component instances. 
 
 ```playground
   <VictoryBar

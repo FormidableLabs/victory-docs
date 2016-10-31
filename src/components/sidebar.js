@@ -5,7 +5,7 @@ import { times } from "lodash";
 
 // Children
 import { config } from "./config";
-import { configRecipes } from "./config-recipes";
+import { configGuides } from "./config-guides";
 import Icon from "./icon";
 import basename from "../basename";
 
@@ -139,10 +139,10 @@ class Sidebar extends React.Component {
             {this.renderList(this.props.docs, "docs", "chart")}
             {this.renderList(this.props.docs, "docs", "more")}
             <p className="Sidebar-Heading">
-              Recipes
+              Guides
             </p>
-            {this.renderList(this.props.recipes, "recipes", "customize")}
-            {this.renderList(this.props.recipes, "recipes", "events")}
+            {this.renderList(this.props.guides, "recipes", "customize")}
+            {this.renderList(this.props.guides, "recipes", "events")}
           </div>
         </nav>
       </div>
@@ -154,15 +154,15 @@ class Sidebar extends React.Component {
 Sidebar.propTypes = {
   active: React.PropTypes.string,
   docs: React.PropTypes.array,
+  guides: React.PropTypes.array,
   location: React.PropTypes.object,
-  recipes: React.PropTypes.array,
   tocArray: React.PropTypes.array
 };
 
 Sidebar.defaultProps = {
+  active: null,
   docs: config,
-  recipes: configRecipes,
-  active: null
+  guides: configGuides
 };
 
 export default Sidebar;
