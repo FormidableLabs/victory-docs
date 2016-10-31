@@ -5,19 +5,17 @@ import { Route, IndexRoute, Redirect } from "react-router";
 import App from "./components/app";
 import Home from "./screens/home/index";
 import Docs from "./screens/docs/index";
-import Recipes from "./screens/recipes/index";
+import Guides from "./screens/guides/index";
 import About from "./screens/about/index";
-import Composed from "./screens/composed/index";
 
 module.exports = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/docs" component={Docs}/>
     <Route path="/docs/:component" component={Docs} />
-    <Route path="/recipes" component={Recipes}/>
-    <Route path="/recipes/:component" component={Recipes} />
+    <Route path="/guides" component={Guides}/>
+    <Route path="/guides/:component" component={Guides} />
     <Route path="/about" component={About} />
-    <Route path="/composed" component={Composed} />
     <Route path="/">
       <Redirect from="index.html" to="/" />
     </Route>

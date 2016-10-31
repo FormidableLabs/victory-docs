@@ -1,0 +1,50 @@
+import React from "react";
+import Radium from "radium";
+import TitleMeta from "../../../components/title-meta";
+import find from "lodash/find";
+import marked from "marked";
+
+// VictoryComponent Docs
+import { configGuides } from "../../../components/config-guides";
+
+class GuideDocs extends React.Component {
+  renderDocsContent(activeComponent) {
+    if (activeComponent === "index") {
+      const indexDocs = marked(require("../index.md"));
+      return (
+        <TitleMeta title="Victory Guides">
+          <div
+            dangerouslySetInnerHTML={{__html: indexDocs}}
+          />
+        </TitleMeta>
+      );
+    }
+    const conf = find(configGuides, {slug: activeComponent});
+    const Docs = conf.docs;
+    // This structure matches the <Ecology> /docs components:
+    return (
+      <TitleMeta title={`${conf.text} | Victory Guides`}>
+        <Docs />
+      </TitleMeta>
+    );
+  }
+  render() {
+    return (
+      <div style={this.props.style}>
+        {this.renderDocsContent(this.props.active)}
+      </div>
+    );
+  }
+}
+
+GuideDocs.propTypes = {
+  active: React.PropTypes.string,
+  style: React.PropTypes.object
+};
+
+GuideDocs.defaultProps = {
+  active: "index",
+  style: null
+};
+
+export default Radium(GuideDocs);

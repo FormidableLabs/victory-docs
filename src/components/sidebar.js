@@ -3,7 +3,7 @@ import Radium from "radium";
 
 // Children
 import { config } from "./config";
-import { configRecipes } from "./config-recipes";
+import { configGuides } from "./config-guides";
 import NavLink from "./navlink";
 import Icon from "./icon";
 
@@ -65,19 +65,19 @@ class Sidebar extends React.Component {
               {this.renderListItems(this.props.docs, "docs", "more")}
             </ul>
             <p className="Nav-Heading">
-              Recipes
+              Guides
             </p>
             <p className="Nav-SubHeading SubHeading">
               Customize
             </p>
             <ul className="Nav-List">
-              {this.renderListItems(this.props.recipes, "recipes", "customize")}
+              {this.renderListItems(this.props.guides, "guides", "customize")}
             </ul>
             <p className="Nav-SubHeading SubHeading">
               Events
             </p>
             <ul className="Nav-List">
-              {this.renderListItems(this.props.recipes, "recipes", "events")}
+              {this.renderListItems(this.props.guides, "guides", "events")}
             </ul>
           </div>
         </nav>
@@ -89,14 +89,14 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
   docs: React.PropTypes.array,
-  recipes: React.PropTypes.array,
+  guides: React.PropTypes.array,
   active: React.PropTypes.string,
   style: React.PropTypes.object
 };
 
 Sidebar.defaultProps = {
   docs: config,
-  recipes: configRecipes,
+  guides: configGuides,
   active: null,
   style: null
 };
