@@ -13,7 +13,7 @@ class Guides extends React.Component {
       "index";
 
     return (
-      <TitleMeta title="Victory | Recipes">
+      <TitleMeta title="Victory | Guides">
         <Page sidebar={activeGuide}>
           <Guide active={activeGuide} />
         </Page>

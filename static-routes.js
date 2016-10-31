@@ -28,12 +28,10 @@ module.exports = [
   "/docs/victory-voronoi",
   "/docs/victory-voronoi-tooltip",
   "/guides",
-  "/guides/custom-central-axis",
-  "/guides/custom-data-component",
-  "/guides/custom-styles",
-  "/guides/multiple-axes",
   "/guides/animations",
-  "/guides/tooltip",
-  "/guides/shared-events",
+  "/guides/custom-components",
+  "/guides/data-accessors",
+  "/guides/events",
+  "/guides/responsive-containers",
   "/guides/theme-park"
 ];

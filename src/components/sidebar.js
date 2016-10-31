@@ -141,8 +141,8 @@ class Sidebar extends React.Component {
             <p className="Sidebar-Heading">
               Guides
             </p>
-            {this.renderList(this.props.guides, "guides", "customize")}
-            {this.renderList(this.props.guides, "guides", "events")}
+            {this.renderList(this.props.guides, "guides", "behavior")}
+            {this.renderList(this.props.guides, "guides", "layout")}
           </div>
         </nav>
       </div>
