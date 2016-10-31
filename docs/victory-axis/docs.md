@@ -57,8 +57,8 @@ The `style` prop defines the style of the component. The style prop should be gi
 ```jsx
 style={{
   axis: {stroke: "#756f6a"}, 
-  axisLabel: {fontSize: 16, padding: 20}},
-  grid: {stroke: (t) => t === 10 ? "red" : grey"}, 
+  axisLabel: {fontSize: 16, padding: 20},
+  grid: {stroke: (t) => t === 10 ? "red" : "grey"}, 
   ticks: {stroke: "grey"},
   tickLabels: {fontSize: 10, padding: 5}
 }}
