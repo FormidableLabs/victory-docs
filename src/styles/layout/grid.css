@@ -12,15 +12,21 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.Grid--gutters {
-  margin: calc(-1 * var(--gutter)) 0 0 calc(-1 * var(--gutter));
+.Grid-cell {
+  flex: 1;
 }
 
-.Grid--gutters > .Grid-cell {
-  padding: var(--gutter) 0 0 var(--gutter);
+.Grid--center {
+  align-items: center;
+}
+
+.Grid--justifyCenter {
+  justify-content: center;
 }
 
 .Grid--fit > .Grid-cell {
@@ -35,8 +41,8 @@
   flex: 1 0 33%;
 }
 
-.Grid-cell {
-  flex: 1 0 auto;
+.Grid-cell--autoSize {
+  flex: none !important;
 }
 
 @media (--medium-viewport) {
@@ -47,4 +53,20 @@
   .medium-Grid--fit > .Grid-cell {
     flex: 1;
   }
+}
+
+.Grid--gutters {
+  margin: calc(-1 * var(--gutter)) 0 0 calc(-1 * var(--gutter));
+}
+
+.Grid--gutters > .Grid-cell {
+  padding: var(--gutter) 0 0 var(--gutter);
+}
+
+.Grid--gutterSm {
+  margin: calc(-1 * var(--gutter-small)) 0 0 calc(-1 * var(--gutter-small));
+}
+
+.Grid--gutterSm > .Grid-cell {
+  padding: var(--gutter-small) 0 0 var(--gutter-small);
 }
