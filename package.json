@@ -1,15 +1,15 @@
 {
   "name": "victory-docs",
-  "version": "0.0.2",
+  "version": "1.1.0",
   "description": "Documentation site for Victory",
   "main": "webpack.config.dev.js",
   "scripts": {
+    "preversion": "builder run npm:preversion",
+    "server-static-prod": "ecstatic --port 8080 --baseDir /open-source/victory build",
     "start": "builder run dev",
     "test": "builder run lint",
-    "dev": "webpack-dev-server --port 3000 --config node_modules/builder-docs-archetype/config/webpack/webpack.config.dev.js --history-api-fallback",
-    "update-project": "npm update victory",
-    "server-static-prod": "ecstatic --port 8080 --baseDir /open-source/victory build",
-    "test-func-static-prod": "TEST_FUNC_BASE_DIR=/open-source/victory builder run test-func-static"
+    "test-func-static-prod": "TEST_FUNC_BASE_DIR=/open-source/victory builder run test-func-static",
+    "update-project": "npm update victory"
   },
   "repository": {
     "type": "git",
@@ -22,16 +22,14 @@
   },
   "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
   "devDependencies": {
-    "builder-docs-archetype-dev": "^4.1.1",
-    "builder-react-component-dev": "^0.3.5",
+    "builder-docs-archetype-dev": "^4.2.2",
     "react-docgen": "2.7.0"
   },
   "dependencies": {
     "anchorate": "^1.1.0",
     "babel-preset-stage-1": "^6.5.0",
-    "builder": "^2.10.1",
-    "builder-docs-archetype": "^4.1.1",
-    "builder-react-component": "^0.3.5",
+    "builder": "^3.1.0",
+    "builder-docs-archetype": "^4.2.2",
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
     "formidable-landers": "^5.1.1",

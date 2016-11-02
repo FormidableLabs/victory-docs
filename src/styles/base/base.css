@@ -163,6 +163,10 @@ h6 code {
   padding: 0.25em 0.333em 0.20em;
 }
 
+strong {
+  font-style: normal;
+  font-weight: 500;
+}
 
 pre,
 code {
