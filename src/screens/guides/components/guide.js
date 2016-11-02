@@ -23,7 +23,7 @@ class GuideDocs extends React.Component {
     const Docs = conf.docs;
     // This structure matches the <Ecology> /docs components:
     return (
-      <TitleMeta title={`${conf.text} | Victory Guidess`}>
+      <TitleMeta title={`${conf.text} | Victory Guides`}>
         <Docs />
       </TitleMeta>
     );

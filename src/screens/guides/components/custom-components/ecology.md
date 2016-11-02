@@ -21,6 +21,47 @@ Victory components set props on their primitive components, but these may be ove
   />
 ```
 
+## Wrapping components
+
+Victory components may be wrapped to customize or change behavior. Wrapper components should apply any props they receive from other Victory components to the components they render.
+
+```playground_norender
+class Wrapper extends React.Component {
+  render() {
+    const { children } = this.props;
+    const childProps = Object.assign({}, this.props, children.props);
+    return (
+      <g transform="translate(20, 40)">
+        <VictoryLabel text={"add labels"} x={110} y={30}/>
+        <VictoryLabel text={"offset data from axes"} x={70} y={150}/>
+        <VictoryLabel text={"alter props"} x={280} y={150}/>
+        { React.cloneElement(children, childProps) }
+      </g>
+    );
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart>
+        <Wrapper>
+          <VictoryScatter
+            y={(d) => Math.sin(2 * Math.PI * d.x)}
+            samples={15}
+            symbol="square"
+            size={6}
+            style={{ data: { stroke: "tomato", strokeWidth: 3 }}}
+          />
+        </Wrapper>
+      </VictoryChart>
+    );
+  }
+}
+ReactDOM.render(<App/>, mountNode);
+```
+
+
 ## Creating new components
 
 Any component that renders valid svg elements (or elements wrapped in `<foreignObject>`) may be used as a `dataComponent` or `labelComponent` in Victory components. Custom components will be provided with the same props as default components. In the following example, a custom `CatPoint` component is used in place of `Point` in `VictoryScatter`.
@@ -138,10 +179,11 @@ ReactDOM.render(<CustomDataComponent/>, mountNode)
 ## Extending primitive components
 
 
-It may be desireable to alter some portion of a primitive component while leaving most behaviors intact. In this case, it might make sense to extend one of Victory's primitive components. This pattern is used to create react native compatible versions of Victory components. In the example code shown below, the react native compatible version of `Point` is created by extending `Point` and overriding the `renderPoint` method to render `react-native-svg` components rather than `svg` elements.
+It may be desireable to alter some portion of a primitive component while leaving most behaviors intact. Though [usually not advised][sleep at night], in rare instances it might make sense to extend one of Victory's primitive components. This pattern is used to create react native compatible versions of Victory components. In the example code shown below, the react native compatible version of `Point` is created by extending `Point` and overriding the `renderPoint` method to render `react-native-svg` components rather than `svg` elements.
 
 
-```import React from "react";
+```
+import React from "react";
 import { Path } from "react-native-svg";
 import { NativeHelpers } from "../../index";
 import { Point } from "victory-core";
@@ -155,9 +197,10 @@ export default class extends Point {
 ```
 
 
-Be careful when extending react components. Link to extending react components and sleeping at night
+[Extending components can be very problematic][sleep at night], and caution should be exercised. Extending [primitive components] requires deep, and up-to-date knowledge of the component code. Extending more complex Victory components is not advised.
 
-stream graph example
+The following example shows a custom `GradientArea` component that extends from `Area`. The `renderArea` method is completely overridden in order to render an area path with a custom gradient. This is a convenient shortcut, but it would be safer to write a `GradientArea` component from scratch.
+
 
 ```playground_norender
 // This customized component is supplied to VictoryArea
@@ -171,7 +214,7 @@ class GradientArea extends Area {
       return `rgb(${gray}, ${gray}, ${gray})`;
   }
 
-  // This method exists in Area, and is overridden for the custom component.
+  // This method exists in Area, and is completely overridden for the custom component.
   renderArea(path, style, events) {
     const gradientId = `gradient-${Math.random()}`;
     const areaStyle = Object.assign(
@@ -271,3 +314,4 @@ ReactDOM.render(<App/>, mountNode)
 
 
 [primitive components]: https://formidable.com/open-source/victory/docs/victory-primitives
+[sleep at night]: https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.j7h5c0sia
