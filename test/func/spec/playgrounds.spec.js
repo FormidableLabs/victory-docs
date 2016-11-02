@@ -25,7 +25,8 @@ describe("Playgrounds", function () {
         editor.execCommand("insertTab"); /* Trigger onChange */
       })
       .getText(".Interactive > .playground > .playgroundPreview").then(function (text) {
-        expect(text).to.eq("Test string");
+        var textString = Array.isArray(text) ? text[0] : text;
+        expect(textString).to.eq("Test string");
       });
   });
 });
