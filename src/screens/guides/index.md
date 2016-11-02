@@ -4,8 +4,18 @@ We have a few guides on how to customize and extend Victory to your needs, as we
 
 All guides will assume a basic understanding of Victory.
 
-### Contribute a guide
-Would you like to contribute a guide or tutorial and show off your skills? Would you like to add some clarity to an existing guide? We have just the guide for you: [contribute to the goodness](https://github.com/FormidableLabs/victory/#contributing).
+## Guides
 
-### Request a guide
-Do you have a request for a guide? Take a look at the [existing list](https://github.com/FormidableLabs/victory-docs/issues/), or request one by filing a new issue!
+- [Custom Components]
+- [Data Accessors]
+- [Events]
+- [Animations]
+- [Responsive Containers]
+
+
+[Custom Components]: https://formidable.com/open-source/victory/guides/custom-components
+[Data Accessors]: https://formidable.com/open-source/victory/guides/data-accessors
+[Events]: https://formidable.com/open-source/victory/guides/events
+[Animations]: https://formidable.com/open-source/victory/guides/animations
+[Responsive Containers]: https://formidable.com/open-source/victory/guides/responsive-containers
+
