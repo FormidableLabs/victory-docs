@@ -28,4 +28,5 @@ Apply consistent styles across all your components. This guide explains how to c
 [Events]: https://formidable.com/open-source/victory/guides/events
 [Animations]: https://formidable.com/open-source/victory/guides/animations
 [Layout]: https://formidable.com/open-source/victory/guides/layout
+[Themes]: https://formidable.com/open-source/victory/guides/themes
 
