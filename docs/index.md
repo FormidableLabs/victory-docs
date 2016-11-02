@@ -413,4 +413,4 @@ ReactDOM.render(<App/>, mountNode);
 
 Congratulations! You’ve created your first chart with Victory. For more information about Victory and its components, check out the docs - see [VictoryChart](http://formidable.com/open-source/victory/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/#contributing). Happy charting.
 
-[our guides]: http://formidable.com/open-source/victory/guides
+[our guides]: https://formidable.com/open-source/victory/guides
