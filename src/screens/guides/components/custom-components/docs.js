@@ -6,7 +6,7 @@ import {
   VictoryChart, VictoryLine, VictoryPie, VictoryArea, Area
 } from "victory";
 import { ecologyPlaygroundLoading } from "formidable-landers";
-import { random, range } from "lodash"
+import { random, range } from "lodash";
 
 export default class CustomComponentGuide extends React.Component {
   render() {

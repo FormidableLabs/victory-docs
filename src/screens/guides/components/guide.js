@@ -21,7 +21,6 @@ class GuideDocs extends React.Component {
     }
     const conf = find(configGuides, {slug: activeComponent});
     const Docs = conf.docs;
-    console.log("GUIDES", Docs);
     // This structure matches the <Ecology> /docs components:
     return (
       <TitleMeta title={`${conf.text} | Victory Guidess`}>

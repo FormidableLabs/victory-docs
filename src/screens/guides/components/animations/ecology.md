@@ -124,3 +124,6 @@ class App extends React.Component {
 
 ReactDOM.render(<App/>, mountNode)
 ```
+
+
+[d3-interpolate]: https://github.com/d3/d3-interpolate

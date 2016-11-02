@@ -268,3 +268,6 @@ class App extends React.Component {
 
 ReactDOM.render(<App/>, mountNode)
 ```
+
+
+[primitive components]: https://formidable.com/open-source/victory/docs/victory-primitives
