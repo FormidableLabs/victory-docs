@@ -88,7 +88,7 @@ class Sidebar extends React.Component {
 
   renderList(items, route, category) {
     const listItems = items.map((item) => {
-      if (item.category === category) {
+      if (!category || item.category === category) {
         return (
           <li key={item.slug} className="Sidebar-List-Item">
             <Link to={`/${route}/${item.slug}`} activeClassName="is-active">
@@ -135,14 +135,13 @@ class Sidebar extends React.Component {
             <p className="Sidebar-Heading u-noMarginTop">
               Documentation
             </p>
-            {this.renderList(this.props.docs, "docs", "core")}
             {this.renderList(this.props.docs, "docs", "chart")}
+            {this.renderList(this.props.docs, "docs", "core")}
             {this.renderList(this.props.docs, "docs", "more")}
             <p className="Sidebar-Heading">
               Guides
             </p>
-            {this.renderList(this.props.guides, "guides", "behavior")}
-            {this.renderList(this.props.guides, "guides", "layout")}
+            {this.renderList(this.props.guides, "guides")}
           </div>
         </nav>
       </div>
