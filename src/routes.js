@@ -5,6 +5,7 @@ import { Route, IndexRoute, Redirect } from "react-router";
 import App from "./components/app";
 import Home from "./screens/home/index";
 import Docs from "./screens/docs/index";
+import Guides from "./screens/guides/index";
 import Recipes from "./screens/recipes/index";
 import About from "./screens/about/index";
 
@@ -13,6 +14,8 @@ module.exports = (
     <IndexRoute component={Home}/>
     <Route path="/docs" component={Docs}/>
     <Route path="/docs/:component" component={Docs} />
+    <Route path="/guides" component={Guides}/>
+    <Route path="/guides/:component" component={Guides} />
     <Route path="/recipes" component={Recipes}/>
     <Route path="/recipes/:component" component={Recipes} />
     <Route path="/about" component={About} />

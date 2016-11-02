@@ -14,7 +14,7 @@ class About extends React.Component {
         <Header />
         <article className="Article">
           <h1 className="u-noMargin">
-            Victory: Powerful React Charting
+            Victory: Charting for React and React Native
           </h1>
           <p>
             {/*
@@ -26,21 +26,19 @@ class About extends React.Component {
             <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="158px" height="30px"></iframe>
           </p>
           <p>
-            Victory is a sophisticated React charting library that provides unparalled flexibility and customization.
-            Powered by d3, it provides an easy entry for simple charting, though is a powerful option for even the most complex data visualization.
-            Use in browser or in React Native apps with the same convenient API.
+            Victory is a set of modular charting components for React and React Native. Victory makes it easy to get started without sacrificing flexibility. Create one of a kind data visualizations with fully customizable styles and behaviors. Victory uses the same API for web and React Native applications for easy cross-platform charting.
           </p>
           <p>
             Victory is helmed by Formidable’s <a href="https://github.com/boygirl"> Lauren Eastridge <Icon glyph="external-link" /></a>.
           </p>
           <p>
-            <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Contributors to Victory <Icon glyph="external-link" /></a>
+            <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Victory Contributors <Icon glyph="external-link" /></a>
           </p>
 
           <h2 id="showcase">
-            Data Visualization Showcase
+            Victory in Use
           </h2>
-          <p>All across the web, Victory is used for publicly-consumed informational graphs to internal tracking and reporting.</p>
+          <p>Victory is used for charting across the web, from publicly-consumed informational graphs to internal tracking and reporting.</p>
           <Showcase />
 
           <h1>

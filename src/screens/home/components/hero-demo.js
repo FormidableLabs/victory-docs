@@ -30,7 +30,7 @@ class Native extends React.Component {
       this.setState({ // eslint-disable-line react/no-did-mount-set-state
         data: this.getData()
       });
-    }, 2000);
+    }, 3000);
   }
 
   componentWillUnmount() {

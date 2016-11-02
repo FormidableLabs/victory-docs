@@ -6,6 +6,7 @@
 *          |- .playgroundCode
 *          |- .playgroundPreview
 **/
+.Guide h1:first-child,
 .Recipe h1:first-child {
   margin-top: 0;
 }

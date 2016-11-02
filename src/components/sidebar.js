@@ -5,7 +5,7 @@ import { times } from "lodash";
 
 // Children
 import { config } from "./config";
-import { configRecipes } from "./config-recipes";
+import { configGuides } from "./config-guides";
 import Icon from "./icon";
 import basename from "../basename";
 
@@ -78,7 +78,7 @@ class Sidebar extends React.Component {
       return null;
     }
 
-    const list = this.props.tocArray.filter((heading) => heading.level !== 1);
+    const list = this.props.tocArray.filter((heading) => heading.level !== 1 && heading.level < 4);
 
     return this.renderTransformedToc(
       this.transformTocArray(list),
@@ -88,7 +88,7 @@ class Sidebar extends React.Component {
 
   renderList(items, route, category) {
     const listItems = items.map((item) => {
-      if (item.category === category) {
+      if (!category || item.category === category) {
         return (
           <li key={item.slug} className="Sidebar-List-Item">
             <Link to={`/${route}/${item.slug}`} activeClassName="is-active">
@@ -135,14 +135,13 @@ class Sidebar extends React.Component {
             <p className="Sidebar-Heading u-noMarginTop">
               Documentation
             </p>
-            {this.renderList(this.props.docs, "docs", "core")}
             {this.renderList(this.props.docs, "docs", "chart")}
+            {this.renderList(this.props.docs, "docs", "core")}
             {this.renderList(this.props.docs, "docs", "more")}
             <p className="Sidebar-Heading">
-              Recipes
+              Guides
             </p>
-            {this.renderList(this.props.recipes, "recipes", "customize")}
-            {this.renderList(this.props.recipes, "recipes", "events")}
+            {this.renderList(this.props.guides, "guides")}
           </div>
         </nav>
       </div>
@@ -154,15 +153,15 @@ class Sidebar extends React.Component {
 Sidebar.propTypes = {
   active: React.PropTypes.string,
   docs: React.PropTypes.array,
+  guides: React.PropTypes.array,
   location: React.PropTypes.object,
-  recipes: React.PropTypes.array,
   tocArray: React.PropTypes.array
 };
 
 Sidebar.defaultProps = {
+  active: null,
   docs: config,
-  recipes: configRecipes,
-  active: null
+  guides: configGuides
 };
 
 export default Sidebar;

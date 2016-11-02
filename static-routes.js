@@ -35,5 +35,12 @@ module.exports = [
   "/recipes/candlestick-dashboard",
   "/recipes/tooltip",
   "/recipes/shared-events",
-  "/recipes/theme-park"
+  "/recipes/theme-park",
+  "/guides",
+  "/guides/animations",
+  "/guides/custom-components",
+  "/guides/data-accessors",
+  "/guides/events",
+  "/guides/layout",
+  "/guides/themes"
 ];
