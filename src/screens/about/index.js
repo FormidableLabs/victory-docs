@@ -32,13 +32,13 @@ class About extends React.Component {
             Victory is helmed by Formidable’s <a href="https://github.com/boygirl"> Lauren Eastridge <Icon glyph="external-link" /></a>.
           </p>
           <p>
-            <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Contributors to Victory <Icon glyph="external-link" /></a>
+            <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Victory Contributors <Icon glyph="external-link" /></a>
           </p>
 
           <h2 id="showcase">
-            Data Visualization Showcase
+            Victory in Use
           </h2>
-          <p>All across the web, Victory is used for publicly-consumed informational graphs to internal tracking and reporting.</p>
+          <p>Victory is used for charting across the web, from publicly-consumed informational graphs to internal tracking and reporting.</p>
           <Showcase />
 
           <h1>
