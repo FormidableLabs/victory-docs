@@ -14,6 +14,7 @@ class GuideDocs extends React.Component {
       return (
         <TitleMeta title="Victory Guides">
           <div
+            className="Guide"
             dangerouslySetInnerHTML={{__html: indexDocs}}
           />
         </TitleMeta>
