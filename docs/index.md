@@ -1,6 +1,6 @@
 # Getting Started with Victory
 
-Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations.
+Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial should help you get started with Victory. For more advanced examples, check out [our guides].
 
 ## Tutorial
 
@@ -14,7 +14,7 @@ You can do this on your own if you'd like, or you can...
 * ```cd victory-tutorial```
 * Replace the existing code in the ```client.js``` file with:
 
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -38,7 +38,7 @@ Once you've completed these steps, you can run the webpack server with the comma
 ### 2. Add Victory
 
 Add Victory to your project with the command ```npm install victory```, then import it into your React project. For now, let's import the whole library until we know what chart type we'll be using. The imports at the top of your main Javascript file should now look like this:
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as V from 'victory';
@@ -48,7 +48,7 @@ import * as V from 'victory';
 
 You can import your data from an external file or API, or create an array of data points as a variable. Here is the data that we'll be using for our chart, which is tracking earnings per fiscal quarter:
 
-```js
+```jsx
 const data = [
   {quarter: 1, earnings: 13000},
   {quarter: 2, earnings: 16500},
@@ -60,7 +60,7 @@ const data = [
 ### 4. Add your first Victory component
 
 Since we're doing a simple comparison of earnings between quarters, let's use a bar chart to visualize the data. We aren't going to need the whole Victory library, so let's change our import statement to reflect only the components that we need. Right now, that's just VictoryBar, so it should look like this:
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar } from 'victory';
@@ -75,7 +75,7 @@ Now, we can render our first Victory component! Components have fallbacks if you
 
 Looking good! Now we can add our data. VictoryBar looks for ```x``` and ```y``` values in data points, which our data doesn't have. We can work around this by adding accessor props to our VictoryBar component like so:
 
-```js
+```jsx
 x={"quarter"}
 y={"earnings"}
 ```
@@ -111,7 +111,7 @@ ReactDOM.render(<App/>, mountNode);
 
 Our chart would look better with some axes to give the data context. The easiest way to do that with Victory is to add a VictoryChart wrapper around all of the components that you'd like to include in the same chart.
 Let's import VictoryChart, so that our import statements now look like so:
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart } from 'victory';
@@ -147,7 +147,7 @@ ReactDOM.render(<App/>, mountNode);
 ### 6. Customize the axes
 
 VictoryChart has solid defaults, but we can add better context for our data if we modify the tick labels on the axes to be a little more sensible. We can do this by manually adding VictoryAxis components to our chart, so let's import VictoryAxis. Import statements should now look like this:
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
@@ -178,8 +178,7 @@ class App extends React.Component {
         />
         <VictoryAxis
           dependentAxis
-          // tickFormat allows d3 to determine the number of
-          // ticks based on data, but formats them to look the way that you'd like
+          // tickFormat specifies how ticks should be displayed
           tickFormat={(x) => (`$${x / 1000}k`)}
         />
         <VictoryBar
@@ -200,7 +199,7 @@ ReactDOM.render(<App/>, mountNode);
 Victory charts come with a default grayscale theme so that all components look clean and consistent. But let’s switch it up with the Victory-provided Material theme. We can do that by importing VictoryTheme and adding a theme prop to VictoryChart, since themes should always be applied to the outermost wrapper component in a chart.
 
 Import statements should look like this:
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart, VictoryAxis,
@@ -249,7 +248,7 @@ ReactDOM.render(<App/>, mountNode);
 
 Excellent! We have a great looking chart. But wait - we actually have three more years' worth of quarterly earnings that we need to compare, along with four-year totals for each quarter. A great way to display this would be with a stacked bar chart. Luckily, with VictoryStack, we can do just that!
 
-```js
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { VictoryBar, VictoryChart, VictoryAxis,
@@ -413,3 +412,5 @@ ReactDOM.render(<App/>, mountNode);
 ## Documentation, Contributing, and Source
 
 Congratulations! You’ve created your first chart with Victory. For more information about Victory and its components, check out the docs - see [VictoryChart](http://formidable.com/open-source/victory/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/#contributing). Happy charting.
+
+[our guides]: http://formidable.com/open-source/victory/guides
