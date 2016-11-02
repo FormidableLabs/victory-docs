@@ -4,7 +4,7 @@ import Ecology from "ecology";
 import { VictoryPie, VictoryContainer, VictoryLabel, VictoryChart, VictoryLine } from "victory";
 import { ecologyPlaygroundLoading } from "formidable-landers";
 
-export default class ResponsiveContainerGuide extends React.Component {
+export default class LayoutGuide extends React.Component {
   render() {
     return (
       <div className="Recipe">

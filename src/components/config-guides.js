@@ -2,8 +2,8 @@ import Animations from "../screens/guides/components/animations/docs";
 import CustomComponents from "../screens/guides/components/custom-components/docs";
 import DataAccessors from "../screens/guides/components/data-accessors/docs";
 import Events from "../screens/guides/components/events/docs";
-import ResponsiveContainers from "../screens/guides/components/responsive-containers/docs";
-import ThemePark from "../screens/recipes/components/theme-park";
+import Layout from "../screens/guides/components/layout/docs";
+import Themes from "../screens/recipes/components/theme-park";
 
 export const configGuides = [
   {
@@ -28,14 +28,14 @@ export const configGuides = [
     category: "behavior",
     docs: Events
   }, {
-    text: "Responsive Containers",
-    slug: "responsive-containers",
+    text: "Layout",
+    slug: "layout",
     category: "layout",
-    docs: ResponsiveContainers
+    docs: Layout
   }, {
-    text: "Theme Park",
-    slug: "theme-park",
+    text: "Themes",
+    slug: "themes",
     category: "customize",
-    docs: ThemePark
+    docs: Themes
   }
 ];

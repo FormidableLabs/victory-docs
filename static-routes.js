@@ -41,6 +41,6 @@ module.exports = [
   "/guides/custom-components",
   "/guides/data-accessors",
   "/guides/events",
-  "/guides/responsive-containers",
-  "/guides/theme-park"
+  "/guides/layout",
+  "/guides/themes"
 ];

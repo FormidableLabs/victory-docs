@@ -1,4 +1,4 @@
-# Responsive Containers
+# Layout
 
 Victory renders components into responsive `svg` containers by default. Responsive containers will have a `viewBox` attribute set to `viewBox={"0 0 width, height"}` and styles `width: "100%" height: "auto"` in addition to any styles provided via props. Responsive containers are not appropriate for every application, so Victroy provides a couple of options for rendering static containers.
 
