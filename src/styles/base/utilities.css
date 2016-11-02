@@ -33,6 +33,10 @@
   text-align: left !important;
 }
 
+.u-textRight {
+  text-align: right !important;
+}
+
 /* Text Size */
 .u-textLarge {
   font-size: 1.3em;
@@ -40,4 +44,9 @@
 
 .u-textLarge p {
   max-width: 30em !important;
+}
+
+/* Colors */
+.u-bgColor {
+  background-color: var(--lighterSand);
 }

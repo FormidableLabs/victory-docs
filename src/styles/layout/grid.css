@@ -37,8 +37,16 @@
   flex: 0 0 100%;
 }
 
+.Grid--1of2 > .Grid-cell {
+  flex: 0 0 50%;
+}
+
 .Grid--1of3 > .Grid-cell {
   flex: 1 0 33%;
+}
+
+.Grid--1of4 > .Grid-cell {
+  flex: 0 0 25%;
 }
 
 .Grid-cell--autoSize {
@@ -46,12 +54,24 @@
 }
 
 @media (--medium-viewport) {
+  .medium-Grid--fit > .Grid-cell {
+    flex: 1;
+  }
+
+  .medium-Grid--full > .Grid-cell {
+    flex: 0 0 100%;
+  }
+
+  .medium-Grid--1of2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+
   .medium-Grid--1of3 > .Grid-cell {
     flex: 0 0 33%;
   }
 
-  .medium-Grid--fit > .Grid-cell {
-    flex: 1;
+  .medium-Grid--1of4 > .Grid-cell {
+    flex: 0 0 25%;
   }
 }
 
