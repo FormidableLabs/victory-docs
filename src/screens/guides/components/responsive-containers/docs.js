@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Ecology from "ecology";
-import { VictoryPie, VictoryContainer, VictoryLabel } from "victory";
+import { VictoryPie, VictoryContainer, VictoryLabel, VictoryChart, VictoryLine } from "victory";
 import { ecologyPlaygroundLoading } from "formidable-landers";
 
 export default class ResponsiveContainerGuide extends React.Component {
@@ -11,7 +11,7 @@ export default class ResponsiveContainerGuide extends React.Component {
         <Ecology
           overview={require("!!raw!./ecology.md")}
           scope={{
-            React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel
+            React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel, VictoryChart, VictoryLine
           }}
           playgroundtheme="elegant"
           customRenderers={ecologyPlaygroundLoading}

@@ -78,7 +78,7 @@ class Sidebar extends React.Component {
       return null;
     }
 
-    const list = this.props.tocArray.filter((heading) => heading.level !== 1);
+    const list = this.props.tocArray.filter((heading) => heading.level !== 1 && heading.level < 4);
 
     return this.renderTransformedToc(
       this.transformTocArray(list),

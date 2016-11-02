@@ -59,22 +59,22 @@ Events may also be targeted specific data elements or groups of data elements by
 ```playground
   <VictoryBar
     data={[
-      {x: 1, y: 2, label: "good"},
-      {x: 2, y: 4, label: "normal"},
-      {x: 3, y: 7, label: "normal"},
-      {x: 4, y: 3, label: "good"},
-      {x: 5, y: 5, label: "bad"},
+      {x: 1, y: 2, label: "A"},
+      {x: 2, y: 4, label: "B"},
+      {x: 3, y: 7, label: "C"},
+      {x: 4, y: 3, label: "D"},
+      {x: 5, y: 5, label: "E"},
     ]}
     eventKey={(datum) => datum.label}
     events={[
       {
         target: "data",
-        eventKey: ["good", "bad"],
+        eventKey: ["A", "B"],
         eventHandlers: {
           onClick: () => {
             return [
               {
-                eventKey: "good"
+                eventKey: "D",
                 mutation: (props) => {
                   return { 
                     style: assign(props.style, {fill: "green"}) 
@@ -82,7 +82,7 @@ Events may also be targeted specific data elements or groups of data elements by
                 }
               },
               {
-                eventKey: "bad"
+                eventKey: "E",
                 mutation: (props) => {
                   return { 
                     style: assign(props.style, {fill: "red"}) 
@@ -118,7 +118,7 @@ Wrapper components like `VictoryChart`, `VictoryGroup`, and `VictoryStack` may d
           childName: "area-4",
           mutation: (props) => {
             const fill = props.style.fill;
-            return fill === "gold" ? null : {style: {fill: "gold"}};
+            return fill === "tomato" ? null : {style: {fill: "tomato"}};
           }
         }];
       }
@@ -158,7 +158,7 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
 
 
 ```playground
-<svg width={400} height={400}>
+<svg width={800} height={400}>
   <VictorySharedEvents
     events={[{
       childName: ["pie", "bar"],
@@ -169,7 +169,9 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
             childName: ["pie", "bar"],
             mutation: (props) => {
               const fill = props.style.fill;
-              return fill === "gold" ? null : {style: {fill: "gold"}};
+              return fill === "tomato" ? 
+                null : 
+                {style: Object.assign({}, props.style, {fill: "tomato"})}
             }
           }];
         }
@@ -177,7 +179,10 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
     }]}
   >
       <VictoryBar name="bar"
+        width={400}
+        groupComponent={<g transform={"translate(400, 0)"}/>}
         standalone={false}
+        style={{ data: { width: 20 }}}
         data={[
           {x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 5}, {x: "d", y: 4}
         ]}
@@ -207,6 +212,12 @@ For very simple events, it may be desireable to bypass Victory's event system. T
       {x: 4, y: 3},
       {x: 5, y: 5},
     ]}
-    dataComponent={<Bar events={{onClick: (evt) => alert(evt)}}/>}
+    dataComponent={
+      <Bar 
+        events={{
+          onClick: (evt) => alert(`(${evt.clientX}, ${evt.clientY})`)
+        }}
+      />
+    }
   />
 ```

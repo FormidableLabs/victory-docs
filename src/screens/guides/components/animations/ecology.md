@@ -28,7 +28,7 @@ class App extends React.Component {
   getScatterData() {
     const colors =[ 
       "violet", "cornflowerblue", "gold", "orange", 
-      "turquoise", "tomato" "greenyellow"
+      "turquoise", "tomato", "greenyellow"
     ];
     const symbols = [
       "circle", "star", "square", "triangleUp", 
@@ -41,7 +41,7 @@ class App extends React.Component {
         y: random(2, 100),
         size: random(8) + 3,
         symbol: symbols[scaledIndex],
-        fill: colors[random(0, 6)]
+        fill: colors[random(0, 6)],
         opacity: 0.6
       };
     });
@@ -72,14 +72,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      barData: this.getbarData()
+      data: this.getData()
     };
   }
 
   componentDidMount() {
     this.setStateInterval = window.setInterval(() => {
       this.setState({
-        barData: this.getbarData()
+        data: this.getData()
       });
     }, 3000);
   }
@@ -88,7 +88,7 @@ class App extends React.Component {
     window.clearInterval(this.setStateInterval);
   }
 
-  getBarData() {
+  getData() {
     const bars = random(6, 10);
     return range(bars).map((bar) => {
       return {x: bar + 1, y: random(2, 10)};
@@ -97,19 +97,23 @@ class App extends React.Component {
 
   render() {
     return (
-      <VictoryChart>
+      <VictoryChart 
+        domainPadding={{ x: 20 }}
+        animate={{duration: 500}}
+      >
         <VictoryBar
-          data={this.state.barData}
+          data={this.state.data}
+          style={{
+            data: { fill: "tomato", width: 12 }
+          }}
           animate={{
-            duration: 1000,
             onExit: {
-              before: () => ({y: 0, label: "bye"}),
-              duration: 500
-            },
-            onEnter: {
-              before: () => {y: 0},
-              after: (datum) => ({y: datum.y, label: "ohai"}),
-              duration: 500
+              duration: 500,
+              before: () => ({
+                y: 0,
+                fill: "orange",
+                label: "BYE"
+              })
             }
           }}
         />

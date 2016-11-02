@@ -67,7 +67,9 @@ Data accessor props may be given as functions and used to process data, as in th
 
 
 ```playground
-  <VictoryChart>
+  <VictoryChart 
+    domainPadding={{x: 40}}
+  >
     <VictoryBar
       data={[
         { experiment: "trial 1", expected: 3.75, actual: 3.21 },
@@ -76,7 +78,19 @@ Data accessor props may be given as functions and used to process data, as in th
         { experiment: "trial 4", expected: 3.75, actual: 3.71 }
       ]}
       x="experiment"
-      y= (d) => (d.actual / d.expected) * 100
+      y={(d) => (d.actual / d.expected) * 100}
+    />
+    <VictoryAxis
+      label="experiment"
+      style={{
+        axisLabel: { padding: 30 }
+      }}
+    />
+    <VictoryAxis dependentAxis 
+      label="percent yield"
+      style={{
+        axisLabel: { padding: 40 }
+      }}
     />
 </VictoryChart>
 ```
@@ -89,7 +103,7 @@ If data is not given, data accessor props may be used to plot math functions. In
 ```playground
   <VictoryChart>
     <VictoryLine
-      samples={20}
+      samples={50}
       style={{data:
         {stroke: "red", strokeWidth: 4}
       }}
@@ -97,7 +111,7 @@ If data is not given, data accessor props may be used to plot math functions. In
     />
 
   <VictoryLine
-    samples={50}
+    samples={10}
     style={{data:
       {stroke: "blue", strokeWidth: 4}
     }}
