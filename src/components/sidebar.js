@@ -7,7 +7,6 @@ import { times } from "lodash";
 import { config } from "./config";
 import { configGuides } from "./config-guides";
 import Icon from "./icon";
-import basename from "../basename";
 
 class Sidebar extends React.Component {
   renderTransformedToc(siblings, targetLocation) {
@@ -28,7 +27,7 @@ class Sidebar extends React.Component {
             return sibling && (
               <li key={id} className="Sidebar-toc-item">
                 <Link
-                  to={`${basename}${targetLocation}#${sibling.anchor}`}
+                  to={`${targetLocation}#${sibling.anchor}`}
                   dangerouslySetInnerHTML={{__html: md.renderInline(sibling.content)}}
                 />
               </li>
