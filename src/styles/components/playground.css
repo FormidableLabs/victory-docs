@@ -27,7 +27,7 @@
 
 .Interactive {
   position: relative;
-  margin: var(--gutter-small) 0 0;
+  margin: var(--gutter) 0 0;
   width: 100%;
 }
 
@@ -50,6 +50,28 @@
   order: 2;
   margin: 0;
   padding: 0;
+  position: relative;
+}
+
+.Interactive .playgroundCode:before,
+.Interactive .playgroundPreview:before {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+
+  color: var(--codeMirrorComment);
+  font-size: 0.8em;
+  letter-spacing: 0.15em;
+  padding: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.Interactive .playgroundCode:before {
+  content: "Editable Source";
+
+  background-color: color(var(--codeMirrorbgDim) a(50%));
 }
 
 .Interactive .playgroundStage {
@@ -72,10 +94,17 @@
   display: flex;
   flex: 1 1 340px;
   justify-content: center;
+  margin: 0 0 var(--gutter-small) 0;
   order: 1;
-  padding: 0 0 var(--gutter-small) 0;
+  padding: 0 var(--gutter-small);
   position: relative;
   text-align: center;
+}
+
+.Interactive .playgroundPreview:before {
+  content: "Live Preview";
+
+  background-color: color(var(--codeMirrorbg) a(50%));
 }
 
 .Interactive .playgroundPreview > div:first-child {
@@ -100,22 +129,6 @@
   margin: 0 auto;
   max-height: 280px;
   width: auto !important; /* override default Victory inline styles */
-}
-
-.Interactive .playgroundPreview:after {
-  counter-increment: interactive;
-  content: "Fig. " counter(interactive) " ";
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  color: var(--nearBlack);
-  font-family: var(--fontSubHeading);
-  font-weight: normal;
-  font-size: 18px;
-  margin: var(--gutter) var(--gutter-small) var(--gutter-small);
-  line-height: 1;
-  text-align: center;
 }
 
 .Interactive .playgroundError {

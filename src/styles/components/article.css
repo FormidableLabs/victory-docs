@@ -6,7 +6,7 @@
 
 @media (--medium-viewport) {
   .Article {
-    padding: var(--gutter) var(--page);
+    padding: var(--page) var(--page-large);
   }
 }
 
