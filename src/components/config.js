@@ -22,6 +22,7 @@ import VTransitionDocs from "../../docs/victory-transition/docs.md";
 import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
 import VVoronoiTooltipDocs from "../../docs/victory-voronoi-tooltip/docs.md";
 import NativeTutorial from "../../docs/native/docs.md";
+import VZoomDocs from "../../docs/victory-zoom/docs.md";
 
 export const config = [
   {
@@ -145,5 +146,10 @@ export const config = [
     slug: "victory-voronoi-tooltip",
     category: "chart",
     docs: VVoronoiTooltipDocs
+  }, {
+    text: "VictoryZoom",
+    slug: "victory-zoom",
+    category: "chart",
+    docs: VZoomDocs
   }
 ];
