@@ -4,6 +4,7 @@ module.exports = [
   "/",
   "/about",
   "/docs",
+  "/docs/native",
   "/docs/victory-animation",
   "/docs/victory-area",
   "/docs/victory-axis",
