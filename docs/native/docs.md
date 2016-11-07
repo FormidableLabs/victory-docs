@@ -331,7 +331,7 @@ Want to see what your data looks like in a different format? Victory Native comp
 
 Import `VictoryArea`
 
-```
+```jsx
   import { 
     VictoryAxis, VictoryArea, VictoryChart, VictoryStack, VictoryTheme } 
   from "victory-native";
@@ -339,7 +339,7 @@ Import `VictoryArea`
 
 Then, simply replace all instances of `VictoryBar` with `VictoryArea`, and tweak styles as necessary
 
-```
+```jsx
   <VictoryChart
     theme={VictoryTheme.material}
   >
