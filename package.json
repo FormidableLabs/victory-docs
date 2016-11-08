@@ -21,6 +21,11 @@
     "url": "https://github.com/FormidableLabs/victory-docs/issues"
   },
   "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
+  "greenkeeper": {
+    "ignore": [
+      "history"
+    ]
+  },
   "devDependencies": {
     "builder-docs-archetype-dev": "^4.2.2",
     "react-docgen": "2.12.1"
@@ -33,7 +38,7 @@
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
     "formidable-landers": "^5.1.1",
-    "history": "~4.4.0",
+    "history": "^3.0.0",
     "lodash": "^4.6.1",
     "markdown-it": "^8.0.0",
     "markdown-it-toc-and-anchor": "^4.1.1",
