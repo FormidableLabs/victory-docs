@@ -173,14 +173,13 @@ code {
 }
 
 pre {
-  margin-left: calc(-1 * var(--page));
-  margin-right: calc(-1 * var(--page));
-  padding: 2rem var(--page);
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+  padding: 2rem var(--gutter);
+}
 
-  @media (--medium-viewport) {
-    margin-left: calc(-1 * var(--page-large));
-    margin-right: calc(-1 * var(--page-large));
-  }
+li > pre {
+  margin-left: 0;
 }
 
 pre[class*="language-"] code,

@@ -23,7 +23,7 @@
   --lightestSand: #FFFEFC;
   --lighterSand: #f6f2ee; /* bg */
   --lightSand: #ebe7e4;
-  --sand: #e1d7cd;
+  --sand: #D1CECB;
   --darkSand: #b5aca3;
   --mud: #34302e;
   --darkMud: #181615;
@@ -56,7 +56,6 @@
   --gutter: 3.75rem;
   --gutter-small: 1.375rem;
   --page: 3vw;
-  --page-large: 6vw;
 }
 
 /*
