@@ -50,17 +50,25 @@ export default (opts) => {
       const fullLocation = basename + location.pathname;
       ReactGA.set({ page: fullLocation });
       ReactGA.pageview(fullLocation);
-      anchorate();
     });
+    const onUpdate = () => {
+      anchorate();
+    };
+    const shouldUpdateScroll = (prevRouterProps, { location }) => {
+      if (prevRouterProps) {
+        // if the URL did not change (or you clicked a #hash-link), do not scroll to top
+        if (prevRouterProps.location.pathname === location.pathname) {
+          return false;
+        }
+      }
+      return true;
+    };
     render(
       <Router
         history={history}
         routes={routes}
-        render={applyRouterMiddleware(
-          useScroll((prevRouterProps, { location }) => (
-            prevRouterProps && location.pathname !== prevRouterProps.location.pathname
-          ))
-        )}
+        render={applyRouterMiddleware(useScroll(shouldUpdateScroll))}
+        onUpdate={onUpdate}
       />,
       document.getElementById("content")
     );
