@@ -33,7 +33,7 @@ install:
 
 script:
   - npm test
-  - travis_wait 20 NODE_ENV=production node_modules/.bin/builder run build-static
+  - travis_wait NODE_ENV=production node_modules/.bin/builder run build-static
   - node_modules/.bin/builder run install-selenium
   - ROWDY_SETTINGS=local.firefox node_modules/.bin/builder run test-func-static-prod
   - ROWDY_SETTINGS=local.phantomjs node_modules/.bin/builder run test-func-static-prod
