@@ -18,13 +18,13 @@ Create custom behaviors. This guide explains how to use Victory's flexible event
 Animate charts. This explains how to define custom animations and transitions.
 
 **[Layout]**:
-Learn about responsive containers and more.
+Learn about responsive containers and VictoryPortal.
 
 **[Themes]**:
 Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can easily test your own themes.
 
 **[Tooltips]**:
-
+Add interactity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
 
 
 [our tutorial]: https://formidable.com/open-source/victory/docs

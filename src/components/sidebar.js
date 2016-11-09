@@ -136,16 +136,16 @@ class Sidebar extends React.Component {
                 </a>
               </li>
             </ul>
+            <p className="Sidebar-Heading">
+              Guides
+            </p>
+            {this.renderList(this.props.guides, "guides")}
             <p className="Sidebar-Heading u-noMarginTop">
               Documentation
             </p>
             {this.renderList(this.props.docs, "docs", "chart")}
             {this.renderList(this.props.docs, "docs", "core")}
             {this.renderList(this.props.docs, "docs", "more")}
-            <p className="Sidebar-Heading">
-              Guides
-            </p>
-            {this.renderList(this.props.guides, "guides")}
           </div>
         </nav>
       </div>

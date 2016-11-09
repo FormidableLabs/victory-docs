@@ -80,48 +80,6 @@ class Benefits extends React.Component {
             </RadiumLink>
           </div>
         </div>
-
-        <div className="Benefits-demos">
-          <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
-            <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
-                <DemoFlexible />
-                <p className="SubHeading">
-                  <a
-                    href="./recipes/custom-styles"
-                  >
-                    View Recipe&nbsp;<Icon glyph="internal-link" />
-                  </a>
-                </p>
-                </div>
-            </div>
-            <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
-                <DemoSharedEvents/>
-                <p className="SubHeading">
-                  <a
-                    href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/demo-shared-events.js"
-                  >
-                    View source&nbsp;<Icon glyph="external-link" />
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
-                <DemoLiveChart/>
-                <p className="SubHeading">
-                  <a
-                    href="https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/home/components/livechart.js"
-                  >
-                    View source&nbsp;<Icon glyph="external-link" />
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     );
   }
