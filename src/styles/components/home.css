@@ -21,7 +21,7 @@
   background-color: var(--black);
   border-radius: 0;
   box-shadow:
-    0 0 0 10px #efe9e3,
+    0 0 0 10px var(--lighterSand),
     0 0 0 11px var(--mud);
   color: var(--lightestSand);
   font-family: var(--fontMonospace);

@@ -16,7 +16,6 @@ html {
 body {
   background-color: var(--lighterSand);
   color: var(--mud);
-  counter-reset: "interactive";
   font-family: var(--fontBody);
   font-weight: 400;
   line-height: 1.6;
@@ -174,9 +173,13 @@ code {
 }
 
 pre {
-  margin-left: calc(-1 * var(--page));
-  margin-right: calc(-1 * var(--page));
-  padding: 2rem var(--page);
+  margin-left: calc(-1 * var(--gutter));
+  margin-right: calc(-1 * var(--gutter));
+  padding: 2rem var(--gutter);
+}
+
+li > pre {
+  margin-left: 0;
 }
 
 pre[class*="language-"] code,

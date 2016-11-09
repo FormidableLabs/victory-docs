@@ -7,6 +7,15 @@ import Header from "./header";
 import Footer from "./footer";
 
 class Page extends React.Component {
+  shouldUpdateScroll(scrollBehavior, prevRouterProps) {
+    if (scrollBehavior && scrollBehavior.location && prevRouterProps && prevRouterProps.location) {
+      // if the previous URL remains unchanged, don’t scroll the container pls
+      if (prevRouterProps.location.pathname === scrollBehavior.location.pathname) {
+        return false;
+      }
+    }
+    return true;
+  }
   render() {
     /* eslint-disable max-len */
     return (
@@ -18,7 +27,10 @@ class Page extends React.Component {
             location={this.props.location}
             tocArray={this.props.tocArray}
           />
-          <ScrollContainer scrollKey="page-content">
+          <ScrollContainer
+            scrollKey="page-content"
+            shouldUpdateScroll={this.shouldUpdateScroll}
+          >
             <div className="Page-content">
               <article className="Article">
                 {this.props.children}
