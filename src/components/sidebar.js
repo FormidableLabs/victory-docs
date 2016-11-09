@@ -125,6 +125,11 @@ class Sidebar extends React.Component {
                   Getting Started <Icon glyph="internal-link" />
                 </Link>
               </li>
+              <li key="sidebarlink-native" className="Sidebar-List-Item">
+                <Link to="/docs/native" activeClassName="is-active">
+                  Native <Icon glyph="internal-link" />
+                </Link>
+              </li>
               <li key="sidebarlink-contributing" className="Sidebar-List-Item">
                 <a href="https://github.com/FormidableLabs/victory/#contributing">
                   Contributing <Icon glyph="external-link" />

@@ -21,8 +21,15 @@ import VTooltipDocs from "../../docs/victory-tooltip/docs.md";
 import VTransitionDocs from "../../docs/victory-transition/docs.md";
 import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
 import VVoronoiTooltipDocs from "../../docs/victory-voronoi-tooltip/docs.md";
+import NativeTutorial from "../../docs/native/docs.md";
 
 export const config = [
+  {
+    text: "Native Tutorial",
+    slug: "native",
+    category: "native",
+    docs: NativeTutorial
+  },
   {
     text: "VictoryAnimation",
     slug: "victory-animation",
