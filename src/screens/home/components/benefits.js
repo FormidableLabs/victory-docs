@@ -7,11 +7,6 @@ const RadiumLink = Radium(Link);
 import { VictorySettings } from "formidable-landers";
 import Icon from "../../../components/icon";
 
-// Child Components
-import DemoFlexible from "./demo-flexible";
-import DemoSharedEvents from "./demo-shared-events";
-import DemoLiveChart from "./demo-live-chart";
-
 class Benefits extends React.Component {
   getStyles() {
     return {
