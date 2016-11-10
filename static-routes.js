@@ -39,9 +39,11 @@ module.exports = [
   "/recipes/theme-park",
   "/guides",
   "/guides/animations",
+  "/guides/custom-charts",
   "/guides/custom-components",
   "/guides/data-accessors",
   "/guides/events",
   "/guides/layout",
-  "/guides/themes"
+  "/guides/themes",
+  "/guides/tooltips"
 ];

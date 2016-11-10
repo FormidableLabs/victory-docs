@@ -3,39 +3,43 @@ import CustomComponents from "../screens/guides/components/custom-components/doc
 import DataAccessors from "../screens/guides/components/data-accessors/docs";
 import Events from "../screens/guides/components/events/docs";
 import Layout from "../screens/guides/components/layout/docs";
+import CustomCharts from "../screens/guides/components/custom-charts/docs";
 import Themes from "../screens/recipes/components/theme-park";
+import Tooltips from "../screens/guides/components/tooltips/docs";
 
 export const configGuides = [
   {
     text: "Animations",
     slug: "animations",
-    category: "behavior",
     docs: Animations
   },
   {
     text: "Custom Components",
     slug: "custom-components",
-    category: "layout",
     docs: CustomComponents
   }, {
     text: "Data Accessors",
     slug: "data-accessors",
-    category: "behavior",
     docs: DataAccessors
   }, {
     text: "Events",
     slug: "events",
-    category: "behavior",
     docs: Events
   }, {
     text: "Layout",
     slug: "layout",
-    category: "layout",
     docs: Layout
+  }, {
+    text: "Custom Charts",
+    slug: "custom-charts",
+    docs: CustomCharts
   }, {
     text: "Themes",
     slug: "themes",
-    category: "customize",
     docs: Themes
+  }, {
+    text: "Tooltips",
+    slug: "tooltips",
+    docs: Tooltips
   }
 ];
