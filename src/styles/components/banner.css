@@ -1,0 +1,18 @@
+.Banner {
+  background-color: var(--red);
+  color: var(--black);
+  font-family: var(--fontSubHeading);
+  font-size: 1.5em;
+  margin: 0;
+  padding: var(--gutter-small) var(--gutter);
+  width: 100%;
+  text-align: center;
+}
+
+.Banner a:link {
+  color: var(--white);
+}
+
+.Banner a:hover {
+  color: var(--lightRed);
+}
