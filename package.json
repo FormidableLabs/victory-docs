@@ -28,14 +28,14 @@
     ]
   },
   "devDependencies": {
-    "builder-docs-archetype-dev": "^4.2.2",
+    "builder-docs-archetype-dev": "4.2.2",
     "react-docgen": "2.12.1"
   },
   "dependencies": {
     "anchorate": "^1.1.0",
     "babel-preset-stage-1": "^6.5.0",
     "builder": "^3.1.0",
-    "builder-docs-archetype": "^4.2.2",
+    "builder-docs-archetype": "4.2.2",
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
     "formidable-landers": "^5.1.1",
@@ -52,11 +52,11 @@
     "react-addons-test-utils": "^15.1.0",
     "react-document-meta": "^2.0.3",
     "react-dom": "^15.1.0",
-    "react-ga": "^2.1.1",
+    "react-ga": "2.1.1",
     "react-router": "^3.0.0",
     "react-router-scroll": "^0.4.1",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "victory": "*"
+    "victory": "0.12.1"
   }
 }
