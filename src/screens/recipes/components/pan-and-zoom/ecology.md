@@ -90,13 +90,23 @@ class App extends React.Component {
       <div>
         <div>{this.printDomain()}</div>
         <div>
+          <button style={buttonStyle} 
+            onClick={this.handleClick.bind(this, 10)}
+          >
+            PAN +10
+          </button>
+
           <button style={buttonStyle}
-                  onClick={this.handleClick.bind(this, 10)}>PAN +10</button>
-          <button style={buttonStyle}
-                  onClick={this.handleClick.bind(this, -10)}>PAN -10</button>
+            onClick={this.handleClick.bind(this, -10)}
+          >
+            PAN -10
+          </button>
+          
         </div>
-        <VictoryZoom zoomDomain={this.state.zoomDomain}
-                     onDomainChange={this.handleDomainChange.bind(this)}>
+        <VictoryZoom 
+          zoomDomain={this.state.zoomDomain}
+          onDomainChange={this.handleDomainChange.bind(this)}
+        >
           <VictoryChart animate={{duration: 1000}}>
             <VictoryLine data={this.state.data} interpolation="basis"/>
           </VictoryChart>
@@ -106,10 +116,10 @@ class App extends React.Component {
   }
 }
 
-var buttonStyle = {
-    margin: "20px 10px 0",
-    padding: 5,
-    border: "2px solid black",
+const buttonStyle = {
+  margin: "20px 10px 0",
+  padding: 5,
+  border: "2px solid black",
 };
 
 ReactDOM.render(<App/>, mountNode)

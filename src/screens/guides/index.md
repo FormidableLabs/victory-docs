@@ -20,6 +20,9 @@ Animate charts. This explains how to define custom animations and transitions.
 **[Layout]**:
 Learn about responsive containers and VictoryPortal.
 
+**[Pan and Zoom]**:
+Add interactive panning and zooming to your charts. This guide explains how to use the `VictoryZoom` wrapper.
+
 **[Themes]**:
 Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can easily test your own themes.
 
@@ -37,4 +40,5 @@ Add interactity with tooltips. This guide explains how to create and customize t
 [Custom Charts]: https://formidable.com/open-source/victory/guides/custom-charts
 [Themes]: https://formidable.com/open-source/victory/guides/themes
 [Tooltips]: https://formidable.com/open-source/victory/guides/tooltips
+[Pan and Zoom]: https://formidable.com/open-source/victory/guides/pan-and-zoom
 
