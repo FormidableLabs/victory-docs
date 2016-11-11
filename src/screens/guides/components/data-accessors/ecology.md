@@ -13,7 +13,7 @@ Some Victory components like `VictoryCandlestick` and `VictoryErrorBar` have unu
 When given as strings, these accessors will specify which properties of a data object to plot. The following example will plot employees on the x axis and salaries on the y axis:
 
 
-```
+```jsx
 <VictoryBar
   data={[
     {employee: "Jane Doe", salary: 65000},
@@ -29,7 +29,7 @@ When given as strings, these accessors will specify which properties of a data o
 If data is given as an array of arrays, data accessors may be given as integers to specify the index of the nested array that should be plotted.
 
 
-```
+```jsx
 <VictoryBar
   data={[[0, 1], [1, 1], [2, 3], [3, 1]]}
   x={0}
@@ -41,15 +41,15 @@ If data is given as an array of arrays, data accessors may be given as integers 
 Data accessors may also be given as path strings or arrays to specify deeply nested data.
 
 
-```
+```jsx
 <VictoryBar
   data={[
     {
-      employee: { firstName: "Jane", lastName: "Doe" }, 
+      employee: { firstName: "Jane", lastName: "Doe" },
       salary: { base: 65000, bonus: 2000 }
     },
     {
-      employee: { firstName: "John", lastName: "Doe" }, 
+      employee: { firstName: "John", lastName: "Doe" },
       salary: { base: 62000, bonus: 6000 }
     },
     ...
@@ -67,7 +67,7 @@ Data accessor props may be given as functions and used to process data, as in th
 
 
 ```playground
-  <VictoryChart 
+  <VictoryChart
     domainPadding={{x: 40}}
   >
     <VictoryBar
@@ -86,7 +86,7 @@ Data accessor props may be given as functions and used to process data, as in th
         axisLabel: { padding: 30 }
       }}
     />
-    <VictoryAxis dependentAxis 
+    <VictoryAxis dependentAxis
       label="percent yield"
       style={{
         axisLabel: { padding: 40 }
@@ -98,7 +98,7 @@ Data accessor props may be given as functions and used to process data, as in th
 
 ## Plotting functions
 
-If data is not given, data accessor props may be used to plot math functions. In this scenarios, initial data will be generated based on the domain and number of samples. Alter the `samples` and `domain` props to change how functions are plotted. 
+If data is not given, data accessor props may be used to plot math functions. In this scenarios, initial data will be generated based on the domain and number of samples. Alter the `samples` and `domain` props to change how functions are plotted.
 
 ```playground
   <VictoryChart>

@@ -19,14 +19,13 @@
   flex-direction: column;
 }
 
-.Recipe .Interactive .playgroundCode {
-  height: 340px;
-  resize: both;
-}
-
 .Recipe .Interactive .playgroundPreview {
   flex: none;
-  min-height: 280px;
+  min-height: 400px;
+}
+
+.Recipe .Interactive .playgroundPreview svg {
+  max-height: 400px !important; /* allow bigger recipes */
 }
 
 /** Theme Park Recipe

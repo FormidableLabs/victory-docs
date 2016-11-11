@@ -1,10 +1,10 @@
 # Custom Components
 
-Every element that a Victory component renders may be altered or completely replaced. Most components expose `dataComponent`, `labelComponent`, `groupComponent`, and `containerComponent` props. The primitive components that Victory components render by default are simple, stateless components with a consistent set of props whenever possible. These [primitive components] are exported for users to alter, wrap, extend and reference when creating custom components. 
+Every element that a Victory component renders may be altered or completely replaced. Most components expose `dataComponent`, `labelComponent`, `groupComponent`, and `containerComponent` props. The primitive components that Victory components render by default are simple, stateless components with a consistent set of props whenever possible. These [primitive components] are exported for users to alter, wrap, extend and reference when creating custom components.
 
 ## Altering default components
 
-Victory components set props on their primitive components, but these may be overridden or augmented by setting props directly on the the primitive component instances. 
+Victory components set props on their primitive components, but these may be overridden or augmented by setting props directly on the the primitive component instances.
 
 ```playground
   <VictoryBar
@@ -182,7 +182,7 @@ ReactDOM.render(<CustomDataComponent/>, mountNode)
 It may be desireable to alter some portion of a primitive component while leaving most behaviors intact. Though [usually not advised][sleep at night], in rare instances it might make sense to extend one of Victory's primitive components. This pattern is used to create react native compatible versions of Victory components. In the example code shown below, the react native compatible version of `Point` is created by extending `Point` and overriding the `renderPoint` method to render `react-native-svg` components rather than `svg` elements.
 
 
-```
+```jsx
 import React from "react";
 import { Path } from "react-native-svg";
 import { NativeHelpers } from "../../index";
@@ -258,9 +258,9 @@ class App extends React.Component {
 
   render() {
     const streamData = this.getStreamData();
-  
+
     const colors = [
-      "#006064", "#00796B", "#8BC34A", "#DCE775", 
+      "#006064", "#00796B", "#8BC34A", "#DCE775",
       "#FFF59D", "#F4511E", "#c33409"
     ];
 
