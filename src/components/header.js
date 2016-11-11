@@ -14,7 +14,7 @@ class VictoryHeader extends React.Component {
       <Link
         dangerouslySetInnerHTML={{ __html: LOGO }}
         to="/"
-        style={{ display: "block", height: "50px" }}
+        style={{ display: "block", height: "50px", maxWidth: "100%" }}
       />);
 
     return (

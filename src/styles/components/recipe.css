@@ -11,37 +11,22 @@
   margin-top: 0;
 }
 
-.Recipe pre {
-  margin-left: 0;
-  margin-right: 0;
-  padding: 0;
-}
-
 .Recipe p {
   max-width: 38em;
-}
-
-.Recipe .Interactive {
-  margin: 0;
 }
 
 .Recipe .Interactive .playground {
   flex-direction: column;
 }
 
+.Recipe .Interactive .playgroundCode {
+  height: 340px;
+  resize: both;
+}
+
 .Recipe .Interactive .playgroundPreview {
-  /*flex: 1 0 auto;*/
   flex: none;
-  min-height: 400px;
-}
-
-.Recipe .Interactive .playgroundPreview:after {
-  counter-increment: none;
-  content: "";
-}
-
-.Recipe .Interactive .playgroundPreview svg {
-  max-height: 400px; /* make recipes bigger */
+  min-height: 280px;
 }
 
 /** Theme Park Recipe

@@ -1,7 +1,11 @@
 .Article {
   background-color: var(--lighterSand);
   flex: 1 0 auto;
-  padding: var(--gutter);
+  padding: var(--gutter-small);
+
+  @media (--medium-viewport) {
+    padding: var(--gutter);
+  }
 }
 
 .Article p {

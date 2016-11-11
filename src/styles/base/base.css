@@ -173,9 +173,12 @@ code {
 }
 
 pre {
-  margin-left: calc(-1 * var(--gutter));
-  margin-right: calc(-1 * var(--gutter));
   padding: 2rem var(--gutter);
+
+  @media (--medium-viewport) {
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+  }
 }
 
 li > pre {
@@ -198,6 +201,7 @@ code {
   border-radius: 1px;
   font-variant-ligatures: none;
   padding: 0.33em .333em .28em;
+  word-break: break-word;
 
   @media (--medium-viewport) {
     font-size: 0.875rem;
