@@ -28,6 +28,7 @@ module.exports = [
   "/docs/victory-transition",
   "/docs/victory-voronoi",
   "/docs/victory-voronoi-tooltip",
+  "/docs/victory-zoom",
   "/recipes",
   "/recipes/custom-central-axis",
   "/recipes/custom-data-component",
@@ -45,5 +46,6 @@ module.exports = [
   "/guides/events",
   "/guides/layout",
   "/guides/themes",
-  "/guides/tooltips"
+  "/guides/tooltips",
+  "/guides/pan-and-zoom"
 ];
