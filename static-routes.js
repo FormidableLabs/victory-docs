@@ -46,5 +46,6 @@ module.exports = [
   "/guides/events",
   "/guides/layout",
   "/guides/themes",
-  "/guides/tooltips"
+  "/guides/tooltips",
+  "/guides/pan-and-zoom"
 ];

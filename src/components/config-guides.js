@@ -6,6 +6,7 @@ import Layout from "../screens/guides/components/layout/docs";
 import CustomCharts from "../screens/guides/components/custom-charts/docs";
 import Themes from "../screens/recipes/components/theme-park";
 import Tooltips from "../screens/guides/components/tooltips/docs";
+import PanZoom from "../screens/recipes/components/pan-and-zoom/docs";
 
 export const configGuides = [
   {
@@ -41,5 +42,10 @@ export const configGuides = [
     text: "Tooltips",
     slug: "tooltips",
     docs: Tooltips
+  }, {
+    text: "Pan and Zoom",
+    slug: "pan-and-zoom",
+    docs: PanZoom,
+    category: "customize"
   }
 ];
