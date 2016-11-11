@@ -9,10 +9,12 @@
   text-align: center;
 }
 
-.Banner a:link {
+.Banner a:link,
+.Banner a:visited {
   color: var(--white);
 }
 
+.Banner a:focus,
 .Banner a:hover {
   color: var(--lightRed);
 }
