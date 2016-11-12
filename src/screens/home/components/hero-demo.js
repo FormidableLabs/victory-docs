@@ -40,7 +40,7 @@ class Native extends React.Component {
   render() {
     return (
       <div className="Demo">
-        <div className="Demo-bg">
+        <div className="Demo-bg" style={{ backgroundImage: `url(./static/hero@2x.png)` }}>
           <div className="Demo-charts">
             <div className="Demo-charts-web">
               <VictoryChart
