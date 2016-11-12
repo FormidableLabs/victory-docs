@@ -37,58 +37,12 @@ class Native extends React.Component {
     clearInterval(this.setStateInterval);
   }
 
-  getStyles() {
-    return {
-      wrapper: {
-        margin: "60px auto 0",
-        maxWidth: "800px"
-      },
-      backgroundImage: {
-        backgroundImage: `url(./static/hero@2x.png)`,
-        backgroundPosition: "top center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "100% auto",
-        display: "block",
-        margin: "20px auto",
-        overflow: "hidden",
-        padding: "56.875% 0 0 0", // preserve aspect ratio
-        position: "relative",
-        width: "100%"
-      },
-      content: {
-        position: "absolute",
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0
-      },
-      webChart: {
-        backgroundColor: "#f6f3f0",
-        position: "absolute",
-        top: "20%",
-        right: "22%",
-        bottom: "25%",
-        left: "52%"
-      },
-      nativeChart: {
-        backgroundColor: "#f6f3f0",
-        position: "absolute",
-        top: "65%",
-        right: "2%",
-        bottom: "11%",
-        left: "86%"
-      }
-    };
-  }
-
   render() {
-    const styles = this.getStyles();
-
     return (
-      <div style={styles.wrapper}>
-        <div style={styles.backgroundImage}>
-          <div style={styles.content}>
-            <div style={styles.webChart}>
+      <div className="Demo">
+        <div className="Demo-bg">
+          <div className="Demo-charts">
+            <div className="Demo-charts-web">
               <VictoryChart
                 animate={{ duration: 2000 }}
                 width={200}
@@ -115,7 +69,7 @@ class Native extends React.Component {
                 <VictoryAxis dependentAxis />
               </VictoryChart>
             </div>
-            <div style={styles.nativeChart}>
+            <div className="Demo-charts-native">
               <VictoryChart
                 animate={{ duration: 2000 }}
                 width={195}

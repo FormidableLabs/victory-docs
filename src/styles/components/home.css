@@ -1,3 +1,14 @@
+/** Homepage
+*
+* .Home
+*   .Hero
+*     .Demo
+*   .Installer
+*   .Companies
+*   .Benefits
+*
+*/
+
 .Home {
   background-color: var(--lighterSand);
   display: block;
@@ -8,6 +19,56 @@
   margin: 0;
   padding: var(--gutter-small) 0 0;
 }
+
+.Demo {
+  margin: 60px auto 0;
+  max-width: 800px;
+}
+
+.Demo-bg {
+  background-image: url(../../static/hero@2x.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: block;
+  margin: 20px auto;
+  overflow: hidden;
+  padding: 56.875% 0 0 0; /* preserve aspect ratio */
+  position: relative;
+  width: 100%;
+}
+
+.Demo-charts {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Demo-charts svg {
+  max-height: 100%;
+}
+
+.Demo-charts-web {
+  background-color: #f6f3f0;
+  position: absolute;
+  top: 20%;
+  right: 22%;
+  bottom: 25%;
+  left: 52%;
+}
+
+.Demo-charts-native {
+  background-color: #f6f3f0;
+  position: absolute;
+  top: 65%;
+  right: 2%;
+  bottom: 11%;
+  left: 86%;
+}
+
+/* Installer */
 
 .Installer {
   display: block;
@@ -28,6 +89,8 @@
   font-size: 18px;
   line-height: 1.2
 }
+
+/* Companies */
 
 .Companies {
   background-color: var(--mud);
@@ -66,6 +129,8 @@
 .Companies-logo-img {
   height: 70px;
 }
+
+/* Benefits */
 
 .Benefits {
   padding: var(--gutter) 0;
