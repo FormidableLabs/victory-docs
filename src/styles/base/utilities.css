@@ -7,6 +7,10 @@
   margin-top: 0 !important;
 }
 
+.u-marginAuto {
+  margin: 0 auto !important;
+}
+
 .u-noPadding {
   padding: 0 !important;
 }
@@ -30,6 +34,10 @@
 
 .u-maxWidth {
   max-width: 100% !important;
+}
+
+.u-maxWidthPara {
+  max-width: 38em !important;
 }
 
 /* Text Alignment */

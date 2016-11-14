@@ -12,7 +12,7 @@
 .Home {
   background-color: var(--lighterSand);
   display: block;
-  padding: 0 0 var(--gutter);
+  padding: 0 0 calc(2 * var(--gutter));
 }
 
 .Hero {
@@ -133,7 +133,7 @@
 /* Benefits */
 
 .Benefits {
-  padding: var(--gutter) 0;
+  padding: var(--gutter) 0 0;
 }
 
 .Benefits-btn {
