@@ -111,7 +111,7 @@
 }
 
 .Companies-logo {
-  color: var(--white);
+  color: #fff;
   height: 70px;
   margin-top: var(--gutter-small);
   padding-right: var(--gutter-small);
