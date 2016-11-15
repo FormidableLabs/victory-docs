@@ -19,10 +19,6 @@
   flex-direction: column;
 }
 
-.Recipe .Interactive .playgroundCode {
-  height: 340px;
-}
-
 .Recipe .Interactive .playgroundPreview {
   flex: none;
   min-height: 400px;
