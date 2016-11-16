@@ -22,9 +22,11 @@ class GuideDocs extends React.Component {
     }
     const conf = find(configGuides, {slug: activeComponent});
     const Docs = conf.docs;
+    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/src/${conf.editUrl}`;
     // This structure matches the <Ecology> /docs components:
     return (
       <TitleMeta title={`${conf.text} | Victory Guides`}>
+        <a href={editUrl} className="SubHeading">Edit this page</a>
         <Docs />
       </TitleMeta>
     );
