@@ -12,40 +12,49 @@ export const configGuides = [
   {
     text: "Animations",
     slug: "animations",
-    docs: Animations
+    docs: Animations,
+    editUrl: "/screens/guides/components/animations/ecology.md"
   },
   {
     text: "Custom Components",
     slug: "custom-components",
-    docs: CustomComponents
+    docs: CustomComponents,
+    editUrl: "/screens/guides/components/custom-components/ecology.md"
   }, {
     text: "Data Accessors",
     slug: "data-accessors",
-    docs: DataAccessors
+    docs: DataAccessors,
+    editUrl: "/screens/guides/components/data-accessors/ecology.md"
   }, {
     text: "Events",
     slug: "events",
-    docs: Events
+    docs: Events,
+    editUrl: "/screens/guides/components/events/ecology.md"
   }, {
     text: "Layout",
     slug: "layout",
-    docs: Layout
+    docs: Layout,
+    editUrl: "/screens/guides/components/layout/ecology.md"
   }, {
     text: "Custom Charts",
     slug: "custom-charts",
-    docs: CustomCharts
+    docs: CustomCharts,
+    editUrl: "/screens/guides/components/custom-charts/ecology.md"
   }, {
     text: "Themes",
     slug: "themes",
-    docs: Themes
+    docs: Themes,
+    editUrl: "/screens/recipes/components/theme-park/index.js"
   }, {
     text: "Tooltips",
     slug: "tooltips",
-    docs: Tooltips
+    docs: Tooltips,
+    editUrl: "/screens/guides/components/tooltips/ecology.md"
   }, {
     text: "Pan and Zoom",
     slug: "pan-and-zoom",
     docs: PanZoom,
-    category: "customize"
+    category: "customize",
+    editUrl: "/screens/recipes/components/pan-and-zoom/ecology.md"
   }
 ];
