@@ -28,7 +28,7 @@
 }
 
 .Anchor {
-  background: url("../../static/icon-link.svg") 0 no-repeat;
+  background: url("../../../static/icon-link.svg") 0 no-repeat;
   border-bottom: 0 !important;
   position: absolute !important;
   top: 0;
