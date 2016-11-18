@@ -26,7 +26,7 @@
 }
 
 .Demo-bg {
-  /*background-image: url("/static/hero@2x.png"); TOOD: fix import of assets in .css files*/
+  background-image: url("../../../static/hero@2x.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100% auto;
