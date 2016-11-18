@@ -12,6 +12,7 @@ import DemoSharedEvents from "./demo-shared-events";
 import DemoCustomComponents from "./demo-custom-components";
 import DemoTooltips from "./demo-tooltips";
 import DemoZoom from "./demo-zoom";
+import DemoAnimation from "./demo-animation";
 
 class Benefits extends React.Component {
   getStyles() {
@@ -149,12 +150,12 @@ class Benefits extends React.Component {
             </div>
             <div className="Grid-cell u-textCenter">
               <div className="Benefits-demo">
-                <DemoCustomComponents/>
+                <DemoAnimation/>
                 <p className="SubHeading">
                   <a
-                    href="./guides/custom-components"
+                    href="./guides/animation"
                   >
-                    Custom Components&nbsp;<Icon glyph="internal-link" />
+                    Animation&nbsp;<Icon glyph="internal-link" />
                   </a>
                 </p>
               </div>
