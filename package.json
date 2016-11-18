@@ -1,6 +1,6 @@
 {
   "name": "victory-docs",
-  "version": "1.3.5",
+  "version": "2.0.0",
   "description": "Documentation site for Victory",
   "main": "webpack.config.dev.js",
   "scripts": {
