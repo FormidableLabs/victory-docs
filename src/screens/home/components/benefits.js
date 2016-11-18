@@ -53,7 +53,7 @@ class Benefits extends React.Component {
               <h3>
                 Robust
               </h3>
-              <p>
+              <p style={{display: "inline-block"}}>
                 Area charts. Scatter plots. Voronoi polygons. Easy-to-use components for complex charting.
               </p>
             </div>
@@ -61,7 +61,7 @@ class Benefits extends React.Component {
               <h3>
                 Flexible
               </h3>
-              <p>
+              <p style={{display: "inline-block"}}>
                 Fully-contained, reusable data visualization elements are responsible for their own styles and behaviors.
               </p>
             </div>
@@ -69,7 +69,7 @@ class Benefits extends React.Component {
               <h3>
                 Native
               </h3>
-              <p>
+              <p style={{display: "inline-block"}}>
                 Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API. <br/>
                 <code>npm install victory-native</code>
               </p>
@@ -121,9 +121,6 @@ class Benefits extends React.Component {
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
             <div className="Grid-cell u-textCenter">
               <div className="Benefits-demo">
                 <DemoTooltips />

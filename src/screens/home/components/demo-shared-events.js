@@ -8,13 +8,18 @@ class SharedEvents extends React.Component {
   getStyles() {
     return {
       parent: {
-        display: "block",
         boxSizing: "border-box",
+        display: "block",
         margin: "0 auto",
         padding: 0,
-        width: "auto",
+        width: "100%",
+        height: "auto"
+      },
+      container: {
+        display: "inline-block",
         height: "100%",
-        maxHeight: "280px"
+        minWidth: "18em",
+        maxWidth: "60em"
       }
     };
   }
@@ -22,8 +27,9 @@ class SharedEvents extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <div className="fancyBorder">
+      <div className="fancyBorder" style={styles.container}>
         <svg
+          height={350} width={450}
           viewBox="0 0 450 350"
           style={styles.parent}
         >

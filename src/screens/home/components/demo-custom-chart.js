@@ -12,8 +12,8 @@ class MultipleAxes extends React.Component {
     const tickValues = this.getTickValues();
 
     return (
-      <div className="fancyBorder">
-        <svg style={styles.parent} viewBox="0 0 450 350">
+      <div className="fancyBorder" style={styles.container}>
+        <svg style={styles.parent} viewBox="0 0 450 350" height={350} width={450}>
 
           {/* Create stylistic elements */}
           <rect x="0" y="0" width="10" height="30" fill="#f01616"/>
@@ -194,9 +194,14 @@ class MultipleAxes extends React.Component {
         padding: 0,
         backgroundColor: BABY_BLUE_COLOR,
         fontFamily: "'Fira Sans', 'Helvetica Neue', Helvetica, sans-serif",
-        width: "auto",
+        width: "100%",
+        height: "auto"
+      },
+      container: {
+        display: "inline-block",
         height: "100%",
-        maxHeight: "280px"
+        minWidth: "18em",
+        maxWidth: "60em"
       },
       title: {
         textAnchor: "start",

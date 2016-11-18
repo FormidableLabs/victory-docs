@@ -3,21 +3,31 @@ import { VictoryScatter, VictoryVoronoiTooltip, VictoryGroup, VictoryChart, Vict
 
 export default class App extends React.Component {
 
-  render() {
-    const parentStyle = {
-      boxSizing: "border-box",
-      display: "block",
-      margin: "0 auto",
-      width: "auto",
-      height: "100%",
-      maxHeight: "280px"
+  getStyles() {
+    return {
+      parent: {
+        boxSizing: "border-box",
+        display: "block",
+        margin: "0 auto",
+        padding: 0
+      },
+      container: {
+        display: "inline-block",
+        height: "100%",
+        minWidth: "18em",
+        maxWidth: "60em"
+      }
     };
+  }
+
+  render() {
+    const styles = this.getStyles();
 
     return (
-      <div className="fancyBorder">
+      <div className="fancyBorder" style={styles.container}>
         <VictoryChart
           width={450} height={350}
-          style={{parent: parentStyle}}
+          style={{parent: styles.parent}}
           domain={{y: [-7, 7]}}
         >
         <VictoryGroup

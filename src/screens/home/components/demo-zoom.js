@@ -53,32 +53,45 @@ export default class App extends React.Component {
       .join(", ");
   }
 
-  render() {
-    const buttonStyle = {
-      margin: "20px 10px 0",
-      padding: 5,
-      border: "2px solid black"
+  getStyles() {
+    return {
+      parent: {
+        boxSizing: "border-box",
+        display: "block",
+        margin: "0 auto",
+        padding: 0
+      },
+      container: {
+        display: "inline-block",
+        height: "100%",
+        minWidth: "18em",
+        maxWidth: "60em"
+      },
+      button: {
+        margin: "20px 10px 0",
+        padding: 5,
+        border: "2px solid black"
+      },
+      buttonContainer: {
+        marginBottom: "-50px"
+      }
     };
+  }
 
-    const parentStyle = {
-      boxSizing: "border-box",
-      display: "block",
-      margin: "0 auto",
-      width: "auto",
-      height: "100%",
-      maxHeight: "280px"
-    };
+
+  render() {
+    const styles = this.getStyles();
 
     return (
-      <div className="fancyBorder">
-        <div style={{marginBottom: -50}}>
-          <button style={buttonStyle}
+      <div className="fancyBorder" style={styles.container}>
+        <div style={styles.buttonContainer}>
+          <button style={styles.button}
             onClick={this.handleClick.bind(this, 10)}
           >
             PAN +10
           </button>
 
-          <button style={buttonStyle}
+          <button style={styles.button}
             onClick={this.handleClick.bind(this, -10)}
           >
             PAN -10
@@ -93,7 +106,7 @@ export default class App extends React.Component {
             padding={{
               top: 80, bottom: 50, left: 50, right: 50
             }}
-            style={{parent: parentStyle}}
+            style={{parent: styles.parent}}
             width={450} height={350}
             animate={{duration: 1000}}
           >

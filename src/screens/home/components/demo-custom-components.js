@@ -56,6 +56,23 @@ export default class App extends React.Component {
     });
   }
 
+  getStyles() {
+    return {
+      parent: {
+        boxSizing: "border-box",
+        display: "block",
+        margin: "0 auto",
+        padding: 0
+      },
+      container: {
+        display: "inline-block",
+        height: "100%",
+        minWidth: "18em",
+        maxWidth: "60em"
+      }
+    };
+  }
+
   render() {
     const streamData = this.getStreamData();
 
@@ -64,24 +81,13 @@ export default class App extends React.Component {
       "#FFF59D", "#F4511E", "#c33409"
     ];
 
-    const parentStyle = {
-      boxSizing: "border-box",
-      display: "block",
-      margin: "0 auto",
-      width: "auto",
-      height: "100%",
-      maxHeight: "280px"
-    };
+    const styles = this.getStyles();
 
     return (
-      <div className="fancyBorder">
-        <svg
-          viewBox="0 0 450 350"
-          style={parentStyle}
-        >
+      <div className="fancyBorder" style={styles.container}>
         <VictoryChart
           width={450} height={350}
-          standalone={false}
+          style={{parent: styles.parent}}
           domain={{x: [0, 25], y: [-300, 300]}}
         >
           <VictoryAxis
@@ -121,7 +127,6 @@ export default class App extends React.Component {
             ]}
           />
         </VictoryChart>
-        </svg>
       </div>
     );
   }
