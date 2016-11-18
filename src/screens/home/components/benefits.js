@@ -7,6 +7,12 @@ const RadiumLink = Radium(Link);
 import { VictorySettings } from "formidable-landers";
 import Icon from "../../../components/icon";
 
+import DemoCustomChart from "./demo-custom-chart";
+import DemoSharedEvents from "./demo-shared-events";
+import DemoCustomComponents from "./demo-custom-components";
+import DemoTooltips from "./demo-tooltips";
+import DemoZoom from "./demo-zoom";
+
 class Benefits extends React.Component {
   getStyles() {
     return {
@@ -73,6 +79,86 @@ class Benefits extends React.Component {
             <RadiumLink style={styles.link} to="/docs">
               Get Started <Icon glyph="internal-link" />
             </RadiumLink>
+          </div>
+        </div>
+
+        <div className="Benefits-demos">
+          <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoCustomChart />
+                <p className="SubHeading">
+                  <a
+                    href="./guides/custom-charts"
+                  >
+                    Custom Charts&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+                </div>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoSharedEvents/>
+                <p className="SubHeading">
+                  <a
+                    href="./guides/events"
+                  >
+                    Events&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoCustomComponents/>
+                <p className="SubHeading">
+                  <a
+                    href="./guides/custom-components"
+                  >
+                    Custom Components&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoTooltips />
+                <p className="SubHeading">
+                  <a
+                    href="./guides/tooltips"
+                  >
+                    Tooltips&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+                </div>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoZoom/>
+                <p className="SubHeading">
+                  <a
+                    href="./guides/pan-and-zoom"
+                  >
+                    Pan and Zoom&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div className="Grid-cell u-textCenter">
+              <div className="Benefits-demo">
+                <DemoCustomComponents/>
+                <p className="SubHeading">
+                  <a
+                    href="./guides/custom-components"
+                  >
+                    Custom Components&nbsp;<Icon glyph="internal-link" />
+                  </a>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
