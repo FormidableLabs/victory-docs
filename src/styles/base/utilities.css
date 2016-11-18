@@ -1,4 +1,13 @@
 /* Layout */
+.u-inlineBlock {
+  display: inline-block !important;
+}
+
+.u-flex {
+  display: flex !important;
+}
+
+/* Margin */
 .u-noMargin {
   margin: 0 !important;
 }
@@ -11,6 +20,15 @@
   margin: 0 auto !important;
 }
 
+.u-marginTop {
+  margin-top: var(--gutter);
+}
+
+.u-marginTopSm {
+  margin-top: var(--gutter-small);
+}
+
+/* Padding */
 .u-noPadding {
   padding: 0 !important;
 }
