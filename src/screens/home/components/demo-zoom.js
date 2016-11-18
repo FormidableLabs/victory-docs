@@ -64,13 +64,11 @@ export default class App extends React.Component {
       boxSizing: "border-box",
       display: "block",
       margin: "0 auto",
-      width: "auto",
-      height: "100%",
-      maxHeight: "280px"
+      maxWidth: "450px"
     };
 
     return (
-      <div className="fancyBorder">
+      <div className="fancyBorder u-inlineBlock">
         <div style={{marginBottom: -50}}>
           <button style={buttonStyle}
             onClick={this.handleClick.bind(this, 10)}
@@ -104,4 +102,3 @@ export default class App extends React.Component {
     );
   }
 }
-

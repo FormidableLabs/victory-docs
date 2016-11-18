@@ -5,27 +5,12 @@ import Radium from "radium";
 import { VictoryBar, VictoryPie, VictorySharedEvents, VictoryLabel } from "victory";
 
 class SharedEvents extends React.Component {
-  getStyles() {
-    return {
-      parent: {
-        display: "block",
-        boxSizing: "border-box",
-        margin: "0 auto",
-        padding: 0,
-        width: "auto",
-        height: "100%",
-        maxHeight: "280px"
-      }
-    };
-  }
-
   render() {
-    const styles = this.getStyles();
     return (
-      <div className="fancyBorder">
+      <div>
         <svg
+          className="Demo fancyBorder"
           viewBox="0 0 450 350"
-          style={styles.parent}
         >
           <VictorySharedEvents
             events={[{

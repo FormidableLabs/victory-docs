@@ -54,13 +54,11 @@ export default class App extends React.Component {
       boxSizing: "border-box",
       display: "block",
       margin: "0 auto",
-      width: "auto",
-      height: "100%",
-      maxHeight: "280px"
+      maxWidth: "450px"
     };
 
     return (
-      <div className="fancyBorder">
+      <div className="fancyBorder u-inlineBlock">
         <VictoryChart
           style={{parent: parentStyle}}
           width={450} height={350}

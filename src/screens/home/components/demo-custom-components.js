@@ -64,21 +64,11 @@ export default class App extends React.Component {
       "#FFF59D", "#F4511E", "#c33409"
     ];
 
-    const parentStyle = {
-      boxSizing: "border-box",
-      display: "block",
-      margin: "0 auto",
-      width: "auto",
-      height: "100%",
-      maxHeight: "280px"
-    };
-
     return (
-      <div className="fancyBorder">
-        <svg
-          viewBox="0 0 450 350"
-          style={parentStyle}
-        >
+      <svg
+        className="Demo fancyBorder"
+        viewBox="0 0 450 350"
+      >
         <VictoryChart
           width={450} height={350}
           standalone={false}
@@ -121,8 +111,7 @@ export default class App extends React.Component {
             ]}
           />
         </VictoryChart>
-        </svg>
-      </div>
+      </svg>
     );
   }
 }
