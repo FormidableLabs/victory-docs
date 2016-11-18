@@ -89,23 +89,19 @@ class Benefits extends React.Component {
               <div className="Benefits-demo">
                 <DemoCustomChart />
                 <p className="SubHeading">
-                  <a
-                    href="./guides/custom-charts"
-                  >
+                  <Link to="/guides/custom-charts">
                     Custom Charts&nbsp;<Icon glyph="internal-link" />
-                  </a>
+                  </Link>
                 </p>
-                </div>
+              </div>
             </div>
             <div className="Grid-cell u-textCenter">
               <div className="Benefits-demo">
                 <DemoSharedEvents/>
                 <p className="SubHeading">
-                  <a
-                    href="./guides/events"
-                  >
+                  <Link to="/guides/events">
                     Events&nbsp;<Icon glyph="internal-link" />
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -113,11 +109,9 @@ class Benefits extends React.Component {
               <div className="Benefits-demo">
                 <DemoCustomComponents/>
                 <p className="SubHeading">
-                  <a
-                    href="./guides/custom-components"
-                  >
+                  <Link to="/guides/custom-components">
                     Custom Components&nbsp;<Icon glyph="internal-link" />
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -125,23 +119,19 @@ class Benefits extends React.Component {
               <div className="Benefits-demo">
                 <DemoTooltips />
                 <p className="SubHeading">
-                  <a
-                    href="./guides/tooltips"
-                  >
+                  <Link to="/guides/tooltips">
                     Tooltips&nbsp;<Icon glyph="internal-link" />
-                  </a>
+                  </Link>
                 </p>
-                </div>
+              </div>
             </div>
             <div className="Grid-cell u-textCenter">
               <div className="Benefits-demo">
                 <DemoZoom/>
                 <p className="SubHeading">
-                  <a
-                    href="./guides/pan-and-zoom"
-                  >
+                  <Link to="/guides/pan-and-zoom">
                     Pan and Zoom&nbsp;<Icon glyph="internal-link" />
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
@@ -149,11 +139,9 @@ class Benefits extends React.Component {
               <div className="Benefits-demo">
                 <DemoAnimation/>
                 <p className="SubHeading">
-                  <a
-                    href="./guides/animation"
-                  >
-                    Animation&nbsp;<Icon glyph="internal-link" />
-                  </a>
+                  <Link to="/guides/animations">
+                    Animations&nbsp;<Icon glyph="internal-link" />
+                  </Link>
                 </p>
               </div>
             </div>
