@@ -28,14 +28,14 @@
     ]
   },
   "devDependencies": {
-    "builder-docs-archetype-dev": "^4.2.2",
+    "builder-docs-archetype-dev": "^5.0.0",
     "react-docgen": "2.12.1"
   },
   "dependencies": {
     "anchorate": "^1.1.0",
     "babel-preset-stage-1": "^6.5.0",
     "builder": "^3.1.0",
-    "builder-docs-archetype": "^4.2.2",
+    "builder-docs-archetype": "^5.0.0",
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
     "formidable-landers": "^5.1.1",
