@@ -60,21 +60,17 @@ export default class App extends React.Component {
     };
 
     return (
-      <svg
-        viewBox="0 0 450 350"
-        className="fancyBorder"
-        style={parentStyle}
-      >
+      <div className="fancyBorder">
         <VictoryChart
+          style={{parent: parentStyle}}
           width={450} height={350}
-          standalone={false}
           animate={{ duration: 2000 }}
         >
           <VictoryScatter
             data={this.state.scatterData}
           />
         </VictoryChart>
-      </svg>
+      </div>
     );
   }
 }

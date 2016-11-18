@@ -74,54 +74,55 @@ export default class App extends React.Component {
     };
 
     return (
-      <svg
-        viewBox="0 0 450 350"
-        className="fancyBorder"
-        style={parentStyle}
-      >
-      <VictoryChart
-        width={450} height={350}
-        standalone={false}
-        domain={{x: [0, 25], y: [-300, 300]}}
-      >
-        <VictoryAxis
-          style={{
-            axis: {stroke: "none"},
-            tickLabels: {fill: "none"},
-            grid: {stroke: "gray"}
-          }}
-          tickValues={[2, 4, 6, 8, 10, 12, 14, 17, 19, 21, 23, 25]}
-        />
-        <VictoryAxis dependentAxis
-          style={{tickLabels: {fontSize: 15}}}
-          crossAxis={false}
-        />
+      <div className="fancyBorder">
+        <svg
+          viewBox="0 0 450 350"
+          style={parentStyle}
+        >
+        <VictoryChart
+          width={450} height={350}
+          standalone={false}
+          domain={{x: [0, 25], y: [-300, 300]}}
+        >
+          <VictoryAxis
+            style={{
+              axis: {stroke: "none"},
+              tickLabels: {fill: "none"},
+              grid: {stroke: "gray"}
+            }}
+            tickValues={[2, 4, 6, 8, 10, 12, 14, 17, 19, 21, 23, 25]}
+          />
+          <VictoryAxis dependentAxis
+            style={{tickLabels: {fontSize: 15}}}
+            crossAxis={false}
+          />
 
-        {
-          streamData.map((d, i) => {
-            return (
-              <VictoryArea key={i}
-                interpolation="monotoneX"
-                data={d}
-                style={{data: {fill: colors[i]}}}
-                dataComponent={
-                  <GradientArea percent={this.state.percent}/>
-                }
-              />
-            );
-          })
-        }
-        <VictoryLine
-          style={{
-            data: {stroke: "#c33409", strokeWidth: 3}
-          }}
-          data={[
-            {x: 25 * this.state.percent / 100, y: -300},
-            {x: 25 * this.state.percent / 100, y: 300}
-          ]}
-        />
-      </VictoryChart>
-      </svg>
+          {
+            streamData.map((d, i) => {
+              return (
+                <VictoryArea key={i}
+                  interpolation="monotoneX"
+                  data={d}
+                  style={{data: {fill: colors[i]}}}
+                  dataComponent={
+                    <GradientArea percent={this.state.percent}/>
+                  }
+                />
+              );
+            })
+          }
+          <VictoryLine
+            style={{
+              data: {stroke: "#c33409", strokeWidth: 3}
+            }}
+            data={[
+              {x: 25 * this.state.percent / 100, y: -300},
+              {x: 25 * this.state.percent / 100, y: 300}
+            ]}
+          />
+        </VictoryChart>
+        </svg>
+      </div>
     );
   }
 }

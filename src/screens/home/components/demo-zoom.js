@@ -59,9 +59,19 @@ export default class App extends React.Component {
       padding: 5,
       border: "2px solid black"
     };
+
+    const parentStyle = {
+      boxSizing: "border-box",
+      display: "block",
+      margin: "0 auto",
+      width: "auto",
+      height: "100%",
+      maxHeight: "280px"
+    };
+
     return (
       <div className="fancyBorder">
-        <div>
+        <div style={{marginBottom: -50}}>
           <button style={buttonStyle}
             onClick={this.handleClick.bind(this, 10)}
           >
@@ -81,9 +91,10 @@ export default class App extends React.Component {
         >
           <VictoryChart
             padding={{
-              top: 10, bottom: 30, left: 50, right: 50
+              top: 80, bottom: 50, left: 50, right: 50
             }}
-            width={450} height={270}
+            style={{parent: parentStyle}}
+            width={450} height={350}
             animate={{duration: 1000}}
           >
             <VictoryLine data={this.state.data} interpolation="basis"/>
