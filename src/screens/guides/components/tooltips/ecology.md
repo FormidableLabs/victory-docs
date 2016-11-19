@@ -1,8 +1,8 @@
 # Tooltips
 
-[`VictoryTooltip`] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>` 
+[`VictoryTooltip`] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`
 
-[`VictoryVoronoiTooltip`] attaches the `VictoryTooltip` label component to an invisible `VictoryVoronoi` data component. `VictoryVoronoi` tooltip is useful for adding tooltips to elements that do not have individual data elements, like `VictoryLine`, or adding tooltips to any element that is too small to hover over effectively. 
+[`VictoryVoronoiTooltip`] attaches the `VictoryTooltip` label component to an invisible `VictoryVoronoi` data component. `VictoryVoronoi` tooltip is useful for adding tooltips to elements that do not have individual data elements, like `VictoryLine`, or adding tooltips to any element that is too small to hover over effectively.
 
 This guide discusses customization and advanced usage of tooltips in Victory
 
@@ -26,8 +26,8 @@ The simplest way to add tooltips to a chart is to use `VictoryTooltip` as a `lab
     style={{
       data: {fill: "tomato", width: 20}
     }}
-  /> 
-</VictoryChart> 
+  />
+</VictoryChart>
 ```
 
 
@@ -47,7 +47,7 @@ Tooltips can be customized directly on the the `VictoryTooltip` component
         cornerRadius={(d) => d.x > 6 ? 0 : 20}
         pointerLength={(d) => d.y > 0 ? 5 : 20}
         flyoutStyle={{
-          stroke: (d) => d.x === 10 ? 
+          stroke: (d) => d.x === 10 ?
             "tomato" : "black"
         }}
       />
@@ -62,8 +62,8 @@ Tooltips can be customized directly on the the `VictoryTooltip` component
     style={{
       data: {fill: "tomato", width: 20}
     }}
-  /> 
-</VictoryChart> 
+  />
+</VictoryChart>
 ```
 
 `VictoryTooltip` is composed of [`VictoryLabel`] and the primitive [`Flyout`] component. Both of these components are highly configurable, but may also be replaced if necessary.
@@ -106,8 +106,8 @@ class App extends React.Component {
               data: {fill: "tomato", width: 20},
               labels: { fill: "tomato"}
             }}
-          /> 
-        </VictoryChart> 
+          />
+        </VictoryChart>
     );
   }
 }
@@ -156,7 +156,7 @@ Voronoi tooltips are useful for adding tooltips to a line, or adding tooltips to
         >
           <VictoryLine
             style={{
-              data: { stroke: "tomato", strokeWidth: }
+              data: { stroke: "tomato", strokeWidth: 3 }
             }}
           />
           <VictoryVoronoiTooltip
@@ -169,7 +169,7 @@ Voronoi tooltips are useful for adding tooltips to a line, or adding tooltips to
 
 ## Tooltips with Other Events
 
-`VictoryTooltip` automatically attaches events to data components. When events of the same type are specified for data components, it is necessary to reconcile events so that tooltips still work. For web, the default tooltip events are: 
+`VictoryTooltip` automatically attaches events to data components. When events of the same type are specified for data components, it is necessary to reconcile events so that tooltips still work. For web, the default tooltip events are:
 
 ```jsx
 static defaultEvents = [{
@@ -191,7 +191,7 @@ static defaultEvents = [{
 }];
 ```
 
-When other `onMouseOver` and `onMouseOut` events are specified for data, the event returns described above must be added to the events for tooltips to continue to work properly. 
+When other `onMouseOver` and `onMouseOut` events are specified for data, the event returns described above must be added to the events for tooltips to continue to work properly.
 
 ```playground
 <VictoryChart
@@ -236,9 +236,9 @@ When other `onMouseOver` and `onMouseOut` events are specified for data, the eve
         }
       }
     }]}
-  /> 
-</VictoryChart> 
-``` 
+  />
+</VictoryChart>
+```
 
 ## Wrapping VictoryTooltip
 
@@ -277,8 +277,8 @@ class App extends React.Component {
             style={{
               data: {fill: "tomato", width: 20}
             }}
-          /> 
-        </VictoryChart> 
+          />
+        </VictoryChart>
     );
   }
 }
