@@ -139,24 +139,31 @@ Voronoi tooltips are useful for adding tooltips to a line, or adding tooltips to
 
 ```playground
 <VictoryChart
-  domain={{y: [-25, 25]}}
->
-  <VictoryGroup
-    data={
-      range(10).map((i) => {
-        return {
-          x: i,
-          y: random(-20, 20)
-        };
-      })
-    }
-  >
-    <VictoryLine/>
-    <VictoryVoronoiTooltip
-      labels={(d) => `x: ${d.x} \n y: ${d.y}`}
-    />
-  </VictoryGroup>
-</VictoryChart>
+        domain={{y: [-7, 7]}}
+      >
+        <VictoryGroup
+          data={[
+            {x: 1, y: 1},
+            {x: 2, y: 3},
+            {x: 3, y: -2},
+            {x: 4, y: 4},
+            {x: 5, y: 5},
+            {x: 6, y: -5},
+            {x: 7, y: 3},
+            {x: 8, y: 1},
+            {x: 9, y: 5}
+          ]}
+        >
+          <VictoryLine
+            style={{
+              data: { stroke: "tomato", strokeWidth: }
+            }}
+          />
+          <VictoryVoronoiTooltip
+            labels={(d) => `x: ${d.x} \n y: ${d.y}`}
+          />
+        </VictoryGroup>
+      </VictoryChart>
 ```
 
 

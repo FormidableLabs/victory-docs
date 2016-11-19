@@ -144,10 +144,16 @@
   text-align: center;
 }
 
-.Benefits-demos {
-  margin-top: var(--gutter);
+.Benefits-demo {
+  display: inline-block;
+  height: 100%;
+  min-width: 18em;
+  max-width: 60em;
 }
 
-.Benefits-demo {
-  padding: var(--gutter-small);
+.Benefits-demo-svg {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
 }
