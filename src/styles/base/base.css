@@ -209,25 +209,6 @@ code {
   }
 }
 
-a:link {
-  color: var(--darkRed);
-  text-decoration: none;
-  transition: color 250ms ease-in;
-}
-
-a:visited {
-  color: var(--darkGray);
-}
-
-a:focus,
-a:hover {
-  color: var(--black);
-}
-
-a:active {
-  transition: color 300ms ease-out;
-}
-
 svg {
   fill: currentColor;
 }

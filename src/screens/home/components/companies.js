@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
 
-// Settings
+// Common
+import Icon from "../../../components/icon";
+// Assets
 import VIACOM from "../../../../static/logo-viacom.svg";
 import FIVETHIRTYEIGHT from "../../../../static/logo-fivethirtyeight.svg";
 
@@ -18,6 +21,11 @@ class Companies extends React.Component {
           <li className="Companies-logo Companies-logo--max300" dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
           <li className="Companies-logo Companies-logo--max200" dangerouslySetInnerHTML={{__html: VIACOM}} />
         </ul>
+        <p className="SubHeading">
+          <Link to="/about#showcase" className="isLight">
+            See showcase&nbsp;<Icon glyph="internal-link"/>
+          </Link>
+        </p>
       </div>
     );
   }

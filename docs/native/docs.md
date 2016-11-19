@@ -109,8 +109,8 @@ Now let's add some data. Take advantage of [data accessors] to specify how an ar
               data: {fill: "blue"}
             }}
             data={data}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
         </ScrollView>
       );
@@ -139,8 +139,8 @@ Then wrap `VictoryBar` in `VictoryChart`. Refresh your app to see the default ax
           data: {fill: "blue"}
         }}
         data={data}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
     </VictoryChart>
   </ScrollView>
@@ -175,8 +175,8 @@ Set the `dependentAxis` prop to specify the dependent axis. [`tickValues`] and [
         data: {fill: "blue"}
       }}
       data={data}
-      x={"quarter"}
-      y={"earnings"}
+      x="quarter"
+      y="earnings"
     />
   </VictoryChart>
 ```
@@ -244,23 +244,23 @@ To define a stacked layout, just wrap `VictoryStack` around all the data compone
     <VictoryStack>
       <VictoryBar
         data={data2012}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryBar
         data={data2013}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryBar
         data={data2014}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryBar
         data={data2015}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
     </VictoryStack>
   </VictoryChart>
@@ -301,23 +301,23 @@ In this commit, we've also changed the theme on `VictoryChart`. Themes may be us
           data: { width: 13, strokeWidth: 0, fill: "navy"}
         }}
         data={data2012}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryBar
         data={data2013}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryBar
         data={data2014}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryBar
         data={data2015}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
     </VictoryStack>
   </VictoryChart>
@@ -362,23 +362,23 @@ Then, simply replace all instances of `VictoryBar` with `VictoryArea`, and tweak
           data: { fill: "navy" }
         }}
         data={data2012}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryArea
         data={data2013}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryArea
         data={data2014}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
       <VictoryArea
         data={data2015}
-        x={"quarter"}
-        y={"earnings"}
+        x="quarter"
+        y="earnings"
       />
     </VictoryStack>
   </VictoryChart>
