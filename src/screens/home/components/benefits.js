@@ -83,7 +83,10 @@ class Benefits extends React.Component {
           </div>
         </div>
 
-        <div className="u-marginTop">
+        <div className="u-padding">
+          <h3 className="u-textCenter">
+            Gallery
+          </h3>
           <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
             <div className="Grid-cell u-textCenter">
               <div className="u-paddingSm">
@@ -107,7 +110,7 @@ class Benefits extends React.Component {
             </div>
             <div className="Grid-cell u-textCenter">
               <div className="u-paddingSm">
-                <DemoCustomComponents/>
+                <DemoCustomComponents />
                 <p className="SubHeading">
                   <Link to="/guides/custom-components">
                     Custom Components&nbsp;<Icon glyph="internal-link" />

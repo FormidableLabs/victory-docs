@@ -17,8 +17,12 @@ class GradientArea extends Area {
   // This method exists in Area, and is completely overridden for the custom component.
   renderArea(path, style, events) {
     const gradientId = `gradient-${Math.random()}`;
+
+    const isBrowser = typeof window !== "undefined" && window.__STATIC_GENERATOR !== true;
+    const loc = isBrowser ? window.location.href : "";
+
     const areaStyle = Object.assign(
-      {}, style, {fill: `url(${location.href}#${gradientId})`}
+      {}, style, {fill: `url(${loc}#${gradientId})`}
     );
     const percent = `${this.props.percent}%`;
     const gray = this.toGrayscale(style.fill);
@@ -105,7 +109,9 @@ export default class App extends React.Component {
                   data={d}
                   style={{data: {fill: colors[i]}}}
                   dataComponent={
-                    <GradientArea percent={this.state.percent}/>
+                    <GradientArea
+                      percent={this.state.percent}
+                    />
                   }
                 />
               );
