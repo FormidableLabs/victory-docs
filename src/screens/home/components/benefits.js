@@ -83,10 +83,10 @@ class Benefits extends React.Component {
           </div>
         </div>
 
-        <div className="Benefits-demos">
+        <div className="u-marginTop">
           <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
             <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
+              <div className="u-paddingSm">
                 <DemoCustomChart />
                 <p className="SubHeading">
                   <Link to="/guides/custom-charts">
@@ -96,7 +96,7 @@ class Benefits extends React.Component {
               </div>
             </div>
             <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
+              <div className="u-paddingSm">
                 <DemoSharedEvents/>
                 <p className="SubHeading">
                   <Link to="/guides/events">
@@ -106,7 +106,7 @@ class Benefits extends React.Component {
               </div>
             </div>
             <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
+              <div className="u-paddingSm">
                 <DemoCustomComponents/>
                 <p className="SubHeading">
                   <Link to="/guides/custom-components">
@@ -116,7 +116,7 @@ class Benefits extends React.Component {
               </div>
             </div>
             <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
+              <div className="u-paddingSm">
                 <DemoTooltips />
                 <p className="SubHeading">
                   <Link to="/guides/tooltips">
@@ -126,7 +126,7 @@ class Benefits extends React.Component {
               </div>
             </div>
             <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
+              <div className="u-paddingSm">
                 <DemoZoom/>
                 <p className="SubHeading">
                   <Link to="/guides/pan-and-zoom">
@@ -136,7 +136,7 @@ class Benefits extends React.Component {
               </div>
             </div>
             <div className="Grid-cell u-textCenter">
-              <div className="Benefits-demo">
+              <div className="u-paddingSm">
                 <DemoAnimation/>
                 <p className="SubHeading">
                   <Link to="/guides/animations">

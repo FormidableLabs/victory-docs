@@ -143,11 +143,3 @@
   padding-top: var(--gutter);
   text-align: center;
 }
-
-.Benefits-demos {
-  margin-top: var(--gutter);
-}
-
-.Benefits-demo {
-  padding: var(--gutter-small);
-}
