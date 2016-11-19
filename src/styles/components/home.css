@@ -143,3 +143,17 @@
   padding-top: var(--gutter);
   text-align: center;
 }
+
+.Benefits-demo {
+  display: inline-block;
+  height: 100%;
+  min-width: 18em;
+  max-width: 60em;
+}
+
+.Benefits-demo-svg {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}

@@ -61,12 +61,6 @@ export default class App extends React.Component {
         margin: "0 auto",
         padding: 0
       },
-      container: {
-        display: "inline-block",
-        height: "100%",
-        minWidth: "18em",
-        maxWidth: "60em"
-      },
       button: {
         margin: "20px 10px 0",
         padding: 5,
@@ -83,7 +77,7 @@ export default class App extends React.Component {
     const styles = this.getStyles();
 
     return (
-      <div className="fancyBorder" style={styles.container}>
+      <div className="Benefits-demo fancyBorder">
         <div style={styles.buttonContainer}>
           <button style={styles.button}
             onClick={this.handleClick.bind(this, 10)}
@@ -117,4 +111,3 @@ export default class App extends React.Component {
     );
   }
 }
-

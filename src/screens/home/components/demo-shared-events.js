@@ -14,12 +14,6 @@ class SharedEvents extends React.Component {
         padding: 0,
         width: "100%",
         height: "auto"
-      },
-      container: {
-        display: "inline-block",
-        height: "100%",
-        minWidth: "18em",
-        maxWidth: "60em"
       }
     };
   }
@@ -27,7 +21,7 @@ class SharedEvents extends React.Component {
   render() {
     const styles = this.getStyles();
     return (
-      <div className="fancyBorder" style={styles.container}>
+      <div className="Benefits-demo fancyBorder">
         <svg
           height={350} width={450}
           viewBox="0 0 450 350"
