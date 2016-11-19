@@ -1,4 +1,4 @@
-/*global location:false */
+/*global window:false */
 
 import React from "react";
 import { range, random } from "lodash";
