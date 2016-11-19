@@ -2,9 +2,9 @@
 
 ## Default Layout
 
-Victory components have default `width`, `height`, and `padding` props defined in the default [grayscale theme]. 
+Victory components have default `width`, `height`, and `padding` props defined in the default [grayscale theme].
 
-Victory renders components into responsive `svg` containers by default. Responsive containers will have a `viewBox` attribute set to `viewBox={"0 0 width, height"}` and styles `width: "100%" height: "auto"` in addition to any styles provided via props. Because Victory renders responsive containers, the `width` and `height` props do not determine the width and height of the chart in number of pixels, but instead define an aspect ratio for the chart. The exact number of pixels will depend on the size of the container the chart is rendered into. 
+Victory renders components into responsive `svg` containers by default. Responsive containers will have a `viewBox` attribute set to `viewBox={"0 0 width, height"}` and styles `width: "100%" height: "auto"` in addition to any styles provided via props. Because Victory renders responsive containers, the `width` and `height` props do not determine the width and height of the chart in number of pixels, but instead define an aspect ratio for the chart. The exact number of pixels will depend on the size of the container the chart is rendered into.
 
 ## SVG Render Order
 
@@ -58,7 +58,7 @@ Some components, such as tooltips, should _always_ render above others. Use [`Vi
   <VictoryChart domainPadding={40}>
     <VictoryStack
       colorScale={["gold", "orange", "tomato"]}
-      style={{ 
+      style={{
         data: { width: 30 },
         labels: { padding: -20 }
       }}
@@ -112,12 +112,11 @@ Responsive containers are not appropriate for every application, so Victroy prov
 
 ## Rendering components in custom containers
 
-To render a Victory component in a completely custom container set the `standalone` prop on the component to false. The component will render a `g` tag rather than an `svg` tag. 
+To render a Victory component in a completely custom container set the `standalone` prop on the component to false. The component will render a `g` tag rather than an `svg` tag.
 
-pie with label example
 ```playground
 <svg viewBox="0 0 400 400" >
-  <VictoryPie 
+  <VictoryPie
     standalone={false}
     width={400} height={400}
     data={[
@@ -130,7 +129,7 @@ pie with label example
   />
   <circle cx="200" cy="200" r="65" fill="none" stroke="black" strokeWidth={3}/>
   <circle cx="200" cy="200" r="155" fill="none" stroke="black" strokeWidth={3}/>
-  <VictoryLabel 
+  <VictoryLabel
     textAnchor="middle" verticalAnchor="middle"
     x={200} y={200}
     style={{fontSize: 30}}
