@@ -1,0 +1,40 @@
+/** Links
+ *
+ *  default/base
+ *  .isLight modifier for dark backgrounds
+ *
+ */
+a:link {
+  color: var(--darkRed);
+  text-decoration: none;
+  transition: color 250ms ease-in;
+}
+
+a:visited {
+  color: var(--darkGray);
+}
+
+a:focus,
+a:hover {
+  color: var(--black);
+  transition: color 300ms ease-out;
+}
+
+a:active {
+  transition: color 300ms ease-out;
+}
+
+/* .isLight
+*/
+a:link.isLight {
+  color: var(--lightRed);
+}
+
+a:visited.isLight {
+  color: var(--gray);
+}
+
+a:focus.isLight,
+a:hover.isLight {
+  color: var(--lighterGray);
+}

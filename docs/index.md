@@ -96,9 +96,9 @@ class App extends React.Component {
       <VictoryBar
         data={data}
         // data accessor for x values
-        x={"quarter"}
+        x="quarter"
         // data accessor for y values
-        y={"earnings"}
+        y="earnings"
       />  
     )
   }
@@ -133,8 +133,8 @@ class App extends React.Component {
       <VictoryChart>
         <VictoryBar
           data={data}
-          x={"quarter"}
-          y={"earnings"}
+          x="quarter"
+          y="earnings"
         />
       </VictoryChart>  
     )
@@ -184,8 +184,8 @@ class App extends React.Component {
         />
         <VictoryBar
           data={data}
-          x={"quarter"}
-          y={"earnings"}
+          x="quarter"
+          y="earnings"
         />
       </VictoryChart>
     )
@@ -234,8 +234,8 @@ class App extends React.Component {
         />
         <VictoryBar
           data={data}
-          x={"quarter"}
-          y={"earnings"}
+          x="quarter"
+          y="earnings"
         />
       </VictoryChart>
     )
@@ -304,23 +304,23 @@ class App extends React.Component {
         <VictoryStack>
           <VictoryBar
             data={data2012}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
           <VictoryBar
             data={data2013}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
           <VictoryBar
             data={data2014}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
           <VictoryBar
             data={data2015}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
         </VictoryStack>
       </VictoryChart>
@@ -383,23 +383,23 @@ class App extends React.Component {
         >
           <VictoryBar
             data={data2012}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
           <VictoryBar
             data={data2013}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
           <VictoryBar
             data={data2014}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
           <VictoryBar
             data={data2015}
-            x={"quarter"}
-            y={"earnings"}
+            x="quarter"
+            y="earnings"
           />
         </VictoryStack>
       </VictoryChart>

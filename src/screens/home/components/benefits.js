@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router";
 
 // Common
-import { VictorySettings } from "formidable-landers";
 import Icon from "../../../components/icon";
-
+// Demos
 import DemoCustomChart from "./demo-custom-chart";
 import DemoSharedEvents from "./demo-shared-events";
 import DemoCustomComponents from "./demo-custom-components";
@@ -53,10 +52,10 @@ class Benefits extends React.Component {
           </div>
         </div>
 
-        <h3 className="u-textCenter">
-          Gallery
-        </h3>
-        <div className="u-padding">
+        <h2 className="u-textCenter">
+          Guides
+        </h2>
+        <div className="u-paddingSm">
           <div className="Grid Grid--gutters Grid--full medium-Grid--fit">
             <div className="Grid-cell u-textCenter">
               <div className="u-paddingSm">
