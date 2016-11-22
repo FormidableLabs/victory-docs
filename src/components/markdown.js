@@ -11,8 +11,6 @@ import sh from "prismjs/components/prism-bash";
 import yaml from "prismjs/components/prism-yaml";
 /* eslint-enable no-unused-vars */
 
-import basename from "../basename";
-
 class Markdown extends React.Component {
   constructor() {
     super();
@@ -75,6 +73,8 @@ class Markdown extends React.Component {
       return renderer.renderToken(tokens, idx, options);
     };
 
+    const basename = this.props.basename;
+
     // Update links to include the basename
     md.renderer.rules.link_open = function (tokens, idx, options, env, renderer) {
       const tokenAttrs = tokens[idx].attrs;
@@ -108,6 +108,7 @@ class Markdown extends React.Component {
 
 Markdown.propTypes = {
   active: React.PropTypes.string.isRequired,
+  basename: React.PropTypes.string.isRequired,
   location: React.PropTypes.object.isRequired,
   markdownFile: React.PropTypes.string,
   params: React.PropTypes.object,

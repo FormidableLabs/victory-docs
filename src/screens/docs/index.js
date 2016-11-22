@@ -13,6 +13,7 @@ import yaml from "prismjs/components/prism-yaml";
 /* eslint-enable no-unused-vars */
 
 // Child components
+import basename from "../../basename";
 import { config } from "../../components/config";
 import Page from "../../components/page";
 import Markdown from "../../components/markdown";
@@ -61,10 +62,11 @@ class Docs extends React.Component {
       <div>
         <a href={editUrl} className="SubHeading">Edit this page</a>
         <Markdown
-          location={this.props.location}
-          updateTocArray={this.updateTocArray.bind(this)}
           active={activePage}
+          basename={basename}
+          location={this.props.location}
           markdownFile={markdownDocs}
+          updateTocArray={this.updateTocArray.bind(this)}
         />
       </div>
     );
