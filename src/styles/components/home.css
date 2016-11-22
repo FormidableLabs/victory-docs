@@ -144,6 +144,31 @@
   text-align: center;
 }
 
+.Benefits-btn-link {
+  border-style: solid;
+  border-width: 39px 41px;
+  border-image-source: svg-load("../../../static/btn-border.svg", fill=#BD1E13);
+  border-image-slice: 39 41;
+  border-image-repeat: repeat stretch;
+  color: var(--red);
+  display: inline-block;
+  font-family: var(--fontSubHeading);
+  font-size: 1em;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 30px 24px;
+  width: 100%;
+  transition: color 300ms ease-out;
+}
+
+.Benefits-btn-link:hover {
+  border-image-source: svg-load("../../../static/btn-border.svg", fill=#000);
+  color: var(--black);
+  transition: color 300ms ease;
+}
+
 .Benefits-demo {
   display: inline-block;
   height: 100%;

@@ -38,7 +38,7 @@
     "builder-docs-archetype": "^5.0.0",
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
-    "formidable-landers": "^5.1.1",
+    "formidable-landers": "^6.0.1",
     "history": "^3.0.0",
     "lodash": "^4.6.1",
     "markdown-it": "^8.0.0",

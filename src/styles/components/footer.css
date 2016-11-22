@@ -1,0 +1,9 @@
+.formidableFooter.victory {
+  margin: 0;
+  padding: 0;
+}
+
+.formidableFooter.victory .formidableFooter-container {
+  margin-right: 3vw;
+  margin-left: 3vw;
+}

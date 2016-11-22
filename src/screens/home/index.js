@@ -3,8 +3,8 @@ import Radium from "radium";
 
 // Common
 import Header from "../../components/header";
+import Footer from "../../components/footer";
 import TitleMeta from "../../components/title-meta";
-import { Footer } from "formidable-landers";
 
 // Child Components
 import Banner from "./components/banner";
@@ -38,12 +38,6 @@ class Home extends React.Component {
           </div>
         </section>
         <Footer
-          style={{
-            margin: 0
-          }}
-          styleContainer={{
-            margin: "0 3vw"
-          }}
           trademark={trademark}
         />
       </TitleMeta>

@@ -37,6 +37,8 @@
 @import "./components/article.css";
 @import "./components/banner.css";
 @import "./components/button.css";
+@import "./components/footer.css";
+@import "./components/header.css";
 @import "./components/home.css";
 @import "./components/markdown.css";
 @import "./components/page.css";

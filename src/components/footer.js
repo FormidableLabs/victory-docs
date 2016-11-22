@@ -1,5 +1,4 @@
 import React from "react";
-import Radium from "radium";
 
 // Common
 import { Footer } from "formidable-landers";
@@ -10,12 +9,7 @@ class VictoryFooter extends React.Component {
 
     return (
       <Footer
-        style={{
-          margin: 0
-        }}
-        styleContainer={{
-          margin: "0 3vw"
-        }}
+        className="victory"
         trademark={trademark}
         theme="dark"
       />
@@ -32,4 +26,4 @@ VictoryFooter.defaultProps = {
 };
 
 
-export default Radium(VictoryFooter);
+export default VictoryFooter;

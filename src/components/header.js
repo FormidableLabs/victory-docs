@@ -1,5 +1,4 @@
 import React from "react";
-import Radium from "radium";
 import { Link } from "react-router";
 
 // Common
@@ -8,7 +7,7 @@ import LOGO from "../../static/logotype-hero.svg";
 
 class VictoryHeader extends React.Component {
   render() {
-    const padding = this.props.home ? "60px 0" : "40px 0";
+    const isHome = this.props.home ? "isHome" : "";
 
     const victoryLogo = (
       <Link
@@ -19,13 +18,8 @@ class VictoryHeader extends React.Component {
 
     return (
       <Header
+        className={`victory ${isHome}`}
         logoProject={victoryLogo}
-        padding={padding}
-        styleBy={{ textIndent: "33px" }}
-        styleContainer={{
-          marginRight: "3vw",
-          marginLeft: "3vw"
-        }}
       >
         <div className="default" style={{textAlign: "center"}}>
           <Link to="/about">
@@ -58,4 +52,4 @@ VictoryHeader.defaultProps = {
 };
 
 
-export default Radium(VictoryHeader);
+export default VictoryHeader;
