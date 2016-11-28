@@ -34,4 +34,10 @@ The optional `zoomDomain` prop describes the zoomed and panned state. This prop 
 
 ### onDomainChange
 
-the optional `onDomainChange` prop accepts an function to be called on each update to the visible domain. The function accepts a single parameter of `domain`.
+The optional `onDomainChange` prop accepts an function to be called on each update to the visible domain. The function accepts a single parameter of `domain`.
+
+### allowZoom
+
+The optional `allowZoom` prop accepts a boolean that enable the zoom functionality.
+
+*default:* `allowZoom={true}`
