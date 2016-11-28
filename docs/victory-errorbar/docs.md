@@ -10,11 +10,11 @@ Specify data via the `data` prop. By default, Victory components expect data as 
 
 ```jsx
 <VictoryErrorBar
-  data={[{
+  data={[
     {x: 15, y: 35000, error: 0.2},
     {x: 20, y: 42000, error: 0.05},
     {x: 30, y: 55000, error: 0.1}
-  }]}
+  ]}
   errorX={(datum) => datum.error * datum.x}
   errorY={(datum) => datum.error * datum.y}
 />
