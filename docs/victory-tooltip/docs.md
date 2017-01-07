@@ -12,8 +12,6 @@ The `text` prop defines the text `VictoryTooltip` will render. The `text` prop m
 
 The `active` prop specifies whether the tooltip component should be displayed.
 
-*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`
-
 ### datum
 
 Victory components can pass a `datum` prop to their label component. This can
@@ -38,7 +36,7 @@ The `style` prop applies SVG style properties to the rendered flyout container. 
 ### events
 
 The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey.
-  
+
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### x and y
@@ -51,7 +49,7 @@ The `dx` and `dy` props define horizontal and vertical offsets from the base x, 
 
 ### width and height
 
-The `width` and `height` props define the width and height of the tooltip flyout. These props may be given as positive numbers or functions of datum. If these props are not set, `width` and `height` will be determined based on an [approximate text size] calculated from the `text` and `style` props provided to `VictoryTooltip`. 
+The `width` and `height` props define the width and height of the tooltip flyout. These props may be given as positive numbers or functions of datum. If these props are not set, `width` and `height` will be determined based on an [approximate text size] calculated from the `text` and `style` props provided to `VictoryTooltip`.
 
 ### orientation
 
@@ -59,7 +57,7 @@ The `orientation` prop determines which side of the (x, y) coordinate the toolti
 
 ### horizontal
 
-The `horizontal` prop determines whether to plot the flyouts to the left / right of the (x, y) coordinate rather than top / bottom. This is useful when an orientation prop is not provided, and data will determine the default orientation. _i.e._ negative values result in a left orientation and positive values will result in a right orientation by default. 
+The `horizontal` prop determines whether to plot the flyouts to the left / right of the (x, y) coordinate rather than top / bottom. This is useful when an orientation prop is not provided, and data will determine the default orientation. _i.e._ negative values result in a left orientation and positive values will result in a right orientation by default.
 
 ### pointerLength
 
