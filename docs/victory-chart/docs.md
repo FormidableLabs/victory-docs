@@ -136,17 +136,17 @@ The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition
 ```
 
 
-[VictoryArea]: https://formidable.com/open-source/docs/victory-area
-[VictoryAxis]: https://formidable.com/open-source/docs/victory-axis
-[VictoryBar]: https://formidable.com/open-source/docs/victory-bar
-[VictoryCandlestick]: https://formidable.com/open-source/docs/victory-candlestick
-[VictoryErrorBar]: https://formidable.com/open-source/docs/victory-error-bar
-[VictoryGroup]: https://formidable.com/open-source/docs/victory-group
-[VictoryLine]: https://formidable.com/open-source/docs/victory-line
-[VictoryScatter]: https://formidable.com/open-source/docs/victory-scatter
-[VictoryStack]: https://formidable.com/open-source/docs/victory-stack
-[VictoryVoronoi]: https://formidable.com/open-source/docs/victory-voronoi
-[VictoryVoronoiTooltip]: https://formidable.com/open-source/docs/victory-voronoi-tooltip
+[VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
+[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
+[VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
+[VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
+[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-error-bar
+[VictoryGroup]: https://formidable.com/open-source/victory/docs/victory-group
+[VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
+[VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
+[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
+[VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
+[VictoryVoronoiTooltip]: https://formidable.com/open-source/victory/docs/victory-voronoi-tooltip
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [width and height]: https://formidable.com/open-source/victory/docs/victory-chart#width-and-height
