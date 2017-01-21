@@ -6,7 +6,7 @@ The `VictorySharedEvents` wrapper coordinates events between its child component
 
 ### children
 
-`VictorySharedEvents` renders an array of children with new `sharedEvents` props which define a set of events, and a shared state accessor. 
+`VictorySharedEvents` renders an array of children with new `sharedEvents` props which define a set of events, and a shared state accessor.
 
 ### events
 

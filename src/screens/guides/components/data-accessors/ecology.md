@@ -7,7 +7,7 @@ Most Victory components expect data in the form of an array of data objects with
 ## Specifying x and y data
 
 
-Some Victory components like `VictoryCandlestick` and `VictoryErrorBar` have unusual accessor props that match their expected data formats, but most Victory components expose standard `x` and `y` data accessor props. These props may be used to specify which properties or elements of the data array should be plotted on the x and y axes.  
+Some Victory components like `VictoryCandlestick` and `VictoryErrorBar` have unusual accessor props that match their expected data formats, but most Victory components expose standard `x` and `y` data accessor props. These props may be used to specify which properties or elements of the data array should be plotted on the x and y axes.
 
 
 When given as strings, these accessors will specify which properties of a data object to plot. The following example will plot employees on the x axis and salaries on the y axis:

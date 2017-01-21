@@ -1,8 +1,8 @@
 # Animations
 
-VictoryAnimation is able to animate changes in props using [d3-interpolate]. Victory components define their animations via the `animate` prop. `duration`, `delay`, `easing` and `onEnd` functions may all be specified via the `animate` prop. 
+VictoryAnimation is able to animate changes in props using [d3-interpolate]. Victory components define their animations via the `animate` prop. `duration`, `delay`, `easing` and `onEnd` functions may all be specified via the `animate` prop.
 
-```playground_norender 
+```playground_norender
 class App extends React.Component {
 
   constructor(props) {
@@ -26,12 +26,12 @@ class App extends React.Component {
 
 
   getScatterData() {
-    const colors =[ 
-      "violet", "cornflowerblue", "gold", "orange", 
+    const colors =[
+      "violet", "cornflowerblue", "gold", "orange",
       "turquoise", "tomato", "greenyellow"
     ];
     const symbols = [
-      "circle", "star", "square", "triangleUp", 
+      "circle", "star", "square", "triangleUp",
       "triangleDown", "diamond", "plus"
     ];
     return range(25).map((index) => {
@@ -66,7 +66,7 @@ ReactDOM.render(<App/>, mountNode)
 
 Victory components define default transitons for entering and exiting nodes, but these may be overridden with the `onEnter` and `onExit` properties of the `animate` object. The `before` and `after` properties take functions whose return values alter the datum of the transitioning node before or after the transition. These functions are called with the original datum of the transitioning node.
 
-```playground_norender 
+```playground_norender
 class App extends React.Component {
 
   constructor(props) {
@@ -97,7 +97,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <VictoryChart 
+      <VictoryChart
         domainPadding={{ x: 20 }}
         animate={{duration: 500}}
       >

@@ -1,6 +1,6 @@
 # VictoryArea
 
-VictoryArea renders a dataset as a single area. VictoryArea can be composed with [VictoryChart] to create area charts.  
+VictoryArea renders a dataset as a single area. VictoryArea can be composed with [VictoryChart] to create area charts.
 
 ## Props
 

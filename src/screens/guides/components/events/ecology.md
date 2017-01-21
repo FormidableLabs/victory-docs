@@ -1,27 +1,27 @@
 # Events
 
-Victory uses a flexible event system that is completely agnostic of event type. Browser events like `onClick` are handled identically to mobile touch events like `onPressIn`.  Victory's event system allows users to attach events to any rendered element, and trigger mutations on any other rendered element. 
+Victory uses a flexible event system that is completely agnostic of event type. Browser events like `onClick` are handled identically to mobile touch events like `onPressIn`.  Victory's event system allows users to attach events to any rendered element, and trigger mutations on any other rendered element.
 
 
-This guide will demonstrate how to use Victory's event system within a single component, between several components nested within wrapper components like `VictoryChart` or `VictoryGroup`, and between several components using the `VictorySharedEvents` wrapper. This guide will also explain how to bypass Victory's event system entirely, and attach simple events directly to rendered components. 
+This guide will demonstrate how to use Victory's event system within a single component, between several components nested within wrapper components like `VictoryChart` or `VictoryGroup`, and between several components using the `VictorySharedEvents` wrapper. This guide will also explain how to bypass Victory's event system entirely, and attach simple events directly to rendered components.
 
 
 ## Single Component Events
 
 
-Events within a single component like `VictoryBar` may be defined by the `events` prop of the component. The component will be responsible for storing event-driven mutations on its state object. The `events` prop should be given as an array of event objects. Each object defines an event or set of events to attach to a particular target element, or set of target elements.  
+Events within a single component like `VictoryBar` may be defined by the `events` prop of the component. The component will be responsible for storing event-driven mutations on its state object. The `events` prop should be given as an array of event objects. Each object defines an event or set of events to attach to a particular target element, or set of target elements.
 
 
-Target elements are specified by the `target` and `eventKey` properties. Valid `target` properties match the namespaces of the style element of any given component. For most components valid target properties are "data", "labels", and "parent". The `target` property is required. The optional `eventKey` property may be given as a value or array of values. 
+Target elements are specified by the `target` and `eventKey` properties. Valid `target` properties match the namespaces of the style element of any given component. For most components valid target properties are "data", "labels", and "parent". The `target` property is required. The optional `eventKey` property may be given as a value or array of values.
 
 
-Events are defined by the `eventHandlers` property which should be given as an object whose properties are named events such as `onClick`, and whose values are event handlers. Event handlers are called with the event, the props defining the element that triggered the event, and the event key of the element that triggered the event. 
+Events are defined by the `eventHandlers` property which should be given as an object whose properties are named events such as `onClick`, and whose values are event handlers. Event handlers are called with the event, the props defining the element that triggered the event, and the event key of the element that triggered the event.
 
 
 Return values from event handlers are used to define mutations affecting rendered elements. Return values from event handlers should be given as an array of mutation objects. Mutation objects may have `target` and `eventKey` properties to specify an element to mutate. If these properties are not given, the mutation will effect the element that triggered the event. Mutation objects should also have a `mutation` property whose value is a function. The mutation function will be called with the event, the props defining the element that will be mutated, and the event key of the element that will be mutated. The mutation function should return an object of props to be modified, and the new values for those props.
 
 
-In the example below, clicking on any of the bars will trigger a change in the text of the corresponding labels. 
+In the example below, clicking on any of the bars will trigger a change in the text of the corresponding labels.
 
 
 ```playground
@@ -76,16 +76,16 @@ Events may also be targeted specific data elements or groups of data elements by
               {
                 eventKey: "D",
                 mutation: (props) => {
-                  return { 
-                    style: assign(props.style, {fill: "green"}) 
+                  return {
+                    style: assign(props.style, {fill: "green"})
                   }
                 }
               },
               {
                 eventKey: "E",
                 mutation: (props) => {
-                  return { 
-                    style: assign(props.style, {fill: "red"}) 
+                  return {
+                    style: assign(props.style, {fill: "red"})
                   }
                 }
               }
@@ -216,7 +216,7 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
 ## Simple Events
 
 
-For very simple events, it may be desireable to bypass Victory's event system. To do so, specify `events` props directly on primitive components rather than using the `events` prop on Victory components. The simple `events` prop should be given as an object whose properties are event names like `onClick`, and whose values are event handlers. Events specified this way will only be called with the standard event objects. 
+For very simple events, it may be desireable to bypass Victory's event system. To do so, specify `events` props directly on primitive components rather than using the `events` prop on Victory components. The simple `events` prop should be given as an object whose properties are event names like `onClick`, and whose values are event handlers. Events specified this way will only be called with the standard event objects.
 
 ```playground
   <VictoryBar
@@ -228,7 +228,7 @@ For very simple events, it may be desireable to bypass Victory's event system. T
       {x: 5, y: 5},
     ]}
     dataComponent={
-      <Bar 
+      <Bar
         events={{
           onClick: (evt) => alert(`(${evt.clientX}, ${evt.clientY})`)
         }}

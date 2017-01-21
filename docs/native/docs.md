@@ -1,10 +1,10 @@
 # Getting Started with Victory Native
 
-Victory Native extends Victory for use on iOS and Android. Victory Native uses an identical API, so Victory code can easily be reused across platforms. The following guide replicates our [getting started guide] with iOS, but an Android demo is also included. For more advanced Victory examples, check out our [other guides]. 
+Victory Native extends Victory for use on iOS and Android. Victory Native uses an identical API, so Victory code can easily be reused across platforms. The following guide replicates our [getting started guide] with iOS, but an Android demo is also included. For more advanced Victory examples, check out our [other guides].
 
 ## Overview
 
-If you're already comfortable with Victory and React Native, this tutorial will not be necessary. The only changes you will need to make to existing Victory code work in a React Native app are: 
+If you're already comfortable with Victory and React Native, this tutorial will not be necessary. The only changes you will need to make to existing Victory code work in a React Native app are:
 
 - install `victory-native` and `react-native-svg`
 - import components from `victory-native` instead of `victory`
@@ -30,17 +30,17 @@ Your project structure should look like this:
 
 ```
   .
-  ├── .gitignore                 
-  ├── .npmignore                  
+  ├── .gitignore
+  ├── .npmignore
   ├── package.json             # package.json will be modified
   ├── README.md
-  └── demo                        
+  └── demo
       ├── android
-      │   └── ...         
+      │   └── ...
       ├── ios
       │   └── ...
       ├── ...
-      ├── index.android.js      
+      ├── index.android.js
       ├── index.ios.js          # index.ios.js will be modified
       └── package.json
 ```
@@ -61,7 +61,7 @@ To use Victory Native, add `victory-native` and `react-native-svg` to your proje
   }
 ```
 
-To see your base project, first run `npm start` and open `demo/ios/Demo.xcodeproj` in xcode, then run the app. If this is your first time working with React Native, you may need to [install additional dependencies]. 
+To see your base project, first run `npm start` and open `demo/ios/Demo.xcodeproj` in xcode, then run the app. If this is your first time working with React Native, you may need to [install additional dependencies].
 
 Once you're up and running, you can import your first Victory Native component in `demo/index.ios.js`.
 
@@ -185,11 +185,11 @@ Set the `dependentAxis` prop to specify the dependent axis. [`tickValues`] and [
 
 #### [see the commit](https://github.com/FormidableLabs/victory-native-tutorial/commit/ba2de02ca866b6ca1517e11d2b4e75b6ecd309ef)
 
-Import `VictoryStack` and `VictoryTheme` 
+Import `VictoryStack` and `VictoryTheme`
 
 ```jsx
-  import { 
-    VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme 
+  import {
+    VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme
   } from "victory-native";
 
 ```
@@ -266,7 +266,7 @@ To define a stacked layout, just wrap `VictoryStack` around all the data compone
   </VictoryChart>
 ```
 
-In this commit, we've also changed the theme on `VictoryChart`. Themes may be used to define a consistent look for a set of components. By default, Victory components use the [grayscale theme]. Let's see what the [material theme] looks like. [Read more about defining your own themes]. 
+In this commit, we've also changed the theme on `VictoryChart`. Themes may be used to define a consistent look for a set of components. By default, Victory components use the [grayscale theme]. Let's see what the [material theme] looks like. [Read more about defining your own themes].
 
 *note:* Themes should be defined on the top level component.
 
@@ -332,8 +332,8 @@ Want to see what your data looks like in a different format? Victory Native comp
 Import `VictoryArea`
 
 ```jsx
-  import { 
-    VictoryAxis, VictoryArea, VictoryChart, VictoryStack, VictoryTheme } 
+  import {
+    VictoryAxis, VictoryArea, VictoryChart, VictoryStack, VictoryTheme }
   from "victory-native";
 ```
 
