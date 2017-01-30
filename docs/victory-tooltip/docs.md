@@ -41,7 +41,7 @@ The `events` prop attaches arbitrary event handlers to the label component. This
 
 ### x and y
 
-The `x` and `y` props define the base position of the tooltip element. These props match the x, y coordinate of the datum the tooltip is associated with.
+The `x` and `y` props define the base position of the tooltip element. By default, these props match the x, y coordinates of the plotted datum, so tooltips will show up by the datum the tooltip is associated with.
 
 ### dx and dy
 

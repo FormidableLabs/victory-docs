@@ -1,6 +1,6 @@
 # VictoryAxis
 
-VictoryAxis renders a single axis which can be used on its own or composed with [VictoryChart].  
+VictoryAxis renders a single axis which can be used on its own or composed with [VictoryChart].
 
 ## Props
 
@@ -24,7 +24,7 @@ The `tickCount` prop specifies approximately how many ticks should be drawn on t
 
 ### dependentAxis
 
-The `dependentAxis` boolean prop specifies whether the axis corresponds to the dependent variable (usually y). This prop is useful when composing `VictoryAxis` with other components to form a chart. 
+The `dependentAxis` boolean prop specifies whether the axis corresponds to the dependent variable (usually y). This prop is useful when composing `VictoryAxis` with other components to form a chart.
 
 ### orientation
 
@@ -42,13 +42,13 @@ The `offsetX`  and `offsetY` props define how far from the edge of its permitted
 
 *examples:* `offsetX={50}`
 
-**note:** The `offsetX` and `offsetY` props are relative to the edge corresponding to the orientation of the axis, _i.e._ the bottom edge when `orientation="bottom"`. 
+**note:** The `offsetX` and `offsetY` props are relative to the edge corresponding to the orientation of the axis, _i.e._ the bottom edge when `orientation="bottom"`.
 
-### label 
+### label
 
 The `label` prop defines the label that will appear with the axis. This prop should be given as a string.
 
-*examples:* `label="Time (ms)"` 
+*examples:* `label="Time (ms)"`
 
 ### style
 
@@ -56,9 +56,9 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 ```jsx
 style={{
-  axis: {stroke: "#756f6a"}, 
+  axis: {stroke: "#756f6a"},
   axisLabel: {fontSize: 16, padding: 20},
-  grid: {stroke: (t) => t === 10 ? "red" : "grey"}, 
+  grid: {stroke: (t) => t === 10 ? "red" : "grey"},
   ticks: {stroke: "grey"},
   tickLabels: {fontSize: 10, padding: 5}
 }}
@@ -91,7 +91,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
 
@@ -99,13 +99,13 @@ The `standalone` props specifies whether the component should be rendered in a i
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"). 
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt").
 
 *examples:* `scale="time"`
 
 *default:* `scale="linear"`
 
-### domain 
+### domain
 
 The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data. If this prop is not provided, a domain will be calculated from `tickValues` or other information.
 
@@ -113,9 +113,9 @@ The `domain` prop describes the range of data the component will include. This p
 
 ### domainPadding
 
-The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. 
+The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum.
 
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}` 
+*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
 **note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 
@@ -215,7 +215,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
  ]}
 ```
 
-     
+
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
@@ -235,4 +235,3 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
-

@@ -47,7 +47,7 @@
     "mocha": "^3.1.2",
     "normalize.css": "^5.0.0",
     "prismjs": "^1.5.1",
-    "radium": "0.17.2",
+    "radium": "^0.18.1",
     "react": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
     "react-document-meta": "^2.0.3",

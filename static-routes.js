@@ -16,6 +16,7 @@ module.exports = [
   "/docs/victory-errorbar",
   "/docs/victory-group",
   "/docs/victory-label",
+  "/docs/victory-legend",
   "/docs/victory-line",
   "/docs/victory-pie",
   "/docs/victory-portal",
