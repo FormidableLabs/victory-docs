@@ -28,7 +28,7 @@
     ]
   },
   "devDependencies": {
-    "builder-docs-archetype-dev": "^5.0.0",
+    "builder-docs-archetype-dev": "^6.0.0",
     "react-docgen": "2.12.1"
   },
   "dependencies": {
