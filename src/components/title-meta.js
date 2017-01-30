@@ -28,5 +28,6 @@ TitleMeta.propTypes = {
 export default TitleMeta;
 
 export const renderAsHTML = function () {
+  DocumentMeta.canUseDOM = false;
   return DocumentMeta.renderAsHTML();
 };
