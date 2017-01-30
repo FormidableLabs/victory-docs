@@ -1,9 +1,9 @@
 Custom Charts
 =============
 
-Victory lets you create fully custom charts that integrate seamlessly with the look and feel of your project. The following guide demonstrates how custom styles and modular chart components are used to create a cohesive chart with distinctive branding. 
+Victory lets you create fully custom charts that integrate seamlessly with the look and feel of your project. The following guide demonstrates how custom styles and modular chart components are used to create a cohesive chart with distinctive branding.
 
-The following example shows how to create a chart with multiple independent axes without using the `VictoryChart` wrapper. This example also includes functional styles and axis customization. 
+The following example shows how to create a chart with multiple independent axes without using the `VictoryChart` wrapper. This example also includes functional styles and axis customization.
 
 ----
 
@@ -25,7 +25,7 @@ class CustomTheme extends React.Component {
 
         {/* Define labels */}
         <VictoryLabel x={25} y={24} style={styles.title}
-          text="An outlook" 
+          text="An outlook"
         />
         <VictoryLabel x={430} y={20} style={styles.labelNumber}
           text="1"
@@ -37,7 +37,7 @@ class CustomTheme extends React.Component {
           text={"Dinosaur exports\n $bn"}
         />
 
-        <g transform={"translate(0, 40)"}> 
+        <g transform={"translate(0, 40)"}>
           {/* Add shared independent axis */}
           <VictoryAxis
             scale="time"
@@ -54,11 +54,11 @@ class CustomTheme extends React.Component {
                 }
               }
             }
-          /> 
+          />
 
-          {/* 
-            Add the dependent axis for the first data set. 
-            Note that all components plotted against this axis will have the same y domain 
+          {/*
+            Add the dependent axis for the first data set.
+            Note that all components plotted against this axis will have the same y domain
           */}
           <VictoryAxis dependentAxis
             domain={[-10, 15]}
@@ -96,9 +96,9 @@ class CustomTheme extends React.Component {
             style={styles.lineOne}
           />
 
-          {/* 
-            Add the dependent axis for the second data set. 
-            Note that all components plotted against this axis will have the same y domain 
+          {/*
+            Add the dependent axis for the second data set.
+            Note that all components plotted against this axis will have the same y domain
           */}
           <VictoryAxis dependentAxis
             domain={[0, 50]}
@@ -242,7 +242,7 @@ class CustomTheme extends React.Component {
         },
         axis: { stroke: BLUE_COLOR, strokeWidth: 0 },
         ticks: { strokeWidth: 0 },
-        tickLabels: { 
+        tickLabels: {
           fill: BLUE_COLOR,
           fontFamily: "inherit",
           fontSize: 16

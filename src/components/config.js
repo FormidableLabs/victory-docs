@@ -9,6 +9,7 @@ import VContainerDocs from "../../docs/victory-container/docs.md";
 import VErrorBarDocs from "../../docs/victory-errorbar/docs.md";
 import VGroupDocs from "../../docs/victory-group/docs.md";
 import VLabelDocs from "../../docs/victory-label/docs.md";
+import VLegendDocs from "../../docs/victory-legend/docs.md";
 import VLineDocs from "../../docs/victory-line/docs.md";
 import VPieDocs from "../../docs/victory-pie/docs.md";
 import VPortalDocs from "../../docs/victory-portal/docs.md";
@@ -30,8 +31,7 @@ export const config = [
     slug: "native",
     category: "native",
     docs: NativeTutorial
-  },
-  {
+  }, {
     text: "VictoryAnimation",
     slug: "victory-animation",
     category: "core",
@@ -86,6 +86,11 @@ export const config = [
     slug: "victory-label",
     category: "core",
     docs: VLabelDocs
+  }, {
+    text: "VictoryLegend",
+    slug: "victory-legend",
+    category: "core",
+    docs: VLegendDocs
   }, {
     text: "VictoryLine",
     slug: "victory-line",

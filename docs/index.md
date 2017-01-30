@@ -2,7 +2,7 @@
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial should help you get started with Victory. For more advanced examples, check out [our guides].
 
-### Getting Started with Victory Native? 
+### Getting Started with Victory Native?
 
 [Check out the native version of this getting started tutorial]
 
@@ -65,7 +65,7 @@ const data = [
 
 ### 4. Add your first Victory component
 
-Since we're doing a simple comparison of earnings between quarters, let's use a bar chart to visualize the data. We aren't going to need the whole Victory library, so let's change our import statement to reflect only the components that we need. 
+Since we're doing a simple comparison of earnings between quarters, let's use a bar chart to visualize the data. We aren't going to need the whole Victory library, so let's change our import statement to reflect only the components that we need.
 
 ```jsx
 import React from 'react';
@@ -99,7 +99,7 @@ class App extends React.Component {
         x="quarter"
         // data accessor for y values
         y="earnings"
-      />  
+      />
     )
   }
 }
@@ -136,7 +136,7 @@ class App extends React.Component {
           x="quarter"
           y="earnings"
         />
-      </VictoryChart>  
+      </VictoryChart>
     )
   }
 }

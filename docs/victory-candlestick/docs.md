@@ -1,6 +1,6 @@
 # VictoryCandlestick
 
-VictoryCandlestick renders a dataset a series of candlesticks. VictoryCandlestick can be composed with [VictoryChart] to create candlestick charts.  
+VictoryCandlestick renders a dataset a series of candlesticks. VictoryCandlestick can be composed with [VictoryChart] to create candlestick charts.
 
 ## Props
 
@@ -40,7 +40,7 @@ Use the `x`, `open`, `close`, `high`, and `low` data accessor props to determine
 
 ### categories
 
-The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array. 
+The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
 *examples:* `categories={["dogs", "cats", "mice"]}`
 
@@ -83,7 +83,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
 
@@ -105,21 +105,21 @@ The `scale` prop determines which scales your chart should use. This prop can be
 
 *default:* `scale="linear"`
 
-### domain 
+### domain
 
-The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated from data, or other available information. 
+The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated from data, or other available information.
 
 *examples:* `domain={[-1, 1]}` `domain={{x: [0, 100], y: [0, 1]}}`
 
 ### domainPadding
 
-The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. 
+The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum.
 
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}` 
+*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
 **note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 
-### labels 
+### labels
 
 The `labels` prop defines the labels that will appear for each candlestick. This prop should be given as an array or as a function of data. `label` may also be specified on each data object.
 
@@ -191,7 +191,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
 ### eventKey
 
 The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
-     
+
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
@@ -211,4 +211,3 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
-

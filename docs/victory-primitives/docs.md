@@ -5,13 +5,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ## Components
 
-### Area 
+### Area
 
 
 [VictoryArea] uses `Area` to represent an entire dataset. `Area` renders a `<path>` element, or a group of paths if the stroke of the area should be rendered in a different style from the filled section of the area. [View the source][area]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `data` *array* the entire dataset used to define the area
   - `events` *object* events to attach to the rendered element
   - `style` *object* the styles to apply to the rendered element
@@ -21,13 +22,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `groupComponent` *element* the element used to group rendered elements
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Bar 
+### Bar
 
 
 [VictoryBar] uses `Bar` to represent a single data point as a bar extending horizontally or vertically from the independent axis. `Bar` renders a `<path>` element. [View the source][bar]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this bar
   - `data` *array* the entire dataset
   - `index` *number* the index of this bar within the dataset
@@ -42,7 +44,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `role` *string* the aria role to assign to the element
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Candle 
+### Candle
 
 
 [VictoryCandlestick] uses `Candle` to represent a single data point as a candle. `Candle` renders a group with `<rect>` and `<line>` elements. [View the source][candle]
@@ -50,6 +52,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this candle
   - `data` *array* the entire dataset
   - `index` *number* the index of this candle within the dataset
@@ -68,7 +71,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
 
-### ClipPath 
+### ClipPath
 
 
 [VictoryClipContainer] uses `ClipPath` to render a rectangular clip path used in animating transitons for [VictoryArea] and [VictoryLine]. Transitions alter the `clipWidth` and `clipHeight` props of `ClipPath` in order to show and hide portions of a continuous chart so that new data transitions in and out smoothly. `ClipPath` renders `<defs>`, `<clipPath>` and `<rect>`. [View the source][clippath]
@@ -83,13 +86,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `translateX` *number* determines the offset of the chart from the base x coordinate
 
 
-### Curve 
+### Curve
 
 
 [VictoryLine] uses `Curve` to represent an entire dataset as a line or curve. `Curve` renders a `<path>` element. [View the source][curve]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `data` *array* the entire dataset used to define the curve
   - `events` *object* events to attach to the rendered element
   - `style` *object* the styles to apply to the rendered element
@@ -99,20 +103,21 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### ErrorBar 
+### ErrorBar
 
 
 [VictoryErrorBar] uses `ErrorBar` to render x and y error bars. `ErrorBar` renders a group of `<line>` elements. [View the source][errorbar]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this error bar
   - `data` *array* the entire dataset
   - `index` *number* the index of this error bar within the dataset
   - `x` *number* the x coordinate of the center of the error bar
   - `y` *number* the y coordinate of the center of the error bar
-  - `errorX` *number, array, or boolean* errors in the x dimension. 
-  - `errorY` *number, array, or boolean* errors in the y dimension. 
+  - `errorX` *number, array, or boolean* errors in the x dimension.
+  - `errorY` *number, array, or boolean* errors in the y dimension.
   - `borderWidth` *number* the width of the cross-hairs on the end of each error bar *default: 10*
   - `events` *object* events to attach to the rendered element
   - `style` *object* the styles to apply to the rendered element
@@ -121,20 +126,21 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Flyout 
+### Flyout
 
 
 [VictoryTooltip] uses `Flyout` to render a flyout style path around text. `Flyout` renders `<path>` element. [View the source][flyout]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this flyout if applicable
   - `data` *array* the entire dataset if applicable
   - `index` *number* the index of this flyout within the dataset
   - `x` *number* the x coordinate of data point associated with this flyout
   - `y` *number* the y coordinate of data point associated with this flyout
-  - `dx` *number* offset in the x dimension. 
-  - `dy` *number* offset in the y dimension. 
+  - `dx` *number* offset in the x dimension.
+  - `dy` *number* offset in the y dimension.
   - `width` *number* the width of the flyout
   - `height` *number* the height of the flyout
   - `orientation` *"top", "bottom", "left", "right"*
@@ -146,13 +152,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
 
-### Line 
+### Line
 
 
   The `Line` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis]. [View the source][line]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this line
   - `data` *array* the entire dataset
   - `index` *number* the index of this line within the dataset
@@ -166,13 +173,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
 
 
-### Point 
+### Point
 
 
 [VictoryScatter] uses `Point` to render each point in a scatter plot. `Point` renders a `<path>` element. [View the source][point]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this point
   - `data` *array* the entire dataset
   - `index` *number* the index of this point within the dataset
@@ -186,13 +194,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `role` *string* the aria role to assign to the element
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
 
-### Slice 
+### Slice
 
 
 [VictoryPie] uses `Slice` to render each slice in a pie chart. `Slice` renders a `<path>` element. [View the source][slice]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this slice
   - `data` *array* the entire dataset
   - `index` *number* the index of this slice within the dataset
@@ -203,13 +212,14 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `style` *object* the styles to apply to the rendered element
   - `role` *string* the aria role to assign to the element
 
-### Voronoi 
+### Voronoi
 
 
   [VictoryVoronoi] uses `Voronoi` to render voronoi polygons. `Voronoi` renders either a `<path>` element corresponding to a voronoi polygon, or a circular `<path>` clipped with a `<clipPath>` defined by the path of the polygon. [View the source][voronoi]
 
 #### Props
 
+  - `active` *boolean* a flag signifying whether the component is active
   - `datum` *object* the data point corresponding to this voronoi polygon
   - `x` *number* the x coordinate of the data point
   - `y` *number* the y coordinate of the data point

@@ -7,13 +7,13 @@
 
 ## Props
 
-### children 
+### children
 
 `VictoryStack` works with any combination of the following children: [VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup],[VictoryLine], and [VictoryScatter]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`, and so that attributes necessary for stacking are added to data objects.
 
 ### categories
 
-The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array. 
+The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
 *examples:* `categories={["dogs", "cats", "mice"]}`
 
@@ -46,7 +46,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryStack` forces its children to use `standalone={false}`.
 
@@ -65,13 +65,13 @@ The `xOffset` prop is used for grouping stacks of bars. This prop will be set by
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryStack` controls the `scale` prop of its children. 
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryStack` controls the `scale` prop of its children.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 
 *default:* `scale="linear"`
 
-### domain 
+### domain
 
 The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryStack` controls the `domain` prop of all its children.
 
@@ -81,11 +81,11 @@ The `domain` prop describes the range of data the component will include. This p
 
 The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. `VictoryStack` controls the `domainPadding` prop of all its children.
 
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}` 
+*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
 **note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 
-### labels 
+### labels
 
 The `labels` prop defines labels that will appear above each stack of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Stack labels will override the labels prop of child components. Omit this prop, and set `labels` props on children for individual labels.
 
@@ -165,7 +165,7 @@ The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition
 ### eventKey
 
 The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
-     
+
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
@@ -191,4 +191,3 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
-

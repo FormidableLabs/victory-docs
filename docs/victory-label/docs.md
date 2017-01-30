@@ -27,10 +27,14 @@ The `index` prop represents the index of the datum in the data array.
 
 The `style` prop defines a set of SVG style properties that will be applied to the rendered `<text>` element. This prop should be given as an object.
 
+### active
+
+The `active` prop specifies whether the label is active or not. The `active` prop is set by `defaultEvents` in components like `VictoryTooltip` and `VictorySelectionContainer`. The `active` prop is used when evaluating functional styles and props.
+
 ### events
 
 The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey.
-  
+
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### x

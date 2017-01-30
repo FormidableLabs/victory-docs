@@ -90,7 +90,7 @@ class App extends React.Component {
       <div>
         <div>{this.printDomain()}</div>
         <div>
-          <button style={buttonStyle} 
+          <button style={buttonStyle}
             onClick={this.handleClick.bind(this, 10)}
           >
             PAN +10
@@ -101,9 +101,9 @@ class App extends React.Component {
           >
             PAN -10
           </button>
-          
+
         </div>
-        <VictoryZoom 
+        <VictoryZoom
           zoomDomain={this.state.zoomDomain}
           onDomainChange={this.handleDomainChange.bind(this)}
         >

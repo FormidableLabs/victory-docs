@@ -4,13 +4,13 @@
 
 ## Props
 
-### children 
+### children
 
 `VictoryContainer` is a wrapper component that renders its children within an `<svg>` element. If no children are provided, `VictoryContainer` will render an empty `<svg>` tag.
 
 ### style
 
-The `style` prop defines the style of the container. The `width` and `height` should be specified via props as they determine relative layout for components. 
+The `style` prop defines the style of the container. The `width` and `height` should be specified via props as they determine relative layout for components.
 
 *examples:* `style={{border: "1px solid #ccc"}}`
 
@@ -18,7 +18,7 @@ The `style` prop defines the style of the container. The `width` and `height` sh
 
 ### width and height
 
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}` 
+The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 
 ### responsive
 
@@ -29,7 +29,7 @@ The `responsive` prop specifies whether the rendered container should be a respo
 ### events
 
 The `events` prop attaches arbitrary event handlers to the container element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey when applicable.
-  
+
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### title
@@ -42,7 +42,7 @@ The `title` prop specifies the title to be applied to the SVG to assist with acc
 
 ### desc
 
-The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers. 
+The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
 
 *examples:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 

@@ -1,6 +1,6 @@
 # VictoryPie
 
-`VictoryPie` renders a dataset as a pie chart.  
+`VictoryPie` renders a dataset as a pie chart.
 
 ## Props
 
@@ -82,7 +82,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`.
 
@@ -112,7 +112,7 @@ The `cornerRadius` props specifies the corner radius of the slices rendered in t
 
 The `labelRadius` prop defines the radius of the arc that will be used for positioning each slice label. If this prop is not set, the label radius will default to the radius of the pie + label padding.
 
-### labels 
+### labels
 
 The `labels` prop defines the labels that will appear for each slice. This prop should be given as an array or as a function of data. `label` may also be specified on each data object.
 
@@ -188,7 +188,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### eventKey
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.     
+The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.

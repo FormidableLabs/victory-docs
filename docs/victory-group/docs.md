@@ -3,11 +3,11 @@
 `VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack several components on the same level _i.e._ stacked area charts with data markers.
 
 `VictoryGroup` works with:
-[VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip].   
+[VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip].
 
 ## Props
 
-### children 
+### children
 
 `VictoryGroup` works with any combination of the following children: [VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
@@ -50,13 +50,13 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 ### samples
 
 The `samples` prop specifies how many individual points to plot when plotting
-y as a function of x. The `samples` prop is ignored if `data` is supplied in props. 
+y as a function of x. The `samples` prop is ignored if `data` is supplied in props.
 
 *default:* `samples={50}`
 
 ### categories
 
-The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array. 
+The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
 *examples:* `categories={["dogs", "cats", "mice"]}`
 
@@ -111,7 +111,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryGroup` forces its children to use `standalone={false}`.
 
@@ -129,13 +129,13 @@ The `offset` prop derermines the number of pixels each element in a group should
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryGroup` controls the `scale` prop of its children. 
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryGroup` controls the `scale` prop of its children.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 
 *default:* `scale="linear"`
 
-### domain 
+### domain
 
 The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryGroup` controls the `domain` prop of all its children.
 
@@ -145,11 +145,11 @@ The `domain` prop describes the range of data the component will include. This p
 
 The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. `VictoryGroup` controls the `domainPadding` prop of all its children.
 
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}` 
+*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
 **note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 
-### labels 
+### labels
 
 The `labels` prop defines labels that will appear above each group of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the labels prop of child components. Omit this prop, and set `labels` props on children for individual labels.
 
@@ -230,7 +230,7 @@ The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition
 ### eventKey
 
 The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the `x` and `y` data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
-     
+
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.

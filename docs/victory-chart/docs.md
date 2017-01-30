@@ -4,21 +4,21 @@
 If no children are provided, `VictoryChart` will render a set of empty default axes.
 
 `VictoryChart` works with:
-[VictoryArea], [VictoryAxis], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip].   
+[VictoryArea], [VictoryAxis], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip].
 
 ## Props
 
-### children 
+### children
 
 `VictoryChart` works with any combination of the following children: [VictoryArea], [VictoryAxis], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip]. Children supplied to `VictoryChart` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
 ### style
 
-The `style` prop defines the style of chart container. The `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. 
+The `style` prop defines the style of chart container. The `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart.
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
 
-*examples:* `style={{border: "1px solid #ccc"}}`
+*examples:* `style={{ parent: {border: "1px solid #ccc"} }}`
 
 *default (provided by default theme):* See [grayscale theme] for more detail
 
@@ -30,20 +30,20 @@ The `theme` prop specifies a theme to use for determining styles and layout prop
 
 ### width and height
 
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container.  `VictoryChart` controls the `width` and `height` props of its children. 
+The `width` and `height` props determine the width and height of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container.  `VictoryChart` controls the `width` and `height` props of its children.
 
 *default (provided by default theme):* `width={450} height={300}`
 
 
 ### padding
 
-The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryChart` controls the `padding` prop of its children. 
+The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryChart` controls the `padding` prop of its children.
 
 *examples:* `padding={{top: 20, bottom: 60}}` or `padding={40}`
 
 *default (provided by default theme):* `padding={50}`
 
-### standalone 
+### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryChart` will set `standalone={false}` on all of its children.
 
@@ -51,13 +51,13 @@ The `standalone` props specifies whether the component should be rendered in a i
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryChart` controls the `scale` prop of its children. 
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryChart` controls the `scale` prop of its children.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 
 *default:* `scale="linear"`
 
-### domain 
+### domain
 
 The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryChart` controls the `domain` prop of all its children.
 
@@ -67,7 +67,7 @@ The `domain` prop describes the range of data the component will include. This p
 
 The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. `VictoryChart` controls the `domainPadding` prop of all its children.
 
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}` 
+*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
 **note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 

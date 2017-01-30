@@ -17,7 +17,7 @@ const dataA = [
 
 const dataB = dataA.map(point => {
   const y = Math.round(point.y + 3 * (Math.random() - 0.5));
-  return { ...point, y };  
+  return { ...point, y };
 });
 
 class CentralAxis extends React.Component {

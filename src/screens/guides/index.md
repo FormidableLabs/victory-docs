@@ -3,9 +3,9 @@
 Ready to learn more about Victory? The following guides offer detailed explanatons and examples that will help you get the most out of Victory. These guides assume some familiarity with the library. If you're new to Victory, you may want to start with [our tutorial].
 
 **[Custom Charts]**:
-Create custom charts that integrate seamlessly with your project. This guide explains how to compose Victory components without the `VictoryChart` wrapper, customize axes, and use functional styles to create a cohesive chart with recognizable branding. 
+Create custom charts that integrate seamlessly with your project. This guide explains how to compose Victory components without the `VictoryChart` wrapper, customize axes, and use functional styles to create a cohesive chart with recognizable branding.
 
-**[Custom Components]**: 
+**[Custom Components]**:
 Take customization to the next level. This guide explains how to wrap Victory components and how to alter or create your own [primitive components].
 
 **[Data Accessors]**:
@@ -41,4 +41,3 @@ Add interactity with tooltips. This guide explains how to create and customize t
 [Themes]: https://formidable.com/open-source/victory/guides/themes
 [Tooltips]: https://formidable.com/open-source/victory/guides/tooltips
 [Pan and Zoom]: https://formidable.com/open-source/victory/guides/pan-and-zoom
-

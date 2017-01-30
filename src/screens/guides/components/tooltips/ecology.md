@@ -132,7 +132,7 @@ ReactDOM.render(<App/>, mountNode);
   style={{
     data: { stroke: "black", strokeWidth: 2 }
   }}
-/>  
+/>
 ```
 
 Voronoi tooltips are useful for adding tooltips to a line, or adding tooltips to data points that are too small to hover over effectively. Use `VictoryGroup`to provide the same data and styles to several components. This is especially useful when adding voronoi tooltips to a component, as the data required by the tooltip, should be identical to the data required by the other components.
@@ -227,7 +227,7 @@ When other `onMouseOver` and `onMouseOut` events are specified for data, the eve
           return [
             {
               target: "data",
-              mutation: () => null
+              mutation: () => {}
             }, {
               target: "labels",
               mutation: () => ({ active: false })
