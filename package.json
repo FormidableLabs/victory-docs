@@ -35,7 +35,7 @@
     "anchorate": "^1.1.0",
     "babel-preset-stage-1": "^6.5.0",
     "builder": "^3.1.0",
-    "builder-docs-archetype": "^5.0.0",
+    "builder-docs-archetype": "git@github.com:FormidableLabs/builder-docs-archetype.git#task-useJSDOM",
     "chai": "^3.2.0",
     "ecology": "^1.6.0",
     "formidable-landers": "^6.0.1",
