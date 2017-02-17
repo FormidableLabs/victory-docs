@@ -96,6 +96,44 @@ Data accessor props may be given as functions and used to process data, as in th
 ```
 
 
+## Sorting data
+
+
+Sorting can be applied to the final data via the dataSort prop. This prop must
+be a function acting as a standard JavaScript comparator: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+
+
+```playground
+  <VictoryChart
+    domainPadding={{x: 40}}
+  >
+    <VictoryBar
+      data={[
+        { experiment: 2, expected: 3.75, actual: 3.38 },
+        { experiment: 4, expected: 3.75, actual: 3.71 },
+        { experiment: 3, expected: 3.75, actual: 2.05 },
+        { experiment: 1, expected: 3.75, actual: 3.21 }
+      ]}
+      x="experiment"
+      y={(d) => (d.actual / d.expected) * 100}
+      dataSort={(a, b) => (a.experiment - b.experiment)}
+    />
+    <VictoryAxis
+      label="experiment"
+      style={{
+        axisLabel: { padding: 30 }
+      }}
+    />
+    <VictoryAxis dependentAxis
+      label="percent yield"
+      style={{
+        axisLabel: { padding: 40 }
+      }}
+    />
+</VictoryChart>
+```
+
+
 ## Plotting functions
 
 If data is not given, data accessor props may be used to plot math functions. In this scenarios, initial data will be generated based on the domain and number of samples. Alter the `samples` and `domain` props to change how functions are plotted.
