@@ -99,38 +99,17 @@ Data accessor props may be given as functions and used to process data, as in th
 ## Sorting data
 
 
-Sorting can be applied to the final data via the dataSort prop. This prop must
-be a function acting as a standard JavaScript comparator: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+Sorting can be applied to the final data via the sortKey prop. This prop
+corresponds to the lodash `sortBy` function - https://lodash.com/docs/4.17.4#sortBy
 
 
 ```playground
-  <VictoryChart
-    domainPadding={{x: 40}}
-  >
-    <VictoryBar
-      data={[
-        { experiment: 2, expected: 3.75, actual: 3.38 },
-        { experiment: 4, expected: 3.75, actual: 3.71 },
-        { experiment: 3, expected: 3.75, actual: 2.05 },
-        { experiment: 1, expected: 3.75, actual: 3.21 }
-      ]}
-      x="experiment"
-      y={(d) => (d.actual / d.expected) * 100}
-      dataSort={(a, b) => (a.experiment - b.experiment)}
-    />
-    <VictoryAxis
-      label="experiment"
-      style={{
-        axisLabel: { padding: 30 }
-      }}
-    />
-    <VictoryAxis dependentAxis
-      label="percent yield"
-      style={{
-        axisLabel: { padding: 40 }
-      }}
-    />
-</VictoryChart>
+  <VictoryLine
+    data={range(0, 2 * Math.PI, 0.01).map((t) => ({t}))}
+    sortKey="t"
+    x={({t}) => Math.sin(3 * t + (2 * Math.PI))}
+    y={({t}) => Math.sin(2 * t)}
+  />
 ```
 
 
@@ -148,12 +127,12 @@ If data is not given, data accessor props may be used to plot math functions. In
       y={(data) => Math.sin(2 * Math.PI * data.x)}
     />
 
-  <VictoryLine
-    samples={10}
-    style={{data:
-      {stroke: "blue", strokeWidth: 4}
-    }}
-    y={(data) => Math.cos(2 * Math.PI * data.x)}
-  />
-</VictoryChart>
+    <VictoryLine
+      samples={10}
+      style={{data:
+        {stroke: "blue", strokeWidth: 4}
+      }}
+      y={(data) => Math.cos(2 * Math.PI * data.x)}
+    />
+  </VictoryChart>
 ```
