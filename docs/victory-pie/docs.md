@@ -46,7 +46,7 @@ Use the `sortKey` prop to indicate how data should be sorted. This prop is
 given directly to the lodash `sortBy` function to be executed on the final
 dataset.
 
-examples: `sortKey="x"`, `sortKey="y"`
+*examples*: `sortKey="x"`, `sortKey="y"`
 
 ### style
 
