@@ -40,6 +40,14 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
+### sortKey
+
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash `sortBy` function to be executed on the final
+dataset.
+
+examples: `sortKey="x"`, `sortKey="y"`
+
 ### style
 
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for any style property, and they will be evaluated with each datum.

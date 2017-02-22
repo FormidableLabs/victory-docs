@@ -40,6 +40,14 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
+### sortKey
+
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash `sortBy` function to be executed on the final
+dataset.
+
+*examples*: `sortKey="x"`, `sortKey="y"`
+
 ### samples
 
 The `samples` prop specifies how many individual points to plot when plotting

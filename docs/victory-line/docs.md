@@ -40,6 +40,12 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
+### sortKey
+
+The `sortKey` prop specifies the property by which data will be ordered prior to connecting a path between points. This prop operates identically to the [x] and [y] data accessor functions.
+
+*examples:* `sortKey="x.value.nested.1.thing"`,  `sortKey={(d) => Math.sin(d)}`
+
 ### samples
 
 The `samples` prop specifies how many individual points to plot when plotting
@@ -104,12 +110,6 @@ The `standalone` props specifies whether the component should be rendered in a i
 The `interpolation` prop determines how data points should be connected when creating a path. The following options are supported: "basis", "bundle", "cardinal", "catmullRom", "linear", "linearClosed", "monotoneX", "monotoneY", "natural", "radial", "step", "stepAfter", "stepBefore".
 
 *default:* `interpolation="linear"`
-
-### sortKey
-
-The `sortKey` prop specifies the property by which data will be ordered prior to connecting a path between points. This prop operates identically to the [x] and [y] data accessor functions.
-
-*examples:* `sortKey="x.value.nested.1.thing"`,  `sortKey={(d) => Math.sin(d)}`
 
 ### scale
 

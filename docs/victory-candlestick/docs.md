@@ -38,6 +38,14 @@ Use the `x`, `open`, `close`, `high`, and `low` data accessor props to determine
 
 *examples:* `open="market[date].open"`, `y={["market", date, "open"]}`
 
+### sortKey
+
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash `sortBy` function to be executed on the final
+dataset.
+
+*examples*: `sortKey="x"`, `sortKey="y"`
+
 ### categories
 
 The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.

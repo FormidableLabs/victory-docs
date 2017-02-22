@@ -40,6 +40,14 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
+### sortKey
+
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash `sortBy` function to be executed on the final
+dataset.
+
+*examples*: `sortKey="x"`, `sortKey="y"`
+
 ### errorX and errorY
 
 The `errorX` and `errorY` props are data accessors that operate almost identically to `x` and `y`. When the resulting `errorX` or `errorY` are single values, symmetric error bars will be rendered. `errorX` or `errorY` accessors may also return two-value arrays to render asymmetric error bars. The first value will define the lower bound of the error, and the second value will define the upper bound.
