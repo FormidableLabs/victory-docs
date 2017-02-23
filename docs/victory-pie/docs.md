@@ -44,9 +44,9 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 Use the `sortKey` prop to indicate how data should be sorted. This prop is
 given directly to the lodash `sortBy` function to be executed on the final
-dataset.
+dataset: https://lodash.com/docs/4.17.4#sortBy
 
-*examples*: `sortKey="x"`, `sortKey="y"`
+*examples*: `sortKey="x"`, `sortKey={["age", "height"]}`
 
 ### style
 

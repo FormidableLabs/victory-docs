@@ -42,9 +42,9 @@ Use the `x`, `open`, `close`, `high`, and `low` data accessor props to determine
 
 Use the `sortKey` prop to indicate how data should be sorted. This prop is
 given directly to the lodash `sortBy` function to be executed on the final
-dataset.
+dataset: https://lodash.com/docs/4.17.4#sortBy
 
-*examples*: `sortKey="x"`, `sortKey="y"`
+*examples*: `sortKey="x"`, `sortKey={["age", "height"]}`
 
 ### categories
 

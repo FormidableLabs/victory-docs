@@ -42,9 +42,11 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 ### sortKey
 
-The `sortKey` prop specifies the property by which data will be ordered prior to connecting a path between points. This prop operates identically to the [x] and [y] data accessor functions.
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash `sortBy` function to be executed on the final
+dataset: https://lodash.com/docs/4.17.4#sortBy
 
-*examples:* `sortKey="x.value.nested.1.thing"`,  `sortKey={(d) => Math.sin(d)}`
+*examples*: `sortKey="x"`, `sortKey={["age", "height"]}`
 
 ### samples
 
