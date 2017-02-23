@@ -46,6 +46,8 @@ Use the `sortKey` prop to indicate how data should be sorted. This prop is
 given directly to the lodash `sortBy` function to be executed on the final
 dataset: https://lodash.com/docs/4.17.4#sortBy
 
+This prop can be provided as a string, function, or array of either.
+
 *examples*: `sortKey="x"`, `sortKey={["age", "height"]}`
 
 ### samples
