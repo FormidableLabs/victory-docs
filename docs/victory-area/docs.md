@@ -40,6 +40,16 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
+### sortKey
+
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash [sortBy] function to be executed on the final
+dataset.
+
+This prop can be provided as a string, function, or array of either.
+
+*examples*: `sortKey="x"`, `sortKey={["age", "height"]}`
+
 ### samples
 
 The `samples` prop specifies how many individual points to plot when plotting
@@ -225,3 +235,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryClipContainer]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-clip-container/victory-clip-container.js
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
+[sortBy]: https://lodash.com/docs/4.17.4#sortBy

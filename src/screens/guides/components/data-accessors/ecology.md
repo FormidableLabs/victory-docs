@@ -96,6 +96,24 @@ Data accessor props may be given as functions and used to process data, as in th
 ```
 
 
+## Sorting data
+
+
+Sorting can be applied to the final data via the sortKey prop. This prop
+corresponds to the lodash [sortBy] function.
+
+This prop can be provided as a string, function, or array of either.
+
+```playground
+  <VictoryLine
+    data={range(0, 2 * Math.PI, 0.01).map((t) => ({t}))}
+    sortKey="t"
+    x={({t}) => Math.sin(3 * t + (2 * Math.PI))}
+    y={({t}) => Math.sin(2 * t)}
+  />
+```
+
+
 ## Plotting functions
 
 If data is not given, data accessor props may be used to plot math functions. In this scenarios, initial data will be generated based on the domain and number of samples. Alter the `samples` and `domain` props to change how functions are plotted.
@@ -110,12 +128,14 @@ If data is not given, data accessor props may be used to plot math functions. In
       y={(data) => Math.sin(2 * Math.PI * data.x)}
     />
 
-  <VictoryLine
-    samples={10}
-    style={{data:
-      {stroke: "blue", strokeWidth: 4}
-    }}
-    y={(data) => Math.cos(2 * Math.PI * data.x)}
-  />
-</VictoryChart>
+    <VictoryLine
+      samples={10}
+      style={{data:
+        {stroke: "blue", strokeWidth: 4}
+      }}
+      y={(data) => Math.cos(2 * Math.PI * data.x)}
+    />
+  </VictoryChart>
 ```
+
+[sortBy]: https://lodash.com/docs/4.17.4#sortBy

@@ -40,6 +40,16 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
+### sortKey
+
+Use the `sortKey` prop to indicate how data should be sorted. This prop is
+given directly to the lodash [sortBy] function to be executed on the final
+dataset.
+
+This prop can be provided as a string, function, or array of either.
+
+*examples*: `sortKey="x"`, `sortKey={["age", "height"]}`
+
 ### samples
 
 The `samples` prop specifies how many individual points to plot when plotting
@@ -104,12 +114,6 @@ The `standalone` props specifies whether the component should be rendered in a i
 The `interpolation` prop determines how data points should be connected when creating a path. The following options are supported: "basis", "bundle", "cardinal", "catmullRom", "linear", "linearClosed", "monotoneX", "monotoneY", "natural", "radial", "step", "stepAfter", "stepBefore".
 
 *default:* `interpolation="linear"`
-
-### sortKey
-
-The `sortKey` prop specifies the property by which data will be ordered prior to connecting a path between points. This prop operates identically to the [x] and [y] data accessor functions.
-
-*examples:* `sortKey="x.value.nested.1.thing"`,  `sortKey={(d) => Math.sin(d)}`
 
 ### scale
 
@@ -231,3 +235,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryClipContainer]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-clip-container/victory-clip-container.js
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
+[sortBy]: https://lodash.com/docs/4.17.4#sortBy
