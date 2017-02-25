@@ -43,8 +43,8 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 ### sortKey
 
 Use the `sortKey` prop to indicate how data should be sorted. This prop is
-given directly to the lodash `sortBy` function to be executed on the final
-dataset: https://lodash.com/docs/4.17.4#sortBy
+given directly to the lodash [sortBy] function to be executed on the final
+dataset.
 
 This prop can be provided as a string, function, or array of either.
 
@@ -251,3 +251,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
 [Read more about animations and transitions]: https://formidable.com/open-source/victory/docs/animations
 [Read more about events here]: https://formidable.com/open-source/victory/docs/events
+[sortBy]: https://lodash.com/docs/4.17.4#sortBy
