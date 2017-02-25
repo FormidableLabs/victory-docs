@@ -100,10 +100,9 @@ Data accessor props may be given as functions and used to process data, as in th
 
 
 Sorting can be applied to the final data via the sortKey prop. This prop
-corresponds to the lodash `sortBy` function - https://lodash.com/docs/4.17.4#sortBy
+corresponds to the lodash [sortBy] function.
 
 This prop can be provided as a string, function, or array of either.
-
 
 ```playground
   <VictoryLine
@@ -138,3 +137,5 @@ If data is not given, data accessor props may be used to plot math functions. In
     />
   </VictoryChart>
 ```
+
+[sortBy]: https://lodash.com/docs/4.17.4#sortBy
