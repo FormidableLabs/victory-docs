@@ -2,6 +2,7 @@
 
 VictoryZoom will handle panning and zooming behavior by binding to mouse or touch events and updating the domain accordingly. Any single child of VictoryChart or VictoryGroup will be rendered with zoom behavior attached.
 
+
 ```playground_norender
 class App extends React.Component {
 
