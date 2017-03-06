@@ -27,6 +27,9 @@ The `events` prop takes an array of event objects. Event objects are composed of
             mutation: (props) => {
               const fill = props.style.fill;
               return fill === "gold" ? null : {style: {fill: "gold"}};
+            },
+            callback: () => {
+              console.log("I happen after setState");
             }
           }
         ];

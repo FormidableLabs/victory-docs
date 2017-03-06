@@ -2,6 +2,7 @@ import VAnimationDocs from "../../docs/victory-animation/docs.md";
 import VAreaDocs from "../../docs/victory-area/docs.md";
 import VAxisDocs from "../../docs/victory-axis/docs.md";
 import VBarDocs from "../../docs/victory-bar/docs.md";
+import VBrushContainerDocs from "../../docs/victory-brush-container/docs.md";
 import VCandlestickDocs from "../../docs/victory-candlestick/docs.md";
 import VChartDocs from "../../docs/victory-chart/docs.md";
 import VClipContainerDocs from "../../docs/victory-clip-container/docs.md";
@@ -15,15 +16,18 @@ import VPieDocs from "../../docs/victory-pie/docs.md";
 import VPortalDocs from "../../docs/victory-portal/docs.md";
 import VPrimitivesDocs from "../../docs/victory-primitives/docs.md";
 import VScatterDocs from "../../docs/victory-scatter/docs.md";
+import VSelectionContainerDocs from "../../docs/victory-selection-container/docs.md";
 import VSharedEventsDocs from "../../docs/victory-shared-events/docs.md";
 import VStackDocs from "../../docs/victory-stack/docs.md";
 import VThemeDocs from "../../docs/victory-theme/docs.md";
 import VTooltipDocs from "../../docs/victory-tooltip/docs.md";
 import VTransitionDocs from "../../docs/victory-transition/docs.md";
 import VVoronoiDocs from "../../docs/victory-voronoi/docs.md";
+import VVoronoiContainerDocs from "../../docs/victory-voronoi-container/docs.md";
 import VVoronoiTooltipDocs from "../../docs/victory-voronoi-tooltip/docs.md";
 import NativeTutorial from "../../docs/native/docs.md";
 import VZoomDocs from "../../docs/victory-zoom/docs.md";
+import VZoomContainerDocs from "../../docs/victory-zoom-container/docs.md";
 
 export const config = [
   {
@@ -51,6 +55,11 @@ export const config = [
     slug: "victory-bar",
     category: "chart",
     docs: VBarDocs
+  }, {
+    text: "VictoryBrushContainer",
+    slug: "victory-brush-container",
+    category: "chart",
+    docs: VBrushContainerDocs
   }, {
     text: "VictoryCandlestick",
     slug: "victory-candlestick",
@@ -122,6 +131,11 @@ export const config = [
     category: "chart",
     docs: VScatterDocs
   }, {
+    text: "VictorySelectionContainer",
+    slug: "victory-selection-container",
+    category: "chart",
+    docs: VSelectionContainerDocs
+  }, {
     text: "VictoryStack",
     slug: "victory-stack",
     category: "chart",
@@ -147,6 +161,11 @@ export const config = [
     category: "chart",
     docs: VVoronoiDocs
   }, {
+    text: "VictoryVoronoiContainer",
+    slug: "victory-voronoi-container",
+    category: "chart",
+    docs: VVoronoiContainerDocs
+  }, {
     text: "VictoryVoronoiTooltip",
     slug: "victory-voronoi-tooltip",
     category: "chart",
@@ -156,5 +175,10 @@ export const config = [
     slug: "victory-zoom",
     category: "chart",
     docs: VZoomDocs
+  }, {
+    text: "VictoryZoomContainer",
+    slug: "victory-zoom-container",
+    category: "chart",
+    docs: VZoomContainerDocs
   }
 ];
