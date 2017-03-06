@@ -6,7 +6,14 @@
 
 ### children
 
-`VictoryContainer` is a wrapper component that renders its children within an `<svg>` element. If no children are provided, `VictoryContainer` will render an empty `<svg>` tag.
+`VictoryContainer` is a wrapper component that renders its children within an `<svg>` element or a
+`<g>` element. If no children are provided, `VictoryContainer` will render an empty tag.
+
+### standalone
+
+The `standalone` prop determines whether `VictoryContainer` will render an `<svg>` or a `<g>` tag.
+When this prop is set to false, a `<g>` tag will be rendered. If this prop is set to true, or not
+given, an `<svg>` will be rendered.
 
 ### style
 
@@ -38,7 +45,6 @@ The `title` prop specifies the title to be applied to the SVG to assist with acc
 
 *examples:* `title="Popularity of Dog Breeds by Percentage"`
 
-*default:* `title="Victory Chart"`
 
 ### desc
 
@@ -46,17 +52,22 @@ The `desc` prop specifies the description of the chart/SVG to assist with access
 
 *examples:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
-*default:* `desc=""`
-
 ### portalComponent
 
 The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip] renders inside a portal so that tooltips always render above data. [VictoryPortal] is used to define elements that should render in the portal container. This prop defaults to [Portal], and should only be overridden when changing rendered elements from SVG to another type of element _i.e._ [react-native-svg] elements.
 
 *default:* `portalComponent={<Portal/>}`
 
+### theme
+
+The `theme` prop specifies a theme to use for determining styles and layout properties for a
+component. Any styles or props defined in `theme` may be overwritten by props specified on the
+component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
 [VictoryTheme]: https://formidable.com/open-source/victory/docs/victory-theme
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
+[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park

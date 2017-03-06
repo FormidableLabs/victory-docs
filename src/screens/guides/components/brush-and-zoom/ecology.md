@@ -78,6 +78,7 @@ class App extends React.Component {
           <VictoryChart width={1000} height={400} scale={{x: "time"}} style={chartStyle}
             containerComponent={
               <VictoryZoomContainer responsive={false}
+                dimension="x"
                 zoomDomain={this.state.zoomDomain}
                 onDomainChange={this.handleZoom.bind(this)}
               />
@@ -106,6 +107,7 @@ class App extends React.Component {
             width={1000} height={100} scale={{x: "time"}} style={chartStyle}
             containerComponent={
               <VictoryBrushContainer responsive={false}
+                dimension="x"
                 selectedDomain={this.state.selectedDomain}
                 onDomainChange={this.handleBrush.bind(this)}
               />
