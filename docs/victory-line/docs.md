@@ -139,9 +139,17 @@ The `domainPadding` prop specifies a number of pixels of padding to add the begi
 
 ### label
 
+**DEPRECATED** use `labels` instead
+
 The `label` prop defines the label that will appear at the edge of the line. This prop should be given a string or as a function of data. If individual labels are required for each data point, they should be created by composing `VictoryLine` with `VictoryScatter`.
 
 *examples:* `label="Series 1"` , `label={(data) => "years x " + data.length }`
+
+### labels
+
+The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function of data.
+
+*examples:* `labels="Series 1"` , `labels={(datum) => datum.y}`
 
 ### labelComponent
 
