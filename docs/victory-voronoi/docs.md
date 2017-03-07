@@ -233,4 +233,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
 [sortBy]: https://lodash.com/docs/4.17.4#sortBy
-[VictoryVoronoiContainer]: (https://formidable.com/open-source/victory/docs/victory-voronoi-container)
+[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container

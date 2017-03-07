@@ -101,8 +101,8 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoZoom/>
                 <p className="SubHeading">
-                  <Link to="/guides/pan-and-zoom">
-                    Pan and Zoom&nbsp;<Icon glyph="internal-link" />
+                  <Link to="/guides/brush-and-zoom">
+                    Brush and Zoom&nbsp;<Icon glyph="internal-link" />
                   </Link>
                 </p>
               </div>

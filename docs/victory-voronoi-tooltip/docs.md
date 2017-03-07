@@ -7,4 +7,4 @@
 
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
-[VictoryVoronoiContainer]: (https://formidable.com/open-source/victory/docs/victory-voronoi-container)
+[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
