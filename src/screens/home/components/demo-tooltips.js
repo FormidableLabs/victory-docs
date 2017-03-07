@@ -1,5 +1,7 @@
 import React from "react";
-import { VictoryScatter, VictoryVoronoiTooltip, VictoryGroup, VictoryChart, VictoryLine } from "victory";
+import {
+  VictoryVoronoiContainer, VictoryTooltip, VictoryChart, VictoryLine, VictoryAxis
+} from "victory";
 
 export default class App extends React.Component {
 
@@ -19,45 +21,53 @@ export default class App extends React.Component {
 
     return (
       <div className="Benefits-demo fancyBorder">
-        <VictoryChart
+        <VictoryChart style={styles}
+          domainPadding={{y: 2}}
           width={450} height={350}
-          style={{parent: styles.parent}}
-          domain={{y: [-7, 7]}}
+          containerComponent={
+            <VictoryVoronoiContainer dimension="x"
+              labels={(d) => `y: ${d.y}`}
+              labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
+            />
+          }
         >
-        <VictoryGroup
-          data={[
-            {x: 1, y: 1},
-            {x: 2, y: 3},
-            {x: 3, y: -2},
-            {x: 4, y: 4},
-            {x: 5, y: 5},
-            {x: 6, y: -5},
-            {x: 7, y: 3},
-            {x: 8, y: 1},
-            {x: 9, y: 5}
-          ]}
-        >
+          <VictoryAxis/>
           <VictoryLine
+            data={[
+              {x: 1, y: 5, l: "one"},
+              {x: 1.5, y: 5, l: "one point five"},
+              {x: 2, y: 4, l: "two"},
+              {x: 3, y: -2, l: "three"}
+            ]}
             style={{
-              data: { stroke: "tomato", strokeWidth: 3}
+              data: { stroke: "tomato", strokeWidth: (d, active) => active ? 4 : 2},
+              labels: {fill: "tomato"}
             }}
           />
-          <VictoryScatter
-            size={5}
+
+          <VictoryLine
+            data={[
+              {x: 1, y: -3, l: "red"},
+              {x: 2, y: 5, l: "green"},
+              {x: 3, y: 3, l: "blue"}
+            ]}
             style={{
-              data: {fill: "tomato", stroke: "#f6f2ee", strokeWidth: 3}
+              data: { stroke: "blue", strokeWidth: (d, active) => active ? 4 : 2},
+              labels: {fill: "blue"}
             }}
           />
-          <VictoryVoronoiTooltip
-            labels={(d) => `x: ${d.x} \n y: ${d.y}`}
+
+          <VictoryLine
+            data={[
+              {x: 1, y: 5, l: "cat"},
+              {x: 2, y: -4, l: "dog"},
+              {x: 3, y: -2, l: "bird"}
+            ]}
             style={{
-              labels: {fontSize: 20, fill: "tomato"},
-              flyout: {
-                fill: "#f6f2ee", stroke: "tomato", strokeWidth: 2
-              }
+              data: { stroke: "black", strokeWidth: (d, active) => active ? 4 : 2},
+              labels: {fill: "black"}
             }}
           />
-        </VictoryGroup>
         </VictoryChart>
       </div>
     );

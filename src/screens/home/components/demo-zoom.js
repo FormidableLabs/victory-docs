@@ -7,7 +7,10 @@ export default class App extends React.Component {
 
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      zoomDomain: {x: [new Date(1990, 1, 1), new Date(2009, 1, 1)]},
+      selectedDomain: {x: [new Date(1990, 1, 1), new Date(2009, 1, 1)]}
+    };
   }
 
   handleZoom(domain) {
