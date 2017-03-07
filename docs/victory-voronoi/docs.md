@@ -115,7 +115,7 @@ The `size` prop determines the maximum size of each voronoi area. When this prop
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y.
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. For "time" scales, data points should be `Date` objects or `getTime()` ints.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 

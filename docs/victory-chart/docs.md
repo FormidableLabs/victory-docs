@@ -51,7 +51,7 @@ The `standalone` props specifies whether the component should be rendered in a i
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryChart` controls the `scale` prop of its children.
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryChart` controls the `scale` prop of its children. For "time" scales, data points should be `Date` objects or `getTime()` ints.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 
