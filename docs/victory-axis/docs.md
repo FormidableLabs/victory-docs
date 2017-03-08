@@ -24,10 +24,12 @@ The `tickCount` prop specifies approximately how many ticks should be drawn on t
 
 ### fixLabelOverlap
 
-When the `fixLabelOverlap` boolean prop is set to `true` axis tick labels and their associated ticks
+When true, axis tick labels and their associated ticks
 and grid lines will be removed until the total calculated length of the remaining labels is less
 than the length of the axis. Labels at approximately even intervals from the original array of labels.
 This feature only works well for labels that are approximately evenly spaced.
+
+*default:* `fixLabelOverlap={false}`
 
 ### dependentAxis
 
@@ -192,7 +194,7 @@ The `animate` prop specifies props for [VictoryAnimation] to use. The animate pr
 
 ### events
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "axis" and "axisLabel", "grid", "ticks" and "tickValues" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "axis" and "axisLabel", "grid", "ticks" and "tickValues" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elements. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
 
 *examples:*
 ```jsx

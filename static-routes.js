@@ -52,6 +52,5 @@ module.exports = [
   "/guides/layout",
   "/guides/themes",
   "/guides/tooltips",
-  "/guides/pan-and-zoom",
   "/guides/brush-and-zoom"
 ];
