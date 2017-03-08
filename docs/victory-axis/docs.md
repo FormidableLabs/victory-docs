@@ -22,6 +22,13 @@ The `tickCount` prop specifies approximately how many ticks should be drawn on t
 
 *default:* `tickCount={5}`
 
+### fixLabelOverlap
+
+When the `fixLabelOverlap` boolean prop is set to `true` axis tick labels and their associated ticks
+and grid lines will be removed until the total calculated length of the remaining labels is less
+than the length of the axis. Labels at approximately even intervals from the original array of labels.
+This feature only works well for labels that are approximately evenly spaced.
+
 ### dependentAxis
 
 The `dependentAxis` boolean prop specifies whether the axis corresponds to the dependent variable (usually y). This prop is useful when composing `VictoryAxis` with other components to form a chart.
