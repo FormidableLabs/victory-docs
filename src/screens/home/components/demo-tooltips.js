@@ -40,7 +40,12 @@ export default class App extends React.Component {
               {x: 3, y: -2, l: "three"}
             ]}
             style={{
-              data: { stroke: "tomato", strokeWidth: (d, active) => active ? 4 : 2},
+              data: {
+                stroke: "tomato",
+                strokeWidth: (d, active) => {
+                  return active ? 4 : 2;
+                }
+              },
               labels: {fill: "tomato"}
             }}
           />
@@ -52,7 +57,12 @@ export default class App extends React.Component {
               {x: 3, y: 3, l: "blue"}
             ]}
             style={{
-              data: { stroke: "blue", strokeWidth: (d, active) => active ? 4 : 2},
+              data: {
+                stroke: "blue",
+                strokeWidth: (d, active) => {
+                  return active ? 4 : 2;
+                }
+              },
               labels: {fill: "blue"}
             }}
           />
@@ -64,7 +74,12 @@ export default class App extends React.Component {
               {x: 3, y: -2, l: "bird"}
             ]}
             style={{
-              data: { stroke: "black", strokeWidth: (d, active) => active ? 4 : 2},
+              data: {
+                stroke: "black",
+                strokeWidth: (d, active) => {
+                  return active ? 4 : 2;
+                }
+              },
               labels: {fill: "black"}
             }}
           />
