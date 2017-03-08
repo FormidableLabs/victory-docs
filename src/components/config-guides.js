@@ -52,12 +52,6 @@ export const configGuides = [
     docs: Tooltips,
     editUrl: "/screens/guides/components/tooltips/ecology.md"
   }, {
-    text: "Pan and Zoom",
-    slug: "pan-and-zoom",
-    docs: PanZoom,
-    category: "customize",
-    editUrl: "/screens/recipes/components/pan-and-zoom/ecology.md"
-  }, {
     text: "Brush and Zoom",
     slug: "brush-and-zoom",
     docs: BrushZoom,

@@ -4,7 +4,7 @@ import Ecology from "ecology";
 import {
   VictoryPie, VictoryContainer, VictoryLabel, VictoryChart, VictoryLine, VictoryAxis,
   VictoryBar, VictoryScatter, VictoryStack, VictoryTooltip, VictoryVoronoiTooltip,
-  VictoryGroup
+  VictoryGroup, VictoryVoronoiContainer
 } from "victory";
 import { range, random} from "lodash";
 import { ecologyPlaygroundLoading } from "formidable-landers";
@@ -18,7 +18,7 @@ export default class TooltipsGuide extends React.Component {
           scope={{
             range, random, React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel,
             VictoryLine, VictoryAxis, VictoryBar, VictoryScatter, VictoryStack, VictoryTooltip,
-            VictoryVoronoiTooltip, VictoryGroup, VictoryChart
+            VictoryVoronoiTooltip, VictoryGroup, VictoryChart, VictoryVoronoiContainer
           }}
           playgroundtheme="elegant"
           customRenderers={ecologyPlaygroundLoading}

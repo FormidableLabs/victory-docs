@@ -1,6 +1,7 @@
 # VictoryVoronoiContainer
 
-`VictoryVoronoiContainer` is used to associate a mouse position with its nearest data point(s).
+`VictoryVoronoiContainer` calculates a voronoi diagram based on the data of every child component it
+renders. The voronoi data is used to associate a mouse position with its nearest data point(s).
 When `VictoryVoronoiContainer` is added as the `containerComponent` of your chart, changes in mouse
 position will add and remove the `active` prop on appropriate elements in the components of the
 chart.
