@@ -1,8 +1,6 @@
 # Brush and Zoom
 
-**IMPORTANT: VictoryZoomContainer replaces VictoryZoom**
-
-Use `VictoryZoomContainer` as your containerComponent to add panning and zooming behavior to any Victory components that work with an x, y coordinate system.
+Use `VictoryZoomContainer` as your containerComponent to add panning and zooming behavior to any Victory components that work with an x-y coordinate system.
 
 In the example below, an initial domain is set with the `zoomDomain` prop. This prop may also be used to trigger pan and zoom behavior from other components.
 
@@ -148,7 +146,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode)
 ```
 
-`VictoryBrushContainer` may be used with any Victory component that works on an x, y coordinate system.
+`VictoryBrushContainer` may be used with any Victory component that works on an x-y coordinate system.
 Brushing behavior may be limited to the x or y dimensions with the `dimension` prop, and the selected
 area may be styled, or even replaced with a custom component.
 

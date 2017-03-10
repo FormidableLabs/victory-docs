@@ -2,6 +2,7 @@
 
 `VictoryZoomContainer` provides pan and zoom behavior for any Victory component that works with an
 x, y axis. Zoom events are controlled by scrolling, and panning events are controlled by dragging.
+[See an example of a zoomable chart]
 
 `VictoryZoomContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
@@ -136,3 +137,4 @@ component instance. By default, components use a [grayscale theme]. [Read more a
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[See an example of a zoomable chart] https://formidable.com/open-source/victory/guides/brush-and-zoom
