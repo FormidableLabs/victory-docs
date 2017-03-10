@@ -110,6 +110,9 @@ The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition
             mutation: (props) => {
               const fill = props.style.fill;
               return fill === "gold" ? null : {style: {fill: "gold"}};
+            },
+            callback: () => {
+              console.log("I happen after setState");
             }
           }
         ];

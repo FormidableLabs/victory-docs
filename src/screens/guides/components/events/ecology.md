@@ -200,14 +200,16 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
         labelComponent={<VictoryLabel y={280}/>}
       />
     </g>
-    <VictoryPie name="pie"
-      width={250}
-      standalone={false}
-      style={{ labels: {fontSize: 25, padding: 10}}}
-      data={[
-        {x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}, {x: "d", y: 7}
-      ]}
-    />
+    <g transform={"translate(0, -75)"}>
+      <VictoryPie name="pie"
+        width={250}
+        standalone={false}
+        style={{ labels: {fontSize: 25, padding: 10}}}
+        data={[
+          {x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}, {x: "d", y: 7}
+        ]}
+      />
+    </g>
   </VictorySharedEvents>
 </svg>
 ```

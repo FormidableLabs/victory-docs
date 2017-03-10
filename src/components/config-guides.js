@@ -6,7 +6,7 @@ import Layout from "../screens/guides/components/layout/docs";
 import CustomCharts from "../screens/guides/components/custom-charts/docs";
 import Themes from "../screens/recipes/components/theme-park";
 import Tooltips from "../screens/guides/components/tooltips/docs";
-import PanZoom from "../screens/recipes/components/pan-and-zoom/docs";
+import BrushZoom from "../screens/guides/components/brush-and-zoom/docs";
 
 export const configGuides = [
   {
@@ -51,10 +51,10 @@ export const configGuides = [
     docs: Tooltips,
     editUrl: "/screens/guides/components/tooltips/ecology.md"
   }, {
-    text: "Pan and Zoom",
-    slug: "pan-and-zoom",
-    docs: PanZoom,
+    text: "Brush and Zoom",
+    slug: "brush-and-zoom",
+    docs: BrushZoom,
     category: "customize",
-    editUrl: "/screens/recipes/components/pan-and-zoom/ecology.md"
+    editUrl: "/screens/guides/components/brush-and-zoom/ecology.md"
   }
 ];

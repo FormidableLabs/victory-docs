@@ -114,56 +114,119 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-## Voronoi Tooltips
+## Tooltips with VictoryVoronoiContainer
 
-`VictoryVoronoiTooltip` renders a transparent voronoi diagram with `VictoryTooltip` attached. In the example below the voronoi diagram has been colored to be visible:
+Voronoi tooltips are useful for adding tooltips to a line, or adding tooltips to data points that
+are too small to hover over effectively. `VictoryVoronoiContainer` calculates a voronoi diagram
+based on the data of every child component it renders. The voronoi data is used to associate a
+mouse position with its nearest data point(s). When `VictoryVoronoiContainer` is added as the
+`containerComponent` of your chart, changes in mouse position will add and remove the `active` prop
+on appropriate data and label elements.
 
-```playground
-<VictoryVoronoiTooltip
-  data={
-    range(20).map((i) => {
-      return {
-        x: random(600),
-        y: random(600),
-        label: `label-${i}`
-      };
-    })
-  }
-  style={{
-    data: { stroke: "black", strokeWidth: 2 }
-  }}
-/>
-```
-
-Voronoi tooltips are useful for adding tooltips to a line, or adding tooltips to data points that are too small to hover over effectively. Use `VictoryGroup`to provide the same data and styles to several components. This is especially useful when adding voronoi tooltips to a component, as the data required by the tooltip, should be identical to the data required by the other components.
 
 ```playground
 <VictoryChart
-        domain={{y: [-7, 7]}}
-      >
-        <VictoryGroup
-          data={[
-            {x: 1, y: 1},
-            {x: 2, y: 3},
-            {x: 3, y: -2},
-            {x: 4, y: 4},
-            {x: 5, y: 5},
-            {x: 6, y: -5},
-            {x: 7, y: 3},
-            {x: 8, y: 1},
-            {x: 9, y: 5}
-          ]}
-        >
-          <VictoryLine
-            style={{
-              data: { stroke: "tomato", strokeWidth: 3 }
-            }}
-          />
-          <VictoryVoronoiTooltip
-            labels={(d) => `x: ${d.x} \n y: ${d.y}`}
-          />
-        </VictoryGroup>
-      </VictoryChart>
+  domain={{x: [0, 5], y: [-5, 5]}}
+  containerComponent={<VictoryVoronoiContainer/>}
+>
+  <VictoryScatter
+    style={{
+      data: {fill: "tomato"}, labels: {fill: "tomato"}
+    }}
+    size={(datum, active) => active ? 5 : 3}
+    labels={(d) => d.y}
+    labelComponent={<VictoryTooltip/>}
+    data={[
+      {x: 1, y: -4},
+      {x: 2, y: 4},
+      {x: 3, y: 2},
+      {x: 4, y: 1}
+    ]}
+  />
+  <VictoryScatter
+    style={{
+      data: {fill: "blue"}, labels: {fill: "blue"}
+    }}
+    size={(datum, active) => active ? 5 : 3}
+    labels={(d) => d.y}
+    labelComponent={<VictoryTooltip/>}
+    data={[
+      {x: 1, y: -3},
+      {x: 2, y: 3},
+      {x: 3, y: 3},
+      {x: 4, y: 0}
+    ]}
+  />
+  <VictoryScatter
+    data={[
+      {x: 1, y: 4},
+      {x: 2, y: -4},
+      {x: 3, y: -2},
+      {x: 4, y: -3}
+    ]}
+    labels={(d) => d.y}
+    labelComponent={<VictoryTooltip/>}
+    size={(datum, active) => active ? 5 : 3}
+  />
+</VictoryChart>
+```
+
+## Mutli-point Tooltips with VictoryVoronoiContainer
+
+`VictoryVoronoiContainer` can also be used to create multi-point labels when the `labels` prop is
+provided. In the example below the `dimension` prop is used to indicate that the voronoi diagram
+will only be specific to the x dimension. For a given mouse position, all data matching the
+associated x value will be activated regardless of y value. In the following example, this leads to
+several tooltips being active at the same time. Provide a `labels` and (optionally) a
+`labelComponent` prop to configure multi-point labels.
+
+```playground
+<VictoryChart
+  containerComponent={
+    <VictoryVoronoiContainer dimension="x"
+      labels={(d) => `y: ${d.y}`}
+      labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
+    />
+  }
+>
+  <VictoryAxis/>
+  <VictoryLine
+    data={[
+      {x: 1, y: 5, l: "one"},
+      {x: 1.5, y: 5, l: "one point five"},
+      {x: 2, y: 4, l: "two"},
+      {x: 3, y: -2, l: "three"}
+    ]}
+    style={{
+      data: { stroke: "tomato", strokeWidth: (d, active) => active ? 4 : 2},
+      labels: {fill: "tomato"}
+    }}
+  />
+
+  <VictoryLine
+    data={[
+      {x: 1, y: -3, l: "red"},
+      {x: 2, y: 5, l: "green"},
+      {x: 3, y: 3, l: "blue"}
+    ]}
+    style={{
+      data: { stroke: "blue", strokeWidth: (d, active) => active ? 4 : 2},
+      labels: {fill: "blue"}
+    }}
+  />
+
+  <VictoryLine
+    data={[
+      {x: 1, y: 5, l: "cat"},
+      {x: 2, y: -4, l: "dog"},
+      {x: 3, y: -2, l: "bird"}
+    ]}
+    style={{
+      data: { stroke: "black", strokeWidth: (d, active) => active ? 4 : 2},
+      labels: {fill: "black"}
+    }}
+  />
+</VictoryChart>
 ```
 
 

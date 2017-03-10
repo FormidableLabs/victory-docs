@@ -15,7 +15,7 @@ class GradientArea extends Area {
   }
 
   // This method exists in Area, and is completely overridden for the custom component.
-  renderArea(path, style, events) {
+  renderArea(paths, style, events) {
     const gradientId = `gradient-${Math.random()}`;
 
     const isBrowser = typeof window !== "undefined" && window.__STATIC_GENERATOR !== true;
@@ -26,19 +26,21 @@ class GradientArea extends Area {
     );
     const percent = `${this.props.percent}%`;
     const gray = this.toGrayscale(style.fill);
-    return (
-      <g>
-        <defs>
-          <linearGradient id={gradientId}>
-              <stop offset="0%" stopColor={style.fill}/>
-              <stop offset={percent} stopColor={style.fill}/>
-              <stop offset={percent} stopColor={gray}/>
-              <stop offset="100%" stopColor={gray}/>
-          </linearGradient>
-        </defs>
-        <path key="area" style={areaStyle} d={path} {...events}/>
-      </g>
-    );
+    return paths.map((path, index) => {
+      return (
+        <g key={index}>
+          <defs>
+            <linearGradient id={gradientId}>
+                <stop offset="0%" stopColor={style.fill}/>
+                <stop offset={percent} stopColor={style.fill}/>
+                <stop offset={percent} stopColor={gray}/>
+                <stop offset="100%" stopColor={gray}/>
+            </linearGradient>
+          </defs>
+          <path key="area" style={areaStyle} d={path} {...events}/>
+        </g>
+      );
+    });
   }
 }
 
@@ -54,7 +56,7 @@ export default class App extends React.Component {
         return {
           x: j,
           y: (10 - i) * random(10 - i, 20 - 2 * i),
-          y0: -1 * (10 - i) * random(10 - i, 20 - 2 * i)
+          _y0: -1 * (10 - i) * random(10 - i, 20 - 2 * i)
         };
       });
     });

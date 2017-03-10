@@ -1,5 +1,7 @@
 # VictoryVoronoi
 
+**VictoryVoronoi will be deprecated in `victory@0.20.0`** Use [VictoryVoronoiContainer] instead.
+
 VictoryVoronoi renders a dataset as a series polygons optimized for the nearest data point. VictoryVoronoi can be composed with [VictoryChart] to create voronoi overlays for charts, which are useful for attaching events to pieces of data that are otherwise difficult to interact with, usually due to their size.
 
 ## Props
@@ -195,6 +197,9 @@ The `events` prop takes an array of event objects. Event objects are composed of
             target: "labels",
             mutation: () => {
               return {active: true};
+            },
+            callback: () => {
+              console.log("I happen after setState");
             }
           }
         ];
@@ -228,3 +233,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
 [VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
 [sortBy]: https://lodash.com/docs/4.17.4#sortBy
+[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container

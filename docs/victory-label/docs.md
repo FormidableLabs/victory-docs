@@ -6,9 +6,12 @@ VictoryLabel renders the label components that are used across all of Victory.
 
 ### text
 
-The `text` prop defines the text `VictoryLabel` will render. The `text` prop may be given as a string, number, or function of `datum`. Strings may include newline characters, which VictoryLabel will split into separate `<tspan/>` elements.
+The `text` prop defines the text `VictoryLabel` will render. The `text` prop may be given as a
+string, number, a function of `datum`, or an array of any of these. Strings may include newline
+characters, which VictoryLabel will split into separate `<tspan/>` elements. When `text` is given
+as an array, separate `<tspan/>` elements will be created for each element in the array.
 
-*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`
+*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`, `text={["first line", "second line"]}
 
 ### datum
 
@@ -25,7 +28,10 @@ The `index` prop represents the index of the datum in the data array.
 
 ### style
 
-The `style` prop defines a set of SVG style properties that will be applied to the rendered `<text>` element. This prop should be given as an object.
+The `style` prop defines a set of SVG style properties that will be applied to the rendered
+`<text/>` element. This prop should be given as an object, or array of objects. When this prop is
+given as an array of objects, each style object in the array will be applied to the corresponding
+`<tspan/>` in multi-line labels.
 
 ### active
 

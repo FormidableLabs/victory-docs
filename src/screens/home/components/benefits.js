@@ -69,10 +69,10 @@ class Benefits extends React.Component {
             </div>
             <div className="Grid-cell u-textCenter">
               <div className="u-paddingSm">
-                <DemoSharedEvents/>
+                <DemoZoom/>
                 <p className="SubHeading">
-                  <Link to="/guides/events">
-                    Events&nbsp;<Icon glyph="internal-link" />
+                  <Link to="/guides/brush-and-zoom">
+                    Brush and Zoom&nbsp;<Icon glyph="internal-link" />
                   </Link>
                 </p>
               </div>
@@ -99,10 +99,10 @@ class Benefits extends React.Component {
             </div>
             <div className="Grid-cell u-textCenter">
               <div className="u-paddingSm">
-                <DemoZoom/>
+                <DemoSharedEvents/>
                 <p className="SubHeading">
-                  <Link to="/guides/pan-and-zoom">
-                    Pan and Zoom&nbsp;<Icon glyph="internal-link" />
+                  <Link to="/guides/events">
+                    Events&nbsp;<Icon glyph="internal-link" />
                   </Link>
                 </p>
               </div>

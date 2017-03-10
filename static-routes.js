@@ -9,6 +9,7 @@ module.exports = [
   "/docs/victory-area",
   "/docs/victory-axis",
   "/docs/victory-bar",
+  "/docs/victory-brush-container",
   "/docs/victory-candlestick",
   "/docs/victory-chart",
   "/docs/victory-clip-container",
@@ -22,14 +23,17 @@ module.exports = [
   "/docs/victory-portal",
   "/docs/victory-primitives",
   "/docs/victory-scatter",
+  "/docs/victory-selection-container",
   "/docs/victory-shared-events",
   "/docs/victory-stack",
   "/docs/victory-theme",
   "/docs/victory-tooltip",
   "/docs/victory-transition",
   "/docs/victory-voronoi",
+  "/docs/victory-voronoi-container",
   "/docs/victory-voronoi-tooltip",
   "/docs/victory-zoom",
+  "/docs/victory-zoom-container",
   "/recipes",
   "/recipes/custom-central-axis",
   "/recipes/custom-data-component",
@@ -48,5 +52,5 @@ module.exports = [
   "/guides/layout",
   "/guides/themes",
   "/guides/tooltips",
-  "/guides/pan-and-zoom"
+  "/guides/brush-and-zoom"
 ];

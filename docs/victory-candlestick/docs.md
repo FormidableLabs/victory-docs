@@ -189,6 +189,9 @@ The `events` prop takes an array of event objects. Event objects are composed of
             target: "labels",
             mutation: () => {
               return {active: true};
+            },
+            callback: () => {
+              console.log("I happen after setState");
             }
           }
         ];

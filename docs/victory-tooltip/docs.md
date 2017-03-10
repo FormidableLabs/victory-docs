@@ -12,6 +12,12 @@ The `text` prop defines the text `VictoryTooltip` will render. The `text` prop m
 
 The `active` prop specifies whether the tooltip component should be displayed.
 
+### activateData
+
+When true, tooltip events will set the `active` prop on both data and label elements.
+
+*default:* `activateData={false}`
+
 ### datum
 
 Victory components can pass a `datum` prop to their label component. This can

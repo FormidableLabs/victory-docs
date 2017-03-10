@@ -14,19 +14,41 @@ The `clipPathComponent` prop specifies the clip path to apply to the rendered gr
 
 ### clipHeight
 
-The `clipHeight` prop determines the base height of the rectangular clip path. This prop corresponds to the total height of a parent chart. This prop should be given as a number. This prop is only applied when a clipped group will be rendered.
+The `clipHeight` prop determines the base height of the rectangular clip path. This prop should be
+given as a number. If this prop is not given, it will be calculated based on the height and padding
+of the parent chart.
 
 ### clipWidth
 
-The `clipWidth` prop determines the base width of the rectangular clip path. This prop corresponds to the total width of a parent chart. This prop should be given as a number. If this prop is not supplied, a clipped group will not be rendered.
+The `clipWidth` prop determines the base width of the rectangular clip path. This prop should be
+given as a number. If this prop is not given, it will be calculated based on the width and padding
+of the parent chart.
 
 ### translateX
 
-The `translateX` prop determines the offset of the clip path from the base x coordinate. This prop should be given as a number. This prop is only applied when a clipped group will be rendered.
+The `translateX` prop determines the offset of the clip path from the base x coordinate. This prop
+should be given as a number. If this prop is not given, it will be calculated based on the padding
+of the parent chart.
+
+### translateY
+
+The `translateY` prop determines the offset of the clip path from the base y coordinate. This prop
+should be given as a number. If this prop is not given, it will be calculated based on the padding
+of the parent chart.
 
 ### padding
 
-The `padding` prop determines the base padding to apply to the rectangular clip path. This prop corresponds to the padding applied to a parent chart. This prop should be given as an object with "top", "bottom", "left", and "right" properties. This prop is only applied when a clipped group will be rendered.
+The `padding` prop determines the base padding to apply to the rectangular clip path. This prop
+corresponds to the padding applied to a parent chart. This prop should be given as an object with
+"top", "bottom", "left", and "right" properties. This prop is only applied when a clipped group
+will be rendered.
+
+### clipPadding
+
+The `clipPadding` prop is used when the clipped area should be larger than the range of a chart.
+This prop should be given as an object with "top", "bottom", "left", and "right" properties. Set
+the `clipPadding` prop is useful for extending the visible area of a chart in some dimension so
+that data or labels are not cut off.
 
 ### style
 
