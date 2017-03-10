@@ -6,6 +6,9 @@ When `VictoryVoronoiContainer` is added as the `containerComponent` of your char
 position will add and remove the `active` prop on appropriate elements in the components of the
 chart.
 
+`VictoryVoronoiContainer` may be used with any Victory component that works with an x-y coordinate
+system, and should be added as the `containerComponent` of the top-level component.
+
 
 ```jsx
 <VictoryChart containerComponent={<VictoryVoronoiContainer/>}>
@@ -16,7 +19,7 @@ chart.
 
 ## Props
 
-`VictoryVoronoiContainer` uses a superset of props used by [VictoryContainer].
+`VictoryVoronoiContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
 ### dimension
 
@@ -25,10 +28,14 @@ For example, when `dimension` is set to "x", all data points matching a particul
 will be activated regardless of y value. When this prop is not given, voronoi selection is
 determined by both x any y values.
 
+*example:* `dimension="x"`
+
 ### radius
 
 When the `radius` prop is set, the voronoi areas associated with each data point will be no larger
 than the given radius. This prop should be given as a number.
+
+*example:* `radius={25}`
 
 ### voronoiPadding
 
@@ -36,15 +43,22 @@ When the `voronoiPadding` prop is given, the area of the chart that will trigger
 reduced by the given padding on every side. By default, no padding is applied, and the entire range
 of a given chart may trigger voronoi events. This prop should be given as a number.
 
+*example:* `voronoiPadding={5}`
+
 ### onActivated
 
 The `onActivated` prop accepts a function to be called whenever new data points are activated. The
 function is called with the parameter `points`-- an array of data objects.
 
+*example:* `onActivated={(points) => filterList(points)}`
+
+
 ### onDeactivated
 
 The `onDeactivated` prop accepts a function to be called whenever previously activated points are  The
 function is called with the parameter `points`-- an array of active data objects.
+
+*example:* `onDeactivated={(points) => filterList(points)}`
 
 ### labels
 
@@ -53,37 +67,26 @@ rather than activating labels on the child components it renders. This is useful
 point tooltips. This prop should be given as a function to be called with datum for each active
 point.
 
-*examples:* `label={(d) => "y: " + d.y}`
+*example:* `label={(d) => "y: " + d.y}`
 
 ### labelComponent
 
 The `labelComponent` prop specified the component that will be rendered when `labels` are defined
 on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label component will be rendered.
 
+*default:* `labelComponent={<VictoryTooltip/>}`
+
 ## Standard Container Props
-
-### children
-
-`VictoryContainer` is a wrapper component that renders its children within an `<svg>` element or a
-`<g>` element. If no children are provided, `VictoryContainer` will render an empty tag.
-
-### standalone
-
-The `standalone` prop determines whether `VictoryContainer` will render an `<svg>` or a `<g>` tag.
-When this prop is set to false, a `<g>` tag will be rendered. If this prop is set to true, or not
-given, an `<svg>` will be rendered.
 
 ### style
 
-The `style` prop defines the style of the container. The `width` and `height` should be specified via props as they determine relative layout for components.
+The `style` prop defines the style of the container, and should be given as an object of SVG style attributes.
+The `width` and `height` should be specified via props instead of style attributes as they determine
+relative layout for components.
 
-*examples:* `style={{border: "1px solid #ccc"}}`
+*example:* `style={{border: "1px solid #ccc"}}`
 
 *default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme] for more detail.
-
-### width and height
-
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 
 ### responsive
 
@@ -91,24 +94,33 @@ The `responsive` prop specifies whether the rendered container should be a respo
 
 *default:* `responsive={true}`
 
+### width and height
+
+The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
+
+*example:* `width={350}`
+
 ### events
 
-The `events` prop attaches arbitrary event handlers to the container element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey when applicable.
+The `events` prop attaches arbitrary event handlers to the container element. This prop should be
+given as an object of event names and corresponding [React event handlers]. Events defined directly
+via this prop will be masked by `defaultEvents` on `VictoryVoronoiContainer` (`onMouseMove` and
+`onMouseLeave`), and by any events defined through Victory's event
+system that target parent elements.
 
-*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+*example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### title
 
 The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be.
 
-*examples:* `title="Popularity of Dog Breeds by Percentage"`
-
+*example:* `title="Popularity of Dog Breeds by Percentage"`
 
 ### desc
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
 
-*examples:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
+*example:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### portalComponent
 
@@ -121,6 +133,8 @@ The `portalComponent` prop takes a component instance which will be used as a co
 The `theme` prop specifies a theme to use for determining styles and layout properties for a
 component. Any styles or props defined in `theme` may be overwritten by props specified on the
 component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+
+*example:* `theme={VictoryTheme.material}`
 
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js

@@ -2,7 +2,19 @@
 
 `VictoryBrushContainer` adds the ability to highlight a region of a chart, and interact with
 highlighted regions, either by moving the region, expanding the region, or selecting a new region.
-To add these behaviors, add `VictoryBrushContainer` as the `containerComponent` of your chart.
+`VictoryBrushContainer` is useful for selecting a region of a larger dataset by domain. Create a
+brush control by tying the domain of the selected region to the domain of a separate chart.
+See the [brush and zoom guide] for an example of using `VictoryBrushContainer` to create a brush
+control.
+
+`VictoryBrushContainer` is similar to `VictorySelectionContainer`. `VictoryBrushContainer` may be
+used to identify the domain of a selected region, whereas `VictorySelectionContainer` may be used to
+identify a list of data points within a selected region. `VictoryBrushContainer` will also create
+persistent highlighted regions, whereas regions created by `VictorySelectionContainer`
+disappear after `onMouseUp` events.
+
+`VictoryBrushContainer` may be used with any Victory component that works with an x-y coordinate
+system, and should be added as the `containerComponent` of the top-level component.
 
 ```jsx
 <VictoryChart containerComponent={<VictoryBrushContainer/>}>
@@ -13,8 +25,7 @@ To add these behaviors, add `VictoryBrushContainer` as the `containerComponent` 
 
 ## Props
 
-`VictoryBrushContainer` uses a superset of props used by [VictoryContainer].
-
+`VictoryBrushContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
 ### selectedDomain
 
@@ -23,7 +34,7 @@ specifies separate arrays for x and y. Each array is a tuple that describes the 
 values to render. If this prop is not provided initially, the chart will render with the entire
 domain highlighted. When this prop changes, the chart will render with a new highlighted domain.
 
-*examples:* `selectedDomain={{x: [50, 100], y: [0, 100]}`
+*example:* `selectedDomain={{x: [50, 100], y: [0, 100]}`
 
 ### dimension
 
@@ -31,30 +42,37 @@ When the `dimension` prop is set, brushing will only be specific to the to the g
 (either x or y), and the entire domain of the other dimension will be highlighted. When this prop
 is not specified, highlighting will occur along both dimensions.
 
+*example:* `dimension="x"`
+
 ### onDomainChange
 
 The optional `onDomainChange` prop accepts an function to be called on each update to the
-highlighted domain. The function accepts a single parameter of `domain`.
+highlighted domain. The function accepts a single parameter of `domain`. The `domain` parameter will
+be provided as an object with min-max arrays for x and y.
+
+*example:* `onDomainChange={(domain) => handeDomainChange(domain)}`
 
 ### selectionStyle
 
-The `selectionStyle` prop should be given as an object of style attributes to be applied to the
-`selectionComponent`
+The `selectionStyle` adds custom styles to the `selectionComponent`. This prop should be given as
+an object of SVG style attributes.
 
 *default:* `selectionStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
 
 ### selectionComponent
 
-The `selectionComponent` prop specifies the element to be rendered for for the highlighted area.
-When this prop is not specified, a `<rect/>` will be rendered. This component will be supplied with
-the following props: x, y, width, height, and style.
+The `selectionComponent` prop specifies the component to be rendered for the highlighted area.
+This component will be supplied with the following props: x, y, width, height, and style.
+When this prop is not specified, a `<rect/>` will be rendered.
 
 *default:* `selectionComponent={<rect/>}`
 
 ### handleStyle
 
-The `handleStyle` prop should be given as an object of style attributes to be applied to the
-`handleComponent`. Handles refer to the region on each highlighted area where the the area may be
+The `handleStyle` adds custom styles to the `handleComponents`. This prop should be given as
+an object of SVG style attributes.
+
+Handles refer to the region on each highlighted area where the the area may be
 expanded. Only handles relevent to the given `dimension` will be rendered. For example, when
 `dimension="x"` only "left" and "right" handles will be rendered. Handler are automatically styled
 with cursors appropriate to their orientation.
@@ -63,36 +81,23 @@ with cursors appropriate to their orientation.
 
 ### handleComponent
 
-The `handleComponent` prop specifies the element to be rendered for each handle for the highlighted
-area. When this prop is not specified, a `<rect/>` will be rendered. This component will be supplied
-with the following props: x, y, width, height, cursor, and style.
+The `handleComponent` prop specifies the component to be rendered for each handle for the highlighted
+area.  This component will be supplied with the following props: x, y, width, height, cursor, and style.
+When this prop is not specified, a `<rect/>` will be rendered.
 
 *default:* `handleComponent={<rect/>}`
 
 ## Standard Container Props
 
-### children
-
-`VictoryContainer` is a wrapper component that renders its children within an `<svg>` element or a
-`<g>` element. If no children are provided, `VictoryContainer` will render an empty tag.
-
-### standalone
-
-The `standalone` prop determines whether `VictoryContainer` will render an `<svg>` or a `<g>` tag.
-When this prop is set to false, a `<g>` tag will be rendered. If this prop is set to true, or not
-given, an `<svg>` will be rendered.
-
 ### style
 
-The `style` prop defines the style of the container. The `width` and `height` should be specified via props as they determine relative layout for components.
+The `style` prop defines the style of the container, and should be given as an object of SVG style attributes.
+The `width` and `height` should be specified via props instead of style attributes as they determine
+relative layout for components.
 
-*examples:* `style={{border: "1px solid #ccc"}}`
+*example:* `style={{border: "1px solid #ccc"}}`
 
 *default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme] for more detail.
-
-### width and height
-
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 
 ### responsive
 
@@ -100,24 +105,33 @@ The `responsive` prop specifies whether the rendered container should be a respo
 
 *default:* `responsive={true}`
 
+### width and height
+
+The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
+
+*example:* `width={350}`
+
 ### events
 
-The `events` prop attaches arbitrary event handlers to the container element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey when applicable.
+The `events` prop attaches arbitrary event handlers to the container element. This prop should be
+given as an object of event names and corresponding [React event handlers]. Events defined directly
+via this prop will be masked by `defaultEvents` on `VictoryBrushContainer` (`onMouseDown`,
+`onMouseUp`, `onMouseMove` and `onMouseLeave`), and by any events defined through Victory's event
+system that target parent elements.
 
-*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+*example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### title
 
 The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be.
 
-*examples:* `title="Popularity of Dog Breeds by Percentage"`
-
+*example:* `title="Popularity of Dog Breeds by Percentage"`
 
 ### desc
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
 
-*examples:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
+*example:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### portalComponent
 
@@ -131,6 +145,8 @@ The `theme` prop specifies a theme to use for determining styles and layout prop
 component. Any styles or props defined in `theme` may be overwritten by props specified on the
 component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
+*example:* `theme={VictoryTheme.material}`
+
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
@@ -138,7 +154,5 @@ component instance. By default, components use a [grayscale theme]. [Read more a
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
-
-
-
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[React event handlers]: https://facebook.github.io/react/docs/events.html

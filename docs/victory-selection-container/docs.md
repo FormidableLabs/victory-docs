@@ -1,9 +1,18 @@
 # VictorySelectionContainer
 
-`VictorySelectionContainer` is used to enable selecting data points When `VictorySelectionContainer`
-is added as the `containerComponent` of your chart, clicking and dragging will select an x, y
-region, and add the `active` prop to any elements corresponding to data points within the region.
+`VictorySelectionContainer` is used to enable selecting data points within a highlighted region.
+Clicking and dragging will select an x, y region, and add the `active` prop to any elements
+corresponding to data points within the region. Create a select-box control by tying the set of
+selected data points to other elements, such as filtered table.
 
+`VictorySelectionContainer` is similar to `VictoryBrushContainer`. `VictoryBrushContainer` may be
+used to identify the domain of a selected region, whereas `VictorySelectionContainer` may be used to
+identify a list of data points within a selected region. `VictoryBrushContainer` will also create
+persistent highlighted regions, whereas regions created by `VictorySelectionContainer`
+disappear after `onMouseUp` events.
+
+`VictorySelectionContainer` may be used with any Victory component that works with an x-y coordinate
+system, and should be added as the `containerComponent` of the top-level component.
 
 ```jsx
 <VictoryChart containerComponent={<VictorySelectionContainer/>}>
@@ -14,13 +23,15 @@ region, and add the `active` prop to any elements corresponding to data points w
 
 ## Props
 
-`VictorySelectionContainer` uses a superset of props used by [VictoryContainer].
+`VictorySelectionContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
 ### dimension
 
 When the `dimension` prop is set, the selection will only take the given dimension into account.
 For example, when `dimension` is set to "x", the selected area will cover the entire y domain
 regardless of mouse position.
+
+*example:* `dimension="x"`
 
 ### selectionStyle
 
@@ -40,33 +51,22 @@ following props: x, y, width, height, and style.
 ### onSelection
 
 The `onSelection` prop accepts a function to be called whenever new data points are selected. The
-function is called with the parameters `points`, an array of objects with `childName`, `eventKey`,
-and `data`; and `bounds`, an object with min / max arrays specified for x and y.
+function is called with the parameters `points` (an array of objects with `childName`, `eventKey`,
+and `data`) and `bounds` (an object with min / max arrays specified for x and y).
+
+*example:* `onSelection={(points, bounds) => handleSelection(points, bounds)}`
 
 ## Standard Container Props
 
-### children
-
-`VictoryContainer` is a wrapper component that renders its children within an `<svg>` element or a
-`<g>` element. If no children are provided, `VictoryContainer` will render an empty tag.
-
-### standalone
-
-The `standalone` prop determines whether `VictoryContainer` will render an `<svg>` or a `<g>` tag.
-When this prop is set to false, a `<g>` tag will be rendered. If this prop is set to true, or not
-given, an `<svg>` will be rendered.
-
 ### style
 
-The `style` prop defines the style of the container. The `width` and `height` should be specified via props as they determine relative layout for components.
+The `style` prop defines the style of the container, and should be given as an object of SVG style attributes.
+The `width` and `height` should be specified via props instead of style attributes as they determine
+relative layout for components.
 
-*examples:* `style={{border: "1px solid #ccc"}}`
+*example:* `style={{border: "1px solid #ccc"}}`
 
 *default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme] for more detail.
-
-### width and height
-
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 
 ### responsive
 
@@ -74,24 +74,33 @@ The `responsive` prop specifies whether the rendered container should be a respo
 
 *default:* `responsive={true}`
 
+### width and height
+
+The `width` and `height` props determine the width and height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
+
+*example:* `width={350}`
+
 ### events
 
-The `events` prop attaches arbitrary event handlers to the container element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey when applicable.
+The `events` prop attaches arbitrary event handlers to the container element. This prop should be
+given as an object of event names and corresponding [React event handlers]. Events defined directly
+via this prop will be masked by `defaultEvents` on `VictorySelectionContainer` (`onMouseDown`,
+`onMouseUp`, and `onMouseMove`), and by any events defined through Victory's event
+system that target parent elements.
 
-*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+*example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### title
 
 The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be.
 
-*examples:* `title="Popularity of Dog Breeds by Percentage"`
-
+*example:* `title="Popularity of Dog Breeds by Percentage"`
 
 ### desc
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
 
-*examples:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
+*example:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### portalComponent
 
@@ -104,6 +113,8 @@ The `portalComponent` prop takes a component instance which will be used as a co
 The `theme` prop specifies a theme to use for determining styles and layout properties for a
 component. Any styles or props defined in `theme` may be overwritten by props specified on the
 component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+
+*example:* `theme={VictoryTheme.material}`
 
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js

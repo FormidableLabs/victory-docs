@@ -149,7 +149,7 @@ ReactDOM.render(<App/>, mountNode)
 ```
 
 `VictoryBrushContainer` may be used with any Victory component that works on an x, y coordinate system.
-Brushing behavior may be limited to the x or y dimensions with the `dimension` prop (default: "x"), and the selected
+Brushing behavior may be limited to the x or y dimensions with the `dimension` prop, and the selected
 area may be styled, or even replaced with a custom component.
 
 ```playground
