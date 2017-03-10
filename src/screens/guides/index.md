@@ -22,6 +22,7 @@ Learn about responsive containers and VictoryPortal.
 
 **[Brush and Zoom]**:
 Add interactive brushing and zooming to your charts. This guide explains how to use the `VictoryZoomContainer` and `VictoryBrushContainer`
+
 **[Themes]**:
 Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can easily test your own themes.
 
