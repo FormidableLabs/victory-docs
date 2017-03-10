@@ -22,11 +22,19 @@ var validateRelative = function (abs) {
 };
 
 describe("Docs", function () {
-  it("should render a page with proper title", function () {
+  it("should render the index page with the correct title", function () {
     return adapter.client
       .url("/docs")
       .getTitle().then(function (title) {
         expect(title).to.eq("Victory | Documentation");
+      });
+  });
+
+  it("should render a component page with the correct title", function () {
+    return adapter.client
+      .url("/docs/victory-bar")
+      .getTitle().then(function (title) {
+        expect(title).to.eq("VictoryBar | Documentation");
       });
   });
 
