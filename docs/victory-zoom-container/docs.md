@@ -137,4 +137,4 @@ component instance. By default, components use a [grayscale theme]. [Read more a
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
-[See an example of a zoomable chart] https://formidable.com/open-source/victory/guides/brush-and-zoom
+[See an example of a zoomable chart]: https://formidable.com/open-source/victory/guides/brush-and-zoom
