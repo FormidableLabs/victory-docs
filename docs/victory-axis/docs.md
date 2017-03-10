@@ -24,10 +24,9 @@ The `tickCount` prop specifies approximately how many ticks should be drawn on t
 
 ### fixLabelOverlap
 
-When true, axis tick labels and their associated ticks
-and grid lines will be removed until the total calculated length of the remaining labels is less
-than the length of the axis. Labels at approximately even intervals from the original array of labels.
-This feature only works well for labels that are approximately evenly spaced.
+When true, this prop reduces the number of tick labels to fit the length of the axis. Labels are
+removed at approximately even intervals from the original array of labels. This feature only works
+well for labels that are approximately evenly spaced.
 
 *default:* `fixLabelOverlap={false}`
 
