@@ -40,8 +40,8 @@ class Docs extends React.Component {
     this.setState({tocArray});
   }
 
-  renderContent(activePage) {
-    if (activePage === "index") {
+  renderContent(activePageConf) {
+    if (activePageConf.slug === "index") {
       return (
         <div className="Markdown playgroundsMaxHeight">
           <a href="https://github.com/FormidableLabs/victory-docs/blob/master/docs/index.md" className="SubHeading">Edit this page</a>
@@ -55,14 +55,13 @@ class Docs extends React.Component {
         </div>
       );
     }
-    const conf = find(config, { slug: activePage });
-    const markdownDocs = conf.docs;
-    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/docs/${activePage}/docs.md`;
+    const markdownDocs = activePageConf.docs;
+    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/docs/${activePageConf.slug}/docs.md`;
     return (
       <div>
         <a href={editUrl} className="SubHeading">Edit this page</a>
         <Markdown
-          active={activePage}
+          active={activePageConf.slug}
           basename={basename}
           location={this.props.location}
           markdownFile={markdownDocs}
@@ -73,18 +72,18 @@ class Docs extends React.Component {
   }
 
   render() {
-    const activePage = this.props.params.component ?
-      this.props.params.component :
-      "index";
+    const activePageConf = this.props.params.component ?
+      find(config, { slug: this.props.params.component }) :
+      { slug: "index", text: "Victory" };
 
     return (
-      <TitleMeta title="Victory | Documentation">
+      <TitleMeta title={`${activePageConf.text} | Documentation`}>
         <Page
           location={this.props.location}
-          sidebar={activePage}
+          sidebar={activePageConf.slug}
           tocArray={this.state.tocArray}
         >
-          { this.renderContent(activePage) }
+          { this.renderContent(activePageConf) }
         </Page>
       </TitleMeta>
     );
