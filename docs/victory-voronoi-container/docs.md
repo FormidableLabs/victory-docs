@@ -1,10 +1,12 @@
 # VictoryVoronoiContainer
 
-`VictoryVoronoiContainer` calculates a voronoi diagram based on the data of every child component it
-renders. The voronoi data is used to associate a mouse position with its nearest data point(s).
-When `VictoryVoronoiContainer` is added as the `containerComponent` of your chart, changes in mouse
-position will add and remove the `active` prop on appropriate elements in the components of the
-chart.
+`VictoryVoronoiContainer` adds the ability to associate a mouse position with the data point(s)
+closest to it. When this container is added to a chart, changes in mouse position will add the `active`
+prop to to data and label components closest to the current mouse position. The closeness of data
+points to a given position is determined by calculating a [voronoi diagram] based on the data of
+every child `VictoryVoronoiContainer` renders. This container is useful for adding hover interactions,
+like tooltips, to small data points, or charts with very dense or overlapping data. Read
+[this guide] to learn how to use `VictoryVoronoiContainer` with tooltips.
 
 `VictoryVoronoiContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
@@ -144,3 +146,4 @@ component instance. By default, components use a [grayscale theme]. [Read more a
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[voronoi diagram]: https://github.com/d3/d3-voronoi
