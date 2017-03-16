@@ -70,7 +70,7 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 ```jsx
 style={{
-  data: {fill: "tomato", opacity: 0.7},
+  data: {stroke: "tomato", opacity: 0.7},
   labels: {fontSize: 12},
   parent: {border: "1px solid #ccc"}
 }}
