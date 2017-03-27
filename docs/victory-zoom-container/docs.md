@@ -26,7 +26,7 @@ values to render. If this prop is not provided initially, the chart will render 
 zoom, displaying the entire dataset. Updates to `zoomDomain` will trigger a re-render of the chart
 with the new domain.
 
-*example:* `zoomDomain={{x: [0, 100]}`
+*example:* `zoomDomain={{x: [0, 100]}}`
 
 ### minimumZoom
 
@@ -37,7 +37,7 @@ panning will still be enabled. When this prop is not specified, the default mini
 cover 1 / 1000th of the original domain. This prop should be given as an object with numeric values
 for x and y.
 
-*example:* `minimumDomain={{x: 1, y: 0.01}`
+*example:* `minimumZoom={{x: 1, y: 0.01}}`
 
 ### dimension
 
