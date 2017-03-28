@@ -106,7 +106,7 @@ This prop can be provided as a string, function, or array of either.
 
 ```playground
   <VictoryLine
-    data={range(0, 2 * Math.PI, 0.01).map((t) => ({t}))}
+    data={_.range(0, 2 * Math.PI, 0.01).map((t) => ({t}))}
     sortKey="t"
     x={({t}) => Math.sin(3 * t + (2 * Math.PI))}
     y={({t}) => Math.sin(2 * t)}
