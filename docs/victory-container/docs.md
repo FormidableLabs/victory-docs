@@ -47,7 +47,7 @@ The `title` prop specifies the title to be applied to the SVG to assist with acc
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
 
-*example:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
+*example:* `desc="Golden retrievers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### portalComponent
 
