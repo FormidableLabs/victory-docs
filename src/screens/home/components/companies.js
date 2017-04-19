@@ -6,6 +6,8 @@ import Icon from "../../../components/icon";
 // Assets
 import VIACOM from "../../../../static/logo-viacom.svg";
 import FIVETHIRTYEIGHT from "../../../../static/logo-fivethirtyeight.svg";
+import USAFACTS from "../../../../static/logo-usafacts.svg";
+import AIRBNB from "../../../../static/logo-airbnb.svg";
 
 class Companies extends React.Component {
   render() {
@@ -15,11 +17,10 @@ class Companies extends React.Component {
           A few of our fans
         </h2>
         <ul className="Companies-List">
-          <li className="Companies-logo Companies-logo--max300">
-            <img src="./static/logo-airbnb.png" alt="Airbnb" className="Companies-logo-img" />
-          </li>
-          <li className="Companies-logo Companies-logo--max300" dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
-          <li className="Companies-logo Companies-logo--max200" dangerouslySetInnerHTML={{__html: VIACOM}} />
+          <li className="Companies-logo" style={{maxWidth: "171px"}} dangerouslySetInnerHTML={{__html: AIRBNB}} />
+          <li className="Companies-logo" style={{maxWidth: "350px"}} dangerouslySetInnerHTML={{__html: USAFACTS}} />
+          <li className="Companies-logo" style={{maxWidth: "300px"}} dangerouslySetInnerHTML={{__html: FIVETHIRTYEIGHT}} />
+          <li className="Companies-logo" style={{maxWidth: "200px"}} dangerouslySetInnerHTML={{__html: VIACOM}} />
         </ul>
         <p className="SubHeading">
           <Link to="/about#showcase" className="isLight">
