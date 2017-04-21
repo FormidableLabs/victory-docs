@@ -44,11 +44,10 @@ The `events` prop takes an array of event objects. Event objects are composed of
     data={[{x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}]}
   />
   <VictoryScatter name="scatter-3"
-    data={[x: "a", y: 3}, {x: "b", y: 2}, {x: "c", y: 6}]}
+    data={[{x: "a", y: 3}, {x: "b", y: 2}, {x: "c", y: 6}]}
   />
   <VictoryScatter name="scatter-4"
-    data={[{x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 3}
-    ]}
+    data={[{x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 3}]}
   />
 </VictorySharedEvents>
 ```
