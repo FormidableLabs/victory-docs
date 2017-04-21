@@ -118,14 +118,6 @@
   padding-left: var(--gutter-small);
 }
 
-.Companies-logo--max200 {
-  max-width: 200px;
-}
-
-.Companies-logo--max300 {
-  max-width: 300px;
-}
-
 .Companies-logo-img {
   height: 70px;
 }
