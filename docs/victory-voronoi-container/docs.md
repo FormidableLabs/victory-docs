@@ -10,7 +10,8 @@ like tooltips, to small data points, or charts with very dense or overlapping da
 
 `VictoryVoronoiContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
-
+However, the container that uses it must be standalone
+(`standalone={true}`), which is the default for all Victory components.
 
 ```jsx
 <VictoryChart containerComponent={<VictoryVoronoiContainer/>}>
