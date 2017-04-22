@@ -28,6 +28,7 @@ import VVoronoiTooltipDocs from "../../docs/victory-voronoi-tooltip/docs.md";
 import NativeTutorial from "../../docs/native/docs.md";
 import VZoomDocs from "../../docs/victory-zoom/docs.md";
 import VZoomContainerDocs from "../../docs/victory-zoom-container/docs.md";
+import CreateContainerDocs from "../../docs/create-container/docs.md";
 
 export const config = [
   {
@@ -180,5 +181,10 @@ export const config = [
     slug: "victory-zoom-container",
     category: "chart",
     docs: VZoomContainerDocs
+  }, {
+    text: "createContainer",
+    slug: "create-container",
+    category: "chart",
+    docs: CreateContainerDocs
   }
 ];
