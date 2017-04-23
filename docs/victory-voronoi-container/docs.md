@@ -10,7 +10,8 @@ like tooltips, to small data points, or charts with very dense or overlapping da
 
 `VictoryVoronoiContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
-
+However, the container that uses it must be standalone
+(`standalone={true}`), which is the default for all Victory components.
 
 ```jsx
 <VictoryChart containerComponent={<VictoryVoronoiContainer/>}>
@@ -138,6 +139,31 @@ component instance. By default, components use a [grayscale theme]. [Read more a
 
 *example:* `theme={VictoryTheme.material}`
 
+### onTouchStart (native only)
+
+The optional `onTouchStart` prop takes a function that is called on every touch event on the chart (when using `victory-native`). The most common use of `onTouchStart` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event]. Also see `onTouchEnd`.
+
+*example:*
+
+```jsx
+<ScrollView scrollEnabled={this.state.scrollEnabled}>
+  <VictoryChart
+    containerComponent={
+      <VictoryContainer
+        onTouchStart={() => this.setState({ scrollEnabled: false })}
+        onTouchEnd={() => this.setState({ scrollEnabled: true })}
+      />
+    }
+  >
+   <VictoryBar/>
+  </VictoryChart>
+</ScrollView>
+```
+
+### onTouchEnd (native only)
+
+The optional `onTouchEnd` prop takes a function that is called at the conclusion of every touch event on the chart (when using `victory-native`). The most common use of `onTouchEnd` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event]. Also see `onTouchStart`.
+
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
@@ -147,3 +173,4 @@ component instance. By default, components use a [grayscale theme]. [Read more a
 [Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi
+[Synthetic Event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
