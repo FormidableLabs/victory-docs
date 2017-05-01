@@ -6,11 +6,12 @@ import {
 } from "victory";
 import EcologyRecipe from "../ecology-recipe";
 
-export default class LayoutGuide extends React.Component {
+class LayoutGuide extends React.Component {
   render() {
     return (
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
+        location={this.props.location}
         scope={{
           React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel, VictoryChart,
           VictoryLine, VictoryAxis, VictoryBar, VictoryScatter, VictoryStack, VictoryPortal
@@ -19,3 +20,9 @@ export default class LayoutGuide extends React.Component {
     );
   }
 }
+
+LayoutGuide.propTypes = {
+  location: React.PropTypes.object
+};
+
+export default LayoutGuide;

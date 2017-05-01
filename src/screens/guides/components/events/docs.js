@@ -7,11 +7,12 @@ import {
 import { assign } from "lodash";
 import EcologyRecipe from "../ecology-recipe";
 
-export default class EventsGuide extends React.Component {
+class EventsGuide extends React.Component {
   render() {
     return (
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
+        location={this.props.location}
         scope={{
           assign, React, ReactDOM, VictoryBar, Bar, VictoryArea, VictoryLabel,
           VictoryPie, VictoryChart, VictoryStack, VictorySharedEvents
@@ -20,3 +21,9 @@ export default class EventsGuide extends React.Component {
     );
   }
 }
+
+EventsGuide.propTypes = {
+  location: React.PropTypes.object
+};
+
+export default EventsGuide;

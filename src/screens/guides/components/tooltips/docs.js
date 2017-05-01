@@ -8,11 +8,12 @@ import {
 import { range, random} from "lodash";
 import EcologyRecipe from "../ecology-recipe";
 
-export default class TooltipsGuide extends React.Component {
+class TooltipsGuide extends React.Component {
   render() {
     return (
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
+        location={this.props.location}
         scope={{
           range, random, React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel,
           VictoryLine, VictoryAxis, VictoryBar, VictoryScatter, VictoryStack, VictoryTooltip,
@@ -22,3 +23,9 @@ export default class TooltipsGuide extends React.Component {
     );
   }
 }
+
+TooltipsGuide.propTypes = {
+  location: React.PropTypes.object
+};
+
+export default TooltipsGuide;

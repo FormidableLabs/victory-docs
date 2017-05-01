@@ -4,11 +4,12 @@ import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
 import EcologyRecipe from "../ecology-recipe";
 
-export default class CustomStylesTutorial extends React.Component {
+class CustomStylesTutorial extends React.Component {
   render() {
     return (
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
+        location={this.props.location}
         scope={{
           React,
           ReactDOM,
@@ -20,3 +21,9 @@ export default class CustomStylesTutorial extends React.Component {
     );
   }
 }
+
+CustomStylesTutorial.propTypes = {
+  location: React.PropTypes.object
+};
+
+export default CustomStylesTutorial;

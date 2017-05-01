@@ -7,11 +7,12 @@ import {
 import { random, range } from "lodash";
 import EcologyRecipe from "../ecology-recipe";
 
-export default class CustomComponentGuide extends React.Component {
+class CustomComponentGuide extends React.Component {
   render() {
     return (
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
+        location={this.props.location}
         scope={{
           random, range, React, ReactDOM, VictoryBar, VictoryScatter, VictoryLine,
           VictoryPie, VictoryChart, VictoryAxis, VictoryGroup, VictoryLabel, VictoryArea, Area
@@ -20,3 +21,9 @@ export default class CustomComponentGuide extends React.Component {
     );
   }
 }
+
+CustomComponentGuide.propTypes = {
+  location: React.PropTypes.object
+};
+
+export default CustomComponentGuide;

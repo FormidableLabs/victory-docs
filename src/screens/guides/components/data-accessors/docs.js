@@ -4,13 +4,20 @@ import { VictoryBar, VictoryLine, VictoryChart, VictoryAxis} from "victory";
 import { assign, range } from "lodash";
 import EcologyRecipe from "../ecology-recipe";
 
-export default class DataAccessorsGuide extends React.Component {
+class DataAccessorsGuide extends React.Component {
   render() {
     return (
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
+        location={this.props.location}
         scope={{ assign, range, React, ReactDOM, VictoryBar, VictoryLine, VictoryChart, VictoryAxis}}
       />
     );
   }
 }
+
+DataAccessorsGuide.propTypes = {
+  location: React.PropTypes.object
+};
+
+export default DataAccessorsGuide;
