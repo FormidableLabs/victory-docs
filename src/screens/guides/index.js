@@ -30,7 +30,10 @@ class Guides extends React.Component {
     return (
       <TitleMeta title="Victory | Guides">
         <Page sidebar={activeGuide}>
-          <Guide active={activeGuide} />
+          <Guide
+            active={activeGuide}
+            location={this.props.location}
+          />
         </Page>
       </TitleMeta>
     );
@@ -38,12 +41,12 @@ class Guides extends React.Component {
 }
 
 Guides.propTypes = {
+  location: React.PropTypes.object.isRequired,
   params: React.PropTypes.object
 };
 
 Guides.defaultProps = {
   params: null
 };
-
 
 export default Radium(Guides);
