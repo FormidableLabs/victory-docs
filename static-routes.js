@@ -35,7 +35,6 @@ module.exports = [
   "/docs/victory-voronoi-tooltip",
   "/docs/victory-zoom",
   "/docs/victory-zoom-container",
-  "/recipes/theme-park",
   "/guides",
   "/guides/animations",
   "/guides/custom-charts",

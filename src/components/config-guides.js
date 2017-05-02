@@ -4,7 +4,7 @@ import DataAccessors from "../screens/guides/components/data-accessors/docs";
 import Events from "../screens/guides/components/events/docs";
 import Layout from "../screens/guides/components/layout/docs";
 import CustomCharts from "../screens/guides/components/custom-charts/docs";
-import Themes from "../screens/recipes/components/theme-park";
+import Themes from "../screens/guides/components/theme-park/index";
 import Tooltips from "../screens/guides/components/tooltips/docs";
 import BrushZoom from "../screens/guides/components/brush-and-zoom/docs";
 
