@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Ecology from "ecology";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 import Radium from "radium";
 import Prism from "prismjs";
@@ -18,6 +17,7 @@ import { config } from "../../components/config";
 import Page from "../../components/page";
 import Markdown from "../../components/markdown";
 import TitleMeta from "../../components/title-meta";
+import EcologyLinkable from "../../components/ecology-linkable";
 
 class Docs extends React.Component {
   constructor() {
@@ -45,12 +45,12 @@ class Docs extends React.Component {
       return (
         <div className="Markdown playgroundsMaxHeight">
           <a href="https://github.com/FormidableLabs/victory-docs/blob/master/docs/index.md" className="SubHeading">Edit this page</a>
-          <Ecology
+          <EcologyLinkable
             overview={require("!!raw!../../../docs/index.md")}
+            location={this.props.location}
             scope={{
               React, ReactDOM, VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack
             }}
-            playgroundtheme="elegant"
           />
         </div>
       );
