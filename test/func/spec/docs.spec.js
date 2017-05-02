@@ -1,4 +1,5 @@
 var adapter = require("builder-docs-archetype-dev/spec-setup").adapter;
+var _ = require("lodash");
 var expect = require("chai").expect;
 
 var routes = require("../../../static-routes");
@@ -24,7 +25,7 @@ var validateRelative = function (abs) {
 describe("Docs", function () {
   it("should render the index page with the correct title", function () {
     return adapter.client
-      .url("/docs")
+      .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + "/docs")
       .getTitle().then(function (title) {
         expect(title).to.eq("Victory | Documentation");
       });
@@ -32,7 +33,7 @@ describe("Docs", function () {
 
   it("should render a component page with the correct title", function () {
     return adapter.client
-      .url("/docs/victory-bar")
+      .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + "/docs/victory-bar")
       .getTitle().then(function (title) {
         expect(title).to.eq("VictoryBar | Documentation");
       });
@@ -43,7 +44,7 @@ describe("Docs", function () {
     describe("Route " + r, function () {
       it("should render with no broken links", function () {
         return adapter.client
-          .url(r)
+          .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + r)
           .elements("#content").then(function (res) {
             expect(res.value.length).to.eq(1); // Not a 404
           })
