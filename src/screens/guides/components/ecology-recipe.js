@@ -1,30 +1,18 @@
 import React from "react";
-import Ecology from "ecology";
+import EcologyLinkable from "../../../components/ecology-linkable";
 import { ecologyPlaygroundLoading } from "formidable-landers";
 
 class EcologyRecipe extends React.Component {
-  customRenderers(pathname) {
-    return {
-      heading: (text, level) => {
-        const escaped = text.toLowerCase().replace(/[^\w]+/g, "-");
-
-        return `<h${level} id="${escaped}"><a class="Anchor" href="${pathname}#${escaped}" aria-hidden="true"></a>${text}</h${level}/>`;
-      },
-      ...ecologyPlaygroundLoading
-    };
-  }
-
   render() {
     const { scope, overview, location } = this.props;
-    const pathname = location.pathname;
 
     return (
       <div className="Recipe Markdown">
-        <Ecology
-          playgroundtheme="elegant"
+        <EcologyLinkable
           overview={overview}
           scope={scope}
-          customRenderers={this.customRenderers(pathname)}
+          location={location}
+          customRenderers={ecologyPlaygroundLoading}
         />
       </div>
     );
