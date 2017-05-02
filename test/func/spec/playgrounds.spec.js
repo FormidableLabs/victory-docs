@@ -4,10 +4,14 @@ var expect = require("chai").expect;
 
 var WAIT = 20000;
 
+var fullPath = function (path) {
+  return _.trimEnd(global.TEST_FUNC_BASE_URL, "/") + path;
+};
+
 describe("Playgrounds", function () {
   it("should render", function () {
     return adapter.client
-      .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + "/guides/animations")
+      .url(fullPath("/guides/animations"))
       .waitForExist(".Interactive > .playground", WAIT)
       .elements(".Interactive > .playground").then(function (res) {
         expect(res.value.length > 0).to.eq(true);
@@ -18,7 +22,7 @@ describe("Playgrounds", function () {
   // update it, then check if the preview updated
   it("should reflect changes", function () {
     return adapter.client
-      .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + "/guides/animations")
+      .url(fullPath("/guides/animations"))
       .waitForExist(".Interactive > .playground", WAIT)
       .selectorExecute(".Interactive > .playground", function (els) {
         var editor = els[0].querySelector(".CodeMirror").CodeMirror;

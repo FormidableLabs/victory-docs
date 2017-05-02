@@ -22,10 +22,14 @@ var validateRelative = function (abs) {
   }
 };
 
+var fullPath = function (path) {
+  return _.trimEnd(global.TEST_FUNC_BASE_URL, "/") + path;
+};
+
 describe("Docs", function () {
   it("should render the index page with the correct title", function () {
     return adapter.client
-      .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + "/docs")
+      .url(fullPath("/docs"))
       .getTitle().then(function (title) {
         expect(title).to.eq("Victory | Documentation");
       });
@@ -33,7 +37,7 @@ describe("Docs", function () {
 
   it("should render a component page with the correct title", function () {
     return adapter.client
-      .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + "/docs/victory-bar")
+      .url(fullPath("/docs/victory-bar"))
       .getTitle().then(function (title) {
         expect(title).to.eq("VictoryBar | Documentation");
       });
@@ -44,7 +48,7 @@ describe("Docs", function () {
     describe("Route " + r, function () {
       it("should render with no broken links", function () {
         return adapter.client
-          .url(_.trimEnd(global.TEST_FUNC_BASE_URL, "/") + r)
+          .url(fullPath(r))
           .elements("#content").then(function (res) {
             expect(res.value.length).to.eq(1); // Not a 404
           })
