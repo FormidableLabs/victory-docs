@@ -5,7 +5,7 @@ import {
   VictorySharedEvents, Bar, VictoryLabel
 } from "victory";
 import { assign } from "lodash";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class EventsGuide extends React.Component {
   render() {

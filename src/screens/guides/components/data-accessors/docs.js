@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { VictoryBar, VictoryLine, VictoryChart, VictoryAxis} from "victory";
 import { assign, range } from "lodash";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class DataAccessorsGuide extends React.Component {
   render() {

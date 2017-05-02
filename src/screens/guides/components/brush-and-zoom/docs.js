@@ -5,7 +5,7 @@ import {
   VictoryBrushContainer, VictoryZoomContainer
 } from "victory";
 import { random, range } from "lodash";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class BrushAndZoomGuide extends React.Component {
   render() {

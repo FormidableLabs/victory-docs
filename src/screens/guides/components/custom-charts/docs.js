@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class CustomStylesTutorial extends React.Component {
   render() {

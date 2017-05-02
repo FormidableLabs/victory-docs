@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { VictoryBar, VictoryScatter, VictoryChart } from "victory";
 import { range, random } from "lodash";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class AnimationGuide extends React.Component {
   render() {

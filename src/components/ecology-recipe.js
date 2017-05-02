@@ -1,5 +1,5 @@
 import React from "react";
-import EcologyLinkable from "../../../components/ecology-linkable";
+import EcologyLinkable from "./ecology-linkable";
 import { ecologyPlaygroundLoading } from "formidable-landers";
 
 class EcologyRecipe extends React.Component {

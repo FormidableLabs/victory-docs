@@ -6,7 +6,7 @@ import {
   VictoryGroup, VictoryVoronoiContainer
 } from "victory";
 import { range, random} from "lodash";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class TooltipsGuide extends React.Component {
   render() {

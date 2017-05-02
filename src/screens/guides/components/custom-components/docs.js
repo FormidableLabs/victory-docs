@@ -5,7 +5,7 @@ import {
   VictoryChart, VictoryLine, VictoryPie, VictoryArea, Area
 } from "victory";
 import { random, range } from "lodash";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class CustomComponentGuide extends React.Component {
   render() {

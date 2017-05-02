@@ -46,7 +46,7 @@ class Docs extends React.Component {
         <div className="Markdown playgroundsMaxHeight">
           <a href="https://github.com/FormidableLabs/victory-docs/blob/master/docs/index.md" className="SubHeading">Edit this page</a>
           <EcologyLinkable
-            overview={require("!!raw!../../../docs/index.md")}
+            overview={require("!!raw!./components/index.md")}
             location={this.props.location}
             scope={{
               React, ReactDOM, VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack
@@ -56,7 +56,7 @@ class Docs extends React.Component {
       );
     }
     const markdownDocs = activePageConf.docs;
-    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/docs/${activePageConf.slug}/docs.md`;
+    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/docs/components/${activePageConf.slug}/docs.md`;
     return (
       <div>
         <a href={editUrl} className="SubHeading">Edit this page</a>

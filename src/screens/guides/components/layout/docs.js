@@ -4,7 +4,7 @@ import {
   VictoryPie, VictoryContainer, VictoryLabel, VictoryChart, VictoryLine, VictoryAxis,
   VictoryBar, VictoryScatter, VictoryStack, VictoryPortal
 } from "victory";
-import EcologyRecipe from "../ecology-recipe";
+import EcologyRecipe from "../../../../components/ecology-recipe";
 
 class LayoutGuide extends React.Component {
   render() {
