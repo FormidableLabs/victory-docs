@@ -115,5 +115,5 @@ The `x` and `y` props define the base position of the legend element.
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [width and height]: https://formidable.com/open-source/victory/docs/victory-legend#width-and-height
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
+[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [approximate text size]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js

@@ -240,7 +240,7 @@ The `name` prop is used to reference a component instance when defining shared e
 [d3Scale]: https://github.com/d3/d3-scale
 [tickValues]: https://formidable.com/open-source/victory/docs/victory-axis#tickvalues
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
+[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [width and height]: https://formidable.com/open-source/victory/docs/victory-axis#width-and-height
 [Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label

@@ -5,4 +5,4 @@ Implement themes for your Victory charts. `VictoryTheme` allows you to create a 
 [Read more about themes here].
 
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
+[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
