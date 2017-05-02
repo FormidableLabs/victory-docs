@@ -1,6 +1,5 @@
 import React from "react";
 import Ecology from "ecology";
-import { ecologyPlaygroundLoading } from "formidable-landers";
 
 class EcologyLinkable extends React.Component {
   renderersWithHeading(pathname, otherRenderers) {
