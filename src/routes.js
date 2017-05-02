@@ -16,7 +16,6 @@ module.exports = (
     <Route path="/docs/:component" component={Docs} />
     <Route path="/guides" component={Guides}/>
     <Route path="/guides/:component" component={Guides} />
-    <Route path="/recipes" component={Recipes}/>
     <Route path="/recipes/:component" component={Recipes} />
     <Route path="/about" component={About} />
     <Route path="/">

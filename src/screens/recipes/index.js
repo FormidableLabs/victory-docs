@@ -8,9 +8,7 @@ import TitleMeta from "../../components/title-meta";
 
 class Recipes extends React.Component {
   render() {
-    const activeRecipe = this.props.params.component ?
-      this.props.params.component :
-      "index";
+    const activeRecipe = this.props.params.component;
 
     return (
       <TitleMeta title="Victory | Recipes">
