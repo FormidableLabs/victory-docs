@@ -16,6 +16,14 @@ class SidebarListItem extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.state.collapsed && !this.isSelected(nextProps)) {
+      this.setState({
+        collapsed: false
+      });
+    }
+  }
+
   pushToLevel(siblings, level, heading) {
     siblings = siblings.slice(0);
     let parentTarget = siblings;
@@ -80,7 +88,7 @@ class SidebarListItem extends React.Component {
   }
 
   renderToc() {
-    if (!this.isSelected()) {
+    if (!this.isSelected() || this.state.collapsed) {
       return null;
     }
 
@@ -92,7 +100,17 @@ class SidebarListItem extends React.Component {
     );
   }
 
-  isSelected() {
+  onHeadingClick() {
+    if (this.isSelected()) {
+      this.setState({
+        collapsed: !this.state.collapsed
+      });
+    }
+  }
+
+  isSelected(props) {
+    props = props || this.props;
+
     return this.props.location && this.props.location.pathname === this.props.path;
   }
 
@@ -101,7 +119,11 @@ class SidebarListItem extends React.Component {
 
     return (
       <li className="Sidebar-List-Item">
-        <Link to={path} activeClassName="is-active">
+        <Link
+          to={path}
+          activeClassName="is-active"
+          onClick={this.onHeadingClick.bind(this)}
+        >
           {text} <Icon glyph="internal-link" />
         </Link>
         {this.renderToc(path)}
