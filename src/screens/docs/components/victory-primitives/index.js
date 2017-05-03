@@ -7,6 +7,7 @@ class VictoryPrimitives extends React.Component {
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
         location={this.props.location}
+        updateTocArray={this.props.updateTocArray}
         scope={{}}
       />
     );
@@ -14,7 +15,8 @@ class VictoryPrimitives extends React.Component {
 }
 
 VictoryPrimitives.propTypes = {
-  location: React.PropTypes.object
+  location: React.PropTypes.object.isRequired,
+  updateTocArray: React.PropTypes.func.isRequired
 };
 
 export default VictoryPrimitives;

@@ -11,6 +11,7 @@ class <%= component %> extends React.Component {
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
         location={this.props.location}
+        updateTocArray={this.props.updateTocArray}
         scope={{}}
       />
     );
@@ -18,7 +19,8 @@ class <%= component %> extends React.Component {
 }
 
 <%= component %>.propTypes = {
-  location: React.PropTypes.object
+  location: React.PropTypes.object.isRequired,
+  updateTocArray: React.PropTypes.func.isRequired
 };
 
 export default <%= component %>;
@@ -31,10 +33,15 @@ const convert = (dir, componentTemplate) => {
 
   docs.forEach((doc) => {
     // Rename markdown file
-    fse.moveSync(
-      path.join(dir, doc, "docs.md"),
-      path.join(dir, doc, "ecology.md")
-    );
+
+    try {
+      fse.moveSync(
+        path.join(dir, doc, "docs.md"),
+        path.join(dir, doc, "ecology.md")
+      );
+    } catch (e) {
+      console.log("%s markdown file already renamed", doc);
+    }
 
     // Create component
     const component = doc.split("-")
@@ -42,7 +49,15 @@ const convert = (dir, componentTemplate) => {
       .join("");
 
     const componentJS = _.template(componentTemplate)({ component });
-    fse.writeFileSync(path.join(dir, doc, "index.js"), componentJS);
+    const componentFilename = path.join(dir, doc, "index.js");
+
+    try {
+      fse.unlinkSync(componentFilename);
+    } catch (e) {
+      console.log("Component file %s already exists", componentFilename);
+    }
+
+    fse.writeFileSync(componentFilename, componentJS);
   });
 
 };

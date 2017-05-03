@@ -15,7 +15,6 @@ import yaml from "prismjs/components/prism-yaml";
 import basename from "../../basename";
 import { config } from "../../components/config";
 import Page from "../../components/page";
-import Markdown from "../../components/markdown";
 import TitleMeta from "../../components/title-meta";
 import EcologyLinkable from "../../components/ecology-linkable";
 
@@ -37,7 +36,7 @@ class Docs extends React.Component {
   }
 
   updateTocArray(tocArray) {
-    this.setState({tocArray});
+    this.setState({ tocArray });
   }
 
   renderContent(activePageConf, location) {
@@ -58,17 +57,13 @@ class Docs extends React.Component {
     const Doc = activePageConf.docs;
     const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/docs/components/${activePageConf.slug}/ecology.md`;
 
-    // <Markdown
-    //   active={activePageConf.slug}
-    //   basename={basename}
-    //   location={this.props.location}
-    //   markdownFile={markdownDocs}
-    //   updateTocArray={this.updateTocArray.bind(this)}
-    // />
     return (
       <div>
         <a href={editUrl} className="SubHeading">Edit this page</a>
-        <Doc location={location}/>
+        <Doc
+          location={location}
+          updateTocArray={this.updateTocArray.bind(this)}
+        />
       </div>
     );
   }
