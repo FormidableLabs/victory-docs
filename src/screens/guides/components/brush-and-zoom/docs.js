@@ -13,6 +13,7 @@ class BrushAndZoomGuide extends React.Component {
       <EcologyRecipe
         overview={require("!!raw!./ecology.md")}
         location={this.props.location}
+        updateTocArray={this.props.updateTocArray}
         scope={{
           random, range, React, ReactDOM, VictoryChart, VictoryAxis, VictoryLine, VictoryScatter,
           VictoryBrushContainer, VictoryZoomContainer
@@ -23,7 +24,8 @@ class BrushAndZoomGuide extends React.Component {
 }
 
 BrushAndZoomGuide.propTypes = {
-  location: React.PropTypes.object
+  location: React.PropTypes.object.isRequired,
+  updateTocArray: React.PropTypes.func.isRequired
 };
 
 export default BrushAndZoomGuide;

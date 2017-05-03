@@ -58,6 +58,11 @@ class ThemePark extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+    this.props.updateTocArray([]);
+  }
+
   render() {
     return (
       <div className="Recipe">
@@ -91,5 +96,9 @@ class ThemePark extends React.Component {
     );
   }
 }
+
+ThemePark.propTypes = {
+  updateTocArray: React.PropTypes.func.isRequired
+};
 
 export default Radium(ThemePark);
