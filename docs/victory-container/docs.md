@@ -94,5 +94,5 @@ The optional `onTouchEnd` prop takes a function that is called at the conclusion
 [VictoryTheme]: https://formidable.com/open-source/victory/docs/victory-theme
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/recipes/theme-park
+[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [Synthetic Event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
