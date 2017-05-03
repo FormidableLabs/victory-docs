@@ -40,7 +40,7 @@ class Docs extends React.Component {
     this.setState({tocArray});
   }
 
-  renderContent(activePageConf) {
+  renderContent(activePageConf, location) {
     if (activePageConf.slug === "index") {
       return (
         <div className="Markdown playgroundsMaxHeight">
@@ -55,18 +55,20 @@ class Docs extends React.Component {
         </div>
       );
     }
-    const markdownDocs = activePageConf.docs;
-    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/docs/components/${activePageConf.slug}/docs.md`;
+    const Doc = activePageConf.docs;
+    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/docs/components/${activePageConf.slug}/ecology.md`;
+
+    // <Markdown
+    //   active={activePageConf.slug}
+    //   basename={basename}
+    //   location={this.props.location}
+    //   markdownFile={markdownDocs}
+    //   updateTocArray={this.updateTocArray.bind(this)}
+    // />
     return (
       <div>
         <a href={editUrl} className="SubHeading">Edit this page</a>
-        <Markdown
-          active={activePageConf.slug}
-          basename={basename}
-          location={this.props.location}
-          markdownFile={markdownDocs}
-          updateTocArray={this.updateTocArray.bind(this)}
-        />
+        <Doc location={location}/>
       </div>
     );
   }
@@ -83,7 +85,7 @@ class Docs extends React.Component {
           sidebar={activePageConf.slug}
           tocArray={this.state.tocArray}
         >
-          { this.renderContent(activePageConf) }
+          { this.renderContent(activePageConf, this.props.location) }
         </Page>
       </TitleMeta>
     );
