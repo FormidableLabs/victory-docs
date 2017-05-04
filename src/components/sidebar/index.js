@@ -90,13 +90,13 @@ class Sidebar extends React.Component {
             <p className="Sidebar-Heading">
               Guides
             </p>
-            {this.renderList(this.props.guides, "guides")}
+            {this.renderList(configGuides, "guides")}
             <p className="Sidebar-Heading u-noMarginTop">
               Documentation
             </p>
-            {this.renderList(this.props.docs, "docs", "chart")}
-            {this.renderList(this.props.docs, "docs", "core")}
-            {this.renderList(this.props.docs, "docs", "more")}
+            {this.renderList(config, "docs", "chart")}
+            {this.renderList(config, "docs", "core")}
+            {this.renderList(config, "docs", "more")}
           </div>
         </nav>
       </div>
@@ -107,15 +107,11 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
   active: React.PropTypes.string,
-  docs: React.PropTypes.array,
-  guides: React.PropTypes.array,
   location: React.PropTypes.object
 };
 
 Sidebar.defaultProps = {
-  active: null,
-  docs: config,
-  guides: configGuides
+  active: null
 };
 
 export default Sidebar;
