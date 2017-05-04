@@ -1,5 +1,5 @@
-const _ = require("lodash");
-const marked = require("marked");
+import _ from "lodash";
+import marked from "marked";
 
 // Format a string as an anchor tag ("Foo bar" -> "foo-bar")
 const toAnchor = (content) => content.toLowerCase().replace(/[^\w]+/g, "-");
@@ -18,7 +18,7 @@ const parseToc = (mdContent) => {
   return toc;
 };
 
-module.exports = {
+export default {
   toAnchor,
   parseToc
 };
