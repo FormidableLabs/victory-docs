@@ -140,20 +140,44 @@ SidebarListItem.propTypes = {
 };
 
 class Sidebar extends React.Component {
-  renderList(items, route, category) {
-    const listItems = items.map((item) => {
-      if (!category || item.category === category) {
-        return (
-          <SidebarListItem
-            key={item.slug}
-            path={`/${route}/${item.slug}`}
-            text={item.text}
-            location={this.props.location}
-            tocArray={this.props.tocArray}
-          />
-        );
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ""
+    };
+
+    this.handleSearch = this.handleSearch.bind(this);
+  }
+
+  handleSearch(e) {
+    this.setState({
+      searchTerm: e.target.value
     });
+  }
+
+  renderList(items, route, category) {
+    const { searchTerm } = this.state;
+    const listItems = items
+      .filter((item) => {
+        if (!searchTerm) {
+          return true;
+        }
+
+        return item.text.includes(searchTerm);
+      })
+      .map((item) => {
+        if (!category || item.category === category) {
+          return (
+            <SidebarListItem
+              key={item.slug}
+              path={`/${route}/${item.slug}`}
+              text={item.text}
+              location={this.props.location}
+              tocArray={this.props.tocArray}
+            />
+          );
+        }
+      });
     return (
       <div className="u-noMargin">
         <p className="Sidebar-SubHeading SubHeading">
@@ -171,6 +195,9 @@ class Sidebar extends React.Component {
     return (
       <div className="Page-sidebar">
         <nav className="Sidebar">
+          <div className="Sidebar-Search">
+            <input type="text" onChange={this.handleSearch} />
+          </div>
           <div className="Sidebar-Grid">
             <p className="Sidebar-Heading u-noMargin u-noPadding">
               Introduction
