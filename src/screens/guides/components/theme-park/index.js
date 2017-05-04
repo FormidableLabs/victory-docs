@@ -13,6 +13,10 @@ import DemoComponent from "./demo-component";
 const RadiumLink = Radium(Link);
 
 class ThemePark extends React.Component {
+  static toc() {
+    return [];
+  }
+
   constructor() {
     super();
     this.state = {
@@ -25,6 +29,7 @@ class ThemePark extends React.Component {
       material: this.processCodeText(require("!!raw!./material.example.js"))
     };
   }
+
   processCodeText(text) {
     return text
             .replace(/\/\* [global|eslint|NOTE](.|[\n])*?\*\//g, "") // remove dev comments
