@@ -40,8 +40,8 @@ class Sidebar extends React.Component {
               key={item.slug}
               path={`/${route}/${item.slug}`}
               text={item.text}
+              toc={item.toc}
               location={this.props.location}
-              tocArray={this.props.tocArray}
             />
           );
         }

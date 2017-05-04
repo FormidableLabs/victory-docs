@@ -89,7 +89,7 @@ class SidebarSelectableItem extends React.Component {
       return null;
     }
 
-    const list = this.props.tocArray.filter((heading) => heading.level !== 1 && heading.level < 4);
+    const list = this.props.toc.filter((heading) => heading.level !== 1 && heading.level < 4);
 
     return this.renderTransformedToc(
       this.transformTocArray(list),
@@ -133,7 +133,7 @@ SidebarSelectableItem.propTypes = {
   text: React.PropTypes.string.isRequired,
   path: React.PropTypes.string.isRequired,
   location: React.PropTypes.object.isRequired,
-  tocArray: React.PropTypes.array.isRequired
+  toc: React.PropTypes.array.isRequired
 };
 
 export default SidebarSelectableItem;
