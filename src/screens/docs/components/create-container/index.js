@@ -13,7 +13,6 @@ class CreateContainer extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{}}
       />
     );
@@ -21,8 +20,7 @@ class CreateContainer extends React.Component {
 }
 
 CreateContainer.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default CreateContainer;

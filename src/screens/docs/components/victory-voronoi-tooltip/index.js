@@ -13,7 +13,6 @@ class VictoryVoronoiTooltip extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{}}
       />
     );
@@ -21,8 +20,7 @@ class VictoryVoronoiTooltip extends React.Component {
 }
 
 VictoryVoronoiTooltip.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default VictoryVoronoiTooltip;

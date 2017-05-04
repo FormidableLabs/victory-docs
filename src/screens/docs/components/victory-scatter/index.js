@@ -13,7 +13,6 @@ class VictoryScatter extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{}}
       />
     );
@@ -21,8 +20,7 @@ class VictoryScatter extends React.Component {
 }
 
 VictoryScatter.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default VictoryScatter;
