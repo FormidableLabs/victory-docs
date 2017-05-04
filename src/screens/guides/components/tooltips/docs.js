@@ -20,7 +20,6 @@ class TooltipsGuide extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{
           range, random, React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel,
           VictoryLine, VictoryAxis, VictoryBar, VictoryScatter, VictoryStack, VictoryTooltip,
@@ -32,8 +31,7 @@ class TooltipsGuide extends React.Component {
 }
 
 TooltipsGuide.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default TooltipsGuide;

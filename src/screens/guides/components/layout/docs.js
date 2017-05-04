@@ -18,7 +18,6 @@ class LayoutGuide extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{
           React, ReactDOM, VictoryPie, VictoryContainer, VictoryLabel, VictoryChart,
           VictoryLine, VictoryAxis, VictoryBar, VictoryScatter, VictoryStack, VictoryPortal
@@ -29,8 +28,7 @@ class LayoutGuide extends React.Component {
 }
 
 LayoutGuide.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default LayoutGuide;

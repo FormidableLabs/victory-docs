@@ -16,7 +16,6 @@ class DataAccessorsGuide extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{ assign, range, React, ReactDOM, VictoryBar, VictoryLine, VictoryChart, VictoryAxis}}
       />
     );
@@ -24,8 +23,7 @@ class DataAccessorsGuide extends React.Component {
 }
 
 DataAccessorsGuide.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default DataAccessorsGuide;

@@ -16,7 +16,6 @@ class AnimationGuide extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{ range, random, React, ReactDOM, VictoryBar, VictoryScatter, VictoryChart }}
       />
     );
@@ -24,8 +23,7 @@ class AnimationGuide extends React.Component {
 }
 
 AnimationGuide.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default AnimationGuide;

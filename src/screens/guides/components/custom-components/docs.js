@@ -19,7 +19,6 @@ class CustomComponentGuide extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{
           random, range, React, ReactDOM, VictoryBar, VictoryScatter, VictoryLine,
           VictoryPie, VictoryChart, VictoryAxis, VictoryGroup, VictoryLabel, VictoryArea, Area
@@ -30,8 +29,7 @@ class CustomComponentGuide extends React.Component {
 }
 
 CustomComponentGuide.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default CustomComponentGuide;

@@ -16,7 +16,6 @@ class CustomStylesTutorial extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        updateTocArray={this.props.updateTocArray}
         scope={{
           React,
           ReactDOM,
@@ -30,8 +29,7 @@ class CustomStylesTutorial extends React.Component {
 }
 
 CustomStylesTutorial.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  location: React.PropTypes.object.isRequired
 };
 
 export default CustomStylesTutorial;
