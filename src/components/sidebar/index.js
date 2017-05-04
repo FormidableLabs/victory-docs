@@ -4,9 +4,9 @@ import MarkdownIt from "markdown-it";
 import { times } from "lodash";
 
 // Children
-import { config } from "./config";
-import { configGuides } from "./config-guides";
-import Icon from "./icon";
+import { config } from "../config";
+import { configGuides } from "../config-guides";
+import Icon from "../icon";
 
 class SidebarListItem extends React.Component {
   constructor(props) {
