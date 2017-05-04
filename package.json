@@ -42,7 +42,6 @@
     "history": "^3.0.0",
     "lodash": "^4.6.1",
     "markdown-it": "^8.0.0",
-    "markdown-it-toc-and-anchor": "^4.1.1",
     "marked": "^0.3.5",
     "mocha": "^3.1.2",
     "normalize.css": "^5.0.0",
