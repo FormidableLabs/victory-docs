@@ -27,7 +27,10 @@ class GuideDocs extends React.Component {
     return (
       <TitleMeta title={`${conf.text} | Victory Guides`}>
         <a href={editUrl} className="SubHeading">Edit this page</a>
-        <Docs location={this.props.location} />
+        <Docs
+          location={this.props.location}
+          updateTocArray={this.props.updateTocArray}
+        />
       </TitleMeta>
     );
   }
@@ -42,6 +45,7 @@ class GuideDocs extends React.Component {
 
 GuideDocs.propTypes = {
   location: React.PropTypes.object.isRequired,
+  updateTocArray: React.PropTypes.func.isRequired,
   active: React.PropTypes.string,
   style: React.PropTypes.object
 };

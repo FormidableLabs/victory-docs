@@ -2,15 +2,53 @@ import React from "react";
 import Ecology from "ecology";
 
 class EcologyLinkable extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tocArray: []
+    };
+
+    this._tocArray = [];
+    this._updateToc = true;
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.overview !== this.props.overview) {
+      this._updateToc = true;
+    }
+  }
+
   renderersWithHeading(pathname, otherRenderers) {
     return {
-      heading: (text, level) => {
-        const escaped = text.toLowerCase().replace(/[^\w]+/g, "-");
+      heading: (content, level) => {
+        const anchor = content.toLowerCase().replace(/[^\w]+/g, "-");
 
-        return `<h${level} id="${escaped}"><a class="Anchor" href="${pathname}#${escaped}" aria-hidden="true"></a>${text}</h${level}/>`;
+        this._tocArray.push({
+          anchor, content, level
+        });
+
+        return `<h${level} id="${anchor}"><a class="Anchor" href="${pathname}#${anchor}" aria-hidden="true"></a>${content}</h${level}/>`;
       },
       ...otherRenderers
     };
+  }
+
+  updateTocArray() {
+    if (this.props.updateTocArray && this._updateToc) {
+      this.props.updateTocArray(this._tocArray);
+    }
+
+    this._tocArray = [];
+    this._updateToc = false;
+  }
+
+  componentDidMount() {
+    this.updateTocArray();
+  }
+
+  componentDidUpdate() {
+    this.updateTocArray();
   }
 
   render() {
@@ -32,7 +70,8 @@ EcologyLinkable.propTypes = {
   scope: React.PropTypes.object.isRequired,
   location: React.PropTypes.object.isRequired,
   overview: React.PropTypes.string.isRequired,
-  customRenderers: React.PropTypes.object.isRequired
+  customRenderers: React.PropTypes.object.isRequired,
+  updateTocArray: React.PropTypes.func.isRequired
 };
 
 EcologyLinkable.defaultProps = {

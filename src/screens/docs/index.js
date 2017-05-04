@@ -12,10 +12,8 @@ import yaml from "prismjs/components/prism-yaml";
 /* eslint-enable no-unused-vars */
 
 // Child components
-import basename from "../../basename";
 import { config } from "../../components/config";
 import Page from "../../components/page";
-import Markdown from "../../components/markdown";
 import TitleMeta from "../../components/title-meta";
 import EcologyLinkable from "../../components/ecology-linkable";
 
@@ -37,16 +35,16 @@ class Docs extends React.Component {
   }
 
   updateTocArray(tocArray) {
-    this.setState({tocArray});
+    this.setState({ tocArray });
   }
 
-  renderContent(activePageConf) {
+  renderContent(activePageConf, location) {
     if (activePageConf.slug === "index") {
       return (
         <div className="Markdown playgroundsMaxHeight">
           <a href="https://github.com/FormidableLabs/victory-docs/blob/master/docs/index.md" className="SubHeading">Edit this page</a>
           <EcologyLinkable
-            overview={require("!!raw!../../../docs/index.md")}
+            overview={require("!!raw!./components/index.md")}
             location={this.props.location}
             scope={{
               React, ReactDOM, VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack
@@ -55,16 +53,14 @@ class Docs extends React.Component {
         </div>
       );
     }
-    const markdownDocs = activePageConf.docs;
-    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/docs/${activePageConf.slug}/docs.md`;
+    const Doc = activePageConf.docs;
+    const editUrl = `https://github.com/FormidableLabs/victory-docs/blob/master/src/screens/docs/components/${activePageConf.slug}/ecology.md`;
+
     return (
       <div>
         <a href={editUrl} className="SubHeading">Edit this page</a>
-        <Markdown
-          active={activePageConf.slug}
-          basename={basename}
-          location={this.props.location}
-          markdownFile={markdownDocs}
+        <Doc
+          location={location}
           updateTocArray={this.updateTocArray.bind(this)}
         />
       </div>
@@ -83,7 +79,7 @@ class Docs extends React.Component {
           sidebar={activePageConf.slug}
           tocArray={this.state.tocArray}
         >
-          { this.renderContent(activePageConf) }
+          { this.renderContent(activePageConf, this.props.location) }
         </Page>
       </TitleMeta>
     );
