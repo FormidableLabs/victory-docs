@@ -109,8 +109,7 @@ Sidebar.propTypes = {
   active: React.PropTypes.string,
   docs: React.PropTypes.array,
   guides: React.PropTypes.array,
-  location: React.PropTypes.object,
-  tocArray: React.PropTypes.array
+  location: React.PropTypes.object
 };
 
 Sidebar.defaultProps = {

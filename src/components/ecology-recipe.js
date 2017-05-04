@@ -4,7 +4,7 @@ import { ecologyPlaygroundLoading } from "formidable-landers";
 
 class EcologyRecipe extends React.Component {
   render() {
-    const { scope, overview, location, updateTocArray } = this.props;
+    const { scope, overview, location } = this.props;
 
     return (
       <div className="Recipe Markdown">
@@ -13,7 +13,6 @@ class EcologyRecipe extends React.Component {
           scope={scope}
           location={location}
           customRenderers={ecologyPlaygroundLoading}
-          updateTocArray={updateTocArray}
         />
       </div>
     );
@@ -23,8 +22,7 @@ class EcologyRecipe extends React.Component {
 EcologyRecipe.propTypes = {
   scope: React.PropTypes.object.isRequired,
   location: React.PropTypes.object.isRequired,
-  overview: React.PropTypes.string.isRequired,
-  updateTocArray: React.PropTypes.func.isRequired
+  overview: React.PropTypes.string.isRequired
 };
 
 EcologyRecipe.defaultProps = {
