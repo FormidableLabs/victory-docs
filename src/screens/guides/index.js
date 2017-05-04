@@ -14,22 +14,12 @@ import Guide from "./components/guide";
 import TitleMeta from "../../components/title-meta";
 
 class Guides extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tocArray: []
-    };
-  }
   componentDidMount() {
     Prism.highlightAll();
   }
 
   componentDidUpdate() { // is this the right one??
     Prism.highlightAll();
-  }
-
-  updateTocArray(tocArray) {
-    this.setState({ tocArray });
   }
 
   render() {
@@ -42,12 +32,10 @@ class Guides extends React.Component {
         <Page
           sidebar={activeGuide}
           location={this.props.location}
-          tocArray={this.state.tocArray}
         >
           <Guide
             active={activeGuide}
             location={this.props.location}
-            updateTocArray={this.updateTocArray.bind(this)}
           />
         </Page>
       </TitleMeta>
