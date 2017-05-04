@@ -12,7 +12,6 @@ import yaml from "prismjs/components/prism-yaml";
 /* eslint-enable no-unused-vars */
 
 // Child components
-import basename from "../../basename";
 import { config } from "../../components/config";
 import Page from "../../components/page";
 import TitleMeta from "../../components/title-meta";
