@@ -1,5 +1,6 @@
 import React from "react";
 import Ecology from "ecology";
+import markdown from "../markdown";
 
 class EcologyLinkable extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class EcologyLinkable extends React.Component {
   renderersWithHeading(pathname, otherRenderers) {
     return {
       heading: (content, level) => {
-        const anchor = content.toLowerCase().replace(/[^\w]+/g, "-");
+        const anchor = markdown.toAnchor(content);
 
         this._tocArray.push({
           anchor, content, level
