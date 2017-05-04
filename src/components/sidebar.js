@@ -8,34 +8,20 @@ import { config } from "./config";
 import { configGuides } from "./config-guides";
 import Icon from "./icon";
 
-class Sidebar extends React.Component {
-  renderTransformedToc(siblings, targetLocation) {
-    const md = MarkdownIt();
+class SidebarListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: false
+    };
+  }
 
-    return (
-      <ul className="Sidebar-toc">
-        {
-          siblings.map((sibling, id) => {
-            if (Array.isArray(sibling)) {
-              return (
-                <li className="Sidebar-toc-item" key={id}>
-                  {this.renderTransformedToc(sibling, targetLocation)}
-                </li>
-              );
-            }
-
-            return sibling && (
-              <li key={id} className="Sidebar-toc-item">
-                <Link
-                  to={`${targetLocation}#${sibling.anchor}`}
-                  dangerouslySetInnerHTML={{__html: md.renderInline(sibling.content)}}
-                />
-              </li>
-            );
-          })
-        }
-      </ul>
-    );
+  componentWillReceiveProps(nextProps) {
+    if (this.state.collapsed && !this.isSelected(nextProps)) {
+      this.setState({
+        collapsed: false
+      });
+    }
   }
 
   pushToLevel(siblings, level, heading) {
@@ -72,8 +58,37 @@ class Sidebar extends React.Component {
     }, []);
   }
 
-  renderToc(targetLocation) {
-    if (!this.props.location || (this.props.location.pathname !== targetLocation)) {
+  renderTransformedToc(siblings, targetLocation) {
+    const md = MarkdownIt();
+
+    return (
+      <ul className="Sidebar-toc">
+        {
+          siblings.map((sibling, id) => {
+            if (Array.isArray(sibling)) {
+              return (
+                <li className="Sidebar-toc-item" key={id}>
+                  {this.renderTransformedToc(sibling, targetLocation)}
+                </li>
+              );
+            }
+
+            return sibling && (
+              <li key={id} className="Sidebar-toc-item">
+                <Link
+                  to={`${targetLocation}#${sibling.anchor}`}
+                  dangerouslySetInnerHTML={{__html: md.renderInline(sibling.content)}}
+                />
+              </li>
+            );
+          })
+        }
+      </ul>
+    );
+  }
+
+  renderToc() {
+    if (!this.isSelected() || this.state.collapsed) {
       return null;
     }
 
@@ -81,20 +96,61 @@ class Sidebar extends React.Component {
 
     return this.renderTransformedToc(
       this.transformTocArray(list),
-      targetLocation
+      this.props.path
     );
   }
 
+  onHeadingClick() {
+    if (this.isSelected()) {
+      this.setState({
+        collapsed: !this.state.collapsed
+      });
+    }
+  }
+
+  isSelected(props) {
+    props = props || this.props;
+
+    return this.props.location && this.props.location.pathname === this.props.path;
+  }
+
+  render() {
+    const { path, text } = this.props;
+
+    return (
+      <li className="Sidebar-List-Item">
+        <Link
+          to={path}
+          activeClassName="is-active"
+          onClick={this.onHeadingClick.bind(this)}
+        >
+          {text} <Icon glyph="internal-link" />
+        </Link>
+        {this.renderToc(path)}
+      </li>
+    );
+  }
+}
+
+SidebarListItem.propTypes = {
+  text: React.PropTypes.string.isRequired,
+  path: React.PropTypes.string.isRequired,
+  location: React.PropTypes.object.isRequired,
+  tocArray: React.PropTypes.array.isRequired
+};
+
+class Sidebar extends React.Component {
   renderList(items, route, category) {
     const listItems = items.map((item) => {
       if (!category || item.category === category) {
         return (
-          <li key={item.slug} className="Sidebar-List-Item">
-            <Link to={`/${route}/${item.slug}`} activeClassName="is-active">
-              {item.text} <Icon glyph="internal-link" />
-            </Link>
-            {this.renderToc(`/${route}/${item.slug}`)}
-          </li>
+          <SidebarListItem
+            key={item.slug}
+            path={`/${route}/${item.slug}`}
+            text={item.text}
+            location={this.props.location}
+            tocArray={this.props.tocArray}
+          />
         );
       }
     });
