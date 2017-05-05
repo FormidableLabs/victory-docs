@@ -1,39 +1,40 @@
 import React from "react";
+import _ from "lodash";
 import { Link } from "react-router";
 
 // Children
 import SidebarSelectableItem from "./selectable-item";
 import SidebarSearchInput from "./search-input";
-import sidebarContent from "./content";
+import { sidebarContent, searchIndex } from "./content";
 import Icon from "../icon";
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ""
+      searchTerm: "",
+      matchingNodes: searchIndex
     };
 
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleSearch(e) {
+    const { searchTerm } = this.state;
+
+    const matchingNodes = searchIndex.filter((n) => {
+      return n.searchText.toLowerCase().includes(searchTerm.toLowerCase());
+    });
+
     this.setState({
-      searchTerm: e.target.value
+      searchTerm: e.target.value,
+      matchingNodes
     });
   }
 
   renderList(items) {
-    const { searchTerm } = this.state;
-
     return items
-      .filter((item) => {
-        if (!searchTerm) {
-          return true;
-        }
-
-        return item.text.toLowerCase().includes(searchTerm.toLowerCase());
-      })
+      .filter((item) => this.isMatchingContent(item.text))
       .map((item) => {
         return (
           <SidebarSelectableItem
@@ -47,34 +48,47 @@ class Sidebar extends React.Component {
       });
   }
 
-  renderContent() {
-    const content = sidebarContent.map((row, i) => {
-      const className = i === 0
-        ? "Sidebar-Heading"
-        : "Sidebar-Heading u-noMarginTop";
+  isMatchingContent(text) {
+    return _.findIndex(this.state.matchingNodes, (n) => {
+      return n.searchText.includes(text);
+    }) !== -1;
+  }
 
-      const subheadings = row.children.map((child, childIndex) => {
+  renderContent() {
+    const content = sidebarContent
+      .filter((heading) => this.isMatchingContent(heading.text))
+      .map((heading, i) => {
+        const className = i === 0
+          ? "Sidebar-Heading"
+          : "Sidebar-Heading u-noMarginTop";
+
+        const subheadings = heading.children
+          .filter((subheading) => this.isMatchingContent(subheading.text || ""))
+          .map((subheading, subheadingIndex) => {
+            return (
+              <div
+                key={subheading.text || `${i}-${subheadingIndex}`}
+                className="u-noMargin"
+              >
+                <p className="Sidebar-SubHeading SubHeading">
+                  {subheading.text}
+                </p>
+                <ul className="Sidebar-List">
+                  {this.renderList(subheading.children)}
+                </ul>
+              </div>
+            );
+          });
+
         return (
-          <div key={child.text || `${i}-${childIndex}`} className="u-noMargin">
-            <p className="Sidebar-SubHeading SubHeading">
-              {child.text}
+          <div key={heading.text}>
+            <p className={className}>
+              {heading.text}
             </p>
-            <ul className="Sidebar-List">
-              {this.renderList(child.children)}
-            </ul>
+            {subheadings}
           </div>
         );
       });
-
-      return (
-        <div key={row.text}>
-          <p className={className}>
-            {row.text}
-          </p>
-          {subheadings}
-        </div>
-      );
-    });
 
     return (
       <div className="Sidebar-Grid">

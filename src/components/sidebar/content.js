@@ -17,7 +17,27 @@ const subHeading = (items, text) => ({
   children: items.filter((item) => item.category === text)
 });
 
-export default [
+const getNodesWithAncestors = (node, ancestors) => {
+  ancestors = ancestors || "";
+  const text = node.text || "";
+  const searchText = `${ancestors} ${text}`.trim();
+
+  let nodes = [{ searchText }];
+
+  nodes.push();
+
+  if (node.children) {
+    const nextAncestor = `${ancestors} ${text}`.trim();
+
+    nodes = nodes.concat(node.children.reduce((prev, child) => {
+      return prev.concat(getNodesWithAncestors(child, nextAncestor));
+    }, []));
+  }
+
+  return nodes;
+};
+
+const sidebarContent = [
   {
     text: "Guides",
     children: [
@@ -33,3 +53,10 @@ export default [
     ]
   }
 ];
+
+module.exports = {
+  sidebarContent,
+  searchIndex: sidebarContent.reduce((prev, current) => {
+    return prev.concat(getNodesWithAncestors(current));
+  }, [])
+};
