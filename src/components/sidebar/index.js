@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import SidebarSelectableItem from "./selectable-item";
 import { config } from "../config";
 import { configGuides } from "../config-guides";
+import sidebarContent from "./content";
 import Icon from "../icon";
 
 class Sidebar extends React.Component {
@@ -58,6 +59,43 @@ class Sidebar extends React.Component {
     );
   }
 
+  renderContent() {
+    return (
+      <div className="Sidebar-Grid">
+        <p className="Sidebar-Heading u-noMargin u-noPadding">
+          Introduction
+        </p>
+        <ul className="Sidebar-List">
+          <li key="sidebarlink-index" className="Sidebar-List-Item">
+            <Link to="/docs" activeClassName="is-active">
+              Getting Started <Icon glyph="internal-link" />
+            </Link>
+          </li>
+          <li key="sidebarlink-native" className="Sidebar-List-Item">
+            <Link to="/docs/native" activeClassName="is-active">
+              Native <Icon glyph="internal-link" />
+            </Link>
+          </li>
+          <li key="sidebarlink-contributing" className="Sidebar-List-Item">
+            <a href="https://github.com/FormidableLabs/victory/#contributing">
+              Contributing <Icon glyph="external-link" />
+            </a>
+          </li>
+        </ul>
+        <p className="Sidebar-Heading">
+          Guides
+        </p>
+        {this.renderList(configGuides, "guides")}
+        <p className="Sidebar-Heading u-noMarginTop">
+          Documentation
+        </p>
+        {this.renderList(config, "docs", "chart")}
+        {this.renderList(config, "docs", "core")}
+        {this.renderList(config, "docs", "more")}
+      </div>
+    );
+  }
+
   render() {
     /* eslint-disable max-len */
     return (
@@ -66,38 +104,7 @@ class Sidebar extends React.Component {
           <div className="Sidebar-Search">
             <input type="text" onChange={this.handleSearch} />
           </div>
-          <div className="Sidebar-Grid">
-            <p className="Sidebar-Heading u-noMargin u-noPadding">
-              Introduction
-            </p>
-            <ul className="Sidebar-List">
-              <li key="sidebarlink-index" className="Sidebar-List-Item">
-                <Link to="/docs" activeClassName="is-active">
-                  Getting Started <Icon glyph="internal-link" />
-                </Link>
-              </li>
-              <li key="sidebarlink-native" className="Sidebar-List-Item">
-                <Link to="/docs/native" activeClassName="is-active">
-                  Native <Icon glyph="internal-link" />
-                </Link>
-              </li>
-              <li key="sidebarlink-contributing" className="Sidebar-List-Item">
-                <a href="https://github.com/FormidableLabs/victory/#contributing">
-                  Contributing <Icon glyph="external-link" />
-                </a>
-              </li>
-            </ul>
-            <p className="Sidebar-Heading">
-              Guides
-            </p>
-            {this.renderList(configGuides, "guides")}
-            <p className="Sidebar-Heading u-noMarginTop">
-              Documentation
-            </p>
-            {this.renderList(config, "docs", "chart")}
-            {this.renderList(config, "docs", "core")}
-            {this.renderList(config, "docs", "more")}
-          </div>
+          {this.renderContent()}
         </nav>
       </div>
     );
