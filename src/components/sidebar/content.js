@@ -1,8 +1,8 @@
 import _ from "lodash";
-import { configDocs } from "../config";
+import { config } from "../config";
 import { configGuides } from "../config-guides";
 
-const docItems = configDocs.map((item) => _.extend({
+const docItems = config.map((item) => _.extend({
   type: "item",
   route: "guides"
 }, item));
