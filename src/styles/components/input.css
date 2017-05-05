@@ -1,0 +1,25 @@
+.Input {
+  position: relative;
+}
+
+.Input-field {
+  border: 1px solid var(--darkSand);
+  font-size: 1.125rem;
+  line-height: 1.56;
+  padding-left: 36px;
+  width: 100%;
+  
+  &:focus {
+    outline-color: var(--darkSand);
+  }
+}
+
+.Input-icon {
+  position: absolute; 
+  top: 4px;
+  left: 4px;
+  
+  color: var(--darkSand);
+  height: 24px;
+  width: 24px;
+}

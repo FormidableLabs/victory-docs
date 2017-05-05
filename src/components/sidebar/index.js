@@ -93,12 +93,18 @@ class Sidebar extends React.Component {
 
     return (
       <div className="Sidebar-Grid">
+<<<<<<< dec323ba3a5ac57badf16f4c0e84ba6ce4852bb7
         { this.isMatchingNode({ text: "Introduction" }) ?
           <p className="Sidebar-Heading u-noMargin u-noPadding">
             Introduction
           </p>
           : null
         }
+=======
+        <p className="Sidebar-Heading u-noPadding">
+          Introduction
+        </p>
+>>>>>>> WIP Add styles to search bar
         <ul className="Sidebar-List">
           { this.isMatchingNode({ text: "Getting Started" }) ?
             <li key="sidebarlink-index" className="Sidebar-List-Item">
