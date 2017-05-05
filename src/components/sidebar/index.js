@@ -47,14 +47,12 @@ class Sidebar extends React.Component {
   }
 
   renderContent() {
-    console.log("CONTENT", sidebarContent)
     const content = sidebarContent.map((row, i) => {
       if (row.type === "heading") {
         const className = i === 0
           ? "Sidebar-Heading"
           : "Sidebar-Heading u-noMarginTop";
 
-        console.log("key", row.title)
         return (
           <p key={row.text} className={className}>
             {row.text}
@@ -62,18 +60,17 @@ class Sidebar extends React.Component {
         );
       }
 
-      // return (
-      //   <div key={row.title} className="u-noMargin">
-      //     <p className="Sidebar-SubHeading SubHeading">
-      //       {row.title}
-      //     </p>
-      //     <ul className="Sidebar-List">
-      //       {this.renderList(row.list)}
-      //     </ul>
-      //   </div>
-      // );
-    })
-    .filter(h => h);
+      return (
+        <div key={row.text || i} className="u-noMargin">
+          <p className="Sidebar-SubHeading SubHeading">
+            {row.text}
+          </p>
+          <ul className="Sidebar-List">
+            {this.renderList(row.list)}
+          </ul>
+        </div>
+      );
+    });
 
     return (
       <div className="Sidebar-Grid">
