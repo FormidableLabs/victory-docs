@@ -8,9 +8,17 @@
   font-size: 18px;
 }
 
+.Sidebar-Grid-block {
+  margin-top: 0;
+
+  & > * + * {
+    margin-bottom: var(--gutter-small);
+  }
+}
+
 .Sidebar-List {
   list-style: none;
-  margin: var(--navIndent) 0 0 0;
+  margin: 0.25em 0 0 0;
   padding: 0;
 }
 
@@ -33,9 +41,7 @@
   font-size: 1em;
   font-weight: 600;
   line-height: 1;
-  margin-top: var(--navIndent);
-  margin-bottom: calc(-1 * var(--navIndent));
-  padding-top: var(--gutter-small);
+  margin-top: var(--gutter-small);
 }
 
 .Sidebar-SubHeading {
@@ -43,8 +49,8 @@
   column-break-inside: avoid;
   page-break-inside: avoid;
   color: var(--nearBlack);
-  margin: var(--navIndent) 0 0 0;
-  padding: var(--navIndent) 0 0 0;
+  margin-top: var(--navIndent);
+  padding: 0;
 }
 
 .Sidebar a:link {
@@ -94,7 +100,7 @@
 .Sidebar-toc-item > .Sidebar-toc {
   background-color: transparent;
   border-left: 1px solid color(var(--black) alpha(-75%));
-  margin: 0 0 1em 0.125em;
+  margin: 0 0 0.5em 0.125em;
   padding: 0 0 0 0.75em;
 }
 

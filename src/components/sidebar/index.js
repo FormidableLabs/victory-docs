@@ -49,16 +49,17 @@ class Sidebar extends React.Component {
 
   renderContent() {
     const content = sidebarContent.map((row, i) => {
-      const className = i === 0
-        ? "Sidebar-Heading"
-        : "Sidebar-Heading u-noMarginTop";
 
       const subheadings = row.children.map((child, childIndex) => {
+        const title = child.text ? (
+          <p className="Sidebar-SubHeading SubHeading">
+            {child.text}
+          </p>
+        ) : null;
+
         return (
-          <div key={child.text || `${i}-${childIndex}`} className="u-noMargin">
-            <p className="Sidebar-SubHeading SubHeading">
-              {child.text}
-            </p>
+          <div key={child.text || `${i}-${childIndex}`}>
+            {title}
             <ul className="Sidebar-List">
               {this.renderList(child.children)}
             </ul>
@@ -67,8 +68,8 @@ class Sidebar extends React.Component {
       });
 
       return (
-        <div key={row.text}>
-          <p className={className}>
+        <div key={row.text} className="Sidebar-Grid-block">
+          <p className="Sidebar-Heading">
             {row.text}
           </p>
           {subheadings}
@@ -78,26 +79,30 @@ class Sidebar extends React.Component {
 
     return (
       <div className="Sidebar-Grid">
-        <p className="Sidebar-Heading u-noMargin u-noPadding">
-          Introduction
-        </p>
-        <ul className="Sidebar-List">
-          <li key="sidebarlink-index" className="Sidebar-List-Item">
-            <Link to="/docs" activeClassName="is-active">
-              Getting Started <Icon glyph="internal-link" />
-            </Link>
-          </li>
-          <li key="sidebarlink-native" className="Sidebar-List-Item">
-            <Link to="/docs/native" activeClassName="is-active">
-              Native <Icon glyph="internal-link" />
-            </Link>
-          </li>
-          <li key="sidebarlink-contributing" className="Sidebar-List-Item">
-            <a href="https://github.com/FormidableLabs/victory/#contributing">
-              Contributing <Icon glyph="external-link" />
-            </a>
-          </li>
-        </ul>
+        <div className="Sidebar-Grid-block">
+          <p className="Sidebar-Heading">
+            Introduction
+          </p>
+          <div>
+            <ul className="Sidebar-List">
+              <li key="sidebarlink-index" className="Sidebar-List-Item">
+                <Link to="/docs" activeClassName="is-active">
+                  Getting Started <Icon glyph="internal-link" />
+                </Link>
+              </li>
+              <li key="sidebarlink-native" className="Sidebar-List-Item">
+                <Link to="/docs/native" activeClassName="is-active">
+                  Native <Icon glyph="internal-link" />
+                </Link>
+              </li>
+              <li key="sidebarlink-contributing" className="Sidebar-List-Item">
+                <a href="https://github.com/FormidableLabs/victory/#contributing">
+                  Contributing <Icon glyph="external-link" />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
         {content}
       </div>
     );
