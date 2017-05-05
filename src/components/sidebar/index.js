@@ -3,6 +3,7 @@ import { Link } from "react-router";
 
 // Children
 import SidebarSelectableItem from "./selectable-item";
+import SidebarSearchInput from "./search-input";
 import sidebarContent from "./content";
 import Icon from "../icon";
 
@@ -108,7 +109,10 @@ class Sidebar extends React.Component {
       <div className="Page-sidebar">
         <nav className="Sidebar">
           <div className="Sidebar-Search">
-            <input type="text" onChange={this.handleSearch} />
+            <SidebarSearchInput
+              term={this.state.searchTerm}
+              onChange={this.handleSearch}
+            />
           </div>
           {this.renderContent()}
         </nav>
