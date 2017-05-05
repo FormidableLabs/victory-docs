@@ -3,8 +3,6 @@ import { Link } from "react-router";
 
 // Children
 import SidebarSelectableItem from "./selectable-item";
-import { config } from "../config";
-import { configGuides } from "../config-guides";
 import sidebarContent from "./content";
 import Icon from "../icon";
 
@@ -24,9 +22,10 @@ class Sidebar extends React.Component {
     });
   }
 
-  renderList(items, route, category) {
+  renderList(items) {
     const { searchTerm } = this.state;
-    const listItems = items
+
+    return items
       .filter((item) => {
         if (!searchTerm) {
           return true;
@@ -35,31 +34,47 @@ class Sidebar extends React.Component {
         return item.text.includes(searchTerm);
       })
       .map((item) => {
-        if (!category || item.category === category) {
-          return (
-            <SidebarSelectableItem
-              key={item.slug}
-              path={`/${route}/${item.slug}`}
-              text={item.text}
-              toc={item.toc}
-              location={this.props.location}
-            />
-          );
-        }
+        return (
+          <SidebarSelectableItem
+            key={item.slug}
+            path={`/${item.route}/${item.slug}`}
+            text={item.text}
+            toc={item.toc}
+            location={this.props.location}
+          />
+        );
       });
-    return (
-      <div className="u-noMargin">
-        <p className="Sidebar-SubHeading SubHeading">
-          {category}
-        </p>
-        <ul className="Sidebar-List">
-          {listItems}
-        </ul>
-      </div>
-    );
   }
 
   renderContent() {
+    console.log("CONTENT", sidebarContent)
+    const content = sidebarContent.map((row, i) => {
+      if (row.type === "heading") {
+        const className = i === 0
+          ? "Sidebar-Heading"
+          : "Sidebar-Heading u-noMarginTop";
+
+        console.log("key", row.title)
+        return (
+          <p key={row.text} className={className}>
+            {row.text}
+          </p>
+        );
+      }
+
+      // return (
+      //   <div key={row.title} className="u-noMargin">
+      //     <p className="Sidebar-SubHeading SubHeading">
+      //       {row.title}
+      //     </p>
+      //     <ul className="Sidebar-List">
+      //       {this.renderList(row.list)}
+      //     </ul>
+      //   </div>
+      // );
+    })
+    .filter(h => h);
+
     return (
       <div className="Sidebar-Grid">
         <p className="Sidebar-Heading u-noMargin u-noPadding">
@@ -82,16 +97,7 @@ class Sidebar extends React.Component {
             </a>
           </li>
         </ul>
-        <p className="Sidebar-Heading">
-          Guides
-        </p>
-        {this.renderList(configGuides, "guides")}
-        <p className="Sidebar-Heading u-noMarginTop">
-          Documentation
-        </p>
-        {this.renderList(config, "docs", "chart")}
-        {this.renderList(config, "docs", "core")}
-        {this.renderList(config, "docs", "more")}
+        {content}
       </div>
     );
   }
