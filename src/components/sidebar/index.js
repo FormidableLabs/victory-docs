@@ -48,26 +48,29 @@ class Sidebar extends React.Component {
 
   renderContent() {
     const content = sidebarContent.map((row, i) => {
-      if (row.type === "heading") {
-        const className = i === 0
-          ? "Sidebar-Heading"
-          : "Sidebar-Heading u-noMarginTop";
+      const className = i === 0
+        ? "Sidebar-Heading"
+        : "Sidebar-Heading u-noMarginTop";
 
+      const subheadings = row.children.map((child, childIndex) => {
         return (
-          <p key={row.text} className={className}>
-            {row.text}
-          </p>
+          <div key={child.text || `${i}-${childIndex}`} className="u-noMargin">
+            <p className="Sidebar-SubHeading SubHeading">
+              {child.text}
+            </p>
+            <ul className="Sidebar-List">
+              {this.renderList(child.children)}
+            </ul>
+          </div>
         );
-      }
+      });
 
       return (
-        <div key={row.text || i} className="u-noMargin">
-          <p className="Sidebar-SubHeading SubHeading">
+        <div key={row.text}>
+          <p className={className}>
             {row.text}
           </p>
-          <ul className="Sidebar-List">
-            {this.renderList(row.list)}
-          </ul>
+          {subheadings}
         </div>
       );
     });

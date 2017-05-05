@@ -14,21 +14,22 @@ const guideItems = configGuides.map((item) => _.extend({
 
 const subHeading = (items, text) => ({
   text,
-  type: "subheading",
-  list: items.filter((item) => item.category === text)
+  children: items.filter((item) => item.category === text)
 });
 
 export default [
   {
     text: "Guides",
-    type: "heading"
+    children: [
+      subHeading(guideItems)
+    ]
   },
-  subHeading(guideItems),
   {
     text: "Documentation",
-    type: "heading"
-  },
-  subHeading(docItems, "chart"),
-  subHeading(docItems, "core"),
-  subHeading(docItems, "more")
+    children: [
+      subHeading(docItems, "chart"),
+      subHeading(docItems, "core"),
+      subHeading(docItems, "more")
+    ]
+  }
 ];
