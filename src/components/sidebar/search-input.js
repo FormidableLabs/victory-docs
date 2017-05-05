@@ -1,22 +1,22 @@
 import React from "react";
 
-// ASSETS
-import ICON from "../../../static/icon-search.svg";
-
 class SidebarSearchInput extends React.Component {
   render() {
     return (
       <div className="Sidebar-Input">
         <div className="Input">
-          <i className="Input-icon" dangerouslySetInnerHTML={{__html: ICON}} />
           <input
-            className="Input-field"
+            className="Input-search"
             placeholder="Search"
             type="search"
             value={this.props.term}
             onChange={this.props.onChange}
           />
+          <button className="btn Input-clear">
+            &times;
+          </button>
         </div>
+
       </div>
     );
   }
