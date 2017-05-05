@@ -31,7 +31,7 @@ class Sidebar extends React.Component {
           return true;
         }
 
-        return item.text.includes(searchTerm);
+        return item.text.toLowerCase().includes(searchTerm.toLowerCase());
       })
       .map((item) => {
         return (
