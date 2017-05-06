@@ -1,0 +1,20 @@
+.Gallery-item {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.Gallery-item .Preview {
+  background-color: var(--lightestSand);
+  border: 3px solid var(--lightSand);
+  padding: var(--gutter-small);
+  height: 100%;
+
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}

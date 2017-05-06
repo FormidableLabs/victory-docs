@@ -78,7 +78,7 @@ class Gallery extends React.Component {
   renderPreviews(codeTexts) {
     return codeTexts.map((code, index) => {
       return (
-        <div key={index} className="Grid-cell">
+        <div key={index} className="Grid-cell Gallery-item">
           <Preview
             key={index}
             code={code}
@@ -119,7 +119,7 @@ class Gallery extends React.Component {
             <h1 className="u-noMargin">
               Gallery
             </h1>
-            <div className="Grid Grid--gutters Grid--1of4">
+            <div className="Grid Grid--gutterSm Grid--1of4">
               {this.renderPreviews(this.codeTexts)}
             </div>
           </article>

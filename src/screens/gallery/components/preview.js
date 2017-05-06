@@ -79,7 +79,7 @@ class Preview extends Component {
 
   render() {
     return (
-        <div ref="mount" className="previewArea"/>
+        <div ref="mount" className="Preview"/>
     );
   }
 
