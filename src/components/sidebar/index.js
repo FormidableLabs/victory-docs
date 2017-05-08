@@ -51,7 +51,7 @@ class Sidebar extends React.Component {
   }
 
   isMatchingNode(node) {
-    return search.isInMatching(node.text, this.state.matchingNodes);
+    return search.isInMatching(node.text || node.content, this.state.matchingNodes);
   }
 
   renderContent() {
