@@ -56,6 +56,7 @@ class Sidebar extends React.Component {
 
   renderContent() {
     const content = sidebarContent
+      .filter((heading) => heading.render !== false)
       .filter((heading) => this.isMatchingNode(heading))
       .map((heading, i) => {
         const className = i === 0
@@ -94,25 +95,37 @@ class Sidebar extends React.Component {
 
     return (
       <div className="Sidebar-Grid">
-        <p className="Sidebar-Heading u-noMargin u-noPadding">
-          Introduction
-        </p>
+        { this.isMatchingNode({ text: "Introduction" }) ?
+          <p className="Sidebar-Heading u-noMargin u-noPadding">
+            Introduction
+          </p>
+          : null
+        }
         <ul className="Sidebar-List">
-          <li key="sidebarlink-index" className="Sidebar-List-Item">
-            <Link to="/docs" activeClassName="is-active">
-              Getting Started <Icon glyph="internal-link" />
-            </Link>
-          </li>
-          <li key="sidebarlink-native" className="Sidebar-List-Item">
-            <Link to="/docs/native" activeClassName="is-active">
-              Native <Icon glyph="internal-link" />
-            </Link>
-          </li>
-          <li key="sidebarlink-contributing" className="Sidebar-List-Item">
-            <a href="https://github.com/FormidableLabs/victory/#contributing">
-              Contributing <Icon glyph="external-link" />
-            </a>
-          </li>
+          { this.isMatchingNode({ text: "Getting Started" }) ?
+            <li key="sidebarlink-index" className="Sidebar-List-Item">
+              <Link to="/docs" activeClassName="is-active">
+                Getting Started <Icon glyph="internal-link" />
+              </Link>
+            </li>
+            : null
+          }
+          { this.isMatchingNode({ text: "Native" }) ?
+            <li key="sidebarlink-native" className="Sidebar-List-Item">
+              <Link to="/docs/native" activeClassName="is-active">
+                Native <Icon glyph="internal-link" />
+              </Link>
+            </li>
+            : null
+          }
+          { this.isMatchingNode({ text: "Contributing" }) ?
+            <li key="sidebarlink-contributing" className="Sidebar-List-Item">
+              <a href="https://github.com/FormidableLabs/victory/#contributing">
+                Contributing <Icon glyph="external-link" />
+              </a>
+            </li>
+            : null
+          }
         </ul>
         {content}
       </div>
@@ -120,6 +133,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
+
     /* eslint-disable max-len */
     return (
       <div className="Page-sidebar">
