@@ -5,9 +5,11 @@ import Prism from "prismjs";
 import {
   Area,
   Bar,
+  VictoryAnimation,
   VictoryArea,
   VictoryAxis,
   VictoryBar,
+  VictoryBrushContainer,
   VictoryChart,
   VictoryGroup,
   VictoryLabel,
@@ -20,7 +22,8 @@ import {
   VictoryTooltip,
   VictoryVoronoi,
   VictoryVoronoiContainer,
-  VictoryVoronoiTooltip
+  VictoryVoronoiTooltip,
+  VictoryZoomContainer
 } from "victory";
 
 // import Playground from "component-playground";
@@ -37,28 +40,11 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import Preview from "./components/preview";
 import TitleMeta from "../../components/title-meta";
+import { configGallery } from "../../components/config-gallery";
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
-
-    this.codeTexts = [
-      this.processCodeText(require("!!raw!./examples/alternative-events.example.js")),
-      this.processCodeText(require("!!raw!./examples/column-chart.example.js")),
-      this.processCodeText(require("!!raw!./examples/custom-tooltip-labels.example.js")),
-      this.processCodeText(require("!!raw!./examples/horizontal-grouped-bars.example.js")),
-      this.processCodeText(require("!!raw!./examples/simple-grouped-bars.example.js")),
-      this.processCodeText(require("!!raw!./examples/stacked-area-dates.example.js")),
-      this.processCodeText(require("!!raw!./examples/stacked-bars-central-axis.example.js")),
-      this.processCodeText(require("!!raw!./examples/stream-graph.example.js")),
-      this.processCodeText(require("!!raw!./examples/tick-format.example.js")),
-      this.processCodeText(require("!!raw!./examples/victory-area-stroke.example.js")),
-      this.processCodeText(require("!!raw!./examples/victory-line-null-data.example.js")),
-      this.processCodeText(require("!!raw!./examples/victory-pie-center-label.example.js")),
-      this.processCodeText(require("!!raw!./examples/victory-portal-stacked-area.example.js")),
-      this.processCodeText(require("!!raw!./examples/victory-voronoi-container-custom-on-click.example.js")),
-      this.processCodeText(require("!!raw!./examples/voronoi-tooltips-grouped.example.js"))
-    ];
   }
 
   processCodeText(text) {
@@ -75,21 +61,23 @@ class Gallery extends React.Component {
     Prism.highlightAll();
   }
 
-  renderPreviews(codeTexts) {
-    return codeTexts.map((code, index) => {
+  renderPreviews(galleries) {
+    return galleries.map((gallery, index) => {
       return (
         <div key={index} className="Grid-cell Gallery-item">
           <Preview
             key={index}
-            code={code}
+            code={this.processCodeText(gallery.code)}
             scope={{
               React,
               ReactDOM,
               Area,
               Bar,
+              VictoryAnimation,
               VictoryArea,
               VictoryAxis,
               VictoryBar,
+              VictoryBrushContainer,
               VictoryChart,
               VictoryGroup,
               VictoryLabel,
@@ -102,10 +90,12 @@ class Gallery extends React.Component {
               VictoryTooltip,
               VictoryVoronoi,
               VictoryVoronoiContainer,
-              VictoryVoronoiTooltip
+              VictoryVoronoiTooltip,
+              VictoryZoomContainer
             }}
             noRender={false}
           />
+          <p className="Gallery-item-heading">{gallery.text}</p>
         </div>
       );
     });
@@ -119,8 +109,8 @@ class Gallery extends React.Component {
             <h1 className="u-noMargin">
               Gallery
             </h1>
-            <div className="Grid Grid--gutterSm Grid--1of4">
-              {this.renderPreviews(this.codeTexts)}
+            <div className="Grid Grid--gutterSm">
+              {this.renderPreviews(configGallery)}
             </div>
           </article>
         <Footer />
