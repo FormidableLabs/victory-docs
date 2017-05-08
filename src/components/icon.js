@@ -4,6 +4,7 @@ import Radium from "radium";
 // Icons
 import IconInternalLink from "../../static/icon-internal.svg";
 import IconExternalLink from "../../static/icon-external.svg";
+import IconBack from "../../static/icon-back.svg";
 import IconBarrier from "../../static/icon-barrier.svg";
 // Q: Can these icons get added to the links generated in READMEs?
 // https://github.com/FormidableLabs/victory-docs/issues/7
@@ -23,6 +24,22 @@ class Icon extends React.Component {
     const styles = this.getStyles();
     const { glyph, ...otherProps } = this.props;
     switch (this.props.glyph) {
+    case "back":
+      return (
+        <span
+          {...otherProps}
+          style={styles.base}
+          dangerouslySetInnerHTML={{__html: IconBack}}
+        />
+      );
+    case "coming-soon":
+      return (
+        <span
+          {...otherProps}
+          style={styles.base}
+          dangerouslySetInnerHTML={{__html: IconBarrier}}
+        />
+      );
     case "external-link":
       return (
         <span
@@ -39,14 +56,6 @@ class Icon extends React.Component {
           dangerouslySetInnerHTML={{__html: IconInternalLink}}
         />
       );
-    case "coming-soon":
-      return (
-        <span
-          {...otherProps}
-          style={styles.base}
-          dangerouslySetInnerHTML={{__html: IconBarrier}}
-        />
-      );
     default:
       return (
         <span />
@@ -56,7 +65,7 @@ class Icon extends React.Component {
 }
 
 Icon.propTypes = {
-  glyph: React.PropTypes.oneOf(["coming-soon", "external-link", "internal-link"])
+  glyph: React.PropTypes.oneOf(["back", "coming-soon", "external-link", "internal-link"])
 };
 
 Icon.defaultProps = {

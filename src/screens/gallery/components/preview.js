@@ -10,15 +10,16 @@ class Preview extends Component {
   };
 
   static propTypes = {
-    code: PropTypes.string.isRequired,
+    codeText: PropTypes.string.isRequired,
     scope: PropTypes.object.isRequired,
     previewComponent: PropTypes.node,
     noRender: PropTypes.bool,
-    context: PropTypes.object
+    context: PropTypes.object,
+    theme: PropTypes.string
   };
 
   compileCode() {
-    const { code, context, noRender, scope } = this.props;
+    const { codeText, context, noRender, scope } = this.props;
     const generateContextTypes = (c) => {
       return `{ ${Object.keys(c).map((val) =>
         `${val}: React.PropTypes.any.isRequired`).join(", ")} }`;
@@ -33,7 +34,7 @@ class Preview extends Component {
             }
             render() {
               return (
-                ${code}
+                ${codeText}
               );
             }
           }
@@ -44,7 +45,7 @@ class Preview extends Component {
     } else {
       return transform(`
         ((${Object.keys(scope).join(",")}, mountNode) => {
-          ${code}
+          ${codeText}
         });
       `, { presets: ["es2015", "react", "stage-1"] }).code;
     }

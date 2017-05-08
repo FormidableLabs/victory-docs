@@ -8,6 +8,14 @@
   }
 }
 
+.Article--noBottom {
+  padding-bottom: 0 !important;
+
+  @media (--medium-viewport) {
+    padding-bottom: 0 !important;
+  }
+}
+
 .Article p {
   max-width: 38em;
 }

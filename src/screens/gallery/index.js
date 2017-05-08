@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Radium from "radium";
-import Prism from "prismjs";
+import Playground from "component-playground";
+import find from "lodash/find";
+import {Link} from "react-router";
 import {
   Area,
   Bar,
@@ -26,18 +28,10 @@ import {
   VictoryZoomContainer
 } from "victory";
 
-// import Playground from "component-playground";
-
-/* eslint-disable no-unused-vars */
-// add more language support
-import jsx from "prismjs/components/prism-jsx";
-import sh from "prismjs/components/prism-bash";
-import yaml from "prismjs/components/prism-yaml";
-/* eslint-enable no-unused-vars */
-
 // Child components
-import Header from "../../components/header";
 import Footer from "../../components/footer";
+import Header from "../../components/header";
+import Icon from "../../components/icon";
 import Preview from "./components/preview";
 import TitleMeta from "../../components/title-meta";
 import { configGallery } from "../../components/config-gallery";
@@ -45,6 +39,32 @@ import { configGallery } from "../../components/config-gallery";
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
+
+    this.scope = {
+      React,
+      ReactDOM,
+      Area,
+      Bar,
+      VictoryAnimation,
+      VictoryArea,
+      VictoryAxis,
+      VictoryBar,
+      VictoryBrushContainer,
+      VictoryChart,
+      VictoryGroup,
+      VictoryLabel,
+      VictoryLine,
+      VictoryPie,
+      VictoryPortal,
+      VictoryScatter,
+      VictoryStack,
+      VictoryTheme,
+      VictoryTooltip,
+      VictoryVoronoi,
+      VictoryVoronoiContainer,
+      VictoryVoronoiTooltip,
+      VictoryZoomContainer
+    };
   }
 
   processCodeText(text) {
@@ -53,66 +73,83 @@ class Gallery extends React.Component {
             .trim(); // remove left-over whitespace
   }
 
-  componentDidMount() {
-    Prism.highlightAll();
-  }
-
-  componentDidUpdate() {
-    Prism.highlightAll();
-  }
-
-  renderPreviews(galleries) {
-    return galleries.map((gallery, index) => {
+  renderPreviews(config) {
+    const previews = config.map((example, index) => {
       return (
         <div key={index} className="Grid-cell Gallery-item">
           <Preview
-            key={index}
-            code={this.processCodeText(gallery.code)}
-            scope={{
-              React,
-              ReactDOM,
-              Area,
-              Bar,
-              VictoryAnimation,
-              VictoryArea,
-              VictoryAxis,
-              VictoryBar,
-              VictoryBrushContainer,
-              VictoryChart,
-              VictoryGroup,
-              VictoryLabel,
-              VictoryLine,
-              VictoryPie,
-              VictoryPortal,
-              VictoryScatter,
-              VictoryStack,
-              VictoryTheme,
-              VictoryTooltip,
-              VictoryVoronoi,
-              VictoryVoronoiContainer,
-              VictoryVoronoiTooltip,
-              VictoryZoomContainer
-            }}
+            codeText={this.processCodeText(example.code)}
             noRender={false}
+            theme="elegant"
+            scope={this.scope}
           />
-          <p className="Gallery-item-heading">{gallery.text}</p>
+          <p className="Gallery-item-heading">
+            <Link to={`/gallery/${example.slug}`}>
+              {example.text} <Icon glyph="internal-link" />
+            </Link>
+          </p>
         </div>
       );
     });
+    return (
+      <article className="Article Article--noBottom">
+        <h1 className="u-noMargin">
+          Gallery
+        </h1>
+        <div className="Grid Grid--gutterSm">
+          {previews}
+        </div>
+      </article>
+    );
+  }
+
+  renderPlayground(slug) {
+    const example = find(configGallery, {slug});
+    const current = configGallery.indexOf(example);
+    const previous = (current - 1) > 0 ? (current - 1) : configGallery.length - 1;
+    const prevIndex = previous % configGallery.length;
+    const nextIndex = (current + 1) % configGallery.length;
+    return (
+      <article className="Article Article--noBottom">
+        <Link to="/gallery" className="SubHeading">
+          Back to Gallery
+        </Link>
+        <h1 className="u-noMargin">
+          {example.text}
+        </h1>
+        <div className="Grid Grid--justifySpacebetween u-marginTopSm">
+          <Link to={`/gallery/${configGallery[prevIndex].slug}`} className="SubHeading">
+            <Icon glyph="back" /> Previous Example
+          </Link>
+          <Link to={`/gallery/${configGallery[nextIndex].slug}`} className="SubHeading">
+            Next Example <Icon glyph="internal-link" />
+          </Link>
+        </div>
+        <div className="Recipe Recipe--noMaxHeight">
+          <pre className="u-noMarginTop u-noPadding">
+            <div className="Interactive">
+              <Playground
+                codeText={this.processCodeText(example.code)}
+                noRender={false}
+                theme="elegant"
+                scope={this.scope}
+              />
+            </div>
+          </pre>
+        </div>
+      </article>
+    );
   }
 
   render() {
+    const activePage = this.props.params.example ?
+      this.renderPlayground(this.props.params.example) :
+      this.renderPreviews(configGallery);
+
     return (
       <TitleMeta title="Victory | Gallery">
         <Header />
-          <article className="Article">
-            <h1 className="u-noMargin">
-              Gallery
-            </h1>
-            <div className="Grid Grid--gutterSm">
-              {this.renderPreviews(configGallery)}
-            </div>
-          </article>
+        {activePage}
         <Footer />
       </TitleMeta>
     );

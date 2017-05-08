@@ -29,6 +29,10 @@
   justify-content: center;
 }
 
+.Grid--justifySpacebetween {
+  justify-content: space-between;
+}
+
 .Grid--fit > .Grid-cell {
   flex: 1;
 }

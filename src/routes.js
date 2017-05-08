@@ -15,6 +15,7 @@ module.exports = (
     <Route path="/docs" component={Docs}/>
     <Route path="/docs/:component" component={Docs} />
     <Route path="/gallery" component={Gallery} />
+    <Route path="/gallery/:example" component={Gallery} />
     <Route path="/guides" component={Guides}/>
     <Route path="/guides/:component" component={Guides} />
     <Route path="/about" component={About} />
