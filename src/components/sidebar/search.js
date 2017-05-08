@@ -1,10 +1,10 @@
 import _ from "lodash";
 
 /* Helpers for creating the searchable array */
-const createSearchableArray = (node, ancestors) => {
+const createSearchIndex = (node, ancestors) => {
   if (_.isArray(node)) {
     return node.reduce((prev, current) => {
-      return prev.concat(createSearchableArray(current, ancestors));
+      return prev.concat(createSearchIndex(current, ancestors));
     }, []);
   }
 
@@ -40,7 +40,7 @@ const createSearchableArray = (node, ancestors) => {
         };
       });
   } else if (node.children) {
-    children = createSearchableArray(node.children, searchText);
+    children = createSearchIndex(node.children, searchText);
   }
 
   return nodes.concat(children);
@@ -61,7 +61,7 @@ const isInMatching = (text, arr) => {
 };
 
 export default {
-  createSearchableArray,
+  createSearchIndex,
   getMatching,
   isInMatching
 };

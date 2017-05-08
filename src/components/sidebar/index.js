@@ -8,7 +8,7 @@ import { sidebarContent } from "./content";
 import search from "./search";
 import Icon from "../icon";
 
-const searchIndex = search.createSearchableArray(sidebarContent);
+const searchIndex = search.createSearchIndex(sidebarContent);
 
 class Sidebar extends React.Component {
   constructor(props) {
