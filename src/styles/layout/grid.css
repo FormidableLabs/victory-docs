@@ -84,7 +84,7 @@
 }
 
 .Grid--gutterSm {
-  margin: calc(-1 * var(--gutter-small)) 0 0 calc(-1 * var(--gutter-small));
+  margin: 0 0 0 calc(-1 * var(--gutter-small));
 }
 
 .Grid--gutterSm > .Grid-cell {

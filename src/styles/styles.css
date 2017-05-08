@@ -24,6 +24,7 @@
 * article:      .Article is the content-only portion of /docs/*, nested in .Page-content
 * banner:       banner for the homepage
 * button:       .btn classes for <button> elements
+* gallery:      Styles for /gallery/*
 * home:         All styles on the front page/lander
 * markdown:     <Markdown /> styles
 * page:         <Page /> styles, including the internal pages and their links
@@ -38,6 +39,7 @@
 @import "./components/banner.css";
 @import "./components/button.css";
 @import "./components/footer.css";
+@import "./components/gallery.css";
 @import "./components/header.css";
 @import "./components/home.css";
 @import "./components/markdown.css";
