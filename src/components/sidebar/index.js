@@ -35,7 +35,7 @@ class Sidebar extends React.Component {
       .filter((item) => this.isMatchingContent(item.text))
       .map((item) => {
         const toc = item.toc.filter((t) => this.isMatchingContent(t.content));
-        const alwaysExpand = this.state.searchTerm && toc.length > 0;
+        const alwaysExpand = !!this.state.searchTerm && toc.length > 0;
 
         return (
           <SidebarSelectableItem
