@@ -36,13 +36,17 @@ class Sidebar extends React.Component {
     return items
       .filter((item) => this.isMatchingContent(item.text))
       .map((item) => {
+        const toc = item.toc.filter((t) => this.isMatchingContent(t.content));
+        const alwaysExpand = this.state.searchTerm && toc.length > 0;
+
         return (
           <SidebarSelectableItem
             key={item.slug}
             path={`/${item.route}/${item.slug}`}
             text={item.text}
-            toc={item.toc}
+            toc={toc}
             location={this.props.location}
+            alwaysExpand={alwaysExpand}
           />
         );
       });

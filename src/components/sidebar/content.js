@@ -4,12 +4,14 @@ import { configGuides } from "../config-guides";
 
 const docItems = config.map((item) => _.extend({
   type: "item",
-  route: "docs"
+  route: "docs",
+  children: item.toc
 }, item));
 
 const guideItems = configGuides.map((item) => _.extend({
   type: "item",
-  route: "guides"
+  route: "guides",
+  children: item.toc
 }, item));
 
 const subHeading = (items, text) => ({
@@ -19,18 +21,16 @@ const subHeading = (items, text) => ({
 
 const getNodesWithAncestors = (node, ancestors) => {
   ancestors = ancestors || "";
-  const text = node.text || "";
-  const searchText = `${ancestors} ${text}`.trim();
+  const searchPart = node.text || node.content || "";
+  const searchText = `${ancestors} ${searchPart}`.trim();
 
-  let nodes = [{ searchText }];
+  let nodes = [{ searchText, searchPart }];
 
   nodes.push();
 
   if (node.children) {
-    const nextAncestor = `${ancestors} ${text}`.trim();
-
     nodes = nodes.concat(node.children.reduce((prev, child) => {
-      return prev.concat(getNodesWithAncestors(child, nextAncestor));
+      return prev.concat(getNodesWithAncestors(child, searchText));
     }, []));
   }
 

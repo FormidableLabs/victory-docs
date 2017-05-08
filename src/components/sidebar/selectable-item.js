@@ -85,7 +85,7 @@ class SidebarSelectableItem extends React.Component {
   }
 
   renderToc() {
-    if (!this.isSelected() || this.state.collapsed) {
+    if ((!this.isSelected() || this.state.collapsed) && !this.props.alwaysExpand) {
       return null;
     }
 
@@ -133,7 +133,12 @@ SidebarSelectableItem.propTypes = {
   text: React.PropTypes.string.isRequired,
   path: React.PropTypes.string.isRequired,
   location: React.PropTypes.object.isRequired,
-  toc: React.PropTypes.array.isRequired
+  toc: React.PropTypes.array.isRequired,
+  alwaysExpand: React.PropTypes.bool
+};
+
+SidebarSelectableItem.defaultProps = {
+  alwaysExpand: false
 };
 
 export default SidebarSelectableItem;
