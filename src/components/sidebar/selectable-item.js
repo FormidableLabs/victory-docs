@@ -1,5 +1,4 @@
 import React from "react";
-import MarkdownIt from "markdown-it";
 
 import { Link } from "react-router";
 import { times } from "lodash";
@@ -56,8 +55,6 @@ class SidebarSelectableItem extends React.Component {
   }
 
   renderTransformedToc(siblings, targetLocation) {
-    const md = MarkdownIt();
-
     return (
       <ul className="Sidebar-toc">
         {
@@ -74,7 +71,7 @@ class SidebarSelectableItem extends React.Component {
               <li key={id} className="Sidebar-toc-item">
                 <Link
                   to={`${targetLocation}#${sibling.anchor}`}
-                  dangerouslySetInnerHTML={{__html: md.renderInline(sibling.content)}}
+                  dangerouslySetInnerHTML={{__html: sibling.markdown}}
                 />
               </li>
             );

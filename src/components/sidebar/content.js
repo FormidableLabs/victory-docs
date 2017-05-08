@@ -1,19 +1,29 @@
 import _ from "lodash";
 import { config } from "../config";
 import { configGuides } from "../config-guides";
+import MarkdownIt from "markdown-it";
+
+
+const formatToc = (toc) => {
+  const md = new MarkdownIt();
+
+  return toc.map((t) => _.extend({
+    markdown: md.renderInline(t.content)
+  }, t));
+};
 
 /* Format the sidebar content as a tree */
 const docItems = config.map((item) => _.extend({
   type: "item",
   route: "docs",
-  children: item.toc
-}, item));
+  children: formatToc(item.toc)
+}, _.omit(item, "toc")));
 
 const guideItems = configGuides.map((item) => _.extend({
   type: "item",
   route: "guides",
-  children: item.toc
-}, item));
+  children: formatToc(item.toc)
+}, _.omit(item, "toc")));
 
 const subHeading = (items, text) => ({
   text,
