@@ -22,11 +22,9 @@ class Sidebar extends React.Component {
   }
 
   handleSearch(e) {
-    const { searchTerm } = this.state;
-
     this.setState({
       searchTerm: e.target.value,
-      matchingNodes: search.getMatching(searchTerm, searchIndex)
+      matchingNodes: search.getMatching(e.target.value, searchIndex)
     });
   }
 
@@ -133,7 +131,6 @@ class Sidebar extends React.Component {
   }
 
   render() {
-
     /* eslint-disable max-len */
     return (
       <div className="Page-sidebar">
