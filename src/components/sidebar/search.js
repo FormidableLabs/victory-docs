@@ -46,6 +46,22 @@ const createSearchableArray = (node, ancestors) => {
   return nodes.concat(children);
 };
 
+const getMatching = (text, arr) => {
+  const term = text.toLowerCase();
+
+  return arr.filter((n) => {
+    return n.searchText.toLowerCase().includes(term);
+  });
+};
+
+const isInMatching = (text, arr) => {
+  return _.findIndex(arr, (n) => {
+    return n.searchText.includes(text);
+  }) !== -1;
+};
+
 export default {
-  createSearchableArray
+  createSearchableArray,
+  getMatching,
+  isInMatching
 };

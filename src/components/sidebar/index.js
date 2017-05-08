@@ -1,5 +1,4 @@
 import React from "react";
-import _ from "lodash";
 import { Link } from "react-router";
 
 // Children
@@ -25,13 +24,9 @@ class Sidebar extends React.Component {
   handleSearch(e) {
     const { searchTerm } = this.state;
 
-    const matchingNodes = searchIndex.filter((n) => {
-      return n.searchText.toLowerCase().includes(searchTerm.toLowerCase());
-    });
-
     this.setState({
       searchTerm: e.target.value,
-      matchingNodes
+      matchingNodes: search.getMatching(searchTerm, searchIndex)
     });
   }
 
@@ -56,9 +51,7 @@ class Sidebar extends React.Component {
   }
 
   isMatchingContent(text) {
-    return _.findIndex(this.state.matchingNodes, (n) => {
-      return n.searchText.includes(text);
-    }) !== -1;
+    return search.isInMatching(text, this.state.matchingNodes);
   }
 
   renderContent() {
