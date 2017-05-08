@@ -5,8 +5,11 @@ import { Link } from "react-router";
 // Children
 import SidebarSelectableItem from "./selectable-item";
 import SidebarSearchInput from "./search-input";
-import { sidebarContent, searchIndex } from "./content";
+import { sidebarContent } from "./content";
+import search from "./search";
 import Icon from "../icon";
+
+const searchIndex = search.createSearchableArray(sidebarContent);
 
 class Sidebar extends React.Component {
   constructor(props) {
