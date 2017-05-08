@@ -15,7 +15,7 @@ class Sidebar extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
-      matchingNodes: searchIndex
+      matchingNodes: search.getMatching("", searchIndex)
     };
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -32,9 +32,9 @@ class Sidebar extends React.Component {
 
   renderList(items) {
     return items
-      .filter((item) => this.isMatchingContent(item.text))
+      .filter((item) => this.isMatchingNode(item))
       .map((item) => {
-        const toc = item.toc.filter((t) => this.isMatchingContent(t.content));
+        const toc = item.children.filter((t) => this.isMatchingNode(t));
         const alwaysExpand = !!this.state.searchTerm && toc.length > 0;
 
         return (
@@ -50,20 +50,22 @@ class Sidebar extends React.Component {
       });
   }
 
-  isMatchingContent(text) {
-    return search.isInMatching(text, this.state.matchingNodes);
+  isMatchingNode(node) {
+    return search.isInMatching(node.text, this.state.matchingNodes);
   }
 
   renderContent() {
     const content = sidebarContent
-      .filter((heading) => this.isMatchingContent(heading.text))
+      .filter((heading) => this.isMatchingNode(heading))
       .map((heading, i) => {
         const className = i === 0
           ? "Sidebar-Heading"
           : "Sidebar-Heading u-noMarginTop";
 
         const subheadings = heading.children
-          .filter((subheading) => this.isMatchingContent(subheading.text || ""))
+          .filter((subheading) => {
+            return subheading.text ? this.isMatchingNode(subheading) : true;
+          })
           .map((subheading, subheadingIndex) => {
             return (
               <div
