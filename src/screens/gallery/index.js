@@ -127,7 +127,7 @@ class Gallery extends React.Component {
             Next Example <Icon glyph="internal-link" />
           </Link>
         </div>
-        <div className="Recipe Recipe--noMaxHeight">
+        <div className="Recipe Recipe--gallery">
           <pre className="u-noMarginTop u-noPadding">
             <div className="Interactive">
               <Playground

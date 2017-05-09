@@ -22,10 +22,6 @@
   height: var(--initialHeight);
 }
 
-.Recipe.Recipe--noMaxHeight .Interactive .playgroundStage {
-  height: auto !important;
-}
-
 .Interactive {
   position: relative;
   margin: var(--gutter) 0 0;
