@@ -37,7 +37,7 @@ const createSearchIndex = (node, parents) => {
           .join(" ")
           .trim();
         const childSearchText = `${searchText} ${childText}`;
-        const childIds = relevantNodes.map((n) => n.id);
+        const childIds = ids.concat(relevantNodes.map((n) => n.id));
 
         return {
           ids: childIds,
@@ -59,9 +59,9 @@ const getMatching = (text, arr) => {
   });
 };
 
-const isInMatching = (text, arr) => {
+const isInMatching = (node, arr) => {
   return _.findIndex(arr, (n) => {
-    return n.searchText.includes(text);
+    return -1 !== n.ids.indexOf(node.id);
   }) !== -1;
 };
 
