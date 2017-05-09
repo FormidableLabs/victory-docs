@@ -54,15 +54,17 @@ const createSearchIndex = (node, parents) => {
 const getMatching = (text, arr) => {
   const term = text.toLowerCase();
 
-  return arr.filter((n) => {
-    return n.searchText.toLowerCase().includes(term);
-  });
+  return arr
+    .filter((n) => {
+      return n.searchText.toLowerCase().includes(term);
+    })
+    .reduce((prev, n) => {
+      return n.ids.reduce((ids, id) => _.extend(ids, { [id]: true }), prev);
+    }, {});
 };
 
-const isInMatching = (node, arr) => {
-  return _.findIndex(arr, (n) => {
-    return -1 !== n.ids.indexOf(node.id);
-  }) !== -1;
+const isInMatching = (node, obj) => {
+  return !!obj[node.id];
 };
 
 export default {
