@@ -67,14 +67,14 @@ class SidebarList extends React.Component {
 
     return (
       <div className="Sidebar-Grid">
-        { this.isMatchingNode({ text: "Introduction" }) ?
+        { this.isMatchingNode({ id: -1 }) ?
           <p className="Sidebar-Heading u-noPadding">
             Introduction
           </p>
           : null
         }
         <ul className="Sidebar-List">
-          { this.isMatchingNode({ text: "Getting Started" }) ?
+          { this.isMatchingNode({ id: -2 }) ?
             <li key="sidebarlink-index" className="Sidebar-List-Item">
               <Link to="/docs" activeClassName="is-active">
                 Getting Started <Icon glyph="internal-link" />
@@ -82,7 +82,7 @@ class SidebarList extends React.Component {
             </li>
             : null
           }
-          { this.isMatchingNode({ text: "Native" }) ?
+          { this.isMatchingNode({ id: -3 }) ?
             <li key="sidebarlink-native" className="Sidebar-List-Item">
               <Link to="/docs/native" activeClassName="is-active">
                 Native <Icon glyph="internal-link" />
@@ -90,7 +90,7 @@ class SidebarList extends React.Component {
             </li>
             : null
           }
-          { this.isMatchingNode({ text: "Contributing" }) ?
+          { this.isMatchingNode({ id: -4 }) ?
             <li key="sidebarlink-contributing" className="Sidebar-List-Item">
               <a href="https://github.com/FormidableLabs/victory/#contributing">
                 Contributing <Icon glyph="external-link" />

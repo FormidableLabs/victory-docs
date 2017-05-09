@@ -48,14 +48,14 @@ const subHeading = (items, text) => ({
 
 const sidebarContent = [
   {
-    id: id(),
+    id: -1,
     "text": "Introduction",
     // Introduction HTML is manually constructed
     "render": false,
     children: [
-      { id: id(), text: "Getting Started" },
-      { id: id(), text: "Native" },
-      { id: id(), text: "Contributing" }
+      { id: -2, text: "Getting Started" },
+      { id: -3, text: "Native" },
+      { id: -4, text: "Contributing" }
     ]
   },
   {
