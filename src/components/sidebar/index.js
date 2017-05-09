@@ -1,5 +1,5 @@
+import _ from "lodash";
 import React from "react";
-import { Link } from "react-router";
 
 // Children
 import SidebarList from "./list";
@@ -18,13 +18,18 @@ class Sidebar extends React.Component {
     };
 
     this.handleSearch = this.handleSearch.bind(this);
+    this.debouncedSearch = _.debounce((text) => {
+      this.setState({
+        matchingNodes: search.getMatching(text, searchIndex)
+      });
+    }, 100);
   }
 
   handleSearch(e) {
-    this.setState({
-      searchTerm: e.target.value,
-      matchingNodes: search.getMatching(e.target.value, searchIndex)
-    });
+    const searchTerm = e.target.value;
+
+    this.setState({ searchTerm });
+    this.debouncedSearch(searchTerm);
   }
 
   render() {
