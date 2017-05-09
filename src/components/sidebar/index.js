@@ -25,9 +25,7 @@ class Sidebar extends React.Component {
     }, 100);
   }
 
-  handleSearch(e) {
-    const searchTerm = e.target.value;
-
+  handleSearch(searchTerm) {
     this.setState({ searchTerm });
     this.debouncedSearch(searchTerm);
   }

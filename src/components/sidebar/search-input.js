@@ -1,6 +1,11 @@
 import React from "react";
 
 class SidebarSearchInput extends React.Component {
+  onChange(e) {
+    console.log('value', e.target.value)
+    this.props.onChange(e.target.value);
+  }
+
   render() {
     return (
       <div className="Sidebar-Input">
@@ -10,9 +15,11 @@ class SidebarSearchInput extends React.Component {
             placeholder="Search"
             type="search"
             value={this.props.term}
-            onChange={this.props.onChange}
+            onChange={this.onChange.bind(this)}
           />
-          <button className="btn Input-clear">
+          <button
+            className="btn Input-clear"
+            onClick={this.onChange.bind(this)}>
             &times;
           </button>
         </div>
