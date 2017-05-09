@@ -108,7 +108,9 @@ class SidebarList extends React.Component {
 SidebarList.propTypes = {
   isSearching: React.PropTypes.bool.isRequired,
   location: React.PropTypes.object.isRequired,
-  content: React.PropTypes.object.isRequired,
+  content: React.PropTypes.arrayOf(
+    React.PropTypes.object
+  ).isRequired,
   matchingNodes: React.PropTypes.object.isRequired
 };
 
