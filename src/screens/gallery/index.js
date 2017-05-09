@@ -66,7 +66,6 @@ class Gallery extends React.Component {
       VictoryVoronoiTooltip,
       VictoryZoomContainer
     };
-\
   }
 
   processCodeText(text) {
