@@ -28,10 +28,11 @@ import {
   VictoryZoomContainer
 } from "victory";
 
-// Child components
+// Child Components
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import Icon from "../../components/icon";
+
 import Preview from "./components/preview";
 import TitleMeta from "../../components/title-meta";
 import { configGallery } from "../../components/config-gallery";
@@ -65,6 +66,7 @@ class Gallery extends React.Component {
       VictoryVoronoiTooltip,
       VictoryZoomContainer
     };
+\
   }
 
   processCodeText(text) {
