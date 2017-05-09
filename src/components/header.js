@@ -31,6 +31,9 @@ class VictoryHeader extends React.Component {
           <Link to="/guides">
             Guides
           </Link>
+          <Link to="/gallery">
+            Gallery
+          </Link>
           <a href="https://gitter.im/FormidableLabs/victory">
             Gitter
           </a>

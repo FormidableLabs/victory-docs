@@ -17,16 +17,6 @@
   padding: 0;
 }
 
-.Ecology pre[class*="language-"],
-.Ecology pre code[class*="lang-"] {
-  padding: 2rem var(--page);
-
-  @media (--medium-viewport) {
-    margin-left: calc(-1 * var(--page));
-    margin-right: calc(-1 * var(--page));
-  }
-}
-
 .playgroundsMaxHeight .Interactive .playgroundStage,
 .Recipe .Interactive .playgroundStage {
   height: var(--initialHeight);

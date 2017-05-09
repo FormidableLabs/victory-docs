@@ -77,7 +77,7 @@ class Gallery extends React.Component {
   renderPreviews(config) {
     const previews = config.map((example, index) => {
       return (
-        <div key={index} className="Grid-cell Gallery-item">
+        <div key={index} className="Gallery-item">
           <Preview
             codeText={this.processCodeText(example.code)}
             noRender={false}
@@ -86,7 +86,7 @@ class Gallery extends React.Component {
           />
           <p className="Gallery-item-heading">
             <Link to={`/gallery/${example.slug}`}>
-              {example.text} <Icon glyph="internal-link" />
+              {example.text}&nbsp;<Icon glyph="internal-link" />
             </Link>
           </p>
         </div>
@@ -97,7 +97,7 @@ class Gallery extends React.Component {
         <h1 className="u-noMargin">
           Gallery
         </h1>
-        <div className="Grid Grid--gutterSm">
+        <div className="Gallery">
           {previews}
         </div>
       </article>
@@ -107,6 +107,7 @@ class Gallery extends React.Component {
   renderPlayground(slug) {
     const example = find(configGallery, {slug});
     const current = configGallery.indexOf(example);
+    // cycle through gallery array
     const previous = (current - 1) > 0 ? (current - 1) : configGallery.length - 1;
     const prevIndex = previous % configGallery.length;
     const nextIndex = (current + 1) % configGallery.length;
