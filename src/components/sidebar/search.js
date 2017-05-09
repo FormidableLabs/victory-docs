@@ -1,18 +1,20 @@
 import _ from "lodash";
 
 /* Helpers for creating the searchable array */
-const createSearchIndex = (node, ancestors) => {
+const createSearchIndex = (node, parents) => {
+  const getText = (n) => n.text || n.content || "";
+
   if (_.isArray(node)) {
     return node.reduce((prev, current) => {
-      return prev.concat(createSearchIndex(current, ancestors));
+      return prev.concat(createSearchIndex(current, parents));
     }, []);
   }
 
-  ancestors = ancestors || "";
-  const searchPart = node.text || node.content || "";
-  const searchText = `${ancestors} ${searchPart}`.trim();
+  const currentLineage = (parents || []).concat([node]);
+  const searchText = currentLineage.map((n) => getText(n)).join(" ").trim();
+  const ids = currentLineage.map((n) => n.id);
 
-  const nodes = [{ searchText, searchPart }];
+  const nodes = [{ searchText, ids }];
   let children = [];
 
   if (node.type === "item") {
@@ -26,21 +28,24 @@ const createSearchIndex = (node, ancestors) => {
     children = node.children
       .filter((child) => child.level >= minHeadingLevel)
       .map((child) => {
-        const childSearchPart = child.content;
-
-        levels[child.level - minHeadingLevel] = childSearchPart;
+        levels[child.level - minHeadingLevel] = child;
         levels.fill(null, child.level - (minHeadingLevel - 1));
+        const relevantNodes = levels.slice(0, child.level).filter((n) => n);
 
-        const childAncestors = levels.slice(0, child.level).join(" ").trim();
-        const childSearchText = `${searchText} ${childAncestors}`;
+        const childText = relevantNodes
+          .map((n) => getText(n))
+          .join(" ")
+          .trim();
+        const childSearchText = `${searchText} ${childText}`;
+        const childIds = relevantNodes.map((n) => n.id);
 
         return {
-          searchPart: childSearchPart,
+          ids: childIds,
           searchText: childSearchText
         };
       });
   } else if (node.children) {
-    children = createSearchIndex(node.children, searchText);
+    children = createSearchIndex(node.children, currentLineage);
   }
 
   return nodes.concat(children);
