@@ -26,6 +26,7 @@
 * button:       .btn classes for <button> elements
 * gallery:      Styles for /gallery/*
 * home:         All styles on the front page/lander
+* input:        <input /> styles
 * markdown:     <Markdown /> styles
 * page:         <Page /> styles, including the internal pages and their links
 * playground:   <Playground /> styles and CodeMirror theme
@@ -42,6 +43,7 @@
 @import "./components/gallery.css";
 @import "./components/header.css";
 @import "./components/home.css";
+@import "./components/input.css";
 @import "./components/markdown.css";
 @import "./components/page.css";
 @import "./components/playground.css";

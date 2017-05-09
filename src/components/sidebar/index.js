@@ -57,10 +57,6 @@ class Sidebar extends React.Component {
       .filter((heading) => heading.render !== false)
       .filter((heading) => this.isMatchingNode(heading))
       .map((heading, i) => {
-        const className = i === 0
-          ? "Sidebar-Heading"
-          : "Sidebar-Heading u-noMarginTop";
-
         const subheadings = heading.children
           .filter((subheading) => {
             return subheading.text ? this.isMatchingNode(subheading) : true;
@@ -69,7 +65,6 @@ class Sidebar extends React.Component {
             return (
               <div
                 key={subheading.text || `${i}-${subheadingIndex}`}
-                className="u-noMargin"
               >
                 <p className="Sidebar-SubHeading SubHeading">
                   {subheading.text}
@@ -82,8 +77,8 @@ class Sidebar extends React.Component {
           });
 
         return (
-          <div key={heading.text}>
-            <p className={className}>
+          <div key={heading.text} className="Sidebar-Grid-block">
+            <p className="Sidebar-Heading">
               {heading.text}
             </p>
             {subheadings}
@@ -94,7 +89,7 @@ class Sidebar extends React.Component {
     return (
       <div className="Sidebar-Grid">
         { this.isMatchingNode({ text: "Introduction" }) ?
-          <p className="Sidebar-Heading u-noMargin u-noPadding">
+          <p className="Sidebar-Heading u-noPadding">
             Introduction
           </p>
           : null

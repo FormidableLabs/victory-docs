@@ -4,11 +4,19 @@ class SidebarSearchInput extends React.Component {
   render() {
     return (
       <div className="Sidebar-Input">
-        <input
-          type="text"
-          value={this.props.term}
-          onChange={this.props.onChange}
-        />
+        <div className="Input">
+          <input
+            className="Input-search"
+            placeholder="Search"
+            type="search"
+            value={this.props.term}
+            onChange={this.props.onChange}
+          />
+          <button className="btn Input-clear">
+            &times;
+          </button>
+        </div>
+
       </div>
     );
   }
