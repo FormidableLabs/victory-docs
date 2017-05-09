@@ -1,19 +1,19 @@
 import _ from "lodash";
 
+// h1's are assumed to be duplicates of their parent
+const MIN_TOC_HEADING_LEVEL = 2;
+
 const getText = (node) => node.text || node.content || "";
 
 const createSearchIndexForItem = (itemNode, parentText, parentIds) => {
-  // h1's are assumed to be duplicates of their parent
-  const minHeadingLevel = 2;
-
   // Contains state!
   const levels = [];
 
   return itemNode.children
-    .filter((child) => child.level >= minHeadingLevel)
+    .filter((child) => child.level >= MIN_TOC_HEADING_LEVEL)
     .map((child) => {
-      levels[child.level - minHeadingLevel] = child;
-      levels.fill(null, child.level - (minHeadingLevel - 1));
+      levels[child.level - MIN_TOC_HEADING_LEVEL] = child;
+      levels.fill(null, child.level - (MIN_TOC_HEADING_LEVEL - 1));
       const relevantNodes = levels.slice(0, child.level).filter((n) => n);
 
       const childParentText = parentText;
@@ -30,7 +30,7 @@ const createSearchIndexForItem = (itemNode, parentText, parentIds) => {
         parentText: childParentText,
         fullText: childFullText,
         nodeText: childNodeText,
-        isLeaf: true
+        allowMatchOnParent: false
       };
     });
 };
@@ -54,7 +54,7 @@ const createSearchIndex = (node, parents = []) => {
     fullText,
     nodeText,
     ids,
-    isLeaf: !(node.children && node.children.length)
+    allowMatchOnParent: true
   }];
   let children = [];
 
@@ -74,7 +74,11 @@ const getMatching = (text, arr) => {
 
   return arr
     .filter((n) => {
-      return n.fullText.toLowerCase().includes(term);
+      const matchesLineage = n.fullText.toLowerCase().includes(term);
+
+      return n.allowMatchOnParent
+        ? matchesLineage
+        : matchesLineage && !n.parentText.toLowerCase().includes(term);
     })
     .reduce((prev, n) => {
       return n.ids.reduce((ids, id) => _.extend(ids, { [id]: true }), prev);
