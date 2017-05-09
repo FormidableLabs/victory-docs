@@ -1,14 +1,18 @@
 import _ from "lodash";
 import { config } from "../config";
 import { configGuides } from "../config-guides";
-import MarkdownIt from "markdown-it";
-
+import marked from "marked";
 
 const formatToc = (toc) => {
-  const md = new MarkdownIt();
+  const inlineRenderer = _.extend(new marked.Renderer(), {
+    paragraph: _.identity
+  });
 
   return toc.map((t) => _.extend({
-    markdown: md.renderInline(t.content)
+    markdown: marked(t.content, {
+      gfm: true,
+      renderer: inlineRenderer
+    })
   }, t));
 };
 
