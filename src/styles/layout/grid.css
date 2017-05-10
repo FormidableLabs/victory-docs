@@ -29,8 +29,12 @@
   justify-content: center;
 }
 
+.Grid--justifySpacebetween {
+  justify-content: space-between;
+}
+
 .Grid--fit > .Grid-cell {
-  flex: 1;
+  flex: 1 0 auto;
 }
 
 .Grid--full > .Grid-cell {
@@ -55,7 +59,7 @@
 
 @media (--medium-viewport) {
   .medium-Grid--fit > .Grid-cell {
-    flex: 1;
+    flex: 1 0 auto;
   }
 
   .medium-Grid--full > .Grid-cell {

@@ -1,32 +1,58 @@
+.Gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 0 calc(-1 * var(--gutter-small));
+  padding-bottom: var(--gutter);
+}
+
 .Gallery-item {
-  align-items: stretch;
+  flex: 1 0 250px;
+  padding: var(--gutter-small) 0 0 var(--gutter-small);
+
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
-
-  flex: 1 1 300px !important;
-  max-width: 350px;
+  max-width: 300px;
+  overflow: hidden;
 }
 
 .Gallery-item .Preview {
   background-color: var(--lightestSand);
   border: 5px solid var(--lightSand);
+  flex: 1 1 auto;
   padding: var(--gutter-small);
-  height: 100%;
+}
 
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
+.Gallery-item .Preview svg {
+  height: 100% !important;
 }
 
 .Gallery-item-heading {
+  flex: 0 1 auto;
+
   background-color: var(--lightSand);
   font-family: var(--fontSubHeading);
   line-height: 1.3;
   margin: 0;
   padding: 1em 0.5em;
   text-align: center;
+}
+
+.Gallery-item-heading a:link {
+  color: var(--black);
+}
+
+.Gallery-item-heading a:visited {
+  color: var(--darkGray);
+}
+
+.Gallery-item-heading a:focus,
+.Gallery-item-heading a:hover {
+  color: var(--darkRed);
+}
+
+.Gallery-item-heading a.is-active {
+  color: var(--black);
+  font-weight: var(--fontWeightSubHeadingBold);
 }

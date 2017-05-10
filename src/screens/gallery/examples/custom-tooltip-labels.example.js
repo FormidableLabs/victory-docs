@@ -10,6 +10,7 @@
 class CustomLabel extends React.Component {
   static defaultEvents = VictoryTooltip.defaultEvents;
   static propTypes = {text: React.PropTypes.string};
+
   render() {
     return (
       <g>

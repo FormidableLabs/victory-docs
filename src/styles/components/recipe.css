@@ -28,6 +28,17 @@
   max-height: 400px !important; /* allow bigger recipes */
 }
 
+/*
+* Gallery
+*/
+.Recipe--gallery .Interactive .playgroundStage {
+  height: auto !important;
+}
+
+.Recipe--gallery .Interactive .playgroundPreview svg {
+  display: block;
+}
+
 /** Theme Park Recipe
 */
 

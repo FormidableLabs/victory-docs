@@ -173,7 +173,9 @@ code {
   font-family: var(--fontMonospace);
 }
 
-pre {
+pre,
+.Ecology pre[class*="language-"],
+.Ecology pre code[class*="lang-"] {
   padding: 2rem var(--gutter);
 
   @media (--medium-viewport) {

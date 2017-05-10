@@ -51,6 +51,9 @@
   --fontBody: 'ff-more-web-pro', 'Georgia', 'Cambria', serif;
   --fontMonospace: 'akkurat', 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Monaco', 'Courier', monospace;
 
+  --fontWeightSubHeadingBold: 600; /* Freight Sans Pro Semibold */
+  --fontWeightBodyBold: 500; /* FF More Web Pro Medium */
+
 /**
 * Layout
 */

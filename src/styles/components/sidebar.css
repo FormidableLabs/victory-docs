@@ -68,7 +68,7 @@
 
 .Sidebar a.is-active {
   color: var(--black);
-  font-weight: bold;
+  font-weight: var(--fontWeightSubHeadingBold);
 }
 
 

@@ -17,16 +17,6 @@
   padding: 0;
 }
 
-.Ecology pre[class*="language-"],
-.Ecology pre code[class*="lang-"] {
-  padding: 2rem var(--page);
-
-  @media (--medium-viewport) {
-    margin-left: calc(-1 * var(--page));
-    margin-right: calc(-1 * var(--page));
-  }
-}
-
 .playgroundsMaxHeight .Interactive .playgroundStage,
 .Recipe .Interactive .playgroundStage {
   height: var(--initialHeight);
@@ -69,11 +59,11 @@
   right: 0;
 
   color: var(--codeMirrorComment);
-  font-family: var(--fontMonospace);
-  font-size: 0.8em;
-  line-height: 1.6;
+  font-family: var(--fontSubHeading);
+  font-size: 0.9em;
+  line-height: 1;
   letter-spacing: 0.15em;
-  padding: 0.5em;
+  padding: 0.75em 0.5em;
   text-align: center;
   text-transform: uppercase;
 }
@@ -105,7 +95,7 @@
   display: flex;
   flex: 1 1 var(--initialHeight);
   justify-content: center;
-  margin: 0 0 var(--gutter-small) 0;
+  margin: 0 0 var(--gutter) 0;
   order: 1;
   padding: 0 var(--gutter-small);
   position: relative;
