@@ -1,8 +1,9 @@
 import React from "react";
+import {observer} from "mobx-react";
 
 class SidebarSearchInput extends React.Component {
   onChange(e) {
-    this.props.onChange(e.target.value);
+    this.props.store.searchText = e.target.value;
   }
 
   render() {
@@ -13,7 +14,7 @@ class SidebarSearchInput extends React.Component {
             className="Input-search"
             placeholder="Search"
             type="search"
-            value={this.props.term}
+            value={this.props.store.searchText}
             onChange={this.onChange.bind(this)}
           />
           <button
@@ -30,12 +31,9 @@ class SidebarSearchInput extends React.Component {
 }
 
 SidebarSearchInput.propTypes = {
-  onChange: React.PropTypes.func.isRequired,
-  term: React.PropTypes.string
+  store: React.PropTypes.shape({
+    searchText: React.PropTypes.string.isRequired
+  })
 };
 
-SidebarSearchInput.defaultProps = {
-  term: ""
-};
-
-export default SidebarSearchInput;
+export default observer(SidebarSearchInput);
