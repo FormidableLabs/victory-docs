@@ -4,7 +4,6 @@ import {PropTypes as MobxPropTypes} from "mobx-react";
 
 // Children
 import SidebarSelectableItem from "./selectable-item";
-import search from "./search";
 import Icon from "../icon";
 
 class SidebarList extends React.Component {
@@ -29,7 +28,7 @@ class SidebarList extends React.Component {
   }
 
   isMatchingNode(node) {
-    return search.isInMatching(node, this.props.matchingNodes);
+    return !!this.props.matchingNodes[node.id];
   }
 
   render() {

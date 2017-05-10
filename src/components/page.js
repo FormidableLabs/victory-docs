@@ -4,7 +4,7 @@ import { ScrollContainer } from "react-router-scroll";
 import Sidebar from "./sidebar";
 import Header from "./header";
 import Footer from "./footer";
-import sidebarStore from "../sidebar-store";
+import sidebarStore from "../stores/sidebar";
 
 class Page extends React.Component {
   shouldUpdateScroll(scrollBehavior, prevRouterProps) {

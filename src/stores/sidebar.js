@@ -1,6 +1,6 @@
 import {extendObservable, computed, toJS} from "mobx";
-import {sidebarContent} from "./components/sidebar/content";
-import search from "./components/sidebar/search";
+import {sidebarContent} from "./sidebar-content";
+import search from "./sidebar-search";
 
 class SidebarStore {
   constructor() {

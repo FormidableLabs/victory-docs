@@ -85,12 +85,7 @@ const getMatching = (text, arr) => {
     }, {});
 };
 
-const isInMatching = (node, obj) => {
-  return !!obj[node.id];
-};
-
 export default {
   createSearchIndex,
-  getMatching,
-  isInMatching
+  getMatching
 };
