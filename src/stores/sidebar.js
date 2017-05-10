@@ -15,6 +15,15 @@ class SidebarStore {
       })
     });
   }
+
+  hasSidebar(pathname) {
+    return pathname.match(/^\/docs/) || pathname.match(/^\/guides/);
+  }
+
+  reset() {
+    this.searchText = "";
+    this.sidebarContent = sidebarContent;
+  }
 }
 
 export default new SidebarStore();
