@@ -1,31 +1,30 @@
 import _ from "lodash";
 import React from "react";
-import {observer} from "mobx-react";
+import {observer, PropTypes as MobxPropTypes} from "mobx-react";
 
 import SidebarList from "./list";
 import SidebarSearchInput from "./search-input";
-import { sidebarContent } from "./content";
 import search from "./search";
-
-const searchIndex = search.createSearchIndex(sidebarContent);
 
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      matchingNodes: search.getMatching("", searchIndex)
+      matchingNodes: search.getMatching(
+        this.props.store.searchText, this.props.store.searchIndex)
     };
 
-    this.debouncedSearch = _.debounce((text) => {
+    this.debouncedSearch = _.debounce((text, index) => {
       this.setState({
-        matchingNodes: search.getMatching(text, searchIndex)
+        matchingNodes: search.getMatching(text, index)
       });
     }, 100);
   }
 
   componentWillReact() {
-    this.debouncedSearch(this.props.store.searchText);
+    const {searchText, searchIndex} = this.props.store;
+    this.debouncedSearch(searchText, searchIndex);
   }
 
   render() {
@@ -37,7 +36,7 @@ class Sidebar extends React.Component {
             <SidebarSearchInput store={this.props.store} />
           </div>
           <SidebarList
-            content={sidebarContent}
+            content={this.props.store.sidebarContent}
             matchingNodes={this.state.matchingNodes}
             isSearching={!!this.props.store.searchText}
             location={this.props.location}
@@ -52,7 +51,9 @@ class Sidebar extends React.Component {
 Sidebar.propTypes = {
   location: React.PropTypes.object.isRequired,
   store: React.PropTypes.shape({
-    searchText: React.PropTypes.string.isRequired
+    searchText: React.PropTypes.string.isRequired,
+    sidebarContent: MobxPropTypes.observableArray.isRequired,
+    searchIndex: MobxPropTypes.observableArray.isRequired
   }).isRequired,
   active: React.PropTypes.string
 };
