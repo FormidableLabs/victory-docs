@@ -25,7 +25,6 @@ class Page extends React.Component {
           <Sidebar
             active={this.props.sidebar}
             location={this.props.location}
-            tocArray={this.props.tocArray}
           />
           <ScrollContainer
             scrollKey="page-content"
@@ -48,14 +47,12 @@ class Page extends React.Component {
 Page.propTypes = {
   children: React.PropTypes.node,
   location: React.PropTypes.object,
-  sidebar: React.PropTypes.string,
-  tocArray: React.PropTypes.array
+  sidebar: React.PropTypes.string
 };
 
 Page.defaultProps = {
   children: null,
-  sidebar: "index",
-  tocArray: []
+  sidebar: "index"
 };
 
 export default Page;

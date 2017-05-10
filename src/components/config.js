@@ -35,156 +35,187 @@ export const config = [
     text: "Native Tutorial",
     slug: "native",
     category: "native",
-    docs: NativeTutorial
+    docs: NativeTutorial,
+    toc: NativeTutorial.toc()
   }, {
     text: "VictoryAnimation",
     slug: "victory-animation",
     category: "core",
-    docs: VAnimationDocs
+    docs: VAnimationDocs,
+    toc: VAnimationDocs.toc()
   }, {
     text: "VictoryArea",
     slug: "victory-area",
     category: "chart",
-    docs: VAreaDocs
+    docs: VAreaDocs,
+    toc: VAreaDocs.toc()
   }, {
     text: "VictoryAxis",
     slug: "victory-axis",
     category: "chart",
-    docs: VAxisDocs
+    docs: VAxisDocs,
+    toc: VAxisDocs.toc()
   }, {
     text: "VictoryBar",
     slug: "victory-bar",
     category: "chart",
-    docs: VBarDocs
+    docs: VBarDocs,
+    toc: VBarDocs.toc()
   }, {
     text: "VictoryBrushContainer",
     slug: "victory-brush-container",
     category: "chart",
-    docs: VBrushContainerDocs
+    docs: VBrushContainerDocs,
+    toc: VBrushContainerDocs.toc()
   }, {
     text: "VictoryCandlestick",
     slug: "victory-candlestick",
     category: "chart",
-    docs: VCandlestickDocs
+    docs: VCandlestickDocs,
+    toc: VCandlestickDocs.toc()
   }, {
     text: "VictoryChart",
     slug: "victory-chart",
     category: "chart",
-    docs: VChartDocs
+    docs: VChartDocs,
+    toc: VChartDocs.toc()
   }, {
     text: "VictoryClipContainer",
     slug: "victory-clip-container",
     category: "core",
-    docs: VClipContainerDocs
+    docs: VClipContainerDocs,
+    toc: VClipContainerDocs.toc()
   }, {
     text: "VictoryContainer",
     slug: "victory-container",
     category: "core",
-    docs: VContainerDocs
+    docs: VContainerDocs,
+    toc: VContainerDocs.toc()
   }, {
     text: "VictoryErrorBar",
     slug: "victory-errorbar",
     category: "chart",
-    docs: VErrorBarDocs
+    docs: VErrorBarDocs,
+    toc: VErrorBarDocs.toc()
   }, {
     text: "VictoryGroup",
     slug: "victory-group",
     category: "chart",
-    docs: VGroupDocs
+    docs: VGroupDocs,
+    toc: VGroupDocs.toc()
   }, {
     text: "VictoryLabel",
     slug: "victory-label",
     category: "core",
-    docs: VLabelDocs
+    docs: VLabelDocs,
+    toc: VLabelDocs.toc()
   }, {
     text: "VictoryLegend",
     slug: "victory-legend",
     category: "core",
-    docs: VLegendDocs
+    docs: VLegendDocs,
+    toc: VLegendDocs.toc()
   }, {
     text: "VictoryLine",
     slug: "victory-line",
     category: "chart",
-    docs: VLineDocs
+    docs: VLineDocs,
+    toc: VLineDocs.toc()
   }, {
     text: "VictoryPie",
     slug: "victory-pie",
     category: "more",
-    docs: VPieDocs
+    docs: VPieDocs,
+    toc: VPieDocs.toc()
   }, {
     text: "VictoryPortal",
     slug: "victory-portal",
     category: "core",
-    docs: VPortalDocs
+    docs: VPortalDocs,
+    toc: VPortalDocs.toc()
   }, {
     text: "VictoryPrimitives",
     slug: "victory-primitives",
     category: "core",
-    docs: VPrimitivesDocs
+    docs: VPrimitivesDocs,
+    toc: VPrimitivesDocs.toc()
   }, {
     text: "VictorySharedEvents",
     slug: "victory-shared-events",
     category: "core",
-    docs: VSharedEventsDocs
+    docs: VSharedEventsDocs,
+    toc: VSharedEventsDocs.toc()
   }, {
     text: "VictoryScatter",
     slug: "victory-scatter",
     category: "chart",
-    docs: VScatterDocs
+    docs: VScatterDocs,
+    toc: VScatterDocs.toc()
   }, {
     text: "VictorySelectionContainer",
     slug: "victory-selection-container",
     category: "chart",
-    docs: VSelectionContainerDocs
+    docs: VSelectionContainerDocs,
+    toc: VSelectionContainerDocs.toc()
   }, {
     text: "VictoryStack",
     slug: "victory-stack",
     category: "chart",
-    docs: VStackDocs
+    docs: VStackDocs,
+    toc: VStackDocs.toc()
   }, {
     text: "VictoryTheme",
     slug: "victory-theme",
     category: "core",
-    docs: VThemeDocs
+    docs: VThemeDocs,
+    toc: VThemeDocs.toc()
   }, {
     text: "VictoryTooltip",
     slug: "victory-tooltip",
     category: "core",
-    docs: VTooltipDocs
+    docs: VTooltipDocs,
+    toc: VTooltipDocs.toc()
   }, {
     text: "VictoryTransition",
     slug: "victory-transition",
     category: "core",
-    docs: VTransitionDocs
+    docs: VTransitionDocs,
+    toc: VTransitionDocs.toc()
   }, {
     text: "VictoryVoronoi",
     slug: "victory-voronoi",
     category: "chart",
-    docs: VVoronoiDocs
+    docs: VVoronoiDocs,
+    toc: VVoronoiDocs.toc()
   }, {
     text: "VictoryVoronoiContainer",
     slug: "victory-voronoi-container",
     category: "chart",
-    docs: VVoronoiContainerDocs
+    docs: VVoronoiContainerDocs,
+    toc: VVoronoiContainerDocs.toc()
   }, {
     text: "VictoryVoronoiTooltip",
     slug: "victory-voronoi-tooltip",
     category: "chart",
-    docs: VVoronoiTooltipDocs
+    docs: VVoronoiTooltipDocs,
+    toc: VVoronoiTooltipDocs.toc()
   }, {
     text: "VictoryZoom",
     slug: "victory-zoom",
     category: "chart",
-    docs: VZoomDocs
+    docs: VZoomDocs,
+    toc: VZoomDocs.toc()
   }, {
     text: "VictoryZoomContainer",
     slug: "victory-zoom-container",
     category: "chart",
-    docs: VZoomContainerDocs
+    docs: VZoomContainerDocs,
+    toc: VZoomContainerDocs.toc()
   }, {
     text: "createContainer",
     slug: "create-container",
     category: "chart",
-    docs: CreateContainerDocs
+    docs: CreateContainerDocs,
+    toc: CreateContainerDocs.toc()
   }
 ];

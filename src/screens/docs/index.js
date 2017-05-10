@@ -18,24 +18,12 @@ import TitleMeta from "../../components/title-meta";
 import EcologyLinkable from "../../components/ecology-linkable";
 
 class Docs extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      tocArray: []
-    };
-  }
-
   componentDidMount() {
     Prism.highlightAll();
   }
 
   componentDidUpdate() { // is this the right one??
     Prism.highlightAll();
-  }
-
-  updateTocArray(tocArray) {
-    this.setState({ tocArray });
   }
 
   renderContent(activePageConf, location) {
@@ -61,7 +49,6 @@ class Docs extends React.Component {
         <a href={editUrl} className="SubHeading">Edit this page</a>
         <Doc
           location={location}
-          updateTocArray={this.updateTocArray.bind(this)}
         />
       </div>
     );
@@ -77,7 +64,6 @@ class Docs extends React.Component {
         <Page
           location={this.props.location}
           sidebar={activePageConf.slug}
-          tocArray={this.state.tocArray}
         >
           { this.renderContent(activePageConf, this.props.location) }
         </Page>
@@ -94,6 +80,5 @@ Docs.propTypes = {
 Docs.defaultProps = {
   params: null
 };
-
 
 export default Radium(Docs);
