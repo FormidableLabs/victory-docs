@@ -2,7 +2,6 @@ import React from "react";
 
 class SidebarSearchInput extends React.Component {
   onChange(e) {
-    console.log('value', e.target.value)
     this.props.onChange(e.target.value);
   }
 
@@ -19,7 +18,8 @@ class SidebarSearchInput extends React.Component {
           />
           <button
             className="btn Input-clear"
-            onClick={this.onChange.bind(this)}>
+            onClick={this.onChange.bind(this)}
+          >
             &times;
           </button>
         </div>
