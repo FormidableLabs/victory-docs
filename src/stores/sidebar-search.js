@@ -74,6 +74,10 @@ const getMatching = (text, arr) => {
 
   return arr
     .filter((n) => {
+      if (!term) {
+        return true;
+      }
+
       const matchesLineage = n.fullText.toLowerCase().includes(term);
 
       return n.allowMatchOnParent
@@ -85,12 +89,7 @@ const getMatching = (text, arr) => {
     }, {});
 };
 
-const isInMatching = (node, obj) => {
-  return !!obj[node.id];
-};
-
 export default {
   createSearchIndex,
-  getMatching,
-  isInMatching
+  getMatching
 };

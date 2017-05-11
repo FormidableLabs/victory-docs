@@ -1,7 +1,7 @@
 import _ from "lodash";
-import { config } from "../config";
-import { configGuides } from "../config-guides";
 import marked from "marked";
+import { config } from "../components/config";
+import { configGuides } from "../components/config-guides";
 
 let _counter = -1;
 
