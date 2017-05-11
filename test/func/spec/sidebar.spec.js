@@ -69,7 +69,7 @@ describe("Sidebar", function () {
       return navigateToPageWithSidebar()
         .setValue(".Input-search", "victoryarea styl")
         .getText(selectors.sidebarTOCAnchor).then(function (res) {
-          expect(res).to.equal(["", ""]);
+          expect(res).to.eql(["", ""]);
           // Expected ["Props", "style"]...
         });
     });
