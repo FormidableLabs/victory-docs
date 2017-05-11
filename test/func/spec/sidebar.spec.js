@@ -6,12 +6,64 @@ var fullPath = function (path) {
   return _.trimEnd(global.TEST_FUNC_BASE_URL, "/") + path;
 };
 
+var navigateToPageWithSidebar = function () {
+  return adapter.client.url(fullPath("/docs"));
+};
+
+var unexpectedSuccess = function () {
+  throw new Error("Unexpected success");
+};
+
+var expectElementNotFound = function (selector) {
+  return function (err) {
+    if (err.type !== "NoSuchElement") {
+      throw err;
+    }
+
+    expect(err.message).to.eql("An element could not be located on the page"
+      + " using the given search parameters (\"" + selector + "\").");
+  };
+};
+
+var selectors = {
+  sidebarHeading: ".Sidebar-Heading",
+  sidebarSubheading: ".Sidebar-SubHeading",
+  sidebarPageAnchor: ".Sidebar-List-Item a",
+  sidebarTOCAnchor: ".Sidebar-toc-item a"
+};
+
 describe.only("Sidebar", function () {
+
   it("should render all headings", function () {
-    return adapter.client
-      .url(fullPath("/docs"))
-      .getText(".Sidebar-Heading").then(function (res) {
+    return navigateToPageWithSidebar()
+      .getText(selectors.sidebarHeading).then(function (res) {
         expect(res).to.eql(["Introduction", "Guides", "Documentation"]);
+      })
+      .getText(selectors.sidebarSubheading).then(function (res) {
+        expect(res).to.eql(["", "CHART", "CORE", "MORE"]);
       });
+  });
+
+  describe("search", function () {
+    it("should filter sidebar to matching content and their parents", function () {
+      return navigateToPageWithSidebar()
+        .setValue(".Input-search", "VictoryA")
+        .getText(selectors.sidebarHeading).then(function (res) {
+          expect(res).to.eql("Documentation");
+        })
+        .getText(selectors.sidebarSubheading).then(function (res) {
+          expect(res).to.eql(["CHART", "CORE"]);
+        })
+        .getText(selectors.sidebarPageAnchor).then(function (res) {
+          expect(res).to.eql([
+            "VictoryArea",
+            "VictoryAxis",
+            "VictoryAnimation"
+          ]);
+        })
+        .getText(selectors.sidebarTOCAnchor)
+          .then(unexpectedSuccess)
+          .catch(expectElementNotFound(selectors.sidebarTOCAnchor));
+    });
   });
 });
