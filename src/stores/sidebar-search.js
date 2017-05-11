@@ -2,8 +2,10 @@ import _ from "lodash";
 
 // h1's are assumed to be duplicates of their parent
 const MIN_TOC_HEADING_LEVEL = 2;
+const SEARCH_BLACKLIST = ["Props", "Standard Container Props"];
 
 const getText = (node) => node.text || node.content || "";
+const isMatchable = (node) => SEARCH_BLACKLIST.indexOf(getText(node)) === -1;
 
 const createSearchIndexForItem = (itemNode, parentText, parentIds) => {
   // Contains state!
@@ -18,6 +20,7 @@ const createSearchIndexForItem = (itemNode, parentText, parentIds) => {
 
       const childParentText = parentText;
       const childSearchText = relevantNodes
+        .filter((n) => isMatchable(n))
         .map((n) => getText(n))
         .join(" ")
         .trim();
