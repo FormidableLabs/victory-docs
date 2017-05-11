@@ -32,8 +32,7 @@ var selectors = {
   sidebarTOCAnchor: ".Sidebar-toc-item a"
 };
 
-describe.only("Sidebar", function () {
-
+describe("Sidebar", function () {
   it("should render all headings", function () {
     return navigateToPageWithSidebar()
       .getText(selectors.sidebarHeading).then(function (res) {
@@ -47,7 +46,7 @@ describe.only("Sidebar", function () {
   describe("search", function () {
     it("should filter sidebar to matching content and their parents", function () {
       return navigateToPageWithSidebar()
-        .setValue(".Input-search", "VictoryA")
+        .setValue(".Input-search", "victorya")
         .getText(selectors.sidebarHeading).then(function (res) {
           expect(res).to.eql("Documentation");
         })
@@ -64,6 +63,15 @@ describe.only("Sidebar", function () {
         .getText(selectors.sidebarTOCAnchor)
           .then(unexpectedSuccess)
           .catch(expectElementNotFound(selectors.sidebarTOCAnchor));
+    });
+
+    it("should render toc that match search input", function () {
+      return navigateToPageWithSidebar()
+        .setValue(".Input-search", "victoryarea styl")
+        .getText(selectors.sidebarTOCAnchor).then(function (res) {
+          expect(res).to.equal(["", ""]);
+          // Expected ["Props", "style"]...
+        });
     });
   });
 });
