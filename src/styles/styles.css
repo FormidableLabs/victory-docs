@@ -22,7 +22,6 @@
 * Any new feature or component will be added to this section.
 *
 * article:      .Article is the content-only portion of /docs/*, nested in .Page-content
-* banner:       banner for the homepage
 * button:       .btn classes for <button> elements
 * gallery:      Styles for /gallery/*
 * home:         All styles on the front page/lander
@@ -37,7 +36,6 @@
 *
 */
 @import "./components/article.css";
-@import "./components/banner.css";
 @import "./components/button.css";
 @import "./components/footer.css";
 @import "./components/gallery.css";
