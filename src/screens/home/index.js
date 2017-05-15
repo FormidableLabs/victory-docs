@@ -7,7 +7,6 @@ import Footer from "../../components/footer";
 import TitleMeta from "../../components/title-meta";
 
 // Child Components
-import Banner from "./components/banner";
 import Benefits from "./components/benefits";
 import Companies from "./components/companies";
 import Hero from "./components/hero";
@@ -19,7 +18,6 @@ class Home extends React.Component {
     return (
       <TitleMeta title="Victory">
         <Header home />
-        <Banner />
         <section className="Home playgroundsMaxHeight">
           <Hero />
 
