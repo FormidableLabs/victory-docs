@@ -8,7 +8,7 @@ If you're already comfortable with Victory and React Native, this tutorial will 
 
 - install `victory-native` and `react-native-svg`
 - import components from `victory-native` instead of `victory`
-- replace web specific events with native specific events _i.e._ `onMouseOver` -> `onPressIn`
+- replace web specific events with native specific events _e.g.,_ `onMouseOver` -> `onPressIn`
 
 ## Tutorial
 
@@ -82,7 +82,7 @@ and render it inside your `ScrollView`:
   }
 ```
 
-Just like Victory, Victory Native components will default data when no props are provided. Press `⌘ + R` in the simulator to refresh the app and see your changes.
+Just like Victory, Victory Native components will use default data when no props are provided. Press `⌘ + R` in the simulator to refresh the app and see your changes.
 
 ### 3. Add Data and Styles
 
