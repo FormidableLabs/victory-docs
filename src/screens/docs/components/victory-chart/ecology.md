@@ -1,6 +1,6 @@
 # VictoryChart
 
-`VictoryChart` is a wrapper component that renders a given set of children on an x-y axes. `VictoryChart` reconciles the domain for all its children, controls the layout of the chart, and coordinates animations and shared events.
+`VictoryChart` is a wrapper component that renders a given set of children on x-y axes. `VictoryChart` reconciles the domain for all its children, controls the layout of the chart, and coordinates animations and shared events.
 If no children are provided, `VictoryChart` will render a set of empty default axes.
 
 `VictoryChart` works with:
@@ -24,7 +24,7 @@ The `style` prop defines the style of chart container. The `width`, `height`, an
 
 ### theme
 
-The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. `VictoryChart` will set the `theme` prop on all of its children. By default, components use a [grayscale theme]. [Read more about themes here].
+The `theme` prop specifies a theme to use for determining styles and layout props for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. `VictoryChart` will set the `theme` prop on all of its children. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -37,7 +37,7 @@ The `width` and `height` props determine the width and height of the containing 
 
 ### padding
 
-The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryChart` controls the `padding` prop of its children.
+The `padding` prop specifies the amount of padding in pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryChart` controls the `padding` prop of its children.
 
 *examples:* `padding={{top: 20, bottom: 60}}` or `padding={40}`
 
@@ -45,13 +45,13 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 ### standalone
 
-The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryChart` will set `standalone={false}` on all of its children.
+The `standalone` prop specifies whether the component should be rendered in an independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryChart` will set `standalone={false}` on all of its children.
 
 *default:* `standalone={true}`
 
 ### scale
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryChart` controls the `scale` prop of its children. For "time" scales, data points should be `Date` objects or `getTime()` ints.
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for `x` and `y`. `VictoryChart` controls the `scale` prop of its children. For "time" scales, data points should be `Date` objects or `getTime()` ints.
 
 *examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
 
@@ -59,17 +59,17 @@ The `scale` prop determines which scales your chart should use. This prop can be
 
 ### domain
 
-The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryChart` controls the `domain` prop of all its children.
+The `domain` prop describes the range of data the component will include. This prop can be given as an array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for `x` and `y`. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryChart` controls the `domain` prop of all its children.
 
 *examples:* `domain={[-1, 1]}` `domain={{x: [0, 100], y: [0, 1]}}`
 
 ### domainPadding
 
-The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. `VictoryChart` controls the `domainPadding` prop of all its children.
+The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for `x` and `y`. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to the domain minimum, and the second element will specify padding to be applied to the domain maximum. `VictoryChart` controls the `domainPadding` prop of all its children.
 
 *examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
-**note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
+**note:** Values supplied for `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulting padded domain will not include negative values.
 
 ### containerComponent
 
@@ -87,13 +87,13 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation. When an `animate` prop is provided, `VictoryChart` will set the `animate` props on all of its children to coordinate animations. The behavior of `onEnter` and `onExit` and `onLoad` transitions will still be defined by each child component unless these are explicitly modified, or overwritten with the `animate` prop.
+The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation. When an `animate` prop is provided, `VictoryChart` will set the `animate` props on all of its children to coordinate animations. The behavior of `onEnter` and `onExit` and `onLoad` transitions will still be defined by each child component unless these are explicitly modified, or overridden with the `animate` prop.
 
 *examples:* `animate={{duration: 2000}}`
 
 ### events
 
-`VictoryChart` uses the `VictorySharedEvents` wrapper to coordinate events between its children. The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, a `childName` and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this components like `VictoryBar`. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `childName` property may be given as a string or an array of strings to target multiple children. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target`, `childName` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+`VictoryChart` uses the `VictorySharedEvents` wrapper to coordinate events between its children. The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, a `childName` and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this components like `VictoryBar`. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `childName` property may be given as a string or an array of strings to target multiple children. The `eventHandlers` object should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target`, `childName` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
 
 *examples:*
 ```jsx
