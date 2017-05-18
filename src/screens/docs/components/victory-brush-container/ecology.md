@@ -144,7 +144,7 @@ The `portalComponent` prop takes a component instance which will be used as a co
 ### theme
 
 The `theme` prop specifies a theme to use for determining styles and layout properties for a
-component. Any styles or props defined in `theme` may be overwridden by props specified on the
+component. Any styles or props defined in `theme` may be overridden by props specified on the
 component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *example:* `theme={VictoryTheme.material}`
