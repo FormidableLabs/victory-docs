@@ -237,7 +237,7 @@ The `name` prop is used to reference a component instance when defining shared e
 
 
 [VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
-[x and y]: https://formidable.com/open-source/victory/docs/victory-area#x-and-y
+[`x` and `y`]: https://formidable.com/open-source/victory/docs/victory-area#x-and-y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [width and height]: https://formidable.com/open-source/victory/docs/victory-area#width-and-height
