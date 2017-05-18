@@ -32,7 +32,7 @@ However, the container that uses it must be standalone
 ### selectedDomain
 
 The optional `selectedDomain` prop describes the highlighted state. This prop is an object that
-specifies separate arrays for x and y. Each array is a tuple that describes the minimum and maximum
+specifies separate arrays for `x` and `y`. Each array is a tuple that describes the minimum and maximum
 values to render. If this prop is not provided initially, the chart will render with the entire
 domain highlighted. When this prop changes, the chart will render with a new highlighted domain.
 
@@ -41,7 +41,7 @@ domain highlighted. When this prop changes, the chart will render with a new hig
 ### dimension
 
 When the `dimension` prop is set, brushing will only be specific to the to the given dimension
-(either x or y), and the entire domain of the other dimension will be highlighted. When this prop
+(either "x" or "y"), and the entire domain of the other dimension will be highlighted. When this prop
 is not specified, highlighting will occur along both dimensions.
 
 *example:* `dimension="x"`
@@ -50,7 +50,7 @@ is not specified, highlighting will occur along both dimensions.
 
 The optional `onDomainChange` prop accepts an function to be called on each update to the
 highlighted domain. The function accepts a single parameter of `domain`. The `domain` parameter will
-be provided as an object with min-max arrays for x and y.
+be provided as an object with min-max arrays for `x` and `y`.
 
 *example:* `onDomainChange={(domain) => handeDomainChange(domain)}`
 
@@ -75,8 +75,8 @@ The `handleStyle` adds custom styles to the `handleComponents`. This prop should
 an object of SVG style attributes.
 
 Handles refer to the region on each highlighted area where the the area may be
-expanded. Only handles relevent to the given `dimension` will be rendered. For example, when
-`dimension="x"` only "left" and "right" handles will be rendered. Handler are automatically styled
+expanded. Only handles relevant to the given `dimension` will be rendered. For example, when
+`dimension="x"` only "left" and "right" handles will be rendered. Handles are automatically styled
 with cursors appropriate to their orientation.
 
 *default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}
@@ -84,7 +84,7 @@ with cursors appropriate to their orientation.
 ### handleComponent
 
 The `handleComponent` prop specifies the component to be rendered for each handle for the highlighted
-area.  This component will be supplied with the following props: x, y, width, height, cursor, and style.
+area.  This component will be supplied with the following props: `x`, `y`, `width`, `height`, `cursor`, and `style`.
 When this prop is not specified, a `<rect/>` will be rendered.
 
 *default:* `handleComponent={<rect/>}`
@@ -94,7 +94,7 @@ When this prop is not specified, a `<rect/>` will be rendered.
 ### style
 
 The `style` prop defines the style of the container, and should be given as an object of SVG style attributes.
-The `width` and `height` should be specified via props instead of style attributes as they determine
+The `width` and `height` should be specified via props instead of style attributes, as they determine
 relative layout for components.
 
 *example:* `style={{border: "1px solid #ccc"}}`
@@ -125,26 +125,26 @@ system that target parent elements.
 
 ### title
 
-The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be.
+The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
 *example:* `title="Popularity of Dog Breeds by Percentage"`
 
 ### desc
 
-The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
+The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more useful it will be for people using screen readers.
 
 *example:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### portalComponent
 
-The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip] renders inside a portal so that tooltips always render above data. [VictoryPortal] is used to define elements that should render in the portal container. This prop defaults to [Portal], and should only be overridden when changing rendered elements from SVG to another type of element _i.e._ [react-native-svg] elements.
+The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip] renders inside a portal so that tooltips always render above data. [VictoryPortal] is used to define elements that should render in the portal container. This prop defaults to [Portal], and should only be overridden when changing rendered elements from SVG to another type of element _e.g.,_ [react-native-svg] elements.
 
 *default:* `portalComponent={<Portal/>}`
 
 ### theme
 
 The `theme` prop specifies a theme to use for determining styles and layout properties for a
-component. Any styles or props defined in `theme` may be overwritten by props specified on the
+component. Any styles or props defined in `theme` may be overwridden by props specified on the
 component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *example:* `theme={VictoryTheme.material}`
