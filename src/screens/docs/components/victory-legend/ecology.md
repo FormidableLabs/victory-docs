@@ -66,7 +66,7 @@ The `padding` prop specifies the amount of padding in pixels between the edge of
 
 ### standalone
 
-The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`.
+The `standalone` props specifies whether the component should be rendered in an independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`.
 
 *default:* `standalone={true}`
 
