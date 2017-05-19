@@ -6,7 +6,7 @@
 
 ### colorScale
 
-The `colorScale` prop defines a color scale to be applied to each data symbol in `VictoryLegend`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryLegend` will assign to each symbol by index, unless they are explicitly specified in the data object. Colors will repeat when there are more symbols than colors in the provided `colorScale`.
+The `colorScale` prop defines a color scale to be applied to each data symbol in `VictoryLegend`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryLegend` will assign a color to each symbol by index, unless they are explicitly specified in the data object. Colors will repeat when there are more symbols than colors in the provided `colorScale`.
 
 ### containerComponent
 
@@ -26,7 +26,7 @@ Specify data via the `data` prop. `VictoryLegend` expects data as an array of ob
 
 ### dataComponent
 
-The `dataComponent` prop takes a component instance which will be responsible for rendering a data element used to associate a symbol or color with each data series. The new element created from the passed `dataComponent` will be provided with the following properties calculated by `VictoryLegend`: x, y, size, style, and symbol. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a dataComponent is not provided, `VictoryLegend` will use its default [Point component].
+The `dataComponent` prop takes a component instance which will be responsible for rendering a data element used to associate a symbol or color with each data series. The new element created from the passed `dataComponent` will be provided with the following properties calculated by `VictoryLegend`: `x`, `y`, `size`, `style`, and `symbol`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `dataComponent` is not provided, `VictoryLegend` will use its default [Point component].
 
 *examples:* `dataComponent={<Point events={{onClick: () => console.log("wow")}}/>}`, `dataComponent={<MyCustomPoint/>}`
 
@@ -46,7 +46,7 @@ The `gutter` prop defines the number of pixels between legend rows or columns, d
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render each legend label. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, style, and text. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `labelComponent` prop takes a component instance which will be used to render each legend label. The new element created from the passed `labelComponent` will be supplied with the following properties: `x`, `y`, `style`, and `text`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
@@ -60,7 +60,7 @@ The `orientation` prop takes a string that defines whether legend data are displ
 
 ### padding
 
-The `padding` prop specifies the amount of padding in number of pixels between the edge of the legend and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryLegend`, setting `padding` on the child component will have no effect.
+The `padding` prop specifies the amount of padding in pixels between the edge of the legend and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [`width` and `height`], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryLegend`, setting `padding` on the child component will have no effect.
 
 *examples:* `padding={{ top: 20, bottom: 60 }}` or `padding={40}`
 
@@ -96,7 +96,7 @@ The `symbolSpacer` prop defines the number of pixels between data components and
 
 ### theme
 
-The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -113,7 +113,7 @@ The `x` and `y` props define the base position of the legend element.
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Point component]: https://formidable.com/open-source/victory/docs/victory-primitives#point
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[width and height]: https://formidable.com/open-source/victory/docs/victory-legend#width-and-height
+[`width and height`]: https://formidable.com/open-source/victory/docs/victory-legend#width-and-height
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [approximate text size]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js
