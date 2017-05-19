@@ -113,7 +113,7 @@ The `padding` prop specifies the amount of padding in pixels between the edge of
 
 ### standalone
 
-The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryGroup` forces its children to use `standalone={false}`.
+The `standalone` props specifies whether the component should be rendered in an independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryGroup` forces its children to use `standalone={false}`.
 
 *default:* `standalone={true}`
 
@@ -137,13 +137,13 @@ The `scale` prop determines which scales your chart should use. This prop can be
 
 ### domain
 
-The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for `x` and `y`. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryGroup` controls the `domain` prop of all its children.
+The `domain` prop describes the range of data the component will include. This prop can be given as an array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for `x` and `y`. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryGroup` controls the `domain` prop of all its children.
 
 *examples:* `domain={[-1, 1]}` `domain={{x: [0, 100], y: [0, 1]}}`
 
 ### domainPadding
 
-The `domainPadding` prop specifies the number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for `x` and `y`. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. `VictoryGroup` controls the `domainPadding` prop of all its children.
+The `domainPadding` prop specifies the number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for `x` and `y`. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to the domain minimum, and the second element will specify padding to be applied to the domain maximum. `VictoryGroup` controls the `domainPadding` prop of all its children.
 
 *examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
@@ -157,7 +157,7 @@ The `labels` prop defines labels that will appear above each group of data. This
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render labels for each group. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with props described above.
+The `labelComponent` prop takes a component instance which will be used to render labels for each group. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
