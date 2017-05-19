@@ -40,13 +40,13 @@ of the parent chart.
 
 The `padding` prop determines the base padding to apply to the rectangular clip path. This prop
 corresponds to the padding applied to a parent chart. This prop should be given as an object with
-"top", "bottom", "left", and "right" properties. This prop is only applied when a clipped group
+`top`, `bottom`, `left`, and `right` properties. This prop is only applied when a clipped group
 will be rendered.
 
 ### clipPadding
 
 The `clipPadding` prop is used when the clipped area should be larger than the range of a chart.
-This prop should be given as an object with "top", "bottom", "left", and "right" properties. Set
+This prop should be given as an object with `top`, `bottom`, `left`, and `right` properties. Set
 the `clipPadding` prop is useful for extending the visible area of a chart in some dimension so
 that data or labels are not cut off.
 
@@ -56,7 +56,7 @@ The `style` prop defines a set of styles to be applied to the rendered group.
 
 ### events
 
-The `events` prop attaches arbitrary event handlers to the group element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an eventKey when applicable.
+The `events` prop attaches arbitrary event handlers to the group element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey` when applicable.
 
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
