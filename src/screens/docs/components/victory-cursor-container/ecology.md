@@ -5,10 +5,10 @@ The cursor can either be a 2-dimensional crosshair, or a 1-dimensional line.
 The cursor moves with the mouse (or on touch on mobile devices) along the visible domain of the chart.
 The cursor can also display a label for the active coordinates using the `cursorLabel` prop.
 
-`VictorySelectionContainer` may be used with any Victory component that works with an x-y coordinate
+`VictoryCursorContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
 However, the component that uses it must be standalone
-(`standalone={true}`), which is the default for all Victory components.
+(`standalone={true}`), which is the default for all top-level Victory components.
 
 Note that the cursor allows you to inspect the entire domain, not just the data points.
 If you would like to instead highlight only the data points, consider using [VictoryVoronoiContainer].
