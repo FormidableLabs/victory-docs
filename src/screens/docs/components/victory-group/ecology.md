@@ -125,7 +125,7 @@ The `horizontal` prop determines whether the bars of any `VictoryBar` children s
 
 ### offset
 
-The `offset` prop derermines the number of pixels each element in a group should be offset from its original position of the on the independent axis. In the case of groups of bars, this number should be equal to the width of the bar plus the desired spacing between bars.
+The `offset` prop determines the number of pixels each element in a group should be offset from its original position of the on the independent axis. In the case of groups of bars, this number should be equal to the width of the bar plus the desired spacing between bars.
 
 ### scale
 
