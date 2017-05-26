@@ -15,7 +15,7 @@ disappear after `onMouseUp` events.
 
 `VictoryBrushContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
-However, the container that uses it must be standalone
+However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all Victory components.
 
 ```jsx
