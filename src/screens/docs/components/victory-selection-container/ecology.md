@@ -13,8 +13,8 @@ disappear after `onMouseUp` events.
 
 `VictorySelectionContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
-However, the container that uses it must be standalone
-(`standalone={true}`), which is the default for all Victory components.
+However, the component that uses it must be standalone
+(`standalone={true}`), which is the default for all top-level Victory components.
 
 ```jsx
 <VictoryChart containerComponent={<VictorySelectionContainer/>}>

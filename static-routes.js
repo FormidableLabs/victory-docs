@@ -25,6 +25,7 @@ module.exports = [
   "/docs/victory-primitives",
   "/docs/victory-scatter",
   "/docs/victory-selection-container",
+  "/docs/victory-cursor-container",
   "/docs/victory-shared-events",
   "/docs/victory-stack",
   "/docs/victory-theme",

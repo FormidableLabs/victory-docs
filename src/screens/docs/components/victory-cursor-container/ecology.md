@@ -1,93 +1,81 @@
-# VictoryBrushContainer
+# VictoryCursorContainer
 
-`VictoryBrushContainer` adds the ability to highlight a region of a chart, and interact with
-highlighted regions, either by moving the region, expanding the region, or selecting a new region.
-`VictoryBrushContainer` is useful for selecting a region of a larger dataset by domain. Create a
-brush control by tying the domain of the selected region to the domain of a separate chart.
-See the [brush and zoom guide] for an example of using `VictoryBrushContainer` to create a brush
-control.
+`VictoryCursorContainer` adds a cursor to a chart to inspect coordinates.
+The cursor can either be a 2-dimensional crosshair, or a 1-dimensional line.
+The cursor moves with the mouse (or on touch on mobile devices) along the visible domain of the chart.
+The cursor can also display a label for the active coordinates using the `cursorLabel` prop.
 
-`VictoryBrushContainer` is similar to `VictorySelectionContainer`. `VictoryBrushContainer` may be
-used to identify the domain of a selected region, whereas `VictorySelectionContainer` may be used to
-identify a list of data points within a selected region. `VictoryBrushContainer` will also create
-persistent highlighted regions, whereas regions created by `VictorySelectionContainer`
-disappear after `onMouseUp` events.
-
-`VictoryBrushContainer` may be used with any Victory component that works with an x-y coordinate
+`VictoryCursorContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
 However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all top-level Victory components.
 
+Note that the cursor allows you to inspect the entire domain, not just the data points.
+If you would like to instead highlight only the data points, consider using [VictoryVoronoiContainer].
+
 ```jsx
-<VictoryChart containerComponent={<VictoryBrushContainer/>}>
-  <VictoryLine data={data} />
-  <VictoryBar data={moreData}/>
-</VictoryChart>
+<VictoryScatter
+  data={data}
+  containerComponent={
+    <VictoryCursorContainer cursorLabel={d => d.y}/>
+  }
+/>
 ```
 
 ## Props
 
-`VictoryBrushContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
-
-### selectedDomain
-
-The optional `selectedDomain` prop describes the highlighted state. This prop is an object that
-specifies separate arrays for `x` and `y`. Each array is a tuple that describes the minimum and maximum
-values to render. If this prop is not provided initially, the chart will render with the entire
-domain highlighted. When this prop changes, the chart will render with a new highlighted domain.
-
-*example:* `selectedDomain={{x: [50, 100], y: [0, 100]}`
+`VictoryCursorContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
 ### dimension
 
-When the `dimension` prop is set, brushing will only be specific to the to the given dimension
-(either "x" or "y"), and the entire domain of the other dimension will be highlighted. When this prop
-is not specified, highlighting will occur along both dimensions.
+When the `dimension` prop is set, the cursor will be a line to inspect the given dimension
+(either "x" or "y"). When this prop is not specified, the cursor will be a 2-dimensional crosshair.
+For example, if you would like to inspect the time of time-series data, set `dimension={"x"}`;
+the cursor will then be a vertical line that will inspect the time value of the current mouse position.
 
 *example:* `dimension="x"`
 
-### onDomainChange
+### cursorLabel
 
-The optional `onDomainChange` prop accepts an function to be called on each update to the
-highlighted domain. The function accepts a single parameter of `domain`. The `domain` parameter will
-be provided as an object with min-max arrays for `x` and `y`.
+The `cursorLabel` prop defines the label that will appear next to the cursor.
+A label will only appear if `cursorLabel` is set.
+This prop should be given as a function of a point (an Object with `x` and `y` properties).
 
-*example:* `onDomainChange={(domain) => handeDomainChange(domain)}`
+*example:* `cursorLabel={(point) => point.x}`
 
-### selectionStyle
+### cursorLabelComponent
 
-The `selectionStyle` adds custom styles to the `selectionComponent`. This prop should be given as
-an object of SVG style attributes.
+The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the area.
+The new element created from the passed `cursorLabelComponent` will be supplied with the following props:
+`x`, `y`, `active`, `text`.
+If `cursorLabelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
-*default:* `selectionStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
+*default:* `cursorLabelComponent={<VictoryLabel/>}`
 
-### selectionComponent
+### cursorLabelOffset
 
-The `selectionComponent` prop specifies the component to be rendered for the highlighted area.
-This component will be supplied with the following props: x, y, width, height, and style.
-When this prop is not specified, a `<rect/>` will be rendered.
+The `cursorLabelOffset` prop determines the pixel offset of the cursor label from the cursor point.
+This prop should be an Object with `x` and `y` properties, or a number to be used for both dimensions.
 
-*default:* `selectionComponent={<rect/>}`
+*default:* `cursorLabelOffset={{ x: 5, y: -10 }}`
 
-### handleStyle
+### defaultCursorValue
 
-The `handleStyle` adds custom styles to the `handleComponents`. This prop should be given as
-an object of SVG style attributes.
+Whenever the mouse is not over the chart, the cursor will not be displayed.
+If instead you would like to keep it displayed,
+use the `defaultCursorValue` prop to set the default value.
+The prop should be a point (an Object with `x` and `y` properties) for 2-dimensional cursors,
+or a number for 1-dimensional cursors.
 
-Handles refer to the region on each highlighted area where the the area may be
-expanded. Only handles relevant to the given `dimension` will be rendered. For example, when
-`dimension="x"` only "left" and "right" handles will be rendered. Handles are automatically styled
-with cursors appropriate to their orientation.
+*examples:* `defaultCursorValue={{x: 1, y: 1}}`, `defaultCursorValue={0}`
 
-*default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}
+### onChange
 
-### handleComponent
+If provided, the `onChange` function will be called every time the cursor value changes,
+with the new value as its only argument.
+A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
 
-The `handleComponent` prop specifies the component to be rendered for each handle for the highlighted
-area.  This component will be supplied with the following props: `x`, `y`, `width`, `height`, `cursor`, and `style`.
-When this prop is not specified, a `<rect/>` will be rendered.
-
-*default:* `handleComponent={<rect/>}`
+*example:* `onChange={(value) => this.setState({cursorValue: value})}`
 
 ## Standard Container Props
 
@@ -117,7 +105,7 @@ The `width` and `height` props determine the width and height of the containing 
 
 The `events` prop attaches arbitrary event handlers to the container element. This prop should be
 given as an object of event names and corresponding [React event handlers]. Events defined directly
-via this prop will be masked by `defaultEvents` on `VictoryBrushContainer` (`onMouseDown`,
+via this prop will be masked by `defaultEvents` on `VictoryCursorContainer` (`onMouseDown`,
 `onMouseUp`, `onMouseMove` and `onMouseLeave`), and by any events defined through Victory's event
 system that target parent elements.
 
@@ -177,11 +165,13 @@ The optional `onTouchEnd` prop takes a function that is called at the conclusion
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
+[victory-core]: https://github.com/FormidableLabs/victory-core
 [VictoryTheme]: https://formidable.com/open-source/victory/docs/victory-theme
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
+[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
-[brush and zoom guide]: https://formidable.com/open-source/victory/guides/brush-and-zoom
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [React event handlers]: https://facebook.github.io/react/docs/events.html
 [Synthetic Event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
+[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
