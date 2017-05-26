@@ -17,6 +17,7 @@ import VPortalDocs from "../screens/docs/components/victory-portal/index.js";
 import VPrimitivesDocs from "../screens/docs/components/victory-primitives/index.js";
 import VScatterDocs from "../screens/docs/components/victory-scatter/index.js";
 import VSelectionContainerDocs from "../screens/docs/components/victory-selection-container/index.js";
+import VCursorContainerDocs from "../screens/docs/components/victory-cursor-container/index.js";
 import VSharedEventsDocs from "../screens/docs/components/victory-shared-events/index.js";
 import VStackDocs from "../screens/docs/components/victory-stack/index.js";
 import VThemeDocs from "../screens/docs/components/victory-theme/index.js";
@@ -91,6 +92,12 @@ export const config = [
     category: "core",
     docs: VContainerDocs,
     toc: VContainerDocs.toc()
+  }, {
+    text: "VictoryCursorContainer",
+    slug: "victory-cursor-container",
+    category: "chart",
+    docs: VCursorContainerDocs,
+    toc: VCursorContainerDocs.toc()
   }, {
     text: "VictoryErrorBar",
     slug: "victory-errorbar",
