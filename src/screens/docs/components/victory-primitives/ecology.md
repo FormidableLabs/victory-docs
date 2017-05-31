@@ -60,7 +60,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `y` *number* the y coordinate of the top of the candle (open or close)
   - `y1` *number* the y coordinate top edge of the candle wick (high)
   - `y2` *number* the y coordinate of bottom edge of the candle wick (low)
-  - `candleHeight` *number* the height of the candle (open - close)
+  - `candleHeight` *number* the height of the candle (abs(open - close))
   - `width` *number* the width of parent chart (used to calculate default candle width `style.width` is not supplied)
   - `padding` *number* the padding of the parent chart (used to calculate default candle width if `style.width` is not supplied)
   - `events` *object* events to attach to the rendered element
