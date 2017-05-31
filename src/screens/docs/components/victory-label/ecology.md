@@ -8,10 +8,10 @@ VictoryLabel renders the label components that are used across all of Victory.
 
 The `text` prop defines the text `VictoryLabel` will render. The `text` prop may be given as a
 string, number, a function of `datum`, or an array of any of these. Strings may include newline
-characters, which VictoryLabel will split into separate `<tspan/>` elements. When `text` is given
+characters, which `VictoryLabel` will split into separate `<tspan/>` elements. When `text` is given
 as an array, separate `<tspan/>` elements will be created for each element in the array.
 
-*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`, `text={["first line", "second line"]}
+*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`, `text={["first line", "second line"]}`
 
 ### datum
 
@@ -39,7 +39,7 @@ The `active` prop specifies whether the label is active or not. The `active` pro
 
 ### events
 
-The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey.
+The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey`.
 
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
