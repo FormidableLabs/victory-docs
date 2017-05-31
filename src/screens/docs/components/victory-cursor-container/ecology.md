@@ -13,11 +13,12 @@ However, the component that uses it must be standalone
 Note that the cursor allows you to inspect the entire domain, not just the data points.
 If you would like to instead highlight only the data points, consider using [VictoryVoronoiContainer].
 
-```jsx
+```playground
 <VictoryScatter
-  data={data}
   containerComponent={
-    <VictoryCursorContainer cursorLabel={d => d.y}/>
+    <VictoryCursorContainer
+      cursorLabel={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
+    />
   }
 />
 ```

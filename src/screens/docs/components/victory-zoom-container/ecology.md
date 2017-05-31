@@ -9,10 +9,17 @@ system, and should be added as the `containerComponent` of the top-level compone
 However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all top-level Victory components.
 
-```jsx
-<VictoryChart containerComponent={<VictoryZoomContainer/>}>
-  <VictoryLine data={data} />
-  <VictoryBar data={moreData}/>
+```playground
+<VictoryChart
+  containerComponent={
+    <VictoryZoomContainer
+      labels={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
+    />
+  }
+>
+  <VictoryScatter
+    y={(datum) => Math.sin(2 * Math.PI * datum.x)}
+  />
 </VictoryChart>
 ```
 

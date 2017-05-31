@@ -8,7 +8,7 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` keys. Use the [`open`, `close`, `high` and `low`] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
-```jsx
+```playground
 <VictoryCandlestick
   data={[
     {x: new Date(2016, 6, 1), open: 5, close: 10, high: 15, low: 0},

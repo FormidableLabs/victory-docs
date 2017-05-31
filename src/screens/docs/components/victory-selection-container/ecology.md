@@ -16,10 +16,11 @@ system, and should be added as the `containerComponent` of the top-level compone
 However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all top-level Victory components.
 
-```jsx
+```playground
 <VictoryChart containerComponent={<VictorySelectionContainer/>}>
-  <VictoryLine data={data} />
-  <VictoryBar data={moreData}/>
+  <VictoryScatter
+    style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
+  />
 </VictoryChart>
 ```
 

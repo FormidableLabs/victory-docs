@@ -1,6 +1,9 @@
 import React from "react";
+import { round } from "lodash";
+import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
+
 const overview = require("!!raw!./ecology.md");
 
 class VictoryBrushContainer extends React.Component {
@@ -13,7 +16,7 @@ class VictoryBrushContainer extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{}}
+        scope={{ ...Victory, React, round }}
       />
     );
   }
