@@ -3,7 +3,7 @@
 VictoryAxis renders a single axis which can be used on its own or composed with [VictoryChart].
 
 ```playground
-<VictoryAxis tickValues={["apples", "bananas", "oranges"]}/>
+<VictoryAxis tickValues={[1, 2, 4, 8]}/>
 ```
 
 ## Props
