@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import DocumentMeta from "react-document-meta";
 
 class TitleMeta extends React.Component {
@@ -21,8 +22,8 @@ class TitleMeta extends React.Component {
 }
 
 TitleMeta.propTypes = {
-  title: React.PropTypes.string,
-  children: React.PropTypes.node
+  title: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default TitleMeta;

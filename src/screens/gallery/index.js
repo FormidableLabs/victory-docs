@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import Radium from "radium";
 import Playground from "component-playground";
@@ -44,6 +45,7 @@ class Gallery extends React.Component {
     this.scope = {
       React,
       ReactDOM,
+      PropTypes,
       Area,
       Bar,
       VictoryAnimation,
@@ -78,17 +80,17 @@ class Gallery extends React.Component {
     const previews = config.map((example, index) => {
       return (
         <div key={index} className="Gallery-item">
-          <Preview
-            codeText={this.processCodeText(example.code)}
-            noRender={false}
-            theme="elegant"
-            scope={this.scope}
-          />
-          <p className="Gallery-item-heading">
-            <Link to={`/gallery/${example.slug}`}>
-              {example.text}&nbsp;<Icon glyph="internal-link" />
-            </Link>
-          </p>
+          <Link to={`/gallery/${example.slug}`}>
+            <Preview
+              codeText={this.processCodeText(example.code)}
+              noRender={false}
+              theme="elegant"
+              scope={this.scope}
+            />
+            <p className="Gallery-item-heading">
+                {example.text}&nbsp;<Icon glyph="internal-link" />
+            </p>
+          </Link>
         </div>
       );
     });
@@ -159,8 +161,8 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  params: React.PropTypes.object
+  location: PropTypes.object.isRequired,
+  params: PropTypes.object
 };
 
 Gallery.defaultProps = {

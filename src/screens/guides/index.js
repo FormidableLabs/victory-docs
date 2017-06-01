@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Radium from "radium";
 import Prism from "prismjs";
 /* eslint-disable no-unused-vars */
@@ -44,8 +45,8 @@ class Guides extends React.Component {
 }
 
 Guides.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  params: React.PropTypes.object
+  location: PropTypes.object.isRequired,
+  params: PropTypes.object
 };
 
 Guides.defaultProps = {

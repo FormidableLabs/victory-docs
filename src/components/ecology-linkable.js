@@ -1,5 +1,6 @@
 import React from "react";
 import Ecology from "ecology";
+import PropTypes from "prop-types";
 import markdown from "../markdown";
 
 class EcologyLinkable extends React.Component {
@@ -30,10 +31,10 @@ class EcologyLinkable extends React.Component {
 }
 
 EcologyLinkable.propTypes = {
-  scope: React.PropTypes.object.isRequired,
-  location: React.PropTypes.object.isRequired,
-  overview: React.PropTypes.string.isRequired,
-  customRenderers: React.PropTypes.object.isRequired
+  scope: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  overview: PropTypes.string.isRequired,
+  customRenderers: PropTypes.object.isRequired
 };
 
 EcologyLinkable.defaultProps = {

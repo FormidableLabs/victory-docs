@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 
 // Common
@@ -125,7 +126,7 @@ class Benefits extends React.Component {
 }
 
 Benefits.propTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };
 
 Benefits.defaultProps = {

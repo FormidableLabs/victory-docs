@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import { VictoryBar, VictoryScatter, VictoryChart } from "victory";
 import { range, random } from "lodash";
 import EcologyRecipe from "../../../../components/ecology-recipe";
@@ -23,7 +24,7 @@ class AnimationGuide extends React.Component {
 }
 
 AnimationGuide.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default AnimationGuide;

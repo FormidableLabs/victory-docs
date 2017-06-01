@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import {
   VictoryPie, VictoryContainer, VictoryLabel, VictoryChart, VictoryLine, VictoryAxis,
   VictoryBar, VictoryScatter, VictoryStack, VictoryPortal
@@ -28,7 +29,7 @@ class LayoutGuide extends React.Component {
 }
 
 LayoutGuide.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default LayoutGuide;

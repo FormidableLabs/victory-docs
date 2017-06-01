@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
 const overview = require("!!raw!./ecology.md");
@@ -13,14 +15,14 @@ class VictoryStack extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{}}
+        scope={{ ...Victory, React }}
       />
     );
   }
 }
 
 VictoryStack.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default VictoryStack;

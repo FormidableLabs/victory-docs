@@ -2,7 +2,7 @@
 
 `createContainer` makes a container component with multiple behaviors. It allows you to effectively
 combine any two of the following containers: `VictoryBrushContainer`,
-`VictorySelectionContainer`, `VictoryVoronoiContainer`, or `VictoryZoomContainer`.
+`VictoryCursorContainer`, `VictorySelectionContainer`, `VictoryVoronoiContainer`, or `VictoryZoomContainer`.
 
 ```js
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
@@ -18,7 +18,8 @@ createContainer(behaviorA, behaviorB)
 
 ### behavior
 
-Each `behavior` must be one of the following strings: `"brush"`, `"selection"`, `"voronoi"`, and `"zoom"`.
+Each `behavior` must be one of the following strings:
+`"brush"`, `"cursor"`, `"selection"`, `"voronoi"`, and `"zoom"`.
 The resulting container uses the events from both behaviors.
 For example, if both behaviors use the click event (like zoom and selection) the combined container
 will trigger both behaviors' events on each click.
@@ -33,23 +34,20 @@ The following example creates a custom container that combines `VictoryVoronoiCo
 `VictoryZoomContainer`. Hovering over the chart will use Voronoi to highlight data points,
 while scrolling and dragging will zoom and pan.
 
-```jsx
-import React from "react";
-import {
-  createContainer,
-  VictoryChart,
-  VictoryScatter
-} from "victory";
-
+```playground_norender
 const VictoryZoomVoronoiContainer = createContainer("zoom", "voronoi");
+const data = range(100).map((x) => ({x, y: 100 + x + random(10)}));
 
 const App = () => (
-  <div>
-    <VictoryChart
-      containerComponent={<VictoryZoomVoronoiContainer labels={(d) => `y: ${d.y}`} />}
-    >
-      <VictoryScatter />
-    </VictoryChart>
-  </div>
+  <VictoryChart
+    containerComponent={
+      <VictoryZoomVoronoiContainer
+        labels={(d) => `${d.x}, ${d.y}`}
+      />
+    }>
+    <VictoryScatter data={data} />
+  </VictoryChart>
 );
+
+ReactDOM.render(<App/>, mountNode);
 ```

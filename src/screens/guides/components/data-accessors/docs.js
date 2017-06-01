@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import { VictoryBar, VictoryLine, VictoryChart, VictoryAxis} from "victory";
 import { assign, range } from "lodash";
 import EcologyRecipe from "../../../../components/ecology-recipe";
@@ -23,7 +24,7 @@ class DataAccessorsGuide extends React.Component {
 }
 
 DataAccessorsGuide.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default DataAccessorsGuide;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 
 // Common
@@ -47,7 +48,7 @@ class VictoryHeader extends React.Component {
 }
 
 VictoryHeader.propTypes = {
-  home: React.PropTypes.bool
+  home: PropTypes.bool
 };
 
 VictoryHeader.defaultProps = {

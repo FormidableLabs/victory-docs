@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {observer} from "mobx-react";
 
 class SidebarSearchInput extends React.Component {
@@ -31,8 +32,8 @@ class SidebarSearchInput extends React.Component {
 }
 
 SidebarSearchInput.propTypes = {
-  store: React.PropTypes.shape({
-    searchText: React.PropTypes.string.isRequired
+  store: PropTypes.shape({
+    searchText: PropTypes.string.isRequired
   })
 };
 

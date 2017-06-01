@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class ShowcaseApp extends React.Component {
   render() {
@@ -25,13 +26,13 @@ class ShowcaseApp extends React.Component {
 }
 
 ShowcaseApp.propTypes = {
-  screenshot: React.PropTypes.shape({
-    src: React.PropTypes.string.isRequired,
-    alt: React.PropTypes.string.isRequired
+  screenshot: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
   }),
-  company: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  even: React.PropTypes.bool
+  company: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  even: PropTypes.bool
 };
 
 export default ShowcaseApp;

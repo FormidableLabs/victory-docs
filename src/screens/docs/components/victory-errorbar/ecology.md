@@ -2,21 +2,31 @@
 
 VictoryErrorBar renders a dataset as a series of error bars. VictoryErrorBar can be composed with other components to add x and y error bars to data.
 
+```playground
+<VictoryErrorBar
+  data={[
+    {x: 15, y: 35000, error: 0.2},
+    {x: 20, y: 42000, error: 0.05},
+    {x: 30, y: 30000, error: 0.1}
+  ]}
+  errorX={(datum) => datum.error * datum.x}
+  errorY={(datum) => datum.error * datum.y}
+/>
+```
+
 ## Props
 
 ### data
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
+*example:*
 ```jsx
-<VictoryErrorBar
-  data={[
-    {x: 15, y: 35000, error: 0.2},
-    {x: 20, y: 42000, error: 0.05},
-    {x: 30, y: 55000, error: 0.1}
-  ]}
-  errorX={(datum) => datum.error * datum.x}
-  errorY={(datum) => datum.error * datum.y}
+data={[
+  {x: 15, y: 35000},
+  {x: 20, y: 42000},
+  {x: 30, y: 30000}
+]}
 />
 ```
 

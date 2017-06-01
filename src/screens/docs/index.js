@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 import Radium from "radium";
@@ -73,8 +74,8 @@ class Docs extends React.Component {
 }
 
 Docs.propTypes = {
-  location: React.PropTypes.object,
-  params: React.PropTypes.object
+  location: PropTypes.object,
+  params: PropTypes.object
 };
 
 Docs.defaultProps = {

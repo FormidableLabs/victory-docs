@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 import {PropTypes as MobxPropTypes} from "mobx-react";
 
@@ -106,12 +107,12 @@ class SidebarList extends React.Component {
 }
 
 SidebarList.propTypes = {
-  isSearching: React.PropTypes.bool.isRequired,
-  location: React.PropTypes.object.isRequired,
+  isSearching: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
   content: MobxPropTypes.observableArrayOf(
-    React.PropTypes.object
+    PropTypes.object
   ).isRequired,
-  matchingNodes: React.PropTypes.object.isRequired
+  matchingNodes: PropTypes.object.isRequired
 };
 
 export default SidebarList;

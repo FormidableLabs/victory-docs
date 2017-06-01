@@ -2,6 +2,16 @@
 
 `VictoryLegend` renders a chart legend component.
 
+```playground
+<VictoryLegend
+  data={[
+    {name: 'A', symbol: { type: 'circle'}},
+    {name: 'B', symbol: { type: 'square'}},
+    {name: 'C', symbol: { type: 'star'}}
+    ]}
+/>
+```
+
 ## Props
 
 ### colorScale

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ScrollContainer } from "react-router-scroll";
 
 import Sidebar from "./sidebar";
@@ -46,9 +47,9 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
-  children: React.PropTypes.node,
-  location: React.PropTypes.object,
-  sidebar: React.PropTypes.string
+  children: PropTypes.node,
+  location: PropTypes.object,
+  sidebar: PropTypes.string
 };
 
 Page.defaultProps = {

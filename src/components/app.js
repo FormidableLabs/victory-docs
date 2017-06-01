@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // Variables and Stylesheet
 import "../styles/styles.css";
@@ -19,8 +20,8 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  children: React.PropTypes.node
+  location: PropTypes.object.isRequired,
+  children: PropTypes.node
 };
 
 App.defaultProps = {

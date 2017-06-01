@@ -2,22 +2,32 @@
 
 VictoryArea renders a dataset as a single area. VictoryArea can be composed with [VictoryChart] to create area charts.
 
+```playground
+<VictoryArea
+  data={[
+    {month: "September", profit: 35000, loss: 2000},
+    {month: "October", profit: 44000, loss: 8000},
+    {month: "November", profit: 55000, loss: 5000}
+  ]}
+  x="month"
+  y={(datum) => datum.profit - datum.loss}
+/>
+```
+
 ## Props
 
 ### data
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [`x` and `y`] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
-```jsx
-<VictoryArea
+*example:*
+
+```js
   data={[
     {month: "September", profit: 35000, loss: 2000},
     {month: "October", profit: 42000, loss: 8000},
     {month: "November", profit: 55000, loss: 5000}
   ]}
-  x="month"
-  y={(datum) => datum.profit - datum.loss}
-/>
 ```
 
 ### x and y

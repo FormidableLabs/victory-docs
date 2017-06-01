@@ -18,10 +18,13 @@ system, and should be added as the `containerComponent` of the top-level compone
 However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all top-level Victory components.
 
-```jsx
-<VictoryChart containerComponent={<VictoryBrushContainer/>}>
-  <VictoryLine data={data} />
-  <VictoryBar data={moreData}/>
+```playground
+<VictoryChart
+  containerComponent={
+    <VictoryBrushContainer dimension="x" selectedDomain={{x: [0.1, 0.3]}}/>
+  }
+>
+  <VictoryLine />
 </VictoryChart>
 ```
 

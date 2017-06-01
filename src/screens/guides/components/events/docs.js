@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import {
   VictoryBar, VictoryArea, VictoryChart, VictoryPie, VictoryStack,
   VictorySharedEvents, Bar, VictoryLabel
@@ -29,7 +30,7 @@ class EventsGuide extends React.Component {
 }
 
 EventsGuide.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default EventsGuide;

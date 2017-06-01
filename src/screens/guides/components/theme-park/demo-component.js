@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { times } from "lodash";
 import {
   VictoryChart, VictoryScatter, VictoryPie, VictoryLine, VictoryStack, VictoryBar, VictoryAxis
@@ -93,7 +94,7 @@ const DemoComponent = ({ theme }) => {
 };
 
 DemoComponent.propTypes = {
-  theme: React.PropTypes.object
+  theme: PropTypes.object
 };
 
 export default DemoComponent;

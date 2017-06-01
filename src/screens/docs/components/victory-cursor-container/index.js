@@ -1,6 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { round } from "lodash";
+import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
+
 const overview = require("!!raw!./ecology.md");
 
 class VictoryBrushContainer extends React.Component {
@@ -13,14 +17,14 @@ class VictoryBrushContainer extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{}}
+        scope={{ ...Victory, React, round }}
       />
     );
   }
 }
 
 VictoryBrushContainer.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default VictoryBrushContainer;

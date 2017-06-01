@@ -1,4 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+import ReactDOM from "react-dom";
+import { range, round, random } from "lodash";
+import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
 const overview = require("!!raw!./ecology.md");
@@ -13,14 +17,14 @@ class CreateContainer extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{}}
+        scope={{ ...Victory, React, ReactDOM, range, round, random }}
       />
     );
   }
 }
 
 CreateContainer.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default CreateContainer;

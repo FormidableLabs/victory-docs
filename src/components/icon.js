@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Radium from "radium";
 
 // Icons
@@ -65,7 +66,7 @@ class Icon extends React.Component {
 }
 
 Icon.propTypes = {
-  glyph: React.PropTypes.oneOf(["back", "coming-soon", "external-link", "internal-link"])
+  glyph: PropTypes.oneOf(["back", "coming-soon", "external-link", "internal-link"])
 };
 
 Icon.defaultProps = {
