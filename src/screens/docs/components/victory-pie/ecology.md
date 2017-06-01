@@ -80,13 +80,13 @@ style={{
 
 ### theme
 
-The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
 ### colorScale
 
-The `colorScale` prop defines a color scale to be applied to each slice of `VictoryPie`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryPie` will assign to each slice by index, unless they are explicitly specified in the data object. Colors will repeat when there are more slices than colors in the provided `colorScale`.
+The `colorScale` prop defines a color scale to be applied to each slice of `VictoryPie`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryPie` will assign a color to each slice by index, unless they are explicitly specified in the data object. Colors will repeat when there are more slices than colors in the provided `colorScale`.
 
 ### width and height
 
@@ -96,7 +96,7 @@ The `width` and `height` props determine the width and height of the containing 
 
 ### padding
 
-The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container.
+The `padding` prop specifies the amount of padding in pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container.
 
 *examples:* `padding={{top: 20, bottom: 60}}` or `padding={40}`
 
@@ -104,7 +104,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 ### standalone
 
-The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`.
+The `standalone` prop specifies whether the component should be rendered in an independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`.
 
 *default:* `standalone={true}`
 
@@ -126,7 +126,7 @@ The `innerRadius` prop determines the number of pixels between the center of the
 
 ### cornerRadius
 
-The `cornerRadius` props specifies the corner radius of the slices rendered in the pie chart.
+The `cornerRadius` prop specifies the corner radius of the slices rendered in the pie chart.
 
 ### labelRadius
 
@@ -140,7 +140,7 @@ The `labels` prop defines the labels that will appear for each slice. This prop 
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render labels for each slice. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with props described above.
+The `labelComponent` prop takes a component instance which will be used to render labels for each slice. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
@@ -148,7 +148,7 @@ The `labelComponent` prop takes a component instance which will be used to rende
 
 ### dataComponent
 
-The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with the following properties calculated by `VictoryPie`: datum, slice, index, pathFunction, style, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a dataComponent is not provided, `VictoryPie` will use its default [Slice component].
+The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with the following props calculated by `VictoryPie`: `datum`, `slice`, `index`, `pathFunction`, `style`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `dataComponent` is not provided, `VictoryPie` will use its default [Slice component].
 
 *examples:* `dataComponent={<Slice events={{onClick: () => console.log("wow")}}/>}`, `dataComponent={<MyCustomSlice/>}`
 
@@ -171,13 +171,13 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop.
+The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, but these may be modified, or overridden with the `animate` prop.
 
 *examples:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})}}}`
 
 ### events
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
 *examples:*
 ```jsx
  events={[
@@ -211,10 +211,12 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### eventKey
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
+The `eventKey` prop is used to assign `eventKeys` to data. This prop operates identically to the [x and y] data accessor props. By default, the `eventKey` of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
+
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
+
 ### name
 
 The `name` prop is used to reference a component instance when defining shared events.

@@ -39,26 +39,26 @@ system that target parent elements.
 
 ### title
 
-The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be.
+The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
 *example:* `title="Popularity of Dog Breeds by Percentage"`
 
 ### desc
 
-The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more informative the description, the more usable it will be for people using screen readers.
+The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this description is, the more useful it will be for people using screen readers.
 
 *example:* `desc="Golden retrievers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### portalComponent
 
-The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip] renders inside a portal so that tooltips always render above data. [VictoryPortal] is used to define elements that should render in the portal container. This prop defaults to [Portal], and should only be overridden when changing rendered elements from SVG to another type of element _i.e._ [react-native-svg] elements.
+The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip] renders inside a portal so that tooltips always render above data. [VictoryPortal] is used to define elements that should render in the portal container. This prop defaults to [Portal], and should only be overridden when changing rendered elements from SVG to another type of element _e.g.,_ [react-native-svg] elements.
 
 *default:* `portalComponent={<Portal/>}`
 
 ### theme
 
 The `theme` prop specifies a theme to use for determining styles and layout properties for a
-component. Any styles or props defined in `theme` may be overwritten by props specified on the
+component. Any styles or props defined in `theme` may be overridden by props specified on the
 component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *example:* `theme={VictoryTheme.material}`

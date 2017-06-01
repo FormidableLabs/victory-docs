@@ -88,13 +88,13 @@ style={{
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
 
-**note:** custom `angle` and `verticalAnchor` properties maybe included in labels styles.
+**note:** custom `angle` and `verticalAnchor` properties maybe included in `labels` styles.
 
 *default (provided by default theme):* See [grayscale theme] for more detail
 
 ### theme
 
-The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -115,7 +115,7 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 
 ### standalone
 
-The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
+The `standalone` props specifies whether the component should be rendered in an independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
 
 *default:* `standalone={true}`
 
@@ -155,11 +155,11 @@ The `domain` prop describes the range of data the component will include. This p
 
 ### domainPadding
 
-The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum.
+The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for `x` and `y`. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to the domain minimum, and the second element will specify padding the be applied to the domain maximum.
 
 *examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
 
-**note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
+**note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulting padded domain will not include negative values.
 
 ### labels
 
@@ -169,7 +169,7 @@ The `labels` prop defines the labels that will appear above each point. This pro
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render labels for each point. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with props described above.
+The `labelComponent` prop takes a component instance which will be used to render labels for each point. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
@@ -177,7 +177,7 @@ The `labelComponent` prop takes a component instance which will be used to rende
 
 ### dataComponent
 
-The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with the following properties calculated by `VictoryScatter`: datum, index, scale, style, events, x, y, size, and symbol. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a dataComponent is not provided, `VictoryScatter` will use its default [Point component].
+The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with the following props calculated by `VictoryScatter`: `datum`, `index`, `scale`, `style`, `events`, `x`, `y`, `size`, and `symbol`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `dataComponent` is not provided, `VictoryScatter` will use its default [Point component].
 
 *examples:* `dataComponent={<Point events={{onClick: () => console.log("wow")}}/>}`, `dataComponent={<MyCustomPoint/>}`
 
@@ -200,13 +200,13 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### animate
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop. [Read more about animations and transitions].
+The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation, as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, but these may be modified, or overridden with the `animate` prop. [Read more about animations and transitions].
 
 *examples:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})})}`
 
 ### events
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a point label), and the object returned from the mutation function will override the props of that element via object assignment. [Read more about events here].
+The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a point label), and the object returned from the mutation function will override the props of that element via object assignment. [Read more about events here].
 
 *examples:*
 ```jsx
@@ -241,7 +241,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### eventKey
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object. [Read more about events here].
+The `eventKey` prop is used to assign `eventKeys` to data. This prop operates identically to the [x and y] data accessor props. By default, the `eventKey` of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object. [Read more about events here].
 
 ### sharedEvents
 

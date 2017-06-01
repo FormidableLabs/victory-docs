@@ -6,7 +6,7 @@
 
 ### children
 
-`VictoryPortal` takes single `children`, and renders them in a top level portal element. Any additional props passed to `VictoryPortal` will be spread onto the child. In the following example, the `labelComponent` passed to the first series of bars has been wrapped in `VictoryPortal`. The resulting labels will be rendered in a the top-level portal container, and will not be overlapped by subsequent data series, as they otherwise would have.
+`VictoryPortal` takes a single `children`, and renders it in a top level portal element. Any additional props passed to `VictoryPortal` will be spread onto the child. In the following example, the `labelComponent` passed to the first series of bars has been wrapped in `VictoryPortal`. The resulting labels will be rendered in a top-level portal container, and will not be overlapped by subsequent data series, as they otherwise would have.
 
 ```jsx
 <VictoryChart>
