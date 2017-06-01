@@ -80,17 +80,17 @@ class Gallery extends React.Component {
     const previews = config.map((example, index) => {
       return (
         <div key={index} className="Gallery-item">
-          <Preview
-            codeText={this.processCodeText(example.code)}
-            noRender={false}
-            theme="elegant"
-            scope={this.scope}
-          />
-          <p className="Gallery-item-heading">
-            <Link to={`/gallery/${example.slug}`}>
-              {example.text}&nbsp;<Icon glyph="internal-link" />
-            </Link>
-          </p>
+          <Link to={`/gallery/${example.slug}`}>
+            <Preview
+              codeText={this.processCodeText(example.code)}
+              noRender={false}
+              theme="elegant"
+              scope={this.scope}
+            />
+            <p className="Gallery-item-heading">
+                {example.text}&nbsp;<Icon glyph="internal-link" />
+            </p>
+          </Link>
         </div>
       );
     });
