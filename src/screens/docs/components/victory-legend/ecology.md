@@ -60,7 +60,7 @@ The `orientation` prop takes a string that defines whether legend data are displ
 
 ### padding
 
-The `padding` prop specifies the amount of padding in pixels between the edge of the legend and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [`width` and `height`], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryLegend`, setting `padding` on the child component will have no effect.
+The `padding` prop specifies the amount of padding in pixels between the edge of the legend and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryLegend`, setting `padding` on the child component will have no effect.
 
 *examples:* `padding={{ top: 20, bottom: 60 }}` or `padding={40}`
 
@@ -113,7 +113,7 @@ The `x` and `y` props define the base position of the legend element.
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Point component]: https://formidable.com/open-source/victory/docs/victory-primitives#point
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[`width and height`]: https://formidable.com/open-source/victory/docs/victory-legend#width-and-height
+[width and height]: https://formidable.com/open-source/victory/docs/victory-legend#width-and-height
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [approximate text size]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js
