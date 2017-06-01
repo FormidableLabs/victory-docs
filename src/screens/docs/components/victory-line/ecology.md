@@ -6,7 +6,7 @@ VictoryLine renders a dataset as a single line. VictoryLine can be composed with
 
 ### data
 
-Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` props. Use the [`x` and `y`] data accessor props to define a custom data format. The `data` prop must be given as an array.
+Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` props. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
 ```jsx
 <VictoryLine
@@ -97,7 +97,7 @@ The `width` and `height` props determine the width and height of the containing 
 
 ### padding
 
-The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [`width` and `height`], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` setting `padding` on the child component will have no effect.
+The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` setting `padding` on the child component will have no effect.
 
 *examples:* `padding={{top: 20, bottom: 60}}` or `padding={40}`
 
@@ -223,7 +223,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### eventKey
 
-The `eventKey` prop is used to assign `eventKeys` to data. This prop operates identically to the [`x` and `y`] data accessor props. By default, the `eventKey` of each datum will be equal to its index in the data array.
+The `eventKey` prop is used to assign `eventKeys` to data. This prop operates identically to the [x and y] data accessor props. By default, the `eventKey` of each datum will be equal to its index in the data array.
 
 ### sharedEvents
 
@@ -235,10 +235,10 @@ The `name` prop is used to reference a component instance when defining shared e
 
 
 [VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
-[`x` and `y`]: https://formidable.com/open-source/victory/docs/victory-line#x-and-y
+[x and y]: https://formidable.com/open-source/victory/docs/victory-line#x-and-y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
-[`width` and `height`]: https://formidable.com/open-source/victory/docs/victory-line#width-and-height
+[width and height]: https://formidable.com/open-source/victory/docs/victory-line#width-and-height
 [Curve component]: https://formidable.com/open-source/victory/docs/victory-primitives#curve
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
