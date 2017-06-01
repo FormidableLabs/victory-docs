@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import { range, round, random } from "lodash";
 import * as Victory from "victory";
@@ -23,7 +24,7 @@ class CreateContainer extends React.Component {
 }
 
 CreateContainer.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default CreateContainer;

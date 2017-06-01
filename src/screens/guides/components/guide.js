@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Radium from "radium";
 import TitleMeta from "../../../components/title-meta";
 import find from "lodash/find";
@@ -43,9 +44,9 @@ class GuideDocs extends React.Component {
 }
 
 GuideDocs.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  active: React.PropTypes.string,
-  style: React.PropTypes.object
+  location: PropTypes.object.isRequired,
+  active: PropTypes.string,
+  style: PropTypes.object
 };
 
 GuideDocs.defaultProps = {

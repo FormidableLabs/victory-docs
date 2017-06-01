@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import { VictoryAxis, VictoryLine } from "victory-chart";
 import { VictoryLabel } from "victory-core";
 import EcologyRecipe from "../../../../components/ecology-recipe";
@@ -29,7 +30,7 @@ class CustomStylesTutorial extends React.Component {
 }
 
 CustomStylesTutorial.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default CustomStylesTutorial;

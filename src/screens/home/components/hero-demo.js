@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Radium from "radium";
 
 // VComponents
@@ -105,7 +106,7 @@ class Native extends React.Component {
 }
 
 Native.propTypes = {
-  alt: React.PropTypes.bool
+  alt: PropTypes.bool
 };
 
 export default Radium(Native); // eslint-disable-line new-cap

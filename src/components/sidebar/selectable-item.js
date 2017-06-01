@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 import { times } from "lodash";
 import Icon from "../icon";
@@ -127,11 +127,11 @@ class SidebarSelectableItem extends React.Component {
 }
 
 SidebarSelectableItem.propTypes = {
-  text: React.PropTypes.string.isRequired,
-  path: React.PropTypes.string.isRequired,
-  location: React.PropTypes.object.isRequired,
-  toc: React.PropTypes.array.isRequired,
-  alwaysExpand: React.PropTypes.bool
+  text: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
+  toc: PropTypes.array.isRequired,
+  alwaysExpand: PropTypes.bool
 };
 
 SidebarSelectableItem.defaultProps = {

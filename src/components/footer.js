@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // Common
 import { Footer } from "formidable-landers";
@@ -18,7 +19,7 @@ class VictoryFooter extends React.Component {
 }
 
 VictoryFooter.propTypes = {
-  home: React.PropTypes.bool
+  home: PropTypes.bool
 };
 
 VictoryFooter.defaultProps = {

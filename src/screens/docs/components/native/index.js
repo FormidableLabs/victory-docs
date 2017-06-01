@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
 const overview = require("!!raw!./ecology.md");
@@ -20,7 +21,7 @@ class Native extends React.Component {
 }
 
 Native.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default Native;

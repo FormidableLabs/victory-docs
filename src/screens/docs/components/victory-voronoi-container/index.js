@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import * as Victory from "victory";
 import { round } from "lodash";
 import EcologyRecipe from "../../../../components/ecology-recipe";
@@ -22,7 +23,7 @@ class VictoryVoronoiContainer extends React.Component {
 }
 
 VictoryVoronoiContainer.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default VictoryVoronoiContainer;

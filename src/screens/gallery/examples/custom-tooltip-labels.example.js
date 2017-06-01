@@ -2,14 +2,14 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, App, mountNode, PropTypes */
 /* global VictoryPie, VictoryLabel, VictoryTooltip  */
 
 // Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
 
 class CustomLabel extends React.Component {
   static defaultEvents = VictoryTooltip.defaultEvents;
-  static propTypes = {text: React.PropTypes.string};
+  static propTypes = {text: PropTypes.string};
 
   render() {
     return (

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class PureRender extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -22,5 +23,5 @@ export default class PureRender extends React.Component {
 }
 
 PureRender.propTypes = {
-  children: React.PropTypes.any
+  children: PropTypes.any
 };

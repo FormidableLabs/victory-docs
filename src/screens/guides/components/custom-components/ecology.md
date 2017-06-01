@@ -104,12 +104,6 @@ Other Victory components may even be used in creating custom components, as in t
 
 ```playground_norender
 class CustomPie extends React.Component {
-  static propTypes = {
-    datum: React.PropTypes.object,
-    x: React.PropTypes.number,
-    y: React.PropTypes.number
-  };
-
   render() {
     const {datum, x, y} = this.props;
     const pieWidth = 120;

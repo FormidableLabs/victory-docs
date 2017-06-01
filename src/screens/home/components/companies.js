@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router";
 
 // Common
@@ -33,7 +34,7 @@ class Companies extends React.Component {
 }
 
 Companies.propTypes = {
-  style: React.PropTypes.object
+  style: PropTypes.object
 };
 
 Companies.defaultProps = {

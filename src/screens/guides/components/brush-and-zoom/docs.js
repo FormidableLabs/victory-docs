@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import {
   VictoryAxis, VictoryChart, VictoryLine, VictoryScatter,
   VictoryBrushContainer, VictoryZoomContainer
@@ -29,7 +30,7 @@ class BrushAndZoomGuide extends React.Component {
 }
 
 BrushAndZoomGuide.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default BrushAndZoomGuide;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import EcologyLinkable from "./ecology-linkable";
 import { ecologyPlaygroundLoading } from "formidable-landers";
 
@@ -20,9 +21,9 @@ class EcologyRecipe extends React.Component {
 }
 
 EcologyRecipe.propTypes = {
-  scope: React.PropTypes.object.isRequired,
-  location: React.PropTypes.object.isRequired,
-  overview: React.PropTypes.string.isRequired
+  scope: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  overview: PropTypes.string.isRequired
 };
 
 EcologyRecipe.defaultProps = {

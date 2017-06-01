@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
@@ -21,7 +22,7 @@ class VictoryZoomContainer extends React.Component {
 }
 
 VictoryZoomContainer.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default VictoryZoomContainer;

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
 import {
   VictoryBar, VictoryScatter, VictoryAxis, VictoryLabel, VictoryGroup,
   VictoryChart, VictoryLine, VictoryPie, VictoryArea, Area
@@ -29,7 +30,7 @@ class CustomComponentGuide extends React.Component {
 }
 
 CustomComponentGuide.propTypes = {
-  location: React.PropTypes.object.isRequired
+  location: PropTypes.object.isRequired
 };
 
 export default CustomComponentGuide;

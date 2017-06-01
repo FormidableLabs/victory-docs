@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {observer, PropTypes as MobxPropTypes} from "mobx-react";
 
 import SidebarList from "./list";
@@ -27,14 +28,14 @@ class Sidebar extends React.Component {
 }
 
 Sidebar.propTypes = {
-  location: React.PropTypes.object.isRequired,
-  store: React.PropTypes.shape({
-    searchText: React.PropTypes.string.isRequired,
-    searchIndex: React.PropTypes.array.isRequired,
+  location: PropTypes.object.isRequired,
+  store: PropTypes.shape({
+    searchText: PropTypes.string.isRequired,
+    searchIndex: PropTypes.array.isRequired,
     sidebarContent: MobxPropTypes.observableArray.isRequired,
-    sidebarMatchingNodes: React.PropTypes.object.isRequired
+    sidebarMatchingNodes: PropTypes.object.isRequired
   }).isRequired,
-  active: React.PropTypes.string
+  active: PropTypes.string
 };
 
 Sidebar.defaultProps = {
