@@ -12,13 +12,15 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      percent: 0, data: this.getData(0)
+      percent: 25, data: this.getData(0)
     };
   }
 
   componentDidMount() {
+    let percent = 25;
     this.setStateInterval = window.setInterval(() => {
-      const percent = Math.random() * 100;
+      percent += (Math.random() * 25);
+      percent = (percent > 100) ? 0 : percent;
       this.setState({
         percent, data: this.getData(percent)
       });
