@@ -13,7 +13,7 @@
 
 ### data
 
-When `data` is provided for `VictoryGroup` it will be passed to every child in the group. Use this as a convenience in cases where all components should have identical data, for example, adding data points to a line, or adding voronoi tooltips to data. Omit this prop when child components should not share data. By default, Victory components expect data as an array of objects with `x` and `y` props. Use the [`x` and `y`] data accessor props to define a custom data format. The `data` prop must be given as an array.
+When `data` is provided for `VictoryGroup` it will be passed to every child in the group. Use this as a convenience in cases where all components should have identical data, for example, adding data points to a line, or adding voronoi tooltips to data. Omit this prop when child components should not share data. By default, Victory components expect data as an array of objects with `x` and `y` props. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
 ```jsx
 <VictoryGroup
@@ -105,7 +105,7 @@ The `width` and `height` props determine the width and height of the containing 
 
 ### padding
 
-The `padding` prop specifies the amount of padding in pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [`width` and `height`], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryGroup` controls the `padding` prop of its children. If `VictoryGroup` is nested within `VictoryChart`, this responsibility will be deferred to `VictoryChart`.
+The `padding` prop specifies the amount of padding in pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for `top`, `bottom`, `left` and `right`. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryGroup` controls the `padding` prop of its children. If `VictoryGroup` is nested within `VictoryChart`, this responsibility will be deferred to `VictoryChart`.
 
 *examples:* `padding={{top: 20, bottom: 60}}` or `padding={40}`
 
@@ -251,10 +251,10 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryStack]: https://formidable.com/open-source/docs/victory-stack
 [VictoryVoronoi]: https://formidable.com/open-source/docs/victory-voronoi
 [VictoryVoronoiTooltip]: https://formidable.com/open-source/docs/victory-voronoi-tooltip
-[`x` and `y`]: https://formidable.com/open-source/victory/docs/victory-group#x-and-y
+[x and y]: https://formidable.com/open-source/victory/docs/victory-group#x-and-y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
-[`width` and `height`]: https://formidable.com/open-source/victory/docs/victory-group#width-and-height
+[width and height]: https://formidable.com/open-source/victory/docs/victory-group#width-and-height
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
