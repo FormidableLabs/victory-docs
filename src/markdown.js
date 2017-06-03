@@ -18,7 +18,10 @@ const parseToc = (mdContent) => {
   return toc;
 };
 
+const append = (...sections) => sections.join("\n\n");
+
 export default {
   toAnchor,
+  append,
   parseToc
 };

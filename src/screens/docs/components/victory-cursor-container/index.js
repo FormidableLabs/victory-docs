@@ -4,8 +4,10 @@ import { round } from "lodash";
 import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
+const docs = require("!!raw!./ecology.md");
+const genericContainerDocs = require("!!raw!../shared/containers.md");
 
-const overview = require("!!raw!./ecology.md");
+const overview = markdown.append(docs, "## Standard Container Props", genericContainerDocs);
 
 class VictoryBrushContainer extends React.Component {
   static toc() {
