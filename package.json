@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "builder-docs-archetype-dev": "^6.0.0",
-    "react-docgen": "2.12.1"
+    "react-docgen": "2.15.0"
   },
   "dependencies": {
     "anchorate": "^1.1.0",
