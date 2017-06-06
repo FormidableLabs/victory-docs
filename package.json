@@ -36,7 +36,7 @@
     "babel-preset-stage-1": "^6.5.0",
     "builder": "^3.1.0",
     "builder-docs-archetype": "^6.0.0",
-    "chai": "^3.2.0",
+    "chai": "^4.0.2",
     "ecology": "^1.6.0",
     "formidable-landers": "^6.0.1",
     "history": "^3.0.0",
