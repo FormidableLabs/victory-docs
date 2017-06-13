@@ -59,6 +59,12 @@ and `data`) and `bounds` (an object with min / max arrays specified for `x` and 
 
 *example:* `onSelection={(points, bounds) => handleSelection(points, bounds)}`
 
+### onSelectionCleared
+
+The `onSelectionCleared` prop accepts a function to be called whenever the selection is cleared.
+
+*example:* `onSelectionCleared={() => handleSelectionCleared()}`
+
 ## Standard Container Props
 
 ### style
