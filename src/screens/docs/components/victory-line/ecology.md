@@ -46,7 +46,7 @@ Use the `x` and `y` data accessor props to determine how the component defines d
 
 *examples:* `x={0}` , `y={1}`
 
-**path string or path array:** specify which property in an array of nested data objects should be used an an x or y value
+**path string or path array:** specify which property in an array of nested data objects should be used as an x or y value
 
 *examples:* `y="employees.salary"`, `y={["employees", "salary"]}`
 
