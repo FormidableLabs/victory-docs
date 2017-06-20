@@ -1,3 +1,4 @@
+import CommonPropsDocs from "../screens/docs/components/common-props/index.js";
 import VAnimationDocs from "../screens/docs/components/victory-animation/index.js";
 import VAreaDocs from "../screens/docs/components/victory-area/index.js";
 import VAxisDocs from "../screens/docs/components/victory-axis/index.js";
@@ -32,6 +33,13 @@ import VZoomContainerDocs from "../screens/docs/components/victory-zoom-containe
 import CreateContainerDocs from "../screens/docs/components/create-container/index.js";
 
 export const config = [
+  {
+    text: "Common Props",
+    slug: "common-props",
+    category: "none",
+    docs: CommonPropsDocs,
+    toc: CommonPropsDocs.toc()
+  },
   {
     text: "Native Tutorial",
     slug: "native",
