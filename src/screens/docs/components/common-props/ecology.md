@@ -2,7 +2,7 @@
 
 Not every component uses all of these props. These are all common to things like `VictoryBar`, `VictoryScatter`, but other components like `VictoryStack` use only some of them.
 
-The props explanations given here are general, and that component docs pages are the source of truth for a component's props, and any caveats will be listed there.
+The props explanations given here are general. Each component docs page should be considered as the the source of truth for a component's props, and any caveats will be listed there.
 
 ## DataProps
 
@@ -31,7 +31,7 @@ data: PropTypes.array
 
 ### dataComponent
 
-The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with the following properties calculated by `VictoryArea`: a scale, style, events, interpolation, and an array of modified data objects (including x, y, and calculated y0 and y1). Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a dataComponent is not provided, `VictoryArea` will use its default [`Area` component].
+The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with all the props it needs to render. These props will always include `data`, `events`, `scale` and `style`. Individual components will supply additional props expected by their default `dataComponents`. See individual api docs for complete props lists. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `dataComponent` is not provided, each component will use its default `dataComponent`.
 
 *examples:* `dataComponent={<Area events={{onClick: () => console.log("wow")}}/>}`, `dataComponent={<MyCustomArea/>}`
 
@@ -41,7 +41,7 @@ dataComponent: PropTypes.element
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render a label for the area. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, data, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above. This `labelComponent` prop should be used to provide a series label for `VictoryArea`. If individual labels are required for each data point, they should be created by composing `VictoryArea` with `VictoryScatter`.
+The `labelComponent` prop takes a component instance which will be used to render a labels for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, data, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
@@ -222,7 +222,40 @@ eventKey: PropTypes.oneOfType([
 
 ### events
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. Since VictoryArea only renders a single element, the `eventKey` property is not used. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. an area), and the object returned from the mutation function will override the props of that element via object assignment.
+The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+
+*examples:*
+```jsx
+ events={[
+  {
+    target: "data",
+    eventKey: [0, 2, 4],
+    eventHandlers: {
+      onClick: () => {
+        return [
+          {
+            mutation: (props) => {
+              return {
+                style: Object.assign({}, props.style, {fill: "orange"})
+              };
+            }
+          }, {
+            target: "labels",
+            mutation: () => {
+              return {text: "hey"};
+            },
+            callback: () => {
+              console.log("I happen after setState");
+            }
+          }
+        ];
+      }
+    }
+  }
+ ]}
+```
+
+**note:** Elements that render only one element for a given dataset (_e.g._ `VictoryArea`) will use the special `eventKey` "all" rather than refering to data be index. Refer to individual API docs for additinal caveats
 
 ```js
 events: PropTypes.arrayOf(PropTypes.shape({
@@ -236,11 +269,13 @@ events: PropTypes.arrayOf(PropTypes.shape({
 }))
 ```
 
+### eventKey
+
+The `eventKey` prop is used to assign `eventKeys` to data. This prop operates identically to the `x` and `y` data accessor props. By default, the `eventKey` of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
+
 ### groupComponent
 
-The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. This prop defaults to [VictoryClipContainer], a component which renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit.
-
-*default:* `groupComponent={<VictoryClipContainer/>}`
+The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. For most components, this prop defaults to a `<g>` tag. Continuous data components like `VictoryLine` and `VictoryArea` use [VictoryClipContainer] a component which renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit.
 
 ```js
 groupComponent: PropTypes.element
