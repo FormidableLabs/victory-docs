@@ -103,6 +103,8 @@ style={{
 }}
 ```
 
+**note:** The `style` prop used by `VictoryAxis` has a different format than the standard `style` prop.
+
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
 
 **note:** custom `angle` and `verticalAnchor` properties maybe included in labels styles.
@@ -305,25 +307,6 @@ The `standalone` props specifies whether the component should be rendered in a i
 ```js
 standalone: PropTypes.bool
 ```
-
-### style
-
-The `style` prop defines the style of the component. For most components, the style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart.
-
-```jsx
-style={{
-  data: {fill: "tomato", opacity: 0.7},
-  labels: {fontSize: 12},
-  parent: {border: "1px solid #ccc"}
-}}
-```
-**note:** The style prop used by `VictoryAxis` has a different format from the standard style prop.
-
-**note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
-
-**note:** custom `angle` and `verticalAnchor` properties maybe included in labels styles.
-
-*default (provided by default theme):* See [grayscale theme] for more detail
 
 ### theme
 
