@@ -2,7 +2,7 @@ var adapter = require("builder-docs-archetype-dev/spec-setup").adapter;
 var _ = require("lodash");
 var expect = require("chai").expect;
 
-var WAIT = 20000;
+var WAIT = 50000;
 
 var fullPath = function (path) {
   return _.trimEnd(global.TEST_FUNC_BASE_URL, "/") + path;

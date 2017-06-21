@@ -4,7 +4,7 @@ node_js:
   - "4"
   - "6"
 
-sudo: true
+sudo: false
 
 branches:
   only:
