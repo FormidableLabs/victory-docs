@@ -39,7 +39,7 @@ describe("Sidebar", function () {
         expect(res).to.eql(["Introduction", "Guides", "Documentation"]);
       })
       .getText(selectors.sidebarSubheading).then(function (res) {
-        expect(res).to.eql(["", "CHART", "CORE", "MORE"]);
+        expect(res).to.eql(["CHART", "CORE", "MORE"]);
       });
   });
 
