@@ -70,7 +70,7 @@ class SidebarSelectableItem extends React.Component {
             return sibling && (
               <li key={id} className="Sidebar-toc-item">
                 <Link
-                  to={`${targetLocation}#${sibling.anchor}`}
+                  to={`${targetLocation}#${sibling.anchor.replace(/-code-/g, "")}`}
                   dangerouslySetInnerHTML={{__html: sibling.markdown}}
                 />
               </li>

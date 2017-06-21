@@ -39,7 +39,7 @@ describe("Sidebar", function () {
         expect(res).to.eql(["Introduction", "Guides", "Documentation"]);
       })
       .getText(selectors.sidebarSubheading).then(function (res) {
-        expect(res).to.eql(["", "CHART", "CORE", "MORE"]);
+        expect(res).to.eql(["CHART", "CORE", "MORE"]);
       });
   });
 
@@ -47,6 +47,7 @@ describe("Sidebar", function () {
     it("should filter sidebar to matching content and their parents", function () {
       return navigateToPageWithSidebar()
         .setValue(".Input-search", "victorya")
+        .waitForText(selectors.sidebarHeading)
         .getText(selectors.sidebarHeading).then(function (res) {
           expect(res).to.eql("Documentation");
         })
@@ -68,9 +69,9 @@ describe("Sidebar", function () {
     it("should render toc that match search input", function () {
       return navigateToPageWithSidebar()
         .setValue(".Input-search", "victoryarea styl")
-        .getText(selectors.sidebarTOCAnchor).then(function (res) {
-          expect(res).to.eql(["", ""]);
-          // Expected ["Props", "style"]...
+        .getHTML(selectors.sidebarTOCAnchor).then(function (res) {
+          expect(res[0]).to.have.string("Props");
+          expect(res[1]).to.have.string("style");
         });
     });
   });

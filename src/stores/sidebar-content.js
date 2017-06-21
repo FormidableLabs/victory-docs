@@ -68,6 +68,7 @@ const sidebarContent = [
     id: id(),
     text: "Documentation",
     children: [
+      subHeading(docItems, "none"),
       subHeading(docItems, "chart"),
       subHeading(docItems, "core"),
       subHeading(docItems, "more")

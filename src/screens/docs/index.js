@@ -23,7 +23,7 @@ class Docs extends React.Component {
     Prism.highlightAll();
   }
 
-  componentDidUpdate() { // is this the right one??
+  componentDidUpdate() {
     Prism.highlightAll();
   }
 

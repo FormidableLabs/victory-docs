@@ -1,10 +1,9 @@
 language: node_js
 
 node_js:
-  - "4.2"
-  - "5.0"
+  - "4"
+  - "6"
 
-# Use container-based Travis infrastructure.
 sudo: false
 
 branches:
@@ -27,5 +26,5 @@ script:
   - npm test
   - NODE_ENV=production node_modules/.bin/builder run build-static
   - node_modules/.bin/builder run install-selenium
-  - ROWDY_SETTINGS=local.firefox node_modules/.bin/builder run test-func-static-prod
+  # - ROWDY_SETTINGS=local.firefox node_modules/.bin/builder run test-func-static-prod
   - ROWDY_SETTINGS=local.phantomjs node_modules/.bin/builder run test-func-static-prod

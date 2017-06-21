@@ -2,7 +2,10 @@ import _ from "lodash";
 import marked from "marked";
 
 // Format a string as an anchor tag ("Foo bar" -> "foo-bar")
-const toAnchor = (content) => content.toLowerCase().replace(/[^\w]+/g, "-");
+const toAnchor = (content) => {
+  const baseContent = content.replace(/-code-/g, "").toLowerCase();
+  return baseContent.replace(/[^\w]+/g, "-");
+};
 
 const parseToc = (mdContent) => {
   const toc = [];
