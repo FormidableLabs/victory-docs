@@ -401,7 +401,7 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 y0={(d) => d.value - d.error}
 ```
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animationss
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
 [Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
