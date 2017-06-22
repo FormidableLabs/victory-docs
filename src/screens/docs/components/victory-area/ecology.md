@@ -1,6 +1,6 @@
 # VictoryArea
 
-VictoryArea renders a dataset as a single area. VictoryArea can be composed with [VictoryChart] to create area charts.
+VictoryArea renders a dataset as a single area. VictoryArea can be composed with [`VictoryChart`] to create area charts.
 
 ```playground
 <VictoryChart
@@ -405,5 +405,6 @@ y0={(d) => d.value - d.error}
 [Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
 
