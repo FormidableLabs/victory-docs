@@ -263,7 +263,7 @@ padding={{ top: 20, bottom: 60 }}
 </VictoryChart>
 ```
 
-### range
+### `range`
 
 `VictoryArea` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
 
