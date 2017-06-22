@@ -43,7 +43,6 @@ module.exports = [
   "/gallery/basic-example",
   "/gallery/brush-zoom",
   "/gallery/column-chart",
-  "/gallery/continuously-animating-line",
   "/gallery/custom-tooltip-labels",
   "/gallery/horizontal-grouped-bars",
   "/gallery/multiaxis-line-chart",

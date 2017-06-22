@@ -8,7 +8,7 @@ The props explanations given here are general. Each component docs page should b
 
 The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay, and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop.
 
-*examples:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})})}`
+*example:* `animate={{duration: 2000, onLoad: {duration: 1000}, onEnter: {duration: 500, before: () => ({y: 0})})}`
 
 ```js
 animate: PropTypes.object
@@ -18,7 +18,7 @@ animate: PropTypes.object
 
 The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
-*examples:* `categories={["dogs", "cats", "mice"]}`
+*example:* `categories={["dogs", "cats", "mice"]}`
 
 ```js
 categories: PropTypes.oneOfType([
@@ -32,6 +32,17 @@ categories: PropTypes.oneOfType([
 ### `containerComponent`
 
 The `containerComponent` prop takes a component instance which will be used to create a container element for standalone charts. The new element created from the passed `containerComponent` will be provided with the following props: `height`, `width`, `children` (the chart itself) and `style`. If a `containerComponent` is not provided, the default `VictoryContainer` component will be used. `VictoryContainer` supports `title` and `desc` props, which are intended to add accessibility to Victory components. The more descriptive these props are, the more accessible your data will be for people using screen readers. These props may be set by passing them directly to the supplied component. By default, `VictoryContainer` renders a responsive `svg` using the `viewBox` attribute. To render a static container, set `responsive={false}` directly on the instance of `VictoryContainer` supplied via the `containerComponent` prop. `VictoryContainer` also renders a `Portal` element that may be used in conjunction with [VictoryPortal] to force components to render above other children.
+
+Container components are suppied with the following props:
+  - `domain`
+  - `height`
+  - `origin` (for polar charts)
+  - `padding`
+  - `polar`
+  - `scale`
+  - `standalone`
+  - `style`
+  - `theme`
 
 *examples:* `containerComponent={<VictoryContainer responsive={false} title="Chart of Q1 Profit/>}`
 
@@ -138,7 +149,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
  ]}
 ```
 
-**note:** Elements that render only one element for a given dataset (_e.g._ `VictoryArea`) will use the special `eventKey` "all" rather than refering to data be index. Refer to individual API docs for additinal caveats
+**note:** Elements that render only one element for a given dataset (_e.g._ `VictoryArea`) will use the special `eventKey` "all" rather than refering to data by index. Refer to individual API docs for additinal caveats
 
 ```js
 events: PropTypes.arrayOf(PropTypes.shape({
@@ -200,6 +211,14 @@ The `name` prop is used to reference a component instance when defining shared e
 name: PropTypes.string
 ```
 
+### origin
+
+The origin prop is used to define the center point for polar charts. All children within a polar chart must share the same origin, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. When this prop is not set, it will be calculated based on the `width`, `height` and `padding` of the chart.
+
+```js
+origin: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })
+```
+
 ### `padding`
 
 The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width] and [height], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` setting `padding` on the child component will have no effect.
@@ -215,6 +234,27 @@ padding: PropTypes.oneOfType([
     top: PropTypes.number, bottom: PropTypes.number,
     left: PropTypes.number, right: PropTypes.number
   })
+])
+```
+
+### `polar`
+
+The boolean `polar` prop specifies whether a chart should be plotted on a polar coordinate system. All components in a given chart must share the same coordinate system, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect.
+
+```js
+polar: PropTypes.bool
+```
+
+### `range`
+
+The `range` prop describes the dimensions over which data may be plotted. For cartesian coordinate systems, this cooresponds to minimum and maximum svg coordinates in the x and y dimension. In polar coordinate systems this corresponds to a range of angles and radii. When this value is not given it will be calculated from the `width`, `height`, and `padding`, or from the `startAngle` and `endAngle` in the case of polar charts. All components in a given chart must share the same range, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect.
+
+*examples:* Cartesian: `range={{ x: [50, 250], y: [50, 250] }}` Polar: `range={{ x: [0, 180], y: [0, 150] }}`
+
+```js
+range: PropTypes.oneOfType([
+  CustomPropTypes.domain,
+  PropTypes.shape({ x: CustomPropTypes.domain, y: CustomPropTypes.domain })
 ])
 ```
 

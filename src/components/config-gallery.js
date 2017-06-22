@@ -20,10 +20,6 @@ export const configGallery = [
     slug: "column-chart",
     code: require("!!raw!../screens/gallery/examples/column-chart.example.js")
   }, {
-    text: "Continuously Animating Line",
-    slug: "continuously-animating-line",
-    code: require("!!raw!../screens/gallery/examples/continuously-animating-line.example.js")
-  }, {
     text: "Custom Tooltip Labels",
     slug: "custom-tooltip-labels",
     code: require("!!raw!../screens/gallery/examples/custom-tooltip-labels.example.js")
