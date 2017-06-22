@@ -31,9 +31,8 @@ VictoryArea renders a dataset as a single area. VictoryArea can be composed with
 
 `VictoryArea` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-*type:* `animate: PropTypes.object`
+See the [Animations Guide] for more detail on animations and transitions
 
-*example:*
 ```js
   animate={{
     duration: 2000,
@@ -46,35 +45,24 @@ VictoryArea renders a dataset as a single area. VictoryArea can be composed with
 
 `VictoryArea` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
-*type:*
 ```js
-categories: PropTypes.oneOfType([
-  PropTypes.arrayOf(PropTypes.string),
-  PropTypes.shape({
-    x: PropTypes.arrayOf(PropTypes.string), y: PropTypes.arrayOf(PropTypes.string)
-  })
-])
+categories={["dogs", "cats", "mice"]}
 ```
-
-*example:* `categories={["dogs", "cats", "mice"]}`
 
 ### `containerComponent`
 
 `VictoryArea` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-*type:* `containerComponent: PropTypes.element`
-
-*default:* `containerComponent={<VictoryContainer/>}`
-
-*example:* `containerComponent={<VictoryVoronoiContainer dimension="x"/>}`
+```js
+containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+```
 
 ### `data`
 
 `VictoryArea` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
 
-*type:* `data: PropTypes.array`
+See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-*example:*
 ```js
 data={[
   { x: 1, y: 2, y0: 1 },
@@ -89,43 +77,30 @@ data={[
 
 `VictoryArea` supplies the following props to its `dataComponent`: `data`, `events`, `groupComponent`, `interpolation`, `origin` (for polar charts), `polar`, `scale`, `style`
 
-*type:* `dataComponent: PropTypes.element`
+See the [Custom Components Guide] for more detail on creating your own `dataComponents`
 
 *default:* `<Area/>`
 
-*example:* `dataComponent={<Area events={{onClick: () => console.log("wow")}}/>}`
+```js
+dataComponent={<Area events={{ onClick: handleClick }}/>}
+```
 
 
 ### `domain`
 
 `VictoryArea` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
-*type:*
 ```js
-domain: PropTypes.oneOfType([
-  CustomPropTypes.domain,
-  PropTypes.shape({ x: CustomPropTypes.domain, y: CustomPropTypes.domain })
-])
+domain={{x: [0, 100], y: [0, 1]}}
 ```
-
-*example:* `domain={{x: [0, 100], y: [0, 1]}}`
 
 ### `domainPadding`
 
 `VictoryArea` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
-*type:*
 ```js
-domainPadding: PropTypes.oneOfType([
-  PropTypes.shape({
-    x: PropTypes.oneOfType([ PropTypes.number, PropTypes.arrayOf(PropTypes.number) ]),
-    y: PropTypes.oneOfType([ PropTypes.number, PropTypes.arrayOf(PropTypes.number) ])
-  }),
-  PropTypes.number,
-  PropTypes.arrayOf(PropTypes.number)
+domainPadding={{x: [10, -10], y: 5}}
 ```
-
-*example:* `domainPadding={{x: [10, -10], y: 5}}`
 
 ### `eventKey`
 
@@ -133,35 +108,18 @@ domainPadding: PropTypes.oneOfType([
 
 **note:** `VictoryArea` only renders one element per dataset, so only one event key will be generated.
 
-*type:*
 ```js
-eventKey: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string
-])
+eventKey="x"
 ```
 
 ### `events`
 
 `VictoryArea` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
+See the [Events Guide] for more information on defining events.
+
 **note:** `VictoryArea` will use the special `eventKey` "all" rather than refering to data by index, as it renders only one element for an entire dataset
 
-*type:*
-```js
-events: PropTypes.arrayOf(PropTypes.shape({
-  target: PropTypes.oneOf(["data", "labels", "parent"]),
-  eventKey: PropTypes.oneOfType([
-    PropTypes.array,
-    CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-    PropTypes.string
-  ]),
-  eventHandlers: PropTypes.object
-}))
-```
-
-*example:*
 ```playground
 <div>
   <h3>Click Me</h3>
@@ -204,19 +162,21 @@ events: PropTypes.arrayOf(PropTypes.shape({
 
 **note:** `VictoryArea` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit. Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.
 
-*type:* `groupComponent: PropTypes.element`
-
 *default:* `<VictoryClipContainer/>`
 
-*example:* `groupComponent={<VictoryClipContainer clipPadding={{ top: 5, bottom: 5 }} />}`
+```js
+groupComponent={<VictoryClipContainer clipPadding={{ top: 5, bottom: 5 }} />}
+```
 
 ### `height`
 
 `VictoryArea` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
-*type:* `PropTypes.number`
-
 *default (provided by default theme):* `height={300}`
+
+```jsx
+height={400}
+```
 
 ### `interpolation`
 
@@ -226,42 +186,41 @@ The following options are supported for all chart types: "basis", "bundle", "car
 
 The following options are supported for polar charts: "basis", "cardinal", "catmullRom", "linear"
 
-*type:*
-```js
-interpolation: PropTypes.oneOf([
-  "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX",
-  "monotoneY", "natural", "radial", "step", "stepAfter", "stepBefore"
-])
-```
-
 *default:* `"linear"`
+
+```playground
+<VictoryArea
+  interpolation="natural"
+  data={sampleData}
+/>
+```
 
 ### `labelComponent`
 
 `VictoryArea` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
-*type:* `labelComponent: PropTypes.element`
-
 *default:* `<VictoryLabel/>`
 
-*example:* `labelComponent={<VictoryLabel dy={20}/>}`
+```js
+labelComponent={<VictoryLabel dy={20}/>}
+```
 
 
 ### `labels`
 
 `VictoryArea` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-*type:* `labels: PropTypes.oneOfType([ PropTypes.func, PropTypes.array ])`
-
-*example:* `labels={(datum) => datum.y}`
+```js
+labels={(datum) => datum.y}
+```
 
 ### `name`
 
 `VictoryArea` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
 
-*type:* `name: PropTypes.string`
-
-*example:* `name="area-2"`
+```jsx
+name="series-1"
+```
 
 ### `origin`
 
@@ -269,34 +228,20 @@ interpolation: PropTypes.oneOf([
 
 *note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
 
-*type:* `origin: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })`
-
 ### `padding`
 
 `VictoryArea` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
-*type:*
-```js
-padding: PropTypes.oneOfType([
-  PropTypes.number,
-  PropTypes.shape({
-    top: PropTypes.number, bottom: PropTypes.number,
-    left: PropTypes.number, right: PropTypes.number
-  })
-])
-```
-
 *default (provided by default theme):* `padding={50}`
 
-*example:* `padding={{ top: 20, bottom: 60 }}`
+```js
+padding={{ top: 20, bottom: 60 }}
+```
 
 ### `polar`
 
 `VictoryArea` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
-*type:* `polar: PropTypes.bool`
-
-*example:*
 ```playground
 <VictoryChart polar
   theme={VictoryTheme.material}
@@ -324,36 +269,25 @@ padding: PropTypes.oneOfType([
 
 *note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
 
-*type:*
-```js
-range: PropTypes.oneOfType([
-  CustomPropTypes.domain,
-  PropTypes.shape({ x: CustomPropTypes.domain, y: CustomPropTypes.domain })
-])
-```
-
 ### `samples`
 
 `VictoryArea` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
-*type:* `CustomPropTypes.nonNegative`
-
 *default:* `samples={50}`
+
+```jsx
+samples={100}
+```
 
 ### `scale`
 
 `VictoryArea` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 
-*type:*
-```js
-scale: PropTypes.oneOfType([
-  CustomPropTypes.scale,
-  PropTypes.shape({ x: CustomPropTypes.scale, y: CustomPropTypes.scale })
-])
-```
 *default:* `scale="linear"`
 
-*example:* `scale={{x: "linear", y: "log"}}`
+```js
+scale={{x: "linear", y: "log"}}
+```
 
 ### `sharedEvents`
 
@@ -361,29 +295,15 @@ scale: PropTypes.oneOfType([
 
 *note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
 
-*type:*
-```js
-sharedEvents: PropTypes.shape({
-  events: PropTypes.array,
-  getEventState: PropTypes.func
-})
-```
-
 ### `sortKey`
 
 `VictoryArea` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
-*type:*
-```js
-sortKey: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
-*example*: `sortKey="x"`
+See the [Data Accessors Guide] for more detail on formatting and processing data.
 
+```jsx
+sortKey="x"
+```
 
 ### `standalone`
 
@@ -391,24 +311,25 @@ sortKey: PropTypes.oneOfType([
 
 **note:** When `VictoryArea` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
-*type:* `standalone: PropTypes.bool`
-
 *default:* `standalone={true}`
+
+```playground
+<svg width={300} height={300}>
+  <circle cx={150} cy={150} r={150} fill="#c43a31"/>
+  <VictoryArea
+    standalone={false}
+    width={300} height={300} padding={0}
+    data={sampleData}
+  />
+</svg>
+```
 
 ### `style`
 
 `VictoryArea` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*type:*
-```js
-style: PropTypes.shape({
-  parent: PropTypes.object, data: PropTypes.object, labels: PropTypes.object
-})
-```
-
 *default (provided by default theme):* See [grayscale theme] for more detail
 
-*example:*
 ```playground
   <VictoryArea
     style={{
@@ -431,64 +352,58 @@ style: PropTypes.shape({
 
 `VictoryArea` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-*type*: `theme: PropTypes.object`
+See the [Themes Guide] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
+
+```jsx
+theme={VictoryTheme.material}
+```
 
 ### `width`
 
 `VictoryArea` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
-*type:* `width: CustomPropTypes.nonNegative`
-
 *default (provided by default theme):* `width={450}`
 
+```jsx
+width={400}
+```
 
 ### `x`
 
 `VictoryArea` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 
-*type:*
-```js
-x: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
+See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-*example:* `x="employee.name"`
+```js
+x="employee.name"
+```
 
 ### `y`
 
 `VictoryArea` uses the standard `y` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y)
 
-*type:*
+See the [Data Accessors Guide] for more detail on formatting and processing data.
+
 ```js
-y: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
+y={(d) => d.value + d.error}
 ```
-*example:* `y="employee.salary"`
 
 ### `y0`
 
 VictoryArea` uses the standard `y0` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
-*type:*
-```js
-y0: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
+See the [Data Accessors Guide] for more detail on formatting and processing data.
+
+```jsx
+y0={(d) => d.value - d.error}
 ```
-*example:* `y0="last_quarter_profit"`
 
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animationss
+[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
+[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
 
-[`VictoryClipContainer`]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-clip-container/victory-clip-container.js
