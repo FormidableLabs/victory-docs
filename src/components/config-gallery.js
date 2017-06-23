@@ -32,6 +32,10 @@ export const configGallery = [
     slug: "horizontal-grouped-bars",
     code: require("!!raw!../screens/gallery/examples/horizontal-grouped-bars.example.js")
   }, {
+    text: "Interpolation",
+    slug: "interpolation",
+    code: require("!!raw!../screens/gallery/examples/interpolation.example.js")
+  }, {
     text: "Multiaxis Line Chart with Tooltip",
     slug: "multiaxis-line-chart",
     code: require("!!raw!../screens/gallery/examples/multiaxis-line-chart.example.js")
@@ -89,5 +93,3 @@ export const configGallery = [
     code: require("!!raw!../screens/gallery/examples/voronoi-tooltips-grouped.example.js")
   }
 ];
-
-
