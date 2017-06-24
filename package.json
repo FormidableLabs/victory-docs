@@ -8,6 +8,9 @@
     "server-static-prod": "ecstatic --port 8080 --baseDir /open-source/victory build",
     "start": "builder run dev",
     "test": "builder run lint",
+    "test-func-install": "builder run install-selenium",
+    "test-func-build": "NODE_ENV=production builder run build-static",
+    "test-func": "ROWDY_SETTINGS=local.chrome builder run test-func-static-prod",
     "test-func-static-prod": "TEST_FUNC_BASE_DIR=/open-source/victory builder run test-func-static",
     "update-project": "npm update victory"
   },
