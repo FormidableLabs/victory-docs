@@ -14,7 +14,7 @@ To release this lander, please follow the [archetype release instructions](https
 
 ```bash
 yarn install
-npm test
+yarn test
 ```
 
 ### Browser Tests
