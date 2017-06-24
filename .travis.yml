@@ -32,9 +32,9 @@ install:
 
 script:
   - yarn test
-  - NODE_ENV=production node_modules/.bin/builder run build-static
-  - node_modules/.bin/builder run install-selenium
-  - ROWDY_SETTINGS=local.chrome node_modules/.bin/builder run test-func-static-prod
+  - yarn run test-func-install
+  - yarn run test-func-build
+  - yarn run test-func
   # **Notes**
   # Firefox has driver issues.
   # - ROWDY_SETTINGS=local.firefox node_modules/.bin/builder run test-func-static-prod
