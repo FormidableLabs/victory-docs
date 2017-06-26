@@ -45,6 +45,7 @@ module.exports = [
   "/gallery/column-chart",
   "/gallery/continuously-animating-line",
   "/gallery/custom-tooltip-labels",
+  "/gallery/interpolation",
   "/gallery/horizontal-grouped-bars",
   "/gallery/multiaxis-line-chart",
   "/gallery/multipoint-tooltip-labels",
