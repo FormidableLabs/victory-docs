@@ -7,9 +7,18 @@ If no children are provided, `VictoryChart` will render a set of empty default a
 [VictoryArea], [VictoryAxis], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], [VictoryVoronoi], and [VictoryVoronoiTooltip].
 
 ```playground
-<VictoryChart>
-  <VictoryScatter/>
-</VictoryChart>
+<div>
+  <VictoryChart
+    theme={VictoryTheme.material}
+  >
+    <VictoryScatter/>
+  </VictoryChart>
+  <VictoryChart polar
+    theme={VictoryTheme.material}
+  >
+    <VictoryScatter/>
+  </VictoryChart>
+</div>
 ```
 
 ## Props

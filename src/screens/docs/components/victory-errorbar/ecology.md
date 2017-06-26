@@ -34,7 +34,7 @@ See the [Animations Guide] for more detail on animations and transitions
   )}
 ```
 
-### borderWidth
+### `borderWidth`
 
 The `borderWidth` prop sets the border width of the error bars. `borderWidth` will set both x and y error bar width.
 
@@ -326,7 +326,7 @@ sortKey="x"
   <circle cx={150} cy={150} r={150} fill="#c43a31"/>
   <VictoryErrorBar
     standalone={false}
-    width={300} height={300} padding={{left: 10, right: 10}}
+    width={300} height={300} padding={20}
     data={sampleData}
   />
 </svg>
