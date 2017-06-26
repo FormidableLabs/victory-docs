@@ -44,6 +44,7 @@ module.exports = [
   "/gallery/brush-zoom",
   "/gallery/column-chart",
   "/gallery/custom-tooltip-labels",
+  "/gallery/interpolation",
   "/gallery/horizontal-grouped-bars",
   "/gallery/multiaxis-line-chart",
   "/gallery/multipoint-tooltip-labels",

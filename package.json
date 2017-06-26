@@ -1,6 +1,6 @@
 {
   "name": "victory-docs",
-  "version": "4.3.1",
+  "version": "4.5.0",
   "description": "Documentation site for Victory",
   "main": "webpack.config.dev.js",
   "scripts": {
@@ -8,7 +8,10 @@
     "server-static-prod": "ecstatic --port 8080 --baseDir /open-source/victory build",
     "start": "builder run dev",
     "test": "builder run lint",
-    "test-func-static-prod": "TEST_FUNC_BASE_DIR=/open-source/victory builder run test-func-static",
+    "test-func-install": "builder run install-selenium",
+    "test-func-build": "builder run --env='{ \"NODE_ENV\": \"production\" }' build-static",
+    "test-func": "builder run --env='{ \"ROWDY_SETTINGS\": \"local.chrome\" }' test-func-static-prod",
+    "test-func-static-prod": "builder run --env='{\"TEST_FUNC_BASE_DIR\": \"/open-source/victory\"}' test-func-static",
     "update-project": "npm update victory"
   },
   "repository": {
