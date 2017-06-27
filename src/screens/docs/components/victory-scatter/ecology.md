@@ -44,7 +44,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```
 ### bubbleProperty
 
-The `bubbleProperty` prop indicates which property of the data object should be used to scale data points in a bubble chart. If a `bubbleProperty` is given, `size` and `symbol` props will be ignored. (Bubble charts should render circles).
+The `bubbleProperty` prop indicates which property of the data object should be used to scale data points in a bubble chart. If a `bubbleProperty` is given, `size` and `symbol` props will be ignored. Bubble charts always render circular points.
 
 *default:* `bubbleProperty="z"`
 
@@ -69,7 +69,7 @@ The `bubbleProperty` prop indicates which property of the data object should be 
 
 ### categories
 
-`VictoryScatter` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryScatter` uses the standard `categories` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
 ```js
 categories={["dogs", "cats", "mice"]}
@@ -77,7 +77,7 @@ categories={["dogs", "cats", "mice"]}
 
 ### containerComponent
 
-`VictoryScatter` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryScatter` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```js
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
@@ -85,21 +85,21 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 ### data
 
-`VictoryScatter` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
+`VictoryScatter` uses the standard `data` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#data)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
 ```js
 data={[
-  { x: 1, y: 2, y0: 1 },
-  { x: 2, y: 3: y0: 2 },
-  { x: 3, y: 5, y0: 4 }
+  { x: 1, y: 2 },
+  { x: 2, y: 3 },
+  { x: 3, y: 5 }
 ]}
 ```
 
 ### dataComponent
 
-`VictoryScatter` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryScatter` uses the standard `dataComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
 
 `VictoryScatter` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `origin`, `polar`,`scale`, `size`, `style`, `symbol`, `x`, `y`
 
@@ -114,7 +114,7 @@ dataComponent={<Point events={{ onClick: handleClick }}/>}
 
 ### domain
 
-`VictoryScatter` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryScatter` uses the standard `domain` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
 ```js
 domain={{x: [0, 100], y: [0, 1]}}
@@ -122,7 +122,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
-`VictoryScatter` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryScatter` uses the standard `domainPadding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
 ```js
 domainPadding={{x: [10, -10], y: 5}}
@@ -130,9 +130,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryScatter` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
-
-**note:** `VictoryScatter` only renders one element per dataset, so only one event key will be generated.
+`VictoryScatter` uses the standard `eventKey` prop to specify how event targets are addressed. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```js
 eventKey="x"
@@ -140,7 +138,7 @@ eventKey="x"
 
 ### events
 
-`VictoryScatter` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryScatter` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
 
 See the [Events Guide] for more information on defining events.
 
@@ -181,7 +179,7 @@ See the [Events Guide] for more information on defining events.
 
 ### groupComponent
 
-`VictoryScatter` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryScatter` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -191,7 +189,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 ### height
 
-`VictoryScatter` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryScatter` uses the standard `height` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -201,7 +199,7 @@ height={400}
 
 ### labelComponent
 
-`VictoryScatter` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryScatter` uses the standard `labelComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel/>`
 
@@ -211,7 +209,7 @@ labelComponent={<VictoryLabel dy={20}/>}
 
 ### labels
 
-`VictoryScatter` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
+`VictoryScatter` uses the standard `labels` prop to define labels for each point. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
 ```js
 labels={(datum) => datum.y}
@@ -239,7 +237,7 @@ minBubbleSize={5}
 
 ### name
 
-`VictoryScatter` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
 name="series-1"
@@ -247,13 +245,13 @@ name="series-1"
 
 ### origin
 
-`VictoryScatter` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
-
 *note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
+
+[Read about the `origin` props in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
 ### padding
 
-`VictoryScatter` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryScatter` uses the standard `padding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -263,7 +261,7 @@ padding={{ top: 20, bottom: 60 }}
 
 ### polar
 
-`VictoryScatter` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
+`VictoryScatter` uses the standard `polar` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
 ```playground
 <VictoryChart polar
@@ -290,13 +288,13 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryScatter` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
-
 *note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
 ### samples
 
-`VictoryScatter` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
+`VictoryScatter` uses the standard `samples` prop to generate data when plotting functions. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
 *default:* `samples={50}`
 
@@ -306,7 +304,7 @@ samples={100}
 
 ### scale
 
-`VictoryScatter` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
+`VictoryScatter` uses the standard `scale` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#scale)
 
 *default:* `scale="linear"`
 
@@ -316,9 +314,10 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-`VictoryScatter` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
+*note:* The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.
 
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+[Read about the `sharedEvents` prop in more detail](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
+
 
 ### size
 
@@ -333,9 +332,7 @@ The `size` prop determines how to scale each data point. This prop may also be g
 
 ### sortKey
 
-`VictoryScatter` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
-
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+`VictoryScatter` uses the standard `sortKey` prop to determine how data should be ordered. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
 ```jsx
 sortKey="x"
@@ -343,7 +340,7 @@ sortKey="x"
 
 ### standalone
 
-`VictoryScatter` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryScatter` uses the standard `standalone` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#standalone)
 
 **note:** When `VictoryScatter` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -364,7 +361,7 @@ sortKey="x"
 
 ### style
 
-`VictoryScatter` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
+`VictoryScatter` uses the standard `style` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme] for more detail
 
@@ -403,7 +400,7 @@ The `symbol` prop determines which symbol should be drawn to represent data poin
 
 ### theme
 
-`VictoryScatter` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryScatter` uses the standard `theme` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
 See the [Themes Guide] for information about creating custom themes.
 
@@ -415,7 +412,7 @@ theme={VictoryTheme.material}
 
 ### width
 
-`VictoryScatter` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryScatter` uses the standard `width` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -425,7 +422,7 @@ width={400}
 
 ### x
 
-`VictoryScatter` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
+`VictoryScatter` uses the standard `x` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#x)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
@@ -435,7 +432,7 @@ x="employee.name"
 
 ### y
 
-`VictoryScatter` uses the standard `y` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y)
+`VictoryScatter` uses the standard `y` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#y)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
@@ -445,7 +442,7 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-VictoryScatter` uses the standard `y0` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
+VictoryScatter` uses the standard `y0` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
