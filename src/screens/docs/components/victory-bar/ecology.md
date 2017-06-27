@@ -3,27 +3,23 @@
 VictoryBar renders a dataset as series of bars. VictoryBar can be composed with [`VictoryChart`] to create bar charts.
 
 ```playground
-<VictoryChart
-  theme={VictoryTheme.material}
-  domainPadding={{ x: 10 }}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
->
+<div>
   <VictoryBar
-    style={{
-      data: { fill: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
-    }}
-    data={[
-      { x: 1, y: 2 },
-      { x: 2, y: 3 },
-      { x: 3, y: 5 },
-      { x: 4, y: 4 },
-      { x: 5, y: 7 }
-    ]}
+    width={300}
+    domainPadding={10}
+    style={{ data: { fill: "#c43a31" } }}
+    data={sampleData}
   />
-</VictoryChart>
+  <VictoryChart
+    width={300}
+    domainPadding={10}
+  >
+    <VictoryBar
+      style={{ data: { fill: "#c43a31" } }}
+      data={sampleData}
+    />
+  </VictoryChart>
+</div>
 ```
 
 ## Props
@@ -217,7 +213,7 @@ labels={(datum) => datum.y}
 
 ### name
 
-`VictoryBar` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
 name="series-1"
@@ -225,9 +221,10 @@ name="series-1"
 
 ### origin
 
-`VictoryBar` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-*note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
+[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+
 
 ### padding
 
@@ -393,12 +390,17 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-VictoryBar` uses the standard `y0` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
+VictoryBar` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```jsx
-y0={(d) => d.value - d.error}
+```playground
+<VictoryChart domainPadding={30}>
+  <VictoryBar
+    data={sampleData}
+    y0={(d) => d.y - 1}
+  />
+</VictoryChart>
 ```
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations

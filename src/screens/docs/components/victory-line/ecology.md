@@ -216,7 +216,7 @@ labels={(datum) => datum.y}
 
 ### name
 
-`VictoryLine` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
 name="series-1"
@@ -224,9 +224,9 @@ name="series-1"
 
 ### origin
 
-`VictoryLine` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-*note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
+[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
 ### padding
 
@@ -393,13 +393,7 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-VictoryLine` uses the standard `y0` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
-
-See the [Data Accessors Guide] for more detail on formatting and processing data.
-
-```jsx
-y0={(d) => d.value - d.error}
-```
+**It is not common to set a `y0` prop with `VictoryLine`, as baselines for `VictoryLine` are only relevant for stacked lines.** [Read more abou the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
@@ -23,7 +24,7 @@ class VictoryScatter extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{ ...Victory, React, sampleData }}
+        scope={{ ...Victory, React, ReactDOM, sampleData }}
       />
     );
   }

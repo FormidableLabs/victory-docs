@@ -3,33 +3,25 @@
 VictoryArea renders a dataset as a single area. VictoryArea can be composed with [`VictoryChart`] to create area charts.
 
 ```playground
-<VictoryChart
-  theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
->
+<div>
+<VictoryArea
+  style={{ data: { fill: "#c43a31" } }}
+  data={sampleData}
+/>
+<VictoryChart>
   <VictoryArea
-    style={{
-      data: { fill: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
-    }}
-    data={[
-      { x: 1, y: 2 },
-      { x: 2, y: 3 },
-      { x: 3, y: 5 },
-      { x: 4, y: 4 },
-      { x: 5, y: 7 }
-    ]}
+    style={{ data: { fill: "#c43a31" } }}
+    data={sampleData}
   />
 </VictoryChart>
+</div>
 ```
 
 ## Props
 
 ### animate
 
-`VictoryArea` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+`VictoryArea` uses the standard `animate` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#animate)
 
 See the [Animations Guide] for more detail on animations and transitions
 
@@ -43,7 +35,7 @@ See the [Animations Guide] for more detail on animations and transitions
 
 ### categories
 
-`VictoryArea` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryArea` uses the standard `categories` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#categories)
 
 ```js
 categories={["dogs", "cats", "mice"]}
@@ -51,7 +43,7 @@ categories={["dogs", "cats", "mice"]}
 
 ### containerComponent
 
-`VictoryArea` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryArea` uses the standard `containerComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```js
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
@@ -59,21 +51,27 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 ### data
 
-`VictoryArea` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
+`VictoryArea` uses the standard `data` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#data)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
-data={[
-  { x: 1, y: 2, y0: 1 },
-  { x: 2, y: 3: y0: 2 },
-  { x: 3, y: 5, y0: 4 }
-]}
+```playground
+<VictoryChart>
+  <VictoryArea
+    data={[
+      { x: 1, y: 2, y0: 0 },
+      { x: 2, y: 3, y0: 1 },
+      { x: 3, y: 5, y0: 1 },
+      { x: 4, y: 4, y0: 2 },
+      { x: 5, y: 6, y0: 2 }
+    ]}
+  />
+</VictoryChart>
 ```
 
 ### dataComponent
 
-`VictoryArea` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryArea` uses the standard `dataComponent` prop. [Read about it detail](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
 
 `VictoryArea` supplies the following props to its `dataComponent`: `data`, `events`, `groupComponent`, `interpolation`, `origin` (for polar charts), `polar`, `scale`, `style`
 
@@ -88,7 +86,7 @@ dataComponent={<Area events={{ onClick: handleClick }}/>}
 
 ### domain
 
-`VictoryArea` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryArea` uses the standard `domain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#domain)
 
 ```js
 domain={{x: [0, 100], y: [0, 1]}}
@@ -96,7 +94,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
-`VictoryArea` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryArea` uses the standard `domainPadding` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
 ```js
 domainPadding={{x: [10, -10], y: 5}}
@@ -104,7 +102,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryArea` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryArea` uses the standard `eventKey` prop. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 **note:** `VictoryArea` only renders one element per dataset, so only one event key will be generated.
 
@@ -114,7 +112,7 @@ eventKey="x"
 
 ### events
 
-`VictoryArea` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryArea` uses the standard `events` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#events)
 
 See the [Events Guide] for more information on defining events.
 
@@ -158,14 +156,20 @@ See the [Events Guide] for more information on defining events.
 
 ### groupComponent
 
-`VictoryArea` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryArea` uses the standard `groupComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-**note:** `VictoryArea` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit. Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.
+**note:** `VictoryArea` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.**
 
 *default:* `<VictoryClipContainer/>`
 
-```js
-groupComponent={<VictoryClipContainer clipPadding={{ top: 5, bottom: 5 }} />}
+```playground
+<VictoryChart>
+  <VictoryArea
+    groupComponent={<VictoryClipContainer clipPadding={{ top: 5, right: 10 }}/>}
+    style={{ data: { stroke: "#c43a31", strokeWidth: 15, strokeLinecap: "round" } }}
+    data={sampleData}
+  />
+</VictoryChart>
 ```
 
 ### height
@@ -182,9 +186,9 @@ height={400}
 
 The `interpolation` prop determines how data points should be connected when creating a path. Victory uses [d3-shape](https://github.com/d3/d3-shape#curves) for interpolating curves.
 
-The following options are supported for all chart types: "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "radial", "step", "stepAfter", "stepBefore"
+Polar area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear"
 
-The following options are supported for polar charts: "basis", "cardinal", "catmullRom", "linear"
+Cartesian area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
 
 *default:* `"linear"`
 
@@ -197,26 +201,33 @@ The following options are supported for polar charts: "basis", "cardinal", "catm
 
 ### labelComponent
 
-`VictoryArea` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryArea` uses the standard `labelComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
-*default:* `<VictoryLabel/>`
+*default:* `<VictoryLabel renderInPortal/>`
 
-```js
-labelComponent={<VictoryLabel dy={20}/>}
+```playground
+<VictoryArea
+  data={sampleData}
+  labels={(datum) => datum.y}
+  labelComponent={<VictoryLabel renderInPortal dy={-20}/>}
+/>
 ```
 
 
 ### labels
 
-`VictoryArea` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
+`VictoryArea` uses the standard `labels` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-```js
-labels={(datum) => datum.y}
+```playground
+<VictoryArea
+  data={sampleData}
+  labels={(datum) => datum.y}
+/>
 ```
 
 ### name
 
-`VictoryArea` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
 name="series-1"
@@ -224,9 +235,9 @@ name="series-1"
 
 ### origin
 
-`VictoryArea` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-*note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
+[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
 ### padding
 
@@ -265,9 +276,9 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryArea` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
 ### samples
 
@@ -291,9 +302,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-`VictoryArea` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### sortKey
 
@@ -392,12 +401,17 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-VictoryArea` uses the standard `y0` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
+`VictoryArea` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```jsx
-y0={(d) => d.value - d.error}
+```playground
+<VictoryChart>
+  <VictoryArea
+    data={sampleData}
+    y0={(d) => d.y - 1}
+  />
+</VictoryChart>
 ```
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations

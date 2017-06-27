@@ -243,7 +243,7 @@ labels={(datum) => datum.y}
 
 ### name
 
-`VictoryErrorBar` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
 name="series-1"
@@ -251,9 +251,10 @@ name="series-1"
 
 ### origin
 
-`VictoryErrorBar` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-*note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
+[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+
 
 ### padding
 

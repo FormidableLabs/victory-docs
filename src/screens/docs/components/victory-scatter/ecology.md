@@ -89,12 +89,18 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
-data={[
-  { x: 1, y: 2 },
-  { x: 2, y: 3 },
-  { x: 3, y: 5 }
-]}
+In addition to svg style properties and `label`, `VictoryScatter` will also preferentially use `symbol` and `size` properties supplied via data objects.
+
+```playground
+<VictoryScatter
+  data={[
+    { x: 1, y: 2, symbol: "star", size: 5 },
+    { x: 2, y: 3, symbol: "square", size: 7 },
+    { x: 3, y: 5, symbol: "diamond", size: 3 },
+    { x: 4, y: 4, symbol: "circle", size: 8 },
+    { x: 5, y: 6, symbol: "triangleUp", size: 4 }
+  ]}
+/>
 ```
 
 ### dataComponent
@@ -107,8 +113,33 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 
 *default:* `<Point/>`
 
-```js
-dataComponent={<Point events={{ onClick: handleClick }}/>}
+```playground_norender
+class CatPoint extends React.Component {
+  render() {
+    const {x, y, datum} = this.props; // VictoryScatter supplies x, y and datum
+    const cat = datum.y >= 0 ? "😻" : "😹";
+    return (
+      <text x={x} y={y} fontSize={30}>
+        {cat}
+      </text>
+    );
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart>
+        <VictoryScatter
+          dataComponent={<CatPoint/>}
+          y={(d) => Math.sin(2 * Math.PI * d.x)}
+          samples={15}
+        />
+      </VictoryChart>
+    );
+  }
+}
+ReactDOM.render(<App/>, mountNode);
 ```
 
 
@@ -130,7 +161,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryScatter` uses the standard `eventKey` prop to specify how event targets are addressed. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryScatter` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```js
 eventKey="x"
@@ -183,8 +214,14 @@ See the [Events Guide] for more information on defining events.
 
 *default:* `<g/>`
 
-```js
-groupComponent={<g transform="translate(10, 10)" />}
+```playground
+<VictoryChart>
+  <VictoryScatter
+    groupComponent={<VictoryClipContainer/>}
+    data={sampleData}
+    size={20}
+  />
+</VictoryChart>
 ```
 
 ### height
@@ -203,16 +240,23 @@ height={400}
 
 *default:* `<VictoryLabel/>`
 
-```js
-labelComponent={<VictoryLabel dy={20}/>}
+```playground
+<VictoryScatter
+  data={sampleData}
+  labels={(datum) => datum.y}
+  labelComponent={<VictoryLabel dy={30}/>}
+/>
 ```
 
 ### labels
 
 `VictoryScatter` uses the standard `labels` prop to define labels for each point. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-```js
-labels={(datum) => datum.y}
+```playground
+<VictoryScatter
+  data={sampleData}
+  labels={(datum) => datum.y}
+/>
 ```
 
 ### maxBubbleSize
@@ -245,9 +289,9 @@ name="series-1"
 
 ### origin
 
-*note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-[Read about the `origin` props in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
 ### padding
 
@@ -288,7 +332,7 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
 [Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
@@ -314,10 +358,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-*note:* The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.
-
-[Read about the `sharedEvents` prop in more detail](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### size
 
@@ -442,13 +483,7 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-VictoryScatter` uses the standard `y0` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#y0)
-
-See the [Data Accessors Guide] for more detail on formatting and processing data.
-
-```jsx
-y0={(d) => d.value - d.error}
-```
+**It is not common to set a `y0` prop with `VictoryScatter`, as baselines for `VictoryScatter` are only relevant for stacked charts.** [Read more about the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
 [`bubbleProperty`]: https://formidable.com/open-source/victory/docs/victory-scatter#bubbleproperty
