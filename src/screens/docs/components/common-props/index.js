@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
+import { range } from "lodash";
 const overview = require("!!raw!./ecology.md");
 
 const sampleData = [
@@ -23,7 +24,7 @@ class CommonProps extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{...Victory, React, ReactDOM, sampleData}}
+        scope={{...Victory, React, ReactDOM, range, sampleData}}
       />
     );
   }

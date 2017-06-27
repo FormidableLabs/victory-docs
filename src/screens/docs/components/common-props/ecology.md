@@ -71,7 +71,7 @@ ReactDOM.render(<App/>, mountNode)
 
 The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
-*example:* `categories={["dogs", "cats", "mice"]}`
+*example:* `categories={["apples", "oranges", "bananas"]}`
 
 ```playground
 <VictoryChart domainPadding={25}>
@@ -213,7 +213,7 @@ The `domainPadding` prop specifies a number of pixels of padding to add the begi
 
 ### eventKey
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. This prop is not commonly used.
+The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x] and [y] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. **This prop is not commonly used.**
 
 See the [Events Guide] for more information on defining events and using event keys.
 
@@ -332,7 +332,7 @@ The `name` prop is used to reference a component instance when defining shared e
 
 ### origin
 
-The origin prop is used to define the center point in svg coordinates for polar charts. All children within a polar chart must share the same origin, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. When this prop is not set, it will be calculated based on the `width`, `height` and `padding` of the chart. This prop is usually not set manually
+The origin prop is used to define the center point in svg coordinates for polar charts. All children within a polar chart must share the same origin, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. When this prop is not set, it will be calculated based on the `width`, `height` and `padding` of the chart. **This prop is usually not set manually.**
 
 ### padding
 
@@ -378,7 +378,7 @@ The boolean `polar` prop specifies whether a chart should be plotted on a polar 
 
 ### range
 
-The `range` prop describes the dimensions over which data may be plotted. For cartesian coordinate systems, this cooresponds to minimum and maximum svg coordinates in the x and y dimension. In polar coordinate systems this corresponds to a range of angles and radii. When this value is not given it will be calculated from the `width`, `height`, and `padding`, or from the `startAngle` and `endAngle` in the case of polar charts. All components in a given chart must share the same range, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. This prop is usually not set manually.
+The `range` prop describes the dimensions over which data may be plotted. For cartesian coordinate systems, this cooresponds to minimum and maximum svg coordinates in the x and y dimension. In polar coordinate systems this corresponds to a range of angles and radii. When this value is not given it will be calculated from the `width`, `height`, and `padding`, or from the `startAngle` and `endAngle` in the case of polar charts. All components in a given chart must share the same range, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. **This prop is usually not set manually.**
 
 *examples:*
   - Cartesian: `range={{ x: [50, 250], y: [50, 250] }}`
@@ -415,10 +415,21 @@ The `scale` prop determines which scales your chart should use. This prop can be
   - `scale="time"`
   - `scale={{x: "linear", y: "log"}}`
 
+```playground
+<VictoryChart
+  scale={{ x: "linear", y: "log" }}
+>
+  <VictoryLine
+    style={{ data: { stroke: "red" } }}
+    domain={{ x: [0, 5] }}
+    y={(d) => Math.pow(1 - d.x, 10)}
+  />
+</VictoryChart>
+```
 
 ### sharedEvents
 
-The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
+The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. **This prop should not be set manually.**
 
 ### sortKey
 
@@ -452,14 +463,30 @@ sortKey={0}
 sortKey={["age", "height"]}
 ```
 
+```playground
+<VictoryLine
+  data={range(0, 2 * Math.PI, 0.01).map((t) => ({ t }))}
+  sortKey="t"
+  x={(d) => Math.sin(3 * d.t + (2 * Math.PI))}
+  y={(d) => Math.sin(2 * d.t)}
+/>
+```
+
 ### standalone
 
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
 
 *default:* `standalone={true}`
 
-```js
-standalone={false}
+```playground
+<svg width={300} height={300}>
+  <circle cx={150} cy={150} r={150} fill="#c43a31"/>
+  <VictoryArea
+    standalone={false}
+    width={300} height={300} padding={0}
+    data={sampleData}
+  />
+</svg>
 ```
 
 ### style
@@ -519,8 +546,16 @@ The `width` prop determines the width of the containing `<svg>`. By default Vict
 
 *default (provided by default theme):* `width={450}`
 
-```js
-width={300}
+```playground
+<div>
+  <VictoryBar width={1500}
+    style={{ parent: { border: "1px solid #ccc" } }}
+  />
+  <VictoryBar width={1500}
+    style={{ parent: { border: "1px solid #ccc" } }}
+    containerComponent={<VictoryContainer responsive={false}/>}
+  />
+</div>
 ```
 ### x
 
