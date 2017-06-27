@@ -28,7 +28,7 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 
 ## Props
 
-### `animate`
+### animate
 
 `VictoryCandlestick` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
@@ -42,7 +42,7 @@ See the [Animations Guide] for more detail on animations and transitions
   )}
 ```
 
-### `candleColors`
+### candleColors
 
 Candle colors are significant in candlestick charts, with colors indicating whether a market closed higher than it opened (positive), or closed lower than it opened (negative). The `candleColors` prop should be given as an object with color strings specified for positive and negative.
 
@@ -52,7 +52,7 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 candleColors={{ positive: "green", negative: "red" }}
 ```
 
-### `categories`
+### categories
 
 `VictoryCandlestick` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
@@ -60,7 +60,7 @@ candleColors={{ positive: "green", negative: "red" }}
 categories={["dogs", "cats", "mice"]}
 ```
 
-### `close`
+### close
 
 Use `close` data accessor prop to define the close value of a candle.
 
@@ -89,7 +89,7 @@ close: PropTypes.oneOfType([
 ])
 ```
 
-### `containerComponent`
+### containerComponent
 
 `VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
@@ -97,7 +97,7 @@ close: PropTypes.oneOfType([
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
-### `data`
+### data
 
 Specify data via the `data` prop. By default, `VictoryCandlestick` expects data as an array of objects with `x`, `open`, `close`, `high`, and `low` keys. Use the [`x`], [`open`], [`close`], [`high`], and [`low`] data accessor props to specify custom data formats. Refer to the [Data Accessors Guide] for more detail.
 
@@ -113,7 +113,7 @@ Specify data via the `data` prop. By default, `VictoryCandlestick` expects data 
 />
 ```
 
-### `dataComponent`
+### dataComponent
 
 `VictoryCandlestick` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
 
@@ -127,7 +127,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 dataComponent={<Candle events={{ onClick: handleClick }}/>}
 ```
 
-### `domain`
+### domain
 
 `VictoryCandlestick` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
@@ -135,7 +135,7 @@ dataComponent={<Candle events={{ onClick: handleClick }}/>}
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### `domainPadding`
+### domainPadding
 
 `VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
@@ -143,7 +143,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
-### `eventKey`
+### eventKey
 
 `VictoryCandlestick` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
@@ -151,7 +151,7 @@ domainPadding={{x: [10, -10], y: 5}}
 eventKey="x"
 ```
 
-### `events`
+### events
 
 `VictoryCandlestick` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
@@ -185,7 +185,7 @@ See the [Events Guide] for more information on defining events.
 </div>
 ```
 
-### `groupComponent`
+### groupComponent
 
 `VictoryCandlestick` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
@@ -195,7 +195,7 @@ See the [Events Guide] for more information on defining events.
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
-### `height`
+### height
 
 `VictoryCandlestick` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
@@ -205,7 +205,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
-### `high`
+### high
 
 Use `high` data accessor prop to define the high value of a candle.
 
@@ -234,7 +234,7 @@ high: PropTypes.oneOfType([
 ])
 ```
 
-### `labelComponent`
+### labelComponent
 
 `VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
@@ -244,7 +244,7 @@ high: PropTypes.oneOfType([
 labelComponent={<VictoryLabel dy={20}/>}
 ```
 
-### `labels`
+### labels
 
 `VictoryCandlestick` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
@@ -252,7 +252,7 @@ labelComponent={<VictoryLabel dy={20}/>}
 labels={(datum) => datum.y}
 ```
 
-### `low`
+### low
 
 Use `low` data accessor prop to define the low value of a candle.
 
@@ -281,7 +281,7 @@ low: PropTypes.oneOfType([
 ])
 ```
 
-### `name`
+### name
 
 `VictoryCandlestick` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
 
@@ -289,7 +289,7 @@ low: PropTypes.oneOfType([
 name="series-1"
 ```
 
-### `open`
+### open
 
 Use `open` data accessor prop to define the open value of a candle.
 
@@ -318,13 +318,13 @@ open: PropTypes.oneOfType([
 ])
 ```
 
-### `origin`
+### origin
 
 `VictoryCandlestick` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
 
 *note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
 
-### `padding`
+### padding
 
 `VictoryCandlestick` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
@@ -334,19 +334,19 @@ open: PropTypes.oneOfType([
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### `polar`
+### polar
 
 `VictoryCandlestick` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
 **Note:** Polar Charts are not yet supported for `VictoryCandlestick`
 
-### `range`
+### range
 
 `VictoryCandlestick` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
 
 *note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
 
-### `samples`
+### samples
 
 `VictoryCandlestick` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
@@ -356,7 +356,7 @@ padding={{ top: 20, bottom: 60 }}
 samples={100}
 ```
 
-### `scale`
+### scale
 
 `VictoryCandlestick` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 
@@ -366,13 +366,13 @@ samples={100}
 scale={{x: "linear", y: "log"}}
 ```
 
-### `sharedEvents`
+### sharedEvents
 
 `VictoryCandlestick` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
 
 *note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
 
-### `sortKey`
+### sortKey
 
 `VictoryCandlestick` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
@@ -382,7 +382,7 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 sortKey="x"
 ```
 
-### `standalone`
+### standalone
 
 `VictoryCandlestick` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
 
@@ -401,7 +401,7 @@ sortKey="x"
 </svg>
 ```
 
-### `style`
+### style
 
 `VictoryCandlestick` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
@@ -425,7 +425,7 @@ sortKey="x"
   />
 ```
 
-### `theme`
+### theme
 
 `VictoryCandlestick` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
@@ -437,7 +437,7 @@ See the [Themes Guide] for information about creating custom themes.
 theme={VictoryTheme.material}
 ```
 
-### `width`
+### width
 
 `VictoryCandlestick` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
@@ -447,7 +447,7 @@ theme={VictoryTheme.material}
 width={400}
 ```
 
-### `x`
+### x
 
 `VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 

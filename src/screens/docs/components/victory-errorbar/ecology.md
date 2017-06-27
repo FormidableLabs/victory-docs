@@ -20,7 +20,7 @@
 
 ## Props
 
-### `animate`
+### animate
 
 `VictoryErrorBar` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
@@ -34,7 +34,7 @@ See the [Animations Guide] for more detail on animations and transitions
   )}
 ```
 
-### `borderWidth`
+### borderWidth
 
 The `borderWidth` prop sets the border width of the error bars. `borderWidth` will set both x and y error bar width.
 
@@ -42,7 +42,7 @@ The `borderWidth` prop sets the border width of the error bars. `borderWidth` wi
 borderWidth={10}
 ```
 
-### `categories`
+### categories
 
 `VictoryErrorBar` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
@@ -50,7 +50,7 @@ borderWidth={10}
 categories={["dogs", "cats", "mice"]}
 ```
 
-### `containerComponent`
+### containerComponent
 
 `VictoryErrorBar` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
@@ -58,7 +58,7 @@ categories={["dogs", "cats", "mice"]}
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
-### `data`
+### data
 
 Specify data via the `data` prop. By default, `VictoryErrorBar` expects data as an array of objects with `x`, `y`, `errorX` and `errorY` keys. Use the [`x`], [`y`], [`errorX`] and [`errorY`] data accessor props to specify custom data formats. Refer to the [Data Accessors Guide] for more detail.
 
@@ -74,7 +74,7 @@ Specify data via the `data` prop. By default, `VictoryErrorBar` expects data as 
 />
 ```
 
-### `dataComponent`
+### dataComponent
 
 `VictoryErrorBar` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
 
@@ -88,7 +88,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 dataComponent={<ErrorBar events={{ onClick: handleClick }}/>}
 ```
 
-### `domain`
+### domain
 
 `VictoryErrorBar` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
@@ -96,14 +96,14 @@ dataComponent={<ErrorBar events={{ onClick: handleClick }}/>}
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### `domainPadding`
+### domainPadding
 
 `VictoryErrorBar` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
 ```js
 domainPadding={{x: [10, -10], y: 5}}
 ```
-### `errorX`
+### errorX
 
 Use `errorX` data accessor prop to define the x error bar.
 
@@ -132,7 +132,7 @@ errorX: PropTypes.oneOfType([
 ])
 ```
 
-### `errorY`
+### errorY
 
 Use `errorY` data accessor prop to define the y error bar.
 
@@ -160,7 +160,7 @@ errorY: PropTypes.oneOfType([
   PropTypes.arrayOf(PropTypes.string)
 ])
 ```
-### `eventKey`
+### eventKey
 
 `VictoryErrorBar` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
@@ -168,7 +168,7 @@ errorY: PropTypes.oneOfType([
 eventKey="x"
 ```
 
-### `events`
+### events
 
 `VictoryErrorBar` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
@@ -203,7 +203,7 @@ See the [Events Guide] for more information on defining events.
 </div>
 ```
 
-### `groupComponent`
+### groupComponent
 
 `VictoryErrorBar` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
@@ -213,7 +213,7 @@ See the [Events Guide] for more information on defining events.
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
-### `height`
+### height
 
 `VictoryErrorBar` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
@@ -223,7 +223,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
-### `labelComponent`
+### labelComponent
 
 `VictoryErrorBar` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
@@ -233,7 +233,7 @@ height={400}
 labelComponent={<VictoryLabel dy={20}/>}
 ```
 
-### `labels`
+### labels
 
 `VictoryErrorBar` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
@@ -241,7 +241,7 @@ labelComponent={<VictoryLabel dy={20}/>}
 labels={(datum) => datum.y}
 ```
 
-### `name`
+### name
 
 `VictoryErrorBar` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
 
@@ -249,13 +249,13 @@ labels={(datum) => datum.y}
 name="series-1"
 ```
 
-### `origin`
+### origin
 
 `VictoryErrorBar` uses the standard `origin` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#origin)
 
 *note:* The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually
 
-### `padding`
+### padding
 
 `VictoryErrorBar` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
@@ -265,19 +265,19 @@ name="series-1"
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### `polar`
+### polar
 
 `VictoryErrorBar` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
 **Note:** Polar Charts are not yet supported for `VictoryErrorBar`
 
-### `range`
+### range
 
 `VictoryErrorBar` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
 
 *note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
 
-### `samples`
+### samples
 
 `VictoryErrorBar` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
@@ -287,7 +287,7 @@ padding={{ top: 20, bottom: 60 }}
 samples={100}
 ```
 
-### `scale`
+### scale
 
 `VictoryErrorBar` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 
@@ -297,13 +297,13 @@ samples={100}
 scale={{x: "linear", y: "log"}}
 ```
 
-### `sharedEvents`
+### sharedEvents
 
 `VictoryErrorBar` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
 
 *note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
 
-### `sortKey`
+### sortKey
 
 `VictoryErrorBar` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
@@ -313,7 +313,7 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 sortKey="x"
 ```
 
-### `standalone`
+### standalone
 
 `VictoryErrorBar` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
 
@@ -332,7 +332,7 @@ sortKey="x"
 </svg>
 ```
 
-### `style`
+### style
 
 `VictoryErrorBar` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
@@ -356,7 +356,7 @@ sortKey="x"
   />
 ```
 
-### `theme`
+### theme
 
 `VictoryErrorBar` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
@@ -368,7 +368,7 @@ See the [Themes Guide] for information about creating custom themes.
 theme={VictoryTheme.material}
 ```
 
-### `width`
+### width
 
 `VictoryErrorBar` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
@@ -378,7 +378,7 @@ theme={VictoryTheme.material}
 width={400}
 ```
 
-### `x`
+### x
 
 `VictoryErrorBar` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 

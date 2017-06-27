@@ -27,6 +27,10 @@
   position: relative;
 }
 
+.Markdown h3 {
+  font-family: var(--fontMonospace);
+}
+
 .Anchor {
   background: url("../../../static/icon-link.svg") 0 no-repeat;
   border-bottom: 0 !important;
