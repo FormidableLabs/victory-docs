@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
@@ -22,7 +23,7 @@ class CommonProps extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{...Victory, React, sampleData}}
+        scope={{...Victory, React, ReactDOM, sampleData}}
       />
     );
   }
