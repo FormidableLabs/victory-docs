@@ -100,44 +100,12 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### events
 
-VictoryAxis` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryAxis` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
 See the [Events Guide] for more information on defining events.
 
 **note:** valid event targets for `VictoryAxis` are "axis", "axisLabel", "grid", "ticks", and "tickLabels".
 Targets that correspond to only one element {"axis" and "axisLabel") should use the special eventKey "all".
-
-
-```playground
- <VictoryAxis
-  style={{
-    parent: { border: "1px solid #ccc" },
-    grid: { stroke: "#c43a31", strokeWidth: 2 }
-  }}
-  tickValues={[1, 2, 3, 4, 5]}
-  events={[
-    {
-      target: "grid",
-      eventHandlers: {
-        onClick: () => {
-          return [
-            {
-              mutation: (props) => {
-                return { style: merge({}, props.style, { stroke: "orange" }) };
-              }
-            }, {
-              target: "tickLabels",
-              mutation: () => {
-                return { text: "hey" };
-              }
-            }
-          ];
-        }
-      }
-    }
-  ]}
-/>
-```
 
 ### fixLabelOverlap
 
@@ -245,9 +213,9 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryAxis` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
 ### scale
 
@@ -263,9 +231,7 @@ scale={{x: "time"}}
 
 ### sharedEvents
 
-`VictoryAxis` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### standalone
 

@@ -6,15 +6,9 @@ VictoryScatter renders a dataset as a series of points. VictoryScatter can be co
 <VictoryChart
   theme={VictoryTheme.material}
   domain={{ x: [0, 5], y: [0, 7] }}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryScatter
-    style={{
-      data: { fill: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
-    }}
+    style={{ data: { fill: "#c43a31" } }}
     size={7}
     data={[
       { x: 1, y: 2 },
@@ -38,8 +32,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```js
   animate={{
     duration: 2000,
-    onLoad: { duration: 1000 },
-    onEnter: { duration: 500, before: () => ({y: 0}) }
+    onLoad: { duration: 1000 }
   )}
 ```
 ### bubbleProperty
@@ -117,7 +110,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 class CatPoint extends React.Component {
   render() {
     const {x, y, datum} = this.props; // VictoryScatter supplies x, y and datum
-    const cat = datum.y >= 0 ? "😻" : "😹";
+    const cat = datum._y >= 0 ? "😻" : "😹";
     return (
       <text x={x} y={y} fontSize={30}>
         {cat}
@@ -243,8 +236,10 @@ height={400}
 ```playground
 <VictoryScatter
   data={sampleData}
+  size={20}
+  style={{ labels: { fill: "white", fontSize: 18} }}
   labels={(datum) => datum.y}
-  labelComponent={<VictoryLabel dy={30}/>}
+  labelComponent={<VictoryLabel dy={18}/>}
 />
 ```
 
@@ -255,7 +250,7 @@ height={400}
 ```playground
 <VictoryScatter
   data={sampleData}
-  labels={(datum) => datum.y}
+  labels={(datum) => `y: ${datum.y}`}
 />
 ```
 

@@ -3,18 +3,14 @@
 VictoryArea renders a dataset as a single area. VictoryArea can be composed with [`VictoryChart`] to create area charts.
 
 ```playground
-<div>
-<VictoryArea
-  style={{ data: { fill: "#c43a31" } }}
-  data={sampleData}
-/>
-<VictoryChart>
+<VictoryChart
+  theme={VictoryTheme.material}
+>
   <VictoryArea
     style={{ data: { fill: "#c43a31" } }}
     data={sampleData}
   />
 </VictoryChart>
-</div>
 ```
 
 ## Props
@@ -28,8 +24,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```js
   animate={{
     duration: 2000,
-    onLoad: { duration: 1000 },
-    onEnter: { duration: 500, before: () => ({y: 0}) }
+    onLoad: { duration: 1000 }
   )}
 ```
 
@@ -158,7 +153,7 @@ See the [Events Guide] for more information on defining events.
 
 `VictoryArea` uses the standard `groupComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-**note:** `VictoryArea` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.**
+**note:** `VictoryArea` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.**
 
 *default:* `<VictoryClipContainer/>`
 

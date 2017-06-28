@@ -3,23 +3,15 @@
 VictoryBar renders a dataset as series of bars. VictoryBar can be composed with [`VictoryChart`] to create bar charts.
 
 ```playground
-<div>
+<VictoryChart
+  theme={VictoryTheme.material}
+  domainPadding={10}
+>
   <VictoryBar
-    width={300}
-    domainPadding={10}
     style={{ data: { fill: "#c43a31" } }}
     data={sampleData}
   />
-  <VictoryChart
-    width={300}
-    domainPadding={10}
-  >
-    <VictoryBar
-      style={{ data: { fill: "#c43a31" } }}
-      data={sampleData}
-    />
-  </VictoryChart>
-</div>
+</VictoryChart>
 ```
 
 ## Props
@@ -33,8 +25,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```js
   animate={{
     duration: 2000,
-    onLoad: { duration: 1000 },
-    onEnter: { duration: 500, before: () => ({y: 0}) }
+    onLoad: { duration: 1000 }
   )}
 ```
 
@@ -60,12 +51,18 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
-data={[
-  { x: 1, y: 2, y0: 1 },
-  { x: 2, y: 3: y0: 2 },
-  { x: 3, y: 5, y0: 4 }
-]}
+In addition to svg style properties and `label`, `VictoryBar` will also preferentially use `width` properties supplied via data objects
+
+```playground
+<VictoryBar
+  data={[
+    { x: 1, y: 2, y0: 1, width: 4 },
+    { x: 2, y: 3, y0: 2, width: 6 },
+    { x: 3, y: 5, y0: 2, width: 8 },
+    { x: 4, y: 4, y0: 3, width: 10 },
+    { x: 5, y: 6, y0: 3, width: 12 }
+  ]}
+/>
 ```
 
 ### dataComponent
@@ -101,9 +98,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryBar` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
-
-**note:** `VictoryBar` only renders one element per dataset, so only one event key will be generated.
+`VictoryBar` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```js
 eventKey="x"
@@ -199,16 +194,24 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 
 *default:* `<VictoryLabel/>`
 
-```js
-labelComponent={<VictoryLabel dy={20}/>}
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={(d) => d.y}
+  style={{ labels: { fill: "white" } }}
+  labelComponent={<VictoryLabel dy={30}/>}
+/>
 ```
 
 ### labels
 
 `VictoryBar` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-```js
-labels={(datum) => datum.y}
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={(d) => `y: ${d.y}`}
+/>
 ```
 
 ### name
@@ -263,9 +266,9 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryBar` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
 ### samples
 
@@ -289,9 +292,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-`VictoryBar` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### sortKey
 
@@ -390,7 +391,7 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-VictoryBar` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
+`VictoryBar` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 

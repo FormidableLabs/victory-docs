@@ -6,22 +6,13 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 <VictoryChart
   theme={VictoryTheme.material}
   domainPadding={{ x: 25 }}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
   scale={{ x: "time" }}
 >
 <VictoryAxis tickFormat={(t) => `${t.getDate()}/${t.getMonth()}`}/>
 <VictoryAxis dependentAxis/>
 <VictoryCandlestick
   candleColors={{ positive: "#5f5c5b", negative: "#c43a31" }}
-  data={[
-    {x: new Date(2016, 6, 1), open: 5, close: 10, high: 15, low: 0},
-    {x: new Date(2016, 6, 2), open: 10, close: 15, high: 20, low: 5},
-    {x: new Date(2016, 6, 3), open: 15, close: 20, high: 22, low: 10},
-    {x: new Date(2016, 6, 4), open: 20, close: 10, high: 25, low: 7},
-    {x: new Date(2016, 6, 5), open: 10, close: 8, high: 15, low: 5}
-  ]}
+  data={sampleData}
 />
 </VictoryChart>
 ```
@@ -37,8 +28,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```js
   animate={{
     duration: 2000,
-    onLoad: { duration: 1000 },
-    onEnter: { duration: 500, before: () => ({y: 0}) }
+    onLoad: { duration: 1000 }
   )}
 ```
 
@@ -48,8 +38,11 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 
 *default (provided by default theme):* `candleColors={{positive: "white", negative: "black"}}`
 
-```js
-candleColors={{ positive: "green", negative: "red" }}
+```playground
+<VictoryCandlestick
+  candleColors={{ positive: "#5f5c5b", negative: "#c43a31" }}
+  data={sampleData}
+/>
 ```
 
 ### categories
@@ -79,15 +72,6 @@ Use `close` data accessor prop to define the close value of a candle.
 **path string or path array:** specify which property in an array of nested data objects should be used as a close value
 
 *examples:* `close="bonds.close"`, `close={["bonds", "close"]}`
-
-```js
-close: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
 
 ### containerComponent
 
@@ -145,7 +129,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryCandlestick` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```js
 eventKey="x"
@@ -225,31 +209,30 @@ Use `high` data accessor prop to define the high value of a candle.
 
 *examples:* `high="bonds.high"`, `high={["bonds", "high"]}`
 
-```js
-high: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
-
 ### labelComponent
 
 `VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel/>`
 
-```js
-labelComponent={<VictoryLabel dy={20}/>}
+
+```playground
+<VictoryCandlestick
+  data={sampleData}
+  labels={(d) => d.open}
+  labelComponent={<VictoryLabel dx={-10} dy={22}/>}
+/>
 ```
 
 ### labels
 
 `VictoryCandlestick` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-```js
-labels={(datum) => datum.y}
+```playground
+<VictoryCandlestick
+  data={sampleData}
+  labels={(d) => `open: ${d.open}`}
+/>
 ```
 
 ### low
@@ -272,18 +255,9 @@ Use `low` data accessor prop to define the low value of a candle.
 
 *examples:* `low="bonds.low"`, `low={["bonds", "low"]}`
 
-```js
-low: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
-
 ### name
 
-`VictoryCandlestick` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
 name="series-1"
@@ -309,22 +283,6 @@ Use `open` data accessor prop to define the open value of a candle.
 
 *examples:* `open="bonds.open"`, `open={["bonds", "open"]}`
 
-```js
-open: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
-
-### name
-
-The `name` prop is used to reference a component instance when defining shared events.
-
-```jsx
-name="series-1"
-```
 
 ### origin
 
@@ -351,9 +309,10 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryCandlestick` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+
 
 ### samples
 
@@ -377,9 +336,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-`VictoryCandlestick` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### sortKey
 
@@ -404,7 +361,7 @@ sortKey="x"
   <circle cx={150} cy={150} r={150} fill="#c43a31"/>
   <VictoryCandlestick
     standalone={false}
-    width={300} height={300} padding={{left: 10, right: 10}}
+    width={300} height={300}
     data={sampleData}
   />
 </svg>
@@ -430,7 +387,7 @@ sortKey="x"
       }
     }}
     data={sampleData}
-    labels={(d) => d.x}
+    labels={(d) => d.open}
   />
 ```
 

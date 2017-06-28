@@ -3,7 +3,10 @@
 `VictoryErrorBar` renders a dataset as a series of error bars. `VictoryErrorBar` can be composed with other components to add x and y error bars to data.
 
 ```playground
-<VictoryChart>
+<VictoryChart
+  domainPadding={15}
+  theme={VictoryTheme.material}
+>
   <VictoryErrorBar
     data={[
       {x: 15, y: 35000, error: 0.2},
@@ -29,8 +32,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```js
   animate={{
     duration: 2000,
-    onLoad: { duration: 1000 },
-    onEnter: { duration: 500, before: () => ({y: 0}) }
+    onLoad: { duration: 1000 }
   )}
 ```
 
@@ -123,14 +125,6 @@ Use `errorX` data accessor prop to define the x error bar.
 
 *examples:* `errorX="measurement.uncertainty"`, `errorX={["measurement", "uncertainty"]}`
 
-```js
-errorX: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
 
 ### errorY
 
@@ -152,17 +146,9 @@ Use `errorY` data accessor prop to define the y error bar.
 
 *examples:* `errorY="measurement.uncertainty"`, `errorY={["measurement", "uncertainty"]}`
 
-```js
-errorY: PropTypes.oneOfType([
-  PropTypes.func,
-  CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
-  PropTypes.string,
-  PropTypes.arrayOf(PropTypes.string)
-])
-```
 ### eventKey
 
-`VictoryErrorBar` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryErrorBar` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```js
 eventKey="x"
@@ -229,16 +215,23 @@ height={400}
 
 *default:* `<VictoryLabel/>`
 
-```js
-labelComponent={<VictoryLabel dy={20}/>}
+```playground
+<VictoryErrorBar
+  data={sampleData}
+  labels={(d) => d.y}
+  labelComponent={<VictoryLabel dx={-20} dy={18}/>}
+/>
 ```
 
 ### labels
 
 `VictoryErrorBar` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-```js
-labels={(datum) => datum.y}
+```playground
+<VictoryErrorBar
+  data={sampleData}
+  labels={(d) => d.y}
+/>
 ```
 
 ### name
@@ -274,9 +267,9 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryErrorBar` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
 ### samples
 
@@ -300,9 +293,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-`VictoryErrorBar` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### sortKey
 

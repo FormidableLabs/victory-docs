@@ -5,9 +5,6 @@ VictoryLine renders a dataset as a single area. VictoryLine can be composed with
 ```playground
 <VictoryChart
   theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryLine
     style={{
@@ -36,8 +33,7 @@ See the [Animations Guide] for more detail on animations and transitions
 ```js
   animate={{
     duration: 2000,
-    onLoad: { duration: 1000 },
-    onEnter: { duration: 500, before: () => ({y: 0}) }
+    onLoad: { duration: 1000 }
   )}
 ```
 
@@ -63,12 +59,18 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
-data={[
-  { x: 1, y: 2, y0: 1 },
-  { x: 2, y: 3: y0: 2 },
-  { x: 3, y: 5, y0: 4 }
-]}
+```playground
+<VictoryChart>
+  <VictoryLine
+    data={[
+      { x: 1, y: 2 },
+      { x: 2, y: 3 },
+      { x: 3, y: 5 },
+      { x: 4, y: 4 },
+      { x: 5, y: 6 }
+    ]}
+  />
+</VictoryChart>
 ```
 
 ### dataComponent
@@ -104,7 +106,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryLine` uses the standard `eventKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryLine` uses the standard `eventKey` prop. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 **note:** `VictoryLine` only renders one element per dataset, so only one event key will be generated.
 
@@ -160,12 +162,18 @@ See the [Events Guide] for more information on defining events.
 
 `VictoryLine` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-**note:** `VictoryLine` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit. Supplying a completely custom `groupComponent` to `VictoryLine` may result in broken animations.
+**note:** `VictoryLine` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryLine` may result in broken animations.**
 
 *default:* `<VictoryClipContainer/>`
 
-```js
-groupComponent={<VictoryClipContainer clipPadding={{ top: 5, bottom: 5 }} />}
+```playground
+<VictoryChart>
+  <VictoryLine
+    groupComponent={<VictoryClipContainer clipPadding={{ top: 5, right: 10 }}/>}
+    style={{ data: { stroke: "#c43a31", strokeWidth: 15, strokeLinecap: "round" } }}
+    data={sampleData}
+  />
+</VictoryChart>
 ```
 
 ### height
@@ -182,9 +190,9 @@ height={400}
 
 The `interpolation` prop determines how data points should be connected when creating a path. Victory uses [d3-shape](https://github.com/d3/d3-shape#curves) for interpolating curves.
 
-The following options are supported for all chart types: "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "radial", "step", "stepAfter", "stepBefore"
+Polar area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear"
 
-The following options are supported for polar charts: "basis", "cardinal", "catmullRom", "linear"
+Cartesian area charts may use the following interpolation options: "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
 
 *default:* `"linear"`
 
@@ -199,10 +207,14 @@ The following options are supported for polar charts: "basis", "cardinal", "catm
 
 `VictoryLine` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
-*default:* `<VictoryLabel/>`
+*default:* `<VictoryLabel renderInPortal/>`
 
-```js
-labelComponent={<VictoryLabel dy={20}/>}
+```playground
+<VictoryLine
+  data={sampleData}
+  labels={(datum) => datum.y}
+  labelComponent={<VictoryLabel renderInPortal dy={-20}/>}
+/>
 ```
 
 
@@ -210,8 +222,11 @@ labelComponent={<VictoryLabel dy={20}/>}
 
 `VictoryLine` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
-```js
-labels={(datum) => datum.y}
+```playground
+<VictoryLine
+  data={sampleData}
+  labels={(datum) => datum.y}
+/>
 ```
 
 ### name
@@ -266,9 +281,10 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
-`VictoryLine` uses the standard `range` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#range)
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-*note:* The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+
 
 ### samples
 
@@ -276,8 +292,18 @@ padding={{ top: 20, bottom: 60 }}
 
 *default:* `samples={50}`
 
-```jsx
-samples={100}
+```playground
+<VictoryChart>
+  <VictoryLine
+    samples={25}
+    y={(d) => Math.sin(5 * Math.PI * d.x)}
+  />
+  <VictoryLine
+    samples={100}
+    style={{ data: { stroke: "red" } }}
+    y={(d) => Math.cos(5 * Math.PI * d.x)}
+  />
+</VictoryChart>
 ```
 
 ### scale
@@ -292,9 +318,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sharedEvents
 
-`VictoryLine` uses the standard `sharedEvents` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sharedevents)
-
-*note:* The `sharedEvents` prop used internally to coordinate events between components. It should not be set manually.
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### sortKey
 
@@ -302,8 +326,13 @@ scale={{x: "linear", y: "log"}}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```jsx
-sortKey="x"
+```playground
+<VictoryLine
+  data={range(0, 2 * Math.PI, 0.01).map((t) => ({ t }))}
+  sortKey="t"
+  x={(d) => Math.sin(3 * d.t + (2 * Math.PI))}
+  y={(d) => Math.sin(2 * d.t)}
+/>
 ```
 
 ### standalone

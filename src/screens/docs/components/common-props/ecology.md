@@ -152,7 +152,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 class CatPoint extends React.Component {
   render() {
     const {x, y, datum} = this.props; // VictoryScatter supplies x, y and datum
-    const cat = datum.y >= 0 ? "😻" : "😹";
+    const cat = datum._y >= 0 ? "😻" : "😹";
     return (
       <text x={x} y={y} fontSize={30}>
         {cat}
@@ -260,7 +260,7 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### groupComponent
 
-The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. For most components, this prop defaults to a `<g>` tag. Continuous data components like `VictoryLine` and `VictoryArea` use [VictoryClipContainer] a component which renders a `<g>` tag or a `<g>` tag with a `clipPath` `def` depending on whether the component should animate. This allows continuous data components to transition smoothly when new data points enter and exit. `VictoryClipContainer` may also be used with components like `VictoryScatter` to prevent data from overflowing the chart area.
+The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. For most components, this prop defaults to a `<g>` tag. Continuous data components like `VictoryLine` and `VictoryArea` use [VictoryClipContainer] a component which renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. `VictoryClipContainer` may also be used with components like `VictoryScatter` to prevent data from overflowing the chart area.
 
 ```playground
 <VictoryChart>
