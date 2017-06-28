@@ -121,7 +121,7 @@ The `standalone` props specifies whether the component should be rendered in a i
 
 ### interpolation
 
-The `interpolation` prop determines how data points should be connected when creating a path. The following options are supported: "basis", "bundle", "cardinal", "catmullRom", "linear", "linearClosed", "monotoneX", "monotoneY", "natural", "radial", "step", "stepAfter", "stepBefore".
+The `interpolation` prop determines how data points should be connected when creating a path. The following options are supported: "basis", "bundle", "cardinal", "catmullRom", "linear", "linearClosed", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore".
 
 *default:* `interpolation="linear"`
 
