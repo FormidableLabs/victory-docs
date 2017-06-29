@@ -22,6 +22,7 @@ module.exports = [
   "/docs/victory-legend",
   "/docs/victory-line",
   "/docs/victory-pie",
+  "/docs/victory-polar-axis",
   "/docs/victory-portal",
   "/docs/victory-primitives",
   "/docs/victory-scatter",

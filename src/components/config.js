@@ -14,6 +14,7 @@ import VLabelDocs from "../screens/docs/components/victory-label/index.js";
 import VLegendDocs from "../screens/docs/components/victory-legend/index.js";
 import VLineDocs from "../screens/docs/components/victory-line/index.js";
 import VPieDocs from "../screens/docs/components/victory-pie/index.js";
+import VPolarAxisDocs from "../screens/docs/components/victory-polar-axis/index.js";
 import VPortalDocs from "../screens/docs/components/victory-portal/index.js";
 import VPrimitivesDocs from "../screens/docs/components/victory-primitives/index.js";
 import VScatterDocs from "../screens/docs/components/victory-scatter/index.js";
@@ -26,7 +27,6 @@ import VTooltipDocs from "../screens/docs/components/victory-tooltip/index.js";
 import VTransitionDocs from "../screens/docs/components/victory-transition/index.js";
 import VVoronoiDocs from "../screens/docs/components/victory-voronoi/index.js";
 import VVoronoiContainerDocs from "../screens/docs/components/victory-voronoi-container/index.js";
-import VVoronoiTooltipDocs from "../screens/docs/components/victory-voronoi-tooltip/index.js";
 import NativeTutorial from "../screens/docs/components/native/index.js";
 import VZoomDocs from "../screens/docs/components/victory-zoom/index.js";
 import VZoomContainerDocs from "../screens/docs/components/victory-zoom-container/index.js";
@@ -142,6 +142,12 @@ export const config = [
     category: "more",
     docs: VPieDocs,
     toc: VPieDocs.toc()
+  }, {
+    text: "VictoryPolarAxis",
+    slug: "victory-polar-axis",
+    category: "chart",
+    docs: VPolarAxisDocs,
+    toc: VPolarAxisDocs.toc()
   }, {
     text: "VictoryPortal",
     slug: "victory-portal",
