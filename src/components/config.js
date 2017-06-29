@@ -209,12 +209,6 @@ export const config = [
     docs: VVoronoiContainerDocs,
     toc: VVoronoiContainerDocs.toc()
   }, {
-    text: "VictoryVoronoiTooltip",
-    slug: "victory-voronoi-tooltip",
-    category: "chart",
-    docs: VVoronoiTooltipDocs,
-    toc: VVoronoiTooltipDocs.toc()
-  }, {
     text: "VictoryZoom",
     slug: "victory-zoom",
     category: "chart",

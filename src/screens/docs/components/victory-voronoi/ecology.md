@@ -367,7 +367,6 @@ y={(d) => d.value + d.error}
 **It is not common to set a `y0` prop with `VictoryVoronoi`, as baselines for `VictoryVoronoi` are only relevant for stacked charts.** [Read more about the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[`bubbleProperty`]: https://formidable.com/open-source/victory/docs/victory-scatter#bubbleproperty
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
 [Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
