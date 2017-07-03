@@ -35,7 +35,6 @@ module.exports = [
   "/docs/victory-transition",
   "/docs/victory-voronoi",
   "/docs/victory-voronoi-container",
-  "/docs/victory-zoom",
   "/docs/victory-zoom-container",
   "/gallery",
   "/gallery/alternative-events",

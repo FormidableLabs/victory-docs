@@ -28,7 +28,6 @@ import VTransitionDocs from "../screens/docs/components/victory-transition/index
 import VVoronoiDocs from "../screens/docs/components/victory-voronoi/index.js";
 import VVoronoiContainerDocs from "../screens/docs/components/victory-voronoi-container/index.js";
 import NativeTutorial from "../screens/docs/components/native/index.js";
-import VZoomDocs from "../screens/docs/components/victory-zoom/index.js";
 import VZoomContainerDocs from "../screens/docs/components/victory-zoom-container/index.js";
 import CreateContainerDocs from "../screens/docs/components/create-container/index.js";
 
@@ -214,12 +213,6 @@ export const config = [
     category: "chart",
     docs: VVoronoiContainerDocs,
     toc: VVoronoiContainerDocs.toc()
-  }, {
-    text: "VictoryZoom",
-    slug: "victory-zoom",
-    category: "chart",
-    docs: VZoomDocs,
-    toc: VZoomDocs.toc()
   }, {
     text: "VictoryZoomContainer",
     slug: "victory-zoom-container",
