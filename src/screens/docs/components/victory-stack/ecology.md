@@ -21,176 +21,305 @@
 
 ## Props
 
-### children
+### animate
 
-`VictoryStack` works with any combination of the following children: [VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup],[VictoryLine], and [VictoryScatter]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`, and so that attributes necessary for stacking are added to data objects.
+`VictoryStack` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+
+See the [Animations Guide] for more detail on animations and transitions
+
+**note: `VictoryStack` controls the `animate` prop of its children when set**
+
+```js
+  animate={{
+    duration: 2000,
+    onLoad: { duration: 1000 }
+  )}
+```
 
 ### categories
 
-The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
+`VictoryStack` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
-*examples:* `categories={["dogs", "cats", "mice"]}`
+**note: When this prop is set, `VictoryGroup` controls the `categories` prop of its children.**
+
+```js
+categories={["dogs", "cats", "mice"]}
+```
+
+### children
+
+`VictoryStack` works with any combination of the following children: [VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], and [VictoryVoronoi]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
+
 
 ### colorScale
 
-The `colorScale` prop is an optional prop that defines a color scale to be applied to the children of `VictoryStack` This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryStack` will assign colors to its children by index, unless they are explicitly specified in styles. Colors will repeat when there are more children than colors in the provided `colorScale`.
-
-*examples:* `colorScale={["red", "orange", "yellow", "green"]}`
+The `colorScale` prop is an optional prop that defines a color scale to be applied to the children of `VictoryStack`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryGroup` will assign colors to its children by index, unless they are explicitly specified in styles. Colors will repeat when there are more children than colors in the provided `colorScale`.
 
 *default (provided by default theme):* See [grayscale theme] for more detail
 
-### theme
-
-The `theme` prop specifies a theme to use for determining layout properties for a `VictoryStack`. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
-
-*default:* `theme={VictoryTheme.grayscale}`
-
-### width and height
-
-The `width` and `height` props determine the width and height of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container. `VictoryStack` controls the `width` and `height` props of its children. If `VictoryStack` is nested within `VictoryChart`, this responsibility will be deferred to `VictoryChart`.
-
-*default (provided by default theme):* `width={450} height={300}`
-
-
-### padding
-
-The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width and height], the absolute padding will depend on whether the component is rendered in a responsive container. `VictoryStack` controls the `padding` prop of its children. If `VictoryStack` is nested within `VictoryChart`, this responsibility will be deferred to `VictoryChart`.
-
-*examples:* `padding={{top: 20, bottom: 60}}` or `padding={40}`
-
-*default (provided by default theme):* `padding={50}`
-
-### standalone
-
-The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`. `VictoryStack` forces its children to use `standalone={false}`.
-
-*default:* `standalone={true}`
-
-### horizontal
-
-The `horizontal` prop determines whether the bars of any `VictoryBar` children supplied to `VictoryStack` will be laid vertically or horizontally. The bars will be vertical if this prop is false or unspecified, or horizontal if the prop is set to true.
-
-*default:* `horizontal={false}`
-
-### xOffset
-
-The `xOffset` prop is used for grouping stacks of bars. This prop will be set by the VictoryGroup component wrapper, or can be set manually.
-
-
-### scale
-
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. `VictoryStack` controls the `scale` prop of its children. For "time" scales, data points should be `Date` objects or `getTime()` ints.
-
-*examples:* `scale="time"`, `scale={{x: "linear", y: "log"}}`
-
-*default:* `scale="linear"`
-
-### domain
-
-The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated based on data and other information from all of its children. `VictoryStack` controls the `domain` prop of all its children.
-
-*examples:* `domain={[-1, 1]}` `domain={{x: [0, 100], y: [0, 1]}}`
-
-### domainPadding
-
-The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum. `VictoryStack` controls the `domainPadding` prop of all its children.
-
-*examples:* `domainPadding={20}`, `domainPadding={{x: [20, 0]}}`
-
-**note:** Values supplied for  `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
-
-### labels
-
-The `labels` prop defines labels that will appear above each stack of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Stack labels will override the labels prop of child components. Omit this prop, and set `labels` props on children for individual labels.
-
-*examples:* `labels={["spring", "summer", "fall", "winter"]}`, `labels={(datum) => datum.title}`
-
-### labelComponent
-
-The `labelComponent` prop takes a component instance which will be used to render labels for each stack. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with props described above.
-
-*examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
-
-*default:* `<VictoryLabel/>`
+```playground
+<VictoryStack
+  colorScale={["tomato", "orange", "gold"]}
+>
+  <VictoryBar
+    data={[{x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 5}]}
+  />
+  <VictoryBar
+    data={[{x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}]}
+  />
+  <VictoryBar
+    data={[{x: "a", y: 3}, {x: "b", y: 2}, {x: "c", y: 6}]}
+  />
+</VictoryStack>
+```
 
 
 ### containerComponent
 
-The `containerComponent` prop takes a component instance which will be used to create a container element for standalone charts. The new element created from the passed `containerComponent` will be provided with the following props: `height`, `width`, `children` (the chart itself) and `style`. If a `containerComponent` is not provided, the default `VictoryContainer` component will be used. `VictoryContainer` supports `title` and `desc` props, which are intended to add accessibility to Victory components. The more descriptive these props are, the more accessible your data will be for people using screen readers. These props may be set by passing them directly to the supplied component. By default, `VictoryContainer` renders a responsive `svg` using the `viewBox` attribute. To render a static container, set `responsive={false}` directly on the instance of `VictoryContainer` supplied via the `containerComponent` prop. `VictoryContainer` also renders a `Portal` element that may be used in conjunction with [VictoryPortal] to force components to render above other children.
+`VictoryStack` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-*examples:* `containerComponent={<VictoryContainer responsive={false} title="Chart of Q1 Profit/>}`
+```js
+containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+```
+### domain
 
-*default:* `containerComponent={<VictoryContainer/>}`
+`VictoryStack` uses the standard `domain` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
-### groupComponent
+**note: `VictoryStack` controls the `domain` prop of its children.**
 
-The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. This prop defaults to a `<g>` tag.
+```js
+domain={{x: [0, 100], y: [0, 1]}}
+```
 
-*default:* `groupComponent={<g/>}`
+### domainPadding
 
-### animate
+`VictoryStack` uses the standard `domainPadding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
-The `animate` prop specifies props for [VictoryAnimation] and [VictoryTransition] to use. The animate prop may be used to specify the duration, delay and easing of an animation. When an `animate` prop is provided, `VictoryStack` will set the `animate` props on all of its children to coordinate animations. The behavior of `onEnter` and `onExit` and `onLoad` transitions will still be defined by each child component unless these are explicitly modified, or overwritten with the `animate` prop.
+**note: `VictoryStack` controls the `domainPadding` prop of its children.**
 
-*examples:* `animate={{duration: 2000}}`
+```js
+domainPadding={{x: [10, -10], y: 5}}
+```
+
+### eventKey
+
+`VictoryStack` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+
+```js
+eventKey="x"
+```
 
 ### events
 
-`VictoryStack` uses the `VictorySharedEvents` wrapper to coordinate events between its children. The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, a `childName` and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this components like `VictoryBar`. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `childName` property may be given as a string or an array of strings to target multiple children. The `eventHandlers` object should be given as an object whose keys are standard event names (i.e. `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elements. The return value should be given as an object or an array of objects with optional `target`, `childName` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (i.e. a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+`VictoryStack` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-*examples:*
-```jsx
- <VictoryStack
+See the [Events Guide] for more information on defining events.
+
+**Note: `VictoryStack` coordinates events between children using the `VictorySharedEvents` and the `sharedEvents` prop**
+
+```playground
+<VictoryStack
   events={[{
-    childName: ["bar-1", "bar-2"],
+    childName: "all",
     target: "data",
     eventHandlers: {
       onClick: () => {
         return [
           {
-            childName: ["bar-3", "bar-4"],
+            childName: "area-2",
             target: "data",
-            mutation: (props) => {
-              const fill = props.style.fill;
-              return fill === "gold" ? null : {style: {fill: "gold"}};
-            },
-            callback: () => {
-              console.log("I happen after setState");
-            }
+            mutation: (props) => ({ style: Object.assign({}, props.style, { fill: "gold" }) })
+          }, {
+            childName: "area-3",
+            target: "data",
+            mutation: (props) => ({ style: Object.assign({}, props.style, { fill: "orange" }) })
+          }, {
+            childName: "area-4",
+            target: "data",
+            mutation: (props) => ({ style: Object.assign({}, props.style, { fill: "red" }) })
           }
         ];
       }
     }
   }]}
 >
-  <VictoryBar name="bar-1"
-    data={[{x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 5}]}
-  />
-  <VictoryBar name="bar-2"
-    data={[{x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}]}
-  />
-  <VictoryBar name="bar-3"
-    data={[{x: "a", y: 3}, {x: "b", y: 2}, {x: "c", y: 6}]}
-  />
-  <VictoryBar name="bar-4"
-    data={[{x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 3}]}
-  />
+  <VictoryArea name="area-1" data={sampleData}/>
+  <VictoryArea name="area-2" data={sampleData}/>
+  <VictoryArea name="area-3" data={sampleData}/>
+  <VictoryArea name="area-4" data={sampleData}/>
 </VictoryStack>
 ```
+### groupComponent
 
+`VictoryStack` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-### eventKey
+*default:* `<g/>`
 
-The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
+```jsx
+groupComponent={<g transform="translate(10, 10)" />}
+```
+### height
 
-### sharedEvents
+`VictoryStack` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
-The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. This prop should not be set manually.
+*default (provided by default theme):* `height={300}`
+
+```jsx
+height={400}
+```
+
+### horizontal
+
+The `horizontal` prop determines whether the bars of any `VictoryBar` children supplied to `VictoryStack` will be laid out vertically or horizontally. The bars will be vertical if this prop is false or unspecified, or horizontal if the prop is set to true.
+
+### labels
+
+The `labels` prop defines labels that will appear above each stack of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the `labels` prop of child components. Omit this prop, and set `labels` props on children for individual labels.
+
+```jsx
+labels={["spring", "summer", "fall", "winter"]}`, `labels={(datum) => datum.title}
+```
+
+### labelComponent
+
+The `labelComponent` prop takes a component instance which will be used to render labels for each stack. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+
+*default:* `<VictoryLabel/>`
+
+```jsx
+labelComponent={<VictoryLabel dy={20}/>}
+```
 
 ### name
 
 The `name` prop is used to reference a component instance when defining shared events.
 
+```jsx
+name="series-1"
+```
+
+### origin
+
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
+
+[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+
+
+### padding
+
+`VictoryStack` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+
+*default (provided by default theme):* `padding={50}`
+
+```jsx
+padding={{ top: 20, bottom: 60 }}
+```
+
+### polar
+
+`VictoryStack` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
+
+### range
+
+**The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
+
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+
+### scale
+
+`VictoryStack` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
+
+*default:* `scale="linear"`
+
+```js
+scale={{x: "linear", y: "log"}}
+```
+
+### sharedEvents
+
+**The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### sortKey
+
+`VictoryStack` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
+
+See the [Data Accessors Guide] for more detail on formatting and processing data.
+
+```jsx
+sortKey="x"
+```
+
+### standalone
+
+`VictoryStack` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+
+**note:** When `VictoryGroup` is nested within a component like `VictoryChart`, this prop will be set to `false`
+
+*default:* `standalone={true}`
+
+
+### style
+
+`VictoryStack` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
+
+Styles on children of `VictoryGroup` will override styles set on the `VictoryGroup` component.
+
+*default (provided by default theme):* See [grayscale theme] for more detail
+
+```playground
+<VictoryStack
+  style={{
+    parent: { border: "1px solid #ccc" },
+    data: { stroke: "black", strokeWidth: 3 }
+  }}
+>
+  <VictoryBar
+    style={{ data: { fill: "#c43a31" } }}
+    data={[{x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 5}]}
+  />
+  <VictoryBar
+    data={[{x: "a", y: 1}, {x: "b", y: 4}, {x: "c", y: 5}]}
+  />
+  <VictoryBar
+    data={[{x: "a", y: 3}, {x: "b", y: 2}, {x: "c", y: 6}]}
+  />
+</VictoryStack>
+```
+
+### theme
+
+`VictoryStack` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+
+See the [Themes Guide] for information about creating custom themes.
+
+*default:* `theme={VictoryTheme.grayscale}`
+
+```jsx
+theme={VictoryTheme.material}
+```
+
+### width
+
+`VictoryStack` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+
+*default (provided by default theme):* `width={450}`
+
+```jsx
+width={400}
+```
+
+### xOffset
+
+The `xOffset` prop is used for grouping stacks of bars. This prop will be set by the `VictoryGroup` component wrapper, or can be set manually.
+
+
+
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
+[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
+[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
 [VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
@@ -201,11 +330,4 @@ The `name` prop is used to reference a component instance when defining shared e
 [VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
 [VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
-[VictoryVoronoiTooltip]: https://formidable.com/open-source/victory/docs/victory-voronoi-tooltip
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
-[width and height]: https://formidable.com/open-source/victory/docs/victory-stack#width-and-height
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
-[VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
-[VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition

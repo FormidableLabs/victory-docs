@@ -5,16 +5,86 @@
 ```playground
 <VictoryPie
   data={[
-    {month: "Sep", profit: 35000, loss: 2000},
-    {month: "Oct", profit: 42000, loss: 8000},
-    {month: "Nov", profit: 55000, loss: 5000}
+    { x: "Cats", y: 35 },
+    { x: "Dogs", y: 40 },
+    { x: "Birds", y: 55 }
   ]}
-  x="month"
-  y={(datum) => datum.profit - datum.loss}
 />
 ```
 
 ## Props
+
+### animate
+
+`VictoryPie` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+
+See the [Animations Guide] for more detail on animations and transitions
+
+```js
+  animate={{
+    duration: 2000
+  )}
+```
+
+### categories
+
+`VictoryPie` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+
+```js
+categories={["dogs", "cats", "mice"]}
+```
+
+### containerComponent
+
+`VictoryPie` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+
+**Note:** `VictoryPie` only works with `VictoryContainerComponent`
+
+*default:* `containerComponent={<VictoryContainerComponent/>}`
+
+```js
+containerComponent={<VictoryContainerComponent responsive={false}/>}
+```
+
+### data
+
+`VictoryPie` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
+
+See the [Data Accessors Guide] for more detail on formatting and processing data.
+
+
+```playground
+<VictoryPie
+  data={[
+    { x: 1, y: 2, label: "one" },
+    { x: 2, y: 3, label: "two" },
+    { x: 3, y: 5, label: "three" }
+  ]}
+/>
+```
+
+### dataComponent
+
+`VictoryPie` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+
+`VictoryPie` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `pathFunction`, `slice`, `style`
+
+See the [Custom Components Guide] for more detail on creating your own `dataComponents`
+
+*default:* `<Slice/>`
+
+```js
+dataComponent={<Slice events={{ onClick: handleClick }}/>}
+```
+
+
+
+
+
+
+
+
+
 
 ### data
 

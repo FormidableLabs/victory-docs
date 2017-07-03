@@ -72,6 +72,57 @@ domain={{x: [0, 100], y: [0, 1]}}
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
+### endAngle
+
+The `endAngle` props defines the overall end angle of a polar chart in degrees. This prop is used in conjunction with `startAngle` to create polar chart that spans only a segment of a circle, or to change overall rotation of the chart. This prop should be given as a number of degrees. Degrees are defined as starting at the 3 o'clock position, and proceeding counterclockwise.
+
+*default:* `endAngle={360}`
+
+```playground
+<div>
+  <VictoryChart polar
+    theme={VictoryTheme.material}
+    startAngle={90}
+    endAngle={450}
+  >
+    <VictoryPolarAxis
+      tickValues={[0, 45, 90, 135, 180, 225, 270, 315]}
+      labelPlacement="vertical"
+    />
+    <VictoryBar style={{ data: { fill: "tomato", width: 30 } }}
+      data={[
+        { x: 0, y: 2 },
+        { x: 60, y: 3 },
+        { x: 120, y: 5 },
+        { x: 180, y: 4 },
+        { x: 240, y: 4 },
+        { x: 300, y: 4 }
+      ]}
+    />
+  </VictoryChart>
+
+  <VictoryChart polar
+    theme={VictoryTheme.material}
+    startAngle={0}
+    endAngle={180}
+  >
+    <VictoryPolarAxis
+      tickValues={[0, 45, 90, 135, 180]}
+      labelPlacement="vertical"
+    />
+    <VictoryBar style={{ data: { fill: "tomato", width: 30 } }}
+      data={[
+        { x: 0, y: 2 },
+        { x: 45, y: 3 },
+        { x: 90, y: 5 },
+        { x: 135, y: 4 },
+        { x: 180, y: 7 }
+      ]}
+    />
+  </VictoryChart>
+</div>
+```
+
 ### events
 
 `VictoryChart` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
@@ -137,6 +188,18 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
+### innerRadius
+
+When the `innerRadius` prop is set, polar charts will be hollow rather than circular.
+
+```playground
+<VictoryChart polar theme={VictoryTheme.material} innerRadius={50}>
+  <VictoryPolarAxis/>
+  <VictoryPolarAxis dependentAxis tickValues={[1, 3, 5]} axisAngle={40}/>
+  <VictoryBar data={sampleData} style={{ data: { fill: "tomato", width: 30 } }}/>
+</VictoryChart>
+```
+
 ### padding
 
 `VictoryChart` uses the standard `padding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#padding)
@@ -153,27 +216,32 @@ padding={{ top: 20, bottom: 60 }}
 
 `VictoryChart` uses the standard `polar` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
-**note: `VictoryChart` controls the `polar` prop of its children.**
+**Notes:**
+  - `VictoryChart` controls the `polar` prop of its children
+  - Polar charts should use `VictoryPolarAxis` rather than `VictoryAxis`
 
 ```playground
-<VictoryChart polar
-  theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
->
-  <VictoryPolarAxis dependentAxis
-    style={{ axis: { stroke: "none" } }}
-    tickFormat={() => null}
-  />
-  <VictoryPolarAxis/>
-  <VictoryBar
-    data={sampleData}
-    style={{
-      data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 }
-    }}
-  />
-</VictoryChart>
+<div>
+  <VictoryChart polar
+    theme={VictoryTheme.material}
+  >
+    <VictoryPolarAxis/>
+    <VictoryBar
+      data={sampleData}
+      style={{ data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 }}}
+    />
+  </VictoryChart>
+
+  <VictoryChart
+    theme={VictoryTheme.material}
+  >
+    <VictoryAxis/>
+    <VictoryBar
+      data={sampleData}
+      style={{ data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 }}}
+    />
+  </VictoryChart>
+</div>
 ```
 
 ### range
@@ -218,7 +286,56 @@ scale={{x: "linear", y: "log"}}
   />
 </svg>
 ```
+### startAngle
 
+The `startAngle` props defines the overall start angle of a polar chart in degrees. This prop is used in conjunction with `endAngle` to create polar chart that spans only a segment of a circle, or to change overall rotation of the chart. This prop should be given as a number of degrees. Degrees are defined as starting at the 3 o'clock position, and proceeding counterclockwise.
+
+*default:* `startAngle={0}`
+
+```playground
+<div>
+  <VictoryChart polar
+    theme={VictoryTheme.material}
+    startAngle={90}
+    endAngle={450}
+  >
+    <VictoryPolarAxis
+      tickValues={[0, 45, 90, 135, 180, 225, 270, 315]}
+      labelPlacement="vertical"
+    />
+    <VictoryBar style={{ data: { fill: "tomato", width: 30 } }}
+      data={[
+        { x: 0, y: 2 },
+        { x: 60, y: 3 },
+        { x: 120, y: 5 },
+        { x: 180, y: 4 },
+        { x: 240, y: 4 },
+        { x: 300, y: 4 }
+      ]}
+    />
+  </VictoryChart>
+
+  <VictoryChart polar
+    theme={VictoryTheme.material}
+    startAngle={0}
+    endAngle={180}
+  >
+    <VictoryPolarAxis
+      tickValues={[0, 45, 90, 135, 180]}
+      labelPlacement="vertical"
+    />
+    <VictoryBar style={{ data: { fill: "tomato", width: 30 } }}
+      data={[
+        { x: 0, y: 2 },
+        { x: 45, y: 3 },
+        { x: 90, y: 5 },
+        { x: 135, y: 4 },
+        { x: 180, y: 7 }
+      ]}
+    />
+  </VictoryChart>
+</div>
+```
 
 ### style
 
