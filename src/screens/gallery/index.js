@@ -5,29 +5,8 @@ import Radium from "radium";
 import Playground from "component-playground";
 import find from "lodash/find";
 import {Link} from "react-router";
-import {
-  Area,
-  Bar,
-  VictoryAnimation,
-  VictoryArea,
-  VictoryAxis,
-  VictoryBar,
-  VictoryBrushContainer,
-  VictoryChart,
-  VictoryGroup,
-  VictoryLabel,
-  VictoryLine,
-  VictoryPie,
-  VictoryPortal,
-  VictoryScatter,
-  VictoryStack,
-  VictoryTheme,
-  VictoryTooltip,
-  VictoryVoronoi,
-  VictoryVoronoiContainer,
-  VictoryVoronoiTooltip,
-  VictoryZoomContainer
-} from "victory";
+import * as Victory from "victory";
+import _ from "lodash";
 
 // Child Components
 import Footer from "../../components/footer";
@@ -43,30 +22,11 @@ class Gallery extends React.Component {
     super(props);
 
     this.scope = {
+      ...Victory,
+      _,
       React,
       ReactDOM,
-      PropTypes,
-      Area,
-      Bar,
-      VictoryAnimation,
-      VictoryArea,
-      VictoryAxis,
-      VictoryBar,
-      VictoryBrushContainer,
-      VictoryChart,
-      VictoryGroup,
-      VictoryLabel,
-      VictoryLine,
-      VictoryPie,
-      VictoryPortal,
-      VictoryScatter,
-      VictoryStack,
-      VictoryTheme,
-      VictoryTooltip,
-      VictoryVoronoi,
-      VictoryVoronoiContainer,
-      VictoryVoronoiTooltip,
-      VictoryZoomContainer
+      PropTypes
     };
   }
 

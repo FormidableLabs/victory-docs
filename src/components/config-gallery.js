@@ -8,10 +8,6 @@ export const configGallery = [
     slug: "animating-circular-progress-bar",
     code: require("!!raw!../screens/gallery/examples/animating-circular-progress-bar.example.js")
   }, {
-    text: "Basic Example",
-    slug: "basic-example",
-    code: require("!!raw!../screens/gallery/examples/basic-example.example.js")
-  }, {
     text: "Brush and Zoom",
     slug: "brush-zoom",
     code: require("!!raw!../screens/gallery/examples/brush-zoom.example.js")
@@ -32,17 +28,9 @@ export const configGallery = [
     slug: "interpolation",
     code: require("!!raw!../screens/gallery/examples/interpolation.example.js")
   }, {
-    text: "Multiaxis Line Chart with Tooltip",
-    slug: "multiaxis-line-chart",
-    code: require("!!raw!../screens/gallery/examples/multiaxis-line-chart.example.js")
-  }, {
     text: "Multipoint Tooltip Labels",
     slug: "multipoint-tooltip-labels",
     code: require("!!raw!../screens/gallery/examples/multipoint-tooltip-labels.example.js")
-  }, {
-    text: "onLoad Duration",
-    slug: "onload-duration",
-    code: require("!!raw!../screens/gallery/examples/onload-duration.example.js")
   }, {
     text: "Simple Grouped Bars",
     slug: "simple-grouped-bars",
@@ -56,13 +44,13 @@ export const configGallery = [
     slug: "stacked-bars-central-axis",
     code: require("!!raw!../screens/gallery/examples/stacked-bars-central-axis.example.js")
   }, {
+    text: "Stacked Polar Bars",
+    slug: "stacked-polar-bars",
+    code: require("!!raw!../screens/gallery/examples/stacked-polar-bars.example.js")
+  }, {
     text: "Stream Graph with Custom Gradient Fill",
     slug: "stream-graph",
     code: require("!!raw!../screens/gallery/examples/stream-graph.example.js")
-  }, {
-    text: "Tick Format with Dates",
-    slug: "tick-format",
-    code: require("!!raw!../screens/gallery/examples/tick-format.example.js")
   }, {
     text: "Victory Area with Stroke",
     slug: "victory-area-stroke",
