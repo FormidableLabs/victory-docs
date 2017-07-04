@@ -45,8 +45,6 @@ module.exports = [
   "/gallery/interpolation",
   "/gallery/horizontal-grouped-bars",
   "/gallery/multipoint-tooltip-labels",
-  "/gallery/simple-grouped-bars",
-  "/gallery/stacked-area-dates",
   "/gallery/stacked-bars-central-axis",
   "/gallery/stacked-polar-bars",
   "/gallery/stream-graph",

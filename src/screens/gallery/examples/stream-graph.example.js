@@ -68,10 +68,6 @@ class App extends React.Component {
   }
 
   render() {
-    const style = {
-      parent: {border: "1px solid #ccc", margin: "2%"}
-    };
-
     const streamData = this.getStreamData();
 
     const colors = [
@@ -82,7 +78,6 @@ class App extends React.Component {
     return (
       <div>
         <VictoryChart
-          style={style}
           domain={{x: [0, 25], y: [-300, 300]}}
         >
           <VictoryAxis
