@@ -6,8 +6,6 @@
 /* global VictoryPie, VictoryLabel, VictoryAnimation */
 /* eslint-disable react/no-did-mount-set-state */
 
-/* Victory requires `react@^15.5.0` and `prop-types@^15.5.0` */
-
 class App extends React.Component {
   constructor() {
     super();
@@ -38,7 +36,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <svg viewBox="0 0 400 400">
+        <svg viewBox="0 0 400 400" width="100%" height="100%">
           <VictoryPie
             animate={{duration: 1000}}
             width={400} height={400}

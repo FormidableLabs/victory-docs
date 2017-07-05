@@ -6,8 +6,6 @@
 /* global Area, VictoryArea, VictoryAxis, VictoryChart, VictoryLine */
 /* eslint-disable no-bitwise */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 // This customized component is supplied to VictoryArea
 class GradientArea extends Area {
   toGrayscale(color) {
@@ -78,14 +76,15 @@ class App extends React.Component {
     return (
       <div>
         <VictoryChart
-          domain={{x: [0, 25], y: [-300, 300]}}
+          width={400} height={400}
+          domain={{x: [0, 25], y: [-250, 250]}}
         >
           <VictoryAxis
             style={{
               axis: {stroke: "none"},
               ticks: {stroke: "none"},
               tickLabels: {fill: "none"},
-              grid: {stroke: "gray"}
+              grid: {stroke: "lightGray"}
             }}
             tickCount={20}
           />

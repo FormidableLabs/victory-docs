@@ -5,8 +5,6 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryLine, VictoryChart, VictoryScatter */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 const data = [
   {x: 0, y: 0},
   {x: 1, y: 2},
@@ -74,7 +72,7 @@ class App extends React.Component {
           style={{ marginLeft: 50, marginRight: 5}}
         />
         <label htmlFor="polar">polar</label>
-        <VictoryChart polar={this.state.polar}>
+        <VictoryChart polar={this.state.polar} height={330}>
           <VictoryLine
             interpolation={this.state.interpolation} data={data}
           />

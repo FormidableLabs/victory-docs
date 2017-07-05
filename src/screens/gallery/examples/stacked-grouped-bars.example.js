@@ -5,8 +5,6 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryStack, VictoryBar, VictoryGroup */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 class App extends React.Component {
 
   render() {
@@ -22,7 +20,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <VictoryChart domainPadding={{ x: 50 }}>
+        <VictoryChart domainPadding={{ x: 50 }} width={400} height={400}>
             <VictoryGroup offset={20} style={{ data: { width: 15 } }}>
               <VictoryStack colorScale={"red"}>
                 {getBarData().map((data, index) => {

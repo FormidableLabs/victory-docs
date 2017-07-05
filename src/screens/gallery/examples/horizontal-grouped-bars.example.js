@@ -3,15 +3,14 @@
   will be removed before displaying this document to the user
 */
 /* global React, ReactDOM, App, mountNode */
-/* global VictoryChart, VictoryGroup, VictoryBar */
-
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
+/* global VictoryChart, VictoryGroup, VictoryBar, VictoryTheme */
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <VictoryChart
+          theme={VictoryTheme.material}
           domain={{y: [0.5, 5.5]}}
         >
             <VictoryGroup horizontal

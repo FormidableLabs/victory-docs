@@ -8,8 +8,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 
-/* Victory requires `react@^15.5.0` and `prop-types@^15.5.0` */
-
 /*
   This example demonstrates a custom `onClick` event with hover events from `VictoryVoronoiContainer`
 */
@@ -40,7 +38,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <VictoryChart
+      <VictoryChart height={400} width={400}
         containerComponent={
           <VictoryVoronoiContainer onActivated={this.handleActivated.bind(this)}/>
         }

@@ -4,8 +4,6 @@
 */
 /* global React, ReactDOM, App, mountNode, VictoryPie, VictoryLabel */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 class App extends React.Component {
   render() {
     return (

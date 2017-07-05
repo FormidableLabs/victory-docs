@@ -3,16 +3,14 @@
   will be removed before displaying this document to the user
 */
 /* global React, ReactDOM, App, mountNode */
-/* global VictoryGroup, VictoryLine, VictoryAxis   */
-
-/* Victory requires `react@^15.5.0` and `prop-types@^15.5.0` */
+/* global VictoryChart, VictoryLine, VictoryTheme   */
 
 class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <VictoryGroup
+      <VictoryChart theme={VictoryTheme.material}>
+        <VictoryLine
           data={[
             {x: 1, y: 1},
             {x: 2, y: 3},
@@ -25,12 +23,8 @@ class App extends React.Component {
             {x: 9, y: 8},
             {x: 10, y: 12}
           ]}
-        >
-          <VictoryLine />
-          <VictoryAxis />
-          <VictoryAxis dependentAxis />
-        </VictoryGroup>
-      </div>
+        />
+      </VictoryChart>
     );
   }
  }
