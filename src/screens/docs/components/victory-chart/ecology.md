@@ -196,7 +196,7 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 <VictoryChart polar theme={VictoryTheme.material} innerRadius={50}>
   <VictoryPolarAxis/>
   <VictoryPolarAxis dependentAxis tickValues={[1, 3, 5]} axisAngle={40}/>
-  <VictoryBar data={sampleData} style={{ data: { fill: "tomato", width: 30 } }}/>
+  <VictoryBar data={sampleData} style={{ data: { fill: "#c43a31", width: 30 } }}/>
 </VictoryChart>
 ```
 

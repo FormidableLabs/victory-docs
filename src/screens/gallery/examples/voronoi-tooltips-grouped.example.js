@@ -12,6 +12,7 @@ class App extends React.Component {
         containerComponent={<VictoryVoronoiContainer/>}
       >
           <VictoryGroup
+            color="#c43a31"
             labels={(d) => `y: ${d.y}`}
             labelComponent={
               <VictoryTooltip

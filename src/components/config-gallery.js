@@ -25,7 +25,7 @@ export const configGallery = [
     code: require("!!raw!../screens/gallery/examples/animating-circular-progress-bar.example.js")
   }, {
     text: "Polar Cardioid",
-    slug: "polar cardioid",
+    slug: "polar-cardioid",
     code: require("!!raw!../screens/gallery/examples/polar-cardioid.example.js")
   }, {
     text: "Stacked Polar Bars",
@@ -71,10 +71,6 @@ export const configGallery = [
     text: "Victory Pie with Center Label",
     slug: "victory-pie-center-label",
     code: require("!!raw!../screens/gallery/examples/victory-pie-center-label.example.js")
-  }, {
-    text: "VictoryVoronoiContainer with Custom onClick",
-    slug: "victory-voronoi-container-custom-on-click",
-    code: require("!!raw!../screens/gallery/examples/victory-voronoi-container-custom-on-click.example.js")
   }, {
     text: "Voronoi Tooltips with Grouped Components",
     slug: "voronoi-tooltips-grouped",
