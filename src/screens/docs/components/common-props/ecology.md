@@ -128,6 +128,8 @@ Container components are suppied with the following props:
 
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x] and [y] data accessor props to define a custom data format. The `data` prop must be given as an array. Data objects may also include information about styles, labels, and props that may be applied to individual data components.
 
+**Note:** All values stored on the data object will be interpolated during animation. Do not store functions on data objects.
+
 ```playground
 <VictoryScatter
   size={7}

@@ -12,9 +12,7 @@ However, the component that uses it must be standalone
 ```playground
 <VictoryChart
   containerComponent={
-    <VictoryZoomContainer
-      labels={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
-    />
+    <VictoryZoomContainer/>
   }
 >
   <VictoryScatter
