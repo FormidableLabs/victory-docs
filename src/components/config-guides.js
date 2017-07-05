@@ -64,7 +64,6 @@ export const configGuides = [
     slug: "brush-and-zoom",
     docs: BrushZoom,
     toc: BrushZoom.toc(),
-    category: "customize",
     editUrl: "/screens/guides/components/brush-and-zoom/ecology.md"
   }, {
     text: "Polar Charts",

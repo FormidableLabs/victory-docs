@@ -20,18 +20,18 @@
 
 See the [Animations Guide] for more detail on animations and transitions
 
-```js
-  animate={{
-    duration: 2000
-  )}
+```jsx
+animate={{
+  duration: 2000
+)}
 ```
 
 ### categories
 
 `VictoryPie` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
-```js
-categories={["dogs", "cats", "mice"]}
+```jsx
+categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
 ### colorScale
@@ -55,7 +55,7 @@ The `colorScale` prop defines a color scale to be applied to each slice of `Vict
 
 *default:* `containerComponent={<VictoryContainerComponent/>}`
 
-```js
+```jsx
 containerComponent={<VictoryContainerComponent responsive={false}/>}
 ```
 
@@ -97,7 +97,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 
 *default:* `<Slice/>`
 
-```js
+```jsx
 dataComponent={<Slice events={{ onClick: handleClick }}/>}
 ```
 
@@ -127,7 +127,7 @@ The `endAngle` props defines the overall end angle of the pie in degrees. This p
 
 `VictoryPie` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
-```js
+```jsx
 eventKey="x"
 ```
 
@@ -173,7 +173,7 @@ See the [Events Guide] for more information on defining events.
 
 *default:* `<g/>`
 
-```js
+```jsx
 groupComponent={<g transform="rotate(90)" />}
 ```
 
@@ -261,7 +261,7 @@ The `padAngle` prop defines the amount of separation between adjacent data slice
 
 *default (provided by default theme):* `padding={50}`
 
-```js
+```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
@@ -370,7 +370,7 @@ width={400}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 x="employee.name"
 ```
 
@@ -380,7 +380,7 @@ x="employee.name"
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 y={(d) => d.value + d.error}
 ```
 

@@ -29,11 +29,11 @@ See the [Animations Guide] for more detail on animations and transitions
 
 **note: `VictoryStack` controls the `animate` prop of its children when set**
 
-```js
-  animate={{
-    duration: 2000,
-    onLoad: { duration: 1000 }
-  )}
+```jsx
+animate={{
+  duration: 2000,
+  onLoad: { duration: 1000 }
+)}
 ```
 
 ### categories
@@ -42,7 +42,7 @@ See the [Animations Guide] for more detail on animations and transitions
 
 **note: When this prop is set, `VictoryGroup` controls the `categories` prop of its children.**
 
-```js
+```jsx
 categories={["dogs", "cats", "mice"]}
 ```
 
@@ -78,7 +78,7 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 
 `VictoryStack` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 ### domain
@@ -87,7 +87,7 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 **note: `VictoryStack` controls the `domain` prop of its children.**
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -97,7 +97,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 **note: `VictoryStack` controls the `domainPadding` prop of its children.**
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -105,7 +105,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `VictoryStack` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
-```js
+```jsx
 eventKey="x"
 ```
 
@@ -231,7 +231,7 @@ padding={{ top: 20, bottom: 60 }}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "linear", y: "log"}}
 ```
 

@@ -33,7 +33,7 @@ See the [Animations Guide] for more detail on animations and transitions
 
 **note: `VictoryGroup` controls the `animate` prop of its children when set**
 
-```js
+```jsx
   animate={{
     duration: 2000,
     onLoad: { duration: 1000 }
@@ -46,7 +46,7 @@ See the [Animations Guide] for more detail on animations and transitions
 
 **note: When this prop is set, `VictoryGroup` controls the `categories` prop of its children.**
 
-```js
+```jsx
 categories={["dogs", "cats", "mice"]}
 ```
 
@@ -96,7 +96,7 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 
 `VictoryGroup` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
@@ -124,7 +124,7 @@ When `data` is provided for `VictoryGroup` it will be passed to every child in t
 
 **note: `VictoryGroup` controls the `domain` prop of its children.**
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -134,7 +134,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 **note: `VictoryGroup` controls the `domainPadding` prop of its children.**
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -142,7 +142,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `VictoryGroup` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
-```js
+```jsx
 eventKey="x"
 ```
 
@@ -308,7 +308,7 @@ samples={100}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
@@ -396,7 +396,7 @@ width={400}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 x="employee.name"
 ```
 
@@ -406,7 +406,7 @@ x="employee.name"
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 y={(d) => d.value + d.error}
 ```
 
@@ -416,7 +416,7 @@ y={(d) => d.value + d.error}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 y0={() => 10}
 ```
 

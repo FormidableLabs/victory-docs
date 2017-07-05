@@ -71,7 +71,7 @@ ReactDOM.render(<App/>, mountNode)
 
 The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
-*example:* `categories={["apples", "oranges", "bananas"]}`
+*example:* `categories={{ x: ["apples", "oranges", "bananas"] }}`
 
 ```playground
 <VictoryChart domainPadding={25}>
@@ -441,25 +441,25 @@ This prop can be provided in a variety of formats
 
 **string:** specify which property in a data object to sort the data array by
 
-```js
+```jsx
 sortKey="x"
 ```
 
 **function:** use a function to determine how to sort data elements in an array
 
-```js
+```jsx
 sortKey={(datum) => datum.xValue + datum.error}
 ```
 
 **array index:** specify which index of an array should be used to sort data when data is given as an array of arrays
 
-```js
+```jsx
 sortKey={0}
 ```
 
 **array:** specify multiple properties to sort by
 
-```js
+```jsx
 sortKey={["age", "height"]}
 ```
 
@@ -536,7 +536,7 @@ See the [Themes Guide] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
-```js
+```jsx
 theme={VictoryTheme.material}
 ```
 
@@ -563,25 +563,25 @@ Use the `x` data accessor prop to determine how the component defines data in th
 
 **string:** specify which property in an array of data objects should be used as the x value
 
-```js
+```jsx
 x="month"
 ```
 
 **function:** use a function to translate each element in a data array into an x value
 
-```js
+```jsx
 x={(datum) => datum.xValue + datum.error}
 ```
 
 **array index:** specify which index of an array should be used as an x value when data is given as an array of arrays
 
-```js
+```jsx
 x={0}
 ```
 
 **path string or path array:** specify which property in an array of nested data objects should be used as an x value
 
-```js
+```jsx
 x="employees.name"`, `x={["employees", "name"]}
 ```
 
@@ -593,25 +593,25 @@ Use `y` data accessor prop to determine how the component defines data in the y 
 
 **string:** specify which property in an array of data objects should be used as the y value
 
-```js
+```jsx
 y="profit"
 ```
 
 **function:** use a function to translate each element in a data array into a y value
 
-```js
+```jsx
 y={(datum) => Math.sin(2 * Math.PI * datum.x)}
 ```
 
 **array index:** specify which index of an array should be used as a y value when data is given as an array of arrays
 
-```js
+```jsx
 y={1}
 ```
 
 **path string or path array:** specify which property in an array of nested data objects should be used as a y value
 
-```js
+```jsx
 y="employees.salary"`, `y={["employees", "salary"]}
 ```
 
@@ -624,25 +624,25 @@ Use `y0` data accessor prop to determine how the component defines the baseline 
 
 **string:** specify which property in an array of data objects should be used as the y0 value
 
-```js
+```jsx
 y0="last_quarter_profit"
 ```
 
 **function:** use a function to translate each element in a data array into a y0 value
 
-```js
+```jsx
 y0={() => 10}
 ```
 
 **array index:** specify which index of an array should be used as a y0 value when data is given as an array of arrays
 
-```js
+```jsx
 y0={1}
 ```
 
 **path string or path array:** specify which property in an array of nested data objects should be used as a y0 value
 
-```js
+```jsx
 y0="employees.salary"`, `y={["employees", "salary"]}
 ```
 

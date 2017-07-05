@@ -31,11 +31,11 @@ VictoryAxis renders a single axis which can be used on its own or composed with 
 
 See the [Animations Guide] for more detail on animations
 
-```js
-  animate={{
-    duration: 2000,
-    easing: "bounce"
-  )}
+```jsx
+animate={{
+  duration: 2000,
+  easing: "bounce"
+)}
 ```
 
 ### axisComponent
@@ -44,7 +44,7 @@ The `axisComponent` prop takes a component instance which will be responsible fo
 
 *default:* `axisComponent={<Line type={"axis"}/>}`
 
-```js
+```jsx
 axisComponent={<Line events={{ onClick: handleClick }}/>}
 ```
 
@@ -54,7 +54,7 @@ The `axisLabelComponent` prop takes a component instance which will be used to r
 
 *default:* `axisLabelComponent={<VictoryLabel/>}`
 
-```js
+```jsx
 axisLabelComponent={<VictoryLabel dy={20}/>}
 ```
 
@@ -62,7 +62,7 @@ axisLabelComponent={<VictoryLabel dy={20}/>}
 
 `VictoryAxis` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryZoomContainer dimension="x"/>}
 ```
 
@@ -86,7 +86,7 @@ The `dependentAxis` boolean prop specifies whether the axis corresponds to the d
 
 `VictoryAxis` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -94,7 +94,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `VictoryAxis` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -121,7 +121,7 @@ The `gridComponent` prop takes a component instance which will be responsible fo
 
 *default:* `gridComponent={<Line type={"grid"}/>}`
 
-```js
+```jsx
 gridComponent={<Line events={{ onClick: handleClick }}/>}
 ```
 
@@ -131,7 +131,7 @@ gridComponent={<Line events={{ onClick: handleClick }}/>}
 
 *default:* `<g/>`
 
-```js
+```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
@@ -207,7 +207,7 @@ The `orientation` prop specifies the position and orientation of your axis. Opti
 
 *default (provided by default theme):* `padding={50}`
 
-```js
+```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
@@ -225,7 +225,7 @@ padding={{ top: 20, bottom: 60 }}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "time"}}
 ```
 
@@ -303,7 +303,7 @@ The `tickComponent` prop takes a component instance which will be responsible fo
 
 *default:* `tickComponent={<Line type={"tick"}/>}`
 
-```js
+```jsx
 tickComponent={<Line events={{ onClick: handleClick }}/>}
 ```
 
@@ -330,7 +330,7 @@ The `tickLabelComponent` prop takes a component instance which will be used to r
 
 *default:* `tickLabelComponent={<VictoryLabel/>}`
 
-```js
+```jsx
 tickLabelComponent={<VictoryLabel dy={20}/>}
 ```
 

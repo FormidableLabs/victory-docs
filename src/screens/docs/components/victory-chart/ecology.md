@@ -30,11 +30,11 @@ See the [Animations Guide] for more detail on animations and transitions
 
 **note: `VictoryChart` controls the `animate` prop of its children when set. To animate individual children of `VictoryChart`, set the `animate` prop only on children, and not on the `VictoryChart` wrapper.**
 
-```js
-  animate={{
-    duration: 2000,
-    onLoad: { duration: 1000 }
-  )}
+```jsx
+animate={{
+  duration: 2000,
+  onLoad: { duration: 1000 }
+)}
 ```
 
 ### children
@@ -48,7 +48,7 @@ See the [Animations Guide] for more detail on animations and transitions
 
 `VictoryChart` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
@@ -58,7 +58,7 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 **note: `VictoryChart` controls the `domain` prop of its children.**
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -68,7 +68,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 **note: `VictoryChart` controls the `domainPadding` prop of its children.**
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -172,7 +172,7 @@ See the [Events Guide] for more information on defining events.
 
 *default:* `<g/>`
 
-```js
+```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
@@ -208,7 +208,7 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 
 *default (provided by default theme):* `padding={50}`
 
-```js
+```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
@@ -261,7 +261,7 @@ padding={{ top: 20, bottom: 60 }}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "linear", y: "log"}}
 ```
 

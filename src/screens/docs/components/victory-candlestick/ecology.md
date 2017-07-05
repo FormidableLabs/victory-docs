@@ -25,11 +25,11 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 
 See the [Animations Guide] for more detail on animations and transitions
 
-```js
-  animate={{
-    duration: 2000,
-    onLoad: { duration: 1000 }
-  )}
+```jsx
+animate={{
+  duration: 2000,
+  onLoad: { duration: 1000 }
+)}
 ```
 
 ### candleColors
@@ -49,8 +49,8 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 
 `VictoryCandlestick` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
-```js
-categories={["dogs", "cats", "mice"]}
+```jsx
+categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
 ### close
@@ -77,7 +77,7 @@ Use `close` data accessor prop to define the close value of a candle.
 
 `VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
@@ -107,7 +107,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 
 *default:* `<Candle/>`
 
-```js
+```jsx
 dataComponent={<Candle events={{ onClick: handleClick }}/>}
 ```
 
@@ -115,7 +115,7 @@ dataComponent={<Candle events={{ onClick: handleClick }}/>}
 
 `VictoryCandlestick` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -123,7 +123,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -131,7 +131,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
-```js
+```jsx
 eventKey="x"
 ```
 
@@ -175,7 +175,7 @@ See the [Events Guide] for more information on defining events.
 
 *default:* `<g/>`
 
-```js
+```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
@@ -297,7 +297,7 @@ Use `open` data accessor prop to define the open value of a candle.
 
 *default (provided by default theme):* `padding={50}`
 
-```js
+```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
@@ -330,7 +330,7 @@ samples={100}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
@@ -419,7 +419,7 @@ width={400}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 x={(datum) => new Date(datum.day)}
 ```
 

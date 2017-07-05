@@ -30,26 +30,26 @@ VictoryLine renders a dataset as a single area. VictoryLine can be composed with
 
 See the [Animations Guide] for more detail on animations and transitions
 
-```js
-  animate={{
-    duration: 2000,
-    onLoad: { duration: 1000 }
-  )}
+```jsx
+animate={{
+  duration: 2000,
+  onLoad: { duration: 1000 }
+)}
 ```
 
 ### categories
 
 `VictoryLine` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
-```js
-categories={["dogs", "cats", "mice"]}
+```jsx
+categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
 ### containerComponent
 
 `VictoryLine` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
@@ -83,7 +83,7 @@ See the [Custom Components Guide] for more detail on creating your own `dataComp
 
 *default:* `<Curve/>`
 
-```js
+```jsx
 dataComponent={<Curve events={{ onClick: handleClick }}/>}
 ```
 
@@ -92,7 +92,7 @@ dataComponent={<Curve events={{ onClick: handleClick }}/>}
 
 `VictoryLine` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -100,7 +100,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `VictoryLine` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -110,7 +110,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 **note:** `VictoryLine` only renders one element per dataset, so only one event key will be generated.
 
-```js
+```jsx
 eventKey="x"
 ```
 
@@ -249,7 +249,7 @@ name="series-1"
 
 *default (provided by default theme):* `padding={50}`
 
-```js
+```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
@@ -312,7 +312,7 @@ padding={{ top: 20, bottom: 60 }}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
@@ -406,7 +406,7 @@ width={400}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 x="employee.name"
 ```
 
@@ -416,7 +416,7 @@ x="employee.name"
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 y={(d) => d.value + d.error}
 ```
 

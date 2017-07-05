@@ -29,11 +29,11 @@ VictoryScatter renders a dataset as a series of points. VictoryScatter can be co
 
 See the [Animations Guide] for more detail on animations and transitions
 
-```js
-  animate={{
-    duration: 2000,
-    onLoad: { duration: 1000 }
-  )}
+```jsx
+animate={{
+  duration: 2000,
+  onLoad: { duration: 1000 }
+)}
 ```
 ### bubbleProperty
 
@@ -64,15 +64,15 @@ The `bubbleProperty` prop indicates which property of the data object should be 
 
 `VictoryScatter` uses the standard `categories` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
-```js
-categories={["dogs", "cats", "mice"]}
+```jsx
+categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
 ### containerComponent
 
 `VictoryScatter` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-```js
+```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 ```
 
@@ -140,7 +140,7 @@ ReactDOM.render(<App/>, mountNode);
 
 `VictoryScatter` uses the standard `domain` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
-```js
+```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
@@ -148,7 +148,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `VictoryScatter` uses the standard `domainPadding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
-```js
+```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
@@ -156,7 +156,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `VictoryScatter` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
-```js
+```jsx
 eventKey="x"
 ```
 
@@ -294,7 +294,7 @@ name="series-1"
 
 *default (provided by default theme):* `padding={50}`
 
-```js
+```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
@@ -347,7 +347,7 @@ samples={100}
 
 *default:* `scale="linear"`
 
-```js
+```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
@@ -462,7 +462,7 @@ width={400}
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 x="employee.name"
 ```
 
@@ -472,7 +472,7 @@ x="employee.name"
 
 See the [Data Accessors Guide] for more detail on formatting and processing data.
 
-```js
+```jsx
 y={(d) => d.value + d.error}
 ```
 
