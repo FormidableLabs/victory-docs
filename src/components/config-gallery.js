@@ -59,7 +59,7 @@ export const configGallery = [
     text: "Stacked Grouped Bars",
     slug: "stacked-grouped-bars",
     code: require("!!raw!../screens/gallery/examples/stacked-grouped-bars.example.js")
-  },  {
+  }, {
     text: "Custom Tooltip Labels",
     slug: "custom-tooltip-labels",
     code: require("!!raw!../screens/gallery/examples/custom-tooltip-labels.example.js")

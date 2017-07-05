@@ -9,11 +9,11 @@ class App extends React.Component {
 
   render() {
     const getBarData = () => {
-      return [1, 2, 3, 4, 5].map((d) => {
+      return [1, 2, 3, 4, 5].map(() => {
         return [
           { x: 1, y: Math.random() },
           { x: 2, y: Math.random() },
-          { x: 3, y: Math.random() },
+          { x: 3, y: Math.random() }
         ];
       });
     };
