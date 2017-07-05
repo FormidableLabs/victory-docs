@@ -29,10 +29,13 @@ Apply consistent styles across all your components. This guide explains how to c
 **[Tooltips]**:
 Add interactity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
 
+**[Polar Charts]**:
+This guide explains how to create polar charts and configure polar axes.
+
 
 [our tutorial]: https://formidable.com/open-source/victory/docs
 [Custom Components]: https://formidable.com/open-source/victory/guides/custom-components
-[primitive components]: https://formidable.com/open-source/victory/docs/primitive-components
+[primitive components]: https://formidable.com/open-source/victory/docs/victory-primitives
 [Data Accessors]: https://formidable.com/open-source/victory/guides/data-accessors
 [Events]: https://formidable.com/open-source/victory/guides/events
 [Animations]: https://formidable.com/open-source/victory/guides/animations
@@ -41,3 +44,4 @@ Add interactity with tooltips. This guide explains how to create and customize t
 [Themes]: https://formidable.com/open-source/victory/guides/themes
 [Tooltips]: https://formidable.com/open-source/victory/guides/tooltips
 [Brush and Zoom]: https://formidable.com/open-source/victory/guides/brush-and-zoom
+[Polar Charts]: https://formidable.com/open-source/victory/guides/polar-charts
