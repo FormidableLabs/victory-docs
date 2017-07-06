@@ -35,7 +35,7 @@ See the [Animations Guide] for more detail on animations
 animate={{
   duration: 2000,
   easing: "bounce"
-)}
+}}
 ```
 
 ### axisComponent
