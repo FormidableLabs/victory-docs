@@ -5,13 +5,11 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryStack, VictoryScatter, VictoryArea, VictoryGroup, VictoryPortal */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 class App extends React.Component {
   render() {
     return (
       <div>
-        <VictoryChart scale={{x: "time"}}>
+        <VictoryChart scale={{x: "time"}} width={400} height={400}>
           <VictoryStack colorScale="warm">
             <VictoryGroup
               data={[

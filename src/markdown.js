@@ -3,7 +3,7 @@ import marked from "marked";
 
 // Format a string as an anchor tag ("Foo bar" -> "foo-bar")
 const toAnchor = (content) => {
-  const baseContent = content.replace(/-code-/g, "").toLowerCase();
+  const baseContent = content.toLowerCase();
   return baseContent.replace(/[^\w]+/g, "-");
 };
 

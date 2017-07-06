@@ -7,7 +7,7 @@ class EcologyLinkable extends React.Component {
   renderersWithHeading(pathname, otherRenderers) {
     return {
       heading: (content, level) => {
-        const anchor = markdown.toAnchor(content).replace(/-code-/g, "");
+        const anchor = markdown.toAnchor(content);
 
         return `<h${level} id="${anchor}"><a class="Anchor" href=".${pathname}#${anchor}" aria-hidden="true"></a>${content}</h${level}/>`;
       },

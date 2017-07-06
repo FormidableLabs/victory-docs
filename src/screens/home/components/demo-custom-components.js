@@ -27,7 +27,7 @@ class GradientArea extends Area {
     const percent = `${this.props.percent}%`;
     const gray = this.toGrayscale(style.fill);
     return (
-      <g>
+      <g key="area">
         <defs>
           <linearGradient id={gradientId}>
               <stop offset="0%" stopColor={style.fill}/>

@@ -5,12 +5,10 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryGroup, VictoryArea */
 
-/* Victory requires `react@^15.5.0` and `prop-types@^15.5.0` */
-
 class App extends React.Component {
   render() {
     return (
-      <VictoryChart>
+      <VictoryChart width={400} height={400}>
         <VictoryGroup
           style={{
             data: {strokeWidth: 3, fillOpacity: 0.4}

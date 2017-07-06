@@ -5,8 +5,6 @@
 /* global React, ReactDOM, App, mountNode, PropTypes */
 /* global VictoryPie, VictoryLabel, VictoryTooltip  */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 class CustomLabel extends React.Component {
   static defaultEvents = VictoryTooltip.defaultEvents;
   static propTypes = {text: PropTypes.string};

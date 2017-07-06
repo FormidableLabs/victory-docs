@@ -5,8 +5,6 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryLine, VictoryAxis, VictoryBrushContainer, VictoryZoomContainer   */
 
-/* Victory requires `react@^15.5.0` and `prop-types@^15.5.0` */
-
 class App extends React.Component {
   constructor() {
     super();
@@ -24,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <VictoryChart width={600} height={400} scale={{x: "time"}}
+        <VictoryChart width={600} height={470} scale={{x: "time"}}
           containerComponent={
             <VictoryZoomContainer
               dimension="x"

@@ -64,7 +64,9 @@ ReactDOM.render(<App/>, mountNode)
 
 ## Transitions
 
-Victory components define default transitons for entering and exiting nodes, but these may be overridden with the `onEnter` and `onExit` properties of the `animate` object. The `before` and `after` properties take functions whose return values alter the datum of the transitioning node before or after the transition. These functions are called with the original datum of the transitioning node.
+Victory components define default transitons for entering and exiting nodes, but these may be overridden with the `onEnter` and `onExit` properties of the `animate` object. The `before` and `after` properties take functions whose return values alter the datum of the transitioning node before or after the transition. These functions are called with the original datum of the transitioning node, the index of that datum, and the entire data array.
+
+**Note:** Use private variables `_x`, `_y`, `_y0` and `_y1` when altering position data during transitions.
 
 ```playground_norender
 class App extends React.Component {
@@ -110,7 +112,7 @@ class App extends React.Component {
             onExit: {
               duration: 500,
               before: () => ({
-                y: 0,
+                _y: 0,
                 fill: "orange",
                 label: "BYE"
               })

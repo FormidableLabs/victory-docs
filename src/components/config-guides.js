@@ -7,6 +7,7 @@ import CustomCharts from "../screens/guides/components/custom-charts/docs";
 import Themes from "../screens/guides/components/theme-park/index";
 import Tooltips from "../screens/guides/components/tooltips/docs";
 import BrushZoom from "../screens/guides/components/brush-and-zoom/docs";
+import PolarCharts from "../screens/guides/components/polar-charts/docs";
 
 export const configGuides = [
   {
@@ -63,7 +64,12 @@ export const configGuides = [
     slug: "brush-and-zoom",
     docs: BrushZoom,
     toc: BrushZoom.toc(),
-    category: "customize",
     editUrl: "/screens/guides/components/brush-and-zoom/ecology.md"
+  }, {
+    text: "Polar Charts",
+    slug: "polar-charts",
+    docs: PolarCharts,
+    toc: PolarCharts.toc(),
+    editUrl: "/screens/guides/components/polar-charts/ecology.md"
   }
 ];

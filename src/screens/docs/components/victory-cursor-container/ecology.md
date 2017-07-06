@@ -36,20 +36,22 @@ the cursor will then be a vertical line that will inspect the time value of the 
 
 *example:* `dimension="x"`
 
+### cursorComponent
+
+The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [Line] component will be rendered.
+
+*default:* `cursorComponent={<Line/>}`
+
 ### cursorLabel
 
 The `cursorLabel` prop defines the label that will appear next to the cursor.
-A label will only appear if `cursorLabel` is set.
-This prop should be given as a function of a point (an Object with `x` and `y` properties).
+A label will only appear if `cursorLabel` is set. This prop should be given as a function of a point (an Object with `x` and `y` properties).
 
 *example:* `cursorLabel={(point) => point.x}`
 
 ### cursorLabelComponent
 
-The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the area.
-The new element created from the passed `cursorLabelComponent` will be supplied with the following props:
-`x`, `y`, `active`, `text`.
-If `cursorLabelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the cursor. The new element created from the passed `cursorLabelComponent` will be supplied with the following props: x`, `y`, `active`, `text`. If `cursorLabelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *default:* `cursorLabelComponent={<VictoryLabel/>}`
 
@@ -63,21 +65,18 @@ This prop should be an Object with `x` and `y` properties, or a number to be use
 ### defaultCursorValue
 
 Whenever the mouse is not over the chart, the cursor will not be displayed.
-If instead you would like to keep it displayed,
-use the `defaultCursorValue` prop to set the default value.
-The prop should be a point (an Object with `x` and `y` properties) for 2-dimensional cursors,
-or a number for 1-dimensional cursors.
+If instead you would like to keep it displayed, use the `defaultCursorValue` prop to set the default value. The prop should be a point (an Object with `x` and `y` properties) for 2-dimensional cursors, or a number for 1-dimensional cursors.
 
 *examples:* `defaultCursorValue={{x: 1, y: 1}}`, `defaultCursorValue={0}`
 
 ### onChange
 
 If provided, the `onChange` function will be called every time the cursor value changes,
-with the new value as its only argument.
-A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
+with the new value as its only argument. A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
 
 *example:* `onChange={(value) => this.setState({cursorValue: value})}`
 
 [VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[Line]: https://formidable.com/open-source/victory/docs/victory-primitives#line

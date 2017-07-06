@@ -36,7 +36,7 @@ class VictoryHeader extends React.Component {
             Gallery
           </Link>
           <a href="https://gitter.im/FormidableLabs/victory">
-            Gitter
+            Support
           </a>
           <a href="https://github.com/FormidableLabs/victory">
             Github

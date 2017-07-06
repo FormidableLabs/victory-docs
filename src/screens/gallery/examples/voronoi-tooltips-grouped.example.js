@@ -5,15 +5,14 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryLine, VictoryTooltip, VictoryScatter */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 class App extends React.Component {
   render() {
     return (
-      <VictoryChart
+      <VictoryChart height={400} width={400}
         containerComponent={<VictoryVoronoiContainer/>}
       >
           <VictoryGroup
+            color="#c43a31"
             labels={(d) => `y: ${d.y}`}
             labelComponent={
               <VictoryTooltip

@@ -98,6 +98,8 @@
 
 /* Nested Lists */
 .Sidebar-toc-item > .Sidebar-toc {
+  font-family: var(--fontMonospace);
+  font-size: 0.85em;
   background-color: transparent;
   border-left: 1px solid color(var(--black) alpha(-75%));
   margin: 0 0 0.5em 0.125em;

@@ -5,8 +5,6 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryAxis, VictoryStack, VictoryBar, VictoryLabel   */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 const dataA = [
   {x: "Personal Drones", y: 57},
   {x: "Smart Thermostat", y: 40},
@@ -25,7 +23,8 @@ const dataB = dataA.map((point) => {
 });
 
 const width = 500;
-const height = 300;
+const height = 500;
+const padding = { top: 80, bottom: 80, left: 20, right: 20 };
 
 class App extends React.Component {
 
@@ -37,6 +36,7 @@ class App extends React.Component {
         <VictoryStack horizontal
           /* setting a symmetric domain makes it much easier to center the axis  */
           domain={{x: [-60, 60]}}
+          padding={padding}
           height={height}
           width={width}
           style={{ data: { width: 20 }, labels: { fontSize: 11 } }}
@@ -57,6 +57,7 @@ class App extends React.Component {
         <VictoryAxis dependentAxis
           height={height}
           width={width}
+          padding={padding}
           style={{
             axis: { stroke: "transparent" },
             ticks: { stroke: "transparent" },

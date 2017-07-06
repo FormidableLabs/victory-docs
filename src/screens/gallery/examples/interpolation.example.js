@@ -5,8 +5,6 @@
 /* global React, ReactDOM, App, mountNode */
 /* global VictoryChart, VictoryLine, VictoryChart, VictoryScatter */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 const data = [
   {x: 0, y: 0},
   {x: 1, y: 2},
@@ -38,7 +36,7 @@ const polarInterpolations = [
 ];
 
 const InterpolationSelect = ({ currentValue, values, onChange }) => (
-  <select onChange={onChange} value={currentValue} style={{ width: 110 }}>
+  <select onChange={onChange} value={currentValue} style={{ width: 75 }}>
     {values.map(
       (value) => <option value={value} key={value}>{value}</option>
     )}
@@ -71,15 +69,17 @@ class App extends React.Component {
               interpolation: "linear"
             })
           }
-          style={{ marginLeft: 50, marginRight: 5}}
+          style={{ marginLeft: 25, marginRight: 5}}
         />
         <label htmlFor="polar">polar</label>
-        <VictoryChart polar={this.state.polar}>
+        <VictoryChart polar={this.state.polar} height={390}>
           <VictoryLine
             interpolation={this.state.interpolation} data={data}
+            style={{ data: { stroke: "#c43a31"} }}
           />
           <VictoryScatter data={data}
-            style={{data: {fill: "#222"}}}
+            size={5}
+            style={{ data: { fill: "#c43a31"} }}
           />
         </VictoryChart>
       </div>

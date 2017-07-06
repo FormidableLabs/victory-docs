@@ -4,8 +4,6 @@
 */
 /* global React, ReactDOM, App, mountNode, VictoryChart, VictoryBar, Bar */
 
-// Victory requires `react@^15.5.0` and `prop-types@^15.5.0`
-
 class App extends React.Component {
   constructor() {
     super();
@@ -18,7 +16,7 @@ class App extends React.Component {
   }
 
   render() {
-    const clickHandler = () => {
+    const handleMouseOver = () => {
       const fillColor = this.state.clicked ? "blue" : "tomato";
       const clicked = !this.state.clicked;
       this.setState({
@@ -31,12 +29,14 @@ class App extends React.Component {
 
     return (
       <div>
-        <VictoryChart
+        <VictoryChart height={400} width={400}
           domainPadding={{x: 50, y: [0, 20]}}
           scale={{x: "time"}}
         >
           <VictoryBar
-            dataComponent={<Bar events={{onClick: clickHandler}}/>}
+            dataComponent={
+              <Bar events={{ onMouseOver: handleMouseOver }}/>
+            }
             style={this.state.style}
             data={[
               {x: new Date(1986, 1, 1), y: 2},

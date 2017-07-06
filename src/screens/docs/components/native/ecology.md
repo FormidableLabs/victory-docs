@@ -15,12 +15,12 @@ If you're already comfortable with Victory and React Native, this tutorial will 
 
 In this guide, we’ll show you how to get started with Victory Native and walk you through the creation and customization of a composed chart.
 
-### Prerequisites
+#### Prerequisites
 
 This project builds off of the [React Native Getting Started Guide].
 If you don't have `create-react-native-app` or have forget how to use it, simply follow that guide.
 
-### 1. Set up a basic React Native project
+#### 1. Set up a basic React Native project
 
 Use `create-react-native-app` to create a new React Native project.
 
@@ -46,7 +46,7 @@ You can try out the project using `npm start` as you had in the [React Native Ge
 If you are having problems with Expo, just refer back to that guide.
 You can also use `npm run ios` (if you have XCode installed) or `npm run android` (if you have an Android emulator installed).
 
-### 2. Add Victory Native
+#### 2. Add Victory Native
 
 To use Victory Native, add `victory-native` to your project.
 
@@ -97,7 +97,7 @@ export default class App extends React.Component {
 Just like Victory, Victory Native components will use default data when no props are provided.
 Save your changes to `App.js` and your app will be refreshed automatically.
 
-### 3. Add Data and Styles
+#### 3. Add Data and Styles
 
 Now let's add some data. Take advantage of [data accessors] to specify how an array of data should be plotted. We can change the color of the bars with a basic style object.
 
@@ -129,7 +129,7 @@ export default class App extends React.Component {
 }
 ```
 
-### 4. Add VictoryChart
+#### 4. Add VictoryChart
 
 Add the [VictoryChart wrapper] to add default axes to your bar component. VictoryChart also reconciles the domain, scale, and other props of its children so that they form an accurate chart. First import `VictoryChart`:
 
@@ -162,7 +162,7 @@ export default class App extends React.Component {
 }
 ```
 
-### 5. Customize the Axes
+#### 5. Customize the Axes
 
 Import `VictoryAxis` to define your own axis components for `VictoryChart` to use:
 
@@ -195,7 +195,7 @@ Set the `dependentAxis` prop to specify the dependent axis. [`tickValues`] and [
 </VictoryChart>
 ```
 
-### 6. Stack data and change the theme
+#### 6. Stack data and change the theme
 
 Now import `VictoryStack` and `VictoryTheme`:
 
@@ -282,7 +282,7 @@ In this step, we've also changed the theme on `VictoryChart`. Themes may be used
 _Note:_ Themes should be defined on the top-level component.
 
 
-### 7. Refine styles
+#### 7. Refine styles
 
 `VictoryStack` can also be used to control the styles of its children, but styles applied directly to a child component will always take precedence.
 
@@ -332,7 +332,7 @@ _Note:_ Themes should be defined on the top-level component.
   </VictoryChart>
 ```
 
-### 8. Replace VictoryBar with VictoryArea
+#### 8. Replace VictoryBar with VictoryArea
 
 Want to see what your data looks like in a different format? Victory Native components are modular, and easily interchangeable. Let's make a stacked area chart instead of a stacked bar chart.
 

@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import * as Victory from "victory";
 import EcologyRecipe from "../../../../components/ecology-recipe";
 import markdown from "../../../../markdown";
 const overview = require("!!raw!./ecology.md");
 
-class VictoryVoronoiTooltip extends React.Component {
+class VictoryPolarAxis extends React.Component {
   static toc() {
     return markdown.parseToc(overview);
   }
@@ -14,14 +15,14 @@ class VictoryVoronoiTooltip extends React.Component {
       <EcologyRecipe
         overview={overview}
         location={this.props.location}
-        scope={{}}
+        scope={{ ...Victory, React }}
       />
     );
   }
 }
 
-VictoryVoronoiTooltip.propTypes = {
+VictoryPolarAxis.propTypes = {
   location: PropTypes.object.isRequired
 };
 
-export default VictoryVoronoiTooltip;
+export default VictoryPolarAxis;
