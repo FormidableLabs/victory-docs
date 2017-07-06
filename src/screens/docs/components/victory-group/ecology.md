@@ -436,5 +436,4 @@ y0={() => 10}
 [VictoryScatter]: https://formidable.com/open-source/docs/victory-scatter
 [VictoryStack]: https://formidable.com/open-source/docs/victory-stack
 [VictoryVoronoi]: https://formidable.com/open-source/docs/victory-voronoi
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label

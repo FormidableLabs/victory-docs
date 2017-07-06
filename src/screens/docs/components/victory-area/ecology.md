@@ -416,4 +416,4 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
-
+[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
