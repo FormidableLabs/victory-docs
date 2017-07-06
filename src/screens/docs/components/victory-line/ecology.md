@@ -1,6 +1,6 @@
 # VictoryLine
 
-VictoryLine renders a dataset as a single area. VictoryLine can be composed with [`VictoryChart`] to create area charts.
+VictoryLine renders a dataset as a single line. VictoryLine can be composed with [`VictoryChart`] to create line charts.
 
 ```playground
 <VictoryChart
@@ -190,9 +190,9 @@ height={400}
 
 The `interpolation` prop determines how data points should be connected when creating a path. Victory uses [d3-shape](https://github.com/d3/d3-shape#curves) for interpolating curves.
 
-Polar area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear"
+Polar line charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear"
 
-Cartesian area charts may use the following interpolation options: "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
+Cartesian line charts may use the following interpolation options: "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
 
 [Explore all the interpolation options].
 
