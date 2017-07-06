@@ -194,6 +194,8 @@ Polar area charts may use the following interpolation options: "basis", "cardina
 
 Cartesian area charts may use the following interpolation options: "basis", "bundle", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
 
+[Explore all the interpolation options].
+
 *default:* `"linear"`
 
 ```playground
@@ -432,3 +434,4 @@ y={(d) => d.value + d.error}
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[Explore all the interpolation options]: https://formidable.com/open-source/victory/gallery/interpolation
