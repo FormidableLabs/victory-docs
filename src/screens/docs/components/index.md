@@ -2,7 +2,7 @@
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial should help you get started with Victory. For more advanced examples, check out [our guides].
 
-### Getting Started with Victory Native?
+#### Getting Started with Victory Native?
 
 [Check out the native version of this getting started tutorial]
 
@@ -10,7 +10,7 @@ Victory is an opinionated, but fully overridable, ecosystem of composable React 
 
 In this guide, we’ll show you how to get started with Victory and walk you through the creation and customization of a composed chart. We’ve created a GitHub repository with the completed project, and will link to the corresponding commit where appropriate to help you follow along. If you want, you can [view the completed tutorial here](https://github.com/FormidableLabs/victory-tutorial/blob/master/src/js/client.js).
 
-### 1. Set up a basic React project
+#### 1. Set up a basic React project
 
 You can do this on your own if you'd like, or you can...
 
@@ -40,7 +40,7 @@ ReactDOM.render(<Main />, app);
 
 Once you've completed these steps, you can run the webpack server with the command `npm start`, and the project will render at `localhost:8080`. All modifications will take place in your client.js file.
 
-### 2. Add Victory
+#### 2. Add Victory
 
 Add Victory to your project with the command `npm install victory`, then import it into your React project. For now, let's import the whole library until we know what chart type we'll be using. The imports at the top of your main Javascript file should now look like this:
 
@@ -50,7 +50,7 @@ import ReactDOM from 'react-dom';
 import * as V from 'victory';
 ```
 
-### 3. Add your data
+#### 3. Add your data
 
 You can import your data from an external file or API, or create an array of data points as a variable. Here is the data that we'll be using for our chart, which is tracking earnings per fiscal quarter:
 
@@ -63,7 +63,7 @@ const data = [
 ];
 ```
 
-### 4. Add your first Victory component
+#### 4. Add your first Victory component
 
 Since we're doing a simple comparison of earnings between quarters, let's use a bar chart to visualize the data. We aren't going to need the whole Victory library, so let's change our import statement to reflect only the components that we need.
 
@@ -107,7 +107,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 5. Add a Chart wrapper
+#### 5. Add a Chart wrapper
 
 `VictoryChart` is a wrapper component that plots all of its children on the same scale. `VictoryChart` also provides default axes. Import `VictoryChart` like so:
 
@@ -144,7 +144,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 6. Customize the axes
+#### 6. Customize the axes
 
 Next, let's modify the tick labels on the axes to be a little more descriptive. We can do this by adding and configuring `VictoryAxis` components to our chart, so let's import `VictoryAxis`. Import statements should now look like this:
 
@@ -196,7 +196,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 7. Add a theme
+#### 7. Add a theme
 
 Victory charts come with a default grayscale theme so that all components look clean and consistent. But let’s switch it up with the Victory-provided Material theme. We can do that by importing VictoryTheme and adding a theme prop to `VictoryChart`. Themes should always be applied to the outermost wrapper component in a chart.
 
@@ -247,7 +247,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 8. Stack multiple bar charts
+#### 8. Stack multiple bar charts
 
 Next, let's add more data. In this example we'll compare three years' worth of quarterly earnings in a stacked bar chart. `VictoryStack` will handle the layout.
 
@@ -334,7 +334,7 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-### 9. Override theme's color scale
+#### 9. Override theme's color scale
 
 `VictoryStack` can also be used to provide shared styles and props to its children. Let's add a `colorScale` prop to `VictoryStack` to override the default `colorScale` defined in `VictoryTheme.material`. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9c77240e45db4e9fde4123ae29304461739a7035/src/js/client.js).)
 
