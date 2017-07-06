@@ -38,7 +38,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 The `colorScale` prop defines a color scale to be applied to each slice of `VictoryPie`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryPie` will assign a color to each slice by index, unless they are explicitly specified in the data object. Colors will repeat when there are more slices than colors in the provided `colorScale`.
 
-*default (provided by default theme):* `colorScale="grayscale"
+*default (provided by default theme):* `colorScale="grayscale"`
 
 ```playground
 <VictoryPie
