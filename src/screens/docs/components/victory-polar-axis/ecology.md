@@ -140,7 +140,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 ### dependentAxis
 
-The `dependentAxis` boolean prop specifies whether the axis corresponds to the dependent variable (usually y). This prop is useful when composing `VictoryPolarAxis` with other components to form a chart.
+The `dependentAxis` boolean prop specifies whether the axis corresponds to the dependent variable (usually y, or the radial dimension on a polar chart). This prop is useful when composing `VictoryPolarAxis` with other components to form a chart.
 
 *default:* `dependentAxis={false}`
 
@@ -239,7 +239,7 @@ When the `innerRadius` prop is set, polar axes will be hollow rather than circul
 
 ### label
 
-The `label` prop defines the label that will appear with a dependent axis. Labels will not apprear with independent polar axes. This prop should be given as a string.
+The `label` prop defines the label that will appear with a dependent axis. Labels will not appear with independent polar axes. This prop should be given as a string.
 
 ```playground
 <VictoryPolarAxis dependentAxis
