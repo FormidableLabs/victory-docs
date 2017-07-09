@@ -30,7 +30,10 @@ Apply consistent styles across all your components. This guide explains how to c
 Add interactity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
 
 **[Polar Charts]**:
-This guide explains how to create polar charts and configure polar axes.
+Create polar charts and configure polar axes.
+
+**[Zoom on Large Datasets]**:
+Use `VictoryZoomContainer` to render large data sets with Victory without compromising performance.
 
 
 [our tutorial]: https://formidable.com/open-source/victory/docs
@@ -45,3 +48,4 @@ This guide explains how to create polar charts and configure polar axes.
 [Tooltips]: https://formidable.com/open-source/victory/guides/tooltips
 [Brush and Zoom]: https://formidable.com/open-source/victory/guides/brush-and-zoom
 [Polar Charts]: https://formidable.com/open-source/victory/guides/polar-charts
+[Zoom on Large Datasets]: https://formidable.com/open-source/victory/guides/zoom-large-data

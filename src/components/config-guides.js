@@ -8,6 +8,7 @@ import Themes from "../screens/guides/components/theme-park/index";
 import Tooltips from "../screens/guides/components/tooltips/docs";
 import BrushZoom from "../screens/guides/components/brush-and-zoom/docs";
 import PolarCharts from "../screens/guides/components/polar-charts/docs";
+import ZoomLargeData from "../screens/guides/components/zoom-large-data/docs";
 
 export const configGuides = [
   {
@@ -71,5 +72,11 @@ export const configGuides = [
     docs: PolarCharts,
     toc: PolarCharts.toc(),
     editUrl: "/screens/guides/components/polar-charts/ecology.md"
+  }, {
+    text: "Zoom on Large Datasets",
+    slug: "zoom-large-data",
+    docs: ZoomLargeData,
+    toc: ZoomLargeData.toc(),
+    editUrl: "/screens/guides/components/zoom-large-data/ecology.md"
   }
 ];

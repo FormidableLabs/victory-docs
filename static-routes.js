@@ -67,5 +67,6 @@ module.exports = [
   "/guides/themes",
   "/guides/tooltips",
   "/guides/brush-and-zoom",
-  "/guides/polar-charts"
+  "/guides/polar-charts",
+  "/guides/zoom-large-data"
 ];
