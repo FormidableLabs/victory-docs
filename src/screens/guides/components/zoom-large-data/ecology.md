@@ -152,7 +152,8 @@ getData() {
 }
 ```
 
-Now the chart will always render at most `maxPoints`.
+Now the chart will always render at most `maxPoints`,
+no matter the zoom level.
 
 ## Demo
 
@@ -234,6 +235,31 @@ This guide serves a start, but you might have some questions:
 
 * _How big should `maxPoints` be?_ For most situations between 50 and 150 is ideal.
 * _What if I want to render millions of data points?_ This concept can be extended to millions of points, but you'll need the help of a library to handle the sampling. Try [Crossfilter].
+* _Can I remove the "flicker" of points as I zoom in?_ Yes, but `getData()` will have to be a little more complex.
+This apparent movement of the points while zooming happens because different points are chosen to be displayed.
+Here is an example that reduces flicker by reliably choosing the same data points to display:
+
+```js
+getData() {
+	const { zoomedXDomain } = this.state;
+	const { data, maxPoints } = this.props;
+
+	const startIndex = data.findIndex((d) => d.x >= zoomedXDomain[0]);
+	const endIndex = data.findIndex((d) => d.x > zoomedXDomain[1]);
+	const filtered = data.slice(startIndex, endIndex);
+
+	if (filtered.length > maxPoints ) {
+		// limit k to powers of 2, e.g. 64, 128, 256
+		// so that the same points will be chosen reliably, reducing flicker
+		const k = Math.pow(2, Math.ceil(Math.log2(filtered.length / maxPoints)));
+		return filtered.filter(
+			// ensure modulo is always calculated from same reference: i + startIndex
+			(d, i) => (((i + startIndex) % k) === 0)
+		);
+	}
+	return filtered;
+}
+```
 
 [VictoryZoomContainer]: https://formidable.com/open-source/victory/docs/victory-zoom-container
 [VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
