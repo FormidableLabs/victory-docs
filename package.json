@@ -12,7 +12,7 @@
     "test-func-build": "builder run --env='{ \"NODE_ENV\": \"production\" }' build-static",
     "test-func": "builder run --env='{ \"ROWDY_SETTINGS\": \"local.chrome\" }' test-func-static-prod",
     "test-func-static-prod": "builder run --env='{\"TEST_FUNC_BASE_DIR\": \"/open-source/victory\"}' test-func-static",
-    "update-project": "npm update victory"
+    "update-project": "yarn outdated victory"
   },
   "repository": {
     "type": "git",
