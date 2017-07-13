@@ -59,7 +59,7 @@
     "react-ga": "^2.1.1",
     "react-router": "^3.0.0",
     "react-router-scroll": "^0.4.1",
-    "sinon": "^1.17.2",
+    "sinon": "^2.3.8",
     "sinon-chai": "^2.8.0",
     "victory": "0.21.1"
   }
