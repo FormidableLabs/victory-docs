@@ -51,7 +51,7 @@ A label will only appear if `cursorLabel` is set. This prop should be given as a
 
 ### cursorLabelComponent
 
-The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the cursor. The new element created from the passed `cursorLabelComponent` will be supplied with the following props: x`, `y`, `active`, `text`. If `cursorLabelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the cursor. The new element created from the passed `cursorLabelComponent` will be supplied with the following props: `x`, `y`, `active`, `text`. If `cursorLabelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
 
 *default:* `cursorLabelComponent={<VictoryLabel/>}`
 
