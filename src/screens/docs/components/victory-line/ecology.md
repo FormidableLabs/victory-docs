@@ -34,7 +34,7 @@ See the [Animations Guide] for more detail on animations and transitions
 animate={{
   duration: 2000,
   onLoad: { duration: 1000 }
-)}
+}}
 ```
 
 ### categories
