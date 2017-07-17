@@ -61,6 +61,6 @@
     "react-router-scroll": "^0.4.1",
     "sinon": "^1.17.2",
     "sinon-chai": "^2.8.0",
-    "victory": "0.21.1"
+    "victory": "0.21.2"
   }
 }
