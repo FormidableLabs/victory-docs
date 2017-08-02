@@ -32,7 +32,7 @@ See the [Animations Guide] for more detail on animations
 animate={{
   duration: 2000,
   easing: "bounce"
-)}
+}}
 ```
 ### axisAngle
 
@@ -306,7 +306,7 @@ scale={{x: "time"}}
     standalone={false}
   />
   <VictoryPolarAxis dependentAxis
-  	axisAngle={45}
+    axisAngle={45}
     labelPlacement="vertical"
     theme={VictoryTheme.material}
     standalone={false}
