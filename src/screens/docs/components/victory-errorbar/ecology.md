@@ -33,7 +33,7 @@ See the [Animations Guide] for more detail on animations and transitions
 animate={{
   duration: 2000,
   onLoad: { duration: 1000 }
-)}
+}}
 ```
 
 ### borderWidth
@@ -391,8 +391,3 @@ x={(datum) => new Date(datum.day)}
 [`errorX`]: https://formidable.com/open-source/victory/docs/victory-candlestick#errorX
 [`errorY`]: https://formidable.com/open-source/victory/docs/victory-candlestick#errorY
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-
-
-
-
-
