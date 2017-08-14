@@ -382,7 +382,7 @@ width={400}
 [VictoryPolarAxis]: https://formidable.com/open-source/victory/docs/victory-polar-axis
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-error-bar
+[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
 [VictoryGroup]: https://formidable.com/open-source/victory/docs/victory-group
 [VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
 [VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter

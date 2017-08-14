@@ -427,13 +427,13 @@ y0={() => 10}
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 
-[VictoryArea]: https://formidable.com/open-source/docs/victory-area
-[VictoryAxis]: https://formidable.com/open-source/docs/victory-axis
-[VictoryBar]: https://formidable.com/open-source/docs/victory-bar
-[VictoryCandlestick]: https://formidable.com/open-source/docs/victory-candlestick
-[VictoryErrorBar]: https://formidable.com/open-source/docs/victory-error-bar
-[VictoryLine]: https://formidable.com/open-source/docs/victory-line
-[VictoryScatter]: https://formidable.com/open-source/docs/victory-scatter
-[VictoryStack]: https://formidable.com/open-source/docs/victory-stack
-[VictoryVoronoi]: https://formidable.com/open-source/docs/victory-voronoi
+[VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
+[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
+[VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
+[VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
+[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
+[VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
+[VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
+[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
+[VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
