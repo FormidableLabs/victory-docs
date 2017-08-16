@@ -77,7 +77,7 @@ rather than activating labels on the child components it renders. This is useful
 point tooltips. This prop should be given as a function to be called with datum for each active
 point.
 
-*example:* `label={(d) => "y: " + d.y}`
+*example:* `labels={(d) => "y: " + d.y}`
 
 ### labelComponent
 
