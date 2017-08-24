@@ -15,7 +15,7 @@ class CustomLabel extends React.Component {
         <VictoryLabel {...this.props}/>
         <VictoryTooltip
           {...this.props}
-          x={0} y={50}
+          x={200} y={250}
           text={`# ${this.props.text}`}
           orientation="top"
           pointerLength={0}
