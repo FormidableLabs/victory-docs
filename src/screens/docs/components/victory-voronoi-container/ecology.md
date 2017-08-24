@@ -5,8 +5,8 @@ closest to it. When this container is added to a chart, changes in mouse positio
 prop to to data and label components closest to the current mouse position. The closeness of data
 points to a given position is determined by calculating a [voronoi diagram] based on the data of
 every child `VictoryVoronoiContainer` renders. This container is useful for adding hover interactions,
-like tooltips, to small data points, or charts with very dense or overlapping data. Read
-[this guide] to learn how to use `VictoryVoronoiContainer` with tooltips.
+like tooltips, to small data points, or charts with very dense or overlapping data. See
+[this example] to learn how to use `VictoryVoronoiContainer` with tooltips.
 
 `VictoryVoronoiContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component.
@@ -88,3 +88,4 @@ on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label componen
 
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi
+[this example]: https://formidable.com/open-source/victory/gallery/voronoi-tooltips-grouped
