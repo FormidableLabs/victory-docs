@@ -51,12 +51,12 @@ The `colorScale` prop defines a color scale to be applied to each slice of `Vict
 
 `VictoryPie` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
-**Note:** `VictoryPie` only works with `VictoryContainerComponent`
+**Note:** `VictoryPie` only works with the `VictoryContainer` component
 
-*default:* `containerComponent={<VictoryContainerComponent/>}`
+*default:* `containerComponent={<VictoryContainer/>}`
 
 ```jsx
-containerComponent={<VictoryContainerComponent responsive={false}/>}
+containerComponent={<VictoryContainer responsive={false}/>}
 ```
 
 ### cornerRadius
