@@ -97,7 +97,7 @@ Some components, such as tooltips, should _always_ render above others. Use [`Vi
 
 ## Altering VictoryContainer
 
-Responsive containers are not appropriate for every application, so Victroy provides a couple of options for rendering static containers. The easiest way to render a static container rather than a responsive one is by setting the `responsive` prop to false directly on the `containerComponent` instance.
+Responsive containers are not appropriate for every application, so Victory provides a couple of options for rendering static containers. The easiest way to render a static container rather than a responsive one is by setting the `responsive` prop to false directly on the `containerComponent` instance.
 
 ```playground
 
