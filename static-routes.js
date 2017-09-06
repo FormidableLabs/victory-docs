@@ -4,6 +4,7 @@ module.exports = [
   "/",
   "/about",
   "/docs",
+  "/docs/faq",
   "/docs/native",
   "/docs/common-props",
   "/docs/create-container",
