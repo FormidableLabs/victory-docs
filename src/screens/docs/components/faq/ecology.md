@@ -2,6 +2,10 @@
 
 ## How can I format my axis labels?
 
+```playground
+  <VictoryChart />
+```
+
 ## How can I change the colors of lines and other elements in Victory?
 
 ## How can I style axes in `VictoryChart`?
