@@ -59,6 +59,13 @@ const sidebarContent = [
   },
   {
     id: id(),
+    "text": "",
+    children: [
+      subHeading(docItems, "introduction")
+    ]
+  },
+  {
+    id: id(),
     text: "Guides",
     children: [
       subHeading(guideItems)

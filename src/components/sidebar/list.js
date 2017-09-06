@@ -42,7 +42,7 @@ class SidebarList extends React.Component {
             return subheading.text ? this.isMatchingNode(subheading) : true;
           })
           .map((subheading, subheadingIndex) => {
-            const text = !subheading.text || subheading.text === "none" ?
+            const text = !subheading.text || subheading.text === "none" || subheading.text === "introduction" ?
               null : (
               <p className="Sidebar-SubHeading SubHeading">
                 {subheading.text}
