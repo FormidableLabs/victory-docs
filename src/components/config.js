@@ -36,7 +36,7 @@ export const config = [
   {
     text: "FAQ",
     slug: "faq",
-    category: "introduction",
+    category: "support",
     docs: FAQDocs,
     toc: FAQDocs.toc()
   },
