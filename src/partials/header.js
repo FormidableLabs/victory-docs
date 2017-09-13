@@ -28,16 +28,16 @@ export default class VictoryHeader extends Component {
     return (
       <Header className={classes} logoProject={victoryLogo}>
         <div className="default" style={{textAlign: "center"}}>
-          <Link to="/about">
+          <Link to="/about/">
             About
           </Link>
-          <Link to="/docs">
+          <Link to="/docs/">
             Docs
           </Link>
-          <Link to="/guides">
+          <Link to="/guides/">
             Guides
           </Link>
-          <Link to="/gallery">
+          <Link to="/gallery/">
             Gallery
           </Link>
           <a href="https://gitter.im/FormidableLabs/victory">

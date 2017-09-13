@@ -1,16 +1,15 @@
 import React from "react";
 
 // Child components
-import Icon from "../icon";
-import Header from "../header";
-import Footer from "../footer";
-import Showcase from "./components/showcase";
+import Icon from "../../partials/icon";
+import Header from "../../partials/header";
+import Footer from "../../partials/footer";
+import Showcase from "../../partials/about/components/showcase";
 
 class About extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <article className="Article">
           <h1 className="u-noMargin">
             Victory: Charting for React and React Native
@@ -38,6 +37,7 @@ class About extends React.Component {
             Victory in Use
           </h2>
           <p>Victory is used for charting across the web, from publicly-consumed informational graphs to internal tracking and reporting.</p>
+
           <Showcase />
 
           <h1>

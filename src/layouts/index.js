@@ -42,7 +42,7 @@ export default class MainLayout extends React.Component {
   }
   render() {
     const { children } = this.props;
-    console.log('local title', this.getLocalTitle());
+    console.log('LAYOUTS LOCAL TITLE', this.getLocalTitle());
 
     const pathPrefix = config.pathPrefix ? config.pathPrefix : "/";
     const currentPath = this.props.location.pathname
