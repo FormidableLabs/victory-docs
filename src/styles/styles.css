@@ -10,7 +10,7 @@
 * text:        universal text and content styles
 *
 */
-@import "normalize.css";
+@import "../../node_modules/normalize.css";
 @import "./base/variables.css";
 @import "./base/base.css";
 @import "./base/links.css";
@@ -36,13 +36,13 @@
 *
 */
 @import "./components/article.css";
-@import "./components/button.css";
+/*@import "./components/button.css";*/
 @import "./components/footer.css";
 @import "./components/gallery.css";
 @import "./components/header.css";
-@import "./components/home.css";
-@import "./components/input.css";
-@import "./components/markdown.css";
+/*@import "./components/home.css";*/
+/*@import "./components/input.css";*/
+/*@import "./components/markdown.css";*/
 @import "./components/page.css";
 @import "./components/playground.css";
 @import "./components/prism.css";

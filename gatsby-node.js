@@ -2,6 +2,28 @@ const path = require("path");
 const _ = require("lodash");
 const webpackLodashPlugin = require("lodash-webpack-plugin");
 
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  if (stage === "build-javascript") {
+    config.plugin("Lodash", webpackLodashPlugin, null);
+  }
+
+  // Do not transform SVG into data-uris
+  config.loader(`url-loader`, {
+      test: /\.(jpg|jpeg|png|gif|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+      loader: `url`,
+      query: {
+        limit: 10000,
+        name: `static/[name].[hash:8].[ext]`,
+      },
+    });
+
+  // Instead load <svg> elements directly into the DOM
+  config.loader(`raw-loader`, {
+      test: /\.(svg)(\?.*)?$/,
+      loader: `raw`
+    });
+};
+
 // Add custom url pathname for blog posts.
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
@@ -81,7 +103,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
           if (edge.node.fields.type === 'docs') {
             // If parent directory is '/docs' return docsTemplate
-            console.log('CREATE PAGE FOR DOCS');
             createPage({
               path: edge.node.fields.slug, // required
               component: docsTemplate,
@@ -92,7 +113,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
 
           else if (edge.node.fields.type === 'guides') {
-            console.log('CREATE PAGE FOR GUIDES');
             // If parent directory is '/guides' return guidesTemplate
             createPage({
               path: edge.node.fields.slug, // required
@@ -128,10 +148,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       })
     );
   });
-};
-
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === "build-javascript") {
-    config.plugin("Lodash", webpackLodashPlugin, null);
-  }
 };

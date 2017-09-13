@@ -1,4 +1,5 @@
 const config = require("./data/SiteConfig");
+const postcssUrl = require("postcss-url");
 
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
@@ -18,6 +19,14 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-postcss-sass",
+      options: {
+        postCssPlugins: [
+          postcssUrl({url: "inline"})
+        ]
+      }
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -40,7 +49,8 @@ module.exports = {
           },
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
-          "gatsby-remark-autolink-headers"
+          "gatsby-remark-autolink-headers",
+          "gatsby-remark-smartypants"
         ]
       }
     },
@@ -56,10 +66,10 @@ module.exports = {
         color: config.themeColor
       }
     },
-    "gatsby-plugin-sharp",
     "gatsby-plugin-catch-links",
-    "gatsby-plugin-twitter",
+    "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-twitter",
     "gatsby-plugin-offline"
   ]
 };
