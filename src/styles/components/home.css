@@ -26,7 +26,7 @@
 }
 
 .Demo-bg {
-  background-image: url("../../../static/hero@2x.png");
+  background-image: url("../../static/hero@2x.png");
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100% auto;
@@ -139,7 +139,7 @@
 .Benefits-btn-link {
   border-style: solid;
   border-width: 39px 41px;
-  border-image-source: svg-load("../../../static/btn-border.svg", fill=#BD1E13);
+  border-image-source: svg-load("../../static/btn-border.svg", fill=#BD1E13);
   border-image-slice: 39 41;
   border-image-repeat: repeat stretch;
   color: var(--red);
@@ -156,7 +156,7 @@
 }
 
 .Benefits-btn-link:hover {
-  border-image-source: svg-load("../../../static/btn-border.svg", fill=#000);
+  border-image-source: svg-load("../../static/btn-border.svg", fill=#000);
   color: var(--black);
   transition: color 300ms ease;
 }
