@@ -4,9 +4,9 @@ import Footer from "../partials/footer";
 // import Seo from "../partials/seo";
 // import config from "../../data/site-config";
 // Home Components
-import Benefits from "../partials/home/components/benefits";
-import Companies from "../partials/home/components/companies";
-import Hero from "../partials/home/components/hero";
+import Benefits from "../partials/home/benefits";
+import Companies from "../partials/home/companies";
+import Hero from "../partials/home/hero";
 
 class Index extends React.Component {
   render() {

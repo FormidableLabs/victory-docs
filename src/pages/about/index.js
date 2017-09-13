@@ -2,9 +2,8 @@ import React from "react";
 
 // Child components
 import Icon from "../../partials/icon";
-import Header from "../../partials/header";
 import Footer from "../../partials/footer";
-import Showcase from "../../partials/about/components/showcase";
+import Showcase from "../../partials/about/showcase";
 
 class About extends React.Component {
   render() {

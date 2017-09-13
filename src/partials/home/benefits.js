@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
 // Common
-import Icon from "../../icon";
+import Icon from "../icon";
 // Demos
 import DemoCustomChart from "./demo-custom-chart";
 import DemoSharedEvents from "./demo-shared-events";

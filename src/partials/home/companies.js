@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import Link from "gatsby-link";
 
 // Common
-import Icon from "../../icon";
+import Icon from "../icon";
 // Assets
-import VIACOM from "../../../../static/logos/logo-viacom.svg";
-import FIVETHIRTYEIGHT from "../../../../static/logos/logo-fivethirtyeight.svg";
-import USAFACTS from "../../../../static/logos/logo-usafacts.svg";
-import AIRBNB from "../../../../static/logos/logo-airbnb.svg";
-import REDFIN from "../../../../static/logos/logo-redfin.svg";
-import TUNE from "../../../../static/logos/logo-tune.svg";
-import ZILLOW from "../../../../static/logos/logo-zillow.svg";
+import VIACOM from "../../../static/logos/logo-viacom.svg";
+import FIVETHIRTYEIGHT from "../../../static/logos/logo-fivethirtyeight.svg";
+import USAFACTS from "../../../static/logos/logo-usafacts.svg";
+import AIRBNB from "../../../static/logos/logo-airbnb.svg";
+import REDFIN from "../../../static/logos/logo-redfin.svg";
+import TUNE from "../../../static/logos/logo-tune.svg";
+import ZILLOW from "../../../static/logos/logo-zillow.svg";
 
 class Companies extends React.Component {
   static propTypes = {
