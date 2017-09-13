@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import config from "../../data/SiteConfig";
+import Header from "../partials/header";
+import config from "../../data/site-config";
 import "../styles/styles.css";
 
 export default class MainLayout extends React.Component {
@@ -12,9 +13,9 @@ export default class MainLayout extends React.Component {
   }
 
   getLocalTitle() {
-    function capitalize(string) {
+    const capitalize = (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+    };
     const pathPrefix = config.pathPrefix ? config.pathPrefix : "/";
     const currentPath = this.props.location.pathname
       .replace(pathPrefix, "")
@@ -41,12 +42,20 @@ export default class MainLayout extends React.Component {
   }
   render() {
     const { children } = this.props;
+    console.log('local title', this.getLocalTitle());
+
+    const pathPrefix = config.pathPrefix ? config.pathPrefix : "/";
+    const currentPath = this.props.location.pathname
+      .replace(pathPrefix, "")
+      .replace("/", "");
+
     return (
       <div>
         <Helmet>
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
+        <Header home={currentPath === "" ? true : false} />
         {children()}
       </div>
     );

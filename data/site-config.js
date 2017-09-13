@@ -3,7 +3,7 @@ module.exports = {
   siteTitleAlt: "Victory.js React Charting Library", // Alternative site title for SEO.
   siteLogo: "/logos/favicon.ico", // Logo used for SEO and manifest.
   siteUrl: "https://formidable.com", // Domain of your website without pathPrefix.
-  pathPrefix: "/open-source/victory", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
+  pathPrefix: "/open-source/victory", // Prefixes all links when deployed (amazing).
   googleAnalyticsID: "UA-43290258-1", // GA tracking ID.
   userName: "Advanced User", // Username to display in the author segment.
   userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.

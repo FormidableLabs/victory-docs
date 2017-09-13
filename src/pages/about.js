@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import About from "../partials/about/index";
-import config from "../../data/SiteConfig";
+import config from "../../data/site-config";
 
 class AboutPage extends Component {
   render() {

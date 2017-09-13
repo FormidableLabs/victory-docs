@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import SEO from "../partials/seo/index";
-import config from "../../data/SiteConfig";
+import Seo from "../partials/seo/index";
+import config from "../../data/site-config";
 import "../styles/styles.css";
 
 export default class DocsTemplate extends React.Component {
@@ -17,10 +17,7 @@ export default class DocsTemplate extends React.Component {
     }
     return (
       <div>
-        <Helmet>
-          <title>{`${post.title} | ${config.siteTitle}`}</title>
-        </Helmet>
-        <SEO postPath={slug} postNode={postNode} postSEO />
+        <Seo postPath={slug} postNode={postNode} postSEO />
         <div>
           <h1>
             {post.title}
@@ -40,7 +37,7 @@ export const pageQuery = graphql`
       timeToRead
       excerpt
       frontmatter {
-        id 
+        id
       }
       fields {
         slug

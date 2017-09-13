@@ -1,5 +1,7 @@
-const config = require("./data/SiteConfig");
+const config = require("./data/site-config");
+const postcssImport = require("postcss-import");
 const postcssUrl = require("postcss-url");
+const postcssInlineSvg = require("postcss-inline-svg");
 
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
@@ -23,7 +25,9 @@ module.exports = {
       resolve: "gatsby-plugin-postcss-sass",
       options: {
         postCssPlugins: [
-          postcssUrl({url: "inline"})
+          postcssImport(),
+          postcssUrl({url: "inline"}),
+          postcssInlineSvg()
         ]
       }
     },
@@ -41,7 +45,7 @@ module.exports = {
           {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 690
+              linkImagesToOriginal: false
             }
           },
           {

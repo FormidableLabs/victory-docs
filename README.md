@@ -106,7 +106,7 @@ npm run serve
 
 ## Configuration
 
- Edit the export object in `data/SiteConfig`:
+ Edit the export object in `data/site-config`:
 
  ```js
 module.exports = {
