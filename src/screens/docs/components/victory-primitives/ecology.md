@@ -69,6 +69,22 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `y` *number* the y coordinate of the top of the bar
 
 
+### Border
+
+[VictoryLegend] uses the `Border` component to draw a border around a legend area. `Border` renders a `<rect/>` element. [View the source][border]
+
+#### Props
+
+  - `active` *boolean* a flag signifying whether the component is active
+  - `events` *object* events to attach to the rendered element
+  - `height` *number* the height of the `<rect/>` element
+  - `role` *string* the aria role to assign to the element
+  - `shapeRendering` *string* the shape rendering attribute to apply to the rendered element
+  - `style` *object* the styles to apply to the rendered element
+  - `width` *number* the width of the `<rect/>` element
+  - `x` *number* the x coordinate of the upper-left corner of the `<rect/>` element
+  - `y` *number* the y coordinate of the upper-left corner of the `<rect/>` element
+
 ### Candle
 
 [VictoryCandlestick] uses `Candle` to represent a single data point as a candle. `Candle` renders a group with `<rect>` and `<line>` elements. [View the source][candle]
@@ -272,6 +288,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 [area]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/area.js
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
 [bar]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/bar.js
+[border]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/border.js
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
 [candle]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/candle.js
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
@@ -290,3 +307,4 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 [voronoi]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/voronoi.js
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
+[VictoryLegend]: https://formidable.com/open-source/victory/docs/victory-legend

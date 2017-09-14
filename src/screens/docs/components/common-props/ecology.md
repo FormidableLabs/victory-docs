@@ -294,7 +294,7 @@ The `height` prop determines the height of the containing `<svg>`. By default Vi
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render a labels for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, data, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above. [VictoryTooltip] is commonly used as a `labelComponent`
+The `labelComponent` prop takes a component instance which will be used to render labels for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, data, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above. [VictoryTooltip] is commonly used as a `labelComponent`
 
 *examples:*
   - `labelComponent={<VictoryLabel dy={20}/>}`
