@@ -372,7 +372,7 @@ The `titleOrientation` prop specifies where the a title should be rendered in re
 />
 ```
 
-## width
+### width
 
 `VictoryLegend` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
