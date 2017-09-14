@@ -1,0 +1,66 @@
+{
+  "name": "victory-docs",
+  "version": "4.8.0",
+  "description": "Documentation site for Victory",
+  "main": "webpack.config.dev.js",
+  "scripts": {
+    "preversion": "builder run npm:preversion",
+    "server-static-prod": "ecstatic --port 8080 --baseDir /open-source/victory build",
+    "start": "builder run dev",
+    "test": "builder run lint",
+    "test-func-install": "builder run install-selenium",
+    "test-func-build": "builder run --env='{ \"NODE_ENV\": \"production\" }' build-static",
+    "test-func": "builder run --env='{ \"ROWDY_SETTINGS\": \"local.chrome\" }' test-func-static-prod",
+    "test-func-static-prod": "builder run --env='{\"TEST_FUNC_BASE_DIR\": \"/open-source/victory\"}' test-func-static",
+    "update-project": "yarn outdated victory"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/victory-docs.git"
+  },
+  "author": "paula.lavalle@formidable.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/victory-docs/issues"
+  },
+  "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
+  "greenkeeper": {
+    "ignore": [
+      "history",
+      "radium"
+    ]
+  },
+  "devDependencies": {
+    "builder-docs-archetype-dev": "^6.0.0",
+    "react-docgen": "2.16.0"
+  },
+  "dependencies": {
+    "anchorate": "^1.1.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "builder": "^3.1.0",
+    "builder-docs-archetype": "^6.0.0",
+    "chai": "^3.2.0",
+    "ecology": "^1.6.0",
+    "formidable-landers": "^6.0.1",
+    "history": "^3.0.0",
+    "lodash": "^4.6.1",
+    "marked": "^0.3.5",
+    "mobx": "^3.1.9",
+    "mobx-react": "^4.1.8",
+    "mocha": "^3.1.2",
+    "normalize.css": "^5.0.0",
+    "prismjs": "^1.5.1",
+    "prop-types": "^15.5.10",
+    "radium": "^0.18.1",
+    "react": "^15.1.0",
+    "react-addons-test-utils": "^15.1.0",
+    "react-document-meta": "^2.0.3",
+    "react-dom": "^15.1.0",
+    "react-ga": "^2.1.1",
+    "react-router": "^3.0.0",
+    "react-router-scroll": "^0.4.1",
+    "sinon": "^2.3.8",
+    "sinon-chai": "^2.8.0",
+    "victory": "^0.21.4"
+  }
+}
