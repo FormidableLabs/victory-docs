@@ -2,6 +2,7 @@ const config = require("./data/site-config");
 const postcssImport = require("postcss-import");
 const postcssUrl = require("postcss-url");
 const postcssInlineSvg = require("postcss-inline-svg");
+const postcssCustomMedia = require("postcss-custom-media");
 
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
@@ -27,7 +28,8 @@ module.exports = {
         postCssPlugins: [
           postcssImport(),
           postcssUrl({url: "inline"}),
-          postcssInlineSvg()
+          postcssInlineSvg(),
+          postcssCustomMedia()
         ]
       }
     },
