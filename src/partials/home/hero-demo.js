@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-// import Radium from "radium";
 
 // VComponents
 import { VictoryTheme } from "victory-core";
@@ -41,7 +40,7 @@ class Native extends React.Component {
   render() {
     return (
       <div className="Demo">
-        <div className="Demo-bg" style={{ backgroundImage: `url(./static/hero@2x.png)` }}>
+        <div className="Demo-bg">
           <div className="Demo-charts">
             <div className="Demo-charts-web">
               <VictoryChart
@@ -109,4 +108,4 @@ Native.propTypes = {
   alt: PropTypes.bool
 };
 
-export default Native; 
+export default Native;

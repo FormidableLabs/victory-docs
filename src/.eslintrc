@@ -1,6 +1,6 @@
 ---
 extends:
-  - "defaults/configurations/walmart/es6-react"
+  - "formidable/configurations/es6-browser"
 
 globals:
   document: true
