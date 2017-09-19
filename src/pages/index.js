@@ -1,8 +1,5 @@
 import React from "react";
-// import Helmet from "react-helmet";
 import Footer from "../partials/footer";
-// import Seo from "../partials/seo";
-// import config from "../../data/site-config";
 // Home Components
 import Benefits from "../partials/home/benefits";
 import Companies from "../partials/home/companies";
@@ -10,10 +7,6 @@ import Hero from "../partials/home/hero";
 
 class Index extends React.Component {
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges;
-    // <Seo postEdges={postEdges} />
-    
-    
     const trademark = <div className="default">Victory is a trademark of Formidable Labs, Inc.</div>;
     return (
       <div className="index-container">
@@ -43,26 +36,3 @@ class Index extends React.Component {
 }
 
 export default Index;
-
-/* eslint-disable no-undef */
-export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [frontmatter___id], order: DESC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            id
-          }
-        }
-      }
-    }
-  }
-`;
