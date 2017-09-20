@@ -36,7 +36,9 @@ export const pageQuery = graphql`
       timeToRead
       excerpt
       frontmatter {
-        id
+        id,
+        lodash,
+        scope
       }
       fields {
         slug

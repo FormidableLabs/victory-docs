@@ -1,5 +1,12 @@
 ---
 id: 1
+lodash:
+  - range
+scope:
+  - Victory
+  - React
+  - ReactDOM
+  - sampleData
 ---
 # Common Props
 
