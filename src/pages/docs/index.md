@@ -7,7 +7,7 @@ scope:
   - VictoryStack
   - VictoryTheme
 ---
-# Getting Started with Victory
+# Getting Started with Victory!!
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial should help you get started with Victory. For more advanced examples, check out [our guides].
 

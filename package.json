@@ -3,6 +3,15 @@
   "description": "Documentation site for Victory by Formidable",
   "version": "5.0.0",
   "author": "Formidable <hello@formidable.com>",
+  "main": "webpack.config.dev.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/victory-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/victory-docs/issues"
+  },
+  "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
   "dependencies": {
     "babel-plugin-lodash": "^3.2.11",
     "ecology": "^1.7.0",
@@ -67,7 +76,6 @@
     "docs"
   ],
   "license": "MIT",
-  "main": "n/a",
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
@@ -77,7 +85,7 @@
     "clean": "rm -rf public",
     "lint:js": "eslint --ext .js --ignore-pattern public,static .",
     "lint:md": "remark content/posts/",
-    "write-good": "write-good $(glob 'content/docs/**/*.md')",
+    "write-good": "write-good $(glob 'src/pages/**/*.md')",
     "format:js": "prettier '**/*.{js}' --write"
   },
   "remarkConfig": {

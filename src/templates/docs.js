@@ -22,13 +22,6 @@ export default class DocsTemplate extends React.Component {
       post.category_id = config.postDefaultCategoryID;
     }
     console.log('scope', post);
-    
-    
-    // <Ecology 
-    //   playgroundtheme="elegant"
-    //   overview={postNode.html}
-    //   scope={{...Victory, React, ReactDOM, VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme}}
-    // />
 
     return (
       <main className="Page">
@@ -39,9 +32,13 @@ export default class DocsTemplate extends React.Component {
         <div className="Page-content">
           <article className="Article">
             <div className="Markdown playgroundsMaxHeight">
-              <a className="SubHeading">Edit this page</a>
               <div className="Recipe Markdown">
-                <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+                <a className="SubHeading">Edit this page</a>
+                <Ecology 
+                  playgroundtheme="elegant"
+                  overview={postNode.html}
+                  scope={{...Victory, React, ReactDOM, VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme}}
+                />
               </div>
             </div>
           </article>
