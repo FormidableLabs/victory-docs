@@ -1,0 +1,12 @@
+{
+  "name": "gatsby-remark-playground",
+  "description": "Add react-live to gatsby's markdown.",
+  "main": "index.js",
+  "author": "Paula Lavalle <paula.lavalle@formidable.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "react-live": "^1.7.1",
+    "unist-util-visit": "^1.1.3"
+  }
+}
