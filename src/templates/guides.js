@@ -2,7 +2,6 @@ import React from "react";
 import Helmet from "react-helmet";
 import SEO from "../partials/seo/index";
 import config from "../../data/site-config";
-import "../styles/styles.css";
 
 export default class GuidesTemplate extends React.Component {
   render() {

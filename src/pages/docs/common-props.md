@@ -4,8 +4,6 @@ lodash:
   - range
 scope:
   - Victory
-  - React
-  - ReactDOM
   - sampleData
 ---
 # Common Props

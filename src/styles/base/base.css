@@ -25,12 +25,12 @@ body {
 /*
  * Layer page content on top of body:before selector
  */
-#content {
+.root {
   position: relative;
   z-index: 1;
 }
 
-html, body, #content, #content > div {
+html, body, .root, .root > div {
   height: 100%;
 }
 

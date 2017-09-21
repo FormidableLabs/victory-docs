@@ -50,7 +50,7 @@ export default class MainLayout extends React.Component {
       .replace("/", "");
 
     return (
-      <div>
+      <div className="u-fullHeight">
         <Helmet>
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />

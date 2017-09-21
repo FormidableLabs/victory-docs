@@ -5,6 +5,7 @@
   "author": "Formidable <hello@formidable.com>",
   "dependencies": {
     "babel-plugin-lodash": "^3.2.11",
+    "ecology": "^1.7.0",
     "formidable-landers": "^6.0.1",
     "gatsby": "^1.9.39",
     "gatsby-link": "^1.6.7",
@@ -16,7 +17,7 @@
     "gatsby-plugin-offline": "^1.0.3",
     "gatsby-plugin-postcss-sass": "^1.0.12",
     "gatsby-plugin-react-helmet": "^1.0.2",
-    "gatsby-plugin-sharp": "^1.6.1",
+    "gatsby-plugin-sharp": "^1.6.7",
     "gatsby-plugin-sitemap": "^1.2.1",
     "gatsby-plugin-twitter": "^1.0.6",
     "gatsby-remark-autolink-headers": "^1.4.3",

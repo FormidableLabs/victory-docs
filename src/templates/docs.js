@@ -1,5 +1,12 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import Helmet from "react-helmet";
+import Ecology from "ecology";
+import { ecologyPlaygroundLoading } from "formidable-landers";
+import * as Victory from "victory";
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
+
+import Footer from "../partials/footer";
 import Seo from "../partials/seo/index";
 import config from "../../data/site-config";
 
@@ -14,16 +21,33 @@ export default class DocsTemplate extends React.Component {
     if (!post.id) {
       post.category_id = config.postDefaultCategoryID;
     }
+    console.log('scope', post);
+    
+    
+    // <Ecology 
+    //   playgroundtheme="elegant"
+    //   overview={postNode.html}
+    //   scope={{...Victory, React, ReactDOM, VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme}}
+    // />
+
     return (
-      <div>
+      <main className="Page">
         <Seo postPath={slug} postNode={postNode} postSEO />
-        <div>
-          <h1>
-            {post.title}
-          </h1>
-          <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+        <div className="Page-sidebar">
+          TODO: Sidebar
         </div>
-      </div>
+        <div className="Page-content">
+          <article className="Article">
+            <div className="Markdown playgroundsMaxHeight">
+              <a className="SubHeading">Edit this page</a>
+              <div className="Recipe Markdown">
+                <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+              </div>
+            </div>
+          </article>
+          <Footer />
+        </div>
+      </main>
     );
   }
 }
