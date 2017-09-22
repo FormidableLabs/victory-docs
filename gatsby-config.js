@@ -53,7 +53,12 @@ module.exports = {
           {
             resolve: "gatsby-remark-responsive-iframe"
           },
-          "gatsby-remark-prismjs",
+          {
+            resolve: "gatsby-remark-playground",
+            options: {
+              customCodeLang: "playground"
+            }
+          },
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-autolink-headers",
           "gatsby-remark-smartypants"
