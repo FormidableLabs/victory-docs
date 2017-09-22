@@ -14,6 +14,7 @@
   "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
   "dependencies": {
     "babel-plugin-lodash": "^3.2.11",
+    "component-playground": "^2.1.0",
     "ecology": "^1.7.0",
     "formidable-landers": "^6.0.1",
     "gatsby": "^1.9.39",
@@ -32,6 +33,7 @@
     "gatsby-remark-autolink-headers": "^1.4.3",
     "gatsby-remark-copy-linked-files": "^1.5.1",
     "gatsby-remark-images": "^1.5.3",
+    "gatsby-remark-prismjs": "^1.2.8",
     "gatsby-remark-responsive-iframe": "^1.4.2",
     "gatsby-remark-smartypants": "^1.4.7",
     "gatsby-source-filesystem": "^1.4.2",

@@ -1,13 +1,37 @@
 ---
 id: 0
-scope:
-  - VictoryAxis
-  - VictoryBar
-  - VictoryChart
-  - VictoryStack
-  - VictoryTheme
+scope: [Victory, VictoryAxis], [Victory, VictoryBar], [Victory, VictoryChart], [Victory, VictoryStack], [Victory, VictoryTheme]
 ---
-# Getting Started with Victory!!
+# Getting Started with Victory
+
+```playground 
+<VictoryBar/>
+```
+
+```playground_norender
+const data = [
+  {quarter: 1, earnings: 13000},
+  {quarter: 2, earnings: 16500},
+  {quarter: 3, earnings: 14250},
+  {quarter: 4, earnings: 19000}
+];
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryBar
+        data={data}
+        // data accessor for x values
+        x="quarter"
+        // data accessor for y values
+        y="earnings"
+      />
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode);
+```
 
 Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial should help you get started with Victory. For more advanced examples, check out [our guides].
 

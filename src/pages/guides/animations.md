@@ -1,12 +1,6 @@
 ---
 id: 1
-lodash:
-  - range
-  - random
-scope: 
-  - VictoryBar
-  - VictoryChart
-  - VictoryScatter
+scope: null
 ---
 # Animations
 

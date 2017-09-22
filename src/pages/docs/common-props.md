@@ -1,10 +1,6 @@
 ---
 id: 1
-lodash:
-  - range
-scope:
-  - Victory
-  - sampleData
+scope: null
 ---
 # Common Props
 

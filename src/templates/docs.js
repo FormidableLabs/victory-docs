@@ -7,6 +7,7 @@ import * as Victory from "victory";
 import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 
 import Footer from "../partials/footer";
+import Playground from "../partials/playground";
 import Seo from "../partials/seo/index";
 import config from "../../data/site-config";
 
@@ -22,22 +23,30 @@ export default class DocsTemplate extends React.Component {
       post.category_id = config.postDefaultCategoryID;
     }
     console.log('scope', post);
+    
+    
+    // <Ecology 
+    //   playgroundtheme="elegant"
+    //   overview={postNode.html}
+    //   scope={{...Victory, React, ReactDOM, VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme}}
+    // />
 
     return (
       <main className="Page">
         <Seo postPath={slug} postNode={postNode} postSEO />
         <div className="Page-sidebar">
           TODO: Sidebar
+          <div dangerouslySetInnerHTML={{__html: postNode.tableOfContents }} />
         </div>
         <div className="Page-content">
           <article className="Article">
             <div className="Markdown playgroundsMaxHeight">
               <div className="Recipe Markdown">
                 <a className="SubHeading">Edit this page</a>
-                <Ecology 
-                  playgroundtheme="elegant"
-                  overview={postNode.html}
-                  scope={{...Victory, React, ReactDOM, VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme}}
+                <Playground 
+                  content={postNode.html}
+                  scope={post.scope}
+                  theme="elegant"
                 />
               </div>
             </div>
@@ -56,10 +65,9 @@ export const pageQuery = graphql`
       html
       timeToRead
       excerpt
+      tableOfContents
       frontmatter {
-        id,
-        lodash,
-        scope
+        id
       }
       fields {
         slug

@@ -2116,7 +2116,7 @@ component-inherit@0.0.3:
 
 component-playground@^2.1.0:
   version "2.1.0"
-  resolved "https://registry.yarnpkg.com/component-playground/-/component-playground-2.1.0.tgz#17e4bafff088b406db1218a7756162b368201264"
+  resolved "https://registry.npmjs.org/component-playground/-/component-playground-2.1.0.tgz#17e4bafff088b406db1218a7756162b368201264"
   dependencies:
     babel-cli "^6.5.1"
     babel-core "^6.0.0"
@@ -4175,12 +4175,13 @@ gatsby-remark-images@^1.5.3:
     slash "^1.0.0"
     unist-util-select "^1.5.0"
 
-gatsby-remark-prismjs@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-1.2.0.tgz#5171d0b08e0869de03060f1139ad7acf079e768a"
+gatsby-remark-prismjs@^1.2.8:
+  version "1.2.8"
+  resolved "https://registry.npmjs.org/gatsby-remark-prismjs/-/gatsby-remark-prismjs-1.2.8.tgz#0ca9732c8c5034d1331f420ff75aa380fbc22c91"
   dependencies:
+    babel-runtime "^6.26.0"
     parse-numeric-range "^0.0.2"
-    prismjs "^1.6.0"
+    prismjs "^1.7.0"
     unist-util-visit "^1.1.1"
 
 gatsby-remark-responsive-iframe@^1.4.2:
@@ -7125,7 +7126,7 @@ parse-latin@^3.1.0:
 
 parse-numeric-range@^0.0.2:
   version "0.0.2"
-  resolved "https://registry.yarnpkg.com/parse-numeric-range/-/parse-numeric-range-0.0.2.tgz#b4f09d413c7adbcd987f6e9233c7b4b210c938e4"
+  resolved "https://registry.npmjs.org/parse-numeric-range/-/parse-numeric-range-0.0.2.tgz#b4f09d413c7adbcd987f6e9233c7b4b210c938e4"
 
 parse-passwd@^1.0.0:
   version "1.0.0"
@@ -7986,6 +7987,12 @@ prismjs@^1.6.0:
   optionalDependencies:
     clipboard "^1.5.5"
 
+prismjs@^1.7.0:
+  version "1.8.1"
+  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.8.1.tgz#bd0cdc32e9a561c1c8c3c9733765a7f1ec3b54ee"
+  optionalDependencies:
+    clipboard "^1.5.5"
+
 private@^0.1.6, private@^0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -8214,7 +8221,7 @@ react-hot-loader@^3.0.0-beta.6:
 
 react-live@^1.7.1:
   version "1.7.1"
-  resolved "https://registry.yarnpkg.com/react-live/-/react-live-1.7.1.tgz#a4fc7a4d23c2596cf7d4ed10f62dca9a02915e26"
+  resolved "https://registry.npmjs.org/react-live/-/react-live-1.7.1.tgz#a4fc7a4d23c2596cf7d4ed10f62dca9a02915e26"
   dependencies:
     buble "^0.15.2"
     core-js "^2.4.1"
