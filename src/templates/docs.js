@@ -67,7 +67,8 @@ export const pageQuery = graphql`
       excerpt
       tableOfContents
       frontmatter {
-        id
+        id,
+        scope
       }
       fields {
         slug

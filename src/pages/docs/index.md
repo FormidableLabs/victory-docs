@@ -1,6 +1,11 @@
 ---
 id: 0
-scope: [Victory, VictoryAxis], [Victory, VictoryBar], [Victory, VictoryChart], [Victory, VictoryStack], [Victory, VictoryTheme]
+scope: 
+  - Victory, VictoryAxis
+  - Victory, VictoryBar 
+  - Victory, VictoryChart 
+  - Victory, VictoryStack 
+  - Victory, VictoryTheme
 ---
 # Getting Started with Victory
 

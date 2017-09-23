@@ -78,6 +78,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               node {
                 frontmatter {
                   id
+                  scope
                 }
                 fields {
                   slug
