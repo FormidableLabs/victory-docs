@@ -44,7 +44,7 @@ export default class DocsTemplate extends React.Component {
               <div className="Recipe Markdown">
                 <a className="SubHeading">Edit this page</a>
                 <Playground 
-                  content={postNode.html}
+                  html={postNode.html}
                   scope={post.scope}
                   theme="elegant"
                 />
