@@ -18,6 +18,11 @@
 .Recipe .Interactive .playground {
   flex-direction: column;
 }
+@media (--small-viewport) {
+  .Recipe .Interactive .playground {
+    flex-direction: row;
+  }
+}
 
 .Recipe .Interactive .playgroundPreview {
   flex: none;

@@ -3,8 +3,9 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   overflow-x: hidden; // Hide scrollbars sfor Playgrounds
-
-  @media (--medium-viewport) {
+}
+@media (--medium-viewport) {
+  html {
     font-size: 18px;
   }
 }
@@ -126,8 +127,9 @@ h6 {
 
 h2 {
   font-size: 1.75rem;
-
-  @media (--medium-viewport) {
+}
+@media (--medium-viewport) {
+  h2 {
     font-size: 2rem;
   }
 }
@@ -177,8 +179,11 @@ pre,
 .Ecology pre[class*="language-"],
 .Ecology pre code[class*="lang-"] {
   padding: 2rem var(--gutter);
-
-  @media (--medium-viewport) {
+}
+@media (--medium-viewport) {
+  pre,
+  .Ecology pre[class*="language-"],
+  .Ecology pre code[class*="lang-"] {
     margin-left: calc(-1 * var(--gutter));
     margin-right: calc(-1 * var(--gutter));
   }
@@ -205,8 +210,9 @@ code {
   font-variant-ligatures: none;
   padding: 0.33em .333em .28em;
   word-break: break-word;
-
-  @media (--medium-viewport) {
+}
+@media (--medium-viewport) {
+  code {
     font-size: 0.875rem;
   }
 }

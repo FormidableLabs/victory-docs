@@ -37,10 +37,9 @@
   flex-wrap: wrap;
   padding: 0;
 }
-
 @media (--small-viewport) {
   .Interactive .playground {
-    flex-direction: row;
+    flex-direction: row !important;
   }
 }
 
