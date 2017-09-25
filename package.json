@@ -15,7 +15,6 @@
   "dependencies": {
     "babel-plugin-lodash": "^3.2.11",
     "component-playground": "^2.1.0",
-    "ecology": "^1.7.0",
     "formidable-landers": "^6.0.1",
     "gatsby": "^1.9.39",
     "gatsby-link": "^1.6.7",
