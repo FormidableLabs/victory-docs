@@ -1,13 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Helmet from "react-helmet";
-import Ecology from "ecology";
-import { ecologyPlaygroundLoading } from "formidable-landers";
-import * as Victory from "victory";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack } from "victory";
 
 import Footer from "../partials/footer";
 import Playground from "../partials/playground";
+import Sidebar from "../partials/sidebar";
 import Seo from "../partials/seo/index";
 import config from "../../data/site-config";
 
@@ -22,27 +19,28 @@ export default class DocsTemplate extends React.Component {
     if (!post.id) {
       post.category_id = config.postDefaultCategoryID;
     }
-    console.log('scope', post);
     
+    const sidebarNode = this.props.data.allMarkdownRemark;
     
-    // <Ecology 
-    //   playgroundtheme="elegant"
-    //   overview={postNode.html}
-    //   scope={{...Victory, React, ReactDOM, VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme}}
-    // />
+    console.log('data', this.props.data);
 
     return (
       <main className="Page">
         <Seo postPath={slug} postNode={postNode} postSEO />
         <div className="Page-sidebar">
-          TODO: Sidebar
-          <div dangerouslySetInnerHTML={{__html: postNode.tableOfContents }} />
+          <Sidebar
+            content={sidebarNode.edges}
+            location={this.props.location}
+            toc={postNode.tableOfContents} 
+          />
         </div>
         <div className="Page-content">
           <article className="Article">
             <div className="Markdown playgroundsMaxHeight">
               <div className="Recipe Markdown">
-                <a className="SubHeading">Edit this page</a>
+                {/* TODO: Add edit this page link once everything is merged to master 
+                  <a className="SubHeading" href="">Edit this page</a>
+                */}
                 <Playground 
                   html={postNode.html}
                   scope={post.scope}
@@ -67,11 +65,26 @@ export const pageQuery = graphql`
       excerpt
       tableOfContents
       frontmatter {
-        id,
+        id
         scope
       }
       fields {
         slug
+      }
+    }
+    allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            slug
+            type
+          }
+          frontmatter{
+            id
+            category
+            title
+          }
+        }
       }
     }
   }
