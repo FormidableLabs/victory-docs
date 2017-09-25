@@ -36,8 +36,10 @@
   flex-direction: column;
   flex-wrap: wrap;
   padding: 0;
+}
 
-  @media (--small-viewport) {
+@media (--small-viewport) {
+  .Interactive .playground {
     flex-direction: row;
   }
 }

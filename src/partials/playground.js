@@ -2,25 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Playground from "component-playground";
-import {
-  LiveProvider,
-  LiveEditor,
-  LiveError,
-  LivePreview
-} from "react-live";
 
-import {
-  VictoryPie, 
-  VictoryContainer, 
-  VictoryLabel, 
-  VictoryChart, 
-  VictoryLine, 
-  VictoryAxis,
-  VictoryBar, 
-  VictoryScatter, 
-  VictoryStack, 
-  VictoryPortal
-} from "victory";
+const scopeMap = {
+  "VictoryAxis": require("victory").VictoryAxis,
+  "VictoryBar": require("victory").VictoryBar,
+  "VictoryChart": require("victory").VictoryChart,
+  "VictoryContainer": require("victory").VictoryContainer,
+  "VictoryStack": require("victory").VictoryStack, 
+  "VictoryTheme": require("victory").VictoryTheme
+};
 
 class WithPlayground extends React.Component {
   static propTypes = {
@@ -34,25 +24,27 @@ class WithPlayground extends React.Component {
   }
   
   mountContainer(source, noRender) {
+    const {scope, theme } = this.props;
+    
+    const scopeObject = scope.reduce((obj, key) =>
+      Object.assign(obj, {[key]: scopeMap[key]}),
+    {});
+    
+    const playgroundScope = Object.assign({}, 
+      scopeObject,
+      { React: React, 
+        ReactDOM: ReactDOM 
+      });
+
     return (
-      <Playground 
-        codeText={source} 
-        noRender={noRender}
-        scope={{
-          React, 
-          ReactDOM,
-          VictoryPie, 
-          VictoryContainer, 
-          VictoryLabel, 
-          VictoryChart, 
-          VictoryLine, 
-          VictoryAxis,
-          VictoryBar, 
-          VictoryScatter, 
-          VictoryStack, 
-          VictoryPortal
-        }}
-      />
+      <div className="Interactive">
+        <Playground 
+          codeText={source} 
+          noRender={noRender}
+          theme={theme}
+          scope={playgroundScope}
+        />
+      </div>
     );
   }
   
@@ -60,10 +52,8 @@ class WithPlayground extends React.Component {
     // innerText, innerHTML, outerHTML, outerText, textContent
     const playgrounds = Array.prototype.slice.call(this.findPlayground("language-playground"), 0);
     for (const p in playgrounds) {
-      console.log('playgrounds.hasOwnProperty(p)', playgrounds.hasOwnProperty(p));
       if (playgrounds.hasOwnProperty(p)) {
         const source = playgrounds[p].textContent;
-        // const source = playgrounds[p].getElementsByClassName("js-playground")[0].textContent;
         ReactDOM.render(
           this.mountContainer(source, true),
           playgrounds[p].parentNode
@@ -77,7 +67,7 @@ class WithPlayground extends React.Component {
   }
   
   render() {
-    const { html, scope, theme } = this.props;
+    const { html } = this.props;
   
     return (
       <div

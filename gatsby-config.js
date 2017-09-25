@@ -59,7 +59,8 @@ module.exports = {
             options: {
               customCodeLang: "playground"
             }
-          }
+          },
+          "gatsby-remark-prismjs"
         ]
       }
     },
