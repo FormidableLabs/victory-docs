@@ -1,6 +1,11 @@
 ---
 id: 1
-scope: null
+title: Animations
+scope: 
+  - range 
+  - VictoryBar
+  - VictoryChart 
+  - VictoryScatter
 ---
 # Animations
 

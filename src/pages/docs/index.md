@@ -1,5 +1,7 @@
 ---
 id: 0
+title: Getting Started
+category: introduction
 scope: 
   - VictoryAxis
   - VictoryBar
