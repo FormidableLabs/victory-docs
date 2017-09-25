@@ -1,20 +1,10 @@
 ---
-id: 1
+id: 2
 title: Common Props
 category: none
 scope:
   - range
   - sampleData
-  - VictoryArea
-  - VictoryBar
-  - VictoryContainer
-  - VictoryClipContainer
-  - VictoryCursorContainer
-  - VictoryChart
-  - VictoryLabel
-  - VictoryLine
-  - VictoryScatter
-  - VictoryStack 
 ---
 # Common Props
 

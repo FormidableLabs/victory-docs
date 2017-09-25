@@ -1,9 +1,13 @@
+/* 
+* 1. Hide scrollbars for Playgrounds 
+*/ 
 html {
   background-color: var(--black);
   box-sizing: border-box;
   font-size: 16px;
-  overflow-x: hidden; // Hide scrollbars sfor Playgrounds
+  overflow-x: hidden;
 }
+
 @media (--medium-viewport) {
   html {
     font-size: 18px;

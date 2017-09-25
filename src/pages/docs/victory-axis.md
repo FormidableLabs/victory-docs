@@ -1,10 +1,8 @@
 ---
-id: 3
+id: 5
 title: VictoryAxis
 category: chart
-scope:
-  - VictoryAxis
-  - VictoryTheme
+scope: null
 ---
 # VictoryAxis
 

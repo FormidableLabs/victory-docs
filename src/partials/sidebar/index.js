@@ -55,12 +55,12 @@ class Sidebar extends React.Component {
       // If link is currently active and not under the Introduction section, 
       // then display its table of contents underneath it
       const isActive = category !== "introduction" && location.pathname === link.fields.slug ? true : false;
+      // {isActive ? <div className="Sidebar-toc" dangerouslySetInnerHTML={{__html: toc}} /> : null}
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
             {link.frontmatter.title}
           </Link>
-          {isActive ? <div className="Sidebar-toc" dangerouslySetInnerHTML={{__html: toc}} /> : null}
         </li>
       );
     });
@@ -97,6 +97,14 @@ class Sidebar extends React.Component {
             <p className="Sidebar-SubHeading SubHeading">Chart</p>
             <ul className="Sidebar-List">
               {this.renderLinksList(content, "docs", "chart")}
+            </ul>
+            <p className="Sidebar-SubHeading SubHeading">Core</p>
+            <ul className="Sidebar-List">
+              {this.renderLinksList(content, "docs", "core")}
+            </ul>
+            <p className="Sidebar-SubHeading SubHeading">More</p>
+            <ul className="Sidebar-List">
+              {this.renderLinksList(content, "docs", "more")}
             </ul>
           </div>
         </div>

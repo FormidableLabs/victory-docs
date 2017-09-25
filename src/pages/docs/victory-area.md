@@ -1,15 +1,9 @@
 ---
-id: 2
+id: 4
 title: VictoryArea
 category: chart
 scope:
   - sampleData
-  - VictoryArea
-  - VictoryChart
-  - VictoryClipContainer
-  - VictoryLabel
-  - VictoryPolarAxis
-  - VictoryTheme
 ---
 # VictoryArea
 

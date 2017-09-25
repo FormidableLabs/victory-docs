@@ -2,12 +2,7 @@
 id: 0
 title: Getting Started
 category: introduction
-scope: 
-  - VictoryAxis
-  - VictoryBar
-  - VictoryChart
-  - VictoryStack
-  - VictoryTheme
+scope: null
 ---
 # Getting Started with Victory
 
