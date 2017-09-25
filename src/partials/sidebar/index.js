@@ -32,6 +32,8 @@ class Sidebar extends React.Component {
 
   renderLinksList(edges, type, category) {
     const { location, toc } = this.props;
+    
+    // TODO: Massage toc so the title of the page isn't displayed
 
     let filteredEdges = edges.filter(edge => {
       return edge.node.fields.type === type;
@@ -43,14 +45,15 @@ class Sidebar extends React.Component {
       });
     }
     
-    console.log('filteredEdges', filteredEdges);
-    
     const renderList = filteredEdges.sort((edge1, edge2) => {
+      // Sort links alphabetically
       const title1 = edge1.node.frontmatter.title; 
       const title2 = edge2.node.frontmatter.title;
       return title1.localeCompare(title2);
     }).map(edge => {
       const link = edge.node;
+      // If link is currently active and not under the Introduction section, 
+      // then display its table of contents underneath it
       const isActive = category !== "introduction" && location.pathname === link.fields.slug ? true : false;
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
