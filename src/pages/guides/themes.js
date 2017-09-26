@@ -1,18 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Radium from "radium";
 import Playground from "component-playground";
 import { assign } from "lodash";
-import { Link } from "react-router";
+import Link from "gatsby-link";
 
-import Icon from "../../../../components/icon";
+import PureRender from "../../partials/guides/themes/pure-render";
+import DemoComponent from "../../partials/guides/themes/demo-component";
 
-import PureRender from "./pure-render";
-import DemoComponent from "./demo-component";
-
-const RadiumLink = Radium(Link);
-
-class ThemePark extends React.Component {
+class Themes extends React.Component {
   static toc() {
     return [];
   }
@@ -25,8 +20,8 @@ class ThemePark extends React.Component {
     };
     // just load once
     this.themeTexts = {
-      grayscale: this.processCodeText(require("!!raw!./grayscale.example.js")),
-      material: this.processCodeText(require("!!raw!./material.example.js"))
+      grayscale: this.processCodeText(require("!!raw!../../partials/guides/themes/grayscale.example.js")),
+      material: this.processCodeText(require("!!raw!../../partials/guides/themes/material.example.js"))
     };
   }
 
@@ -65,15 +60,16 @@ class ThemePark extends React.Component {
   }
 
   render() {
+    console.log('this.props', this.props);
     return (
       <div className="Recipe">
         <h1>Themes</h1>
         <p>
           Try out the Victory themes and make your own.
           Check out
-          the <RadiumLink to="docs/victory-theme">
-            VictoryTheme documentation<Icon glyph="internal-link" />
-          </RadiumLink> for more details on themes.
+          the <Link to="docs/victory-theme">
+            VictoryTheme documentation
+          </Link> for more details on themes.
         </p>
         {this.renderMenu()}
         <PureRender themeName={this.state.themeName} editted={this.state.editted}>
@@ -98,4 +94,4 @@ class ThemePark extends React.Component {
   }
 }
 
-export default Radium(ThemePark);
+export default Themes;

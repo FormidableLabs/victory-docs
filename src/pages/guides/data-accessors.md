@@ -1,3 +1,10 @@
+---
+id: 5
+title: Data Accessors
+scope:
+  - assign
+  - range
+---
 # Data Accessors
 
 
@@ -95,9 +102,7 @@ Data accessor props may be given as functions and used to process data, as in th
 </VictoryChart>
 ```
 
-
 ## Sorting data
-
 
 Sorting can be applied to the final data via the sortKey prop. This prop
 corresponds to the lodash [sortBy] function.

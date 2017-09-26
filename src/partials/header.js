@@ -4,6 +4,7 @@ import Link from "gatsby-link";
 
 // Common
 import { Header } from "formidable-landers";
+import config from "../../data/site-config";
 import LOGO from "../../static/logotype-hero.svg";
 
 export default class VictoryHeader extends Component {
@@ -18,16 +19,16 @@ export default class VictoryHeader extends Component {
   render() {
     const classes = this.props.home ? "victory isHome" : "victory";
 
-    const victoryLogo = (
+    const victoryLogo =
       <Link
         to="/"
         style={{ display: "block", height: "50px" }}
-        dangerouslySetInnerHTML={{__html: LOGO}}
-      />);
+        dangerouslySetInnerHTML={{ __html: LOGO }}
+      />;
 
     return (
       <Header className={classes} logoProject={victoryLogo}>
-        <div className="default" style={{textAlign: "center"}}>
+        <div className="default" style={{ textAlign: "center" }}>
           <Link to="/about/">
             About
           </Link>
@@ -40,15 +41,15 @@ export default class VictoryHeader extends Component {
           <Link to="/gallery/">
             Gallery
           </Link>
-          <a href="https://gitter.im/FormidableLabs/victory">
-            Support
-          </a>
-          <a href="https://github.com/FormidableLabs/victory">
-            Github
-          </a>
+          {config.projectLinks.map((link) => {
+            return (
+              <a key={link.url} href={link.url}>
+                {link.label}
+              </a>
+            );
+          })}
         </div>
       </Header>
     );
   }
 }
-

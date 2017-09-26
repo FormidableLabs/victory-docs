@@ -1,3 +1,8 @@
+---
+id: 9
+title: Tooltips
+scope: null
+---
 # Tooltips
 
 [`VictoryTooltip`] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`

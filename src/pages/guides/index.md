@@ -1,6 +1,12 @@
+---
+id: 0
+title: Victory Guides
+scope: null
+display: false
+---
 # Victory Guides
 
-Ready to learn more about Victory? The following guides offer detailed explanatons and examples that will help you get the most out of Victory. These guides assume some familiarity with the library. If you're new to Victory, you may want to start with [our tutorial].
+Ready to learn more about Victory? The following guides offer detailed explanations and examples that will help you get the most out of Victory. These guides assume some familiarity with the library. If you're new to Victory, you may want to start with [our tutorial].
 
 **[Custom Charts]**:
 Create custom charts that integrate seamlessly with your project. This guide explains how to compose Victory components without the `VictoryChart` wrapper, customize axes, and use functional styles to create a cohesive chart with recognizable branding.
@@ -27,7 +33,7 @@ Add interactive brushing and zooming to your charts. This guide explains how to 
 Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can easily test your own themes.
 
 **[Tooltips]**:
-Add interactity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
+Add interactivity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
 
 **[Polar Charts]**:
 Create polar charts and configure polar axes.

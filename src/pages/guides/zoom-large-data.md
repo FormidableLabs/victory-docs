@@ -1,3 +1,9 @@
+---
+id: 10
+title: Zoom on Large Datasets
+scope:
+  - _
+---
 # Zoom on Large Datasets
 
 Victory can easily handle hundreds of data points, but what if you'd like chart thousands of points?

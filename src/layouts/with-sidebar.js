@@ -15,26 +15,20 @@ export default class LayoutWithSidebar extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
-    console.log('WITH SIDEBAR!! TITLE', this.props);
+    const { children, data } = this.props;
 
-    const pathPrefix = config.pathPrefix ? config.pathPrefix : "/";
-    const currentPath = this.props.location.pathname
-      .replace(pathPrefix, "")
-      .replace("/", "");
-      
-    // The Sidebar’s scroll position remains unchanged while navigating 
-    // when it lives here in the layout ...but how do we get tableOfContents?   
-    const sidebarNode = this.props.data.allMarkdownRemark;
-    // toc={postNode.tableOfContents} 
+    // The Sidebar’s scroll position remains unchanged when it lives here in the layout
+    const allRecipes = data.allMarkdownRemark;
+
+    console.log('LAYOUT WITH SIDEBAR');
 
     return (
       <div className="u-fullHeight">
-        <Header home={currentPath === "" ? true : false} />
+        <Header home={false} />
         <main className="Page">
           <div className="Page-sidebar">
             <Sidebar
-              content={sidebarNode.edges}
+              content={allRecipes.edges}
               location={this.props.location}
             />
           </div>
@@ -45,7 +39,7 @@ export default class LayoutWithSidebar extends React.Component {
   }
 }
 
-// this query takes care of sorting!! :magic: 
+// this query takes care of sorting!! :magic:
 export const query = graphql`
   query LayoutWithSidebarQuery {
     allMarkdownRemark(sort: {fields: [frontmatter___title], order: ASC}) {
@@ -59,6 +53,7 @@ export const query = graphql`
           frontmatter{
             id
             category
+            display
             title
           }
         }

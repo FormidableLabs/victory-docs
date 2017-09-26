@@ -7,7 +7,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
   if (stage === "build-javascript") {
     config.plugin("Lodash", webpackLodashPlugin, null);
   }
-  
+
   if (stage === "build-css") {
     console.log('stage', stage);
     console.log('config', config);
@@ -55,11 +55,11 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     } else {
       slug = `/${parsedFilePath.dir}/`;
     }
-    
+
     // Add slug as a field on the node.
     createNodeField({ node, name: "slug", value: slug });
-    
-    // Separate /docs from /guides 
+
+    // Separate /docs from /guides
     createNodeField({ node, name: "type", value: parsedFilePath.dir });
   }
 };
@@ -73,7 +73,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const docsTemplate = path.resolve("src/templates/docs.js");
-    const guidesTemplate = path.resolve("src/templates/guides.js");
+    // const guidesTemplate = path.resolve("src/templates/guides.js");
 
     resolve(
       graphql(
@@ -85,6 +85,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 frontmatter {
                   id
                   category
+                  display
                   scope
                 }
                 fields {
@@ -103,11 +104,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           reject(result.errors);
         }
 
-        const categorySet = new Set();
+        // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach(edge => {
-          if (edge.node.frontmatter.category) {
-            categorySet.add(edge.node.frontmatter.category);
-          }
+          // if (edge.node.frontmatter.category) {
+          //   categorySet.add(edge.node.frontmatter.category);
+          // }
 
           if (edge.node.fields.type === 'docs') {
             // If parent directory is '/docs' return docsTemplate
@@ -122,16 +123,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
 
           else if (edge.node.fields.type === 'guides') {
-            // If parent directory is '/guides' return guidesTemplate
+            // If parent directory is '/guides' return docsTemplate
             createPage({
               path: edge.node.fields.slug, // required
-              component: guidesTemplate,
+              component: docsTemplate,
               context: {
                 slug: edge.node.fields.slug
-              }
+              },
+              layout: "with-sidebar"
             });
           }
-          
+
           else {
             console.log('SOMETHING WENT AWRY', edge.node.fields.slug);
             createPage({

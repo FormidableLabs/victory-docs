@@ -72,12 +72,12 @@
 }
 
 
-/** 
-* Table of Contents 
-* 
-* There are no classnames... :sob: 
+/**
+* Table of Contents
+*
+* There are no classnames... :sob:
 * (it requires a modification to `gatsby-transformer-remark` :scream:)
-* 
+*
 * .Sidebar-toc
 * ├── ul
 *     ├── li
@@ -107,8 +107,8 @@
   margin: 0
 }
 
-/* Target the first <p> element which is the title of the page (aka a duplicate) */
-.Sidebar-toc > ul > li > p {
+/* Target the first element which is the title of the page (aka a duplicate) */
+.Sidebar-toc > ul > li > *:first-child {
   display: none;
 }
 /* The first <ul> only contains the useless title (above) */
@@ -117,7 +117,7 @@
   padding: 0;
 }
 .Sidebar-toc > ul > li {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .Sidebar-toc li {

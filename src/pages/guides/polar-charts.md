@@ -1,3 +1,9 @@
+---
+id: 8
+title: Polar Charts
+scope:
+  - sampleDataPolar
+---
 # Polar Charts
 
 Victory supports polar charts for `VictoryArea`, `VictoryBar`, `VictoryLine` and `VictoryScatter`, as well as wrapper components like `VictoryChart`, `VictoryGroup` and `VictoryStack`. This guide provides explanations for polar-specific props as well as examples of polar charts.
@@ -10,7 +16,7 @@ Victory supports polar charts for `VictoryArea`, `VictoryBar`, `VictoryLine` and
   >
     <VictoryPolarAxis tickCount={8}/>
     <VictoryBar
-      data={sampleData}
+      data={sampleDataPolar}
       style={{ data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 }}}
     />
   </VictoryChart>
@@ -20,7 +26,7 @@ Victory supports polar charts for `VictoryArea`, `VictoryBar`, `VictoryLine` and
   >
     <VictoryAxis tickCount={8}/>
     <VictoryBar
-      data={sampleData}
+      data={sampleDataPolar}
       style={{ data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 }}}
     />
   </VictoryChart>
@@ -37,7 +43,7 @@ In most cases, creating a polar chart is as easy as adding the `polar` prop to t
 >
   <VictoryBar
     style={{ data: { fill: "#c43a31", width: 50 }}}
-    data={sampleData}
+    data={sampleDataPolar}
   />
 </VictoryChart>
 ```
@@ -61,7 +67,7 @@ To configure axes for polar charts, use the [`VictoryPolarAxis`] component. `Vic
   />
   <VictoryBar
     style={{ data: { fill: "#c43a31", width: 50 }}}
-    data={sampleData}
+    data={sampleDataPolar}
   />
 </VictoryChart>
 ```
@@ -87,9 +93,9 @@ To configure axes for polar charts, use the [`VictoryPolarAxis`] component. `Vic
     colorScale={["#ad1b11", "#c43a31", "#dc7a6b"]}
     style={{ data: { width: 50} }}
   >
-    <VictoryBar data={sampleData}/>
-    <VictoryBar data={sampleData}/>
-    <VictoryBar data={sampleData}/>
+    <VictoryBar data={sampleDataPolar}/>
+    <VictoryBar data={sampleDataPolar}/>
+    <VictoryBar data={sampleDataPolar}/>
   </VictoryStack>
 </VictoryChart>
 ```
@@ -116,9 +122,9 @@ Add interactivity to polar charts with standard events, or container components.
     colorScale={["#ad1b11", "#c43a31", "#dc7a6b"]}
     style={{ data: { width: 50} }}
   >
-    <VictoryBar data={sampleData}/>
-    <VictoryBar data={sampleData}/>
-    <VictoryBar data={sampleData}/>
+    <VictoryBar data={sampleDataPolar}/>
+    <VictoryBar data={sampleDataPolar}/>
+    <VictoryBar data={sampleDataPolar}/>
   </VictoryStack>
 </VictoryChart>
 ```

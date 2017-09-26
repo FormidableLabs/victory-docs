@@ -1,3 +1,8 @@
+---
+id: 7
+title: Layout
+scope: null
+---
 # Layout
 
 ## Default Layout
@@ -8,7 +13,7 @@ Victory renders components into responsive `svg` containers by default. Responsi
 
 ## SVG Render Order
 
-Victory renders svg elements, so there is no concept of z-index. Instead the render order of components determines which elements will apprear above others. Changing the order of rendered components can signicantly alter the appearance of a chart. Compare the following charts. The only difference between the two is the order of the children in `VictoryChart`.
+Victory renders svg elements, so there is no concept of z-index. Instead the render order of components determines which elements will appear above others. Changing the order of rendered components can significantly alter the appearance of a chart. Compare the following charts. The only difference between the two is the order of the children in `VictoryChart`.
 
 ```playground
   <svg width={800} height={300}>
@@ -100,13 +105,11 @@ Some components, such as tooltips, should _always_ render above others. Use [`Vi
 Responsive containers are not appropriate for every application, so Victory provides a couple of options for rendering static containers. The easiest way to render a static container rather than a responsive one is by setting the `responsive` prop to false directly on the `containerComponent` instance.
 
 ```playground
-
 <VictoryChart height={200} width={300}
   containerComponent={<VictoryContainer responsive={false}/>}
 >
   <VictoryLine y={(data) => Math.sin(2 * Math.PI * data.x)}/>
 </VictoryChart>
-
 ```
 
 

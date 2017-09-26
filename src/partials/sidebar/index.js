@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "gatsby-link";
 // import {observer, PropTypes as MobxPropTypes} from "mobx-react";
-// 
+//
 // import SidebarList from "./list";
 // import SidebarSearchInput from "./search-input";
 
@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
     content: PropTypes.array,
     location: PropTypes.object
   };
-  
+
   // store: PropTypes.shape({
   //   searchText: PropTypes.string.isRequired,
   //   searchIndex: PropTypes.array.isRequired,
@@ -31,28 +31,34 @@ class Sidebar extends React.Component {
 
   renderLinksList(edges, type, category) {
     const { location } = this.props;
-    
+
     // TODO: Massage toc so the title of the page isn't displayed
 
-    let filteredEdges = edges.filter(edge => {
+    let filteredEdges = edges.filter((edge) => {
       return edge.node.fields.type === type;
     });
-    
+
     if (category) {
-      filteredEdges = filteredEdges.filter(edge => {
+      filteredEdges = filteredEdges.filter((edge) => {
         return edge.node.frontmatter.category === category;
       });
     }
 
-    const renderList = filteredEdges.map(edge => {
+    const renderList = filteredEdges.map((edge) => {
       const link = edge.node;
-      // If link is currently active and not under the Introduction section, 
+      console.log('help', link.frontmatter);
+      if (link.frontmatter.display === false) {
+        console.log('false',link.frontmatter.display);
+        return;
+      }
+      // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const isActive = category !== "introduction" && location.pathname === link.fields.slug ? true : false;
-      const toc = (
-        <div className="Sidebar-toc" dangerouslySetInnerHTML={{__html: link.tableOfContents}} 
-        />
-      );
+      const toc =
+        <div
+          className="Sidebar-toc"
+          dangerouslySetInnerHTML={{ __html: link.tableOfContents }}
+        />;
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
@@ -62,13 +68,13 @@ class Sidebar extends React.Component {
         </li>
       );
     });
-    
+
     return renderList;
   }
 
   render() {
-    const { content, location, toc } = this.props;
-    
+    const { content } = this.props;
+
     /* eslint-disable max-len */
     return (
       <nav className="Sidebar">

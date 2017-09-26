@@ -20,7 +20,6 @@ module.exports = {
       title: config.siteTitle,
       description: config.siteDescription,
       image_url: `${config.siteUrl + pathPrefix}/logos/favicon.ico`,
-      author: config.userName,
       copyright: config.copyright
     }
   },
