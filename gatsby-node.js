@@ -3,8 +3,14 @@ const _ = require("lodash");
 const webpackLodashPlugin = require("lodash-webpack-plugin");
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
+  console.log('STAGE', stage);
   if (stage === "build-javascript") {
     config.plugin("Lodash", webpackLodashPlugin, null);
+  }
+  
+  if (stage === "build-css") {
+    console.log('stage', stage);
+    console.log('config', config);
   }
 
   // Do not transform SVG into data-uris

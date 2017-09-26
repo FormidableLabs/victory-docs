@@ -61,6 +61,7 @@
     "eslint-config-airbnb": "^15.0.2",
     "eslint-config-formidable": "^3.0.0",
     "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-filenames": "^1.2.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
@@ -87,7 +88,7 @@
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "clean": "rm -rf public",
-    "lint:js": "eslint --ext .js --ignore-pattern public,static .",
+    "lint:js": "eslint --ext .js --ignore-pattern public,static,plugins .",
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'src/pages/**/*.md')",
     "format:js": "prettier '**/*.{js}' --write"
