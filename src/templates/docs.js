@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Helmet from "react-helmet";
 
 import Footer from "../partials/footer";
@@ -16,7 +15,7 @@ export default class DocsTemplate extends React.Component {
       post.id = slug;
     }
     if (!post.id) {
-      post.category_id = config.postDefaultCategoryID;
+      post.categoryId = config.postDefaultCategoryID;
     }
 
     return (
@@ -28,10 +27,10 @@ export default class DocsTemplate extends React.Component {
         <Seo postPath={slug} postNode={postNode} postSEO />
         <article className="Article">
           <div className="Recipe Markdown">
-            {/* TODO: Add edit this page link once everything is merged to master 
+            {/* TODO: Add edit this page link once everything is merged to master
               <a className="SubHeading" href="">Edit this page</a>
             */}
-            <Playground 
+            <Playground
               html={postNode.html}
               scope={post.scope}
               theme="elegant"

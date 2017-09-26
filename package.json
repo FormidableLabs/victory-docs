@@ -56,6 +56,7 @@
     "victory": "^0.22.2"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.0",
     "cli-glob": "^0.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.2",
@@ -88,7 +89,7 @@
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "clean": "rm -rf public",
-    "lint:js": "eslint --ext .js --ignore-pattern public,static,plugins,node_modules .",
+    "lint:js": "eslint --ext .js .",
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'src/pages/**/*.md')",
     "format:js": "prettier '**/*.{js}' --write"
