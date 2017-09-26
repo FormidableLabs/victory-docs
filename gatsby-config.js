@@ -25,6 +25,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-postcss-sass",
       options: {
+        name: "styles",
+        path: `${__dirname}/src/styles/**/*`,
         postCssPlugins: [
           postcssImport(),
           postcssUrl({url: "inline"}),

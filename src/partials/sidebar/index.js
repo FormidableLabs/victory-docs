@@ -81,6 +81,11 @@ class Sidebar extends React.Component {
           <ul className="Sidebar-List">
             <ul className="Sidebar-List">
               {this.renderLinksList(content, "docs", "introduction")}
+              <li className="Sidebar-List-Item">
+                <a href="https://github.com/FormidableLabs/victory/#contributing">
+                  Contributing
+                </a>
+              </li>
             </ul>
           </ul>
           <div className="Sidebar-Grid-block">
@@ -94,18 +99,24 @@ class Sidebar extends React.Component {
             <ul className="Sidebar-List">
               {this.renderLinksList(content, "docs", "none")}
             </ul>
-            <p className="Sidebar-SubHeading SubHeading">Chart</p>
-            <ul className="Sidebar-List">
-              {this.renderLinksList(content, "docs", "chart")}
-            </ul>
-            <p className="Sidebar-SubHeading SubHeading">Core</p>
-            <ul className="Sidebar-List">
-              {this.renderLinksList(content, "docs", "core")}
-            </ul>
-            <p className="Sidebar-SubHeading SubHeading">More</p>
-            <ul className="Sidebar-List">
-              {this.renderLinksList(content, "docs", "more")}
-            </ul>
+            <div>
+              <p className="Sidebar-SubHeading SubHeading">Chart</p>
+              <ul className="Sidebar-List">
+                {this.renderLinksList(content, "docs", "chart")}
+              </ul>
+            </div>
+            <div>
+              <p className="Sidebar-SubHeading SubHeading">Core</p>
+              <ul className="Sidebar-List">
+                {this.renderLinksList(content, "docs", "core")}
+              </ul>
+            </div>
+            <div>
+              <p className="Sidebar-SubHeading SubHeading">More</p>
+              <ul className="Sidebar-List">
+                {this.renderLinksList(content, "docs", "more")}
+              </ul>
+            </div>
           </div>
         </div>
       </nav>

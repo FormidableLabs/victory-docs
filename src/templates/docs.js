@@ -36,17 +36,15 @@ export default class DocsTemplate extends React.Component {
         </div>
         <div className="Page-content">
           <article className="Article">
-            <div className="Markdown playgroundsMaxHeight">
-              <div className="Recipe Markdown">
-                {/* TODO: Add edit this page link once everything is merged to master 
-                  <a className="SubHeading" href="">Edit this page</a>
-                */}
-                <Playground 
-                  html={postNode.html}
-                  scope={post.scope}
-                  theme="elegant"
-                />
-              </div>
+            <div className="Recipe Markdown">
+              {/* TODO: Add edit this page link once everything is merged to master 
+                <a className="SubHeading" href="">Edit this page</a>
+              */}
+              <Playground 
+                html={postNode.html}
+                scope={post.scope}
+                theme="elegant"
+              />
             </div>
           </article>
           <Footer />
@@ -58,7 +56,7 @@ export default class DocsTemplate extends React.Component {
 
 /* eslint-disable no-undef */
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query DocsBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       timeToRead

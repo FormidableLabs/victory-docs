@@ -1,3 +1,10 @@
+---
+id: 1
+title: Brush and Zoom
+scope: 
+  - range
+  - random
+---
 # Brush and Zoom
 
 Use `VictoryZoomContainer` as your containerComponent to add panning and zooming behavior to any Victory components that work with an x-y coordinate system.
@@ -70,7 +77,7 @@ class App extends React.Component {
   }
 
   render() {
-    const chartStyle = { parent: {minWidth: "100%", marginLeft: "10%"}};
+    const chartStyle = { parent: {minWidth: "100%"}};
     return (
       <div>
           <VictoryChart width={1000} height={400} scale={{x: "time"}} style={chartStyle}
