@@ -1,7 +1,6 @@
 import React from "react";
 
 // Child components
-import Icon from "../../partials/icon";
 import Footer from "../../partials/footer";
 import Showcase from "../../partials/about/showcase";
 
@@ -18,18 +17,18 @@ class About extends React.Component {
               * TODO: Customize these buttons
               * https://github.com/FormidableLabs/formidable-landers/issues/175
               */}
-            <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
-            <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
-            <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="158px" height="30px"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px">&nbsp;</iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=watch&count=true&size=large&v=2" frameBorder="0" scrolling="0" width="160px" height="30px">&nbsp;</iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=formidablelabs&repo=victory&type=fork&count=true&size=large" frameBorder="0" scrolling="0" width="158px" height="30px">&nbsp;</iframe>
           </p>
           <p>
             Victory is a set of modular charting components for React and React Native. Victory makes it easy to get started without sacrificing flexibility. Create one of a kind data visualizations with fully customizable styles and behaviors. Victory uses the same API for web and React Native applications for easy cross-platform charting.
           </p>
           <p>
-            Victory is helmed by Formidable’s <a href="https://github.com/boygirl"> Lauren Eastridge <Icon glyph="external-link" /></a>.
+            Victory is helmed by Formidable’s <a href="https://github.com/boygirl"> Lauren Eastridge</a>.
           </p>
           <p>
-            <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Victory Contributors <Icon glyph="external-link" /></a>
+            <a href="https://github.com/FormidableLabs/victory/graphs/contributors">See Victory Contributors</a>
           </p>
 
           <h2 id="showcase">

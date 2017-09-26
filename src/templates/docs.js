@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 
 import Footer from "../partials/footer";
@@ -7,6 +8,11 @@ import Seo from "../partials/seo/index";
 import config from "../../data/site-config";
 
 export default class DocsTemplate extends React.Component {
+  static propTypes = {
+    data: PropTypes.object,
+    pathContext: PropTypes.object
+  };
+
   render() {
     const { slug } = this.props.pathContext;
     const postNode = this.props.data.markdownRemark;
@@ -43,7 +49,6 @@ export default class DocsTemplate extends React.Component {
   }
 }
 
-/* eslint-disable no-undef */
 export const pageQuery = graphql`
   query DocsBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {

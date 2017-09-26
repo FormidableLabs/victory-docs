@@ -2,7 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, DemoComponent, mountNode, assign */
+/* global React, ReactDOM, mountNode, assign */
 
 /*
   "material" theme (VictoryTheme.material)
@@ -220,4 +220,5 @@ const theme = {
   }, baseProps)
 };
 
+/* eslint-disable react/jsx-no-undef */
 ReactDOM.render(<DemoComponent theme={theme}/>, mountNode);

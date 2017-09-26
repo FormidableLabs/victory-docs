@@ -5,26 +5,26 @@ import Playground from "component-playground";
 import * as Victory from "victory";
 
 const scopeMap = {
-  "_": require("lodash"),
-  "assign": require("lodash").assign,
-  "random": require("lodash").random,
-  "range": require("lodash").range,
-  "round": require("lodash").round,
-  "sampleData": [
+  _: require("lodash"),
+  assign: require("lodash").assign,
+  random: require("lodash").random,
+  range: require("lodash").range,
+  round: require("lodash").round,
+  sampleData: [
     { x: 1, y: 2 },
     { x: 2, y: 3 },
     { x: 3, y: 5 },
     { x: 4, y: 4 },
     { x: 5, y: 7 }
   ],
-  "sampleDataDates": [
+  sampleDataDates: [
     { x: new Date(2016, 6, 1), open: 5, close: 10, high: 15, low: 0 },
     { x: new Date(2016, 6, 2), open: 10, close: 15, high: 20, low: 5 },
     { x: new Date(2016, 6, 3), open: 15, close: 20, high: 22, low: 10 },
     { x: new Date(2016, 6, 4), open: 20, close: 10, high: 25, low: 7 },
     { x: new Date(2016, 6, 5), open: 10, close: 8, high: 15, low: 5 }
   ],
-  "sampleDataPolar": [
+  sampleDataPolar: [
     { x: 45, y: 2 },
     { x: 90, y: 3 },
     { x: 135, y: 5 },
@@ -39,24 +39,31 @@ const scopeMap = {
 class WithPlayground extends React.Component {
   static propTypes = {
     content: PropTypes.string,
+    html: PropTypes.string,
     scope: PropTypes.array,
     theme: PropTypes.string
   };
 
-  findPlayground(className) {
-    return ReactDOM.findDOMNode(this.content).getElementsByClassName(className);
+  componentDidMount() {
+    this.renderPlaygrounds();
   }
 
   mountContainer(source, noRender) {
     const { scope, theme } = this.props;
 
-    const scopeObject = scope && scope.reduce((obj, key) =>
-      Object.assign(obj, { [key]: scopeMap[key] }),
-    {}) || {};
+    const scopeObject =
+      (scope &&
+        scope.reduce(
+          (obj, key) => Object.assign(obj, { [key]: scopeMap[key] }),
+          {}
+        )) ||
+      {};
 
-    const playgroundScope = Object.assign({},
-      scopeObject,
-      { ...Victory, React, ReactDOM });
+    const playgroundScope = Object.assign({}, scopeObject, {
+      ...Victory,
+      React,
+      ReactDOM
+    });
 
     return (
       <div className="Interactive">
@@ -72,7 +79,10 @@ class WithPlayground extends React.Component {
 
   renderPlaygrounds() {
     // innerText, innerHTML, outerHTML, outerText, textContent
-    const playgrounds = Array.prototype.slice.call(this.findPlayground("language-playground"), 0);
+    const playgrounds = Array.prototype.slice.call(
+      this.findPlayground("language-playground"),
+      0
+    );
     for (const p in playgrounds) {
       if (playgrounds.hasOwnProperty(p)) {
         const source = playgrounds[p].textContent;
@@ -83,7 +93,10 @@ class WithPlayground extends React.Component {
       }
     }
 
-    const playgroundsNoRender = Array.prototype.slice.call(this.findPlayground("language-playground_norender"), 0);
+    const playgroundsNoRender = Array.prototype.slice.call(
+      this.findPlayground("language-playground_norender"),
+      0
+    );
     for (const p in playgroundsNoRender) {
       if (playgroundsNoRender.hasOwnProperty(p)) {
         const source = playgroundsNoRender[p].textContent;
@@ -95,8 +108,8 @@ class WithPlayground extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.renderPlaygrounds();
+  findPlayground(className) {
+    return ReactDOM.findDOMNode(this.content).getElementsByClassName(className);
   }
 
   render() {
@@ -105,7 +118,9 @@ class WithPlayground extends React.Component {
     return (
       <div
         key="content"
-        ref={(content) => { this.content = content; }}
+        ref={(content) => {
+          this.content = content;
+        }}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );

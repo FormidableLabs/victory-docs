@@ -26,13 +26,13 @@ class ShowcaseApp extends React.Component {
 }
 
 ShowcaseApp.propTypes = {
+  company: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  even: PropTypes.bool,
   screenshot: PropTypes.shape({
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired
-  }),
-  company: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  even: PropTypes.bool
+  })
 };
 
 export default ShowcaseApp;

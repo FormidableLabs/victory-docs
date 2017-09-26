@@ -19,12 +19,13 @@ export default class VictoryHeader extends Component {
   render() {
     const classes = this.props.home ? "victory isHome" : "victory";
 
-    const victoryLogo =
+    const victoryLogo = (
       <Link
         to="/"
         style={{ display: "block", height: "50px" }}
         dangerouslySetInnerHTML={{ __html: LOGO }}
-      />;
+      />
+    );
 
     return (
       <Header className={classes} logoProject={victoryLogo}>

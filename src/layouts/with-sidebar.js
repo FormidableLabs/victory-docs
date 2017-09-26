@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import Header from "../partials/header";
-import config from "../../data/site-config";
-import "../styles/styles.css";
 
+import Header from "../partials/header";
 import Sidebar from "../partials/sidebar";
+
+import "../styles/styles.css";
 
 export default class LayoutWithSidebar extends React.Component {
   static propTypes = {
     children: PropTypes.any,
+    data: PropTypes.object,
     history: PropTypes.any,
     location: PropTypes.object
   }
@@ -19,8 +19,6 @@ export default class LayoutWithSidebar extends React.Component {
 
     // The Sidebar’s scroll position remains unchanged when it lives here in the layout
     const allRecipes = data.allMarkdownRemark;
-
-    console.log('LAYOUT WITH SIDEBAR');
 
     return (
       <div className="u-fullHeight">
@@ -60,4 +58,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

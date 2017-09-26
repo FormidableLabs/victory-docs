@@ -10,6 +10,7 @@ const postcssUrl = require("postcss-url");
 
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
+/* eslint-disable camelcase */
 module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
@@ -35,7 +36,7 @@ module.exports = {
           postcssCustomMedia(),
           postcssInlineSvg(),
           postcssNesting(),
-          postcssUrl({url: "inline"})
+          postcssUrl({ url: "inline" })
         ]
       }
     },
@@ -89,3 +90,4 @@ module.exports = {
     "gatsby-plugin-offline"
   ]
 };
+/* eslint-enable camelcase */

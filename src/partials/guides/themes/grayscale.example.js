@@ -197,4 +197,5 @@ const theme = {
   }, baseProps)
 };
 
+/* eslint-disable react/jsx-no-undef */
 ReactDOM.render(<DemoComponent theme={theme}/>, mountNode);

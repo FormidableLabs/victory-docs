@@ -60,7 +60,6 @@ class Themes extends React.Component {
   }
 
   render() {
-    console.log('this.props', this.props);
     return (
       <div className="Recipe">
         <h1>Themes</h1>

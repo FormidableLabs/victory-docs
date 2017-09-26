@@ -22,7 +22,7 @@ class GradientArea extends Area {
     const loc = isBrowser ? window.location.href : "";
 
     const areaStyle = Object.assign(
-      {}, style, {fill: `url(${loc}#${gradientId})`}
+      {}, style, { fill: `url(${loc}#${gradientId})` }
     );
     const percent = `${this.props.percent}%`;
     const gray = this.toGrayscale(style.fill);
@@ -85,19 +85,19 @@ export default class App extends React.Component {
       <div className="Benefits-demo fancyBorder">
         <VictoryChart
           width={450} height={350}
-          style={{parent: styles.parent}}
-          domain={{x: [0, 25], y: [-300, 300]}}
+          style={{ parent: styles.parent }}
+          domain={{ x: [0, 25], y: [-300, 300] }}
         >
           <VictoryAxis
             style={{
-              axis: {stroke: "none"},
-              tickLabels: {fill: "none"},
-              grid: {stroke: "gray"}
+              axis: { stroke: "none" },
+              tickLabels: { fill: "none" },
+              grid: { stroke: "gray" }
             }}
             tickValues={[2, 4, 6, 8, 10, 12, 14, 17, 19, 21, 23, 25]}
           />
           <VictoryAxis dependentAxis
-            style={{tickLabels: {fontSize: 15}}}
+            style={{ tickLabels: { fontSize: 15 } }}
             crossAxis={false}
           />
 
@@ -107,7 +107,7 @@ export default class App extends React.Component {
                 <VictoryArea key={i}
                   interpolation="monotoneX"
                   data={d}
-                  style={{data: {fill: colors[i]}}}
+                  style={{ data: { fill: colors[i] } }}
                   dataComponent={
                     <GradientArea
                       percent={this.state.percent}
@@ -119,11 +119,11 @@ export default class App extends React.Component {
           }
           <VictoryLine
             style={{
-              data: {stroke: "#c33409", strokeWidth: 3}
+              data: { stroke: "#c33409", strokeWidth: 3 }
             }}
             data={[
-              {x: 25 * this.state.percent / 100, y: -300},
-              {x: 25 * this.state.percent / 100, y: 300}
+              { x: 25 * this.state.percent / 100, y: -300 },
+              { x: 25 * this.state.percent / 100, y: 300 }
             ]}
           />
         </VictoryChart>

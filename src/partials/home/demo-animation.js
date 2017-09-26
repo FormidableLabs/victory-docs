@@ -5,7 +5,6 @@ import { VictoryScatter, VictoryChart } from "victory";
 import { range, random } from "lodash";
 
 export default class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -26,15 +25,24 @@ export default class App extends React.Component {
     window.clearInterval(this.setStateInterval);
   }
 
-
   getScatterData() {
     const colors = [
-      "violet", "cornflowerblue", "gold", "orange",
-      "turquoise", "tomato", "greenyellow"
+      "violet",
+      "cornflowerblue",
+      "gold",
+      "orange",
+      "turquoise",
+      "tomato",
+      "greenyellow"
     ];
     const symbols = [
-      "circle", "star", "square", "triangleUp",
-      "triangleDown", "diamond", "plus"
+      "circle",
+      "star",
+      "square",
+      "triangleUp",
+      "triangleDown",
+      "diamond",
+      "plus"
     ];
     return range(25).map((index) => {
       const scaledIndex = Math.floor(index % 7);
@@ -66,13 +74,12 @@ export default class App extends React.Component {
     return (
       <div className="Benefits-demo fancyBorder">
         <VictoryChart
-          style={{parent: styles.parent}}
-          width={450} height={350}
+          style={{ parent: styles.parent }}
+          width={450}
+          height={350}
           animate={{ duration: 2000 }}
         >
-          <VictoryScatter
-            data={this.state.scatterData}
-          />
+          <VictoryScatter data={this.state.scatterData} />
         </VictoryChart>
       </div>
     );

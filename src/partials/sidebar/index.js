@@ -46,19 +46,21 @@ class Sidebar extends React.Component {
 
     const renderList = filteredEdges.map((edge) => {
       const link = edge.node;
-      console.log('help', link.frontmatter);
       if (link.frontmatter.display === false) {
-        console.log('false',link.frontmatter.display);
-        return;
+        return null;
       }
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
-      const isActive = category !== "introduction" && location.pathname === link.fields.slug ? true : false;
-      const toc =
+      const isActive =
+        category !== "introduction" && location.pathname === link.fields.slug
+          ? true
+          : false;
+      const toc = (
         <div
           className="Sidebar-toc"
           dangerouslySetInnerHTML={{ __html: link.tableOfContents }}
-        />;
+        />
+      );
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
@@ -79,9 +81,7 @@ class Sidebar extends React.Component {
     return (
       <nav className="Sidebar">
         <div className="Sidebar-Grid">
-          <p className="Sidebar-Heading u-noPadding">
-            Introduction
-          </p>
+          <p className="Sidebar-Heading u-noPadding">Introduction</p>
           <ul className="Sidebar-List">
             <ul className="Sidebar-List">
               {this.renderLinksList(content, "docs", "introduction")}
@@ -125,7 +125,7 @@ class Sidebar extends React.Component {
         </div>
       </nav>
     );
-  /* eslint-enable max-len */
+    /* eslint-enable max-len */
   }
 }
 

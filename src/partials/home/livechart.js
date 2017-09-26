@@ -1,6 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { round } from "lodash";
-import { VictoryAxis, VictoryChart, VictoryLine, VictoryScatter } from "victory-chart";
+import {
+  VictoryAxis,
+  VictoryChart,
+  VictoryLine,
+  VictoryScatter
+} from "victory-chart";
 
 const leftPad = (str, len, ch) => {
   str = String(str);
@@ -25,7 +31,7 @@ const makeDate = (period, count) => {
   return `${hours}:${minutes}:${seconds}`;
 };
 
-const LiveChart = ({data, period, domain}) => (
+const LiveChart = ({ data, period, domain }) => (
   <VictoryChart
     animate={{ duration: 1000 }}
     padding={{
@@ -39,10 +45,11 @@ const LiveChart = ({data, period, domain}) => (
       tickFormat={makeDate.bind(null, period)}
       tickCount={3}
       style={{
-        ticks: {stroke: "black", strokeWidth: 3}
+        ticks: { stroke: "black", strokeWidth: 3 }
       }}
     />
-    <VictoryAxis dependentAxis
+    <VictoryAxis
+      dependentAxis
       label="Price"
       tickCount={4}
       tickFormat={(y) => round(y, 2)}
@@ -51,7 +58,7 @@ const LiveChart = ({data, period, domain}) => (
         axisLabel: {
           padding: 50
         },
-        ticks: {stroke: "black", strokeWidth: 3}
+        ticks: { stroke: "black", strokeWidth: 3 }
       }}
     />
     <VictoryLine
@@ -74,5 +81,11 @@ const LiveChart = ({data, period, domain}) => (
     />
   </VictoryChart>
 );
+
+LiveChart.propTypes = {
+  data: PropTypes.object,
+  domain: PropTypes.object,
+  period: PropTypes.object
+};
 
 export default LiveChart;

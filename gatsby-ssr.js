@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 exports.onRenderBody = ({ setHeadComponents }) => {
   const script = `(function(d) {
@@ -11,6 +11,6 @@ exports.onRenderBody = ({ setHeadComponents }) => {
   })(document);`;
 
   setHeadComponents([
-    <script key={'typekit-txh3mim'} dangerouslySetInnerHTML={{ __html: script }} />
+    <script key={"typekit-txh3mim"} dangerouslySetInnerHTML={{ __html: script }} />
   ]);
 };

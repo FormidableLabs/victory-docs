@@ -1,10 +1,13 @@
 import React from "react";
 import {
-  VictoryVoronoiContainer, VictoryTooltip, VictoryChart, VictoryLine, VictoryAxis
+  VictoryVoronoiContainer,
+  VictoryTooltip,
+  VictoryChart,
+  VictoryLine,
+  VictoryAxis
 } from "victory";
 
 export default class App extends React.Component {
-
   getStyles() {
     return {
       parent: {
@@ -21,23 +24,31 @@ export default class App extends React.Component {
 
     return (
       <div className="Benefits-demo fancyBorder">
-        <VictoryChart style={styles}
-          domainPadding={{y: 2}}
-          width={450} height={350}
+        <VictoryChart
+          style={styles}
+          domainPadding={{ y: 2 }}
+          width={450}
+          height={350}
           containerComponent={
-            <VictoryVoronoiContainer dimension="x"
+            <VictoryVoronoiContainer
+              dimension="x"
               labels={(d) => `y: ${d.y}`}
-              labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
+              labelComponent={
+                <VictoryTooltip
+                  cornerRadius={0}
+                  flyoutStyle={{ fill: "white" }}
+                />
+              }
             />
           }
         >
-          <VictoryAxis/>
+          <VictoryAxis />
           <VictoryLine
             data={[
-              {x: 1, y: 5, l: "one"},
-              {x: 1.5, y: 5, l: "one point five"},
-              {x: 2, y: 4, l: "two"},
-              {x: 3, y: -2, l: "three"}
+              { x: 1, y: 5, l: "one" },
+              { x: 1.5, y: 5, l: "one point five" },
+              { x: 2, y: 4, l: "two" },
+              { x: 3, y: -2, l: "three" }
             ]}
             style={{
               data: {
@@ -46,15 +57,15 @@ export default class App extends React.Component {
                   return active ? 4 : 2;
                 }
               },
-              labels: {fill: "tomato"}
+              labels: { fill: "tomato" }
             }}
           />
 
           <VictoryLine
             data={[
-              {x: 1, y: -3, l: "red"},
-              {x: 2, y: 5, l: "green"},
-              {x: 3, y: 3, l: "blue"}
+              { x: 1, y: -3, l: "red" },
+              { x: 2, y: 5, l: "green" },
+              { x: 3, y: 3, l: "blue" }
             ]}
             style={{
               data: {
@@ -63,15 +74,15 @@ export default class App extends React.Component {
                   return active ? 4 : 2;
                 }
               },
-              labels: {fill: "blue"}
+              labels: { fill: "blue" }
             }}
           />
 
           <VictoryLine
             data={[
-              {x: 1, y: 5, l: "cat"},
-              {x: 2, y: -4, l: "dog"},
-              {x: 3, y: -2, l: "bird"}
+              { x: 1, y: 5, l: "cat" },
+              { x: 2, y: -4, l: "dog" },
+              { x: 3, y: -2, l: "bird" }
             ]}
             style={{
               data: {
@@ -80,7 +91,7 @@ export default class App extends React.Component {
                   return active ? 4 : 2;
                 }
               },
-              labels: {fill: "black"}
+              labels: { fill: "black" }
             }}
           />
         </VictoryChart>

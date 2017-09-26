@@ -3,31 +3,25 @@ const _ = require("lodash");
 const webpackLodashPlugin = require("lodash-webpack-plugin");
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
-  console.log('STAGE', stage);
   if (stage === "build-javascript") {
     config.plugin("Lodash", webpackLodashPlugin, null);
   }
 
-  if (stage === "build-css") {
-    console.log('stage', stage);
-    console.log('config', config);
-  }
-
   // Do not transform SVG into data-uris
-  config.loader(`url-loader`, {
-      test: /\.(jpg|jpeg|png|gif|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
-      loader: `url`,
-      query: {
-        limit: 10000,
-        name: `static/[name].[hash:8].[ext]`,
-      },
-    });
+  config.loader("url-loader", {
+    test: /\.(jpg|jpeg|png|gif|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+    loader: "url",
+    query: {
+      limit: 10000,
+      name: "static/[name].[hash:8].[ext]"
+    }
+  });
 
   // Instead load <svg> elements directly into the DOM
-  config.loader(`raw-loader`, {
-      test: /\.(svg)(\?.*)?$/,
-      loader: `raw`
-    });
+  config.loader("raw-loader", {
+    test: /\.(svg)(\?.*)?$/,
+    loader: "raw"
+  });
 };
 
 // Add custom url pathname for blog posts.
@@ -97,7 +91,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           /* eslint no-console: "off"*/
           console.log(result.errors);
@@ -105,12 +99,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         // const categorySet = new Set();
-        result.data.allMarkdownRemark.edges.forEach(edge => {
+        result.data.allMarkdownRemark.edges.forEach((edge) => {
           // if (edge.node.frontmatter.category) {
           //   categorySet.add(edge.node.frontmatter.category);
           // }
 
-          if (edge.node.fields.type === 'docs') {
+          if (edge.node.fields.type === "docs") {
             // If parent directory is '/docs' return docsTemplate
             createPage({
               path: edge.node.fields.slug, // required
@@ -120,9 +114,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               },
               layout: "with-sidebar"
             });
-          }
-
-          else if (edge.node.fields.type === 'guides') {
+          } else if (edge.node.fields.type === "guides") {
             // If parent directory is '/guides' return docsTemplate
             createPage({
               path: edge.node.fields.slug, // required
@@ -132,10 +124,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               },
               layout: "with-sidebar"
             });
-          }
-
-          else {
-            console.log('SOMETHING WENT AWRY', edge.node.fields.slug);
+          } else {
+            console.log("SOMETHING WENT AWRY", edge.node.fields.slug);
             createPage({
               path: edge.node.fields.slug, // required
               component: docsTemplate,
@@ -143,7 +133,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 slug: edge.node.fields.slug
               }
             });
-            }
+          }
         });
 
         // const categoryList = Array.from(categorySet);

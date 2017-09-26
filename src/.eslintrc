@@ -1,9 +1,10 @@
 ---
 extends:
-  - "formidable/configurations/es6-browser"
+  - "formidable/configurations/es6-react"
 
 globals:
   document: true
+  graphql: true
 
 rules:
   "max-len": 0

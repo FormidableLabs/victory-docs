@@ -1,30 +1,63 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import config from "../../../data/site-config";
 
 class SEO extends Component {
-  render() {
-    const { postNode, postPath, postSEO } = this.props;
+  static propTypes = {
+    postNode: PropTypes.object,
+    postPath: PropTypes.object,
+    postSEO: PropTypes.object
+  };
+
+  generateTitle() {
+    const { postNode, postSEO } = this.props;
     let title;
-    let description;
-    let image;
-    let postURL;
     if (postSEO) {
       const postMeta = postNode.frontmatter;
       title = postMeta.title;
+    } else {
+      title = config.siteTitle;
+    }
+    return title;
+  }
+
+  generateDescription() {
+    const { postNode, postSEO } = this.props;
+    let description;
+    if (postSEO) {
+      const postMeta = postNode.frontmatter;
       description = postMeta.description
         ? postMeta.description
         : postNode.excerpt;
-      image = postMeta.cover;
-      postURL = config.siteUrl + config.pathPrefix + postPath;
     } else {
-      title = config.siteTitle;
       description = config.siteDescription;
+    }
+    return description;
+  }
+
+  generateImage() {
+    const { postNode, postSEO } = this.props;
+    let image;
+    if (postSEO) {
+      const postMeta = postNode.frontmatter;
+      image = postMeta.cover;
+    } else {
       image = config.siteLogo;
     }
     const realPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
     image = config.siteUrl + realPrefix + image;
+    return image;
+  }
+
+  render() {
+    const { postPath, postSEO } = this.props;
+    const postURL = postSEO ? config.siteUrl + config.pathPrefix + postPath : null;
     const blogURL = config.siteUrl + config.pathPrefix;
+    const title = this.generateTitle();
+    const description = this.generateDescription();
+    const image = this.generateImage();
+
     const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",
@@ -66,6 +99,7 @@ class SEO extends Component {
         }
       ]);
     }
+
     return (
       <Helmet>
         {/* General tags */}
@@ -87,16 +121,6 @@ class SEO extends Component {
           property="fb:app_id"
           content={config.siteFBAppID ? config.siteFBAppID : ""}
         />
-
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:creator"
-          content={config.userTwitter ? config.userTwitter : ""}
-        />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
       </Helmet>
     );
   }

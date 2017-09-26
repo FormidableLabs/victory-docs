@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 
 // VComponents
 import { VictoryTheme } from "victory-core";
-import { VictoryArea, VictoryAxis, VictoryChart, VictoryStack } from "victory-chart";
+import {
+  VictoryArea,
+  VictoryAxis,
+  VictoryChart,
+  VictoryStack
+} from "victory-chart";
 
 class Native extends React.Component {
   constructor(props) {
@@ -13,21 +18,10 @@ class Native extends React.Component {
     };
   }
 
-  getData() {
-    return [1, 2, 3, 4, 5].map(() => {
-      return [
-        {x: 1, y: Math.random()},
-        {x: 2, y: Math.random()},
-        {x: 3, y: Math.random()},
-        {x: 4, y: Math.random()},
-        {x: 5, y: Math.random()}
-      ];
-    });
-  }
-
   componentDidMount() {
     this.setStateInterval = setInterval(() => {
-      this.setState({ // eslint-disable-line react/no-did-mount-set-state
+      this.setState({
+        // eslint-disable-line react/no-did-mount-set-state
         data: this.getData()
       });
     }, 3000);
@@ -35,6 +29,18 @@ class Native extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.setStateInterval);
+  }
+
+  getData() {
+    return [1, 2, 3, 4, 5].map(() => {
+      return [
+        { x: 1, y: Math.random() },
+        { x: 2, y: Math.random() },
+        { x: 3, y: Math.random() },
+        { x: 4, y: Math.random() },
+        { x: 5, y: Math.random() }
+      ];
+    });
   }
 
   render() {
@@ -57,12 +63,7 @@ class Native extends React.Component {
                 <VictoryStack>
                   {this.state.data.map((data, i) => {
                     const key = this.props.alt ? `alt${i}` : i;
-                    return (
-                      <VictoryArea
-                        key={key}
-                        data={data}
-                      />
-                    );
+                    return <VictoryArea key={key} data={data} />;
                   })}
                 </VictoryStack>
                 <VictoryAxis />
@@ -85,12 +86,7 @@ class Native extends React.Component {
                 <VictoryStack>
                   {this.state.data.map((data, i) => {
                     const key = this.props.alt ? `alt${i}` : i;
-                    return (
-                      <VictoryArea
-                        key={key}
-                        data={data}
-                      />
-                    );
+                    return <VictoryArea key={key} data={data} />;
                   })}
                 </VictoryStack>
                 <VictoryAxis />
