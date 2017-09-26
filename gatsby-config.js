@@ -1,13 +1,4 @@
 const config = require("./data/site-config");
-// postcss plugins
-const postcssImport = require("postcss-import");
-const postcssCalc = require("postcss-calc");
-const postcssColorFn = require("postcss-color-function");
-const postcssCustomMedia = require("postcss-custom-media");
-const postcssInlineSvg = require("postcss-inline-svg");
-const postcssNesting = require("postcss-nesting");
-const postcssUrl = require("postcss-url");
-
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
 /* eslint-disable camelcase */
@@ -27,24 +18,22 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     {
-      resolve: "gatsby-plugin-postcss-sass",
-      options: {
-        postCssPlugins: [
-          postcssImport(),
-          postcssCalc(),
-          postcssColorFn(),
-          postcssCustomMedia(),
-          postcssInlineSvg(),
-          postcssNesting(),
-          postcssUrl({ url: "inline" })
-        ]
-      }
-    },
-    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "pages",
         path: `${__dirname}/src/pages/`
+      }
+    },
+    {
+      resolve: "gatsby-plugin-postcss-sass",
+      options: {
+        postCssPlugins: [
+          require("postcss-import")(),
+          require("postcss-cssnext")(),
+          require("postcss-browser-reporter"),
+          require("postcss-reporter"),
+          require("postcss-url")({ url: "inline" })
+        ]
       }
     },
     {

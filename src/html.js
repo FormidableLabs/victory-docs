@@ -18,9 +18,9 @@ if (process.env.NODE_ENV === "production") {
 
 export default class HTML extends React.Component {
   static propTypes = {
-    body: PropTypes.object,
-    headComponents: PropTypes.object,
-    postBodyComponents: PropTypes.objeect
+    body: PropTypes.string,
+    headComponents: PropTypes.array,
+    postBodyComponents: PropTypes.any
   }
 
   render() {

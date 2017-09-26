@@ -35,7 +35,7 @@
   font-size: 1.5rem; /* match h3, but with sans-serif */
 }
 
-.Anchor {
+/*.Anchor {
   background: url("../../../static/icon-link.svg") 0 no-repeat;
   border-bottom: 0 !important;
   position: absolute !important;
@@ -46,8 +46,8 @@
   opacity: 0;
   line-height: 1;
   width: 24px;
-  speak: none; /* Wishing for .screenreader-hidden class */
-}
+  speak: none; // Wishing for .screenreader-hidden class
+}*/
 
 .Markdown h1:hover .Anchor,
 .Markdown h2:hover .Anchor,

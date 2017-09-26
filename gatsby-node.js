@@ -54,6 +54,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     createNodeField({ node, name: "slug", value: slug });
 
     // Separate /docs from /guides
+    // TODO: Is this actually necessary if they can use the same template?
     createNodeField({ node, name: "type", value: parsedFilePath.dir });
   }
 };
