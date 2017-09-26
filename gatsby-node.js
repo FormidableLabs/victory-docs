@@ -110,7 +110,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               component: docsTemplate,
               context: {
                 slug: edge.node.fields.slug
-              }
+              },
+              layout: "with-sidebar"
             });
           }
 

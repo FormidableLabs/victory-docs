@@ -4,7 +4,6 @@ import Helmet from "react-helmet";
 
 import Footer from "../partials/footer";
 import Playground from "../partials/playground";
-import Sidebar from "../partials/sidebar";
 import Seo from "../partials/seo/index";
 import config from "../../data/site-config";
 
@@ -19,37 +18,28 @@ export default class DocsTemplate extends React.Component {
     if (!post.id) {
       post.category_id = config.postDefaultCategoryID;
     }
-    
-    const sidebarNode = this.props.data.allMarkdownRemark;
-    
-    console.log('data', this.props.data);
 
     return (
-      <main className="Page">
+      <div className="Page-content">
+        <Helmet>
+          <title>{`${config.siteTitle} |  ${post.title}`}</title>
+          <meta name="description" content={config.siteDescription} />
+        </Helmet>
         <Seo postPath={slug} postNode={postNode} postSEO />
-        <div className="Page-sidebar">
-          <Sidebar
-            content={sidebarNode.edges}
-            location={this.props.location}
-            toc={postNode.tableOfContents} 
-          />
-        </div>
-        <div className="Page-content">
-          <article className="Article">
-            <div className="Recipe Markdown">
-              {/* TODO: Add edit this page link once everything is merged to master 
-                <a className="SubHeading" href="">Edit this page</a>
-              */}
-              <Playground 
-                html={postNode.html}
-                scope={post.scope}
-                theme="elegant"
-              />
-            </div>
-          </article>
-          <Footer />
-        </div>
-      </main>
+        <article className="Article">
+          <div className="Recipe Markdown">
+            {/* TODO: Add edit this page link once everything is merged to master 
+              <a className="SubHeading" href="">Edit this page</a>
+            */}
+            <Playground 
+              html={postNode.html}
+              scope={post.scope}
+              theme="elegant"
+            />
+          </div>
+        </article>
+        <Footer />
+      </div>
     );
   }
 }
@@ -65,24 +55,10 @@ export const pageQuery = graphql`
       frontmatter {
         id
         scope
+        title
       }
       fields {
         slug
-      }
-    }
-    allMarkdownRemark {
-      edges {
-        node {
-          fields {
-            slug
-            type
-          }
-          frontmatter{
-            id
-            category
-            title
-          }
-        }
       }
     }
   }

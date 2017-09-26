@@ -9,8 +9,7 @@ import Link from "gatsby-link";
 class Sidebar extends React.Component {
   static propTypes = {
     content: PropTypes.array,
-    location: PropTypes.object,
-    toc: PropTypes.string
+    location: PropTypes.object
   };
   
   // store: PropTypes.shape({
@@ -31,7 +30,7 @@ class Sidebar extends React.Component {
   // />
 
   renderLinksList(edges, type, category) {
-    const { location, toc } = this.props;
+    const { location } = this.props;
     
     // TODO: Massage toc so the title of the page isn't displayed
 
@@ -44,23 +43,22 @@ class Sidebar extends React.Component {
         return edge.node.frontmatter.category === category;
       });
     }
-    
-    const renderList = filteredEdges.sort((edge1, edge2) => {
-      // Sort links alphabetically
-      const title1 = edge1.node.frontmatter.title; 
-      const title2 = edge2.node.frontmatter.title;
-      return title1.localeCompare(title2);
-    }).map(edge => {
+
+    const renderList = filteredEdges.map(edge => {
       const link = edge.node;
       // If link is currently active and not under the Introduction section, 
       // then display its table of contents underneath it
       const isActive = category !== "introduction" && location.pathname === link.fields.slug ? true : false;
-      // {isActive ? <div className="Sidebar-toc" dangerouslySetInnerHTML={{__html: toc}} /> : null}
+      const toc = (
+        <div className="Sidebar-toc" dangerouslySetInnerHTML={{__html: link.tableOfContents}} 
+        />
+      );
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
             {link.frontmatter.title}
           </Link>
+          {isActive ? toc : null}
         </li>
       );
     });

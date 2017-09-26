@@ -1760,6 +1760,14 @@ chalk@^2.0.0, chalk@^2.0.1:
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
 
+chalk@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-2.1.0.tgz#ac5becf14fa21b99c6c92ca7a7d7cfd5b17e743e"
+  dependencies:
+    ansi-styles "^3.1.0"
+    escape-string-regexp "^1.0.5"
+    supports-color "^4.0.0"
+
 character-entities-html4@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/character-entities-html4/-/character-entities-html4-1.1.0.tgz#1ab08551d3ce1fa1df08d00fb9ca1defb147a06c"
@@ -2395,7 +2403,7 @@ crypto-browserify@^3.11.0:
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
 
-css-color-function@^1.2.0:
+css-color-function@^1.2.0, css-color-function@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/css-color-function/-/css-color-function-1.3.0.tgz#72c767baf978f01b8a8a94f42f17ba5d22a776fc"
   dependencies:
@@ -2475,6 +2483,10 @@ css-tokenize@^1.0.1:
   dependencies:
     inherits "^2.0.1"
     readable-stream "^1.0.33"
+
+css-unit-converter@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/css-unit-converter/-/css-unit-converter-1.1.1.tgz#d9b9281adcfd8ced935bdbaba83786897f64e996"
 
 css-what@2.1:
   version "2.1.0"
@@ -7335,12 +7347,30 @@ postcss-calc@^5.0.0, postcss-calc@^5.2.0:
     postcss-message-helpers "^2.0.0"
     reduce-css-calc "^1.2.6"
 
+postcss-calc@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmjs.org/postcss-calc/-/postcss-calc-6.0.0.tgz#b681b279c6d24fbe0e33ed9045803705445d613b"
+  dependencies:
+    css-unit-converter "^1.1.1"
+    postcss "^6.0.0"
+    postcss-selector-parser "^2.2.2"
+    reduce-css-calc "^2.0.0"
+
 postcss-color-function@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/postcss-color-function/-/postcss-color-function-2.0.1.tgz#9ad226f550e8a7c7f8b8a77860545b6dd7f55241"
   dependencies:
     css-color-function "^1.2.0"
     postcss "^5.0.4"
+    postcss-message-helpers "^2.0.0"
+    postcss-value-parser "^3.3.0"
+
+postcss-color-function@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/postcss-color-function/-/postcss-color-function-4.0.0.tgz#7e0106f4f6a1ecb1ad5b3a8553ace5e828aae187"
+  dependencies:
+    css-color-function "^1.3.0"
+    postcss "^6.0.1"
     postcss-message-helpers "^2.0.0"
     postcss-value-parser "^3.3.0"
 
@@ -7700,6 +7730,12 @@ postcss-nesting@^2.0.5:
   dependencies:
     postcss "^5.0.19"
 
+postcss-nesting@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-4.2.1.tgz#0483bce338b3f0828ced90ff530b29b98b00300d"
+  dependencies:
+    postcss "^6.0.11"
+
 postcss-normalize-charset@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/postcss-normalize-charset/-/postcss-normalize-charset-1.1.1.tgz#ef9ee71212d7fe759c78ed162f61ed62b5cb93f1"
@@ -7904,6 +7940,14 @@ postcss@^6.0.1, postcss@^6.0.3:
     chalk "^2.0.1"
     source-map "^0.5.6"
     supports-color "^4.1.0"
+
+postcss@^6.0.11:
+  version "6.0.12"
+  resolved "https://registry.npmjs.org/postcss/-/postcss-6.0.12.tgz#6b0155089d2d212f7bd6a0cecd4c58c007403535"
+  dependencies:
+    chalk "^2.1.0"
+    source-map "^0.5.7"
+    supports-color "^4.4.0"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
@@ -8371,6 +8415,13 @@ reduce-css-calc@^1.2.6, reduce-css-calc@^1.2.7:
     balanced-match "^0.4.2"
     math-expression-evaluator "^1.2.14"
     reduce-function-call "^1.0.1"
+
+reduce-css-calc@^2.0.0:
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/reduce-css-calc/-/reduce-css-calc-2.0.5.tgz#33c97838c5d4c711a5c14ef85ce4fde41483f7bd"
+  dependencies:
+    css-unit-converter "^1.1.1"
+    postcss-value-parser "^3.3.0"
 
 reduce-function-call@^1.0.1:
   version "1.0.2"
@@ -9990,6 +10041,12 @@ supports-color@^4.0.0, supports-color@^4.1.0:
 supports-color@^4.2.0:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.2.1.tgz#65a4bb2631e90e02420dba5554c375a4754bb836"
+  dependencies:
+    has-flag "^2.0.0"
+
+supports-color@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/supports-color/-/supports-color-4.4.0.tgz#883f7ddabc165142b2a61427f3352ded195d1a3e"
   dependencies:
     has-flag "^2.0.0"
 

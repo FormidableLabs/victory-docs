@@ -1,8 +1,12 @@
 const config = require("./data/site-config");
+// postcss plugins
 const postcssImport = require("postcss-import");
-const postcssUrl = require("postcss-url");
-const postcssInlineSvg = require("postcss-inline-svg");
+const postcssCalc = require("postcss-calc");
+const postcssColorFn = require("postcss-color-function");
 const postcssCustomMedia = require("postcss-custom-media");
+const postcssInlineSvg = require("postcss-inline-svg");
+const postcssNesting = require("postcss-nesting");
+const postcssUrl = require("postcss-url");
 
 const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
 
@@ -25,13 +29,14 @@ module.exports = {
     {
       resolve: "gatsby-plugin-postcss-sass",
       options: {
-        name: "styles",
-        path: `${__dirname}/src/styles/**/*`,
         postCssPlugins: [
           postcssImport(),
-          postcssUrl({url: "inline"}),
+          postcssCalc(),
+          postcssColorFn(),
+          postcssCustomMedia(),
           postcssInlineSvg(),
-          postcssCustomMedia()
+          postcssNesting(),
+          postcssUrl({url: "inline"})
         ]
       }
     },
