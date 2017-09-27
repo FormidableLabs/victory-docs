@@ -258,7 +258,7 @@ import { VictoryBar, VictoryChart, VictoryAxis,
         VictoryTheme, VictoryStack } from 'victory';
 ```
 
-Wrap all four all four `VictoryBar` components with `VictoryStack`. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9bf170061599027e4bd5fcf8128e47adb83c0e98/src/js/client.js).)
+Wrap all four `VictoryBar` components with `VictoryStack`. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9bf170061599027e4bd5fcf8128e47adb83c0e98/src/js/client.js).)
 
 ```playground_norender
 const data2012 = [
