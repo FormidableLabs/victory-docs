@@ -6,8 +6,6 @@ import Link from "gatsby-link";
 import find from "lodash/find";
 import * as Victory from "victory";
 
-import * as _ from "lodash";
-
 // Child Components
 import Footer from "../../partials/footer";
 import Icon from "../../partials/icon";
@@ -29,11 +27,10 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log('helloooo', _, find);
-
+    // No idea why _ is being weird but it is
     this.scope = {
       ...Victory,
-      _: _,
+      _: require("lodash"),
       React,
       ReactDOM,
       PropTypes

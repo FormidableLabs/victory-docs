@@ -86,7 +86,6 @@ class Preview extends Component {
   }
 
   render() {
-    console.log('lodash???', this.props.scope._);
     return (
       <div ref={(div) => {this.mount = div;}} className="Preview" />
     );
