@@ -1,7 +1,7 @@
 ---
 id: 21
 title: VictoryPrimitives
-category: core
+category: charts
 scope: null
 ---
 # Victory Primitives

@@ -1,7 +1,7 @@
 ---
 id: 6
 title: VictoryBar
-category: chart
+category: charts
 scope:
   - sampleData
 ---

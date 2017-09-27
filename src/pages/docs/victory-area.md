@@ -1,7 +1,7 @@
 ---
 id: 4
 title: VictoryArea
-category: chart
+category: charts
 scope:
   - sampleData
 ---

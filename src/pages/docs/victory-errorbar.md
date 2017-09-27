@@ -1,7 +1,7 @@
 ---
 id: 13
 title: VictoryErrorBar
-category: chart
+category: charts
 scope: 
   - sampleData
 include: /partials/docs/containers.md

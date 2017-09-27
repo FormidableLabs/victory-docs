@@ -1,7 +1,7 @@
 ---
 id: 15
 title: VictoryLabel
-category: core
+category: charts
 scope: null
 ---
 # VictoryLabel

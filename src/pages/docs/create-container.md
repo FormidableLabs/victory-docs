@@ -1,8 +1,10 @@
 ---
 id: 32
 title: createContainer
-category: chart
-scope: null
+category: containers
+scope:
+  - random
+  - range
 ---
 # createContainer
 

@@ -1,7 +1,7 @@
 ---
 id: 5
 title: VictoryAxis
-category: chart
+category: charts
 scope: null
 ---
 # VictoryAxis

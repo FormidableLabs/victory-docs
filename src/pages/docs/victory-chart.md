@@ -1,7 +1,7 @@
 ---
 id: 9
 title: VictoryChart
-category: chart
+category: charts
 scope: 
   - sampleData
 ---

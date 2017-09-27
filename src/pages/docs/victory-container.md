@@ -1,7 +1,7 @@
 ---
 id: 11
 title: VictoryContainer
-category: core
+category: charts
 scope: null
 include: /partials/docs/containers.md
 ---

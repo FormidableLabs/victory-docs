@@ -1,7 +1,7 @@
 ---
 id: 8
 title: VictoryCandlestick
-category: chart
+category: charts
 scope: 
   - sampleDataDates
 ---

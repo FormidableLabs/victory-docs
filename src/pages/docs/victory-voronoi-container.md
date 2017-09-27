@@ -1,8 +1,8 @@
 ---
 id: 29
 title: VictoryVoroniContainer
-category: chart
-scope: 
+category: containers
+scope:
   - round
 include: /partials/docs/containers.md
 ---

@@ -1,7 +1,7 @@
 ---
 id: 7
 title: VictoryBrushContainer
-category: chart
+category: containers
 scope: null
 include: /partials/docs/containers.md
 ---

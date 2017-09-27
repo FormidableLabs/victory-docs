@@ -104,15 +104,15 @@ class Sidebar extends React.Component {
               {this.renderLinksList(content, "docs", "none")}
             </ul>
             <div>
-              <p className="Sidebar-SubHeading SubHeading">Chart</p>
+              <p className="Sidebar-SubHeading SubHeading">Charts</p>
               <ul className="Sidebar-List">
-                {this.renderLinksList(content, "docs", "chart")}
+                {this.renderLinksList(content, "docs", "charts")}
               </ul>
             </div>
             <div>
-              <p className="Sidebar-SubHeading SubHeading">Core</p>
+              <p className="Sidebar-SubHeading SubHeading">Containers</p>
               <ul className="Sidebar-List">
-                {this.renderLinksList(content, "docs", "core")}
+                {this.renderLinksList(content, "docs", "containers")}
               </ul>
             </div>
             <div>

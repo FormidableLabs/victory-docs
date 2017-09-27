@@ -1,7 +1,7 @@
 ---
 id: 16
 title: VictoryLegend
-category: core
+category: charts
 scope: null
 ---
 # VictoryLegend

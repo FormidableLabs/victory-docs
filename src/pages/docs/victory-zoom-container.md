@@ -1,7 +1,7 @@
 ---
 id: 31
 title: VictoryZoomContainer
-category: chart
+category: containers
 scope: null
 include: /partials/docs/containers.md
 ---

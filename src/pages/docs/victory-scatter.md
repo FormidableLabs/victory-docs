@@ -1,7 +1,7 @@
 ---
 id: 22
 title: VictoryScatter
-category: chart
+category: charts
 scope: 
   - sampleData
 ---

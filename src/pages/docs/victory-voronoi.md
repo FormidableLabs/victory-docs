@@ -1,7 +1,7 @@
 ---
 id: 30
 title: VictoryVoroni
-category: chart
+category: charts
 scope: 
   - sampleData
 ---

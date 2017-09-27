@@ -1,7 +1,7 @@
 ---
 id: 27
 title: VictoryTooltip
-category: core
+category: charts
 scope: null
 ---
 # VictoryTooltip

@@ -1,7 +1,7 @@
 ---
 id: 10
 title: VictoryClipContainer
-category: core
+category: containers
 scope: null
 ---
 # VictoryClipContainer

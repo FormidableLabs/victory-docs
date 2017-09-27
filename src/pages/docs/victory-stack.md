@@ -1,7 +1,7 @@
 ---
 id: 25
 title: VictoryStack
-category: chart
+category: charts
 scope: 
   - sampleData
 ---

@@ -53,8 +53,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     // Add slug as a field on the node.
     createNodeField({ node, name: "slug", value: slug });
 
-    // Separate /docs from /guides
-    // TODO: Is this actually necessary if they can use the same template?
+    // Separate /docs from /guides for <Sidebar />
     createNodeField({ node, name: "type", value: parsedFilePath.dir });
   }
 };
@@ -68,7 +67,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const docsTemplate = path.resolve("src/templates/docs.js");
-    // const guidesTemplate = path.resolve("src/templates/guides.js");
 
     resolve(
       graphql(
@@ -81,7 +79,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   id
                   category
                   display
-                  scope
                 }
                 fields {
                   slug
@@ -105,36 +102,16 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           //   categorySet.add(edge.node.frontmatter.category);
           // }
 
-          if (edge.node.fields.type === "docs") {
-            // If parent directory is '/docs' return docsTemplate
-            createPage({
-              path: edge.node.fields.slug, // required
-              component: docsTemplate,
-              context: {
-                slug: edge.node.fields.slug
-              },
-              layout: "with-sidebar"
-            });
-          } else if (edge.node.fields.type === "guides") {
-            // If parent directory is '/guides' return docsTemplate
-            createPage({
-              path: edge.node.fields.slug, // required
-              component: docsTemplate,
-              context: {
-                slug: edge.node.fields.slug
-              },
-              layout: "with-sidebar"
-            });
-          } else {
-            console.log("SOMETHING WENT AWRY", edge.node.fields.slug);
-            createPage({
-              path: edge.node.fields.slug, // required
-              component: docsTemplate,
-              context: {
-                slug: edge.node.fields.slug
-              }
-            });
-          }
+          console.log('slug', edge.node.fields.slug);
+
+          createPage({
+            path: edge.node.fields.slug, // required
+            component: docsTemplate,
+            context: {
+              slug: edge.node.fields.slug
+            },
+            layout: "with-sidebar"
+          });
         });
 
         // const categoryList = Array.from(categorySet);

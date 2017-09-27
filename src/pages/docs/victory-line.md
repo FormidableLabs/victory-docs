@@ -1,7 +1,7 @@
 ---
 id: 17
 title: VictoryLine
-category: chart
+category: charts
 scope: 
   - sampleData
 ---

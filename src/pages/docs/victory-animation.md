@@ -1,7 +1,7 @@
 ---
 id: 3
 title: VictoryAnimation
-category: core
+category: charts
 scope: null
 ---
 # VictoryAnimation
