@@ -3,7 +3,6 @@ id: 23
 title: VictorySelectionContainer
 category: containers
 scope: null
-include: /partials/docs/containers.md
 ---
 # VictorySelectionContainer
 

@@ -3,7 +3,6 @@ id: 7
 title: VictoryBrushContainer
 category: containers
 scope: null
-include: /partials/docs/containers.md
 ---
 # VictoryBrushContainer
 

@@ -4,7 +4,6 @@ title: VictoryVoroniContainer
 category: containers
 scope:
   - round
-include: /partials/docs/containers.md
 ---
 # VictoryVoronoiContainer
 

@@ -3,7 +3,6 @@ id: 31
 title: VictoryZoomContainer
 category: containers
 scope: null
-include: /partials/docs/containers.md
 ---
 # VictoryZoomContainer
 

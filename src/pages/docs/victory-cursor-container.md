@@ -3,7 +3,6 @@ id: 12
 title: VictoryCursorContainer
 category: containers
 scope: null
-include: /partials/docs/containers.md
 ---
 # VictoryCursorContainer
 

@@ -2,9 +2,8 @@
 id: 13
 title: VictoryErrorBar
 category: charts
-scope: 
+scope:
   - sampleData
-include: /partials/docs/containers.md
 ---
 # VictoryErrorBar
 

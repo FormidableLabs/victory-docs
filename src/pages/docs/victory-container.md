@@ -3,7 +3,6 @@ id: 11
 title: VictoryContainer
 category: charts
 scope: null
-include: /partials/docs/containers.md
 ---
 # VictoryContainer
 

@@ -1,4 +1,12 @@
-## Standard Container Props
+---
+id: 33
+title: Common Container Props
+category: containers
+scope: null
+---
+# Common Container Props
+
+## Props
 
 ### style
 
