@@ -4,6 +4,7 @@ import Playground from "component-playground";
 import { assign } from "lodash";
 import Link from "gatsby-link";
 
+import Footer from "../../partials/footer";
 import PureRender from "../../partials/guides/themes/pure-render";
 import DemoComponent from "../../partials/guides/themes/demo-component";
 
@@ -68,7 +69,7 @@ class Themes extends React.Component {
             <p>
               Try out the Victory themes and make your own.
               Check out
-              the <Link to="docs/victory-theme">
+              the <Link to="/docs/victory-theme/">
                 VictoryTheme documentation
               </Link> for more details on themes.
             </p>
@@ -92,6 +93,7 @@ class Themes extends React.Component {
             </PureRender>
           </div>
         </article>
+        <Footer />
       </div>
     );
   }

@@ -18,7 +18,24 @@ export default class LayoutWithSidebar extends React.Component {
     const { children, data } = this.props;
 
     // The Sidebar’s scroll position remains unchanged when it lives here in the layout
-    const allRecipes = data.allMarkdownRemark;
+    const allRecipes = data.allMarkdownRemark.edges;
+    const themeGuideExists = allRecipes.find((recipe) => {
+      return recipe.node.fields.slug === "/guides/themes/";
+    });
+    if (!themeGuideExists) {
+      // Add /guides/themes/ to sidebar
+      allRecipes.push({
+        node: {
+          fields: {
+            slug: "/guides/themes/",
+            type: "guides"
+          },
+          frontmatter: {
+            title: "Themes"
+          }
+        }
+      });
+    }
 
     return (
       <div className="u-fullHeight">
@@ -26,7 +43,7 @@ export default class LayoutWithSidebar extends React.Component {
         <main className="Page">
           <div className="Page-sidebar">
             <Sidebar
-              content={allRecipes.edges}
+              content={allRecipes}
               location={this.props.location}
             />
           </div>
