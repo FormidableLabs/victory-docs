@@ -151,3 +151,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     );
   });
 };
+
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
+
+  // page.matchPath is a special key that's used for matching pages
+  // only on the client.
+  if (page.path.match(/^\/gallery/)) {
+    page.matchPath = "/gallery/:path";
+
+    // Update the page.
+    createPage(page);
+  }
+};
