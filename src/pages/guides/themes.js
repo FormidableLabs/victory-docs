@@ -61,33 +61,37 @@ class Themes extends React.Component {
 
   render() {
     return (
-      <div className="Recipe">
-        <h1>Themes</h1>
-        <p>
-          Try out the Victory themes and make your own.
-          Check out
-          the <Link to="docs/victory-theme">
-            VictoryTheme documentation
-          </Link> for more details on themes.
-        </p>
-        {this.renderMenu()}
-        <PureRender themeName={this.state.themeName} editted={this.state.editted}>
-          <pre className="u-noMarginTop u-noPadding">
-            <div className="Interactive" onKeyPress={this.handleUserEdit.bind(this)}>
-              <Playground
-                codeText={this.getCodeText()}
-                scope={{
-                  React,
-                  ReactDOM,
-                  assign,
-                  DemoComponent
-                }}
-                theme="elegant"
-                noRender={false}
-              />
-            </div>
-          </pre>
-        </PureRender>
+      <div className="Page-content">
+        <article className="Article">
+          <div className="Recipe">
+            <h1>Themes</h1>
+            <p>
+              Try out the Victory themes and make your own.
+              Check out
+              the <Link to="docs/victory-theme">
+                VictoryTheme documentation
+              </Link> for more details on themes.
+            </p>
+            {this.renderMenu()}
+            <PureRender themeName={this.state.themeName} editted={this.state.editted}>
+              <pre className="u-noMarginTop u-noPadding">
+                <div className="Interactive" onKeyPress={this.handleUserEdit.bind(this)}>
+                  <Playground
+                    codeText={this.getCodeText()}
+                    scope={{
+                      React,
+                      ReactDOM,
+                      assign,
+                      DemoComponent
+                    }}
+                    theme="elegant"
+                    noRender={false}
+                  />
+                </div>
+              </pre>
+            </PureRender>
+          </div>
+        </article>
       </div>
     );
   }

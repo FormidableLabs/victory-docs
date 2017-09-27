@@ -165,4 +165,11 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
     // Update the page.
     createPage(page);
   }
+
+  if (page.path.match("/guides/themes/")) {
+    page.layout = "with-sidebar";
+
+    // Update /guides/themes/ to use with-sidebar layout
+    createPage(page);
+  }
 };

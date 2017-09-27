@@ -8030,7 +8030,7 @@ postcss-nesting@^2.0.5:
   dependencies:
     postcss "^5.0.19"
 
-postcss-nesting@^4.0.1, postcss-nesting@^4.2.1:
+postcss-nesting@^4.0.1:
   version "4.2.1"
   resolved "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-4.2.1.tgz#0483bce338b3f0828ced90ff530b29b98b00300d"
   dependencies:
