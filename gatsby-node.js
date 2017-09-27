@@ -102,8 +102,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           //   categorySet.add(edge.node.frontmatter.category);
           // }
 
-          console.log('slug', edge.node.fields.slug);
-
           createPage({
             path: edge.node.fields.slug, // required
             component: docsTemplate,

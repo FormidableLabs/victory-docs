@@ -24,8 +24,6 @@ export default class DocsTemplate extends React.Component {
       post.categoryId = config.postDefaultCategoryID;
     }
 
-    console.log('frontmatter', post);
-
     return (
       <div className="Page-content">
         <Helmet>
