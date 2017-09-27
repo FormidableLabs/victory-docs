@@ -1,29 +1,39 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import Radium from "radium";
 import Playground from "component-playground";
+import Link from "gatsby-link";
 import find from "lodash/find";
-import {Link} from "react-router";
 import * as Victory from "victory";
-import _ from "lodash";
+
+import * as _ from "lodash";
 
 // Child Components
-import Footer from "../../components/footer";
-import Header from "../../components/header";
-import Icon from "../../components/icon";
+import Footer from "../../partials/footer";
+import Icon from "../../partials/icon";
 
-import Preview from "./components/preview";
-import TitleMeta from "../../components/title-meta";
-import { configGallery } from "../../components/config-gallery";
+import Preview from "../../partials/gallery/components/preview";
+// import TitleMeta from "../../components/title-meta";
+import { configGallery } from "../../partials/gallery/config";
 
 class Gallery extends React.Component {
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+    params: PropTypes.object
+  };
+
+  static defaultProps = {
+    params: null
+  };
+
   constructor(props) {
     super(props);
 
+    console.log('helloooo', _, find);
+
     this.scope = {
       ...Victory,
-      _,
+      _: _,
       React,
       ReactDOM,
       PropTypes
@@ -32,8 +42,8 @@ class Gallery extends React.Component {
 
   processCodeText(text) {
     return text
-            .replace(/\/\* [global|eslint|NOTE](.|[\n])*?\*\//g, "") // remove dev comments
-            .trim(); // remove left-over whitespace
+      .replace(/\/\* [global|eslint|NOTE](.|[\n])*?\*\//g, "") // remove dev comments
+      .trim(); // remove left-over whitespace
   }
 
   renderPreviews(config) {
@@ -48,7 +58,7 @@ class Gallery extends React.Component {
               scope={this.scope}
             />
             <p className="Gallery-item-heading">
-                {example.text}&nbsp;<Icon glyph="internal-link" />
+              {example.text}&nbsp;<Icon glyph="internal-link" />
             </p>
           </Link>
         </div>
@@ -56,9 +66,7 @@ class Gallery extends React.Component {
     });
     return (
       <article className="Article Article--noBottom">
-        <h1 className="u-noMargin">
-          Gallery
-        </h1>
+        <h1 className="u-noMargin">Gallery</h1>
         <div className="Gallery">
           {previews}
         </div>
@@ -67,10 +75,10 @@ class Gallery extends React.Component {
   }
 
   renderPlayground(slug) {
-    const example = find(configGallery, {slug});
+    const example = find(configGallery, { slug });
     const current = configGallery.indexOf(example);
     // cycle through gallery array
-    const previous = (current - 1) > 0 ? (current - 1) : configGallery.length - 1;
+    const previous = current - 1 > 0 ? current - 1 : configGallery.length - 1;
     const prevIndex = previous % configGallery.length;
     const nextIndex = (current + 1) % configGallery.length;
     return (
@@ -82,10 +90,16 @@ class Gallery extends React.Component {
           {example.text}
         </h1>
         <div className="Grid Grid--justifySpacebetween u-marginTopSm">
-          <Link to={`/gallery/${configGallery[prevIndex].slug}`} className="SubHeading">
+          <Link
+            to={`/gallery/${configGallery[prevIndex].slug}`}
+            className="SubHeading"
+          >
             <Icon glyph="back" /> Previous Example
           </Link>
-          <Link to={`/gallery/${configGallery[nextIndex].slug}`} className="SubHeading">
+          <Link
+            to={`/gallery/${configGallery[nextIndex].slug}`}
+            className="SubHeading"
+          >
             Next Example <Icon glyph="internal-link" />
           </Link>
         </div>
@@ -106,27 +120,17 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const activePage = this.props.params.example ?
-      this.renderPlayground(this.props.params.example) :
-      this.renderPreviews(configGallery);
+    const activePage = this.props.params && this.props.params.example
+      ? this.renderPlayground(this.props.params.example)
+      : this.renderPreviews(configGallery);
 
     return (
-      <TitleMeta title="Victory | Gallery">
-        <Header />
-        {activePage}
+      <div>
+        { activePage }
         <Footer />
-      </TitleMeta>
+      </div>
     );
   }
 }
 
-Gallery.propTypes = {
-  location: PropTypes.object.isRequired,
-  params: PropTypes.object
-};
-
-Gallery.defaultProps = {
-  params: null
-};
-
-export default Radium(Gallery);
+export default Gallery;

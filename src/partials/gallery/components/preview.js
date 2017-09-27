@@ -12,22 +12,28 @@ class Preview extends Component {
 
   static propTypes = {
     codeText: PropTypes.string.isRequired,
-    scope: PropTypes.object.isRequired,
-    previewComponent: PropTypes.node,
-    noRender: PropTypes.bool,
     context: PropTypes.object,
+    noRender: PropTypes.bool,
+    previewComponent: PropTypes.node,
+    scope: PropTypes.object.isRequired,
     theme: PropTypes.string
   };
+
+  componentDidMount() {
+    this.executeCode();
+  }
 
   compileCode() {
     const { codeText, context, noRender, scope } = this.props;
     const generateContextTypes = (c) => {
-      return `{ ${Object.keys(c).map((val) =>
-        `${val}: PropTypes.any.isRequired`).join(", ")} }`;
+      return `{ ${Object.keys(c)
+        .map((val) => `${val}: PropTypes.any.isRequired`)
+        .join(", ")} }`;
     };
 
     if (noRender) {
-      return transform(`
+      return transform(
+        `
         ((${Object.keys(scope).join(", ")}, mountNode) => {
           class Comp extends React.Component {
             getChildContext() {
@@ -42,18 +48,23 @@ class Preview extends Component {
           Comp.childContextTypes = ${generateContextTypes(context)};
           return Comp;
         });
-      `, { presets: ["es2015", "react", "stage-1"] }).code;
+      `,
+        { presets: ["es2015", "react", "stage-1"] }
+      ).code;
     } else {
-      return transform(`
+      return transform(
+        `
         ((${Object.keys(scope).join(",")}, mountNode) => {
           ${codeText}
         });
-      `, { presets: ["es2015", "react", "stage-1"] }).code;
+      `,
+        { presets: ["es2015", "react", "stage-1"] }
+      ).code;
     }
   }
 
   executeCode() {
-    const mountNode = this.refs.mount;
+    const mountNode = this.mount;
     const { scope, noRender, previewComponent } = this.props;
     const tempScope = [];
 
@@ -65,26 +76,21 @@ class Preview extends Component {
       const Comp = React.createElement(
         eval(compiledCode).apply(null, tempScope)
       );
-      ReactDOMServer.renderToString(React.createElement(previewComponent, {}, Comp));
-      render(
-        React.createElement(previewComponent, {}, Comp),
-        mountNode
+      ReactDOMServer.renderToString(
+        React.createElement(previewComponent, {}, Comp)
       );
+      render(React.createElement(previewComponent, {}, Comp), mountNode);
     } else {
       eval(compiledCode).apply(null, tempScope);
     }
   }
 
-  componentDidMount() {
-    this.executeCode();
-  }
-
   render() {
+    console.log('lodash???', this.props.scope._);
     return (
-        <div ref="mount" className="Preview"/>
+      <div ref={(div) => {this.mount = div;}} className="Preview" />
     );
   }
-
 }
 
 export default Preview;

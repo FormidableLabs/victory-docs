@@ -6,8 +6,8 @@ import config from "../../../data/site-config";
 class SEO extends Component {
   static propTypes = {
     postNode: PropTypes.object,
-    postPath: PropTypes.object,
-    postSEO: PropTypes.object
+    postPath: PropTypes.string,
+    postSEO: PropTypes.bool
   };
 
   generateTitle() {
