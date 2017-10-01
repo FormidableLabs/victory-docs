@@ -9,6 +9,7 @@ class App extends React.Component {
     return (
       <svg viewBox="0 0 400 400">
         <VictoryPie
+          standalone={false}
           width={400} height={400}
           data={[
             {x: 1, y: 120}, {x: 2, y: 150}, {x: 3, y: 75}
@@ -18,8 +19,9 @@ class App extends React.Component {
         />
         <VictoryLabel
           textAnchor="middle"
+          style={{ fontSize: 20 }}
           x={200} y={200}
-          text="Word(s)"
+          text="Pie!"
         />
       </svg>
     );

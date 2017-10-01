@@ -13,7 +13,7 @@ Victory renders svg elements, so there is no concept of z-index. Instead the ren
 ```playground
   <svg width={800} height={300}>
     <g>
-      <VictoryChart width={300}>
+      <VictoryChart standalone={false} width={300}>
         <VictoryScatter
           y={(data) => Math.sin(2 * Math.PI * data.x)}
           samples={25}
@@ -29,7 +29,7 @@ Victory renders svg elements, so there is no concept of z-index. Instead the ren
       </VictoryChart>
     </g>
     <g transform={"translate(400, 0)"}>
-      <VictoryChart width={300}>
+      <VictoryChart standalone={false} width={300}>
         <VictoryAxis/>
         <VictoryAxis dependentAxis/>
         <VictoryLine
