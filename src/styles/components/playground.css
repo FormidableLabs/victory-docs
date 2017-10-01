@@ -125,10 +125,9 @@
   width: 100%;
 }
 
-.Interactive .playgroundPreview svg {
+.Interactive .playgroundPreview div {
   height: inherit !important; /* override default Victory inline styles */
   margin: 0 auto;
-  max-height: calc(var(--initialHeight) - 40px);
   width: auto !important; /* override default Victory inline styles */
   max-width: 100%;
 }
