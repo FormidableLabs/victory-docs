@@ -3,7 +3,7 @@
 Victory supports polar charts for `VictoryArea`, `VictoryBar`, `VictoryLine` and `VictoryScatter`, as well as wrapper components like `VictoryChart`, `VictoryGroup` and `VictoryStack`. This guide provides explanations for polar-specific props as well as examples of polar charts.
 
 ```playground
-<div style={{ margin: 50 }}>
+<div>
   <VictoryChart polar
     domain={{ x: [0, 360] }}
     theme={VictoryTheme.material}
