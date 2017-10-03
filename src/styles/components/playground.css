@@ -125,11 +125,9 @@
   width: 100%;
 }
 
-.Interactive .playgroundPreview div {
-  height: inherit !important; /* override default Victory inline styles */
+.Interactive .playgroundPreview > div:first-child {
+  width: 100%;
   margin: 0 auto;
-  width: auto !important; /* override default Victory inline styles */
-  max-width: 100%;
 }
 
 .Interactive .playgroundError {

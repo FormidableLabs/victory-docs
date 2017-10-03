@@ -114,7 +114,7 @@ See the [Events Guide] for more information on defining events.
 **note:** `VictoryArea` will use the special `eventKey` "all" rather than refering to data by index, as it renders only one element for an entire dataset
 
 ```playground
-<div>
+<div style={{ margin: 50 }}>
   <h3>Click Me</h3>
   <VictoryArea
     style={{
@@ -253,9 +253,6 @@ padding={{ top: 20, bottom: 60 }}
 ```playground
 <VictoryChart polar
   theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryPolarAxis dependentAxis
     style={{ axis: { stroke: "none" } }}
