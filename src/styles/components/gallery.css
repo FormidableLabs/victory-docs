@@ -24,6 +24,10 @@
   padding: var(--gutter-small);
 }
 
+.Gallery-item .Preview svg {
+  height: 100% !important;
+}
+
 .Gallery-item-heading {
   flex: 0 1 auto;
 

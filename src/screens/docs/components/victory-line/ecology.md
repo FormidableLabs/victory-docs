@@ -50,7 +50,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 `VictoryLine` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
-containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
@@ -127,8 +127,7 @@ See the [Events Guide] for more information on defining events.
   <h3>Click Me</h3>
   <VictoryLine
     style={{
-      data: { stroke: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
+      data: { stroke: "#c43a31" }
     }}
     events={[{
       target: "parent",
@@ -263,9 +262,6 @@ padding={{ top: 20, bottom: 60 }}
 <VictoryChart polar
   domain={{ y: [0, 7]}}
   theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryPolarAxis dependentAxis
     style={{ axis: { stroke: "none" } }}
@@ -365,14 +361,12 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 ```playground
   <VictoryLine
     style={{
-      parent: {
-        border: "1px solid #ccc"
-      },
       data: {
         stroke: "#c43a31", strokeWidth: 3
       },
       labels: {
-        fontSize: 15, fill: "#c43a31"
+        fontSize: 15,
+        fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
       }
     }}
     data={sampleData}
