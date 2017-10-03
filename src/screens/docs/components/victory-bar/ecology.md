@@ -16,6 +16,22 @@ VictoryBar renders a dataset as series of bars. VictoryBar can be composed with 
 
 ## Props
 
+### alignment
+
+The `alignment` prop specifies how bars should be aligned relative to their data points. This prop may be given as "start", "middle" or "end". When this prop is not specified, bars will have "middle" alignment relative to their data points.
+
+```playground
+<VictoryChart
+  theme={VictoryTheme.material}
+>
+  <VictoryBar
+    style={{ data: { fill: "#c43a31" } }}
+    alignment="start"
+    data={sampleData}
+  />
+</VictoryChart>
+```
+
 ### animate
 
 `VictoryBar` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
