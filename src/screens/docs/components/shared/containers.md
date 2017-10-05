@@ -12,6 +12,12 @@ The `className` prop specifies a className that will be applied to the outer-mos
 
 The `containerId` prop may be used to set a deterministic id for the container. When a `containerId` is not manually set, a unique id will be generated. It is usually necessary to set deterministic ids for automated testing.
 
+### containerRef
+
+The `containerRef` prop may be used to attach a ref to the outermost element rendered by the container. This prop should be given as a function.
+
+*example:* `containerRef={(ref) => { this.chartRef = ref; }}`
+
 ### desc
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
