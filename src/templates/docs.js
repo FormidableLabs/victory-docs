@@ -60,7 +60,6 @@ export const pageQuery = graphql`
         id
         scope
         title
-        include
       }
       fields {
         slug
