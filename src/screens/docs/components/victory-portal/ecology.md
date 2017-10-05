@@ -27,6 +27,10 @@
 
 ```
 
+### groupComponent
+
+The `groupComponent` prop takes a component instance which will be used to create a group element for `VictoryPortal` to render its child component into. This prop defaults to a `<g>` tag.
+
 
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js

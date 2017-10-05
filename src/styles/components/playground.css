@@ -130,7 +130,7 @@
   margin: 0 auto;
   max-height: calc(var(--initialHeight) - 40px);
   width: auto !important; /* override default Victory inline styles */
-  max-width: 100%;
+  max-width: 80%;
 }
 
 .Interactive .playgroundError {

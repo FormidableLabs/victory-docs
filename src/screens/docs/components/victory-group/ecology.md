@@ -97,7 +97,7 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 `VictoryGroup` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
-containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
@@ -347,9 +347,6 @@ Styles on children of `VictoryGroup` will override styles set on the `VictoryGro
 <VictoryGroup
   offset={25}
   style={{
-    parent: {
-      border: "1px solid #ccc"
-    },
     data: {
       fillOpacity: 0.7, stroke: "black", strokeWidth: 3
     }

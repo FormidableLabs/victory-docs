@@ -27,15 +27,24 @@ Victory components may be wrapped to customize or change behavior. Wrapper compo
 
 ```playground_norender
 class Wrapper extends React.Component {
+  renderChildren() {
+    const children = React.Children.toArray(this.props.children);
+    return children.map((child) => {
+      // children should be rendered with props from their parent Victory components assigned
+      // Components like `VictoryChart` expect to control props like `domain` for their children
+      // Some props should be merged rather than overridden
+      const style = _.merge(child.props.style, this.props.style);
+      return React.cloneElement(child, Object.assign({}, child.props, this.props, { style }));
+    });
+  }
+
   render() {
-    const { children } = this.props;
-    const childProps = Object.assign({}, this.props, children.props);
     return (
       <g transform="translate(20, 40)">
         <VictoryLabel text={"add labels"} x={110} y={30}/>
         <VictoryLabel text={"offset data from axes"} x={70} y={150}/>
         <VictoryLabel text={"alter props"} x={280} y={150}/>
-        { React.cloneElement(children, childProps) }
+        { this.renderChildren() }
       </g>
     );
   }

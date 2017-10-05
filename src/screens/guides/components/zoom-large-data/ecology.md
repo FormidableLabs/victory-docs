@@ -37,12 +37,12 @@ ReactDOM.render(<CustomChart data={allData}/>, mountNode);
 
 Rather than passing all our data to the `data` prop, we'll first remove any data that isn't currently visible.
 To do this, we must keep track of the chart's visible domain;
-[VictoryZoomContainer] has an `onDomainChange` prop that will allow us to do exactly that:
+[VictoryZoomContainer] has an `onZoomDomainChange` prop that will allow us to do exactly that:
 
 ```js
 <VictoryChart
   containerComponent={<VictoryZoomContainer
-    onDomainChange={this.onDomainChange.bind(this)}
+    onZoomDomainChange={this.onDomainChange.bind(this)}
   />}
 >
   <VictoryScatter data={this.getData()} />
@@ -111,8 +111,8 @@ The static value `this.entireDomain` can then be used by `VictoryChart`:
 <VictoryChart
   domain={this.entireDomain}
   containerComponent={<VictoryZoomContainer
-    dimension="x"
-    onDomainChange={this.onDomainChange.bind(this)}
+    zoomDimension="x"
+    onZoomDomainChange={this.onDomainChange.bind(this)}
   />}
 >
   <VictoryScatter data={this.getData()} />
@@ -210,8 +210,8 @@ class CustomChart extends React.Component {
         <VictoryChart
           domain={this.entireDomain}
           containerComponent={<VictoryZoomContainer
-            dimension="x"
-            onDomainChange={this.onDomainChange.bind(this)}
+            zoomDimension="x"
+            onZoomDomainChange={this.onDomainChange.bind(this)}
             minimumZoom={{x: 1/10000}}
           />}
         >
