@@ -52,6 +52,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 #### Props
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `alignment` *"start", "middle", or "end" specifies how a bar path should be aligned in relation to its data point
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this bar
   - `events` *object* events to attach to the rendered element

@@ -328,9 +328,6 @@ The `startAngle` props defines the overall start angle of the pie in degrees. Th
 ```playground
   <VictoryPie
     style={{
-      parent: {
-        border: "1px solid #ccc"
-      },
       data: {
         fillOpacity: 0.9, stroke: "#c43a31", strokeWidth: 3
       },

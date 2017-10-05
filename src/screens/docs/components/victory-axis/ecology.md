@@ -63,7 +63,7 @@ axisLabelComponent={<VictoryLabel dy={20}/>}
 `VictoryAxis` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
-containerComponent={<VictoryZoomContainer dimension="x"/>}
+containerComponent={<VictoryZoomContainer zoomDimension="x"/>}
 ```
 
 ### crossAxis
@@ -151,7 +151,6 @@ The `label` prop defines the label that will appear with the axis. This prop sho
 
 ```playground
 <VictoryAxis
-  style={{ parent: { border: "1px solid #ccc" } }}
   label="Time (ms)"
 />
 ```
@@ -172,7 +171,6 @@ The `offsetX` prop defines how far from the edge of its permitted area an axis s
 
 ```playground
 <VictoryAxis dependentAxis
-  style={{ parent: { border: "1px solid #ccc" } }}
   offsetX={225}
 />
 ```
@@ -185,7 +183,6 @@ The `offsetY` prop defines how far from the edge of its permitted area an axis s
 
 ```playground
 <VictoryAxis
-  style={{ parent: { border: "1px solid #ccc" } }}
   offsetY={150}
 />
 ```
@@ -196,7 +193,6 @@ The `orientation` prop specifies the position and orientation of your axis. Opti
 
 ```playground
 <VictoryAxis
-  style={{ parent: { border: "1px solid #ccc" } }}
   orientation="top"
 />
 ```

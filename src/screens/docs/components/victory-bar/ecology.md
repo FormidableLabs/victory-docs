@@ -16,6 +16,22 @@ VictoryBar renders a dataset as series of bars. VictoryBar can be composed with 
 
 ## Props
 
+### alignment
+
+The `alignment` prop specifies how bars should be aligned relative to their data points. This prop may be given as "start", "middle" or "end". When this prop is not specified, bars will have "middle" alignment relative to their data points.
+
+```playground
+<VictoryChart
+  theme={VictoryTheme.material}
+>
+  <VictoryBar
+    style={{ data: { fill: "#c43a31" } }}
+    alignment="start"
+    data={sampleData}
+  />
+</VictoryChart>
+```
+
 ### animate
 
 `VictoryBar` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
@@ -42,7 +58,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 `VictoryBar` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
-containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
@@ -115,8 +131,7 @@ See the [Events Guide] for more information on defining events.
   <h3>Click Me</h3>
   <VictoryBar
     style={{
-      data: { fill: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
+      data: { fill: "#c43a31" }
     }}
     events={[{
       target: "data",
@@ -174,14 +189,10 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 <VictoryChart
   theme={VictoryTheme.material}
   domainPadding={{ y: 10 }}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryBar horizontal
     style={{
-      data: { fill: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
+      data: { fill: "#c43a31" }
     }}
     data={sampleData}
   />
@@ -246,9 +257,6 @@ padding={{ top: 20, bottom: 60 }}
 ```playground
 <VictoryChart polar
   theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryPolarAxis dependentAxis
     style={{ axis: { stroke: "none" } }}
@@ -332,14 +340,15 @@ sortKey="x"
 ```playground
   <VictoryBar
     style={{
-      parent: {
-        border: "1px solid #ccc"
-      },
       data: {
-        fill: "#c43a31", fillOpacity: 0.7, stroke: "#c43a31", strokeWidth: 3
+        fill: (d) => d.x === 3 ? "#000000" : "#c43a31",
+        stroke: (d) => d.x === 3 ? "#000000" : "#c43a31",
+        fillOpacity: 0.7,
+        strokeWidth: 3
       },
       labels: {
-        fontSize: 15, fill: "#c43a31"
+        fontSize: 15,
+        fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
       }
     }}
     data={sampleData}

@@ -25,7 +25,7 @@ export default class App extends React.Component {
           domainPadding={{y: 2}}
           width={450} height={350}
           containerComponent={
-            <VictoryVoronoiContainer dimension="x"
+            <VictoryVoronoiContainer voronoiDimension="x"
               labels={(d) => `y: ${d.y}`}
               labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
             />

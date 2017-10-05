@@ -282,11 +282,8 @@ The `height` prop determines the height of the containing `<svg>`. By default Vi
 
 ```playground
 <div>
+  <VictoryBar height={500}/>
   <VictoryBar height={500}
-    style={{ parent: { border: "1px solid #ccc" } }}
-  />
-  <VictoryBar height={500}
-    style={{ parent: { border: "1px solid #ccc" } }}
     containerComponent={<VictoryContainer responsive={false}/>}
   />
 </div>
@@ -349,7 +346,6 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 ```playground
 <VictoryChart
   padding={{ top: 40, bottom: 80, left: 40, right: 80 }}
-  style={{ parent: { border: "1px solid #ccc"} }}
 >
 <VictoryLine data={sampleData} />
 </VictoryChart>
@@ -550,11 +546,8 @@ The `width` prop determines the width of the containing `<svg>`. By default Vict
 
 ```playground
 <div>
-  <VictoryBar width={1500}
-    style={{ parent: { border: "1px solid #ccc" } }}
-  />
-  <VictoryBar width={1500}
-    style={{ parent: { border: "1px solid #ccc" } }}
+  <VictoryBar width={1200}/>
+  <VictoryBar width={1200}
     containerComponent={<VictoryContainer responsive={false}/>}
   />
 </div>
