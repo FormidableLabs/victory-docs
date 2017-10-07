@@ -45,6 +45,7 @@ module.exports = [
   "/gallery/custom-tooltip-labels",
   "/gallery/interpolation",
   "/gallery/horizontal-grouped-bars",
+  "/gallery/multiple-dependent-axes",
   "/gallery/multipoint-tooltip-labels",
   "/gallery/radar-chart",
   "/gallery/polar-cardioid",

@@ -79,5 +79,9 @@ export const configGallery = [
     text: "Victory Line with null data",
     slug: "victory-line-null-data",
     code: require("!!raw!../screens/gallery/examples/victory-line-null-data.example.js")
+  }, {
+    text: "Multiple Dependent Axes",
+    slug: "multiple-dependent-axes",
+    code: require("!!raw!../screens/gallery/examples/multi-axis.example.js")
   }
 ];
