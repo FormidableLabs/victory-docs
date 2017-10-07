@@ -3,7 +3,7 @@
   will be removed before displaying this document to the user
 */
 /* global React, ReactDOM, App, mountNode */
-/* global VictoryChart, VictoryLine, VictoryAxis */
+/* global VictoryChart, VictoryLine, VictoryAxis, VictoryTheme */
 
 const data = [
   [{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 3}, {x: 4, y: 4}],
@@ -25,7 +25,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <VictoryChart domain={{ y: [0, 1] }} width={400}>
+        <VictoryChart
+          theme={VictoryTheme.material}
+          width={400} height={400}
+          domain={{ y: [0, 1] }}
+        >
          <VictoryAxis />
           {data.map((d, i) =>
             <VictoryAxis dependentAxis

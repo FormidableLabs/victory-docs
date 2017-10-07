@@ -49,6 +49,7 @@ module.exports = [
   "/gallery/multipoint-tooltip-labels",
   "/gallery/radar-chart",
   "/gallery/polar-cardioid",
+  "/gallery/rainbow-gradient",
   "/gallery/stacked-bars-central-axis",
   "/gallery/stacked-grouped-bars",
   "/gallery/stacked-polar-bars",
