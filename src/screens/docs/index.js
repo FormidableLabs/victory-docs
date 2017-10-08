@@ -30,7 +30,7 @@ class Docs extends React.Component {
   renderContent(activePageConf, location) {
     if (activePageConf.slug === "index") {
       return (
-        <div className="Markdown playgroundsMaxHeight">
+        <div className="Recipe Markdown">
           <a href="https://github.com/FormidableLabs/victory-docs/blob/master/docs/index.md" className="SubHeading">Edit this page</a>
           <EcologyLinkable
             overview={require("!!raw!./components/index.md")}

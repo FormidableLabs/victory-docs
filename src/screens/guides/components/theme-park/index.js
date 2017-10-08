@@ -66,7 +66,7 @@ class ThemePark extends React.Component {
 
   render() {
     return (
-      <div className="Recipe">
+      <div>
         <h1>Themes</h1>
         <p>
           Try out the Victory themes and make your own.
@@ -77,7 +77,7 @@ class ThemePark extends React.Component {
         </p>
         {this.renderMenu()}
         <PureRender themeName={this.state.themeName} editted={this.state.editted}>
-          <pre className="u-noMarginTop u-noPadding">
+          <pre className="Recipe Markdown">
             <div className="Interactive" onKeyPress={this.handleUserEdit.bind(this)}>
               <Playground
                 codeText={this.getCodeText()}

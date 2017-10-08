@@ -36,7 +36,7 @@ describe("Sidebar", function () {
   it("should render all headings", function () {
     return navigateToPageWithSidebar()
       .getText(selectors.sidebarHeading).then(function (res) {
-        expect(res).to.eql(["Introduction", "Guides", "Documentation"]);
+        expect(res).to.eql(["Introduction", "Support", "Guides", "Documentation"]);
       })
       .getText(selectors.sidebarSubheading).then(function (res) {
         expect(res).to.eql(["CHART", "CORE", "MORE"]);

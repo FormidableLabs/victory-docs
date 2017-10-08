@@ -11,40 +11,37 @@ Victory renders components into responsive `svg` containers by default. Responsi
 Victory renders svg elements, so there is no concept of z-index. Instead the render order of components determines which elements will apprear above others. Changing the order of rendered components can signicantly alter the appearance of a chart. Compare the following charts. The only difference between the two is the order of the children in `VictoryChart`.
 
 ```playground
-  <svg width={800} height={300}>
-    <g>
-      <VictoryChart standalone={false} width={300}>
-        <VictoryScatter
-          y={(data) => Math.sin(2 * Math.PI * data.x)}
-          samples={25}
-          size={5}
-          style={{ data: { fill: "tomato" }}}
-        />
-        <VictoryLine
-          style={{ data: { stroke: "orange" }}}
-          y={(data) => Math.sin(2 * Math.PI * data.x)}
-        />
-        <VictoryAxis/>
-        <VictoryAxis dependentAxis/>
-      </VictoryChart>
-    </g>
-    <g transform={"translate(400, 0)"}>
-      <VictoryChart standalone={false} width={300}>
-        <VictoryAxis/>
-        <VictoryAxis dependentAxis/>
-        <VictoryLine
-          style={{ data: { stroke: "orange" }}}
-          y={(data) => Math.sin(2 * Math.PI * data.x)}
-        />
-        <VictoryScatter
-          y={(data) => Math.sin(2 * Math.PI * data.x)}
-          samples={25}
-          size={5}
-          style={{ data: { fill: "tomato" }}}
-        />
-      </VictoryChart>
-    </g>
-  </svg>
+  <div style={{ display: "flex", flexWrap: "wrap" }}>
+    <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+      <VictoryScatter
+        y={(data) => Math.sin(2 * Math.PI * data.x)}
+        samples={25}
+        size={5}
+        style={{ data: { fill: "tomato" }}}
+      />
+      <VictoryLine
+        style={{ data: { stroke: "orange" }}}
+        y={(data) => Math.sin(2 * Math.PI * data.x)}
+      />
+      <VictoryAxis/>
+      <VictoryAxis dependentAxis/>
+    </VictoryChart>
+
+    <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+      <VictoryAxis/>
+      <VictoryAxis dependentAxis/>
+      <VictoryLine
+        style={{ data: { stroke: "orange" }}}
+        y={(data) => Math.sin(2 * Math.PI * data.x)}
+      />
+      <VictoryScatter
+        y={(data) => Math.sin(2 * Math.PI * data.x)}
+        samples={25}
+        size={5}
+        style={{ data: { fill: "tomato" }}}
+      />
+    </VictoryChart>
+  </div>
 ```
 
 

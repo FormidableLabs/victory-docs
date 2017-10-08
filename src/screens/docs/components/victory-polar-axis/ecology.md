@@ -145,7 +145,7 @@ The `dependentAxis` boolean prop specifies whether the axis corresponds to the d
 *default:* `dependentAxis={false}`
 
 ```playground
-<div style={{ margin: 50 }}>
+<div style={{ display: "flex" }}>
   <VictoryPolarAxis dependentAxis theme={VictoryTheme.material} />
   <VictoryPolarAxis theme={VictoryTheme.material} />
 </div>
@@ -175,7 +175,7 @@ The `endAngle` props defines the overall end angle of the axis in degrees. This 
 
 
 ```playground
-<div style={{ margin: 50 }}>
+<div style={{ display: "flex" }}>
 <VictoryPolarAxis
   startAngle={90}
   endAngle={450}
@@ -322,7 +322,7 @@ The `startAngle` props defines the overall end angle of the axis in degrees. Thi
 
 
 ```playground
-<div style={{ margin: 50 }}>
+<div style={{ display: "flex" }}>
   <VictoryPolarAxis
     startAngle={90}
     endAngle={450}

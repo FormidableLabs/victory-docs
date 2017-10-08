@@ -30,8 +30,16 @@ import VVoronoiContainerDocs from "../screens/docs/components/victory-voronoi-co
 import NativeTutorial from "../screens/docs/components/native/index.js";
 import VZoomContainerDocs from "../screens/docs/components/victory-zoom-container/index.js";
 import CreateContainerDocs from "../screens/docs/components/create-container/index.js";
+import FAQDocs from "../screens/docs/components/faq/index.js";
 
 export const config = [
+  {
+    text: "FAQ",
+    slug: "faq",
+    category: "support",
+    docs: FAQDocs,
+    toc: FAQDocs.toc()
+  },
   {
     text: "Common Props",
     slug: "common-props",

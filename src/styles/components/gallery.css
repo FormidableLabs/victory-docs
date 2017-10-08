@@ -24,7 +24,7 @@
   padding: var(--gutter-small);
 }
 
-.Gallery-item .Preview svg {
+.Gallery-item .Preview .VictoryContainer svg {
   height: 100% !important;
 }
 
