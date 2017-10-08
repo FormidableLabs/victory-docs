@@ -194,7 +194,6 @@ class CustomTheme extends React.Component {
         boxSizing: "border-box",
         display: "inline",
         padding: 0,
-        margin: 20,
         fontFamily: "'Fira Sans', sans-serif",
         width: "100%",
         height: "auto"

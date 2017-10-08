@@ -214,8 +214,8 @@ Axis tick labels are controlled via two props. `tickValues` controls the _positi
 Long axis labels can be problematic. There are several ways to address the issue. The best solution will depend on the specific requirements of your project. The following examples demonstrate:
 - Altering `padding`
 - Splitting labels onto multiple lines
-- Using angled labels
 - Allowing labels to overflow the container with VictoryPortal
+- Using angled labels
 
 ```playground
 <div style={{ display: "flex", flexWrap: "wrap" }}>
@@ -237,7 +237,7 @@ Long axis labels can be problematic. There are several ways to address the issue
   </VictoryChart>
 
   <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
-    <VictoryLabel text="Splitting Labels into multiple lines" x={225} y={30} textAnchor="middle"/>
+    <VictoryLabel text="Multi-line labels" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis
       tickFormat={[
         `first\nlabel`,
@@ -245,6 +245,23 @@ Long axis labels can be problematic. There are several ways to address the issue
         `third\nlabel`,
         `forth\nlabel`,
         `fifth\nlabel`
+      ]}
+    />
+    <VictoryAxis/>
+    <VictoryLine/>
+  </VictoryChart>
+
+
+  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+    <VictoryLabel text="overflowing labels with VictoryPortal" x={225} y={30} textAnchor="middle"/>
+    <VictoryAxis dependentAxis
+      tickLabelComponent={<VictoryPortal><VictoryLabel/></VictoryPortal>}
+      tickFormat={[
+        "first label",
+        "second label",
+        "third label",
+        "forth label",
+        "fifth label"
       ]}
     />
     <VictoryAxis/>
@@ -267,21 +284,6 @@ Long axis labels can be problematic. There are several ways to address the issue
     <VictoryLine/>
   </VictoryChart>
 
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
-    <VictoryLabel text="overflowing labels with VictoryPortal" x={225} y={30} textAnchor="middle"/>
-    <VictoryAxis dependentAxis
-      tickLabelComponent={<VictoryPortal><VictoryLabel/></VictoryPortal>}
-      tickFormat={[
-        "first label",
-        "second label",
-        "third label",
-        "forth label",
-        "fifth label"
-      ]}
-    />
-    <VictoryAxis/>
-    <VictoryLine/>
-  </VictoryChart>
 </div>
 ```
 

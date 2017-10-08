@@ -66,7 +66,7 @@ class ThemePark extends React.Component {
 
   render() {
     return (
-      <div className="Recipe">
+      <div>
         <h1>Themes</h1>
         <p>
           Try out the Victory themes and make your own.
