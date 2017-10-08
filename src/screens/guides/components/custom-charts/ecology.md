@@ -197,7 +197,7 @@ class CustomTheme extends React.Component {
         display: "inline",
         padding: 0,
         fontFamily: "'Fira Sans', sans-serif",
-        width: "100%",
+        maxWidth: "50%",
         height: "auto"
       },
       title: {
