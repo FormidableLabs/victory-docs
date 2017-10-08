@@ -58,7 +58,7 @@ Create a gradient def as usual and then reference it by id in your style object.
 
 ```playground
 <div>
-  <svg>
+  <svg style={{ height: 0 }}>
     <defs>
       <linearGradient id="myGradient">
         <stop offset="0%" stopColor="red"/>

@@ -77,7 +77,7 @@ class ThemePark extends React.Component {
         </p>
         {this.renderMenu()}
         <PureRender themeName={this.state.themeName} editted={this.state.editted}>
-          <pre className="u-noMarginTop u-noPadding">
+          <pre className="Recipe Markdown">
             <div className="Interactive" onKeyPress={this.handleUserEdit.bind(this)}>
               <Playground
                 codeText={this.getCodeText()}
