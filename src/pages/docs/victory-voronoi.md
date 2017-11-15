@@ -2,7 +2,7 @@
 id: 30
 title: VictoryVoroni
 category: charts
-scope: 
+scope:
   - sampleData
 ---
 # VictoryVoronoi
@@ -265,8 +265,7 @@ The size prop determines the maximum size of each voronoi area. When this prop i
 ```playground
 <VictoryVoronoi
   style={{
-    data: { stroke: "#c43a31", strokeWidth: 2 },
-    parent: { border: "1px solid #ccc"}
+    data: { stroke: "#c43a31", strokeWidth: 2 }
   }}
   data={sampleData}
   size={50}
@@ -311,9 +310,6 @@ sortKey="x"
 ```playground
 <VictoryVoronoi
   style={{
-    parent: {
-      border: "1px solid #ccc"
-    },
     data: {
       stroke: "#c43a31", strokeWidth: 3
     },

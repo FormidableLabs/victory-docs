@@ -10,52 +10,30 @@ VictoryLabel renders the label components that are used across all of Victory.
 
 ## Props
 
-### text
+### active
 
-The `text` prop defines the text `VictoryLabel` will render. The `text` prop may be given as a
-string, number, a function of `datum`, or an array of any of these. Strings may include newline
-characters, which `VictoryLabel` will split into separate `<tspan/>` elements. When `text` is given
-as an array, separate `<tspan/>` elements will be created for each element in the array.
+The `active` prop specifies whether the label is active or not. The `active` prop is set by `defaultEvents` in components like `VictoryTooltip` and `VictorySelectionContainer`. The `active` prop is used when evaluating functional styles and props.
 
-*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`, `text={["first line", "second line"]}`
+### angle
 
-### datum
+The `angle` prop specifies the angle to rotate the text around its anchor point.
 
-Victory components can pass a `datum` prop to their label component. This can
-be used to calculate functional styles, and determine text.
+### capHeight
+
+The `capHeight` prop defines a text metric for the font being used: the expected height of capital letters. This is necessary because of SVG, which (a) positions the *bottom* of the text at `y`, and (b) has no notion of line height. This prop should be given as a number of ems.
+
+### className
 
 ### data
 
 Victory components can pass a `data` prop to their label component. This can be useful in custom components that need to make use of the entire dataset.
 
-### index
+### datum
 
-The `index` prop represents the index of the datum in the data array.
+Victory components can pass a `datum` prop to their label component. This can be used to calculate functional styles, and determine text. If `x` and `y` are not specified, `datum` will be used to determine label position.
 
-### style
-
-The `style` prop defines a set of SVG style properties that will be applied to the rendered
-`<text/>` element. This prop should be given as an object, or array of objects. When this prop is
-given as an array of objects, each style object in the array will be applied to the corresponding
-`<tspan/>` in multi-line labels.
-
-### active
-
-The `active` prop specifies whether the label is active or not. The `active` prop is set by `defaultEvents` in components like `VictoryTooltip` and `VictorySelectionContainer`. The `active` prop is used when evaluating functional styles and props.
-
-### events
-
-The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey`.
-
-*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
-
-### x
-
-The `x` prop defines the x coordinate to use as a basis for positioning the label element.
-
-### y
-
-The `y` prop defines the y coordinate to use as a basis for positioning the label element.
+### desc
+The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
 ### dx
 
@@ -65,26 +43,72 @@ The `dx` prop defines a horizontal shift from the `x` coordinate.
 
 The `dy` prop defines a vertical shift from the `y` coordinate. This prop is affected by `capHeight`, `lineHeight`, and `verticalAnchor`, and the number of lines of text that make up the label.
 
-### angle
+### events
 
-The `angle` prop specifies the angle to rotate the text around its anchor point.
+The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey`.
 
-### textAnchor
+*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
-The `textAnchor` prop defines how the text is horizontally positioned relative to the given `x` and `y` coordinates. Options are "start", "middle", "end", and "inherit".
+### index
 
-### verticalAnchor
+The `index` prop represents the index of the datum in the data array. **This prop should not be set manually.**
 
-The `verticalAnchor` prop defines how the text is vertically positioned relative to the given `x` and `y` coordinates. Options are "start", "middle" and "end".
+### labelPlacement
 
-### capHeight
-
-The `capHeight` prop defines a text metric for the font being used: the expected height of capital letters. This is necessary because of SVG, which (a) positions the *bottom* of the text at `y`, and (b) has no notion of line height. This prop should be given as a number of ems.
+The `labelPlacement` prop is used to specify the placement of labels relative to the data point they represent. This prop may be given as "vertical", "parallel" or "perpendicular". This props is particularly useful in polar charts, where it may be desireable to position a label either parallel or perpendicular to its corresponding angle. When this prop is not set, perpendicular label placement will be used for polar charts, and vertical label placement will be used for cartesian charts.
 
 ### lineHeight
 
 The `lineHeight` prop defines how much space a single line of text should take up. Note that SVG has no notion of line-height, so the positioning may differ slightly from what you would expect with CSS, but the result is similar: a roughly equal amount of extra space is distributed above and below the line of text. This prop should be given as a number of ems.
 
+### origin
+
+Victory components will pass an `origin` prop is to define the center point in svg coordinates for polar charts. **This prop should not be set manually.**
+
+### polar
+
+Victory components can pass a boolean `polar` prop to specify whether a label is part of a polar chart. **This prop should not be set manually.**
+
+### renderInPortal
+
+The `renderInPortal` prop specifies whether `VictoryLabel` should render text in place or within a `VictoryPortal`. Setting `renderInPortal` to true is equivalent to wrapping `VictoryLabel` in a `VictoryPortal`. This prop is false by default.
+
+### scale
+
+Victory components can pass a `scale` prop to their label component. This can be used to calculate the position of label elements from `datum`. **This prop should not be set manually.**
+
+### style
+
+The `style` prop defines a set of SVG style properties that will be applied to the rendered
+`<text/>` element. This prop should be given as an object, or array of objects. When this prop is
+given as an array of objects, each style object in the array will be applied to the corresponding
+`<tspan/>` in multi-line labels.
+
+### text
+
+The `text` prop defines the text `VictoryLabel` will render. The `text` prop may be given as a
+string, number, a function of `datum`, or an array of any of these. Strings may include newline
+characters, which `VictoryLabel` will split into separate `<tspan/>` elements. When `text` is given
+as an array, separate `<tspan/>` elements will be created for each element in the array.
+
+*examples:* `text={(datum) => "x: " + datum.x}`, `text="Apples\n(green)"`, `text={["first line", "second line"]}`
+
+### textAnchor
+
+The `textAnchor` prop defines how the text is horizontally positioned relative to the given `x` and `y` coordinates. Options are "start", "middle", "end", and "inherit".
+
 ### transform
 
 The `transform` prop applies a transform to the rendered `<text>` element. This prop may be supplied as a string or an object containing transform definitions.
+
+### verticalAnchor
+
+The `verticalAnchor` prop defines how the text is vertically positioned relative to the given `x` and `y` coordinates. Options are "start", "middle" and "end".
+
+### x
+
+The `x` prop defines the x coordinate to use as a basis for positioning the label element.
+
+### y
+
+The `y` prop defines the y coordinate to use as a basis for positioning the label element.

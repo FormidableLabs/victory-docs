@@ -27,7 +27,10 @@ However, the component that uses it must be standalone
 ```playground
 <VictoryChart
   containerComponent={
-    <VictoryBrushContainer dimension="x" selectedDomain={{x: [0.1, 0.3]}}/>
+    <VictoryBrushContainer
+      brushDimension="x"
+      brushDomain={{x: [0.1, 0.3]}}
+    />
   }
 >
   <VictoryLine />
@@ -38,57 +41,37 @@ However, the component that uses it must be standalone
 
 `VictoryBrushContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
-### selectedDomain
+### brushComponent
 
-The optional `selectedDomain` prop describes the highlighted state. This prop is an object that
+The `brushComponent` prop specifies the component to be rendered for the highlighted area.
+This component will be supplied with the following props: x, y, width, height, and style.
+When this prop is not specified, a `<rect/>` will be rendered.
+
+*default:* `brushComponent={<rect/>}`
+
+### brushDimension
+
+When the `brushDimension` prop is set, brushing will only be specific to the to the given dimension
+(either "x" or "y"), and the entire domain of the other dimension will be highlighted. When this prop
+is not specified, highlighting will occur along both dimensions.
+
+*example:* `brushDimension="x"`
+
+### brushDomain
+
+The optional `brushDomain` prop describes the highlighted state. This prop is an object that
 specifies separate arrays for `x` and `y`. Each array is a tuple that describes the minimum and maximum
 values to render. If this prop is not provided initially, the chart will render with the entire
 domain highlighted. When this prop changes, the chart will render with a new highlighted domain.
 
-*example:* `selectedDomain={{x: [50, 100], y: [0, 100]}`
+*example:* `brushDomain={{x: [50, 100], y: [0, 100]}`
 
-### dimension
+### brushStyle
 
-When the `dimension` prop is set, brushing will only be specific to the to the given dimension
-(either "x" or "y"), and the entire domain of the other dimension will be highlighted. When this prop
-is not specified, highlighting will occur along both dimensions.
-
-*example:* `dimension="x"`
-
-### onDomainChange
-
-The optional `onDomainChange` prop accepts an function to be called on each update to the
-highlighted domain. The function accepts a single parameter of `domain`. The `domain` parameter will
-be provided as an object with min-max arrays for `x` and `y`.
-
-*example:* `onDomainChange={(domain) => handeDomainChange(domain)}`
-
-### selectionStyle
-
-The `selectionStyle` adds custom styles to the `selectionComponent`. This prop should be given as
+The `brushStyle` adds custom styles to the `brushComponent`. This prop should be given as
 an object of SVG style attributes.
 
-*default:* `selectionStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}`
-
-### selectionComponent
-
-The `selectionComponent` prop specifies the component to be rendered for the highlighted area.
-This component will be supplied with the following props: x, y, width, height, and style.
-When this prop is not specified, a `<rect/>` will be rendered.
-
-*default:* `selectionComponent={<rect/>}`
-
-### handleStyle
-
-The `handleStyle` adds custom styles to the `handleComponents`. This prop should be given as
-an object of SVG style attributes.
-
-Handles refer to the region on each highlighted area where the the area may be
-expanded. Only handles relevant to the given `dimension` will be rendered. For example, when
-`dimension="x"` only "left" and "right" handles will be rendered. Handles are automatically styled
-with cursors appropriate to their orientation.
-
-*default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}`
+*default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
 
 ### handleComponent
 
@@ -97,6 +80,27 @@ area.  This component will be supplied with the following props: `x`, `y`, `widt
 When this prop is not specified, a `<rect/>` will be rendered.
 
 *default:* `handleComponent={<rect/>}`
+
+### handleStyle
+
+The `handleStyle` adds custom styles to the `handleComponents`. This prop should be given as
+an object of SVG style attributes.
+
+Handles refer to the region on each highlighted area where the the area may be
+expanded. Only handles relevant to the given `dimension` will be rendered. For example, when
+`brushDimension="x"` only "left" and "right" handles will be rendered. Handles are automatically styled
+with cursors appropriate to their orientation.
+
+*default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}
+
+### onBrushDomainChange
+
+The optional `onBrushDomainChange` prop accepts an function to be called on each update to the
+highlighted domain. The function accepts a single parameter of `domain`. The `domain` parameter will
+be provided as an object with min-max arrays for `x` and `y`.
+
+*example:* `onBrushDomainChange={(domain) => handeDomainChange(domain)}`
+
 
 [brush and zoom guide]: https://formidable.com/open-source/victory/guides/brush-and-zoom
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container

@@ -56,8 +56,8 @@ ReactDOM.render(<App/>, mountNode)
 ```
 
 In the next example, `VictoryZoomContainer` and `VictoryBrushContainer` are used to create a zoomable chart with a mini-map brush control.
-Here, the `onDomainChange` prop on `VictoryZoomContainer` alters the `selectedDomain` prop on `VictoryBrushContainer` tying highlighted brush region of the mini-map to the zoom level of the chart.
-The `onDomainChange` prop on `VictoryBrushContainer` alters the `zoomDomain` prop on `VictoryZoomContainer` so that the zoomed level of the chart matches the highlighted region of the mini-map.
+Here, the `onZoomDomainChange` prop on `VictoryZoomContainer` alters the `brushDomain` prop on `VictoryBrushContainer` tying highlighted brush region of the mini-map to the zoom level of the chart.
+The `onBrushDomainChange` prop on `VictoryBrushContainer` alters the `zoomDomain` prop on `VictoryZoomContainer` so that the zoomed level of the chart matches the highlighted region of the mini-map.
 
 
 ```playground_norender
@@ -77,15 +77,14 @@ class App extends React.Component {
   }
 
   render() {
-    const chartStyle = { parent: {minWidth: "100%"}};
     return (
       <div>
-          <VictoryChart width={1000} height={400} scale={{x: "time"}} style={chartStyle}
+          <VictoryChart width={600} height={350} scale={{x: "time"}}
             containerComponent={
               <VictoryZoomContainer responsive={false}
-                dimension="x"
+                zoomDimension="x"
                 zoomDomain={this.state.zoomDomain}
-                onDomainChange={this.handleZoom.bind(this)}
+                onZoomDomainChange={this.handleZoom.bind(this)}
               />
             }
           >
@@ -109,12 +108,12 @@ class App extends React.Component {
 
           <VictoryChart
             padding={{top: 0, left: 50, right: 50, bottom: 30}}
-            width={1000} height={100} scale={{x: "time"}} style={chartStyle}
+            width={600} height={90} scale={{x: "time"}}
             containerComponent={
               <VictoryBrushContainer responsive={false}
-                dimension="x"
-                selectedDomain={this.state.selectedDomain}
-                onDomainChange={this.handleBrush.bind(this)}
+                brushDimension="x"
+                brushDomain={this.state.selectedDomain}
+                onBrushDomainChange={this.handleBrush.bind(this)}
               />
             }
           >
@@ -145,7 +144,6 @@ class App extends React.Component {
               ]}
             />
           </VictoryChart>
-
       </div>
     );
   }
@@ -154,16 +152,16 @@ ReactDOM.render(<App/>, mountNode)
 ```
 
 `VictoryBrushContainer` may be used with any Victory component that works on an x-y coordinate system.
-Brushing behavior may be limited to the x or y dimensions with the `dimension` prop, and the selected
+Brushing behavior may be limited to the x or y dimensions with the `brushDimension` prop, and the selected
 area may be styled, or even replaced with a custom component.
 
 ```playground
 <VictoryLine
   containerComponent={
     <VictoryBrushContainer
-      selectedDomain={{x: [1, 7], y: [-3, 3]}}
-      dimension="y"
-      selectionStyle={{fill: "teal", opacity: 0.2}}
+      brushDomain={{x: [1, 7], y: [-3, 3]}}
+      brushDimension="y"
+      brushStyle={{fill: "teal", opacity: 0.2}}
     />
   }
   style={{

@@ -72,12 +72,20 @@ export const configGallery = [
     slug: "victory-pie-center-label",
     code: require("!!raw!./examples/victory-pie-center-label.example.js")
   }, {
-    text: "Voronoi Tooltips with Grouped Components",
-    slug: "voronoi-tooltips-grouped",
-    code: require("!!raw!./examples/voronoi-tooltips-grouped.example.js")
+    text: "Multiple Dependent Axes",
+    slug: "multiple-dependent-axes",
+    code: require("!!raw!./examples/multi-axis.example.js")
   }, {
     text: "Victory Line with null data",
     slug: "victory-line-null-data",
     code: require("!!raw!./examples/victory-line-null-data.example.js")
+  }, {
+    text: "Voronoi Tooltips with Grouped Components",
+    slug: "voronoi-tooltips-grouped",
+    code: require("!!raw!./examples/voronoi-tooltips-grouped.example.js")
+  }, {
+    text: "Rainbow Gradient Fill",
+    slug: "rainbow-gradient",
+    code: require("!!raw!./examples/rainbow-gradient.example.js")
   }
 ];

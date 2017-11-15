@@ -188,7 +188,7 @@ several tooltips being active at the same time. Provide a `labels` and (optional
 ```playground
 <VictoryChart
   containerComponent={
-    <VictoryVoronoiContainer dimension="x"
+    <VictoryVoronoiContainer voronoiDimension="x"
       labels={(d) => `y: ${d.y}`}
       labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
     />

@@ -2,7 +2,7 @@
 id: 22
 title: VictoryScatter
 category: charts
-scope: 
+scope:
   - sampleData
 ---
 # VictoryScatter
@@ -50,10 +50,7 @@ The `bubbleProperty` prop indicates which property of the data object should be 
 
 ```playground
 <VictoryScatter
-  style={{
-    data: { fill: "#c43a31" },
-    parent: { border: "1px solid #ccc"}
-  }}
+  style={{ data: { fill: "#c43a31" } }}
   bubbleProperty="amount"
   maxBubbleSize={25}
   minBubbleSize={5}
@@ -80,7 +77,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 `VictoryScatter` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
-containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
@@ -177,10 +174,7 @@ See the [Events Guide] for more information on defining events.
 <div>
   <h3>Click Me</h3>
   <VictoryScatter
-    style={{
-      data: { fill: "#c43a31" },
-      parent: { border: "1px solid #ccc"}
-    }}
+    style={{ data: { fill: "#c43a31" } }}
     size={9}
     events={[{
       target: "data",
@@ -313,9 +307,6 @@ padding={{ top: 20, bottom: 60 }}
 <VictoryChart polar
   domain={{ y: [0, 7] }}
   theme={VictoryTheme.material}
-  style={{
-    parent: { border: "1px solid #ccc"}
-  }}
 >
   <VictoryPolarAxis dependentAxis
     style={{ axis: { stroke: "none" } }}
@@ -411,14 +402,15 @@ sortKey="x"
 ```playground
 <VictoryScatter
   style={{
-    parent: {
-      border: "1px solid #ccc"
-    },
     data: {
-      fill: "#c43a31", fillOpacity: 0.6, stroke: "#c43a31", strokeWidth: 3
+      fill: (d) => d.x === 3 ? "#000000" : "#c43a31",
+      stroke: (d) => d.x === 3 ? "#000000" : "#c43a31",
+      fillOpacity: 0.7,
+      strokeWidth: 3
     },
     labels: {
-      fontSize: 15, fill: "#c43a31", padding: 15
+      fontSize: 15,
+      fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
     }
   }}
   size={9}

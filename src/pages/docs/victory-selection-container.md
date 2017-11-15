@@ -34,13 +34,25 @@ However, the component that uses it must be standalone
 
 `VictorySelectionContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
-### dimension
+### selectionDimension
 
-When the `dimension` prop is set, the selection will only take the given dimension into account.
+When the `selectionDimension` prop is set, the selection will only take the given dimension into account.
 For example, when `dimension` is set to "x", the selected area will cover the entire y domain
 regardless of mouse position.
 
-*example:* `dimension="x"`
+*example:* `selectionDimension="x"`
+
+```playground
+<VictoryChart
+  containerComponent={
+    <VictorySelectionContainer selectionDimension="x"/>
+  }
+>
+  <VictoryScatter
+    style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
+  />
+</VictoryChart>
+```
 
 ### selectionStyle
 
@@ -48,6 +60,23 @@ The `selectionStyle` prop should be given as an object of style attributes to be
 `selectionComponent`
 
 *default:* `selectionStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}`
+
+```playground
+<VictoryChart
+  containerComponent={
+    <VictorySelectionContainer
+      selectionStyle={{
+        fill: "tomato", fillOpacity: 0.5,
+        stroke: "tomato", strokeWidth: 2
+      }}
+    />
+  }
+>
+  <VictoryScatter
+    style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
+  />
+</VictoryChart>
+```
 
 ### selectionComponent
 

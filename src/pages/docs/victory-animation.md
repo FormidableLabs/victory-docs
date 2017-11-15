@@ -4,7 +4,7 @@ title: VictoryAnimation
 category: charts
 scope: null
 ---
-# VictoryAnimation
+## VictoryAnimation
 
 `VictoryAnimation` animates prop changes for any React component. Just use a child function inside `VictoryAnimation` that accepts an object of tweened values and other animation information and returns a component to render.
 

@@ -14,6 +14,10 @@ scope: null
 
 `VictoryClipContainer` renders a single child, or an array of children in group element.
 
+### clipId
+
+The `clipId` prop may be used to set a deterministic id for the container. When a `containerId` is not manually set, a unique id will be generated. It is usually necessary to set deterministic ids for automated testing.
+
 ### clipPathComponent
 
 The `clipPathComponent` prop specifies the clip path to apply to the rendered group when appropriate. By default, `VictoryClipContainer` uses the rectangular [ClipPath component].
@@ -69,5 +73,6 @@ The `events` prop attaches arbitrary event handlers to the group element. This p
 ### transform
 
 The `transform` prop defines a transform to be applied to the rendered group.
+
 
 [ClipPath Component]: https://formidable.com/open-source/victory/docs/victory-primitives#clippath

@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   getData(percent) {
-    return [{x: 1, y: percent}, {x: 2, y: 100 - percent}];
+    return [{ x: 1, y: percent }, { x: 2, y: 100 - percent }];
   }
 
   render() {
@@ -38,6 +38,7 @@ class App extends React.Component {
       <div>
         <svg viewBox="0 0 400 400" width="100%" height="100%">
           <VictoryPie
+            standalone={false}
             animate={{duration: 1000}}
             width={400} height={400}
             data={this.state.data}

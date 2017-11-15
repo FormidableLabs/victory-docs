@@ -2,7 +2,7 @@
 id: 8
 title: VictoryCandlestick
 category: charts
-scope: 
+scope:
   - sampleDataDates
 ---
 # VictoryCandlestick
@@ -85,7 +85,7 @@ Use `close` data accessor prop to define the close value of a candle.
 `VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
-containerComponent={<VictoryVoronoiContainer dimension="x"/>}
+containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
@@ -152,9 +152,6 @@ See the [Events Guide] for more information on defining events.
 <div>
   <h3>Click Me</h3>
   <VictoryCandlestick
-    style={{
-      parent: { border: "1px solid #ccc"}
-    }}
     events={[{
       target: "data",
       eventHandlers: {
@@ -383,9 +380,6 @@ sortKey="x"
 ```playground
   <VictoryCandlestick
     style={{
-      parent: {
-        border: "1px solid #ccc"
-      },
       data: {
         fill: "#c43a31", fillOpacity: 0.7, stroke: "#c43a31", strokeWidth: 3
       },

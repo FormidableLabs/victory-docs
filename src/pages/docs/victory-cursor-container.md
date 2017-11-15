@@ -33,20 +33,31 @@ If you would like to instead highlight only the data points, consider using [Vic
 
 `VictoryCursorContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
-### dimension
-
-When the `dimension` prop is set, the cursor will be a line to inspect the given dimension
-(either "x" or "y"). When this prop is not specified, the cursor will be a 2-dimensional crosshair.
-For example, if you would like to inspect the time of time-series data, set `dimension={"x"}`;
-the cursor will then be a vertical line that will inspect the time value of the current mouse position.
-
-*example:* `dimension="x"`
-
 ### cursorComponent
 
 The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [Line] component will be rendered.
 
 *default:* `cursorComponent={<Line/>}`
+
+### cursorDimension
+
+When the `cursorDimension` prop is set, the cursor will be a line to inspect the given dimension
+(either "x" or "y"). When this prop is not specified, the cursor will be a 2-dimensional crosshair.
+For example, if you would like to inspect the time of time-series data, set `dimension={"x"}`;
+the cursor will then be a vertical line that will inspect the time value of the current mouse position.
+
+*example:* `cursorDimension="x"`
+
+```playground
+<VictoryScatter
+  containerComponent={
+    <VictoryCursorContainer
+      cursorDimension="x"
+      cursorLabel={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
+    />
+  }
+/>
+```
 
 ### cursorLabel
 
@@ -75,7 +86,7 @@ If instead you would like to keep it displayed, use the `defaultCursorValue` pro
 
 *examples:* `defaultCursorValue={{x: 1, y: 1}}`, `defaultCursorValue={0}`
 
-### onChange
+### onCursorChange
 
 If provided, the `onChange` function will be called every time the cursor value changes,
 with the new value as its only argument. A common use for `onChange` is to save the cursor value to state and use it in another part of the view.

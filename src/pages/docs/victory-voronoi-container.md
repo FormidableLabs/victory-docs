@@ -21,14 +21,14 @@ However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all top-level Victory components.
 
 ```playground
-<VictoryChart
+<VictoryChart domainPadding={{ y: 10 }}
   containerComponent={
     <VictoryVoronoiContainer
       labels={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
     />
   }
 >
-  <VictoryScatter
+  <VictoryLine
     y={(datum) => Math.sin(2 * Math.PI * datum.x)}
   />
 </VictoryChart>
@@ -38,14 +38,37 @@ However, the component that uses it must be standalone
 
 `VictoryVoronoiContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
 
-### dimension
+### voronoiDimension
 
-When the `dimension` prop is set, voronoi selection will only take the given dimension into account.
+When the `voronoiDimension` prop is set, voronoi selection will only take the given dimension into account.
 For example, when `dimension` is set to "x", all data points matching a particular x mouse position
 will be activated regardless of y value. When this prop is not given, voronoi selection is
 determined by both x any y values.
 
-*example:* `dimension="x"`
+*example:* `voronoiDimension="x"`
+
+```playground
+<VictoryChart domain={{ y: [0, 6] }}
+  containerComponent={
+    <VictoryVoronoiContainer
+      voronoiDimension="x"
+      labels={(d) => `y: ${d.y}`}
+    />
+  }
+>
+  <VictoryScatter
+  	style={{ data: { fill: "red" }, labels: { fill: "red" } }}
+    data={[
+      { x: 0, y: 2 }, { x: 2, y: 3 }, { x: 4, y: 4 }, { x: 6, y: 5 }
+    ]}
+  />
+  <VictoryScatter
+    data={[
+      { x: 2, y: 2 }, { x: 4, y: 3 }, { x: 6, y: 4 }, { x: 8, y: 5 }
+    ]}
+  />
+</VictoryChart>
+```
 
 ### radius
 

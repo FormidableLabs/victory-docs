@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       clicked: false,
       style: {
-        data: { fill: "tomato"}
+        data: { fill: "tomato" }
       }
     };
   }
@@ -39,10 +39,10 @@ class App extends React.Component {
             }
             style={this.state.style}
             data={[
-              {x: new Date(1986, 1, 1), y: 2},
-              {x: new Date(1996, 1, 1), y: 3},
-              {x: new Date(2006, 1, 1), y: 5},
-              {x: new Date(2016, 1, 1), y: 4}
+              { x: new Date(1986, 1, 1), y: 2 },
+              { x: new Date(1996, 1, 1), y: 3 },
+              { x: new Date(2006, 1, 1), y: 5 },
+              { x: new Date(2016, 1, 1), y: 4 }
             ]}
           />
         </VictoryChart>

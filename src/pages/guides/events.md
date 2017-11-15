@@ -224,7 +224,7 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
 ## Simple Events
 
 
-For very simple events, it may be desirable to bypass Victory's event system. To do so, specify `events` props directly on primitive components rather than using the `events` prop on Victory components. The simple `events` prop should be given as an object whose properties are event names like `onClick`, and whose values are event handlers. Events specified this way will only be called with the standard event objects.
+For very simple events, it may be desireable to bypass Victory's event system. To do so, specify `events` props directly on primitive components rather than using the `events` prop on Victory components. The simple `events` prop should be given as an object whose properties are event names like `onClick`, and whose values are event handlers. Events specified this way will only be called with the standard event objects.
 
 ```playground
   <VictoryBar
