@@ -36,6 +36,9 @@ export default class VictoryHeader extends Component {
           <Link to="/docs/">
             Docs
           </Link>
+          <Link to="/docs/faq">
+            FAQ
+          </Link>
           <Link to="/guides/">
             Guides
           </Link>
