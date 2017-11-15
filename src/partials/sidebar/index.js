@@ -93,6 +93,12 @@ class Sidebar extends React.Component {
             </ul>
           </ul>
           <div className="Sidebar-Grid-block">
+            <p className="Sidebar-Heading">Support</p>
+            <ul className="Sidebar-List">
+              {this.renderLinksList(content, "docs", "faq")}
+            </ul>
+          </div>
+          <div className="Sidebar-Grid-block">
             <p className="Sidebar-Heading">Guides</p>
             <ul className="Sidebar-List">
               {this.renderLinksList(content, "guides", null)}

@@ -4,111 +4,91 @@ title: Native
 category: introduction
 scope: null
 ---
-# Getting Started with Victory Native
+# Getting Started with Victory
 
-Victory Native extends Victory for use on iOS and Android. Victory Native uses an identical API, so Victory code can easily be reused across platforms. The following guide replicates our [getting started guide] with React Native. For more advanced Victory examples, check out our [other guides].
+Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial explains how to set up a basic chart. For next steps, please see our [FAQs] and [Gallery] sections. For more advanced examples, check out [our guides].
 
-## Overview
+#### Getting Started with Victory Native?
 
-If you're already comfortable with Victory and React Native, this tutorial will not be necessary. The only changes you will need to make to existing Victory code work in a React Native app are:
-
-- Install `victory-native` and `react-native-svg`. Please note the `react-native-svg` [version restrictions].
-- Link `react-native-svg`.
-- Import components from `victory-native` instead of `victory`.
-- Replace web-specific events with native-specific events, _e.g._ `onMouseOver` -> `onPressIn`.
+[Check out the native version of this getting started tutorial]
 
 ## Tutorial
 
-In this guide, we’ll show you how to get started with Victory Native and walk you through the creation and customization of a composed chart.
+In this guide, we’ll show you how to get started with Victory and walk you through the creation and customization of a composed chart. We’ve created a GitHub repository with the completed project, and will link to the corresponding commit where appropriate to help you follow along. If you want, you can [view the completed tutorial here](https://github.com/FormidableLabs/victory-tutorial/blob/master/src/js/client.js).
 
-#### Prerequisites
+#### 1. Set up a basic React project
 
-This project builds off of the [React Native Getting Started Guide].
-If you don't have `create-react-native-app` or have forget how to use it, simply follow that guide.
+You can do this on your own if you'd like, or you can...
 
-#### 1. Set up a basic React Native project
-
-Use `create-react-native-app` to create a new React Native project.
-
-```sh
-create-react-native-app VictoryNativeTutorial
-cd VictoryNativeTutorial/
-```
-
-Your project structure should look like this:
-
-```sh
-  VictoryNativeTutorial
-  ├── .gitignore
-  ├── package.json
-  ├── App.js # we will modify this file
-  ├── App.test.js
-  ├── README.md
-  ├── app.json
-  └── node_modules/
-```
-
-You can try out the project using `npm start` as you had in the [React Native Getting Started Guide].
-If you are having problems with Expo, just refer back to that guide.
-You can also use `npm run ios` (if you have XCode installed) or `npm run android` (if you have an Android emulator installed).
-
-#### 2. Add Victory Native
-
-To use Victory Native, add `victory-native` to your project.
-
-```sh
-npm install victory-native --save
-# or
-yarn add victory-native
-```
-
-_Note:_ You may receive "unmet peer dependency" errors after installing;
-rest assured that Victory Native can be used with `create-react-native-app`.
-
-If you look in your `package.json`, you should now have `victory-native` in your dependencies:
-
-```js
-  ...
-  "dependencies": {
-    "expo": "...",
-    "react": "...",
-    "react-native": "...",
-    "victory-native": "..."
-  }
-```
-
-_Note:_ `victory-native` also relies on `react-native-svg` (see the [Overview](#overview) above),
-but this is already included in `expo`, which `create-react-native-app` uses.
-
-Once you're up and running, you can import your first Victory Native component in `App.js`.
+* Clone down [this project we've started for you](https://github.com/FormidableLabs/victory-tutorial) using ```git clone git@github.com:FormidableLabs/victory-tutorial.git```
+* `cd victory-tutorial`
+* Replace the existing code in the `client.js` file with:
 
 ```jsx
-import { VictoryBar } from "victory-native";
-```
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-and render it inside your `View`:
-
-```jsx
-export default class App extends React.Component {
+class Main extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <VictoryBar/>
-      </View>
-    );
-  }
+    return (
+      <div>
+        <h1>Victory Tutorial</h1>
+      </div>
+    );
+  }
 }
+
+const app = document.getElementById('app');
+ReactDOM.render(<Main />, app);
 ```
 
-Just like Victory, Victory Native components will use default data when no props are provided.
-Save your changes to `App.js` and your app will be refreshed automatically.
+* Run `npm install` to install all necessary dependencies.
 
-#### 3. Add Data and Styles
+Once you've completed these steps, you can run the webpack server with the command `npm start`, and the project will render at `localhost:8080`. All modifications will take place in your client.js file.
 
-Now let's add some data. Take advantage of [data accessors] to specify how an array of data should be plotted. We can change the color of the bars with a basic style object.
+#### 2. Add Victory
+
+Add Victory to your project with the command `npm install victory`, then import it into your React project. For now, let's import the whole library until we know what chart type we'll be using. The imports at the top of your main Javascript file should now look like this:
 
 ```jsx
-...
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as V from 'victory';
+```
+
+#### 3. Add your data
+
+You can import your data from an external file or API, or create an array of data points as a variable. Here is the data that we'll be using for our chart, which is tracking earnings per fiscal quarter:
+
+```jsx
+const data = [
+  {quarter: 1, earnings: 13000},
+  {quarter: 2, earnings: 16500},
+  {quarter: 3, earnings: 14250},
+  {quarter: 4, earnings: 19000}
+];
+```
+
+#### 4. Add your first Victory component
+
+Since we're doing a simple comparison of earnings between quarters, let's use a bar chart to visualize the data. We aren't going to need the whole Victory library, so let's change our import statement to reflect only the components that we need.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { VictoryBar } from 'victory';
+```
+
+Components include sensible defaults, so even without data `VictoryBar` will render a series of bars with default data.
+
+```playground
+// renders the default component with fallback data
+<VictoryBar/>
+```
+
+Let's add some data. VictoryBar looks for `x` and `y` values in data points, which our data doesn't have. We can work around this by adding accessor props to our `VictoryBar` component. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/blob/3a0951d78202e4333fc8ae07a673173732209ee5/src/js/client.js).)
+
+```playground_norender
 const data = [
   {quarter: 1, earnings: 13000},
   {quarter: 2, earnings: 16500},
@@ -116,299 +96,339 @@ const data = [
   {quarter: 4, earnings: 19000}
 ];
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{"Victory Tutorial"}</Text>
-        <VictoryBar
-          style={{
-            data: {fill: "blue"}
-          }}
-          data={data}
-          x="quarter"
-          y="earnings"
-        />
-      </View>
-    );
+      <VictoryBar
+        data={data}
+        // data accessor for x values
+        x="quarter"
+        // data accessor for y values
+        y="earnings"
+      />
+    )
   }
 }
+
+ReactDOM.render(<App/>, mountNode);
 ```
 
-#### 4. Add VictoryChart
+#### 5. Add a Chart wrapper
 
-Add the [VictoryChart wrapper] to add default axes to your bar component. VictoryChart also reconciles the domain, scale, and other props of its children so that they form an accurate chart. First import `VictoryChart`:
+`VictoryChart` is a wrapper component that plots all of its children on the same scale. `VictoryChart` also provides default axes. Import `VictoryChart` like so:
 
 ```jsx
-import { VictoryBar, VictoryChart } from "victory-native";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { VictoryBar, VictoryChart } from 'victory';
 ```
 
-Then wrap `VictoryBar` in `VictoryChart`. Save the file to see the default axes.
+Next wrap the `VictoryBar` component in `VictoryChart`. Default axes are automatically configured to match data provided by `VictoryBar`. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/blob/15063b2f79cff843f668f43ddd46d4bcd7f96acd/src/js/client.js).)
 
-```jsx
-...
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>{"Victory Tutorial"}</Text>
-        <VictoryChart>
-          <VictoryBar
-            style={{
-              data: {fill: "blue"}
-            }}
-            data={data}
-            x="quarter"
-            y="earnings"
-          />
-        </VictoryChart>
-      </View>
-    );
-  }
-}
-```
-
-#### 5. Customize the Axes
-
-Import `VictoryAxis` to define your own axis components for `VictoryChart` to use:
-
-```jsx
-  import { VictoryAxis, VictoryBar, VictoryChart } from "victory-native";
-```
-
-Set the `dependentAxis` prop to specify the dependent axis. [`tickValues`] and [`tickFormat`] define the position and display of the axis ticks. `VictoryChart` automatically calculates a domain based on the data of its children. To add some space between the bars and the axes, specify a `domainPadding` prop. This prop will increase the domain by a value corresponding to the specified number of pixels. [Read more about `domainPadding`].
-
-```jsx
-<VictoryChart
-  domainPadding={40}
->
-  <VictoryAxis
-    tickValues={[1, 2, 3, 4]}
-    tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
-  />
-  <VictoryAxis
-    dependentAxis
-    tickFormat={(x) => (`$${x / 1000}k`)}
-  />
-  <VictoryBar
-    style={{
-      data: {fill: "blue"}
-    }}
-    data={data}
-    x="quarter"
-    y="earnings"
-  />
-</VictoryChart>
-```
-
-#### 6. Stack data and change the theme
-
-Now import `VictoryStack` and `VictoryTheme`:
-
-```jsx
-import {
-  VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme
-} from "victory-native";
-```
-
-[`VictoryStack`] is a wrapper component that is used to create a stacked layout for its children. Let's add more data and create a stacked bar chart.
-
-```jsx
-const data1992 = [
+```playground_norender
+const data = [
   {quarter: 1, earnings: 13000},
   {quarter: 2, earnings: 16500},
   {quarter: 3, earnings: 14250},
   {quarter: 4, earnings: 19000}
 ];
 
-const data1993 = [
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart>
+        <VictoryBar
+          data={data}
+          x="quarter"
+          y="earnings"
+        />
+      </VictoryChart>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode);
+```
+
+#### 6. Customize the axes
+
+Next, let's modify the tick labels on the axes to be a little more descriptive. We can do this by adding and configuring `VictoryAxis` components to our chart, so let's import `VictoryAxis`. Import statements should now look like this:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+```
+
+In the chart below, we've modified the axes to better fit our needs. If you want to retain a vertical axis, remember to add a second axis component with the `dependentAxis` prop set to `true`. We've modified the format of the tick labels on our vertical axis with the `tickFormat` prop, and have included only the tick values that we need on the horizontal axis by passing an array to the `tickValues` prop. We've also added the `domainPadding` prop to our `VictoryChart` component for good measure, to space the bars further from the y-axis ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/blob/c5be2277266d6e78f9402a610decb08e07642de2/src/js/client.js).)
+
+```playground_norender
+const data = [
+  {quarter: 1, earnings: 13000},
+  {quarter: 2, earnings: 16500},
+  {quarter: 3, earnings: 14250},
+  {quarter: 4, earnings: 19000}
+];
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart
+        // domainPadding will add space to each side of VictoryBar to
+        // prevent it from overlapping the axis
+        domainPadding={20}
+      >
+        <VictoryAxis
+          // tickValues specifies both the number of ticks and where
+          // they are placed on the axis
+          tickValues={[1, 2, 3, 4]}
+          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+        />
+        <VictoryAxis
+          dependentAxis
+          // tickFormat specifies how ticks should be displayed
+          tickFormat={(x) => (`$${x / 1000}k`)}
+        />
+        <VictoryBar
+          data={data}
+          x="quarter"
+          y="earnings"
+        />
+      </VictoryChart>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode);
+```
+
+#### 7. Add a theme
+
+Victory charts come with a default grayscale theme so that all components look clean and consistent. But let’s switch it up with the Victory-provided Material theme. We can do that by importing VictoryTheme and adding a theme prop to `VictoryChart`. Themes should always be applied to the outermost wrapper component in a chart.
+
+Import statements should look like this:
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { VictoryBar, VictoryChart, VictoryAxis,
+        VictoryTheme } from 'victory';
+```
+
+And here's the code and rendered component with the new theme ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/fb904143eea6046e6841b4284e044360d4af5cf1/src/js/client.js)):
+
+```playground_norender
+const data = [
+  {quarter: 1, earnings: 13000},
+  {quarter: 2, earnings: 16500},
+  {quarter: 3, earnings: 14250},
+  {quarter: 4, earnings: 19000}
+];
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart
+        // adding the material theme provided with Victory
+        theme={VictoryTheme.material}
+        domainPadding={20}
+      >
+        <VictoryAxis
+          tickValues={[1, 2, 3, 4]}
+          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(x) => (`$${x / 1000}k`)}
+        />
+        <VictoryBar
+          data={data}
+          x="quarter"
+          y="earnings"
+        />
+      </VictoryChart>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode);
+```
+
+#### 8. Stack multiple bar charts
+
+Next, let's add more data. In this example we'll compare three years' worth of quarterly earnings in a stacked bar chart. `VictoryStack` will handle the layout.
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { VictoryBar, VictoryChart, VictoryAxis,
+        VictoryTheme, VictoryStack } from 'victory';
+```
+
+Wrap all four `VictoryBar` components with `VictoryStack`. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9bf170061599027e4bd5fcf8128e47adb83c0e98/src/js/client.js).)
+
+```playground_norender
+const data2012 = [
+  {quarter: 1, earnings: 13000},
+  {quarter: 2, earnings: 16500},
+  {quarter: 3, earnings: 14250},
+  {quarter: 4, earnings: 19000}
+];
+
+const data2013 = [
   {quarter: 1, earnings: 15000},
   {quarter: 2, earnings: 12500},
   {quarter: 3, earnings: 19500},
   {quarter: 4, earnings: 13000}
 ];
 
-const data1994 = [
+const data2014 = [
   {quarter: 1, earnings: 11500},
   {quarter: 2, earnings: 13250},
   {quarter: 3, earnings: 20000},
   {quarter: 4, earnings: 15500}
 ];
 
-const data1995 = [
+const data2015 = [
   {quarter: 1, earnings: 18000},
   {quarter: 2, earnings: 13250},
   {quarter: 3, earnings: 15000},
   {quarter: 4, earnings: 12000}
 ];
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart
+        domainPadding={20}
+        theme={VictoryTheme.material}
+      >
+        <VictoryAxis
+          tickValues={[1, 2, 3, 4]}
+          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(x) => (`$${x / 1000}k`)}
+        />
+        <VictoryStack>
+          <VictoryBar
+            data={data2012}
+            x="quarter"
+            y="earnings"
+          />
+          <VictoryBar
+            data={data2013}
+            x="quarter"
+            y="earnings"
+          />
+          <VictoryBar
+            data={data2014}
+            x="quarter"
+            y="earnings"
+          />
+          <VictoryBar
+            data={data2015}
+            x="quarter"
+            y="earnings"
+          />
+        </VictoryStack>
+      </VictoryChart>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode);
 ```
 
-To define a stacked layout, just wrap `VictoryStack` around all the data components that should be stacked. `VictoryStack` can also be used within `VictoryChart`. The domain automatically adjusts to accommodate the cumulative maximum of the stacked data.
+#### 9. Override theme's color scale
 
-```jsx
-  <VictoryChart
-    domainPadding={40}
-    theme={VictoryTheme.material}
-  >
-    <VictoryAxis
-      tickValues={[1, 2, 3, 4]}
-      tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
-    />
-    <VictoryAxis
-      dependentAxis
-      tickFormat={(x) => (`$${x / 1000}k`)}
-    />
-    <VictoryStack>
-      <VictoryBar
-        data={data1992}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryBar
-        data={data1993}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryBar
-        data={data1994}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryBar
-        data={data1995}
-        x="quarter"
-        y="earnings"
-      />
-    </VictoryStack>
-  </VictoryChart>
+`VictoryStack` can also be used to provide shared styles and props to its children. Let's add a `colorScale` prop to `VictoryStack` to override the default `colorScale` defined in `VictoryTheme.material`. ([See the commit here](https://github.com/FormidableLabs/victory-tutorial/tree/9c77240e45db4e9fde4123ae29304461739a7035/src/js/client.js).)
+
+```playground_norender
+const data2012 = [
+  {quarter: 1, earnings: 13000},
+  {quarter: 2, earnings: 16500},
+  {quarter: 3, earnings: 14250},
+  {quarter: 4, earnings: 19000}
+];
+
+const data2013 = [
+  {quarter: 1, earnings: 15000},
+  {quarter: 2, earnings: 12500},
+  {quarter: 3, earnings: 19500},
+  {quarter: 4, earnings: 13000}
+];
+
+const data2014 = [
+  {quarter: 1, earnings: 11500},
+  {quarter: 2, earnings: 13250},
+  {quarter: 3, earnings: 20000},
+  {quarter: 4, earnings: 15500}
+];
+
+const data2015 = [
+  {quarter: 1, earnings: 18000},
+  {quarter: 2, earnings: 13250},
+  {quarter: 3, earnings: 15000},
+  {quarter: 4, earnings: 12000}
+];
+
+class App extends React.Component {
+  render() {
+    return (
+      <VictoryChart
+        domainPadding={20}
+        theme={VictoryTheme.material}
+      >
+        <VictoryAxis
+          tickValues={[1, 2, 3, 4]}
+          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
+        />
+        <VictoryAxis
+          dependentAxis
+          tickFormat={(x) => (`$${x / 1000}k`)}
+        />
+        <VictoryStack
+          colorScale={"warm"}
+        >
+          <VictoryBar
+            data={data2012}
+            x="quarter"
+            y="earnings"
+          />
+          <VictoryBar
+            data={data2013}
+            x="quarter"
+            y="earnings"
+          />
+          <VictoryBar
+            data={data2014}
+            x="quarter"
+            y="earnings"
+          />
+          <VictoryBar
+            data={data2015}
+            x="quarter"
+            y="earnings"
+          />
+        </VictoryStack>
+      </VictoryChart>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode);
 ```
 
-In this step, we've also changed the theme on `VictoryChart`. Themes may be used to define a consistent look for a set of components. By default, Victory components use the [grayscale theme]. Let's see what the [material theme] looks like. [Read more about defining your own themes].
+## Next Steps
 
-_Note:_ Themes should be defined on the top-level component.
+Congratulations! You’ve created your first chart with Victory. Next, check out our [FAQs] and [Gallery] for more examples and information. Happy charting.
 
+## Documentation, Contributing, and Source
 
-#### 7. Refine styles
+For more information about Victory and its components, check out the docs - see [VictoryChart](http://formidable.com/open-source/victory/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/#contributing).
 
-`VictoryStack` can also be used to control the styles of its children, but styles applied directly to a child component will always take precedence.
-
-```jsx
-  <VictoryChart
-    domainPadding={40}
-    theme={VictoryTheme.material}
-  >
-    <VictoryAxis
-      tickValues={[1, 2, 3, 4]}
-      tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
-    />
-    <VictoryAxis
-      dependentAxis
-      tickFormat={(x) => (`$${x / 1000}k`)}
-    />
-    <VictoryStack
-      style={{
-        data: { width: 15, stroke: "white", strokeWidth: 2 }
-      }}
-      colorScale={["cyan", "gold", "orange", "tomato"]}
-    >
-      <VictoryBar
-        style={{
-          data: { width: 13, strokeWidth: 0, fill: "navy"}
-        }}
-        data={data1992}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryBar
-        data={data1993}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryBar
-        data={data1994}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryBar
-        data={data1995}
-        x="quarter"
-        y="earnings"
-      />
-    </VictoryStack>
-  </VictoryChart>
-```
-
-#### 8. Replace VictoryBar with VictoryArea
-
-Want to see what your data looks like in a different format? Victory Native components are modular, and easily interchangeable. Let's make a stacked area chart instead of a stacked bar chart.
-
-Import `VictoryArea`
-
-```jsx
-import {
-  VictoryAxis, VictoryArea, VictoryChart, VictoryStack, VictoryTheme }
-from "victory-native";
-```
-
-Then simply replace all instances of `VictoryBar` with `VictoryArea`, and tweak styles as necessary.
-
-```jsx
-  <VictoryChart
-    theme={VictoryTheme.material}
-  >
-    <VictoryAxis
-      tickValues={[1, 2, 3, 4]}
-      tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
-    />
-    <VictoryAxis
-      dependentAxis
-      tickFormat={(x) => (`$${x / 1000}k`)}
-    />
-    <VictoryStack
-      style={{
-        data: { stroke: "white", strokeWidth: 4 }
-      }}
-      colorScale={["cyan", "gold", "orange", "tomato"]}
-    >
-      <VictoryArea
-        style={{
-          data: { fill: "navy" }
-        }}
-        data={data1992}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryArea
-        data={data1993}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryArea
-        data={data1994}
-        x="quarter"
-        y="earnings"
-      />
-      <VictoryArea
-        data={data1995}
-        x="quarter"
-        y="earnings"
-      />
-    </VictoryStack>
-  </VictoryChart>
-```
-
-[getting started guide]: https://formidable.com/open-source/victory/docs
-[other guides]: https://formidable.com/open-source/victory/guides
-[view the completed tutorial here]: https://github.com/FormidableLabs/victory-native-tutorial
-[install additional dependencies]: https://facebook.github.io/react-native/docs/getting-started.html
-[data accessors]: https://formidable.com/open-source/victory/guides/data-accessors
-[VictoryChart wrapper]: https://formidable.com/open-source/victory/docs/victory-chart
-[`tickValues`]: https://formidable.com/open-source/victory/docs/victory-axis/#tickvalues
-[`tickFormat`]: https://formidable.com/open-source/victory/docs/victory-axis/#tickformat
-[Read more about `domainPadding`]: https://formidable.com/open-source/victory/docs/victory-chart#domainpadding
-[`VictoryStack`]: https://formidable.com/open-source/victory/docs/victory-stack
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[material theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/material.js
-[Read more about defining your own themes]: https://formidable.com/open-source/victory/guides/themes
-[version restrictions]: https://github.com/react-native-community/react-native-svg#notice
-[React Native Getting Started Guide]: https://facebook.github.io/react-native/docs/getting-started.html
+[our guides]: https://formidable.com/open-source/victory/guides
+[Gallery]: https://formidable.com/open-source/victory/gallery
+[FAQs]: https://formidable.com/open-source/victory/faq
+[Check out the native version of this getting started tutorial]: https://formidable.com/open-source/victory/docs/native

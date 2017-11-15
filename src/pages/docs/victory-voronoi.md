@@ -1,6 +1,6 @@
 ---
 id: 30
-title: VictoryVoroni
+title: VictoryVoronoi
 category: charts
 scope:
   - sampleData
