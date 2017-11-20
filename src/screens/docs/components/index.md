@@ -424,5 +424,5 @@ For more information about Victory and its components, check out the docs - see 
 
 [our guides]: https://formidable.com/open-source/victory/guides
 [Gallery]: https://formidable.com/open-source/victory/gallery
-[FAQs]: https://formidable.com/open-source/victory/faq
+[FAQs]: https://formidable.com/open-source/victory/docs/faq
 [Check out the native version of this getting started tutorial]: https://formidable.com/open-source/victory/docs/native
