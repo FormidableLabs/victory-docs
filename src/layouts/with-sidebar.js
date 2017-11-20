@@ -64,6 +64,10 @@ export const query = graphql`
             slug
             type
           }
+          headings {
+            depth
+            value
+          }
           tableOfContents
           frontmatter{
             id

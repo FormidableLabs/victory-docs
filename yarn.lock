@@ -4036,9 +4036,9 @@ format@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
 
-formidable-landers@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/formidable-landers/-/formidable-landers-6.0.1.tgz#3425e2194db0496964a5d67b19ba10a8a358c1ef"
+formidable-landers@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/formidable-landers/-/formidable-landers-7.0.0.tgz#b934e6c3ace5d21395085113e60e742c9817c6f8"
   dependencies:
     babel-cli "^6.6.5"
     babel-core "^6.6.4"
@@ -4048,7 +4048,7 @@ formidable-landers@^6.0.1:
     babel-preset-react "^6.5.0"
     babel-preset-stage-1 "^6.5.0"
     lodash "^4.15.0"
-    react "^15.1.0"
+    react "^15.6.1"
     rimraf "^2.4.4"
 
 forwarded@~0.1.0:
@@ -4128,6 +4128,10 @@ fstream@^1.0.0, fstream@^1.0.10, fstream@^1.0.2:
 function-bind@^1.0.2, function-bind@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.0.tgz#16176714c801798e4e8f2cf7f7529467bb4a5771"
+
+fuse.js@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.2.0.tgz#f0448e8069855bf2a3e683cdc1d320e7e2a07ef4"
 
 gather-stream@^1.0.0:
   version "1.0.0"
@@ -8607,7 +8611,7 @@ react-twitter-widgets@^1.4.0:
     prop-types "^15.3.0"
     scriptjs "^2.5.8"
 
-react@^15.1.0, react@^15.4.2, react@^15.6.0, react@^15.6.1:
+react@^15.4.2, react@^15.6.0, react@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
@@ -11164,17 +11168,17 @@ vfile@^2.0.0:
     replace-ext "1.0.0"
     unist-util-stringify-position "^1.0.0"
 
-victory-chart@^22.0.0:
-  version "22.0.0"
-  resolved "https://registry.yarnpkg.com/victory-chart/-/victory-chart-22.0.0.tgz#55f0a85c7d14d4f87ab50b761af0ec1731773e6b"
+victory-chart@^24.3.0:
+  version "24.3.0"
+  resolved "https://registry.yarnpkg.com/victory-chart/-/victory-chart-24.3.0.tgz#523fce91d41bae1a366e36cb3bad737428e260aa"
   dependencies:
     d3-voronoi "^1.1.2"
     lodash "^4.17.4"
-    victory-core "^18.0.0"
+    victory-core "^20.2.0"
 
-victory-core@^18.0.0, victory-core@^18.0.2:
-  version "18.0.2"
-  resolved "https://registry.yarnpkg.com/victory-core/-/victory-core-18.0.2.tgz#5a962865d1ce47b1cec740a34a39f8274b6d4e68"
+victory-core@^20.0.0, victory-core@^20.2.0:
+  version "20.2.0"
+  resolved "https://registry.yarnpkg.com/victory-core/-/victory-core-20.2.0.tgz#f3a31fc9de63513aea0bbb9b03db78d1bebfcc13"
   dependencies:
     d3-ease "^1.0.0"
     d3-interpolate "^1.1.1"
@@ -11183,21 +11187,21 @@ victory-core@^18.0.0, victory-core@^18.0.2:
     d3-timer "^1.0.0"
     lodash "^4.17.4"
 
-victory-pie@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/victory-pie/-/victory-pie-12.0.0.tgz#60c734d2976be2d011446fdfa9024e0a5922a605"
+victory-pie@^13.1.0:
+  version "13.1.0"
+  resolved "https://registry.yarnpkg.com/victory-pie/-/victory-pie-13.1.0.tgz#e23fe543939ab82f05d81a321093997911ab1cc3"
   dependencies:
     d3-shape "^1.0.0"
     lodash "^4.17.4"
-    victory-core "^18.0.0"
+    victory-core "^20.0.0"
 
-victory@^0.22.2:
-  version "0.22.2"
-  resolved "https://registry.yarnpkg.com/victory/-/victory-0.22.2.tgz#d0c1ab8c77d9cd0b43bd15ba683f1250dae7ba7b"
+victory@^0.24.2:
+  version "0.24.2"
+  resolved "https://registry.yarnpkg.com/victory/-/victory-0.24.2.tgz#8f0f40ca192cf782344a8cd33cac06a53453c5cb"
   dependencies:
-    victory-chart "^22.0.0"
-    victory-core "^18.0.2"
-    victory-pie "^12.0.0"
+    victory-chart "^24.3.0"
+    victory-core "^20.2.0"
+    victory-pie "^13.1.0"
 
 viewport-dimensions@^0.2.0:
   version "0.2.0"
