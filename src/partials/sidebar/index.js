@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Fuse from "fuse.js";
 import Link from "gatsby-link";
-
+import { maxBy, findIndex, includes, last, times } from "lodash";
 import SidebarSearchInput from "./components/search-input";
 
 class Sidebar extends React.Component {
@@ -23,9 +23,9 @@ class Sidebar extends React.Component {
   handleInputChange(value, content) {
     const options = {
       keys: [
-        "node.tableOfContents"
+        "node.headings.value"
       ],
-      threshold: 0.6,
+      threshold: 0.2,
       findAllMatches: true,
       distance: 100
     };
@@ -42,6 +42,100 @@ class Sidebar extends React.Component {
       filteredResults: content,
       filterTerm: ""
     });
+  }
+
+  getMatchTree(link, filterTerm) {
+    const options = {
+      keys: [
+        "value"
+      ],
+      threshold: 0.2,
+      findAllMatches: true,
+      distance: 100
+    };
+    const fuse = new Fuse(link.headings, options);
+    const matches = fuse.search(filterTerm);
+    if (matches.length) {
+      const maxDepth = maxBy(matches, "depth").depth;
+      let matchIndices = matches.map((match) => {
+        return findIndex(link.headings, (heading) => includes(heading.value, match.value));
+      });
+      return link.headings.slice(0, last(matchIndices) + 1).reduce((memo, curr, i) => {
+        const useHeading = i === matchIndices[0] || i < matchIndices[0] && curr.depth < maxDepth;
+        if (useHeading) {
+          memo = memo.concat(curr);
+          matchIndices = i === matchIndices[0] ? matchIndices.slice(1) : matchIndices;
+        }
+        return memo;
+      }, []);
+    }
+    return [];
+  }
+
+
+  pushToLevel(siblings, depth, heading) {
+    siblings = siblings.slice(0);
+    let parentTarget = siblings;
+    let target;
+
+    times(depth, () => {
+      target = parentTarget[parentTarget.length - 1];
+
+      if (Array.isArray(target)) {
+        parentTarget = target;
+      } else {
+        parentTarget.push([]);
+        parentTarget = parentTarget[parentTarget.length - 1];
+      }
+    });
+
+    if (Array.isArray(target)) {
+      target.push(heading);
+    } else {
+      parentTarget.push(heading);
+    }
+
+    return siblings;
+  }
+
+  transformTocArray(headings) {
+    const topHeading = headings[0];
+
+    return headings.reduce((siblings, heading) => {
+      const depth = heading.depth - topHeading.depth;
+      return this.pushToLevel(siblings, depth, heading);
+    }, []);
+  }
+
+  renderMatchTree(link, matchTree) {
+    const targetLocation = "";
+    const siblings = this.transformTocArray(matchTree);
+    return (
+      <ul>
+      {
+        siblings.map((sibling, id) => {
+          if (Array.isArray(sibling)) {
+            return (
+              <li key={id}>
+                {this.renderMatchTree(link, sibling)}
+              </li>
+            );
+          }
+
+          return sibling && (
+            <li key={id}>
+              {
+                sibling.depth < 3 ?
+                  <p><a href={`#${sibling.value}`}>{`${sibling.value}`}</a></p> :
+                  <a href={`#${sibling.value}`}>{`${sibling.value}`}</a>
+              }
+
+            </li>
+          );
+        })
+        }
+      </ul>
+    );
   }
 
   renderLinksList(edges, type, category) {
@@ -64,18 +158,29 @@ class Sidebar extends React.Component {
       if (link.frontmatter.display === false) {
         return null;
       }
+      let toc = (
+        <div
+          className="Sidebar-toc"
+          dangerouslySetInnerHTML={{ __html: link.tableOfContents }}
+        />
+      );
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const isActive =
         category !== "introduction" && location.pathname === link.fields.slug
           ? true
           : this.state.filterTerm !== "";
-      const toc = (
-        <div
-          className="Sidebar-toc"
-          dangerouslySetInnerHTML={{ __html: link.tableOfContents }}
-        />
-      );
+      if (this.state.filterTerm !== "") {
+        const matchTree = this.getMatchTree(link, this.state.filterTerm);
+        if (matchTree.length) {
+          toc = (
+            <div className="Sidebar-toc">
+              {this.renderMatchTree(link, matchTree)}
+            </div>
+          );
+          console.log(link.tableOfContents)
+        }
+      }
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
