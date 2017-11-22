@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Fuse from "fuse.js";
 import Link from "gatsby-link";
-import { maxBy, findIndex, includes, last, times } from "lodash";
+import { maxBy, minBy, findIndex, includes, last, times } from "lodash";
 import SidebarSearchInput from "./components/search-input";
 
 class Sidebar extends React.Component {
@@ -72,77 +72,63 @@ class Sidebar extends React.Component {
     return [];
   }
 
-
-  pushToLevel(siblings, depth, heading) {
-    siblings = siblings.slice(0);
-    let parentTarget = siblings;
-    let target;
-
-    times(depth, () => {
-      target = parentTarget[parentTarget.length - 1];
-
-      if (Array.isArray(target)) {
-        parentTarget = target;
-      } else {
-        parentTarget.push([]);
-        parentTarget = parentTarget[parentTarget.length - 1];
-      }
-    });
-
-    if (Array.isArray(target)) {
-      target.push(heading);
-    } else {
-      parentTarget.push(heading);
+  getTree(headings) {
+    if (!headings || !headings.length) {
+      return [];
     }
-
-    return siblings;
-  }
-
-  transformTocArray(headings) {
-    const topHeading = headings[0];
-
-    return headings.reduce((siblings, heading) => {
-      const depth = heading.depth - topHeading.depth;
-      return this.pushToLevel(siblings, depth, heading);
+    const depth = minBy(headings, "depth").depth;
+    const maxDepth = maxBy(headings, "depth").depth;
+    if (depth === maxDepth) {
+      return headings;
+    }
+    const parentIndices = headings.reduce((memo, curr, index) => {
+      if (curr.depth === depth) {
+        memo = memo.concat(index);
+      }
+      return memo;
+    }, []);
+    return parentIndices.reduce((memo, curr, index) => {
+      const lastChild = index === parentIndices.length + 1 ? undefined : parentIndices[index + 1];
+      const children = [headings.slice(curr + 1, lastChild)];
+      memo = children.length > 0 ? memo.concat(headings[curr], children) : memo.concat(headings[curr]);
+      return memo;
     }, []);
   }
 
-  renderMatchTree(link, matchTree) {
-    const targetLocation = "";
-    const siblings = this.transformTocArray(matchTree);
+
+  getTOC(link, headings) {
+    const tree = this.getTree(headings);
+    if (!tree.length) {
+      return null;
+    }
+
+    const toAnchor = (content) => {
+      const baseContent = content.toLowerCase();
+      const safeString = baseContent.replace(/[^\w]+/g, " ");
+      return safeString.trim().replace(/\s/g, "-");
+    };
     return (
       <ul>
-      {
-        siblings.map((sibling, id) => {
-          if (Array.isArray(sibling)) {
-            return (
-              <li key={id}>
-                {this.renderMatchTree(link, sibling)}
-              </li>
-            );
+        {tree.map((item, index) => {
+          if (Array.isArray(item)) {
+            return this.getTOC(link, item);
           }
-
-          return sibling && (
-            <li key={id}>
+          return (
+            <li key={index}>
               {
-                sibling.depth < 3 ?
-                  <p><a href={`#${sibling.value}`}>{`${sibling.value}`}</a></p> :
-                  <a href={`#${sibling.value}`}>{`${sibling.value}`}</a>
+                item.depth > 2 ?
+                <a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a> :
+                <p><a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a></p>
               }
-
             </li>
           );
-        })
-        }
+        })}
       </ul>
     );
   }
 
   renderLinksList(edges, type, category) {
     const { location } = this.props;
-
-    // TODO: Massage toc so the title of the page isn't displayed
-
     let filteredEdges = edges.filter((edge) => {
       return edge.node.fields.type === type;
     });
@@ -158,27 +144,27 @@ class Sidebar extends React.Component {
       if (link.frontmatter.display === false) {
         return null;
       }
-      let toc = (
-        <div
-          className="Sidebar-toc"
-          dangerouslySetInnerHTML={{ __html: link.tableOfContents }}
-        />
-      );
+
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const isActive =
         category !== "introduction" && location.pathname === link.fields.slug
           ? true
           : this.state.filterTerm !== "";
+      let toc = (
+        <div className="Sidebar-toc">
+          {this.getTOC(link, link.headings)}
+        </div>
+      );
+
       if (this.state.filterTerm !== "") {
         const matchTree = this.getMatchTree(link, this.state.filterTerm);
         if (matchTree.length) {
           toc = (
             <div className="Sidebar-toc">
-              {this.renderMatchTree(link, matchTree)}
+              {this.getTOC(link, matchTree)}
             </div>
           );
-          console.log(link.tableOfContents)
         }
       }
       return (
