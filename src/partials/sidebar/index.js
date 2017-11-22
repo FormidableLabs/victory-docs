@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Fuse from "fuse.js";
 import Link from "gatsby-link";
-import { maxBy, minBy, findIndex, includes, last, times } from "lodash";
+import { maxBy, minBy, findIndex, includes, last } from "lodash";
 import SidebarSearchInput from "./components/search-input";
 
 class Sidebar extends React.Component {
@@ -60,16 +60,19 @@ class Sidebar extends React.Component {
       let matchIndices = matches.map((match) => {
         return findIndex(link.headings, (heading) => includes(heading.value, match.value));
       });
-      return link.headings.slice(0, last(matchIndices) + 1).reduce((memo, curr, i) => {
+      matchIndices = matchIndices.sort((a, b) => a - b);
+      const result = link.headings.slice(0, last(matchIndices) + 1).reduce((memo, curr, i) => {
         const useHeading = i === matchIndices[0] || i < matchIndices[0] && curr.depth < maxDepth;
-        if (useHeading) {
+        if (useHeading && curr.value !== "Props") {
           memo = memo.concat(curr);
           matchIndices = i === matchIndices[0] ? matchIndices.slice(1) : matchIndices;
         }
         return memo;
       }, []);
+      return result;
     }
     return [];
+
   }
 
   getTree(headings) {
@@ -107,8 +110,9 @@ class Sidebar extends React.Component {
       const safeString = baseContent.replace(/[^\w]+/g, " ");
       return safeString.trim().replace(/\s/g, "-");
     };
+    const depth = minBy(headings, "depth").depth;
     return (
-      <ul>
+      <ul key={depth}>
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
             return this.getTOC(link, item);

@@ -53,9 +53,6 @@ export const pageQuery = graphql`
   query DocsBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
-      timeToRead
-      excerpt
-      tableOfContents
       frontmatter {
         id
         scope

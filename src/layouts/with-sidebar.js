@@ -68,7 +68,6 @@ export const query = graphql`
             depth
             value
           }
-          tableOfContents
           frontmatter{
             id
             category
