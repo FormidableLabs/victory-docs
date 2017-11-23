@@ -1,7 +1,7 @@
 ---
 id: 20
 title: VictoryPortal
-category: charts
+category: more
 scope: null
 ---
 # VictoryPortal

@@ -2,7 +2,8 @@
 id: 12
 title: VictoryCursorContainer
 category: containers
-scope: null
+scope:
+  - round
 ---
 # VictoryCursorContainer
 

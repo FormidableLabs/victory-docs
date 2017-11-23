@@ -1,7 +1,7 @@
 ---
 id: 26
 title: VictoryTheme
-category: charts
+category: more
 scope: null
 ---
 # VictoryTheme

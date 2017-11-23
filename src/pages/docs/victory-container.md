@@ -1,7 +1,7 @@
 ---
 id: 11
 title: VictoryContainer
-category: charts
+category: containers
 scope: null
 ---
 # VictoryContainer

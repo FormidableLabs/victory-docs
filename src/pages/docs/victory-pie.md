@@ -1,7 +1,7 @@
 ---
 id: 18
 title: VictoryPie
-category: more
+category: charts
 scope:
   - sampleData
 ---

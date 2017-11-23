@@ -83,9 +83,5 @@ export const configGallery = [
     text: "Voronoi Tooltips with Grouped Components",
     slug: "voronoi-tooltips-grouped",
     code: require("!!raw!./examples/voronoi-tooltips-grouped.example.js")
-  }, {
-    text: "Rainbow Gradient Fill",
-    slug: "rainbow-gradient",
-    code: require("!!raw!./examples/rainbow-gradient.example.js")
   }
 ];

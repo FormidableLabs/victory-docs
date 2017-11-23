@@ -220,7 +220,7 @@ class MultipleAxes extends React.Component {
                 if (x.getFullYear() % 5 === 0) {
                   return x.getFullYear().toString().slice(2);
                 }
-                return 0;
+                return "";
               }}
             />
 

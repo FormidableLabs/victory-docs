@@ -31,7 +31,7 @@ export default class App extends React.Component {
           height={350}
           containerComponent={
             <VictoryVoronoiContainer
-              dimension="x"
+              voronoiDimension="x"
               labels={(d) => `y: ${d.y}`}
               labelComponent={
                 <VictoryTooltip

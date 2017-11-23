@@ -1,7 +1,7 @@
 ---
 id: 24
 title: VictorySharedEvents
-category: charts
+category: more
 scope: null
 ---
 # VictorySharedEvents

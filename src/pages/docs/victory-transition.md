@@ -1,7 +1,7 @@
 ---
 id: 28
 title: VictoryTransition
-category: charts
+category: more
 scope: null
 ---
 # VictoryTransition

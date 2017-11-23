@@ -24,7 +24,7 @@ The function takes two `behavior` arguments as strings:
 createContainer(behaviorA, behaviorB)
 ```
 
-### behavior
+### Behavior
 
 Each `behavior` must be one of the following strings:
 `"brush"`, `"cursor"`, `"selection"`, `"voronoi"`, and `"zoom"`.
@@ -36,7 +36,7 @@ will trigger both behaviors' events on each click.
 It is recommended to use `"zoom"` before any other behaviors: for example,
 `createContainer("zoom", "voronoi")` instead of `createContainer("voronoi", "zoom")`.
 
-## Example
+### Example
 
 The following example creates a custom container that combines `VictoryVoronoiContainer` and
 `VictoryZoomContainer`. Hovering over the chart will use Voronoi to highlight data points,
