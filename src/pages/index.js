@@ -37,25 +37,3 @@ class Index extends React.Component {
 
 export default Index;
 
-/* eslint-disable no-undef */
-// export const pageQuery = graphql`
-//   query IndexQuery {
-//     allMarkdownRemark(
-//       limit: 2000
-//       sort: { fields: [frontmatter___id], order: DESC }
-//     ) {
-//       edges {
-//         node {
-//           fields {
-//             slug
-//           }
-//           excerpt
-//           timeToRead
-//           frontmatter {
-//             id
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
