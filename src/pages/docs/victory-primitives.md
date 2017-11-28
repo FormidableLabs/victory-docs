@@ -6,11 +6,11 @@ scope: null
 ---
 # Victory Primitives
 
-Victory is built around a set of primitive components. Along with [VictoryContainer], [VictoryClipContainer], and [VictoryLabel], the following list represents every element a Victory component might render. Extracting every rendered element into its own component allows Victory to support both web and React Native applications with very little additional code. Primitive components are simply extended and modified to render [react-native-svg] elements rather than SVG elements. These primitives are also exposed for users to wrap, extend or reference when creating their own custom rendered components.
+Victory is built around a set of primitive components. Along with [VictoryContainer][], [VictoryClipContainer][], and [VictoryLabel][], the following list represents every element a Victory component might render. Extracting every rendered element into its own component allows Victory to support both web and React Native applications with very little additional code. Primitive components are simply extended and modified to render [react-native-svg][] elements rather than SVG elements. These primitives are also exposed for users to wrap, extend or reference when creating their own custom rendered components.
 
 ### Arc
 
-[VictoryPolarAxis] uses the `Arc` primitive to draw circular axes and grid lines. `Arc` renders a `<path>` element. [View the source][arc]
+[VictoryPolarAxis][] uses the `Arc` primitive to draw circular axes and grid lines. `Arc` renders a `<path>` element. [View the source][arc]
 
 **Props**
 
@@ -31,7 +31,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Area
 
-[VictoryArea] uses `Area` to represent an entire dataset. `Area` renders a `<path>` element, or a group of paths if the stroke of the area should be rendered in a different style from the filled section of the area. [View the source][area]
+[VictoryArea][] uses `Area` to represent an entire dataset. `Area` renders a `<path>` element, or a group of paths if the stroke of the area should be rendered in a different style from the filled section of the area. [View the source][area]
 
 **Props**
 
@@ -50,7 +50,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Bar
 
-[VictoryBar] uses `Bar` to represent a single data point as a bar extending horizontally or vertically from the independent axis. `Bar` renders a `<path>` element. [View the source][bar]
+[VictoryBar][] uses `Bar` to represent a single data point as a bar extending horizontally or vertically from the independent axis. `Bar` renders a `<path>` element. [View the source][bar]
 
 **Props**
 
@@ -75,7 +75,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Border
 
-[VictoryLegend] uses the `Border` component to draw a border around a legend area. `Border` renders a `<rect/>` element. [View the source][border]
+[VictoryLegend][] uses the `Border` component to draw a border around a legend area. `Border` renders a `<rect/>` element. [View the source][border]
 
 **Props**
 
@@ -91,7 +91,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Candle
 
-[VictoryCandlestick] uses `Candle` to represent a single data point as a candle. `Candle` renders a group with `<rect>` and `<line>` elements. [View the source][candle]
+[VictoryCandlestick][] uses `Candle` to represent a single data point as a candle. `Candle` renders a group with `<rect>` and `<line>` elements. [View the source][candle]
 
 **Props**
 
@@ -116,7 +116,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### ClipPath
 
-[VictoryClipContainer] uses `ClipPath` to render a rectangular clip path used in animating transitons for [VictoryArea] and [VictoryLine]. Transitions alter the `clipWidth` and `clipHeight` props of `ClipPath` in order to show and hide portions of a continuous chart so that new data transitions in and out smoothly. `ClipPath` renders `<defs>`, `<clipPath>` and `<rect>`. [View the source][clippath]
+[VictoryClipContainer][] uses `ClipPath` to render a rectangular clip path used in animating transitons for [VictoryArea][] and [VictoryLine][]. Transitions alter the `clipWidth` and `clipHeight` props of `ClipPath` in order to show and hide portions of a continuous chart so that new data transitions in and out smoothly. `ClipPath` renders `<defs>`, `<clipPath>` and `<rect>`. [View the source][clippath]
 
 **Props**
 
@@ -132,7 +132,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Curve
 
-[VictoryLine] uses `Curve` to represent an entire dataset as a line or curve. `Curve` renders a `<path>` element. [View the source][curve]
+[VictoryLine][] uses `Curve` to represent an entire dataset as a line or curve. `Curve` renders a `<path>` element. [View the source][curve]
 
 **Props**
 
@@ -150,7 +150,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### ErrorBar
 
-[VictoryErrorBar] uses `ErrorBar` to render x and y error bars. `ErrorBar` renders a group of `<line>` elements. [View the source][errorbar]
+[VictoryErrorBar][] uses `ErrorBar` to render x and y error bars. `ErrorBar` renders a group of `<line>` elements. [View the source][errorbar]
 
 **Props**
 
@@ -175,7 +175,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Flyout
 
-[VictoryTooltip] uses `Flyout` to render a flyout style path around text. `Flyout` renders `<path>` element. [View the source][flyout]
+[VictoryTooltip][] uses `Flyout` to render a flyout style path around text. `Flyout` renders `<path>` element. [View the source][flyout]
 
 **Props**
 
@@ -203,7 +203,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Line
 
-  The `Line` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis]. [View the source][line]
+  The `Line` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis][]. [View the source][line]
 
 **Props**
 
@@ -223,7 +223,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Point
 
-[VictoryScatter] uses `Point` to render each point in a scatter plot. `Point` renders a `<path>` element. [View the source][point]
+[VictoryScatter][] uses `Point` to render each point in a scatter plot. `Point` renders a `<path>` element. [View the source][point]
 
 **Props**
 
@@ -246,7 +246,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Slice
 
-[VictoryPie] uses `Slice` to render each slice in a pie chart. `Slice` renders a `<path>` element. [View the source][slice]
+[VictoryPie][] uses `Slice` to render each slice in a pie chart. `Slice` renders a `<path>` element. [View the source][slice]
 
 **Props**
 
@@ -264,7 +264,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
 ### Voronoi
 
-  [VictoryVoronoi] uses `Voronoi` to render voronoi polygons. `Voronoi` renders either a `<path>` element corresponding to a voronoi polygon, or a circular `<path>` clipped with a `<clipPath>` defined by the path of the polygon. [View the source][voronoi]
+  [VictoryVoronoi][] uses `Voronoi` to render voronoi polygons. `Voronoi` renders either a `<path>` element corresponding to a voronoi polygon, or a circular `<path>` clipped with a `<clipPath>` defined by the path of the polygon. [View the source][voronoi]
 
 **Props**
 

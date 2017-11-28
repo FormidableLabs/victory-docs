@@ -2,7 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, mountNode */
 /* global VictoryChart, VictoryStack, VictoryBar, VictoryGroup */
 
 class App extends React.Component {

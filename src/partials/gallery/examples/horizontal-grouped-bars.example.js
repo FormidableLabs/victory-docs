@@ -2,7 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, mountNode */
 /* global VictoryChart, VictoryGroup, VictoryBar, VictoryTheme */
 
 class App extends React.Component {
@@ -11,7 +11,7 @@ class App extends React.Component {
       <div>
         <VictoryChart
           theme={VictoryTheme.material}
-          domain={{y: [0.5, 5.5]}}
+          domain={{ y: [0.5, 5.5] }}
         >
             <VictoryGroup horizontal
               offset={10}
@@ -20,29 +20,29 @@ class App extends React.Component {
             >
               <VictoryBar
                 data={[
-                  {x: 1, y: 1},
-                  {x: 2, y: 2},
-                  {x: 3, y: 3},
-                  {x: 4, y: 2},
-                  {x: 5, y: 1}
+                  { x: 1, y: 1 },
+                  { x: 2, y: 2 },
+                  { x: 3, y: 3 },
+                  { x: 4, y: 2 },
+                  { x: 5, y: 1 }
                 ]}
               />
               <VictoryBar
                 data={[
-                  {x: 1, y: 2},
-                  {x: 2, y: 3},
-                  {x: 3, y: 4},
-                  {x: 4, y: 5},
-                  {x: 5, y: 5}
+                  { x: 1, y: 2 },
+                  { x: 2, y: 3 },
+                  { x: 3, y: 4 },
+                  { x: 4, y: 5 },
+                  { x: 5, y: 5 }
                 ]}
               />
               <VictoryBar
                 data={[
-                  {x: 1, y: 1},
-                  {x: 2, y: 2},
-                  {x: 3, y: 3},
-                  {x: 4, y: 4},
-                  {x: 5, y: 4}
+                  { x: 1, y: 1 },
+                  { x: 2, y: 2 },
+                  { x: 3, y: 3 },
+                  { x: 4, y: 4 },
+                  { x: 5, y: 4 }
                 ]}
               />
           </VictoryGroup>

@@ -7,7 +7,7 @@ scope:
 ---
 # VictoryArea
 
-VictoryArea renders a dataset as a single area. VictoryArea can be composed with [`VictoryChart`] to create area charts.
+VictoryArea renders a dataset as a single area. VictoryArea can be composed with [`VictoryChart`][] to create area charts.
 
 ```playground
 <VictoryChart
@@ -26,7 +26,7 @@ VictoryArea renders a dataset as a single area. VictoryArea can be composed with
 
 `VictoryArea` uses the standard `animate` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-See the [Animations Guide] for more detail on animations and transitions
+See the [Animations Guide][] for more detail on animations and transitions
 
 ```jsx
   animate={{
@@ -55,7 +55,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 `VictoryArea` uses the standard `data` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#data)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```playground
 <VictoryChart>
@@ -77,7 +77,7 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 
 `VictoryArea` supplies the following props to its `dataComponent`: `data`, `events`, `groupComponent`, `interpolation`, `origin` (for polar charts), `polar`, `scale`, `style`
 
-See the [Custom Components Guide] for more detail on creating your own `dataComponents`
+See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
 *default:* `<Area/>`
 
@@ -116,7 +116,7 @@ eventKey="x"
 
 `VictoryArea` uses the standard `events` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 **note:** `VictoryArea` will use the special `eventKey` "all" rather than refering to data by index, as it renders only one element for an entire dataset
 
@@ -159,7 +159,7 @@ See the [Events Guide] for more information on defining events.
 
 `VictoryArea` uses the standard `groupComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-**note:** `VictoryArea` uses [`VictoryClipContainer`] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.**
+**note:** `VictoryArea` uses [`VictoryClipContainer`][] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.**
 
 *default:* `<VictoryClipContainer/>`
 
@@ -191,7 +191,7 @@ Polar area charts may use the following interpolation options: "basis", "cardina
 
 Cartesian area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
 
-[Explore all the interpolation options].
+[Explore all the interpolation options][].
 
 *default:* `"linear"`
 
@@ -308,7 +308,7 @@ scale={{x: "linear", y: "log"}}
 
 `VictoryArea` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 sortKey="x"
@@ -337,7 +337,7 @@ sortKey="x"
 
 `VictoryArea` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
   <VictoryArea
@@ -359,7 +359,7 @@ sortKey="x"
 
 `VictoryArea` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-See the [Themes Guide] for information about creating custom themes.
+See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -381,7 +381,7 @@ width={400}
 
 `VictoryArea` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 x="employee.name"
@@ -391,7 +391,7 @@ x="employee.name"
 
 `VictoryArea` uses the standard `y` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 y={(d) => d.value + d.error}
@@ -401,7 +401,7 @@ y={(d) => d.value + d.error}
 
 `VictoryArea` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```playground
 <VictoryChart>

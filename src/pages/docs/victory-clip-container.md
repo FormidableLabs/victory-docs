@@ -20,7 +20,7 @@ The `clipId` prop may be used to set a deterministic id for the container. When 
 
 ### clipPathComponent
 
-The `clipPathComponent` prop specifies the clip path to apply to the rendered group when appropriate. By default, `VictoryClipContainer` uses the rectangular [ClipPath component].
+The `clipPathComponent` prop specifies the clip path to apply to the rendered group when appropriate. By default, `VictoryClipContainer` uses the rectangular [ClipPath component][].
 
 ### clipHeight
 

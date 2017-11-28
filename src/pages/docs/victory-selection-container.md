@@ -32,7 +32,7 @@ However, the component that uses it must be standalone
 
 ## Props
 
-`VictorySelectionContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
+`VictorySelectionContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
 ### selectionDimension
 

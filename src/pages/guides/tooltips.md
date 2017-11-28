@@ -5,9 +5,9 @@ scope: null
 ---
 # Tooltips
 
-[`VictoryTooltip`] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`
+[`VictoryTooltip`][] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`
 
-[`VictoryVoronoiTooltip`] attaches the `VictoryTooltip` label component to an invisible `VictoryVoronoi` data component. `VictoryVoronoi` tooltip is useful for adding tooltips to elements that do not have individual data elements, like `VictoryLine`, or adding tooltips to any element that is too small to hover over effectively.
+[`VictoryVoronoiTooltip`][] attaches the `VictoryTooltip` label component to an invisible `VictoryVoronoi` data component. `VictoryVoronoi` tooltip is useful for adding tooltips to elements that do not have individual data elements, like `VictoryLine`, or adding tooltips to any element that is too small to hover over effectively.
 
 This guide discusses customization and advanced usage of tooltips in Victory
 
@@ -71,7 +71,7 @@ Tooltips can be customized directly on the the `VictoryTooltip` component
 </VictoryChart>
 ```
 
-`VictoryTooltip` is composed of [`VictoryLabel`] and the primitive [`Flyout`] component. Both of these components are highly configurable, but may also be replaced if necessary.
+`VictoryTooltip` is composed of [`VictoryLabel`][] and the primitive [`Flyout`][] component. Both of these components are highly configurable, but may also be replaced if necessary.
 
 ```playground_norender
 class CustomFlyout extends React.Component {

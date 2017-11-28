@@ -10,7 +10,7 @@ scope:
 `VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack several components on the same level, _e.g.,_ stacked area charts with data markers.
 
 `VictoryGroup` works with:
-[VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryLine], [VictoryScatter], [VictoryStack], and [VictoryVoronoi].
+[VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][].
 
 ```playground
 <VictoryChart>
@@ -36,7 +36,7 @@ scope:
 
 `VictoryGroup` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-See the [Animations Guide] for more detail on animations and transitions
+See the [Animations Guide][] for more detail on animations and transitions
 
 **note: `VictoryGroup` controls the `animate` prop of its children when set**
 
@@ -59,7 +59,7 @@ categories={["dogs", "cats", "mice"]}
 
 ### children
 
-`VictoryGroup` works with any combination of the following children: [VictoryArea], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], and [VictoryVoronoi]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
+`VictoryGroup` works with any combination of the following children: [VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
 ### color
 
@@ -79,7 +79,7 @@ The `color` prop is an optional prop that defines a single color to be applied t
 
 The `colorScale` prop is an optional prop that defines a color scale to be applied to the children of `VictoryGroup`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryGroup` will assign colors to its children by index, unless they are explicitly specified in styles. Colors will repeat when there are more children than colors in the provided `colorScale`.
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
 <VictoryGroup
@@ -111,9 +111,9 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 `VictoryGroup` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
-When `data` is provided for `VictoryGroup` it will be passed to every child in the group. Use this as a convenience in cases where all components should have identical data, for example, adding data points to a line, or adding voronoi tooltips to data. Omit this prop when child components should not share data. By default, Victory components expect data as an array of objects with `x` and `y` props. Use the [x and y] data accessor props to define a custom data format. The `data` prop must be given as an array.
+When `data` is provided for `VictoryGroup` it will be passed to every child in the group. Use this as a convenience in cases where all components should have identical data, for example, adding data points to a line, or adding voronoi tooltips to data. Omit this prop when child components should not share data. By default, Victory components expect data as an array of objects with `x` and `y` props. Use the [x][] and [y][] data accessor props to define a custom data format. The `data` prop must be given as an array.
 
 ```playground
 <VictoryChart>
@@ -157,7 +157,7 @@ eventKey="x"
 
 `VictoryGroup` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 **Note: `VictoryGroup` coordinates events between children using the `VictorySharedEvents` and the `sharedEvents` prop**
 
@@ -236,7 +236,7 @@ labels={["spring", "summer", "fall", "winter"]}`, `labels={(datum) => datum.titl
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render labels for each group. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `labelComponent` prop takes a component instance which will be used to render labels for each group. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
 *default:* `<VictoryLabel/>`
 
@@ -327,7 +327,7 @@ scale={{x: "linear", y: "log"}}
 
 `VictoryGroup` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 sortKey="x"
@@ -348,7 +348,7 @@ sortKey="x"
 
 Styles on children of `VictoryGroup` will override styles set on the `VictoryGroup` component.
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
 <VictoryGroup
@@ -376,7 +376,7 @@ Styles on children of `VictoryGroup` will override styles set on the `VictoryGro
 
 `VictoryGroup` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-See the [Themes Guide] for information about creating custom themes.
+See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -398,7 +398,7 @@ width={400}
 
 `VictoryGroup` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 x="employee.name"
@@ -408,7 +408,7 @@ x="employee.name"
 
 `VictoryGroup` uses the standard `y` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 y={(d) => d.value + d.error}
@@ -418,7 +418,7 @@ y={(d) => d.value + d.error}
 
 `VictoryGroup` uses the standard `y0` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 y0={() => 10}
@@ -426,13 +426,10 @@ y0={() => 10}
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
-[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
 [VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
@@ -441,3 +438,5 @@ y0={() => 10}
 [VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[x]: https://formidable.com/open-source/victory/docs/common-props#x
+[y]: https://formidable.com/open-source/victory/docs/common-props#y

@@ -6,7 +6,7 @@ scope: null
 ---
 # VictoryAxis
 
-VictoryAxis renders a single axis which can be used on its own or composed with [`VictoryChart`].
+VictoryAxis renders a single axis which can be used on its own or composed with [`VictoryChart`][].
 
 ```playground
 <svg width={400} height={400}>
@@ -35,7 +35,7 @@ VictoryAxis renders a single axis which can be used on its own or composed with 
 
 `VictoryAxis` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-See the [Animations Guide] for more detail on animations
+See the [Animations Guide][] for more detail on animations
 
 ```jsx
 animate={{
@@ -46,7 +46,7 @@ animate={{
 
 ### axisComponent
 
-The `axisComponent` prop takes a component instance which will be responsible for rendering an axis line. The new element created from the passed `axisComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If an `axisComponent` is not provided, `VictoryAxis` will use its default [Line component].
+The `axisComponent` prop takes a component instance which will be responsible for rendering an axis line. The new element created from the passed `axisComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If an `axisComponent` is not provided, `VictoryAxis` will use its default [Line component][].
 
 *default:* `axisComponent={<Line type={"axis"}/>}`
 
@@ -56,7 +56,7 @@ axisComponent={<Line events={{ onClick: handleClick }}/>}
 
 ### axisLabelComponent
 
-The `axisLabelComponent` prop takes a component instance which will be used to render the axis label. The new element created from the passed `axisLabelComponent` will be supplied with the following props: `x`, `y`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `axisLabelComponent` is omitted, a new [`VictoryLabel`] will be created with props described above.
+The `axisLabelComponent` prop takes a component instance which will be used to render the axis label. The new element created from the passed `axisLabelComponent` will be supplied with the following props: `x`, `y`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `axisLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
 
 *default:* `axisLabelComponent={<VictoryLabel/>}`
 
@@ -108,7 +108,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `VictoryAxis` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 **note:** valid event targets for `VictoryAxis` are "axis", "axisLabel", "grid", "ticks", and "tickLabels".
 Targets that correspond to only one element {"axis" and "axisLabel") should use the special eventKey "all".
@@ -123,7 +123,7 @@ well for labels that are approximately evenly spaced.
 
 ### gridComponent
 
-The `gridComponent` prop takes a component instance which will be responsible for rendering a grid element. The new element created from the passed `gridComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `gridComponent` is not provided, `VictoryAxis` will use its default [Line component].
+The `gridComponent` prop takes a component instance which will be responsible for rendering a grid element. The new element created from the passed `gridComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `gridComponent` is not provided, `VictoryAxis` will use its default [Line component][].
 
 *default:* `gridComponent={<Line type={"grid"}/>}`
 
@@ -272,7 +272,7 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 **note:** custom `angle` and `verticalAnchor` properties may be included in `labels` styles.
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
 <VictoryAxis
@@ -291,7 +291,7 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 `VictoryAxis` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-See the [Themes Guide] for information about creating custom themes.
+See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -301,7 +301,7 @@ theme={VictoryTheme.material}
 
 ### tickComponent
 
-The `tickComponent` prop takes a component instance which will be responsible for rendering a tick element. The new element created from the passed `tickComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `tickComponent` is not provided, `VictoryAxis` will use its default [Line component].
+The `tickComponent` prop takes a component instance which will be responsible for rendering a tick element. The new element created from the passed `tickComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `tickComponent` is not provided, `VictoryAxis` will use its default [Line component][].
 
 *default:* `tickComponent={<Line type={"tick"}/>}`
 
@@ -311,7 +311,7 @@ tickComponent={<Line events={{ onClick: handleClick }}/>}
 
 ### tickCount
 
-The `tickCount` prop specifies approximately how many ticks should be drawn on the axis if `tickValues` are not explicitly provided. This value is calculated by [d3Scale] and prioritizes returning "nice" values and evenly spaced ticks over an exact number of ticks. If an exact number of ticks are required, ticks should be specified via the [tickValues] prop. This prop must have a value greater than zero.
+The `tickCount` prop specifies approximately how many ticks should be drawn on the axis if `tickValues` are not explicitly provided. This value is calculated by [d3Scale][] and prioritizes returning "nice" values and evenly spaced ticks over an exact number of ticks. If an exact number of ticks are required, ticks should be specified via the [tickValues][] prop. This prop must have a value greater than zero.
 
 *default:* `tickCount={5}`
 
@@ -328,7 +328,7 @@ The `tickFormat` prop specifies how tick values should be labeled. The `tickForm
 
 ### tickLabelComponent
 
-The `tickLabelComponent` prop takes a component instance which will be used to render the axis label. The new element created from the passed `tickLabelComponent` will be supplied with the following props: `x`, `y`, `tick`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `tickLabelComponent` is omitted, a new [`VictoryLabel`] will be created with props described above.
+The `tickLabelComponent` prop takes a component instance which will be used to render the axis label. The new element created from the passed `tickLabelComponent` will be supplied with the following props: `x`, `y`, `tick`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `tickLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
 
 *default:* `tickLabelComponent={<VictoryLabel/>}`
 
@@ -338,7 +338,7 @@ tickLabelComponent={<VictoryLabel dy={20}/>}
 
 ### tickValues
 
-The `tickValues` prop explicitly specifies a set of tick values to draw on the axis. This prop should be given as an array of unique values of the same type (_i.e.,_ all numbers). The `tickValues` prop is used to specify the _values_ of each tick, so numeric values are typically appropriate. An array of strings or dates may be supplied for categorical and time series data respectively. Use the [`tickFormat`] prop to specify how ticks should be labeled.
+The `tickValues` prop explicitly specifies a set of tick values to draw on the axis. This prop should be given as an array of unique values of the same type (_i.e.,_ all numbers). The `tickValues` prop is used to specify the _values_ of each tick, so numeric values are typically appropriate. An array of strings or dates may be supplied for categorical and time series data respectively. Use the [tickFormat][] prop to specify how ticks should be labeled.
 
 ```playground
   <VictoryAxis tickValues={[2, 4, 6, 8]}/>
@@ -355,7 +355,6 @@ width={400}
 ```
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart

@@ -2,19 +2,19 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, mountNode */
 /* global VictoryAxis, VictoryStack, VictoryBar, VictoryLabel   */
 
 const dataA = [
-  {x: "Personal Drones", y: 57},
-  {x: "Smart Thermostat", y: 40},
-  {x: "Television", y: 38},
-  {x: "Smartwatch", y: 37},
-  {x: "Fitness Monitor", y: 25},
-  {x: "Tablet", y: 19},
-  {x: "Camera", y: 15},
-  {x: "Laptop", y: 13},
-  {x: "Phone", y: 12}
+  { x: "Personal Drones", y: 57 },
+  { x: "Smart Thermostat", y: 40 },
+  { x: "Television", y: 38 },
+  { x: "Smartwatch", y: 37 },
+  { x: "Fitness Monitor", y: 25 },
+  { x: "Tablet", y: 19 },
+  { x: "Camera", y: 15 },
+  { x: "Laptop", y: 13 },
+  { x: "Phone", y: 12 }
 ];
 
 const dataB = dataA.map((point) => {
@@ -36,7 +36,7 @@ class App extends React.Component {
         <VictoryStack horizontal
           standalone={false}
           /* setting a symmetric domain makes it much easier to center the axis  */
-          domain={{x: [-60, 60]}}
+          domain={{ x: [-60, 60] }}
           padding={padding}
           height={height}
           width={width}

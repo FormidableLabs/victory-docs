@@ -2,13 +2,13 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, mountNode */
 /* global VictoryChart, VictoryLine, VictoryAxis, VictoryTheme */
 
 const data = [
-  [{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 3}, {x: 4, y: 4}],
-  [{x: 1, y: 400}, {x: 2, y: 350}, {x: 3, y: 300}, {x: 4, y: 250}],
-  [{x: 1, y: 75}, {x: 2, y: 85}, {x: 3, y: 95}, {x: 4, y: 100}]
+  [{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }, { x: 4, y: 4 }],
+  [{ x: 1, y: 400 }, { x: 2, y: 350 }, { x: 3, y: 300 }, { x: 4, y: 250 }],
+  [{ x: 1, y: 75 }, { x: 2, y: 85 }, { x: 3, y: 95 }, { x: 4, y: 100 }]
 ];
 // find maxima for normalizing data
 const maxima = data.map(
@@ -31,7 +31,7 @@ class App extends React.Component {
           domain={{ y: [0, 1] }}
         >
          <VictoryAxis />
-          {data.map((d, i) =>
+          {data.map((d, i) => (
             <VictoryAxis dependentAxis
               key={i}
               offsetX={xOffsets[i]}
@@ -45,8 +45,8 @@ class App extends React.Component {
               // Re-scale ticks by multiplying by correct maxima
               tickFormat={(t) => t * maxima[i]}
             />
-          )}
-          {data.map((d, i) =>
+          ))}
+          {data.map((d, i) => (
             <VictoryLine
               key={i}
               data={d}
@@ -54,7 +54,7 @@ class App extends React.Component {
               // normalize data
               y={(datum) => datum.y / maxima[i]}
             />
-          )}
+          ))}
         </VictoryChart>
       </div>
     );

@@ -2,16 +2,18 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, mountNode */
 /* global VictoryChart, VictoryLine, VictoryChart, VictoryScatter */
+/* eslint-disable react/no-multi-comp */
+/* eslint-disable react/prop-types */
 
 const data = [
-  {x: 0, y: 0},
-  {x: 1, y: 2},
-  {x: 2, y: 1},
-  {x: 3, y: 4},
-  {x: 4, y: 3},
-  {x: 5, y: 5}
+  { x: 0, y: 0 },
+  { x: 1, y: 2 },
+  { x: 2, y: 1 },
+  { x: 3, y: 4 },
+  { x: 4, y: 3 },
+  { x: 5, y: 5 }
 ];
 
 const cartesianInterpolations = [
@@ -69,17 +71,17 @@ class App extends React.Component {
               interpolation: "linear"
             })
           }
-          style={{ marginLeft: 25, marginRight: 5}}
+          style={{ marginLeft: 25, marginRight: 5 }}
         />
         <label htmlFor="polar">polar</label>
         <VictoryChart polar={this.state.polar} height={390}>
           <VictoryLine
             interpolation={this.state.interpolation} data={data}
-            style={{ data: { stroke: "#c43a31"} }}
+            style={{ data: { stroke: "#c43a31" } }}
           />
           <VictoryScatter data={data}
             size={5}
-            style={{ data: { fill: "#c43a31"} }}
+            style={{ data: { fill: "#c43a31" } }}
           />
         </VictoryChart>
       </div>

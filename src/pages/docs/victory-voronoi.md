@@ -7,7 +7,7 @@ scope:
 ---
 # VictoryVoronoi
 
-`VictoryVoronoi` renders a dataset as a series polygons optimized for the nearest data point. `VictoryVoronoi` can be composed with [`VictoryChart`] to create voronoi overlays for charts, which are useful for attaching events to pieces of data that are otherwise difficult to interact with, usually due to their size.
+`VictoryVoronoi` renders a dataset as a series polygons optimized for the nearest data point. `VictoryVoronoi` can be composed with [`VictoryChart`][] to create voronoi overlays for charts, which are useful for attaching events to pieces of data that are otherwise difficult to interact with, usually due to their size.
 
 ```playground
 <VictoryChart
@@ -33,7 +33,7 @@ scope:
 
 `VictoryVoronoi` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-See the [Animations Guide] for more detail on animations and transitions
+See the [Animations Guide][] for more detail on animations and transitions
 
 ```jsx
 animate={{
@@ -62,7 +62,7 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 `VictoryVoronoi` uses the standard `data` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#data)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```playground
 <VictoryVoronoi
@@ -83,7 +83,7 @@ See the [Data Accessors Guide] for more detail on formatting and processing data
 
 `VictoryVoronoi` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `origin`, `polar`, `polygon`, `scale`, `size`, `style`, `x`, `y`
 
-See the [Custom Components Guide] for more detail on creating your own `dataComponents`
+See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
 *default:* `<Voronoi/>`
 
@@ -119,7 +119,7 @@ eventKey="x"
 
 `VictoryVoronoi` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 ```playground
 <div>
@@ -305,7 +305,7 @@ sortKey="x"
 
 `VictoryVoronoi` uses the standard `style` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
 <VictoryVoronoi
@@ -327,7 +327,7 @@ sortKey="x"
 
 `VictoryVoronoi` uses the standard `theme` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-See the [Themes Guide] for information about creating custom themes.
+See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -349,7 +349,7 @@ width={400}
 
 `VictoryVoronoi` uses the standard `x` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#x)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 x="employee.name"
@@ -359,7 +359,7 @@ x="employee.name"
 
 `VictoryVoronoi` uses the standard `y` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#y)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 y={(d) => d.value + d.error}

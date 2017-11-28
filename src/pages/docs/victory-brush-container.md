@@ -10,7 +10,7 @@ scope: null
 highlighted regions, either by moving the region, expanding the region, or selecting a new region.
 `VictoryBrushContainer` is useful for selecting a region of a larger dataset by domain. Create a
 brush control by tying the domain of the selected region to the domain of a separate chart.
-See the [brush and zoom guide] for an example of using `VictoryBrushContainer` to create a brush
+See the [brush and zoom guide][] for an example of using `VictoryBrushContainer` to create a brush
 control.
 
 `VictoryBrushContainer` is similar to `VictorySelectionContainer`. `VictoryBrushContainer` may be
@@ -39,7 +39,7 @@ However, the component that uses it must be standalone
 
 ## Props
 
-`VictoryBrushContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
+`VictoryBrushContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
 ### brushComponent
 

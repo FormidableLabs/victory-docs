@@ -6,11 +6,11 @@ scope: null
 ---
 # Getting Started with Victory
 
-Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial explains how to set up a basic chart. For next steps, please see our [FAQs] and [Gallery] sections. For more advanced examples, check out [our guides].
+Victory is an opinionated, but fully overridable, ecosystem of composable React components for building interactive data visualizations. The following tutorial explains how to set up a basic chart. For next steps, please see our [FAQs][] and [Gallery][] sections. For more advanced examples, check out [our guides][].
 
 #### Getting Started with Victory Native?
 
-[Check out the native version of this getting started tutorial]
+[Check out the native version of this getting started tutorial][]
 
 ## Tutorial
 
@@ -422,7 +422,7 @@ ReactDOM.render(<App/>, mountNode);
 
 ## Next Steps
 
-Congratulations! You’ve created your first chart with Victory. Next, check out our [FAQs] and [Gallery] for more examples and information. Happy charting.
+Congratulations! You’ve created your first chart with Victory. Next, check out our [FAQs][] and [Gallery][] for more examples and information. Happy charting.
 
 ## Documentation, Contributing, and Source
 

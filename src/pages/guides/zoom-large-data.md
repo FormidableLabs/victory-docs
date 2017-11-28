@@ -7,21 +7,21 @@ scope:
 # Zoom on Large Datasets
 
 Victory can easily handle hundreds of data points, but what if you'd like chart thousands of points?
-The [VictoryZoomContainer] can be very useful here, allowing the user to focus on the subset of data they are most interested in.
+The [VictoryZoomContainer][] can be very useful here, allowing the user to focus on the subset of data they are most interested in.
 
 By default Victory will render all data points in a dataset.
 For large datasets this behavior can be overridden, and this guide will show you how.
-If you haven't used it before, read about the [VictoryZoomContainer] first, then come back to this guide.
+If you haven't used it before, read about the [VictoryZoomContainer][] first, then come back to this guide.
 
-In a hurry? [Skip to the demo].
+In a hurry? [Skip to the demo][].
 
 ## Basic scenario: time-series data
 
 In this guide, we'll be working with time-series data. We'll make a few basic assumptions:
 
-1. zooming will be done only on the x (or time) dimension,
-2. our data will be ordered by x, from earliest to latest, and
-3. the dataset is static - no new data will arrive while the user is interacting with the chart.
+1.  zooming will be done only on the x (or time) dimension,
+2.  our data will be ordered by x, from earliest to latest, and
+3.  the dataset is static - no new data will arrive while the user is interacting with the chart.
 
 These just serve to simplify the example. We'll start with a simple chart:
 
@@ -43,7 +43,7 @@ ReactDOM.render(<CustomChart data={allData}/>, mountNode);
 
 Rather than passing all our data to the `data` prop, we'll first remove any data that isn't currently visible.
 To do this, we must keep track of the chart's visible domain;
-[VictoryZoomContainer] has an `onZoomDomainChange` prop that will allow us to do exactly that:
+[VictoryZoomContainer][] has an `onZoomDomainChange` prop that will allow us to do exactly that:
 
 ```js
 <VictoryChart
@@ -78,7 +78,7 @@ getData() {
 }
 ```
 
-Because we are dynamically changing the `data` prop on [VictoryChart],
+Because we are dynamically changing the `data` prop on [VictoryChart][],
 we must also explicitly set its `domain`.
 By default `VictoryChart` will calculate a domain from `data`;
 in this case that would mean that the chart would "forget" about the rest of the data as the user zoomed in.
@@ -96,7 +96,7 @@ getEntireDomain(props) {
 }
 ```
 
-We use [Lodash]'s `minBy` and `maxBy` functions to find the domain of `y`.
+We use [Lodash][]'s `minBy` and `maxBy` functions to find the domain of `y`.
 Because we assume that the data is ordered by `x`, we can use the first and last points for the `x` domain.
 
 Because we are assuming the data is static we just need to call this function once, in the constructor of `CustomChart`.
@@ -240,7 +240,7 @@ ReactDOM.render(<CustomChart data={allData} maxPoints={120} />, mountNode);
 This guide serves a start, but you might have some questions:
 
 * _How big should `maxPoints` be?_ For most situations between 50 and 150 is ideal.
-* _What if I want to render millions of data points?_ This concept can be extended to millions of points, but you'll need the help of a library to handle the sampling. Try [Crossfilter].
+* _What if I want to render millions of data points?_ This concept can be extended to millions of points, but you'll need the help of a library to handle the sampling. Try [Crossfilter][].
 * _Can I remove the "flicker" of points as I zoom in?_ Yes, but `getData()` will have to be a little more complex.
 This apparent movement of the points while zooming happens because different points are chosen to be displayed.
 Here is an example that reduces flicker by reliably choosing the same data points to display:

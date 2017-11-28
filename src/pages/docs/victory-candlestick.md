@@ -7,7 +7,7 @@ scope:
 ---
 # VictoryCandlestick
 
-VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandlestick can be composed with [`VictoryChart`] to create candlestick charts.
+VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandlestick can be composed with [`VictoryChart`][] to create candlestick charts.
 
 ```playground
 <VictoryChart
@@ -30,7 +30,7 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 
 `VictoryCandlestick` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-See the [Animations Guide] for more detail on animations and transitions
+See the [Animations Guide][] for more detail on animations and transitions
 
 ```jsx
 animate={{
@@ -90,7 +90,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 ### data
 
-Specify data via the `data` prop. By default, `VictoryCandlestick` expects data as an array of objects with `x`, `open`, `close`, `high`, and `low` keys. Use the [`x`], [`open`], [`close`], [`high`], and [`low`] data accessor props to specify custom data formats. Refer to the [Data Accessors Guide] for more detail.
+Specify data via the `data` prop. By default, `VictoryCandlestick` expects data as an array of objects with `x`, `open`, `close`, `high`, and `low` keys. Use the [`x`][], [`open`][], [`close`][], [`high`][], and [`low`][] data accessor props to specify custom data formats. Refer to the [Data Accessors Guide][] for more detail.
 
 ```playground
 <VictoryCandlestick
@@ -110,7 +110,7 @@ Specify data via the `data` prop. By default, `VictoryCandlestick` expects data 
 
 `VictoryCandlestick` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `padding`, `polar`, `origin`, `scale`, `style`, `candleHeight`, `x1`, `y1`, `y2`, `x2`
 
-See the [Custom Components Guide] for more detail on creating your own `dataComponents`
+See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
 *default:* `<Candle/>`
 
@@ -146,7 +146,7 @@ eventKey="x"
 
 `VictoryCandlestick` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 ```playground
 <div>
@@ -346,7 +346,7 @@ scale={{x: "linear", y: "log"}}
 
 `VictoryCandlestick` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 sortKey="x"
@@ -375,7 +375,7 @@ sortKey="x"
 
 `VictoryCandlestick` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
   <VictoryCandlestick
@@ -396,7 +396,7 @@ sortKey="x"
 
 `VictoryCandlestick` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-See the [Themes Guide] for information about creating custom themes.
+See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -418,7 +418,7 @@ width={400}
 
 `VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 
-See the [Data Accessors Guide] for more detail on formatting and processing data.
+See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
 x={(datum) => new Date(datum.day)}

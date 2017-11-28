@@ -5,9 +5,10 @@
 /* eslint-disable no-arrow-condition */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-did-mount-set-state */
+/* eslint-disable react/no-multi-comp */
 
 /*
-  global _, window, React, ReactDOM, App, mountNode, VictoryTheme,
+  global _, window, React, ReactDOM, mountNode, VictoryTheme,
   VictoryChart, VictoryBar, VictoryLabel, VictoryPolarAxis, VictoryStack
 */
 
@@ -41,11 +42,11 @@ class CompassCenter extends React.Component {
 
 class CenterLabel extends React.Component {
   render() {
-    const {datum, active, color} = this.props;
+    const { datum, active, color } = this.props;
     const text = [ `${directions[datum._x]}`, `${Math.round(datum._y1)} mph` ];
     const baseStyle = { fill: color.highlight, textAnchor: "middle" };
     const style = [
-      { ...baseStyle, fontSize: 18, fontWeight: "bold"},
+      { ...baseStyle, fontSize: 18, fontWeight: "bold" },
       { ...baseStyle, fontSize: 12 }
     ];
 

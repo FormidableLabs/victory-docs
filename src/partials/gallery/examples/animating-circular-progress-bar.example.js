@@ -2,7 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode, window */
+/* global React, ReactDOM, mountNode, window */
 /* global VictoryPie, VictoryLabel, VictoryAnimation */
 /* eslint-disable react/no-did-mount-set-state */
 
@@ -39,7 +39,7 @@ class App extends React.Component {
         <svg viewBox="0 0 400 400" width="100%" height="100%">
           <VictoryPie
             standalone={false}
-            animate={{duration: 1000}}
+            animate={{ duration: 1000 }}
             width={400} height={400}
             data={this.state.data}
             innerRadius={120}
@@ -50,7 +50,7 @@ class App extends React.Component {
                 const color = d.y > 30 ? "green" : "red";
                 return d.x === 1 ? color : "transparent";
               }
-             }
+              }
             }}
           />
           <VictoryAnimation duration={1000} data={this.state}>

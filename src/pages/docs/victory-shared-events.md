@@ -6,7 +6,7 @@ scope: null
 ---
 # VictorySharedEvents
 
-The `VictorySharedEvents` wrapper coordinates events between its child components. Specify a set of events on the `VictorySharedEvents` wrapper to target children. [VictoryChart], [VictoryGroup], and [VictoryStack] all use `VictorySharedEvents`, but it may also be used on its own.
+The `VictorySharedEvents` wrapper coordinates events between its child components. Specify a set of events on the `VictorySharedEvents` wrapper to target children. [VictoryChart][], [VictoryGroup][], and [VictoryStack][] all use `VictorySharedEvents`, but it may also be used on its own.
 
 ## Props
 

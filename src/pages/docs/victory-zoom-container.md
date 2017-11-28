@@ -8,7 +8,7 @@ scope: null
 
 `VictoryZoomContainer` provides pan and zoom behavior for any Victory component that works with an
 x, y axis. Zoom events are controlled by scrolling, and panning events are controlled by dragging.
-[See an example of a zoomable chart]
+[See an example of a zoomable chart][]
 
 `VictoryZoomContainer` may be used with any Victory component that works with an x-y coordinate
 system, and should be added as the `containerComponent` of the top-level component. However, the component that uses it must be standalone
@@ -28,7 +28,7 @@ system, and should be added as the `containerComponent` of the top-level compone
 
 ## Props
 
-`VictoryZoomContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
+`VictoryZoomContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
 ### allowPan
 

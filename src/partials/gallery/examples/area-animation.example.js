@@ -3,7 +3,7 @@
   will be removed before displaying this document to the user
 */
 /* eslint-disable react/no-did-mount-set-state */
-/* global window, React, ReactDOM, App, mountNode, VictoryChart, VictoryArea, VictoryStack, VictoryTheme, _ */
+/* global window, React, ReactDOM, mountNode, VictoryChart, VictoryArea, VictoryStack, VictoryTheme, _ */
 
 class App extends React.Component {
   constructor(props) {

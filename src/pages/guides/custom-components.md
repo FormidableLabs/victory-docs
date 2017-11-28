@@ -7,7 +7,7 @@ scope:
 ---
 # Custom Components
 
-Every element that a Victory component renders may be altered or completely replaced. Most components expose `dataComponent`, `labelComponent`, `groupComponent`, and `containerComponent` props. The primitive components that Victory components render by default are simple, stateless components with a consistent set of props whenever possible. These [primitive components] are exported for users to alter, wrap, extend and reference when creating custom components.
+Every element that a Victory component renders may be altered or completely replaced. Most components expose `dataComponent`, `labelComponent`, `groupComponent`, and `containerComponent` props. The primitive components that Victory components render by default are simple, stateless components with a consistent set of props whenever possible. These [primitive components][] are exported for users to alter, wrap, extend and reference when creating custom components.
 
 ## Altering default components
 
@@ -207,7 +207,7 @@ export default class extends Point {
 ```
 
 
-[Extending components can be very problematic][sleep at night], and caution should be exercised. Extending [primitive components] requires deep, and up-to-date knowledge of the component code. Extending more complex Victory components is not advised.
+[Extending components can be very problematic][sleep at night], and caution should be exercised. Extending [primitive components][] requires deep, and up-to-date knowledge of the component code. Extending more complex Victory components is not advised.
 
 The following example shows a custom `GradientArea` component that extends from `Area`. The `renderArea` method is completely overridden in order to render an area path with a custom gradient. This is a convenient shortcut, but it would be safer to write a `GradientArea` component from scratch.
 

@@ -7,7 +7,7 @@ scope: null
 
 ## Default Layout
 
-Victory components have default `width`, `height`, and `padding` props defined in the default [grayscale theme].
+Victory components have default `width`, `height`, and `padding` props defined in the default [grayscale theme][].
 
 Victory renders components into responsive `svg` containers by default. Responsive containers will have a `viewBox` attribute set to `viewBox={"0 0 width, height"}` and styles `width: "100%" height: "auto"` in addition to any styles provided via props. Because Victory renders responsive containers, the `width` and `height` props do not determine the width and height of the chart in number of pixels, but instead define an aspect ratio for the chart. The exact number of pixels will depend on the size of the container the chart is rendered into.
 
@@ -52,7 +52,7 @@ Victory renders svg elements, so there is no concept of z-index. Instead the ren
 
 ## VictoryPortal
 
-Some components, such as tooltips, should _always_ render above others. Use [`VictoryPortal`] to render components in a top level container so that they appear above all other elements. `VictoryTooltip` uses `VictoryPortal`, by default, but any component may be wrapped in `VictoryPortal` to alter its rendering.
+Some components, such as tooltips, should _always_ render above others. Use [`VictoryPortal`][] to render components in a top level container so that they appear above all other elements. `VictoryTooltip` uses `VictoryPortal`, by default, but any component may be wrapped in `VictoryPortal` to alter its rendering.
 
 *caveats:* `VictoryPortal` will not work with components that are not rendered within `VictoryContainer`.
 

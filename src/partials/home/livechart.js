@@ -6,7 +6,7 @@ import {
   VictoryChart,
   VictoryLine,
   VictoryScatter
-} from "victory-chart";
+} from "victory";
 
 const leftPad = (str, len, ch) => {
   str = String(str);

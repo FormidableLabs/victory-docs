@@ -18,7 +18,7 @@ However, the component that uses it must be standalone
 (`standalone={true}`), which is the default for all top-level Victory components.
 
 Note that the cursor allows you to inspect the entire domain, not just the data points.
-If you would like to instead highlight only the data points, consider using [VictoryVoronoiContainer].
+If you would like to instead highlight only the data points, consider using [VictoryVoronoiContainer][].
 
 ```playground
 <VictoryScatter
@@ -32,11 +32,11 @@ If you would like to instead highlight only the data points, consider using [Vic
 
 ## Props
 
-`VictoryCursorContainer` uses a superset of props used by [VictoryContainer]. All props are optional.
+`VictoryCursorContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
 ### cursorComponent
 
-The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [Line] component will be rendered.
+The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [Line][] component will be rendered.
 
 *default:* `cursorComponent={<Line/>}`
 
@@ -69,7 +69,7 @@ A label will only appear if `cursorLabel` is set. This prop should be given as a
 
 ### cursorLabelComponent
 
-The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the cursor. The new element created from the passed `cursorLabelComponent` will be supplied with the following props: `x`, `y`, `active`, `text`. If `cursorLabelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the cursor. The new element created from the passed `cursorLabelComponent` will be supplied with the following props: `x`, `y`, `active`, `text`. If `cursorLabelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
 *default:* `cursorLabelComponent={<VictoryLabel/>}`
 

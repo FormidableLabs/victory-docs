@@ -107,7 +107,7 @@ Data accessor props may be given as functions and used to process data, as in th
 
 
 Sorting can be applied to the final data via the sortKey prop. This prop
-corresponds to the lodash [sortBy] function.
+corresponds to the lodash [sortBy][] function.
 
 This prop can be provided as a string, function, or array of either.
 

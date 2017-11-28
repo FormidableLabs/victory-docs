@@ -2,7 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode, VictoryChart, VictoryBar, Bar */
+/* global React, ReactDOM, mountNode, VictoryChart, VictoryBar, Bar */
 
 class App extends React.Component {
   constructor() {
@@ -22,7 +22,7 @@ class App extends React.Component {
       this.setState({
         clicked,
         style: {
-          data: { fill: fillColor}
+          data: { fill: fillColor }
         }
       });
     };
@@ -30,8 +30,8 @@ class App extends React.Component {
     return (
       <div>
         <VictoryChart height={400} width={400}
-          domainPadding={{x: 50, y: [0, 20]}}
-          scale={{x: "time"}}
+          domainPadding={{ x: 50, y: [0, 20] }}
+          scale={{ x: "time" }}
         >
           <VictoryBar
             dataComponent={

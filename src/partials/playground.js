@@ -109,6 +109,7 @@ class WithPlayground extends React.Component {
   }
 
   findPlayground(className) {
+    // eslint-disable-next-line react/no-find-dom-node
     return ReactDOM.findDOMNode(this.content).getElementsByClassName(className);
   }
 

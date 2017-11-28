@@ -6,7 +6,7 @@ scope: null
 ---
 # VictoryPortal
 
-`VictoryPortal` is a wrapper component that renders a child in a top-level [Portal] element within [VictoryContainer]. This is useful in instances where elements should always be rendered above others, like tooltips and labels. If a Portal element is not found, `VictoryPortal` will render its child in place.
+`VictoryPortal` is a wrapper component that renders a child in a top-level [Portal][] element within [VictoryContainer][]. This is useful in instances where elements should always be rendered above others, like tooltips and labels. If a Portal element is not found, `VictoryPortal` will render its child in place.
 
 ## Props
 

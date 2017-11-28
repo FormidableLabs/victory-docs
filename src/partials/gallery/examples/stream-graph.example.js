@@ -2,9 +2,10 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode, location, _ */
+/* global React, ReactDOM, mountNode, location, _ */
 /* global Area, VictoryArea, VictoryAxis, VictoryChart, VictoryLine */
 /* eslint-disable no-bitwise */
+/* eslint-disable react/no-multi-comp */
 
 // This customized component is supplied to VictoryArea
 class GradientArea extends Area {
@@ -21,7 +22,7 @@ class GradientArea extends Area {
   renderArea(path, style, events) {
     const gradientId = `gradient-${Math.random()}`;
     const areaStyle = Object.assign(
-      {}, style, {fill: `url(${location.href}#${gradientId})`}
+      {}, style, { fill: `url(${location.href}#${gradientId})` }
     );
     const percent = `${this.props.percent}%`;
     const gray = this.toGrayscale(style.fill);
@@ -77,21 +78,21 @@ class App extends React.Component {
       <div>
         <VictoryChart
           width={400} height={400}
-          domain={{x: [0, 25], y: [-250, 250]}}
+          domain={{ x: [0, 25], y: [-250, 250] }}
         >
           <VictoryAxis
             style={{
-              axis: {stroke: "none"},
-              ticks: {stroke: "none"},
-              tickLabels: {fill: "none"},
-              grid: {stroke: "lightGray"}
+              axis: { stroke: "none" },
+              ticks: { stroke: "none" },
+              tickLabels: { fill: "none" },
+              grid: { stroke: "lightGray" }
             }}
             tickCount={20}
           />
           <VictoryAxis dependentAxis
             style={{
-              ticks: {stroke: "gray"},
-              tickLabels: {fill: "gray", fontSize: 12}
+              ticks: { stroke: "gray" },
+              tickLabels: { fill: "gray", fontSize: 12 }
             }}
             crossAxis={false}
           />
@@ -102,7 +103,7 @@ class App extends React.Component {
                 <VictoryArea key={i}
                   interpolation="monotoneX"
                   data={d}
-                  style={{data: {fill: colors[i]}}}
+                  style={{ data: { fill: colors[i] } }}
                   dataComponent={
                     <GradientArea percent={this.state.percent}/>
                   }
@@ -112,11 +113,11 @@ class App extends React.Component {
           }
           <VictoryLine
             style={{
-              data: {stroke: "#c33409", strokeWidth: 3}
+              data: { stroke: "#c33409", strokeWidth: 3 }
             }}
             data={[
-              {x: 25 * this.state.percent / 100, y: -300},
-              {x: 25 * this.state.percent / 100, y: 300}
+              { x: 25 * this.state.percent / 100, y: -300 },
+              { x: 25 * this.state.percent / 100, y: 300 }
             ]}
           />
         </VictoryChart>

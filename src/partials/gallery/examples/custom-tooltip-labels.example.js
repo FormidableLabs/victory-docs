@@ -2,12 +2,14 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode, PropTypes */
+/* global React, ReactDOM, mountNode, PropTypes */
 /* global VictoryPie, VictoryLabel, VictoryTooltip  */
+/* eslint-disable react/no-multi-comp */
+
 
 class CustomLabel extends React.Component {
   static defaultEvents = VictoryTooltip.defaultEvents;
-  static propTypes = {text: PropTypes.string};
+  static propTypes = { text: PropTypes.string };
 
   render() {
     return (
@@ -39,11 +41,11 @@ class App extends React.Component {
           labels={(d) => d.y}
           labelComponent={<CustomLabel/>}
           data={[
-            {x: 1, y: 5},
-            {x: 2, y: 4},
-            {x: 3, y: 2},
-            {x: 4, y: 3},
-            {x: 5, y: 1}
+            { x: 1, y: 5 },
+            { x: 2, y: 4 },
+            { x: 3, y: 2 },
+            { x: 4, y: 3 },
+            { x: 5, y: 1 }
           ]}
         />
     );

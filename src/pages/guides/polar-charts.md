@@ -48,7 +48,7 @@ In most cases, creating a polar chart is as easy as adding the `polar` prop to t
 </VictoryChart>
 ```
 
-To configure axes for polar charts, use the [`VictoryPolarAxis`] component. `VictoryPolarAxis` uses a similar set of props to `VictoryAxis`
+To configure axes for polar charts, use the [`VictoryPolarAxis`][] component. `VictoryPolarAxis` uses a similar set of props to `VictoryAxis`
 
 ```playground
 <VictoryChart polar

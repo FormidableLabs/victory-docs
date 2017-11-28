@@ -35,7 +35,7 @@ The `desc` prop specifies the description of the chart/SVG to assist with access
 ### events
 
 The `events` prop attaches arbitrary event handlers to the container element. This prop should be
-given as an object of event names and corresponding [React event handlers]. Events defined directly
+given as an object of event names and corresponding [React event handlers][]. Events defined directly
 via this prop will be masked by `defaultEvents` on `VictorySelectionContainer` (`onMouseDown`,
 `onMouseUp`, and `onMouseMove`), and by any events defined through Victory's event
 system that target parent elements.
@@ -50,7 +50,7 @@ The `height` prop determines the height of the containing `<svg>`. By default Vi
 
 ### portalComponent
 
-The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip] renders inside a portal so that tooltips always render above data. [VictoryPortal] is used to define elements that should render in the portal container. This prop defaults to [Portal], and should only be overridden when changing rendered elements from SVG to another type of element _e.g.,_ [react-native-svg] elements.
+The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip][] renders inside a portal so that tooltips always render above data. [VictoryPortal][] is used to define elements that should render in the portal container. This prop defaults to [Portal][], and should only be overridden when changing rendered elements from SVG to another type of element _e.g.,_ [react-native-svg][] elements.
 
 *default:* `portalComponent={<Portal/>}`
 
@@ -72,13 +72,13 @@ relative layout for components.
 
 *example:* `style={{border: "1px solid #ccc"}}`
 
-*default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme] for more detail.
+*default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme][] for more detail.
 
 ### theme
 
 The `theme` prop specifies a theme to use for determining styles and layout props for a
 component. Any styles or props defined in `theme` may be overridden by props specified on the
-component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+component instance. By default, components use a [grayscale theme][]. [Read more about themes here][].
 
 *example:* `theme={VictoryTheme.material}`
 
@@ -98,7 +98,7 @@ The `width` prop determines the width of the containing `<svg>`. By default Vict
 
 ### onTouchStart
 
-The optional `onTouchStart` prop takes a function that is called on every touch event on the chart (when using `victory-native`). The most common use of `onTouchStart` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event]. Also see `onTouchEnd`.
+The optional `onTouchStart` prop takes a function that is called on every touch event on the chart (when using `victory-native`). The most common use of `onTouchStart` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event][]. Also see `onTouchEnd`.
 
 *example:*
 
@@ -119,7 +119,7 @@ The optional `onTouchStart` prop takes a function that is called on every touch 
 
 ### onTouchEnd
 
-The optional `onTouchEnd` prop takes a function that is called at the conclusion of every touch event on the chart (when using `victory-native`). The most common use of `onTouchEnd` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event]. Also see `onTouchStart`.
+The optional `onTouchEnd` prop takes a function that is called at the conclusion of every touch event on the chart (when using `victory-native`). The most common use of `onTouchEnd` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event][]. Also see `onTouchStart`.
 
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
@@ -129,3 +129,4 @@ The optional `onTouchEnd` prop takes a function that is called at the conclusion
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [Synthetic Event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
+[React event handlers]: https://reactjs.org/docs/handling-events.html

@@ -37,7 +37,7 @@ scope: null
 
 ### borderComponent
 
-The `borderComponent` prop takes a component instance which will be responsible for rendering a border around the legend. The new element created from the passed `borderComponent` will be provided with the following properties calculated by `VictoryLegend`: `x`, `y`, `width`, `height`, and `style`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `borderComponent` is not provided, `VictoryLegend` will use its default [Border component]. Please note that the default width and height calculated for the border component is based on _approximated_ text measurements, and may need to be adjusted.
+The `borderComponent` prop takes a component instance which will be responsible for rendering a border around the legend. The new element created from the passed `borderComponent` will be provided with the following properties calculated by `VictoryLegend`: `x`, `y`, `width`, `height`, and `style`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `borderComponent` is not provided, `VictoryLegend` will use its default [Border component][]. Please note that the default width and height calculated for the border component is based on _approximated_ text measurements, and may need to be adjusted.
 
 *default:* `<Border/>`
 
@@ -122,9 +122,9 @@ Specify data via the `data` prop. `VictoryLegend` expects data as an array of ob
 ### dataComponent
 `VictoryLegend` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
 
-`VictoryLegend` supplies the following props to its `dataComponent`: `data`, `datum`, `events`, `index`, `x`, `y`, `size`, `style`, and `symbol`. `VictoryLegend` renders a [Point component] by default.
+`VictoryLegend` supplies the following props to its `dataComponent`: `data`, `datum`, `events`, `index`, `x`, `y`, `size`, `style`, and `symbol`. `VictoryLegend` renders a [Point component][] by default.
 
-See the [Custom Components Guide] for more detail on creating your own `dataComponents`
+See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
 *default:* `<Point/>`
 
@@ -144,7 +144,7 @@ eventKey="x"
 
 `VictoryLegend` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 ```playground
 <div>
@@ -280,7 +280,7 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 **note:** custom `angle` and `verticalAnchor` properties may be included in `labels` and `title` styles.
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
 <VictoryLegend x={125} y={50}
@@ -319,7 +319,7 @@ The `symbolSpacer` prop defines the number of pixels between data components and
 
 ### theme
 
-The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme]. [Read more about themes here].
+The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme][]. [Read more about themes here][].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -341,7 +341,7 @@ The `title` prop specifies a title to render with the legend. This prop should b
 
 ### titleComponent
 
-The `titleComponent` prop takes a component instance which will be used to render a title for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: `x`, `y`, `index`, `data`, `datum`, `verticalAnchor`, `textAnchor`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `titleComponent` prop takes a component instance which will be used to render a title for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: `x`, `y`, `index`, `data`, `datum`, `verticalAnchor`, `textAnchor`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
 *default:* `<VictoryLabel/>`
 

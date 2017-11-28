@@ -33,7 +33,7 @@ scope:
 
 `VictoryChart` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
-See the [Animations Guide] for more detail on animations and transitions
+See the [Animations Guide][] for more detail on animations and transitions
 
 **note: `VictoryChart` controls the `animate` prop of its children when set. To animate individual children of `VictoryChart`, set the `animate` prop only on children, and not on the `VictoryChart` wrapper.**
 
@@ -46,7 +46,7 @@ animate={{
 
 ### children
 
-`VictoryChart` works with any combination of the following children: [VictoryArea], [VictoryAxis] / [VictoryPolarAxis], [VictoryBar], [VictoryCandlestick], [VictoryErrorBar], [VictoryGroup], [VictoryLine], [VictoryScatter], [VictoryStack], and [VictoryVoronoi]. Children supplied to `VictoryChart` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
+`VictoryChart` works with any combination of the following children: [VictoryArea][], [VictoryAxis][] / [VictoryPolarAxis][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryChart` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
 **Note: polar charts must use `VictoryPolarAxis` rather than `VictoryAxis`**
 
@@ -134,7 +134,7 @@ The `endAngle` props defines the overall end angle of a polar chart in degrees. 
 
 `VictoryChart` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
 
-See the [Events Guide] for more information on defining events.
+See the [Events Guide][] for more information on defining events.
 
 **Note: `VictoryChart` coordinates events between children using the `VictorySharedEvents` and the `sharedEvents` prop**
 
@@ -348,7 +348,7 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 
 `VictoryChart` uses the standard `style` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme] for more detail
+*default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
 <VictoryChart
@@ -364,7 +364,7 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 
 `VictoryChart` uses the standard `theme` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
-See the [Themes Guide] for information about creating custom themes.
+See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
@@ -397,7 +397,5 @@ width={400}
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes

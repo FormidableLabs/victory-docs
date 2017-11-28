@@ -2,30 +2,30 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
-/* global React, ReactDOM, App, mountNode */
+/* global React, ReactDOM, mountNode */
 /* global VictoryChart, VictoryAxis, VictoryStack, VictoryBar  */
 
 const myDataset = [
   [
-      {x: "a", y: 1},
-      {x: "b", y: 2},
-      {x: "c", y: 3},
-      {x: "d", y: 2},
-      {x: "e", y: 1}
+      { x: "a", y: 1 },
+      { x: "b", y: 2 },
+      { x: "c", y: 3 },
+      { x: "d", y: 2 },
+      { x: "e", y: 1 }
   ],
   [
-      {x: "a", y: 2},
-      {x: "b", y: 3},
-      {x: "c", y: 4},
-      {x: "d", y: 5},
-      {x: "e", y: 5}
+      { x: "a", y: 2 },
+      { x: "b", y: 3 },
+      { x: "c", y: 4 },
+      { x: "d", y: 5 },
+      { x: "e", y: 5 }
   ],
   [
-      {x: "a", y: 1},
-      {x: "b", y: 2},
-      {x: "c", y: 3},
-      {x: "d", y: 4},
-      {x: "e", y: 4}
+      { x: "a", y: 1 },
+      { x: "b", y: 2 },
+      { x: "c", y: 3 },
+      { x: "d", y: 4 },
+      { x: "e", y: 4 }
   ]
 ];
 
@@ -39,7 +39,7 @@ class App extends React.Component {
     });
     return dataset.map((data) => {
       return data.map((datum, i) => {
-        return {x: datum.x, y: (datum.y / totals[i]) * 100};
+        return { x: datum.x, y: (datum.y / totals[i]) * 100 };
       });
     });
   }
@@ -49,7 +49,7 @@ class App extends React.Component {
     return (
       <div>
         <VictoryChart height={400} width={400}
-          domainPadding={{x: 30, y: 20}}
+          domainPadding={{ x: 30, y: 20 }}
         >
             <VictoryStack
               colorScale={["black", "blue", "tomato"]}

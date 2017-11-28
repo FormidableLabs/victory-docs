@@ -6,7 +6,7 @@ scope: null
 ---
 # VictoryTooltip
 
-`VictoryTooltip` renders a tooltip component with a set of default events. When `VictoryTooltip` is used as a label component for any Victory component that renders data, it will attach events to rendered data components that will activate the tooltip when hovered. `VictoryTooltip` renders text as well as a configurable [Flyout] container.
+`VictoryTooltip` renders a tooltip component with a set of default events. When `VictoryTooltip` is used as a label component for any Victory component that renders data, it will attach events to rendered data components that will activate the tooltip when hovered. `VictoryTooltip` renders text as well as a configurable [Flyout][] container.
 
 ## Props
 
@@ -53,7 +53,7 @@ The `style` prop applies SVG style properties to the rendered flyout container. 
 
 ### flyoutComponent
 
-The `flyoutComponent` prop takes a component instance which will be used to create the flyout path for each tooltip. The new element created from the passed `flyoutComponent` will be supplied with the following properties: x, y, dx, dy, index, datum, cornerRadius, pointerLength, pointerWidth, width, height, orientation, style, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `flyoutComponent` is omitted, a default [Flyout] component will be created with props described above.
+The `flyoutComponent` prop takes a component instance which will be used to create the flyout path for each tooltip. The new element created from the passed `flyoutComponent` will be supplied with the following properties: x, y, dx, dy, index, datum, cornerRadius, pointerLength, pointerWidth, width, height, orientation, style, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `flyoutComponent` is omitted, a default [Flyout][] component will be created with props described above.
 
 *examples:* `flyoutComponent={<Flyout x={50} y={50}/>}`, `flyoutComponent={<MyCustomFlyout/>}`
 
@@ -68,7 +68,7 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 ### height
 
-The `height` prop defines the height of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `height` will be determined based on an [approximate text size] calculated from the `text` and `style` props provided to `VictoryTooltip`.
+The `height` prop defines the height of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `height` will be determined based on an [approximate text size][] calculated from the `text` and `style` props provided to `VictoryTooltip`.
 
 ### horizontal
 
@@ -80,7 +80,7 @@ The `index` prop represents the index of the datum in the data array.
 
 ### labelComponent
 
-The `labelComponent` prop takes a component instance which will be used to render each tooltip label. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, datum, verticalAnchor, textAnchor, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel] will be created with the props described above.
+The `labelComponent` prop takes a component instance which will be used to render each tooltip label. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, datum, verticalAnchor, textAnchor, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
 *examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
@@ -100,7 +100,7 @@ The `pointerWidth` prop determines the width of the base of the triangular point
 
 ### renderInPortal
 
-When `renderInPortal` is true, rendered tooltips will be wrapped in [VictoryPortal] and rendered within the [Portal] element within [VictoryContainer]. _Note:_ This prop should _not_ be set to true when using a custom container element.
+When `renderInPortal` is true, rendered tooltips will be wrapped in [VictoryPortal][] and rendered within the [Portal][] element within [VictoryContainer][]. _Note:_ This prop should _not_ be set to true when using a custom container element.
 
 ### style
 
@@ -108,11 +108,11 @@ The `style` prop applies SVG style properties to the rendered `<text>` element.
 
 ### text
 
-The `text` prop defines the text `VictoryTooltip` will render. The `text` prop may be given as a string, number, or function of `datum`. When [VictoryLabel] is used as the `labelComponent`, strings may include newline characters, which VictoryLabel will split in to separate `<tspan/>` elements.
+The `text` prop defines the text `VictoryTooltip` will render. The `text` prop may be given as a string, number, or function of `datum`. When [VictoryLabel][] is used as the `labelComponent`, strings may include newline characters, which VictoryLabel will split in to separate `<tspan/>` elements.
 
 ### width
 
-The `width` prop defines the width of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `width` will be determined based on an [approximate text size] calculated from the `text` and `style` props provided to `VictoryTooltip`.
+The `width` prop defines the width of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `width` will be determined based on an [approximate text size][] calculated from the `text` and `style` props provided to `VictoryTooltip`.
 
 ### x
 
@@ -124,7 +124,6 @@ The `y` prop defines the y coordinate to use as a basis for positioning the tool
 
 [Flyout]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[textSize]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
