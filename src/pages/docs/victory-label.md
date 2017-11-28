@@ -24,6 +24,10 @@ The `capHeight` prop defines a text metric for the font being used: the expected
 
 ### className
 
+The `className` prop specifies a class name that will be applied to the rendered text element.
+
+*example:* `className="myLabel"`
+
 ### data
 
 Victory components can pass a `data` prop to their label component. This can be useful in custom components that need to make use of the entire dataset.
@@ -47,7 +51,7 @@ The `dy` prop defines a vertical shift from the `y` coordinate. This prop is aff
 
 The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey`.
 
-*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+*example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### index
 

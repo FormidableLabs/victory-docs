@@ -15,6 +15,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered path
   - `closedPath` *boolean* a flag signifying whether this arc is should render a closed path
   - `cx` *number* the x coordinate of the center of the arc path
   - `cy` *number* the y coordinate of the center of the arc path
@@ -36,6 +37,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered path
   - `data` *array* the entire dataset used to define the area
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements
@@ -56,6 +58,9 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
   - `active` *boolean* a flag signifying whether the component is active
   - `alignment` *"start", "middle", or "end" specifies how a bar path should be aligned in relation to its data point
+  - `barRatio` *number* a number between zero and one that will be used to calculate bar width when an explicit width is not given
+  - `className` *string* the class name that will be applied to the rendered path
+  - `cornerRadius` *number* the number of pixels of corner radius to apply when calculating a bar path
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this bar
   - `events` *object* events to attach to the rendered element
@@ -80,6 +85,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `events` *object* events to attach to the rendered element
   - `height` *number* the height of the `<rect/>` element
   - `role` *string* the aria role to assign to the element
@@ -97,6 +103,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
   - `active` *boolean* a flag signifying whether the component is active
   - `candleHeight` *number* the height of the candle (abs(open - close))
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this candle
   - `events` *object* events to attach to the rendered element
@@ -137,6 +144,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset used to define the curve
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements
@@ -156,6 +164,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 
   - `active` *boolean* a flag signifying whether the component is active
   - `borderWidth` *number* the width of the cross-hairs on the end of each error bar *default: 10*
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this error bar
   - `errorX` *number, array, or boolean* errors in the x dimension.
@@ -180,6 +189,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `cornerRadius` *number* the corner radius of the flyout
   - `data` *array* the entire dataset if applicable
   - `datum` *object* the data point corresponding to this flyout if applicable
@@ -208,6 +218,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this line
   - `events` *object* events to attach to the rendered element
@@ -228,6 +239,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this point
   - `events` *object* events to attach to the rendered element
@@ -251,6 +263,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this slice
   - `events` *object* events to attach to the rendered element
@@ -269,6 +282,7 @@ Victory is built around a set of primitive components. Along with [VictoryContai
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this voronoi polygon
   - `events` *object* events to attach to the rendered element
