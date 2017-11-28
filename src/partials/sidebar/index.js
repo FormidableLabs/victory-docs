@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Fuse from "fuse.js";
 import Link from "gatsby-link";
-import { maxBy, findIndex, includes, last } from "lodash";
+import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
 import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SidebarSearchInput from "./components/search-input";
@@ -58,7 +58,7 @@ class Sidebar extends React.Component {
     };
     const fuse = new Fuse(link.headings, options);
     const matches = fuse.search(filterTerm);
-    if (matches.length) {
+    if (!isEmpty(matches)) {
       const maxDepth = maxBy(matches, "depth").depth;
       let matchIndices = matches.map((match) => {
         return findIndex(link.headings, (heading) => includes(heading.value, match.value));

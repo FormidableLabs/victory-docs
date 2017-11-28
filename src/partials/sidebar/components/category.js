@@ -1,14 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { isEmpty } from "lodash";
 
 class Category extends React.Component {
 
   renderSubCategories(subCategories) {
-    if (!Array.isArray(subCategories) || !subCategories.length) {
+    if (isEmpty(subCategories)) {
       return null;
     }
-    return subCategories.map((category, index) => {
-      return Array.isArray(category.content) && category.content.length ?
+    const categories = subCategories.map((category, index) => {
+      return !isEmpty(category.content) ?
         (
           <div key={index}>
             <p className="Sidebar-SubHeading SubHeading">{category.title}</p>
@@ -18,12 +19,13 @@ class Category extends React.Component {
           </div>
         ) : null;
     });
+    return categories.filter(Boolean);
   }
 
   render() {
     const subCategories = this.renderSubCategories(this.props.subCategories);
     const { content, title } = this.props;
-    if (!subCategories && (!Array.isArray(content) || !content.length)) {
+    if (isEmpty(subCategories) && isEmpty(content)) {
       return null;
     }
     return (

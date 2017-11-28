@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { maxBy, minBy } from "lodash";
+import { maxBy, minBy, isEmpty } from "lodash";
 
 class TableOfContents extends React.Component {
 
@@ -61,7 +61,7 @@ class TableOfContents extends React.Component {
 
   render() {
     const { active, link, headings } = this.props;
-    return active && Array.isArray(headings) && headings.length ?
+    return active && !isEmpty(headings) ?
       (
         <div className="Sidebar-toc">
           {this.getTOC(link, headings)}

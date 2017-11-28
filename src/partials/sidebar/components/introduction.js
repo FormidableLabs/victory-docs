@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { isEmpty } from "lodash";
+
 
 class Introduction extends React.Component {
 
 
   render() {
-    return Array.isArray(this.props.content) && this.props.content.length ?
+    return !isEmpty(this.props.content) ?
       (
         <div>
           <p className="Sidebar-Heading u-noPadding">Introduction</p>
