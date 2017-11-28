@@ -40,7 +40,7 @@ When tooltips are added to a chart in this way, `defaultEvents` on `VictoryToolt
 
 ## Customizing Tooltips
 
-Tooltips can be customized directly on the the `VictoryTooltip` component
+Tooltips can be customized directly on the `VictoryTooltip` component
 
 ```playground
 <VictoryChart
@@ -179,7 +179,7 @@ on appropriate data and label elements.
 ## Mutli-point Tooltips with VictoryVoronoiContainer
 
 `VictoryVoronoiContainer` can also be used to create multi-point labels when the `labels` prop is
-provided. In the example below the `dimension` prop is used to indicate that the voronoi diagram
+provided. In the example below the `voronoiDimension` prop indicates that the voronoi diagram
 will only be specific to the x dimension. For a given mouse position, all data matching the
 associated x value will be activated regardless of y value. In the following example, this leads to
 several tooltips being active at the same time. Provide a `labels` and (optionally) a

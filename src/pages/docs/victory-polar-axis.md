@@ -285,7 +285,7 @@ padding={{ top: 20, bottom: 60 }}
 
 `VictoryPolarAxis` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 
-**note:** Though `VictoryPolarAxis` can take a `scale` prop with scales defined for both `x` and `y`, only the scale that corresponds the the given axis will be used.
+**note:** Though `VictoryPolarAxis` can take a `scale` prop with scales defined for both `x` and `y`, only the scale that corresponds the given axis will be used.
 
 *default:* `scale="linear"`
 

@@ -11,7 +11,7 @@ Every element that a Victory component renders may be altered or completely repl
 
 ## Altering default components
 
-Victory components set props on their primitive components, but these may be overridden or augmented by setting props directly on the the primitive component instances.
+Victory components set props on their primitive components, but these may be overridden or augmented by setting props directly on the primitive component instances.
 
 ```playground
   <VictoryBar
@@ -207,9 +207,9 @@ export default class extends Point {
 ```
 
 
-[Extending components can be very problematic][sleep at night], and caution should be exercised. Extending [primitive components][] requires deep, and up-to-date knowledge of the component code. Extending more complex Victory components is not advised.
+[Extending components can be problematic][sleep at night], and caution should be exercised. Extending [primitive components][] requires deep, and up-to-date knowledge of the component code. Extending more complex Victory components is not advised.
 
-The following example shows a custom `GradientArea` component that extends from `Area`. The `renderArea` method is completely overridden in order to render an area path with a custom gradient. This is a convenient shortcut, but it would be safer to write a `GradientArea` component from scratch.
+The following example shows a custom `GradientArea` component that extends from `Area`. The `renderArea` method is overridden in order to render an area path with a custom gradient. This is a convenient shortcut, but it would be safer to write a `GradientArea` component from scratch.
 
 
 ```playground_norender

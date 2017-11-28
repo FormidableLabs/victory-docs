@@ -86,7 +86,7 @@ When this prop is not specified, a `<rect/>` will be rendered.
 The `handleStyle` adds custom styles to the `handleComponents`. This prop should be given as
 an object of SVG style attributes.
 
-Handles refer to the region on each highlighted area where the the area may be
+Handles refer to the region on each highlighted area where the area may be
 expanded. Only handles relevant to the given `dimension` will be rendered. For example, when
 `brushDimension="x"` only "left" and "right" handles will be rendered. Handles are automatically styled
 with cursors appropriate to their orientation.

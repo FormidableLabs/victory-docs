@@ -9,10 +9,10 @@ scope:
 
 `VictoryVoronoiContainer` adds the ability to associate a mouse position with the data point(s)
 closest to it. When this container is added to a chart, changes in mouse position will add the `active`
-prop to to data and label components closest to the current mouse position. The closeness of data
+prop to data and label components closest to the current mouse position. The closeness of data
 points to a given position is determined by calculating a [voronoi diagram][] based on the data of
 every child `VictoryVoronoiContainer` renders. This container is useful for adding hover interactions,
-like tooltips, to small data points, or charts with very dense or overlapping data. See
+like tooltips, to small data points, or charts with dense or overlapping data. See
 [this example][] to learn how to use `VictoryVoronoiContainer` with tooltips.
 
 `VictoryVoronoiContainer` may be used with any Victory component that works with an x-y coordinate

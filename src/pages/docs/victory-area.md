@@ -159,7 +159,7 @@ See the [Events Guide][] for more information on defining events.
 
 `VictoryArea` uses the standard `groupComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-**note:** `VictoryArea` uses [`VictoryClipContainer`][] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryArea` may result in broken animations.**
+**note:** `VictoryArea` uses [`VictoryClipContainer`][] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a custom `groupComponent` to `VictoryArea` may result in broken animations.**
 
 *default:* `<VictoryClipContainer/>`
 

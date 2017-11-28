@@ -30,7 +30,7 @@ Learn about responsive containers and VictoryPortal.
 Add interactive brushing and zooming to your charts. This guide explains how to use the `VictoryZoomContainer` and `VictoryBrushContainer`
 
 **[Themes][]**:
-Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can easily test your own themes.
+Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can test your own themes.
 
 **[Tooltips][]**:
 Add interactity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.

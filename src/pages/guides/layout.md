@@ -114,7 +114,7 @@ Responsive containers are not appropriate for every application, so Victory prov
 
 ## Rendering components in custom containers
 
-To render a Victory component in a completely custom container set the `standalone` prop on the component to false. The component will render a `g` tag rather than an `svg` tag.
+To render a Victory component in a custom container set the `standalone` prop on the component to false. The component will render a `g` tag rather than an `svg` tag.
 
 ```playground
 <svg viewBox="0 0 400 400" >

@@ -6,8 +6,8 @@ scope:
 ---
 # Zoom on Large Datasets
 
-Victory can easily handle hundreds of data points, but what if you'd like chart thousands of points?
-The [VictoryZoomContainer][] can be very useful here, allowing the user to focus on the subset of data they are most interested in.
+Victory can handle hundreds of data points, but what if you'd like chart thousands of points?
+[VictoryZoomContainer][] can be useful here, allowing the user to focus on the subset of data they are most interested in.
 
 By default Victory will render all data points in a dataset.
 For large datasets this behavior can be overridden, and this guide will show you how.

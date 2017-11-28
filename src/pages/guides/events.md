@@ -6,7 +6,7 @@ scope:
 ---
 # Events
 
-Victory uses a flexible event system that is completely agnostic of event type. Browser events like `onClick` are handled identically to mobile touch events like `onPressIn`.  Victory's event system allows users to attach events to any rendered element, and trigger mutations on any other rendered element.
+Victory uses a flexible event system that is agnostic of event type. Browser events like `onClick` are handled identically to mobile touch events like `onPressIn`.  Victory's event system allows users to attach events to any rendered element, and trigger mutations on any other rendered element.
 
 
 This guide will demonstrate how to use Victory's event system within a single component, between several components nested within wrapper components like `VictoryChart` or `VictoryGroup`, and between several components using the `VictorySharedEvents` wrapper. This guide will also explain how to bypass Victory's event system entirely, and attach simple events directly to rendered components.
@@ -160,7 +160,7 @@ Wrapper components like `VictoryChart`, `VictoryGroup`, and `VictoryStack` may d
 ## VictorySharedEvents
 
 
-Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatically, but the wrapper may also be used on its own. Simply nest child components within the `VictorySharedEvents` wrapper, and reference them as you would when using `VictoryChart`
+Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatically, but the wrapper may also be used on its own. Nest child components within the `VictorySharedEvents` wrapper, and reference them as you would when using `VictoryChart`
 
 
 ```playground
@@ -224,7 +224,7 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
 ## Simple Events
 
 
-For very simple events, it may be desireable to bypass Victory's event system. To do so, specify `events` props directly on primitive components rather than using the `events` prop on Victory components. The simple `events` prop should be given as an object whose properties are event names like `onClick`, and whose values are event handlers. Events specified this way will only be called with the standard event objects.
+For simple events, it may be desireable to bypass Victory's event system. To do so, specify `events` props directly on primitive components rather than using the `events` prop on Victory components. The simple `events` prop should be given as an object whose properties are event names like `onClick`, and whose values are event handlers. Events specified this way will only be called with the standard event objects.
 
 ```playground
   <VictoryBar
