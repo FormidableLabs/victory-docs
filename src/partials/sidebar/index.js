@@ -2,8 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Fuse from "fuse.js";
 import Link from "gatsby-link";
-import { maxBy, minBy, findIndex, includes, last } from "lodash";
+import { maxBy, findIndex, includes, last } from "lodash";
+import Introduction from "./components/introduction";
+import Category from "./components/category";
 import SidebarSearchInput from "./components/search-input";
+import TableOfContents from "./components/table-of-contents";
 
 class Sidebar extends React.Component {
   static propTypes = {
@@ -61,7 +64,7 @@ class Sidebar extends React.Component {
         return findIndex(link.headings, (heading) => includes(heading.value, match.value));
       });
       matchIndices = matchIndices.sort((a, b) => a - b);
-      const result = link.headings.slice(0, last(matchIndices) + 1).reduce((memo, curr, i) => {
+      return link.headings.slice(0, last(matchIndices) + 1).reduce((memo, curr, i) => {
         const useHeading = i === matchIndices[0] || i < matchIndices[0] && curr.depth < maxDepth;
         if (useHeading && curr.value !== "Props") {
           memo = memo.concat(curr);
@@ -69,66 +72,9 @@ class Sidebar extends React.Component {
         }
         return memo;
       }, []);
-      return result;
     }
     return [];
 
-  }
-
-  getTree(headings) {
-    if (!headings || !headings.length) {
-      return [];
-    }
-    const depth = minBy(headings, "depth").depth;
-    const maxDepth = maxBy(headings, "depth").depth;
-    if (depth === maxDepth) {
-      return headings;
-    }
-    const parentIndices = headings.reduce((memo, curr, index) => {
-      if (curr.depth === depth) {
-        memo = memo.concat(index);
-      }
-      return memo;
-    }, []);
-    return parentIndices.reduce((memo, curr, index) => {
-      const lastChild = index === parentIndices.length + 1 ? undefined : parentIndices[index + 1];
-      const children = [headings.slice(curr + 1, lastChild)];
-      memo = children.length > 0 ? memo.concat(headings[curr], children) : memo.concat(headings[curr]);
-      return memo;
-    }, []);
-  }
-
-
-  getTOC(link, headings) {
-    const tree = this.getTree(headings);
-    if (!tree.length) {
-      return null;
-    }
-
-    const toAnchor = (content) => {
-      const baseContent = content.toLowerCase();
-      const safeString = baseContent.replace(/[^\w]+/g, " ");
-      return safeString.trim().replace(/\s/g, "-");
-    };
-    const depth = minBy(headings, "depth").depth;
-    return (
-      <ul key={depth}>
-        {tree.map((item, index) => {
-          if (Array.isArray(item)) {
-            return this.getTOC(link, item);
-          }
-          return (
-            <li key={index}>
-              {
-                item.depth > 2 ?
-                <a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a> :
-                <p><a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a></p>
-              }
-            </li>
-          );
-        })}
-      </ul>
-    );
   }
 
   renderLinksList(edges, type, category) {
@@ -151,32 +97,21 @@ class Sidebar extends React.Component {
 
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
-      const isActive =
+      const active =
         category !== "introduction" && location.pathname === link.fields.slug
           ? true
           : this.state.filterTerm !== "";
-      let toc = (
-        <div className="Sidebar-toc">
-          {this.getTOC(link, link.headings)}
-        </div>
-      );
 
-      if (this.state.filterTerm !== "") {
-        const matchTree = this.getMatchTree(link, this.state.filterTerm);
-        if (matchTree.length) {
-          toc = (
-            <div className="Sidebar-toc">
-              {this.getTOC(link, matchTree)}
-            </div>
-          );
-        }
-      }
+      const headings = this.state.filterTerm !== "" ?
+        this.getMatchTree(link, this.state.filterTerm) : link.headings;
+
+
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
             {link.frontmatter.title}
           </Link>
-          {isActive ? toc : null}
+          <TableOfContents active={active} link={link} headings={headings}/>
         </li>
       );
     });
@@ -200,53 +135,24 @@ class Sidebar extends React.Component {
               onClearInput={ this.clearInput.bind(this) }
             />
           </div>
-          <p className="Sidebar-Heading u-noPadding">Introduction</p>
-          <ul className="Sidebar-List">
-            <ul className="Sidebar-List">
-              {this.renderLinksList(filteredContent, "docs", "introduction")}
-              <li className="Sidebar-List-Item">
-                <a href="https://github.com/FormidableLabs/victory/#contributing">
-                  Contributing
-                </a>
-              </li>
-            </ul>
-          </ul>
-          <div className="Sidebar-Grid-block">
-            <p className="Sidebar-Heading">Support</p>
-            <ul className="Sidebar-List">
-              {this.renderLinksList(filteredContent, "docs", "faq")}
-            </ul>
-          </div>
-          <div className="Sidebar-Grid-block">
-            <p className="Sidebar-Heading">Guides</p>
-            <ul className="Sidebar-List">
-              {this.renderLinksList(filteredContent, "guides", null)}
-            </ul>
-          </div>
-          <div className="Sidebar-Grid-block">
-            <p className="Sidebar-Heading">Documentation</p>
-            <ul className="Sidebar-List">
-              {this.renderLinksList(filteredContent, "docs", "none")}
-            </ul>
-            <div>
-              <p className="Sidebar-SubHeading SubHeading">Charts</p>
-              <ul className="Sidebar-List">
-                {this.renderLinksList(filteredContent, "docs", "charts")}
-              </ul>
-            </div>
-            <div>
-              <p className="Sidebar-SubHeading SubHeading">Containers</p>
-              <ul className="Sidebar-List">
-                {this.renderLinksList(filteredContent, "docs", "containers")}
-              </ul>
-            </div>
-            <div>
-              <p className="Sidebar-SubHeading SubHeading">More</p>
-              <ul className="Sidebar-List">
-                {this.renderLinksList(filteredContent, "docs", "more")}
-              </ul>
-            </div>
-          </div>
+          <Introduction content= {this.renderLinksList(filteredContent, "docs", "introduction")}/>
+          <Category title="Support" content={this.renderLinksList(filteredContent, "docs", "faq")}/>
+          <Category title="Guides" content={this.renderLinksList(filteredContent, "guides", null)}/>
+          <Category title="Documentation"
+            content={this.renderLinksList(filteredContent, "docs", "none")}
+            subCategories={[
+              {
+                title: "Charts",
+                content: this.renderLinksList(filteredContent, "docs", "charts")
+              }, {
+                title: "Containers",
+                content: this.renderLinksList(filteredContent, "docs", "containers")
+              }, {
+                title: "More",
+                content: this.renderLinksList(filteredContent, "docs", "more")
+              }
+            ]}
+          />
         </div>
       </nav>
     );
