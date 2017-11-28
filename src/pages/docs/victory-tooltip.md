@@ -122,7 +122,6 @@ The `x` prop defines the x coordinate to use as a basis for positioning the tool
 
 The `y` prop defines the y coordinate to use as a basis for positioning the tooltip element.
 
-
 [Flyout]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [textSize]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js

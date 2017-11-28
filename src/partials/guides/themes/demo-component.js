@@ -41,7 +41,6 @@ const DemoComponent = ({ theme }) => {
           width={200}
         />
       </g>
-
       <g transform={positions[1].transform}>
         <VictoryChart theme={theme} standalone={false} height={250} width={250}>
           <VictoryAxis tickCount={3} tickFormat={toInteger} />

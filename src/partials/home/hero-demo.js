@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // VComponents
-import { VictoryTheme } from "victory-core";
 import {
   VictoryArea,
   VictoryAxis,
   VictoryChart,
-  VictoryStack
-} from "victory-chart";
+  VictoryStack,
+  VictoryTheme
+} from "victory";
 
 class Native extends React.Component {
   constructor(props) {
