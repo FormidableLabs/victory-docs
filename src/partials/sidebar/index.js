@@ -123,7 +123,6 @@ class Sidebar extends React.Component {
     const { content } = this.props;
     const filteredContent = this.state.filteredResults;
 
-    /* eslint-disable max-len */
     return (
       <nav className="Sidebar">
         <div className="Sidebar-Grid">
@@ -156,7 +155,6 @@ class Sidebar extends React.Component {
         </div>
       </nav>
     );
-    /* eslint-enable max-len */
   }
 }
 
