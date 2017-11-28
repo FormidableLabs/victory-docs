@@ -45,7 +45,6 @@
     "postcss-inline-svg": "^3.0.0",
     "postcss-url": "^7.1.2",
     "react": "^15.6.1",
-    "react-disqus-comments": "^1.0.3",
     "react-dom": "^15.6.1",
     "react-helmet": "^5.1.3",
     "react-live": "^1.7.1",
@@ -70,8 +69,7 @@
     "remark-preset-lint-recommended": "^3.0.1",
     "stylefmt": "^6.0.0",
     "stylelint": "^8.0.0",
-    "stylelint-config-standard": "^17.0.0",
-    "write-good": "^0.11.3"
+    "stylelint-config-standard": "^17.0.0"
   },
   "keywords": [
     "gatsby",
@@ -87,14 +85,16 @@
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "clean": "rm -rf public",
-    "lint:js": "eslint --ext .js .",
-    "lint:md": "remark content/posts/",
-    "write-good": "write-good $(glob 'src/pages/**/*.md')",
+    "lint:js": "eslint --ext .js src",
+    "lint:md": "remark src",
+    "check": "lint:js && lint:md",
     "format:js": "prettier '**/*.{js}' --write"
   },
   "remarkConfig": {
     "plugins": [
-      "remark-preset-lint-recommended"
+      "remark-preset-lint-recommended",
+      ["remark-lint-list-item-indent", false],
+      ["remark-lint-list-item-bullet-indent", false]
     ]
   }
 }

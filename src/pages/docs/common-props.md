@@ -658,7 +658,6 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [width]: https://formidable.com/open-source/victory/docs/common-props#width
 [height]: https://formidable.com/open-source/victory/docs/common-props#height
-[`Area` component]: https://formidable.com/open-source/victory/docs/victory-primitives#area
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal

@@ -31,6 +31,7 @@ install:
   - yarn install
 
 script:
+  - yarn run check
   - yarn test
   - yarn run test-func-install
   - yarn run test-func-build
