@@ -52,7 +52,7 @@
     "prismjs": "^1.5.1",
     "prop-types": "^15.5.10",
     "radium": "^0.18.1",
-    "react": "^15.1.0",
+    "react": "^16.2.0",
     "react-addons-test-utils": "^15.1.0",
     "react-document-meta": "^2.0.3",
     "react-dom": "^15.1.0",
