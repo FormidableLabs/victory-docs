@@ -114,17 +114,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             layout: "with-sidebar"
           });
         });
-
-        // const categoryList = Array.from(categorySet);
-        // categoryList.forEach(category => {
-        //   createPage({
-        //     path: `/categories/${_.kebabCase(category)}/`,
-        //     component: categoryPage,
-        //     context: {
-        //       category
-        //     }
-        //   });
-        // });
       })
     );
   });

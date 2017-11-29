@@ -59,6 +59,7 @@ jspm_packages
 
 
 # Build Files
+build/
 public/
 .cache/
 
