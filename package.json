@@ -93,7 +93,7 @@
     "clean": "rm -rf public",
     "lint:js": "eslint --ext .js src",
     "lint:md": "remark src",
-    "check": "npm run lint:js && npm run lint:md",
+    "lint": "npm run lint:js && npm run lint:md",
     "test": "jest",
     "format:js": "prettier '**/*.{js}' --write"
   },
