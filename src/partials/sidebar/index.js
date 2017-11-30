@@ -119,10 +119,17 @@ class Sidebar extends React.Component {
     return renderList;
   }
 
+  renderNoResults() {
+    return (
+      <div>
+        <p className="Sidebar-Heading u-noPadding">No Results</p>
+      </div>
+    );
+  }
+
   render() {
     const { content } = this.props;
     const filteredContent = this.state.filteredResults;
-
     return (
       <nav className="Sidebar">
         <div className="Sidebar-Grid">
@@ -134,7 +141,8 @@ class Sidebar extends React.Component {
               onClearInput={ this.clearInput.bind(this) }
             />
           </div>
-          <Introduction content= {this.renderLinksList(filteredContent, "docs", "introduction")}/>
+          { isEmpty(filteredContent) ? this.renderNoResults() : null }
+          <Introduction content={this.renderLinksList(filteredContent, "docs", "introduction")}/>
           <Category title="Support" content={this.renderLinksList(filteredContent, "docs", "faq")}/>
           <Category title="Guides" content={this.renderLinksList(filteredContent, "guides", null)}/>
           <Category title="Documentation"
