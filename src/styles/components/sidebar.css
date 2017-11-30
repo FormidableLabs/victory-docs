@@ -71,26 +71,10 @@
   font-weight: var(--fontWeightSubHeadingBold);
 }
 
-
-/**
-* Table of Contents
-*
-* There are no classnames... :sob:
-* (it requires a modification to `gatsby-transformer-remark` :scream:)
-*
-* .Sidebar-toc
-* ├── ul
-*     ├── li
-*         ├── p (duplicated title of page)
-*         ├── ul
-*             ├── li
-*                 ├── p
-*                 ├── ul
-*/
+/* Nested Table of Contents under the active link in the sidebar */
 
 .Sidebar-toc {
   font-size: 0.95em;
-  font-weight: normal;
   line-height: 1.2;
   position: absolute;
   visibility: hidden;
@@ -103,41 +87,24 @@
   }
 }
 
-.Sidebar-toc p {
-  margin: 0
-}
-
-/* Target the first element which is the title of the page (aka a duplicate) */
-.Sidebar-toc > ul > li > *:first-child {
-  display: none;
-}
-/* The first <ul> only contains the useless title (above) */
-.Sidebar-toc > ul {
-  margin: 0;
-  padding: 0;
-}
-.Sidebar-toc > ul > li {
-  padding: 0 !important;
-}
-
-.Sidebar-toc li {
+.Sidebar-toc-item {
   padding: 0.166em 0 0.166em 0.5em;
 }
 
-.Sidebar-toc li:last-child {
+.Sidebar-toc-item:last-child {
   padding-bottom: 1em;
 }
 
-/* Nested Lists: Skip the first <ul> */
-.Sidebar-toc li ul li ul {
+/* Nested Lists */
+.Sidebar-toc-item > .Sidebar-toc {
   font-family: var(--fontMonospace);
   font-size: 0.85em;
   background-color: transparent;
-  border-left: 1px solid color(var(--black) alpha(25%));
+  border-left: 1px solid color(var(--black) alpha(-75%));
   margin: 0 0 0.5em 0.125em;
   padding: 0 0 0 0.75em;
 }
 
-.Sidebar-toc li ul li ul li {
+.Sidebar-toc-item > .Sidebar-toc .Sidebar-toc-item {
   padding: 0.166em 0;
 }

@@ -40,20 +40,22 @@ class TableOfContents extends React.Component {
     };
     const depth = minBy(headings, "depth").depth;
     return (
-      <ul key={`${i}-${depth}`}>
+      <ul key={`${i}-${depth}`} className="Sidebar-toc">
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
-            return this.getTOC(link, item, i++);
+            return (
+              <li key={`${i}-${depth}`} className="Sidebar-toc-item">
+                {this.getTOC(link, item, i++)}
+              </li>
+            );
+
           }
-          return (
-            <li key={index}>
-              {
-                item.depth > 2 ?
-                <a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a> :
-                <p><a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a></p>
-              }
-            </li>
-          );
+          return item.depth > 1 ?
+            (
+              <li key={index} className="Sidebar-toc-item">
+                <a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a>
+              </li>
+            ) : null;
         })}
       </ul>
     );
@@ -62,11 +64,7 @@ class TableOfContents extends React.Component {
   render() {
     const { active, link, headings } = this.props;
     return active && !isEmpty(headings) ?
-      (
-        <div className="Sidebar-toc">
-          {this.getTOC(link, headings)}
-        </div>
-      ) : null;
+      this.getTOC(link, headings) : null;
   }
 }
 

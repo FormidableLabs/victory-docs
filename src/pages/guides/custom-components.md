@@ -114,6 +114,51 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
+More complex components may be supplied as direct children of `VictoryChart`. These components will have access to shared chart props such as `scale`. In the example below, the custom `Polygon` components draws a polygon based on a collection of points. The scale provided by `VictoryChart` is used to correctly position the points within the chart.
+
+```playground_norender
+const SAMPLE_DATA = [
+	{x: 2, y: 1},
+	{x: 3, y: 5},
+	{x: 6, y: 3}
+];
+
+class Polygon extends React.Component {
+  getPoints(data, scale) {
+    return data.reduce((pointStr, {x, y}) =>
+			`${pointStr} ${scale.x(x)},${scale.y(y)}`
+		, '');
+  }
+
+  render() {
+    // data and style are explicitly supplied to the Polygon component
+    // scale is provided by VictoryChart
+    const { data, style, scale } = this.props;
+    const points = this.getPoints(data, scale);
+    return <polygon points={points} style={style}/>;
+  }
+}
+
+class App extends React.Component {
+  render() {
+    return <VictoryChart
+      height={400}
+      width={400}
+      domain={[-10, 10]}
+    >
+      <Polygon
+        data={SAMPLE_DATA}
+        style={{ fill: "tomato", opacity: 0.5 }}
+      />
+      <VictoryScatter
+        data={SAMPLE_DATA}
+      />
+    </VictoryChart>;
+  }
+}
+
+ReactDOM.render(<App/>, mountNode)
+```
 
 Other Victory components may even be used in creating custom components, as in the example below.
 
@@ -184,7 +229,6 @@ class CustomDataComponent extends React.Component {
 
 ReactDOM.render(<CustomDataComponent/>, mountNode)
 ```
-
 
 ## Extending primitive components
 
