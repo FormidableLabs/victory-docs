@@ -32,13 +32,13 @@ system, and should be added as the `containerComponent` of the top-level compone
 
 ### allowPan
 
-The optional `allowPan` prop accepts a boolean that enable the panning functionality. Zooming will still be enabled when the `allowPan` prop is set to false.
+The optional `allowPan` prop accepts a boolean that enables the panning functionality. Zooming will still be enabled when the `allowPan` prop is set to false.
 
 *default:* `allowPan={true}`
 
 ### allowZoom
 
-The optional `allowZoom` prop accepts a boolean that enable the zoom functionality. Panning will still be enabled when the `allowZoom` prop is set to false.
+The optional `allowZoom` prop accepts a boolean that enables the zoom functionality. Panning will still be enabled when the `allowZoom` prop is set to false.
 
 *default:* `allowZoom={true}`
 

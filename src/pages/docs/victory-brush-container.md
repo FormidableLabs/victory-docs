@@ -41,6 +41,18 @@ However, the component that uses it must be standalone
 
 `VictoryBrushContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
+### allowDrag
+
+The optional `allowDrag` prop accepts a boolean that enables dragging behavior for the highlighted brush area. Resizing will still be enabled when the `allowDrag` prop is set to false.
+
+*default:* `allowDrag={true}`
+
+### allowResize
+
+The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fized.
+
+*default:* `allowResize={true}`
+
 ### brushComponent
 
 The `brushComponent` prop specifies the component to be rendered for the highlighted area.

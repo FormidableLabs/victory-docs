@@ -387,13 +387,11 @@ tickComponent={<Line events={{ onClick: handleClick }}/>}
 
 ### tickCount
 
-The `tickCount` prop specifies approximately how many ticks should be drawn on the axis if `tickValues` are not explicitly provided. This value is calculated by [d3Scale][] and prioritizes returning "nice" values and evenly spaced ticks over an exact number of ticks. If an exact number of ticks are required, ticks should be specified via the [tickValues][] prop. This prop must have a value greater than zero.
-
-*default:* `tickCount={5}`
+The `tickCount` prop specifies approximately how many ticks should be drawn on the axis. If an array of ticks is supplied in `tickValues` or `tickFormat`, the `tickCount` prop will be used to _downsample_ the provided array to the specified length. If `tickValues` are not explicitly provided, this value is used by [d3Scale][] to calculate an _approximate_ number of ticks. [d3Scale][] prioritizes returning "nice" values and evenly spaced ticks over an exact number of ticks. This prop must be given as a positive integer.
 
 ### tickFormat
 
-The `tickFormat` prop specifies how tick values should be labeled. The `tickFormat` prop can be given as an array of values to display for each tick, or as a function to be applied to every `tickValue`.
+The `tickFormat` prop specifies how tick values should be labeled. The `tickFormat` prop can be given as an array of values to display for each tick, or as a function to be applied to every `tickValue`. When given as a function, `tickFormat` will be called with the following arguments: `tick` - the individual tick value, `index` - the index of the tick in the array, and `ticks` - the entire array of ticks.
 
 ```playground
 <VictoryPolarAxis
@@ -415,7 +413,7 @@ tickLabelComponent={<VictoryLabel dy={20}/>}
 
 ### tickValues
 
-The `tickValues` prop explicitly specifies a set of tick values to draw on the axis. This prop should be given as an array of unique values of the same type (_i.e.,_ all numbers). The `tickValues` prop is used to specify the _values_ of each tick, so numeric values are typically appropriate. An array of strings or dates may be supplied for categorical and time series data respectively. Use the [tickFormat][] prop to specify how ticks should be labeled.
+The `tickValues` prop explicitly specifies a set of tick values to draw on the axis. This prop should be given as an array of unique values of the same type (_i.e.,_ all numbers). The `tickValues` prop is used to specify the _values_ of each tick, so numeric values are typically appropriate. An array of strings or dates may be supplied for categorical and time series data respectively. Use the [tickFormat][] prop to specify how ticks should be labeled. *Note:* `tickValues` should be given as a unique array.
 
 ```playground
 <VictoryPolarAxis
@@ -440,7 +438,6 @@ width={400}
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
 [d3Scale]: https://github.com/d3/d3-scale
-[tickValues]: https://formidable.com/open-source/victory/docs/victory-axis#tickvalues
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
 [Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
 [Arc component]: https://formidable.com/open-source/victory/docs/victory-primitives#arc

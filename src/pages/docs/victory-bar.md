@@ -52,6 +52,25 @@ animate={{
 }}
 ```
 
+### barRatio
+
+The `barRatio` prop specifies an _approximate_ ratio between bar widths and spaces between bars. When width is not specified in bar styles, the `barRatio` prop will be used to calculate a default width for each bar given the total number of bars in the data series and the overall width of the chart.
+
+```playground
+<VictoryChart
+  theme={VictoryTheme.material}
+  domainPadding={{ x: 15 }}
+>
+  <VictoryBar
+    barRatio={0.8}
+    style={{
+      data: { fill: "#c43a31" }
+    }}
+    data={sampleData}
+  />
+</VictoryChart>
+```
+
 ### categories
 
 `VictoryBar` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
@@ -66,6 +85,28 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
+```
+
+### cornerRadius
+
+The `cornerRadius` prop specifies a radius to apply to the _top_ corners of each bar.
+
+```playground
+<VictoryChart
+  theme={VictoryTheme.material}
+  domainPadding={{ x: 15 }}
+>
+  <VictoryBar
+    cornerRadius={10}
+    style={{
+      data: {
+        fill: "#c43a31",
+        width: 25
+      }
+    }}
+    data={sampleData}
+  />
+</VictoryChart>
 ```
 
 ### data
