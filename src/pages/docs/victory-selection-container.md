@@ -90,14 +90,14 @@ following props: `x`, `y`, `width`, `height`, and `style`.
 
 The `onSelection` prop accepts a function to be called whenever new data points are selected. The
 function is called with the parameters `points` (an array of objects with `childName`, `eventKey`,
-and `data`) and `bounds` (an object with min / max arrays specified for `x` and `y`).
+and `data`), `bounds` (an object with min / max arrays specified for `x` and `y`), and `props` (the props used by `VictorySelectionContainer`)
 
-*example:* `onSelection={(points, bounds) => handleSelection(points, bounds)}`
+*example:* `onSelection={(points, bounds, props) => handleSelection(points, bounds, props)}`
 
 ### onSelectionCleared
 
-The `onSelectionCleared` prop accepts a function to be called whenever the selection is cleared.
+The `onSelectionCleared` prop accepts a function to be called whenever the selection is cleared. The function is called with the props used by `VictorySelectionContainer`
 
-*example:* `onSelectionCleared={() => handleSelectionCleared()}`
+*example:* `onSelectionCleared={(props) => handleSelectionCleared(props)}`
 
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container

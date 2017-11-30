@@ -89,10 +89,9 @@ If instead you would like to keep it displayed, use the `defaultCursorValue` pro
 
 ### onCursorChange
 
-If provided, the `onChange` function will be called every time the cursor value changes,
-with the new value as its only argument. A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
+If provided, the `onChange` function will be called every time the cursor value changes. `onCursorChange` is called with `value` (the updated cursor value) and `props` (the props used by `VictoryCursorContainer`). A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
 
-*example:* `onChange={(value) => this.setState({cursorValue: value})}`
+*example:* `onChange={(value, props) => this.setState({cursorValue: value})}`
 
 [VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container

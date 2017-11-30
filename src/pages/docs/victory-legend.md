@@ -17,7 +17,7 @@ scope: null
     gutter={20}
     style={{ border: { stroke: "black" }, title: {fontSize: 20 } }}
     data={[
-      { name: "One", symbol: { fill: "tomato" } },
+      { name: "One", symbol: { fill: "tomato", type: "star" } },
       { name: "Two", symbol: { fill: "orange" } },
       { name: "Three", symbol: { fill: "gold" } }
     ]}

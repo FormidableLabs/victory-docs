@@ -88,17 +88,17 @@ of a given chart may trigger voronoi events. This prop should be given as a numb
 ### onActivated
 
 The `onActivated` prop accepts a function to be called whenever new data points are activated.
-The function is called with the parameter `points`, an array of data objects.
+The function is called with the parameters `points` (an array of active data objects) and `props` (the props used by `VictoryVoronoiContainer`).
 
-*example:* `onActivated={(points) => filterList(points)}`
+*example:* `onActivated={(points, props) => filterList(points, props)}`
 
 
 ### onDeactivated
 
 The `onDeactivated` prop accepts a function to be called whenever points are deactivated.
-The function is called with the parameter `points`, an array of the newly-deactivated data objects.
+The function is called with the parameters `points` (an array of the newly-deactivated data objects) and `props` (the props used by `VictoryVoronoiContainer`).
 
-*example:* `onDeactivated={(points) => removeFromList(points)}`
+*example:* `onDeactivated={(points, props) => removeFromList(points, props)}`
 
 ### labels
 

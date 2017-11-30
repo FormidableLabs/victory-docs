@@ -65,10 +65,9 @@ for x and y.
 
 ### onZoomDomainChange
 
-The optional `onZoomDomainChange` prop accepts an function to be called on each update to the visible
-domain. The function accepts a single parameter of `domain`.
+The optional `onZoomDomainChange` prop accepts an function to be called on each update to the visible domain. The function accepts the parameters `domain` (the updated domain) and `props` (the props used by `VictoryZoomContainer`).
 
-*example:* `onZoomDomainChange={(domain) => handleDomainChange(domain)}`
+*example:* `onZoomDomainChange={(domain, props) => handleDomainChange(domain, props)}`
 
 ### zoomDomain
 
