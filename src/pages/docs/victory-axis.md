@@ -151,6 +151,12 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
+### invertAxis
+
+The `invertAxis` boolean prop specifies whether the domain for a given axis should be inverted. By default, axes will be displayed with lower values on the bottom / left, and higher values on the top / right regardless of orientation.
+
+*default:* `invertAxis={false}`
+
 ### label
 
 The `label` prop defines the label that will appear with the axis. This prop should be given as a string.

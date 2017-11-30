@@ -242,6 +242,11 @@ When the `innerRadius` prop is set, polar axes will be hollow rather than circul
 ```playground
 <VictoryPolarAxis theme={VictoryTheme.material} innerRadius={50}/>
 ```
+### invertAxis
+
+The `invertAxis` boolean prop specifies whether the domain for a given axis should be inverted. By default, axes will be displayed with lower values on the bottom / left, and higher values on the top / right regardless of orientation.
+
+*default:* `invertAxis={false}`
 
 ### label
 
@@ -256,6 +261,17 @@ The `label` prop defines the label that will appear with a dependent axis. Label
 ```
 
 ### labelPlacement
+
+The `labelPlacement` prop specifies how tick labels should be placed relative to the angular tick values. Options for this prop are "vertical", "parallel", and "perpendicular".
+
+*default:* `labelPlacement="parallel"`
+
+```playground
+<VictoryPolarAxis
+  labelPlacement="perpendicular"
+  theme={VictoryTheme.material}
+/>
+```
 
 ### name
 
