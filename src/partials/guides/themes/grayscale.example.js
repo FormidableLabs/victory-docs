@@ -10,6 +10,7 @@
   Try changing it. You could start with `colors` or `fontSize`.
 */
 
+
 // Colors
 const colors = [
   "#252525",
@@ -20,7 +21,6 @@ const colors = [
   "#d9d9d9",
   "#f0f0f0"
 ];
-
 const charcoal = "#252525";
 
 // Typography
@@ -45,14 +45,13 @@ const baseLabelStyles = {
   fill: charcoal,
   stroke: "transparent"
 };
-
 const centeredLabelStyles = assign({ textAnchor: "middle" }, baseLabelStyles);
 
 // Strokes
 const strokeLinecap = "round";
 const strokeLinejoin = "round";
 
-// Create the theme
+// Put it all together...
 const theme = {
   area: assign({
     style: {
@@ -75,8 +74,9 @@ const theme = {
         padding: 25
       }),
       grid: {
-        fill: "transparent",
-        stroke: "transparent"
+        fill: "none",
+        stroke: "none",
+        pointerEvents: "visible"
       },
       ticks: {
         fill: "transparent",
@@ -90,10 +90,8 @@ const theme = {
     style: {
       data: {
         fill: charcoal,
-        padding: 10,
-        stroke: "transparent",
-        strokeWidth: 0,
-        width: 8
+        padding: 8,
+        strokeWidth: 0
       },
       labels: baseLabelStyles
     }
@@ -113,6 +111,7 @@ const theme = {
   }, baseProps),
   chart: baseProps,
   errorbar: assign({
+    borderWidth: 8,
     style: {
       data: {
         fill: "transparent",
@@ -132,9 +131,7 @@ const theme = {
         stroke: charcoal,
         strokeWidth: 2
       },
-      labels: assign({}, baseLabelStyles, {
-        textAnchor: "start"
-      })
+      labels: centeredLabelStyles
     }
   }, baseProps),
   pie: {
@@ -144,9 +141,7 @@ const theme = {
         stroke: "transparent",
         strokeWidth: 1
       },
-      labels: assign({}, baseLabelStyles, {
-        padding: 20
-      })
+      labels: assign({}, baseLabelStyles, { padding: 20 })
     },
     colorScale: colors,
     width: 400,
@@ -166,25 +161,17 @@ const theme = {
   stack: assign({
     colorScale: colors
   }, baseProps),
-  tooltip: assign({
-    style: {
-      data: {
-        fill: "transparent",
-        stroke: "transparent",
-        strokeWidth: 0
-      },
-      labels: centeredLabelStyles,
-      flyout: {
-        stroke: charcoal,
-        strokeWidth: 1,
-        fill: "#f0f0f0"
-      }
+  tooltip: {
+    style: assign({}, centeredLabelStyles, { padding: 5, pointerEvents: "none" }),
+    flyoutStyle: {
+      stroke: charcoal,
+      strokeWidth: 1,
+      fill: "#f0f0f0",
+      pointerEvents: "none"
     },
-    flyoutProps: {
-      cornerRadius: 10,
-      pointerLength: 10
-    }
-  }, baseProps),
+    cornerRadius: 5,
+    pointerLength: 10
+  },
   voronoi: assign({
     style: {
       data: {
@@ -192,9 +179,28 @@ const theme = {
         stroke: "transparent",
         strokeWidth: 0
       },
-      labels: centeredLabelStyles
+      labels: assign({}, centeredLabelStyles, { padding: 5, pointerEvents: "none" }),
+      flyout: {
+        stroke: charcoal,
+        strokeWidth: 1,
+        fill: "#f0f0f0",
+        pointerEvents: "none"
+      }
     }
-  }, baseProps)
+  }, baseProps),
+  legend: {
+    colorScale: colors,
+    gutter: 10,
+    orientation: "vertical",
+    titleOrientation: "top",
+    style: {
+      data: {
+        type: "circle"
+      },
+      labels: baseLabelStyles,
+      title: assign({}, baseLabelStyles, { padding: 5 })
+    }
+  }
 };
 
 /* eslint-disable react/jsx-no-undef */

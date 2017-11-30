@@ -28,6 +28,7 @@ const blueGrey50 = "#ECEFF1";
 const blueGrey300 = "#90A4AE";
 const blueGrey700 = "#455A64";
 const grey900 = "#212121";
+
 // Typography
 const sansSerif = "'Roboto', 'Helvetica Neue', Helvetica, sans-serif";
 const letterSpacing = "normal";
@@ -41,13 +42,15 @@ const baseProps = {
   padding: 50
 };
 
-// Labels
+// * Labels
 const baseLabelStyles = {
   fontFamily: sansSerif,
   fontSize,
   letterSpacing,
   padding,
-  fill: blueGrey700
+  fill: blueGrey700,
+  stroke: "transparent",
+  strokeWidth: 0
 };
 
 const centeredLabelStyles = assign({ textAnchor: "middle" }, baseLabelStyles);
@@ -81,11 +84,12 @@ const theme = {
         stroke: "transparent"
       }),
       grid: {
-        fill: "transparent",
+        fill: "none",
         stroke: blueGrey50,
         strokeDasharray,
         strokeLinecap,
-        strokeLinejoin
+        strokeLinejoin,
+        pointerEvents: "visible"
       },
       ticks: {
         fill: "transparent",
@@ -96,8 +100,7 @@ const theme = {
         strokeLinejoin
       },
       tickLabels: assign({}, baseLabelStyles, {
-        fill: blueGrey700,
-        stroke: "transparent"
+        fill: blueGrey700
       })
     }
   }, baseProps),
@@ -106,9 +109,7 @@ const theme = {
       data: {
         fill: blueGrey700,
         padding,
-        stroke: "transparent",
-        strokeWidth: 0,
-        width: 5
+        strokeWidth: 0
       },
       labels: baseLabelStyles
     }
@@ -127,6 +128,7 @@ const theme = {
   }, baseProps),
   chart: baseProps,
   errorbar: assign({
+    borderWidth: 8,
     style: {
       data: {
         fill: "transparent",
@@ -134,10 +136,7 @@ const theme = {
         stroke: blueGrey700,
         strokeWidth: 2
       },
-      labels: assign({}, centeredLabelStyles, {
-        stroke: "transparent",
-        strokeWidth: 0
-      })
+      labels: centeredLabelStyles
     }
   }, baseProps),
   group: assign({
@@ -151,11 +150,7 @@ const theme = {
         stroke: blueGrey700,
         strokeWidth: 2
       },
-      labels: assign({}, baseLabelStyles, {
-        stroke: "transparent",
-        strokeWidth: 0,
-        textAnchor: "start"
-      })
+      labels: centeredLabelStyles
     }
   }, baseProps),
   pie: assign({
@@ -166,11 +161,7 @@ const theme = {
         stroke: blueGrey50,
         strokeWidth: 1
       },
-      labels: assign({}, baseLabelStyles, {
-        padding: 20,
-        stroke: "transparent",
-        strokeWidth: 0
-      })
+      labels: assign({}, baseLabelStyles, { padding: 20 })
     }
   }, baseProps),
   scatter: assign({
@@ -181,33 +172,23 @@ const theme = {
         stroke: "transparent",
         strokeWidth: 0
       },
-      labels: assign({}, centeredLabelStyles, {
-        stroke: "transparent"
-      })
+      labels: centeredLabelStyles
     }
   }, baseProps),
   stack: assign({
     colorScale: colors
   }, baseProps),
-  tooltip: assign({
-    style: {
-      data: {
-        fill: "transparent",
-        stroke: "transparent",
-        strokeWidth: 0
-      },
-      labels: centeredLabelStyles,
-      flyout: {
-        stroke: blueGrey700,
-        strokeWidth: 1,
-        fill: "#f0f0f0"
-      }
+  tooltip: {
+    style: assign({}, centeredLabelStyles, { padding: 5, pointerEvents: "none" }),
+    flyoutStyle: {
+      stroke: grey900,
+      strokeWidth: 1,
+      fill: "#f0f0f0",
+      pointerEvents: "none"
     },
-    flyoutProps: {
-      cornerRadius: 10,
-      pointerLength: 10
-    }
-  }, baseProps),
+    cornerRadius: 5,
+    pointerLength: 10
+  },
   voronoi: assign({
     style: {
       data: {
@@ -215,9 +196,28 @@ const theme = {
         stroke: "transparent",
         strokeWidth: 0
       },
-      labels: centeredLabelStyles
+      labels: assign({}, centeredLabelStyles, { padding: 5, pointerEvents: "none" }),
+      flyout: {
+        stroke: grey900,
+        strokeWidth: 1,
+        fill: "#f0f0f0",
+        pointerEvents: "none"
+      }
     }
-  }, baseProps)
+  }, baseProps),
+  legend: {
+    colorScale: colors,
+    gutter: 10,
+    orientation: "vertical",
+    titleOrientation: "top",
+    style: {
+      data: {
+        type: "circle"
+      },
+      labels: baseLabelStyles,
+      title: assign({}, baseLabelStyles, { padding: 5 })
+    }
+  }
 };
 
 /* eslint-disable react/jsx-no-undef */
