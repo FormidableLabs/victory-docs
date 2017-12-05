@@ -92,7 +92,7 @@
     "lint": "npm run lint:js && npm run lint:md",
     "test": "jest",
     "format:js": "prettier '**/*.{js}' --write",
-    "preversion": "npm run build"
+    "preversion": "npm run build:pp"
   },
   "jest": {
     "moduleNameMapper": {
