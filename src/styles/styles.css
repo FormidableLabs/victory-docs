@@ -10,7 +10,7 @@
 * text:        universal text and content styles
 *
 */
-@import "normalize.css";
+@import "../../node_modules/normalize.css";
 @import "./base/variables.css";
 @import "./base/base.css";
 @import "./base/links.css";

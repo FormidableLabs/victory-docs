@@ -1,9 +1,9 @@
 :root {
-/**
-* Colors
-*/
-
+  /**
+  * Colors
+  */
   /* Brand Grays */
+
   --black: #242121;
   --nearBlack: #373534;
   --darkestGray: #4a4746;
@@ -16,11 +16,13 @@
   --white: #e7e5e3;
 
   /* Brand Reds */
+
   --lightRed: #dc7a6b;
   --red: #c43a31;
   --darkRed: #AD1B11;
 
   /* Victory Warm Colors */
+
   --lightestSand: #FFFEFC;
   --lighterSand: #f6f2ee; /* bg */
   --lightSand: #ebe7e4;
@@ -30,6 +32,7 @@
   --darkMud: #181615;
 
   /* CodeMirror */
+
   --codeMirrorbgDim: #EBE7E4;
   --codeMirrorbg: #FFFEFC;
   --codeMirrorbgFocused: #FFFEFC;
@@ -43,9 +46,10 @@
   --codeMirrorFunction: #CC2345;
   --codeMirrorVariable: #e90;
 
-/**
-* Fonts
-*/
+  /**
+  * Fonts
+  */
+  
   --fontHeading: 'Playfair Display', 'Archivo Narrow', 'Georgia', 'Cambria', serif;
   --fontSubHeading: 'freight-sans-pro', 'Work Sans', 'akkurat', 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Monaco', 'Courier', monospace;
   --fontBody: 'ff-more-web-pro', 'Georgia', 'Cambria', serif;
@@ -54,9 +58,9 @@
   --fontWeightSubHeadingBold: 600; /* Freight Sans Pro Semibold */
   --fontWeightBodyBold: 500; /* FF More Web Pro Medium */
 
-/**
-* Layout
-*/
+  /**
+  * Layout
+  */
   --gutter: 3.75rem;
   --gutter-small: 1.375rem;
   --page: 3vw;

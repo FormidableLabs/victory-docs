@@ -13,8 +13,9 @@
 :root {
   --initialHeight: 280px;
 }
-.Ecology pre {
-  padding: 0;
+
+.Markdown .pre {
+  padding-top: 0;
 }
 
 .playgroundsMaxHeight .Interactive .playgroundStage,
@@ -35,8 +36,9 @@
   flex-direction: column;
   flex-wrap: none;
   padding: 0;
-
-  @media (--small-viewport) {
+}
+@media (--small-viewport) {
+  .Interactive .playground {
     flex-direction: row;
   }
 }

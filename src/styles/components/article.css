@@ -2,20 +2,22 @@
   background-color: var(--lighterSand);
   flex: 1 0 auto;
   padding: var(--gutter-small);
-
-  @media (--medium-viewport) {
-    padding: var(--gutter);
-  }
 }
 
 .Article--noBottom {
   padding-bottom: 0 !important;
-
-  @media (--medium-viewport) {
-    padding-bottom: 0 !important;
-  }
 }
 
 .Article p {
   max-width: 38em;
+}
+
+@media (--medium-viewport) {
+  .Article {
+    padding: var(--gutter);
+  }
+  
+  .Article--noBottom {
+    padding-bottom: 0 !important;
+  }
 }

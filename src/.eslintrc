@@ -1,2 +1,13 @@
 ---
-extends: ../node_modules/builder-docs-archetype/config/eslint/.eslintrc-react
+extends:
+  - "formidable/configurations/es6-react"
+
+globals:
+  document: true
+  graphql: true
+
+rules:
+  "max-len": 0
+  "new-cap": 0
+  "no-magic-numbers": 0
+  "react/jsx-no-undef": [2, { "allowGlobals": true }]

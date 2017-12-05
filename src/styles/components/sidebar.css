@@ -10,10 +10,10 @@
 
 .Sidebar-Grid-block {
   margin-top: 0;
+}
 
-  & > * + * {
-    margin-bottom: var(--gutter-small);
-  }
+.Sidebar-Grid-block > * + * {
+  margin-bottom: var(--gutter-small) !important;
 }
 
 .Sidebar-List {
@@ -70,7 +70,6 @@
   color: var(--black);
   font-weight: var(--fontWeightSubHeadingBold);
 }
-
 
 /* Nested Table of Contents under the active link in the sidebar */
 
