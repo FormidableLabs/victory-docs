@@ -1,12 +1,7 @@
 const path = require("path");
 const _ = require("lodash");
-const webpackLodashPlugin = require("lodash-webpack-plugin");
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === "build-javascript") {
-    config.plugin("Lodash", webpackLodashPlugin, null);
-  }
-
+exports.modifyWebpackConfig = ({ config }) => {
   // Do not transform SVG into data-uris
   config.loader("url-loader", {
     test: /\.(jpg|jpeg|png|gif|mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
