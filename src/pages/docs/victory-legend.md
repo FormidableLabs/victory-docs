@@ -190,7 +190,7 @@ groupComponent={<g transform="rotate(90)" />}
 
 ### gutter
 
-The `gutter` prop defines the number of pixels between legend rows or columns, depending on `orientation`. When `orientation` is horizontal, gutters are between columns. When `orientation` is vertical, gutters are the space between rows.
+The `gutter` prop defines the number of pixels between legend columns. This prop may be given as a number, or as an object with values specified for "left" and "right" gutters. To set spacing between rows, use the `rowGutter` prop.
 
 *default:* `gutter={10}`
 
@@ -260,6 +260,23 @@ The `orientation` prop takes a string that defines whether legend data are displ
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
+```
+
+### rowGutter
+
+The `rowGutter` prop defines the number of pixels between legend rows. This prop may be given as a number, or as an object with values specified for "top" and "bottom" gutters. To set spacing between columns, use the `gutter` prop.
+
+```playground
+<VictoryLegend x={125} y={50}
+  orientation="vertical"
+  orientation="vertical"
+  gutter={20}
+  rowGutter={{ top: 0, bottom: 10 }}
+  style={{ border: { stroke: "black" } }}
+  data={[
+    { name: "One" }, { name: "Two" }, { name: "Three" }
+  ]}
+/>
 ```
 
 ### sharedEvents
