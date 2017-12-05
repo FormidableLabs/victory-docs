@@ -91,7 +91,8 @@
     "lint:md": "remark src",
     "lint": "npm run lint:js && npm run lint:md",
     "test": "jest",
-    "format:js": "prettier '**/*.{js}' --write"
+    "format:js": "prettier '**/*.{js}' --write",
+    "preversion": "npm run build"
   },
   "jest": {
     "moduleNameMapper": {
