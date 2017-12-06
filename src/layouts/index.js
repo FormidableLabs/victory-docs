@@ -5,13 +5,7 @@ import Header from "../partials/header";
 import config from "../../data/site-config";
 import "../styles/styles.css";
 
-export default class MainLayout extends React.Component {
-  static propTypes = {
-    children: PropTypes.any,
-    history: PropTypes.any,
-    location: PropTypes.object
-  }
-
+class MainLayout extends React.Component {
   getLocalTitle() {
     const capitalize = (string) => {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -60,3 +54,11 @@ export default class MainLayout extends React.Component {
     );
   }
 }
+
+MainLayout.propTypes = {
+  children: PropTypes.any,
+  history: PropTypes.any,
+  location: PropTypes.object
+};
+
+export default MainLayout;

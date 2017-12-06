@@ -9,11 +9,6 @@ import SidebarSearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
 
 class Sidebar extends React.Component {
-  static propTypes = {
-    content: PropTypes.array,
-    location: PropTypes.object
-  };
-
   constructor(props) {
     super(props);
 
@@ -165,5 +160,10 @@ class Sidebar extends React.Component {
     );
   }
 }
+
+Sidebar.propTypes = {
+  content: PropTypes.array,
+  location: PropTypes.object
+};
 
 export default Sidebar;

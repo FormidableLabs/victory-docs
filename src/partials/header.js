@@ -7,15 +7,7 @@ import { Header } from "formidable-landers";
 import config from "../../data/site-config";
 import LOGO from "../../static/logotype-hero.svg";
 
-export default class VictoryHeader extends Component {
-  static propTypes = {
-    home: PropTypes.bool
-  }
-
-  static defaultProps = {
-    home: false
-  }
-
+class VictoryHeader extends Component {
   render() {
     const classes = this.props.home ? "victory isHome" : "victory";
 
@@ -57,3 +49,13 @@ export default class VictoryHeader extends Component {
     );
   }
 }
+
+VictoryHeader.propTypes = {
+  home: PropTypes.bool
+};
+
+VictoryHeader.defaultProps = {
+  home: false
+};
+
+export default VictoryHeader;

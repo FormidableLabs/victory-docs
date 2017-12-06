@@ -6,19 +6,6 @@ import { transform } from "babel-standalone";
 
 // <Preview> component from component-playground without updating
 class Preview extends Component {
-  static defaultProps = {
-    previewComponent: "div"
-  };
-
-  static propTypes = {
-    codeText: PropTypes.string.isRequired,
-    context: PropTypes.object,
-    noRender: PropTypes.bool,
-    previewComponent: PropTypes.node,
-    scope: PropTypes.object.isRequired,
-    theme: PropTypes.string
-  };
-
   componentDidMount() {
     this.executeCode();
   }
@@ -91,5 +78,18 @@ class Preview extends Component {
     );
   }
 }
+
+Preview.defaultProps = {
+  previewComponent: "div"
+};
+
+Preview.propTypes = {
+  codeText: PropTypes.string.isRequired,
+  context: PropTypes.object,
+  noRender: PropTypes.bool,
+  previewComponent: PropTypes.node,
+  scope: PropTypes.object.isRequired,
+  theme: PropTypes.string
+};
 
 export default Preview;

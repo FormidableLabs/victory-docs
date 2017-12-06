@@ -14,19 +14,9 @@ import Preview from "../../partials/gallery/components/preview";
 import { configGallery } from "../../partials/gallery/config";
 
 class Gallery extends React.Component {
-  static propTypes = {
-    location: PropTypes.object.isRequired,
-    params: PropTypes.object
-  };
-
-  static defaultProps = {
-    params: null
-  };
-
   constructor(props) {
     super(props);
 
-    // No idea why _ is being weird but it is
     this.scope = {
       ...Victory,
       _,
@@ -136,5 +126,14 @@ class Gallery extends React.Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  location: PropTypes.object.isRequired,
+  params: PropTypes.object
+};
+
+Gallery.defaultProps = {
+  params: null
+};
 
 export default Gallery;

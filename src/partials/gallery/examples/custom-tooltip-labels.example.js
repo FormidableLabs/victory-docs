@@ -8,9 +8,6 @@
 
 
 class CustomLabel extends React.Component {
-  static defaultEvents = VictoryTooltip.defaultEvents;
-  static propTypes = { text: PropTypes.string };
-
   render() {
     return (
       <g>
@@ -30,6 +27,9 @@ class CustomLabel extends React.Component {
     );
   }
 }
+
+CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
+CustomLabel.propTypes = { text: PropTypes.string };
 
 class App extends React.Component {
   render() {

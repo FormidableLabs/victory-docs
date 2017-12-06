@@ -7,12 +7,7 @@ import Playground from "../partials/playground";
 import Seo from "../partials/seo/index";
 import config from "../../data/site-config";
 
-export default class DocsTemplate extends React.Component {
-  static propTypes = {
-    data: PropTypes.object,
-    pathContext: PropTypes.object
-  };
-
+class DocsTemplate extends React.Component {
   render() {
     const { slug } = this.props.pathContext;
     const postNode = this.props.data.markdownRemark;
@@ -48,6 +43,13 @@ export default class DocsTemplate extends React.Component {
     );
   }
 }
+
+DocsTemplate.propTypes = {
+  data: PropTypes.object,
+  pathContext: PropTypes.object
+};
+
+export default DocsTemplate;
 
 export const pageQuery = graphql`
   query DocsBySlug($slug: String!) {

@@ -14,14 +14,6 @@ import TUNE from "../../../static/logos/logo-tune.svg";
 import ZILLOW from "../../../static/logos/logo-zillow.svg";
 
 class Companies extends React.Component {
-  static propTypes = {
-    style: PropTypes.object
-  };
-
-  static defaultProps = {
-    style: null
-  };
-
   render() {
     return (
       <div className="Companies">
@@ -74,5 +66,13 @@ class Companies extends React.Component {
     );
   }
 }
+
+Companies.propTypes = {
+  style: PropTypes.object
+};
+
+Companies.defaultProps = {
+  style: null
+};
 
 export default Companies;

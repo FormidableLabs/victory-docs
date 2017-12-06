@@ -6,14 +6,7 @@ import Sidebar from "../partials/sidebar";
 
 import "../styles/styles.css";
 
-export default class LayoutWithSidebar extends React.Component {
-  static propTypes = {
-    children: PropTypes.any,
-    data: PropTypes.object,
-    history: PropTypes.any,
-    location: PropTypes.object
-  }
-
+class LayoutWithSidebar extends React.Component {
   render() {
     const { children, data } = this.props;
 
@@ -53,6 +46,15 @@ export default class LayoutWithSidebar extends React.Component {
     );
   }
 }
+
+LayoutWithSidebar.propTypes = {
+  children: PropTypes.any,
+  data: PropTypes.object,
+  history: PropTypes.any,
+  location: PropTypes.object
+};
+
+export default LayoutWithSidebar;
 
 // this query takes care of sorting!! :magic:
 export const query = graphql`

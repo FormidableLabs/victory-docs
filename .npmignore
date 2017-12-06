@@ -9,7 +9,6 @@ npm-debug\.log*
 phantomjsdriver\.log
 
 # Build
-.cache
 coverage
 Procfile
 yarn.lock

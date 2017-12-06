@@ -4,12 +4,6 @@ import Helmet from "react-helmet";
 import config from "../../../data/site-config";
 
 class SEO extends Component {
-  static propTypes = {
-    postNode: PropTypes.object,
-    postPath: PropTypes.string,
-    postSEO: PropTypes.bool
-  };
-
   generateTitle() {
     const { postNode, postSEO } = this.props;
     let title;
@@ -125,5 +119,11 @@ class SEO extends Component {
     );
   }
 }
+
+SEO.propTypes = {
+  postNode: PropTypes.object,
+  postPath: PropTypes.string,
+  postSEO: PropTypes.bool
+};
 
 export default SEO;
