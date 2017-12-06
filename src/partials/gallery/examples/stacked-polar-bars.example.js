@@ -129,7 +129,7 @@ class App extends React.Component {
             data={this.state.wind}
             x="windBearing"
             y="windSpeed"
-            labels
+            labels={() => ""}
             labelComponent={<CenterLabel color={orange}/>}
           />
           <VictoryBar
@@ -140,7 +140,7 @@ class App extends React.Component {
             data={this.state.wind}
             x="windBearing"
             y={(d) => d.windGust - d.windSpeed}
-            labels
+            labels={() => ""}
             labelComponent={<CenterLabel color={red}/>}
           />
         </VictoryStack>
