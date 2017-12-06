@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import Link from "gatsby-link";
-import find from "lodash/find";
+import { find } from "lodash";
 import * as Victory from "victory";
 
 // Child Components
@@ -73,6 +73,7 @@ class Gallery extends React.Component {
 
   renderPlayground(slug) {
     const example = find(configGallery, { slug });
+    const exampleText = example && example.text;
     const current = configGallery.indexOf(example);
     // cycle through gallery array
     const previous = current - 1 > 0 ? current - 1 : configGallery.length - 1;
@@ -84,7 +85,7 @@ class Gallery extends React.Component {
           Back to Gallery
         </Link>
         <h1 className="u-noMargin">
-          {example.text}
+          {exampleText}
         </h1>
         <div className="Grid Grid--justifySpacebetween u-marginTopSm">
           <Link
