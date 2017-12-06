@@ -8,6 +8,10 @@ node_modules
 npm-debug\.log*
 phantomjsdriver\.log
 
+# tests
+__mocks__
+__tests__
+
 # Build
 coverage
 Procfile
