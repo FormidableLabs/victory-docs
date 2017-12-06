@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import Link from "gatsby-link";
-import _ from "lodash";
+import { find } from "lodash";
 import * as Victory from "victory";
 
 // Child Components
@@ -14,22 +14,12 @@ import Preview from "../../partials/gallery/components/preview";
 import { configGallery } from "../../partials/gallery/config";
 
 class Gallery extends React.Component {
-  static propTypes = {
-    location: PropTypes.object.isRequired,
-    params: PropTypes.object
-  };
-
-  static defaultProps = {
-    params: null
-  };
-
   constructor(props) {
     super(props);
 
-    // No idea why _ is being weird but it is
     this.scope = {
       ...Victory,
-      _,
+      _: require("lodash"),
       React,
       ReactDOM,
       PropTypes
@@ -44,7 +34,6 @@ class Gallery extends React.Component {
 
   renderPreviews(config) {
     const previews = config.map((example, index) => {
-      example = example || {};
       return (
         <div key={index} className="Gallery-item">
           <Link to={`/gallery/${example.slug}`}>
@@ -73,14 +62,17 @@ class Gallery extends React.Component {
 
   renderPlayground(slug) {
     const config = configGallery || [];
-    const example = _.find(config, { slug }) || {};
+    const example = find(config, { slug });
+    if (!example) {
+      return null;
+    }
     const current = config.indexOf(example);
     // cycle through gallery array
     const previous = current - 1 > 0 ? current - 1 : config.length - 1;
     const prevIndex = previous % config.length;
     const nextIndex = (current + 1) % config.length;
-    const nextExample = config[nextIndex] || {};
-    const previousExample = config[prevIndex] || {};
+    const nextExample = config[nextIndex];
+    const previousExample = config[prevIndex];
     return (
       <article className="Article Article--noBottom">
         <Link to="/gallery" className="SubHeading">
@@ -136,5 +128,14 @@ class Gallery extends React.Component {
     );
   }
 }
+
+Gallery.propTypes = {
+  location: PropTypes.object.isRequired,
+  params: PropTypes.object
+};
+
+Gallery.defaultProps = {
+  params: null
+};
 
 export default Gallery;

@@ -37,13 +37,6 @@ const scopeMap = {
 };
 
 class WithPlayground extends React.Component {
-  static propTypes = {
-    content: PropTypes.string,
-    html: PropTypes.string,
-    scope: PropTypes.array,
-    theme: PropTypes.string
-  };
-
   componentDidMount() {
     this.renderPlaygrounds();
   }
@@ -127,5 +120,12 @@ class WithPlayground extends React.Component {
     );
   }
 }
+
+WithPlayground.propTypes = {
+  content: PropTypes.string,
+  html: PropTypes.string,
+  scope: PropTypes.array,
+  theme: PropTypes.string
+};
 
 export default WithPlayground;

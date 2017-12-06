@@ -16,13 +16,7 @@ if (process.env.NODE_ENV === "production") {
   }
 }
 
-export default class HTML extends React.Component {
-  static propTypes = {
-    body: PropTypes.string,
-    headComponents: PropTypes.array,
-    postBodyComponents: PropTypes.any
-  }
-
+class HTML extends React.Component {
   render() {
     let css;
     if (process.env.NODE_ENV === "production") {
@@ -69,3 +63,11 @@ export default class HTML extends React.Component {
     );
   }
 }
+
+HTML.propTypes = {
+  body: PropTypes.string,
+  headComponents: PropTypes.array,
+  postBodyComponents: PropTypes.any
+};
+
+export default HTML;

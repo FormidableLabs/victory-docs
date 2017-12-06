@@ -11,14 +11,6 @@ import DemoZoom from "./demo-zoom";
 import DemoAnimation from "./demo-animation";
 
 class Benefits extends React.Component {
-  static propTypes = {
-    style: PropTypes.object
-  };
-
-  static defaultProps = {
-    style: null
-  };
-
   render() {
     return (
       <div className="Benefits">
@@ -121,5 +113,14 @@ class Benefits extends React.Component {
     );
   }
 }
+
+Benefits.propTypes = {
+  style: PropTypes.object
+};
+
+Benefits.defaultProps = {
+  style: null
+};
+
 
 export default Benefits;
