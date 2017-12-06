@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import Link from "gatsby-link";
-import { find } from "lodash";
+import _ from "lodash";
 import * as Victory from "victory";
 
 // Child Components
@@ -11,7 +11,6 @@ import Footer from "../../partials/footer";
 import Icon from "../../partials/icon";
 
 import Preview from "../../partials/gallery/components/preview";
-// import TitleMeta from "../../components/title-meta";
 import { configGallery } from "../../partials/gallery/config";
 
 class Gallery extends React.Component {
@@ -30,7 +29,7 @@ class Gallery extends React.Component {
     // No idea why _ is being weird but it is
     this.scope = {
       ...Victory,
-      _: require("lodash"),
+      _,
       React,
       ReactDOM,
       PropTypes
@@ -45,6 +44,7 @@ class Gallery extends React.Component {
 
   renderPreviews(config) {
     const previews = config.map((example, index) => {
+      example = example || {};
       return (
         <div key={index} className="Gallery-item">
           <Link to={`/gallery/${example.slug}`}>
@@ -72,12 +72,15 @@ class Gallery extends React.Component {
   }
 
   renderPlayground(slug) {
-    const example = find(configGallery, { slug }) || {};
-    const current = configGallery.indexOf(example);
+    const config = configGallery || [];
+    const example = _.find(config, { slug }) || {};
+    const current = config.indexOf(example);
     // cycle through gallery array
-    const previous = current - 1 > 0 ? current - 1 : configGallery.length - 1;
-    const prevIndex = previous % configGallery.length;
-    const nextIndex = (current + 1) % configGallery.length;
+    const previous = current - 1 > 0 ? current - 1 : config.length - 1;
+    const prevIndex = previous % config.length;
+    const nextIndex = (current + 1) % config.length;
+    const nextExample = config[nextIndex] || {};
+    const previousExample = config[prevIndex] || {};
     return (
       <article className="Article Article--noBottom">
         <Link to="/gallery" className="SubHeading">
@@ -88,13 +91,13 @@ class Gallery extends React.Component {
         </h1>
         <div className="Grid Grid--justifySpacebetween u-marginTopSm">
           <Link
-            to={`/gallery/${configGallery[prevIndex].slug}`}
+            to={`/gallery/${previousExample.slug}`}
             className="SubHeading"
           >
             <Icon glyph="back" /> Previous Example
           </Link>
           <Link
-            to={`/gallery/${configGallery[nextIndex].slug}`}
+            to={`/gallery/${nextExample.slug}`}
             className="SubHeading"
           >
             Next Example <Icon glyph="internal-link" />
