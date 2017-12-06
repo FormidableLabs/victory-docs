@@ -72,8 +72,7 @@ class Gallery extends React.Component {
   }
 
   renderPlayground(slug) {
-    const example = find(configGallery, { slug });
-    const exampleText = example && example.text;
+    const example = find(configGallery, { slug }) || {};
     const current = configGallery.indexOf(example);
     // cycle through gallery array
     const previous = current - 1 > 0 ? current - 1 : configGallery.length - 1;
@@ -85,7 +84,7 @@ class Gallery extends React.Component {
           Back to Gallery
         </Link>
         <h1 className="u-noMargin">
-          {exampleText}
+          {example.text}
         </h1>
         <div className="Grid Grid--justifySpacebetween u-marginTopSm">
           <Link
