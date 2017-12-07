@@ -86,7 +86,7 @@
     "serve": "gatsby serve",
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
-    "clean": "rm -rf public && rm -rf .cache",
+    "clean": "rm -rf public",
     "lint:js": "eslint --ext .js src",
     "lint:md": "remark src",
     "lint": "npm run lint:js && npm run lint:md",
