@@ -113,9 +113,9 @@ class Gallery extends React.Component {
 
   render() {
     const { location } = this.props;
-    const prefix = "/gallery/";
-    const slug = location && location.pathname.slice(prefix.length, location.pathname.length);
-
+    const chunks = location.pathname.split("/");
+    const prefixIndex = chunks.indexOf("gallery");
+    const slug = chunks[prefixIndex + 1];
     const activePage = slug
       ? this.renderPlayground(slug)
       : this.renderPreviews(configGallery);
