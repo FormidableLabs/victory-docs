@@ -119,13 +119,23 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
+  const galleryTemplate = path.resolve("src/templates/gallery.js");
+
   // page.matchPath is a special key that's used for matching pages
   // only on the client.
   if (page.path.match(/^\/gallery/)) {
     page.matchPath = "/gallery/:path";
 
+    console.log('******* page')
+    console.log(page);
+    console.log('*******');
+
     // Update the page.
-    createPage(page);
+    createPage({
+      path: page.path,
+      component: galleryTemplate,
+      page
+    });
   }
 
   if (page.path.match("/guides/themes/")) {
