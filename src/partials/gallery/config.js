@@ -20,10 +20,6 @@ export const configGallery = [
     slug: "column-chart",
     code: require("!!raw!./examples/column-chart.example.js")
   }, {
-    text: "Animating Circular Progress Bar",
-    slug: "animating-circular-progress-bar",
-    code: require("!!raw!./examples/animating-circular-progress-bar.example.js")
-  }, {
     text: "Polar Cardioid",
     slug: "polar-cardioid",
     code: require("!!raw!./examples/polar-cardioid.example.js")
@@ -43,10 +39,6 @@ export const configGallery = [
     text: "Stacked Bars with Central Axis",
     slug: "stacked-bars-central-axis",
     code: require("!!raw!./examples/stacked-bars-central-axis.example.js")
-  }, {
-    text: "Alternative Events",
-    slug: "alternative-events",
-    code: require("!!raw!./examples/alternative-events.example.js")
   }, {
     text: "VictoryPortal with Stacked Area",
     slug: "victory-portal-stacked-area",
