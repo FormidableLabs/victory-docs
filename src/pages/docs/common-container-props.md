@@ -2,6 +2,7 @@
 id: 33
 title: Common Container Props
 category: containers
+sidebar: true
 scope: null
 ---
 # Common Container Props

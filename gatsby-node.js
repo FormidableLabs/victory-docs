@@ -20,6 +20,7 @@ exports.modifyWebpackConfig = ({ config }) => {
 };
 
 // Add custom url pathname for blog posts.
+// eslint-disable-next-line max-statements
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
   let slug;
@@ -45,11 +46,21 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       slug = `/${parsedFilePath.dir}/`;
     }
 
+    // Add raw content for galleries
+    let raw = "";
+    if (parsedFilePath.dir === "gallery") {
+      raw = node.internal.content;
+    }
+    createNodeField({ node, name: "raw", value: raw });
+
     // Add slug as a field on the node.
     createNodeField({ node, name: "slug", value: slug });
 
     // Separate /docs from /guides for <Sidebar />
     createNodeField({ node, name: "type", value: parsedFilePath.dir });
+
+    const useSidebar = parsedFilePath.dir === "docs" || parsedFilePath.dir === "guides";
+    createNodeField({ node, name: "sidebar", value: useSidebar });
   }
 };
 
@@ -62,6 +73,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const docsTemplate = path.resolve("src/templates/docs.js");
+    const galleryTemplate = path.resolve("src/templates/gallery.js");
 
     resolve(
       graphql(
@@ -81,6 +93,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 fields {
                   slug
                   type
+                  sidebar
+                  raw
                 }
               }
             }
@@ -96,17 +110,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach((edge) => {
-          // if (edge.node.frontmatter.category) {
-          //   categorySet.add(edge.node.frontmatter.category);
-          // }
 
+          const useSidebar = edge.node.fields.sidebar;
           createPage({
             path: edge.node.fields.slug, // required
-            component: docsTemplate,
+            component: useSidebar ? docsTemplate : galleryTemplate,
             context: {
               slug: edge.node.fields.slug
             },
-            layout: "with-sidebar"
+            layout: useSidebar ? "with-sidebar" : "index"
           });
         });
       })
@@ -118,16 +130,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 // called after every page is created.
 exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/gallery/)) {
-    page.matchPath = "/gallery/:path";
-
-    // Update the page.
-    createPage(page);
-  }
-
   if (page.path.match("/guides/themes/")) {
     page.layout = "with-sidebar";
 

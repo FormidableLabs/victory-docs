@@ -1,17 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import Playground from "component-playground";
 import Link from "gatsby-link";
-import { find } from "lodash";
 import * as Victory from "victory";
 
 // Child Components
 import Footer from "../../partials/footer";
 import Icon from "../../partials/icon";
 
-import Preview from "../../partials/gallery/components/preview";
-import { configGallery } from "../../partials/gallery/config";
+import Preview from "../../partials/gallery/preview";
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -26,27 +23,39 @@ class Gallery extends React.Component {
     };
   }
 
-  processCodeText(text) {
-    return text
-      .replace(/\/\* [global|eslint|NOTE](.|[\n])*?\*\//g, "") // remove dev comments
-      .trim(); // remove left-over whitespace
+  parseRaw(str) {
+    const playground = "playground_norender";
+    const start = str.indexOf(playground) + playground.length;
+    const end = str.indexOf("```", start);
+    return str.slice(start, end);
   }
 
-  renderPreviews(config) {
-    const previews = config.map((example, index) => {
+  renderPreviewItem(node) {
+    const code = this.parseRaw(node.fields.raw);
+    const slug = node.fields.slug;
+    const title = node.frontmatter.title;
+    return (
+        <Link to={slug}>
+          <Preview
+            codeText={code}
+            noRender={false}
+            theme="elegant"
+            scope={this.scope}
+          />
+          <p className="Gallery-item-heading">
+            {title}&nbsp;<Icon glyph="internal-link" />
+          </p>
+        </Link>
+    );
+  }
+
+  renderGallery(props) {
+    const { data } = props;
+    const items = data.allMarkdownRemark.edges;
+    const previews = items.map((item, index) => {
       return (
         <div key={index} className="Gallery-item">
-          <Link to={`/gallery/${example.slug}`}>
-            <Preview
-              codeText={this.processCodeText(example.code)}
-              noRender={false}
-              theme="elegant"
-              scope={this.scope}
-            />
-            <p className="Gallery-item-heading">
-              {example.text}&nbsp;<Icon glyph="internal-link" />
-            </p>
-          </Link>
+          {this.renderPreviewItem(item.node)}
         </div>
       );
     });
@@ -60,69 +69,25 @@ class Gallery extends React.Component {
     );
   }
 
-  renderPlayground(slug) {
-    const config = configGallery || [];
-    const example = find(config, { slug });
-    if (!example) {
-      return null;
-    }
-    const current = config.indexOf(example);
-    // cycle through gallery array
-    const previous = current - 1 > 0 ? current - 1 : config.length - 1;
-    const prevIndex = previous % config.length;
-    const nextIndex = (current + 1) % config.length;
-    const nextExample = config[nextIndex];
-    const previousExample = config[prevIndex];
-    return (
-      <article className="Article Article--noBottom">
-        <Link to="/gallery" className="SubHeading">
-          Back to Gallery
-        </Link>
-        <h1 className="u-noMargin">
-          {example.text}
-        </h1>
-        <div className="Grid Grid--justifySpacebetween u-marginTopSm">
-          <Link
-            to={`/gallery/${previousExample.slug}`}
-            className="SubHeading"
-          >
-            <Icon glyph="back" /> Previous Example
-          </Link>
-          <Link
-            to={`/gallery/${nextExample.slug}`}
-            className="SubHeading"
-          >
-            Next Example <Icon glyph="internal-link" />
-          </Link>
-        </div>
-        <div className="Recipe Recipe--gallery">
-          <pre className="u-noMarginTop u-noPadding">
-            <div className="Interactive">
-              <Playground
-                codeText={this.processCodeText(example.code)}
-                noRender={false}
-                theme="elegant"
-                scope={this.scope}
-              />
-            </div>
-          </pre>
-        </div>
-      </article>
-    );
-  }
-
   render() {
-    const { location } = this.props;
-    const chunks = location.pathname.split("/");
-    const prefixIndex = chunks.indexOf("gallery");
-    const slug = chunks[prefixIndex + 1];
-    const activePage = slug
-      ? this.renderPlayground(slug)
-      : this.renderPreviews(configGallery);
+    const { data } = this.props;
+    const items = data.allMarkdownRemark.edges;
+    const previews = items.map((item, index) => {
+      return (
+        <div key={index} className="Gallery-item">
+          {this.renderPreviewItem(item.node)}
+        </div>
+      );
+    });
 
     return (
       <div>
-        { activePage }
+        <article className="Article Article--noBottom">
+          <h1 className="u-noMargin">Gallery</h1>
+          <div className="Gallery">
+            {previews}
+          </div>
+        </article>
         <Footer />
       </div>
     );
@@ -130,8 +95,7 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  location: PropTypes.object.isRequired,
-  params: PropTypes.object
+  data: PropTypes.object
 };
 
 Gallery.defaultProps = {
@@ -139,3 +103,25 @@ Gallery.defaultProps = {
 };
 
 export default Gallery;
+
+// this query returns only gallery md
+export const query = graphql`
+  query GalleryQuery {
+    allMarkdownRemark(
+      filter: { fields: { type: { eq: "gallery" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+            raw
+          }
+          frontmatter{
+            id
+            title
+          }
+        }
+      }
+    }
+  }
+`;

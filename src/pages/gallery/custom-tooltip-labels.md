@@ -1,12 +1,9 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode, PropTypes */
-/* global VictoryPie, VictoryLabel, VictoryTooltip  */
-/* eslint-disable react/no-multi-comp */
+---
+id: 4
+title: Custom Tooltip Labels
+---
 
-
+```playground_norender
 class CustomLabel extends React.Component {
   render() {
     return (
@@ -53,3 +50,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

@@ -1,10 +1,9 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* eslint-disable react/no-did-mount-set-state */
-/* global window, React, ReactDOM, mountNode, VictoryChart, VictoryArea, VictoryStack, VictoryTheme, _ */
+---
+id: 14
+title: VictoryArea Animation
+---
 
+```playground_norender
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -54,3 +53,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

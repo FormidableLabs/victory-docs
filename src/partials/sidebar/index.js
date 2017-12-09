@@ -93,7 +93,7 @@ class Sidebar extends React.Component {
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const active =
-        category !== "introduction" && !isEmpty(location.pathname.match(link.fields.slug))
+        category !== "introduction" && location.pathname.includes(link.fields.slug)
           ? true
           : this.state.filterTerm !== "";
       const headings = this.state.filterTerm !== "" ?

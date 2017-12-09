@@ -1,10 +1,9 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode */
-/* global VictoryChart, VictoryGroup, VictoryBar, VictoryTheme */
+---
+id: 5
+title: Horizontal Grouped Bars
+---
 
+``` playground_norender
 class App extends React.Component {
   render() {
     return (
@@ -53,3 +52,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

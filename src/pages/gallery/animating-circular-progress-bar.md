@@ -1,11 +1,9 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode, window */
-/* global VictoryPie, VictoryLabel, VictoryAnimation */
-/* eslint-disable react/no-did-mount-set-state */
+---
+id: 1
+title: Animating Circular Progress Bar
+---
 
+```playground_norender
 class App extends React.Component {
   constructor() {
     super();
@@ -72,3 +70,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```
