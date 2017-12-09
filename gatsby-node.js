@@ -20,6 +20,7 @@ exports.modifyWebpackConfig = ({ config }) => {
 };
 
 // Add custom url pathname for blog posts.
+// eslint-disable-next-line max-statements
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
   let slug;
@@ -27,10 +28,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   if (node.internal.type === "MarkdownRemark") {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
-    let raw = "";
-    if (parsedFilePath.dir === "gallery") {
-      raw = node.internal.content;
-    }
 
     // manually overriding slug in frontmatter
     if (
@@ -50,6 +47,10 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     }
 
     // Add raw content for galleries
+    let raw = "";
+    if (parsedFilePath.dir === "gallery") {
+      raw = node.internal.content;
+    }
     createNodeField({ node, name: "raw", value: raw });
 
     // Add slug as a field on the node.
@@ -129,29 +130,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 // called after every page is created.
 exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
-
-  const galleryTemplate = path.resolve("src/templates/gallery.js");
-  const docsTemplate = path.resolve("src/templates/docs.js");
-
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  // if (page.path.match(/^\/gallery/)) {
-  // if (false) {
-  //   page.matchPath = "/gallery/:path";
-
-  //   console.log('******* page')
-  //   console.log(page);
-  //   console.log('*******');
-
-  //   // Update the page.
-  //   createPage({
-  //     path: page.path,
-  //     component: galleryTemplate,
-  //     page
-  //   });
-  // }
-
   if (page.path.match("/guides/themes/")) {
     page.layout = "with-sidebar";
 
