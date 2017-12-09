@@ -1,8 +1,6 @@
 ---
 id: 14
 title: VictoryArea Animation
-category: gallery
-scope: null
 ---
 
 ```playground_norender

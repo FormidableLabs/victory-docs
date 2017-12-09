@@ -1,8 +1,6 @@
 ---
 id: 11
 title: Stacked Bars with Central Axis
-category: gallery
-scope: null
 ---
 
 ```playground_norender

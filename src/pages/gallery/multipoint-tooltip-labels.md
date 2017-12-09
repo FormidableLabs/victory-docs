@@ -1,8 +1,6 @@
 ---
 id: 8
 title: Multipoint Tooltip Labels
-category: gallery
-scope: null
 ---
 
 ``` playground_norender

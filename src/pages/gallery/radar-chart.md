@@ -1,8 +1,6 @@
 ---
 id: 10
 title: Radar Chart
-category: gallery
-scope: null
 ---
 
 ```playground_norender

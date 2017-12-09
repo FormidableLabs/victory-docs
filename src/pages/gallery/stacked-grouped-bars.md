@@ -1,8 +1,6 @@
 ---
 id: 11
 title: Stacked Grouped Bars
-category: gallery
-scope: null
 ---
 
 ```playground_norender

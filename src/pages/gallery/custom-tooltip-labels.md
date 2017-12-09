@@ -1,7 +1,6 @@
 ---
 id: 4
 title: Custom Tooltip Labels
-category: gallery
 ---
 
 ```playground_norender

@@ -1,8 +1,6 @@
 ---
 id: 9
 title: Polar Cardioid
-category: gallery
-scope: null
 ---
 
 ```playground_norender

@@ -1,8 +1,6 @@
 ---
 id: 1
 title: Animating Circular Progress Bar
-category: gallery
-scope: null
 ---
 
 ```playground_norender

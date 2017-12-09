@@ -1,8 +1,6 @@
 ---
 id: 3
 title: 100% Column Chart
-category: gallery
-scope: null
 ---
 
 ```playground_norender

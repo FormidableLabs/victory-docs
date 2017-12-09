@@ -1,8 +1,6 @@
 ---
 id: 13
 title: Stream Graph
-category: gallery
-scope: null
 ---
 
 ```playground_norender

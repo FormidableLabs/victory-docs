@@ -1,8 +1,6 @@
 ---
 id: 0
 title: Alternative Events
-category: gallery
-scope: null
 ---
 
 ```playground_norender

@@ -1,8 +1,6 @@
 ---
 id: 15
 title: VictoryArea with Stroke
-category: gallery
-scope: null
 ---
 
 ```playground_norender

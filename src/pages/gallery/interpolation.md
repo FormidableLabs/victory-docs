@@ -1,8 +1,6 @@
 ---
 id: 6
 title: Interpolation
-category: gallery
-scope: null
 ---
 
 ``` playground_norender

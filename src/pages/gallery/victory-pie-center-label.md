@@ -1,8 +1,6 @@
 ---
 id: 17
 title: VictoryPie with Center Label
-category: gallery
-scope: null
 ---
 
 ```playground_norender

@@ -1,8 +1,6 @@
 ---
 id: 12
 title: Stacked Polar Bars
-category: gallery
-scope: null
 ---
 
 ```playground_norender

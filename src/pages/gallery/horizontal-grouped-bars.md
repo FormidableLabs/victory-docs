@@ -1,8 +1,6 @@
 ---
 id: 5
 title: Horizontal Grouped Bars
-category: gallery
-scope: null
 ---
 
 ``` playground_norender

@@ -1,8 +1,6 @@
 ---
 id: 19
 title: Voronoi Tooltips with Grouped Components
-category: gallery
-scope: null
 ---
 
 ```playground_norender

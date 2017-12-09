@@ -1,8 +1,6 @@
 ---
 id: 16
 title: VictoryLine with Null Data
-category: gallery
-scope: null
 ---
 
 ```playground_norender

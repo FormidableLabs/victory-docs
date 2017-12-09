@@ -1,8 +1,6 @@
 ---
 id: 2
 title: Brush and Zoom
-category: gallery
-scope: null
 ---
 
 ```playground_norender

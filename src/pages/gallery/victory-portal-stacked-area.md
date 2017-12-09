@@ -1,8 +1,6 @@
 ---
 id: 18
 title: Stacked Areas with VictoryPortal
-category: gallery
-scope: null
 ---
 
 ```playground_norender

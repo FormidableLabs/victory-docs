@@ -1,8 +1,6 @@
 ---
 id: 7
 title: Multiple Dependent Axes
-category: gallery
-scope: null
 ---
 
 ``` playground_norender
