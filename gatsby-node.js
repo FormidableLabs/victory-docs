@@ -27,6 +27,10 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   if (node.internal.type === "MarkdownRemark") {
     const fileNode = getNode(node.parent);
     const parsedFilePath = path.parse(fileNode.relativePath);
+    let raw = "";
+    if (parsedFilePath.dir === "gallery") {
+      raw = node.internal.content;
+    }
 
     // manually overriding slug in frontmatter
     if (
@@ -45,11 +49,17 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       slug = `/${parsedFilePath.dir}/`;
     }
 
+    // Add raw content for galleries
+    createNodeField({ node, name: "raw", value: raw });
+
     // Add slug as a field on the node.
     createNodeField({ node, name: "slug", value: slug });
 
     // Separate /docs from /guides for <Sidebar />
     createNodeField({ node, name: "type", value: parsedFilePath.dir });
+
+    const useSidebar = parsedFilePath.dir === "docs" || parsedFilePath.dir === "guides";
+    createNodeField({ node, name: "sidebar", value: useSidebar });
   }
 };
 
@@ -62,6 +72,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const docsTemplate = path.resolve("src/templates/docs.js");
+    const galleryTemplate = path.resolve("src/templates/gallery.js");
 
     resolve(
       graphql(
@@ -81,6 +92,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 fields {
                   slug
                   type
+                  sidebar
+                  raw
                 }
               }
             }
@@ -96,17 +109,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach((edge) => {
-          // if (edge.node.frontmatter.category) {
-          //   categorySet.add(edge.node.frontmatter.category);
-          // }
 
+          const useSidebar = edge.node.fields.sidebar;
           createPage({
             path: edge.node.fields.slug, // required
-            component: docsTemplate,
+            component: useSidebar ? docsTemplate : galleryTemplate,
             context: {
               slug: edge.node.fields.slug
             },
-            layout: "with-sidebar"
+            layout: useSidebar ? "with-sidebar" : "index"
           });
         });
       })
@@ -120,23 +131,26 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
 
   const galleryTemplate = path.resolve("src/templates/gallery.js");
+  const docsTemplate = path.resolve("src/templates/docs.js");
+
 
   // page.matchPath is a special key that's used for matching pages
   // only on the client.
-  if (page.path.match(/^\/gallery/)) {
-    page.matchPath = "/gallery/:path";
+  // if (page.path.match(/^\/gallery/)) {
+  // if (false) {
+  //   page.matchPath = "/gallery/:path";
 
-    console.log('******* page')
-    console.log(page);
-    console.log('*******');
+  //   console.log('******* page')
+  //   console.log(page);
+  //   console.log('*******');
 
-    // Update the page.
-    createPage({
-      path: page.path,
-      component: galleryTemplate,
-      page
-    });
-  }
+  //   // Update the page.
+  //   createPage({
+  //     path: page.path,
+  //     component: galleryTemplate,
+  //     page
+  //   });
+  // }
 
   if (page.path.match("/guides/themes/")) {
     page.layout = "with-sidebar";

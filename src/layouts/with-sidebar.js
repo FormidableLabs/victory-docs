@@ -65,6 +65,7 @@ export const query = graphql`
           fields {
             slug
             type
+            raw
           }
           headings {
             depth

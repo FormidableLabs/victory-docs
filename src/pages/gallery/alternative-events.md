@@ -1,9 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode, VictoryChart, VictoryBar, Bar */
+---
+id: 0
+title: Alternative Events
+category: Gallery
+scope: null
+---
 
+``` playground_norender
 class App extends React.Component {
   constructor() {
     super();
@@ -52,3 +54,4 @@ class App extends React.Component {
  }
 
 ReactDOM.render(<App/>, mountNode);
+```
