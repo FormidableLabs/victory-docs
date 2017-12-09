@@ -1,9 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode, VictoryPie, VictoryLabel */
+---
+id: 17
+title: VictoryPie with Center Label
+category: gallery
+scope: null
+---
 
+```playground_norender
 class App extends React.Component {
   render() {
     return (
@@ -29,3 +31,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

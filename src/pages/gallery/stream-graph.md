@@ -1,12 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode, location, _ */
-/* global Area, VictoryArea, VictoryAxis, VictoryChart, VictoryLine */
-/* eslint-disable no-bitwise */
-/* eslint-disable react/no-multi-comp */
+---
+id: 13
+title: Stream Graph
+category: gallery
+scope: null
+---
 
+```playground_norender
 // This customized component is supplied to VictoryArea
 class GradientArea extends Area {
   toGrayscale(color) {
@@ -127,3 +126,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

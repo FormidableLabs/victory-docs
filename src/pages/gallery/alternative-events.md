@@ -1,11 +1,11 @@
 ---
 id: 0
 title: Alternative Events
-category: Gallery
+category: gallery
 scope: null
 ---
 
-``` playground_norender
+```playground_norender
 class App extends React.Component {
   constructor() {
     super();

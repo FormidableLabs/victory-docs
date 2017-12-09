@@ -1,10 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode */
-/* global VictoryChart, VictoryGroup, VictoryPolarAxis, VictoryArea, VictoryLabel, VictoryTheme */
+---
+id: 10
+title: Radar Chart
+category: gallery
+scope: null
+---
 
+```playground_norender
 const characterData = [
   { strength: 1, intelligence: 250, luck: 1, stealth: 40, charisma: 50 },
   { strength: 2, intelligence: 300, luck: 2, stealth: 80, charisma: 90 },
@@ -89,3 +90,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

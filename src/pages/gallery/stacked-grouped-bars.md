@@ -1,10 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode */
-/* global VictoryChart, VictoryStack, VictoryBar, VictoryGroup */
+---
+id: 11
+title: Stacked Grouped Bars
+category: gallery
+scope: null
+---
 
+```playground_norender
 class App extends React.Component {
 
   render() {
@@ -45,3 +46,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

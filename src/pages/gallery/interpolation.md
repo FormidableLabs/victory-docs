@@ -1,12 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode */
-/* global VictoryChart, VictoryLine, VictoryChart, VictoryScatter */
-/* eslint-disable react/no-multi-comp */
-/* eslint-disable react/prop-types */
+---
+id: 6
+title: Interpolation
+category: gallery
+scope: null
+---
 
+``` playground_norender
 const data = [
   { x: 0, y: 0 },
   { x: 1, y: 2 },
@@ -90,3 +89,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

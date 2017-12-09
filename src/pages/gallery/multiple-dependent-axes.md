@@ -1,10 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode */
-/* global VictoryChart, VictoryLine, VictoryAxis, VictoryTheme */
+---
+id: 7
+title: Multiple Dependent Axes
+category: gallery
+scope: null
+---
 
+``` playground_norender
 const data = [
   [{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 3 }, { x: 4, y: 4 }],
   [{ x: 1, y: 400 }, { x: 2, y: 350 }, { x: 3, y: 300 }, { x: 4, y: 250 }],
@@ -62,3 +63,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

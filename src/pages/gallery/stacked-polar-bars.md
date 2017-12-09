@@ -1,17 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* eslint-disable no-arrow-condition */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-did-mount-set-state */
-/* eslint-disable react/no-multi-comp */
+---
+id: 12
+title: Stacked Polar Bars
+category: gallery
+scope: null
+---
 
-/*
-  global _, window, React, ReactDOM, mountNode, VictoryTheme,
-  VictoryChart, VictoryBar, VictoryLabel, VictoryPolarAxis, VictoryStack
-*/
-
+```playground_norender
 const directions = {
   0: "E", 45: "NE", 90: "N", 135: "NW",
   180: "W", 225: "SW", 270: "S", 315: "SE"
@@ -151,3 +145,4 @@ class App extends React.Component {
  }
 
 ReactDOM.render(<App/>, mountNode);
+```

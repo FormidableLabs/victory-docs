@@ -29,16 +29,17 @@ class GalleryTemplate extends React.Component {
           <Link to="/gallery" className="SubHeading">
             Back to Gallery
           </Link>
-          <div className="Recipe Markdown">
-            {/* TODO: Add edit this page link once everything is merged to master
-              <a className="SubHeading" href="">Edit this page</a>
-            */}
+          <div className="Recipe Recipe--gallery">
             <h1>{post.title}</h1>
-            <Playground
-              html={postNode.html}
-              scope={post.scope}
-              theme="elegant"
-            />
+            <pre className="u-noMarginTop u-noPadding">
+              <div className="Interactive">
+                <Playground
+                  html={postNode.html}
+                  scope={post.scope}
+                  theme="elegant"
+                />
+              </div>
+            </pre>
           </div>
         </article>
         <Footer />

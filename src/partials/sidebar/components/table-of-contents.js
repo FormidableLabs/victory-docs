@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Link from "gatsby-link";
 import { maxBy, minBy, isEmpty } from "lodash";
 
 class TableOfContents extends React.Component {
@@ -53,7 +54,9 @@ class TableOfContents extends React.Component {
           return item.depth > 1 ?
             (
               <li key={index} className="Sidebar-toc-item">
-                <a href={`${link.fields.slug}#${toAnchor(item.value)}`}>{item.value}</a>
+                <Link to={`${link.fields.slug}#${toAnchor(item.value)}`}>
+                  {item.value}
+                </Link>
               </li>
             ) : null;
         })}

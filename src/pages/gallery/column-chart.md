@@ -1,10 +1,11 @@
-/* NOTE
-  all one-line star comments starting with "eslint", "global", or "NOTE"
-  will be removed before displaying this document to the user
-*/
-/* global React, ReactDOM, mountNode */
-/* global VictoryChart, VictoryAxis, VictoryStack, VictoryBar  */
+---
+id: 3
+title: 100% Column Chart
+category: gallery
+scope: null
+---
 
+```playground_norender
 const myDataset = [
   [
       { x: "a", y: 1 },
@@ -71,3 +72,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App/>, mountNode);
+```

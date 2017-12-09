@@ -1,17 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import Playground from "component-playground";
 import Link from "gatsby-link";
-import { find } from "lodash";
 import * as Victory from "victory";
 
 // Child Components
 import Footer from "../../partials/footer";
 import Icon from "../../partials/icon";
 
-import Preview from "../../partials/gallery/components/preview";
-import { configGallery } from "../../partials/gallery/config";
+import Preview from "../../partials/gallery/preview";
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -27,7 +24,7 @@ class Gallery extends React.Component {
   }
 
   parseRaw(str) {
-    const playground = "``` playground_norender";
+    const playground = "playground_norender";
     const start = str.indexOf(playground) + playground.length;
     const end = str.indexOf("```", start);
     return str.slice(start, end);
