@@ -267,8 +267,8 @@ getData() {
 }
 ```
 
-[VictoryZoomContainer]: https://formidable.com/open-source/victory/docs/victory-zoom-container
-[VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
-[Skip to the demo]: https://formidable.com/open-source/victory/guides/zoom-large-data#demo
+[VictoryZoomContainer]: /docs/victory-zoom-container
+[VictoryChart]: /docs/victory-chart
+[Skip to the demo]: /guides/zoom-large-data#demo
 [Lodash]: https://lodash.com/
 [Crossfilter]: http://square.github.io/crossfilter/

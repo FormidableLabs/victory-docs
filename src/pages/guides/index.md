@@ -42,16 +42,16 @@ Create polar charts and configure polar axes.
 Use `VictoryZoomContainer` to render large data sets with Victory without compromising performance.
 
 
-[our tutorial]: https://formidable.com/open-source/victory/docs
-[Custom Components]: https://formidable.com/open-source/victory/guides/custom-components
-[primitive components]: https://formidable.com/open-source/victory/docs/victory-primitives
-[Data Accessors]: https://formidable.com/open-source/victory/guides/data-accessors
-[Events]: https://formidable.com/open-source/victory/guides/events
-[Animations]: https://formidable.com/open-source/victory/guides/animations
-[Layout]: https://formidable.com/open-source/victory/guides/layout
-[Custom Charts]: https://formidable.com/open-source/victory/guides/custom-charts
-[Themes]: https://formidable.com/open-source/victory/guides/themes
-[Tooltips]: https://formidable.com/open-source/victory/guides/tooltips
-[Brush and Zoom]: https://formidable.com/open-source/victory/guides/brush-and-zoom
-[Polar Charts]: https://formidable.com/open-source/victory/guides/polar-charts
-[Zoom on Large Datasets]: https://formidable.com/open-source/victory/guides/zoom-large-data
+[our tutorial]: /docs
+[Custom Components]: /guides/custom-components
+[primitive components]: /docs/victory-primitives
+[Data Accessors]: /guides/data-accessors
+[Events]: /guides/events
+[Animations]: /guides/animations
+[Layout]: /guides/layout
+[Custom Charts]: /guides/custom-charts
+[Themes]: /guides/themes
+[Tooltips]: /guides/tooltips
+[Brush and Zoom]: /guides/brush-and-zoom
+[Polar Charts]: /guides/polar-charts
+[Zoom on Large Datasets]: /guides/zoom-large-data

@@ -62,6 +62,6 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the `x` and `y` data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. `eventKey` may also be defined directly on each data object.
 
-[VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
-[VictoryGroup]: https://formidable.com/open-source/victory/docs/victory-group
-[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
+[VictoryChart]: /docs/victory-chart
+[VictoryGroup]: /docs/victory-group
+[VictoryStack]: /docs/victory-stack

@@ -31,7 +31,7 @@ scope:
 
 ### animate
 
-`VictoryVoronoi` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+`VictoryVoronoi` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
@@ -44,7 +44,7 @@ animate={{
 
 ### categories
 
-`VictoryVoronoi` uses the standard `categories` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryVoronoi` uses the standard `categories` prop. [Read about it in detail here](/docs/common-props#categories)
 
 ```jsx
 categories={{ x: ["dogs", "cats", "mice"] }}
@@ -52,7 +52,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 ### containerComponent
 
-`VictoryVoronoi` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryVoronoi` uses the standard `containerComponent` prop. [Read about it in detail here](/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer dimension="x"/>}
@@ -60,7 +60,7 @@ containerComponent={<VictoryVoronoiContainer dimension="x"/>}
 
 ### data
 
-`VictoryVoronoi` uses the standard `data` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#data)
+`VictoryVoronoi` uses the standard `data` prop. [Read about it in detail here](/docs/common-props#data)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -79,7 +79,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### dataComponent
 
-`VictoryVoronoi` uses the standard `dataComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryVoronoi` uses the standard `dataComponent` prop. [Read about it in detail here](/docs/common-props#datacomponent)
 
 `VictoryVoronoi` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `origin`, `polar`, `polygon`, `scale`, `size`, `style`, `x`, `y`
 
@@ -93,7 +93,7 @@ dataComponent={<Voronoi events={{ onClick: handleClick }}/>}
 
 ### domain
 
-`VictoryVoronoi` uses the standard `domain` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryVoronoi` uses the standard `domain` prop. [Read about it in detail here](/docs/common-props#domain)
 
 ```jsx
 domain={{x: [0, 100], y: [0, 1]}}
@@ -101,7 +101,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
-`VictoryVoronoi` uses the standard `domainPadding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryVoronoi` uses the standard `domainPadding` prop. [Read about it in detail here](/docs/common-props#domainpadding)
 
 ```jsx
 domainPadding={{x: [10, -10], y: 5}}
@@ -109,7 +109,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryVoronoi` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryVoronoi` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
 eventKey="x"
@@ -117,7 +117,7 @@ eventKey="x"
 
 ### events
 
-`VictoryVoronoi` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryVoronoi` uses the standard `events` prop. [Read about it in more detail here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -147,7 +147,7 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
-`VictoryVoronoi` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryVoronoi` uses the standard `groupComponent` prop. [Read about it in detail here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -157,7 +157,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 ### height
 
-`VictoryVoronoi` uses the standard `height` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryVoronoi` uses the standard `height` prop. [Read about it in detail here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -167,7 +167,7 @@ height={400}
 
 ### labelComponent
 
-`VictoryVoronoi` uses the standard `labelComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryVoronoi` uses the standard `labelComponent` prop. [Read about it in detail here](/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel/>`
 
@@ -185,7 +185,7 @@ height={400}
 
 ### labels
 
-`VictoryVoronoi` uses the standard `labels` prop to define labels for each point. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#labels)
+`VictoryVoronoi` uses the standard `labels` prop to define labels for each point. [Read about it in more detail here](/docs/common-props#labels)
 
 ```playground
 <VictoryVoronoi
@@ -210,11 +210,11 @@ name="series-1"
 
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+[Read about the `origin` prop in detail](/docs/common-props#origin)
 
 ### padding
 
-`VictoryVoronoi` uses the standard `padding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryVoronoi` uses the standard `padding` prop. [Read about it in detail here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -224,7 +224,7 @@ padding={{ top: 20, bottom: 60 }}
 
 ### polar
 
-`VictoryVoronoi` uses the standard `polar` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#polar)
+`VictoryVoronoi` uses the standard `polar` prop. [Read about it in detail here](/docs/common-props#polar)
 
 **Note:** Polar Charts are not yet supported for `VictoryVoronoi`
 
@@ -232,11 +232,11 @@ padding={{ top: 20, bottom: 60 }}
 
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+[Read about the `range` prop in detail](/docs/common-props#range)
 
 ### samples
 
-`VictoryVoronoi` uses the standard `samples` prop to generate data when plotting functions. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#samples)
+`VictoryVoronoi` uses the standard `samples` prop to generate data when plotting functions. [Read about it in more detail here](/docs/common-props#samples)
 
 *default:* `samples={50}`
 
@@ -246,7 +246,7 @@ samples={100}
 
 ### scale
 
-`VictoryVoronoi` uses the standard `scale` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#scale)
+`VictoryVoronoi` uses the standard `scale` prop. [Read about it in detail here](/docs/common-props#scale)
 
 *default:* `scale="linear"`
 
@@ -274,7 +274,7 @@ The size prop determines the maximum size of each voronoi area. When this prop i
 
 ### sortKey
 
-`VictoryVoronoi` uses the standard `sortKey` prop to determine how data should be ordered. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
+`VictoryVoronoi` uses the standard `sortKey` prop to determine how data should be ordered. [Read about it in more detail here](/docs/common-props#sortkey)
 
 ```jsx
 sortKey="x"
@@ -282,7 +282,7 @@ sortKey="x"
 
 ### standalone
 
-`VictoryVoronoi` uses the standard `standalone` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryVoronoi` uses the standard `standalone` prop. [Read about it in detail here](/docs/common-props#standalone)
 
 **note:** When `VictoryVoronoi` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -303,7 +303,7 @@ sortKey="x"
 
 ### style
 
-`VictoryVoronoi` uses the standard `style` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#style)
+`VictoryVoronoi` uses the standard `style` prop. [Read about it in detail here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
 
@@ -325,7 +325,7 @@ sortKey="x"
 
 ### theme
 
-`VictoryVoronoi` uses the standard `theme` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryVoronoi` uses the standard `theme` prop. [Read about it in detail here](/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
@@ -337,7 +337,7 @@ theme={VictoryTheme.material}
 
 ### width
 
-`VictoryVoronoi` uses the standard `width` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryVoronoi` uses the standard `width` prop. [Read about it in detail here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -347,7 +347,7 @@ width={400}
 
 ### x
 
-`VictoryVoronoi` uses the standard `x` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#x)
+`VictoryVoronoi` uses the standard `x` data accessor prop. [Read about it in detail here](/docs/common-props#x)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -357,7 +357,7 @@ x="employee.name"
 
 ### y
 
-`VictoryVoronoi` uses the standard `y` data accessor prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#y)
+`VictoryVoronoi` uses the standard `y` data accessor prop. [Read about it in detail here](/docs/common-props#y)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -367,12 +367,12 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-**It is not common to set a `y0` prop with `VictoryVoronoi`, as baselines for `VictoryVoronoi` are only relevant for stacked charts.** [Read more about the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
+**It is not common to set a `y0` prop with `VictoryVoronoi`, as baselines for `VictoryVoronoi` are only relevant for stacked charts.** [Read more about the `y0` prop here](/docs/common-props#y0)
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
+[Animations Guide]: /guides/animations
+[Data Accessors Guide]: /guides/data-accessors
+[Custom Components Guide]: /guides/custom-components
+[Events Guide]: /guides/events
+[Themes Guide]: /guides/themes
+[`VictoryChart`]: /docs/victory-chart
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js

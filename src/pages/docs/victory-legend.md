@@ -89,7 +89,7 @@ The `colorScale` prop defines a color scale to be applied to each data symbol in
 
 ### containerComponent
 
-`VictoryLegend` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryLegend` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 **Note:** `VictoryLegend` only works with the `VictoryContainer` component
 
@@ -120,7 +120,7 @@ Specify data via the `data` prop. `VictoryLegend` expects data as an array of ob
 ```
 
 ### dataComponent
-`VictoryLegend` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryLegend` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryLegend` supplies the following props to its `dataComponent`: `data`, `datum`, `events`, `index`, `x`, `y`, `size`, `style`, and `symbol`. `VictoryLegend` renders a [Point component][] by default.
 
@@ -134,7 +134,7 @@ dataComponent={<Point events={{ onClick: handleClick }}/>}
 
 ### eventKey
 
-`VictoryLegend` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryLegend` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
 eventKey="x"
@@ -142,7 +142,7 @@ eventKey="x"
 
 ### events
 
-`VictoryLegend` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryLegend` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -180,7 +180,7 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
-`VictoryLegend` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryLegend` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -207,7 +207,7 @@ The `gutter` prop defines the number of pixels between legend columns. This prop
 
 ### height
 
-`VictoryLegend` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryLegend` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={400}`
 
@@ -233,7 +233,7 @@ The `itemsPerRow` prop determines how many items to render in each row of a hori
 
 ### labelComponent
 
-`VictoryLegend` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryLegend` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel/>`
 
@@ -254,7 +254,7 @@ The `orientation` prop takes a string that defines whether legend data are displ
 
 ### padding
 
-`VictoryLegend` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryLegend` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -397,7 +397,7 @@ The `titleOrientation` prop specifies where the a title should be rendered in re
 
 ### width
 
-`VictoryLegend` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryLegend` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={400}`
 
@@ -413,10 +413,10 @@ The `x` prop defines the x coordinate corresponding to the upper left corner of 
 
 The `y` prop defines the y coordinate corresponding to the upper left corner of the legend.
 
-[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[Point component]: https://formidable.com/open-source/victory/docs/victory-primitives#point
-[Border component]: https://formidable.com/open-source/victory/docs/victory-primitives#border
+[VictoryLabel]: /docs/victory-label
+[Point component]: /docs/victory-primitives#point
+[Border component]: /docs/victory-primitives#border
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Read more about themes here]: /guides/themes
+[Custom Components Guide]: /guides/custom-components
+[Events Guide]: /guides/events

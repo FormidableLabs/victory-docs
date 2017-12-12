@@ -30,7 +30,7 @@ VictoryPolarAxis renders a single axis which can be used on its own or composed 
 
 ### animate
 
-`VictoryPolarAxis` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+`VictoryPolarAxis` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations
 
@@ -135,7 +135,7 @@ circularGridComponent={<Arc r={300}/>}
 
 ### containerComponent
 
-`VictoryPolarAxis` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryPolarAxis` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 The following victory containers work with polar charts:
 `VictoryContainer`, `VictorySelectionContainer`, `VictoryVoronoiContainer` and `VictoryZoomContainer`
@@ -159,7 +159,7 @@ The `dependentAxis` boolean prop specifies whether the axis corresponds to the d
 
 ### domain
 
-`VictoryPolarAxis` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryPolarAxis` uses the standard `domain` prop. [Read about it here](/docs/common-props#domain)
 
 ```jsx
 domain={{x: [0, 100], y: [0, 1]}}
@@ -167,7 +167,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
-`VictoryPolarAxis` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryPolarAxis` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
 
 ```jsx
 domainPadding={{x: [10, -10], y: 5}}
@@ -198,7 +198,7 @@ The `endAngle` props defines the overall end angle of the axis in degrees. This 
 
 ### events
 
-`VictoryPolarAxis` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryPolarAxis` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
 See the [Events Guide] []for more information on defining events.
 
@@ -217,7 +217,7 @@ gridComponent={<Line events={{ onClick: handleClick }}/>}
 
 ### groupComponent
 
-`VictoryPolarAxis` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryPolarAxis` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -227,7 +227,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 ### height
 
-`VictoryPolarAxis` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryPolarAxis` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -275,7 +275,7 @@ The `labelPlacement` prop specifies how tick labels should be placed relative to
 
 ### name
 
-`VictoryPolarAxis` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
+`VictoryPolarAxis` uses the standard `name` prop. [Read about it here](/docs/common-props#name)
 
 ```jsx
 name="series-1"
@@ -283,7 +283,7 @@ name="series-1"
 
 ### padding
 
-`VictoryPolarAxis` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryPolarAxis` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -295,11 +295,11 @@ padding={{ top: 20, bottom: 60 }}
 
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+[Read about the `range` prop in detail](/docs/common-props#range)
 
 ### scale
 
-`VictoryPolarAxis` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
+`VictoryPolarAxis` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
 
 **note:** Though `VictoryPolarAxis` can take a `scale` prop with scales defined for both `x` and `y`, only the scale that corresponds the given axis will be used.
 
@@ -315,7 +315,7 @@ scale={{x: "time"}}
 
 ### standalone
 
-`VictoryPolarAxis` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryPolarAxis` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
 **note:** When `VictoryPolarAxis` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -381,7 +381,7 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 ### theme
 
-`VictoryPolarAxis` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryPolarAxis` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
@@ -440,7 +440,7 @@ The `tickValues` prop explicitly specifies a set of tick values to draw on the a
 
 ### width
 
-`VictoryPolarAxis` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryPolarAxis` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -448,13 +448,13 @@ The `tickValues` prop explicitly specifies a set of tick values to draw on the a
 width={400}
 ```
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
-[tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
+[Animations Guide]: /guides/animations
+[Events Guide]: /guides/events
+[Themes Guide]: /guides/themes
+[`VictoryChart`]: /docs/victory-chart
+[tickFormat]: /docs/victory-axis#tickformat
 [d3Scale]: https://github.com/d3/d3-scale
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
-[Arc component]: https://formidable.com/open-source/victory/docs/victory-primitives#arc
-[`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label
+[Line component]: /docs/victory-primitives#line
+[Arc component]: /docs/victory-primitives#arc
+[`VictoryLabel`]: /docs/victory-label
