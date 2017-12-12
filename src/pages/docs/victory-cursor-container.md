@@ -93,7 +93,7 @@ If provided, the `onChange` function will be called every time the cursor value 
 
 *example:* `onChange={(value, props) => this.setState({cursorValue: value})}`
 
-[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
-[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
-[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[Line]: https://formidable.com/open-source/victory/docs/victory-primitives#line
+[VictoryVoronoiContainer]: /docs/victory-voronoi-container
+[VictoryContainer]: /docs/victory-container
+[VictoryLabel]: /docs/victory-label
+[Line]: /docs/victory-primitives#line

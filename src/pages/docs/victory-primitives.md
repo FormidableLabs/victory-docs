@@ -297,32 +297,32 @@ Victory is built around a set of primitive components. Along with [VictoryContai
   - `x` *number* the x coordinate of the data point
   - `y` *number* the y coordinate of the data point
 
-[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
-[VictoryClipContainer]: https://formidable.com/open-source/victory/docs/victory-clip-container
-[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[VictoryContainer]: /docs/victory-container
+[VictoryClipContainer]: /docs/victory-clip-container
+[VictoryLabel]: /docs/victory-label
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
 [arc]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/arc.js
-[VictoryPolarAxis]: https://formidable.com/open-source/victory/docs/victory-polar-axis
+[VictoryPolarAxis]: /docs/victory-polar-axis
 [area]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/area.js
-[VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
+[VictoryArea]: /docs/victory-area
 [bar]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/bar.js
 [border]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/border.js
-[VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
+[VictoryBar]: /docs/victory-bar
 [candle]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/candle.js
-[VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
+[VictoryCandlestick]: /docs/victory-candlestick
 [clippath]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/clip-path.js
 [curve]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/curve.js
-[VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
+[VictoryLine]: /docs/victory-line
 [errorbar]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/error-bar.js
-[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
+[VictoryErrorBar]: /docs/victory-errorbar
 [flyout]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/flyout.js
-[VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
+[VictoryTooltip]: /docs/victory-tooltip
 [line]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/line.js
-[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
+[VictoryAxis]: /docs/victory-axis
 [point]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/point.js
 [slice]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/slice.js
-[VictoryPie]: https://formidable.com/open-source/victory/docs/victory-pie
+[VictoryPie]: /docs/victory-pie
 [voronoi]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/voronoi.js
-[VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
-[VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
-[VictoryLegend]: https://formidable.com/open-source/victory/docs/victory-legend
+[VictoryVoronoi]: /docs/victory-voronoi
+[VictoryScatter]: /docs/victory-scatter
+[VictoryLegend]: /docs/victory-legend

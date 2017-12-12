@@ -33,7 +33,7 @@ VictoryLine renders a dataset as a single line. VictoryLine can be composed with
 
 ### animate
 
-`VictoryLine` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+`VictoryLine` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
@@ -46,7 +46,7 @@ animate={{
 
 ### categories
 
-`VictoryLine` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryLine` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 ```jsx
 categories={{ x: ["dogs", "cats", "mice"] }}
@@ -54,7 +54,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 ### containerComponent
 
-`VictoryLine` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryLine` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
@@ -62,7 +62,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 ### data
 
-`VictoryLine` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
+`VictoryLine` uses the standard `data` prop. [Read about it here](/docs/common-props#data)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -82,7 +82,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### dataComponent
 
-`VictoryLine` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryLine` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryLine` supplies the following props to its `dataComponent`: `data`, `events`, `groupComponent`, `interpolation`, `origin` (for polar charts), `polar`, `scale`, `style`
 
@@ -97,7 +97,7 @@ dataComponent={<Curve events={{ onClick: handleClick }}/>}
 
 ### domain
 
-`VictoryLine` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryLine` uses the standard `domain` prop. [Read about it here](/docs/common-props#domain)
 
 ```jsx
 domain={{x: [0, 100], y: [0, 1]}}
@@ -105,7 +105,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
-`VictoryLine` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryLine` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
 
 ```jsx
 domainPadding={{x: [10, -10], y: 5}}
@@ -113,7 +113,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryLine` uses the standard `eventKey` prop. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryLine` uses the standard `eventKey` prop. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 **note:** `VictoryLine` only renders one element per dataset, so only one event key will be generated.
 
@@ -123,7 +123,7 @@ eventKey="x"
 
 ### events
 
-`VictoryLine` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryLine` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -166,7 +166,7 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
-`VictoryLine` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryLine` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 **note:** `VictoryLine` uses [`VictoryClipContainer`][] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a completely custom `groupComponent` to `VictoryLine` may result in broken animations.**
 
@@ -184,7 +184,7 @@ See the [Events Guide][] for more information on defining events.
 
 ### height
 
-`VictoryLine` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryLine` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -213,7 +213,7 @@ Cartesian line charts may use the following interpolation options: "basis", "bun
 
 ### labelComponent
 
-`VictoryLine` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryLine` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel renderInPortal/>`
 
@@ -228,7 +228,7 @@ Cartesian line charts may use the following interpolation options: "basis", "bun
 
 ### labels
 
-`VictoryLine` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
+`VictoryLine` uses the standard `labels` prop. [Read about it here](/docs/common-props#labels)
 
 ```playground
 <VictoryLine
@@ -249,11 +249,11 @@ name="series-1"
 
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+[Read about the `origin` prop in detail](/docs/common-props#origin)
 
 ### padding
 
-`VictoryLine` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryLine` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -263,7 +263,7 @@ padding={{ top: 20, bottom: 60 }}
 
 ### polar
 
-`VictoryLine` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
+`VictoryLine` uses the standard `polar` prop. [Read about it here](/docs/common-props#polar)
 
 ```playground
 <VictoryChart polar
@@ -288,12 +288,12 @@ padding={{ top: 20, bottom: 60 }}
 
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+[Read about the `range` prop in detail](/docs/common-props#range)
 
 
 ### samples
 
-`VictoryLine` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
+`VictoryLine` uses the standard `samples` prop. [Read about it here](/docs/common-props#samples)
 
 *default:* `samples={50}`
 
@@ -313,7 +313,7 @@ padding={{ top: 20, bottom: 60 }}
 
 ### scale
 
-`VictoryLine` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
+`VictoryLine` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
 
 *default:* `scale="linear"`
 
@@ -327,7 +327,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sortKey
 
-`VictoryLine` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
+`VictoryLine` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -342,7 +342,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### standalone
 
-`VictoryLine` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryLine` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
 **note:** When `VictoryLine` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -361,7 +361,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### style
 
-`VictoryLine` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
+`VictoryLine` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
 
@@ -383,7 +383,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### theme
 
-`VictoryLine` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryLine` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
@@ -395,7 +395,7 @@ theme={VictoryTheme.material}
 
 ### width
 
-`VictoryLine` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryLine` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -405,7 +405,7 @@ width={400}
 
 ### x
 
-`VictoryLine` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
+`VictoryLine` uses the standard `x` data accessor prop. [Read about it here](/docs/common-props#x)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -415,7 +415,7 @@ x="employee.name"
 
 ### y
 
-`VictoryLine` uses the standard `y` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y)
+`VictoryLine` uses the standard `y` data accessor prop. [Read about it here](/docs/common-props#y)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -425,14 +425,14 @@ y={(d) => d.value + d.error}
 
 ### y0
 
-**It is not common to set a `y0` prop with `VictoryLine`, as baselines for `VictoryLine` are only relevant for stacked lines.** [Read more abou the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
+**It is not common to set a `y0` prop with `VictoryLine`, as baselines for `VictoryLine` are only relevant for stacked lines.** [Read more abou the `y0` prop here](/docs/common-props#y0)
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
-[`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
+[Animations Guide]: /guides/animations
+[Data Accessors Guide]: /guides/data-accessors
+[Custom Components Guide]: /guides/custom-components
+[Events Guide]: /guides/events
+[Themes Guide]: /guides/themes
+[`VictoryChart`]: /docs/victory-chart
+[`VictoryClipContainer`]: /docs/victory-clip-container
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Explore all the interpolation options]: https://formidable.com/open-source/victory/gallery/interpolation
+[Explore all the interpolation options]: /gallery/interpolation

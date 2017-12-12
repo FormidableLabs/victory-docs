@@ -6,7 +6,7 @@ scope: null
 ---
 # Frequently Asked Questions (FAQ)
 
-Thanks for trying Victory! The FAQs below are based on issues and questions from our [support channel](https://gitter.im/FormidableLabs/victory). You can find more examples in [our gallery](https://formidable.com/open-source/victory/gallery). Can't find what you're looking for? Help us improve these docs by [opening an issue](https://github.com/FormidableLabs/victory-docs/issues/new).
+Thanks for trying Victory! The FAQs below are based on issues and questions from our [support channel](https://gitter.im/FormidableLabs/victory). You can find more examples in [our gallery](/gallery). Can't find what you're looking for? Help us improve these docs by [opening an issue](https://github.com/FormidableLabs/victory-docs/issues/new).
 
 ## Styles
 
@@ -60,7 +60,7 @@ Note that continuous data types such as `VictoryLine` and `VictoryArea` cannot b
 
 ### How can I use gradient fills in Victory?
 
-Create a gradient def as usual and then reference it by id in your style object. A more complicated example using gradient fills can be found [here](https://formidable.com/open-source/victory/gallery/stream-graph)
+Create a gradient def as usual and then reference it by id in your style object. A more complicated example using gradient fills can be found [here](/gallery/stream-graph)
 
 ```playground
 <div>
@@ -187,12 +187,12 @@ When no axes are supplied to `VictoryChart` it will render pair of default axes.
 
 ### Can I make a chart with multiple dependent axes?
 
-`VictoryChart` will render any number of dependent axes, but only one independent axis. All children rendered by `VictoryChart` will be forced to use the same domain. To create a single chart with the appearance of several different domains, you can either compose components manually without the aid of `VictoryChart`, as described in [this guide](https://formidable.com/open-source/victory/guides/custom-charts), or normalize all of your data, and re-scale your axis tick labels to give the appearance of separate domains as in [this example](https://formidable.com/open-source/victory/gallery/multiple-dependent-axes).
+`VictoryChart` will render any number of dependent axes, but only one independent axis. All children rendered by `VictoryChart` will be forced to use the same domain. To create a single chart with the appearance of several different domains, you can either compose components manually without the aid of `VictoryChart`, as described in [this guide](/guides/custom-charts), or normalize all of your data, and re-scale your axis tick labels to give the appearance of separate domains as in [this example](/gallery/multiple-dependent-axes).
 
 ### How can I change the position of my axis?
 
 `VictoryChart` automatically aligns axes so that they cross at their origin. Use the `offsetX` and `offsetY` props on `VictoryAxis` to alter this default behavior. *Note:* Axes that typically cross at zero will not display ticks or tick labels at zero. To change this behavior, set the `crossAxis` prop to false.
-[Read more about VictoryAxis](https://formidable.com/open-source/victory/docs/victory-axis).
+[Read more about VictoryAxis](/docs/victory-axis).
 
 ```playground
 <VictoryChart domain={{ y: [-10, 10] }}>
@@ -205,7 +205,7 @@ When no axes are supplied to `VictoryChart` it will render pair of default axes.
 ### How can I format my axis labels?
 
 Axis tick labels are controlled via two props. `tickValues` controls the _positions_ of ticks along the axis, and `tickFormat` controls how labels are displayed. Use the `tickFormat` prop to customize axis labels. This prop can be given as an array of strings, or as a function that returns a string. Functions provided to `tickFormat` are called with the following arguments: `tickValue`, `index` and `tickArray`.
-[Read more about VictoryAxis](https://formidable.com/open-source/victory/docs/victory-axis).
+[Read more about VictoryAxis](/docs/victory-axis).
 
 ```playground
 <VictoryChart domain={[0, 5]}>
@@ -297,12 +297,12 @@ Long axis labels can be problematic. There are several ways to address the issue
 
 ### How can I add tooltips to a line?
 
-`VictoryLine` only renders a single element to represent an entire dataset, so replacing its `labelComponent` with `VictoryTooltip` wont work as expected, since there will be only a single event trigger. Voronoi tooltips can be used to add tooltips and other interactions components without unique event triggers, or with event triggers that are too small, or too close together to be useful. Use `VictoryVoronoiContainer` to associate mouse position with the nearest data points. [Read more about Voronoi Tooltips](https://formidable.com/open-source/victory/guides/tooltips#tooltips-with-victoryvoronoicontainer) and [`VictoryVoronoiContainer`](https://formidable.com/open-source/victory/docs/victory-voronoi-container).
+`VictoryLine` only renders a single element to represent an entire dataset, so replacing its `labelComponent` with `VictoryTooltip` wont work as expected, since there will be only a single event trigger. Voronoi tooltips can be used to add tooltips and other interactions components without unique event triggers, or with event triggers that are too small, or too close together to be useful. Use `VictoryVoronoiContainer` to associate mouse position with the nearest data points. [Read more about Voronoi Tooltips](/guides/tooltips#tooltips-with-victoryvoronoicontainer) and [`VictoryVoronoiContainer`](/docs/victory-voronoi-container).
 
 
 ### How can I add my own events when I'm using `VictoryTooltip`?
 
-`VictoryTooltip` uses `defaultEvents` which are prepended onto any events array provided in props. When `events` container `onMouseOver` and `onMouseOut` events, they will interfere with the `defaultEvents` on `VictoryTooltip` to correct this, your events prop will need to return the same mutations as `defaultEvents`. [Read about tooltip events here](https://formidable.com/open-source/victory/guides/tooltips).
+`VictoryTooltip` uses `defaultEvents` which are prepended onto any events array provided in props. When `events` container `onMouseOver` and `onMouseOut` events, they will interfere with the `defaultEvents` on `VictoryTooltip` to correct this, your events prop will need to return the same mutations as `defaultEvents`. [Read about tooltip events here](/guides/tooltips).
 
 ## Layout
 
@@ -363,11 +363,11 @@ By default Victory components are rendered within responsive SVGs that preserve 
 
 Victory renders charts into top-level container components. The most basic container is `VictoryContainer`. It is responsible for rendering children into a responsive svg, and providing a portal component for rendering tooltips, or any other elements that should be rendered above everything else. Other Victory container, such as `VictoryZoomContainer` and `VictoryCursorContainer` provide an interactive layer for the chart. These containers perform all the same functions as `VictoryContainer` in addition to their specialized functions.
 
-- [`VictoryZoomContainer`](https://formidable.com/open-source/victory/docs/victory-zoom-container): Adds pan and zoom functionality to a chart
-- [`VictoryVoronoiContainer`](https://formidable.com/open-source/victory/docs/victory-voronoi-container): Associates mouse position with the nearest data points, and is useful for tooltips and other hover interactions
-- [`VictorySelectionContainer`](https://formidable.com/open-source/victory/docs/victory-selection-container): Adds the ability to select points within a region
-- [`VictoryBrushContainer`](https://formidable.com/open-source/victory/docs/victory-brush-container): Adds a moveable highlighted region to charts
-- [`VictoryCursorContainer`](https://formidable.com/open-source/victory/docs/victory-cursor-container): Renders a cursor line and label that follows mouse position.
+- [`VictoryZoomContainer`](/docs/victory-zoom-container): Adds pan and zoom functionality to a chart
+- [`VictoryVoronoiContainer`](/docs/victory-voronoi-container): Associates mouse position with the nearest data points, and is useful for tooltips and other hover interactions
+- [`VictorySelectionContainer`](/docs/victory-selection-container): Adds the ability to select points within a region
+- [`VictoryBrushContainer`](/docs/victory-brush-container): Adds a moveable highlighted region to charts
+- [`VictoryCursorContainer`](/docs/victory-cursor-container): Renders a cursor line and label that follows mouse position.
 
 To use one of these containers, change the `containerComponent` prop on your _top-level_ Victory component. *Note:* Containers are not rendered when `standalone` is set to `false`.
 
@@ -386,7 +386,7 @@ To use one of these containers, change the `containerComponent` prop on your _to
 
 ### How can I make a chart with voronoi tooltips that can also zoom?
 
-Victory includes a `createContainer` helper that is used to create hybrid containers. `createContainer` can be used to create a new container with behaviors from two existing Victory containers. [Read more about `createContainer` here](https://formidable.com/open-source/victory/docs/create-container).
+Victory includes a `createContainer` helper that is used to create hybrid containers. `createContainer` can be used to create a new container with behaviors from two existing Victory containers. [Read more about `createContainer` here](/docs/create-container).
 
 
 

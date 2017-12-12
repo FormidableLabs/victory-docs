@@ -354,7 +354,7 @@ ReactDOM.render(<App/>, mountNode);
 ```
 
 
-[`VictoryTooltip`]: https://formidable.com/open-source/victory/docs/victory-tooltip
-[`VictoryVoronoiTooltip`]: https://formidable.com/open-source/victory/docs/victory-voronoi-tooltip
-[`VictoryLabel`]: http://formidable.com/open-source/victory/docs/victory-label
-[`Flyout`]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
+[`VictoryTooltip`]: /docs/victory-tooltip
+[`VictoryVoronoiTooltip`]: /docs/victory-voronoi-tooltip
+[`VictoryLabel`]: /docs/victory-label
+[`Flyout`]: /docs/victory-primitives#flyout

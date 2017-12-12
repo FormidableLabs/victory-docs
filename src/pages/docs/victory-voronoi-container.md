@@ -116,6 +116,6 @@ on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label componen
 
 *default:* `labelComponent={<VictoryTooltip/>}`
 
-[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[VictoryContainer]: /docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi
-[this example]: https://formidable.com/open-source/victory/gallery/voronoi-tooltips-grouped
+[this example]: /gallery/voronoi-tooltips-grouped

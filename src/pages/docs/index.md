@@ -426,9 +426,9 @@ Congratulations! You’ve created your first chart with Victory. Next, check out
 
 ## Documentation, Contributing, and Source
 
-For more information about Victory and its components, check out the docs - see [VictoryChart](http://formidable.com/open-source/victory/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/#contributing).
+For more information about Victory and its components, check out the docs - see [VictoryChart](/docs/victory-chart) to get started. Interested in helping out or seeing what's happening under the hood? Victory is maintained at [github.com/FormidableLabs/victory](https://github.com/FormidableLabs/victory), and you can [start contributing here](https://github.com/FormidableLabs/victory/#contributing).
 
-[our guides]: https://formidable.com/open-source/victory/guides
-[Gallery]: https://formidable.com/open-source/victory/gallery
-[FAQs]: https://formidable.com/open-source/victory/docs/faq
-[Check out the native version of this getting started tutorial]: https://formidable.com/open-source/victory/docs/native
+[our guides]: /guides
+[Gallery]: /gallery
+[FAQs]: /docs/faq
+[Check out the native version of this getting started tutorial]: /docs/native

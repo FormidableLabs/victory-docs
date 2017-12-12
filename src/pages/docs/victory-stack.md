@@ -30,7 +30,7 @@ scope:
 
 ### animate
 
-`VictoryStack` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+`VictoryStack` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
@@ -45,7 +45,7 @@ animate={{
 
 ### categories
 
-`VictoryStack` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryStack` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 **note: When this prop is set, `VictoryGroup` controls the `categories` prop of its children.**
 
@@ -83,14 +83,14 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 
 ### containerComponent
 
-`VictoryStack` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryStack` uses the standard `containerComponent` prop. [Read about it in detail here](/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
 ```
 ### domain
 
-`VictoryStack` uses the standard `domain` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryStack` uses the standard `domain` prop. [Read about it in detail here](/docs/common-props#domain)
 
 **note: `VictoryStack` controls the `domain` prop of its children.**
 
@@ -100,7 +100,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
-`VictoryStack` uses the standard `domainPadding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryStack` uses the standard `domainPadding` prop. [Read about it in detail here](/docs/common-props#domainpadding)
 
 **note: `VictoryStack` controls the `domainPadding` prop of its children.**
 
@@ -110,7 +110,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
-`VictoryStack` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryStack` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
 eventKey="x"
@@ -118,7 +118,7 @@ eventKey="x"
 
 ### events
 
-`VictoryStack` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryStack` uses the standard `events` prop. [Read about it in more detail here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -158,7 +158,7 @@ See the [Events Guide][] for more information on defining events.
 ```
 ### groupComponent
 
-`VictoryStack` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryStack` uses the standard `groupComponent` prop. [Read about it in detail here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -167,7 +167,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 ```
 ### height
 
-`VictoryStack` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryStack` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -209,12 +209,12 @@ name="series-1"
 
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-[Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
+[Read about the `origin` prop in detail](/docs/common-props#origin)
 
 
 ### padding
 
-`VictoryStack` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryStack` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -224,17 +224,17 @@ padding={{ top: 20, bottom: 60 }}
 
 ### polar
 
-`VictoryStack` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
+`VictoryStack` uses the standard `polar` prop. [Read about it here](/docs/common-props#polar)
 
 ### range
 
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
+[Read about the `range` prop in detail](/docs/common-props#range)
 
 ### scale
 
-`VictoryStack` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
+`VictoryStack` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
 
 *default:* `scale="linear"`
 
@@ -248,7 +248,7 @@ scale={{x: "linear", y: "log"}}
 
 ### sortKey
 
-`VictoryStack` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
+`VictoryStack` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -258,7 +258,7 @@ sortKey="x"
 
 ### standalone
 
-`VictoryStack` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryStack` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
 **note:** When `VictoryGroup` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -267,7 +267,7 @@ sortKey="x"
 
 ### style
 
-`VictoryStack` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
+`VictoryStack` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
 Styles on children of `VictoryGroup` will override styles set on the `VictoryGroup` component.
 
@@ -294,7 +294,7 @@ Styles on children of `VictoryGroup` will override styles set on the `VictoryGro
 
 ### theme
 
-`VictoryStack` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryStack` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
@@ -306,7 +306,7 @@ theme={VictoryTheme.material}
 
 ### width
 
-`VictoryStack` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryStack` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -320,18 +320,18 @@ The `xOffset` prop is used for grouping stacks of bars. This prop will be set by
 
 
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[Animations Guide]: /guides/animations
+[Data Accessors Guide]: /guides/data-accessors
+[Events Guide]: /guides/events
+[Themes Guide]: /guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
-[VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
-[VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
-[VictoryGroup]: https://formidable.com/open-source/victory/docs/victory-group
-[VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
-[VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
-[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
-[VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
-[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[VictoryArea]: /docs/victory-area
+[VictoryBar]: /docs/victory-bar
+[VictoryCandlestick]: /docs/victory-candlestick
+[VictoryErrorBar]: /docs/victory-errorbar
+[VictoryGroup]: /docs/victory-group
+[VictoryLine]: /docs/victory-line
+[VictoryScatter]: /docs/victory-scatter
+[VictoryStack]: /docs/victory-stack
+[VictoryVoronoi]: /docs/victory-voronoi
+[VictoryLabel]: /docs/victory-label
