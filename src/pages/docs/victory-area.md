@@ -24,6 +24,8 @@ VictoryArea renders a dataset as a single area. VictoryArea can be composed with
 
 ### animate
 
+`type: boolean || object`
+
 `VictoryArea` uses the standard `animate` prop. [Read about it in detail](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
@@ -37,6 +39,8 @@ See the [Animations Guide][] for more detail on animations and transitions
 
 ### categories
 
+`type: array[string] || { x: array[string], y: array[string] }`
+
 `VictoryArea` uses the standard `categories` prop. [Read about it in detail](/docs/common-props#categories)
 
 ```jsx
@@ -45,6 +49,8 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 ### containerComponent
 
+`type: element`
+
 `VictoryArea` uses the standard `containerComponent` prop. [Read about it in detail](/docs/common-props#containercomponent)
 
 ```jsx
@@ -52,6 +58,8 @@ containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
+
+`type: array[object]`
 
 `VictoryArea` uses the standard `data` prop. [Read about it in detail](/docs/common-props#data)
 
@@ -73,6 +81,8 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### dataComponent
 
+`type: element`
+
 `VictoryArea` uses the standard `dataComponent` prop. [Read about it detail](/docs/common-props#datacomponent)
 
 `VictoryArea` supplies the following props to its `dataComponent`: `data`, `events`, `groupComponent`, `interpolation`, `origin` (for polar charts), `polar`, `scale`, `style`
@@ -88,6 +98,8 @@ dataComponent={<Area events={{ onClick: handleClick }}/>}
 
 ### domain
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 `VictoryArea` uses the standard `domain` prop. [Read about it in detail](/docs/common-props#domain)
 
 ```jsx
@@ -96,6 +108,8 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
+`type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
+
 `VictoryArea` uses the standard `domainPadding` prop. [Read about it in detail](/docs/common-props#domainpadding)
 
 ```jsx
@@ -103,6 +117,8 @@ domainPadding={{x: [10, -10], y: 5}}
 ```
 
 ### eventKey
+
+`type: string || integer || array[string] || function`
 
 `VictoryArea` uses the standard `eventKey` prop. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
@@ -113,6 +129,8 @@ eventKey="x"
 ```
 
 ### events
+
+`type: array[object]`
 
 `VictoryArea` uses the standard `events` prop. [Read about it in detail](/docs/common-props#events)
 
@@ -157,6 +175,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
+`type: element`
+
 `VictoryArea` uses the standard `groupComponent` prop. [Read about it in detail](/docs/common-props#groupcomponent)
 
 **note:** `VictoryArea` uses [`VictoryClipContainer`][] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a custom `groupComponent` to `VictoryArea` may result in broken animations.**
@@ -175,6 +195,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### height
 
+`type: number`
+
 `VictoryArea` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
@@ -184,6 +206,8 @@ height={400}
 ```
 
 ### interpolation
+
+`type: options`
 
 The `interpolation` prop determines how data points should be connected when creating a path. Victory uses [d3-shape](https://github.com/d3/d3-shape#curves) for interpolating curves.
 
@@ -203,6 +227,8 @@ Cartesian area charts may use the following interpolation options: "basis", "car
 ```
 
 ### labelComponent
+
+`type: element`
 
 `VictoryArea` uses the standard `labelComponent` prop. [Read about it in detail](/docs/common-props#labelcomponent)
 
@@ -230,6 +256,8 @@ Cartesian area charts may use the following interpolation options: "basis", "car
 
 ### name
 
+`type: string`
+
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
@@ -253,6 +281,8 @@ padding={{ top: 20, bottom: 60 }}
 ```
 
 ### polar
+
+`type: boolean`
 
 `VictoryArea` uses the standard `polar` prop. [Read about it here](/docs/common-props#polar)
 
@@ -282,6 +312,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### samples
 
+`type: number`
+
 `VictoryArea` uses the standard `samples` prop. [Read about it here](/docs/common-props#samples)
 
 *default:* `samples={50}`
@@ -306,6 +338,8 @@ scale={{x: "linear", y: "log"}}
 
 ### sortKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryArea` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -315,6 +349,8 @@ sortKey="x"
 ```
 
 ### standalone
+
+`type: boolean`
 
 `VictoryArea` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
@@ -369,6 +405,8 @@ theme={VictoryTheme.material}
 
 ### width
 
+`type: number`
+
 `VictoryArea` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
@@ -378,6 +416,8 @@ width={400}
 ```
 
 ### x
+
+`type: string || integer || array[string] || function`
 
 `VictoryArea` uses the standard `x` data accessor prop. [Read about it here](/docs/common-props#x)
 
@@ -389,6 +429,8 @@ x="employee.name"
 
 ### y
 
+`type: string || integer || array[string] || function`
+
 `VictoryArea` uses the standard `y` data accessor prop. [Read about it here](/docs/common-props#y)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -398,6 +440,8 @@ y={(d) => d.value + d.error}
 ```
 
 ### y0
+
+`type: string || integer || array[string] || function`
 
 `VictoryArea` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](/docs/common-props#y0)
 

@@ -28,6 +28,8 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 
 ### animate
 
+`type: boolean || object`
+
 `VictoryCandlestick` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
@@ -40,6 +42,8 @@ animate={{
 ```
 
 ### candleColors
+
+`type: { positive: string, negative: string }`
 
 Candle colors are significant in candlestick charts, with colors indicating whether a market closed higher than it opened (positive), or closed lower than it opened (negative). The `candleColors` prop should be given as an object with color strings specified for positive and negative.
 
@@ -54,6 +58,8 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 
 ### categories
 
+`type: array[string] || { x: array[string], y: array[string] }`
+
 `VictoryCandlestick` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 ```jsx
@@ -61,6 +67,8 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
 ### close
+
+`type: string || integer || array[string] || function`
 
 Use `close` data accessor prop to define the close value of a candle.
 
@@ -82,6 +90,8 @@ Use `close` data accessor prop to define the close value of a candle.
 
 ### containerComponent
 
+`type: element`
+
 `VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 ```jsx
@@ -89,6 +99,8 @@ containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
+
+`type: array[object]`
 
 Specify data via the `data` prop. By default, `VictoryCandlestick` expects data as an array of objects with `x`, `open`, `close`, `high`, and `low` keys. Use the [`x`][], [`open`][], [`close`][], [`high`][], and [`low`][] data accessor props to specify custom data formats. Refer to the [Data Accessors Guide][] for more detail.
 
@@ -106,6 +118,8 @@ Specify data via the `data` prop. By default, `VictoryCandlestick` expects data 
 
 ### dataComponent
 
+`type: element`
+
 `VictoryCandlestick` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryCandlestick` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `padding`, `polar`, `origin`, `scale`, `style`, `candleHeight`, `x1`, `y1`, `y2`, `x2`
@@ -120,6 +134,8 @@ dataComponent={<Candle events={{ onClick: handleClick }}/>}
 
 ### domain
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 `VictoryCandlestick` uses the standard `domain` prop. [Read about it here](/docs/common-props#domain)
 
 ```jsx
@@ -127,6 +143,8 @@ domain={{x: [0, 100], y: [0, 1]}}
 ```
 
 ### domainPadding
+
+`type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
 `VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
 
@@ -136,6 +154,8 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
@@ -143,6 +163,8 @@ eventKey="x"
 ```
 
 ### events
+
+`type: array[object]`
 
 `VictoryCandlestick` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
@@ -175,6 +197,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
+`type: element`
+
 `VictoryCandlestick` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
@@ -185,6 +209,8 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 ### height
 
+`type: number`
+
 `VictoryCandlestick` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
@@ -194,6 +220,8 @@ height={400}
 ```
 
 ### high
+
+`type: string || integer || array[string] || function`
 
 Use `high` data accessor prop to define the high value of a candle.
 
@@ -214,6 +242,8 @@ Use `high` data accessor prop to define the high value of a candle.
 *examples:* `high="bonds.high"`, `high={["bonds", "high"]}`
 
 ### labelComponent
+
+`type: element`
 
 `VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
@@ -241,6 +271,8 @@ Use `high` data accessor prop to define the high value of a candle.
 
 ### low
 
+`type: string || integer || array[string] || function`
+
 Use `low` data accessor prop to define the low value of a candle.
 
 **string:** specify which property in an array of data objects should be used as the low value
@@ -261,6 +293,8 @@ Use `low` data accessor prop to define the low value of a candle.
 
 ### name
 
+`type: string`
+
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
@@ -268,6 +302,8 @@ name="series-1"
 ```
 
 ### open
+
+`type: string || integer || array[string] || function`
 
 Use `open` data accessor prop to define the open value of a candle.
 
@@ -307,6 +343,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### polar
 
+`type: boolean`
+
 `VictoryCandlestick` uses the standard `polar` prop. [Read about it here](/docs/common-props#polar)
 
 **Note:** Polar Charts are not yet supported for `VictoryCandlestick`
@@ -317,8 +355,9 @@ padding={{ top: 20, bottom: 60 }}
 
 [Read about the `range` prop in detail](/docs/common-props#range)
 
-
 ### samples
+
+`type: number`
 
 `VictoryCandlestick` uses the standard `samples` prop. [Read about it here](/docs/common-props#samples)
 
@@ -344,6 +383,8 @@ scale={{x: "linear", y: "log"}}
 
 ### sortKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryCandlestick` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -353,6 +394,8 @@ sortKey="x"
 ```
 
 ### standalone
+
+`type: boolean`
 
 `VictoryCandlestick` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
@@ -406,6 +449,8 @@ theme={VictoryTheme.material}
 
 ### width
 
+`type: number`
+
 `VictoryCandlestick` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
@@ -415,6 +460,8 @@ width={400}
 ```
 
 ### x
+
+`type: string || integer || array[string] || function`
 
 `VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it here](/docs/common-props#x)
 

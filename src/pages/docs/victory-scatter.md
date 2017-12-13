@@ -32,6 +32,8 @@ VictoryScatter renders a dataset as a series of points. VictoryScatter can be co
 
 ### animate
 
+`type: boolean || object`
+
 `VictoryScatter` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
@@ -42,7 +44,10 @@ animate={{
   onLoad: { duration: 1000 }
 }}
 ```
+
 ### bubbleProperty
+
+`type: string`
 
 The `bubbleProperty` prop indicates which property of the data object should be used to scale data points in a bubble chart. If a `bubbleProperty` is given, `size` and `symbol` props will be ignored. Bubble charts always render circular points.
 
@@ -66,6 +71,8 @@ The `bubbleProperty` prop indicates which property of the data object should be 
 
 ### categories
 
+`type: array[string] || { x: array[string], y: array[string] }`
+
 `VictoryScatter` uses the standard `categories` prop. [Read about it in detail here](/docs/common-props#categories)
 
 ```jsx
@@ -74,6 +81,8 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 ### containerComponent
 
+`type: element`
+
 `VictoryScatter` uses the standard `containerComponent` prop. [Read about it in detail here](/docs/common-props#containercomponent)
 
 ```jsx
@@ -81,6 +90,8 @@ containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### data
+
+`type: array[object]`
 
 `VictoryScatter` uses the standard `data` prop. [Read about it in detail here](/docs/common-props#data)
 
@@ -101,6 +112,8 @@ In addition to svg style properties and `label`, `VictoryScatter` will also pref
 ```
 
 ### dataComponent
+
+`type: element`
 
 `VictoryScatter` uses the standard `dataComponent` prop. [Read about it in detail here](/docs/common-props#datacomponent)
 
@@ -139,8 +152,9 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
-
 ### domain
+
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
 
 `VictoryScatter` uses the standard `domain` prop. [Read about it in detail here](/docs/common-props#domain)
 
@@ -150,6 +164,8 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
+`type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
+
 `VictoryScatter` uses the standard `domainPadding` prop. [Read about it in detail here](/docs/common-props#domainpadding)
 
 ```jsx
@@ -158,6 +174,8 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryScatter` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
@@ -165,6 +183,8 @@ eventKey="x"
 ```
 
 ### events
+
+`type: array[object]`
 
 `VictoryScatter` uses the standard `events` prop. [Read about it in more detail here](/docs/common-props#events)
 
@@ -204,6 +224,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
+`type: element`
+
 `VictoryScatter` uses the standard `groupComponent` prop. [Read about it in detail here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
@@ -220,6 +242,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### height
 
+`type: number`
+
 `VictoryScatter` uses the standard `height` prop. [Read about it in detail here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
@@ -229,6 +253,8 @@ height={400}
 ```
 
 ### labelComponent
+
+`type: element`
 
 `VictoryScatter` uses the standard `labelComponent` prop. [Read about it in detail here](/docs/common-props#labelcomponent)
 
@@ -257,6 +283,8 @@ height={400}
 
 ### maxBubbleSize
 
+`type: number`
+
 The `maxBubbleSize` prop sets an upper limit for scaling data points in a bubble chart. If not given, this prop will be calculated based on the `width`, `height`, and `padding` of the component.
 
 For more information on bubble charts, see [`bubbleProperty`][]
@@ -267,6 +295,8 @@ maxBubbleSize={25}
 
 ### minBubbleSize
 
+`type: number`
+
 The `minBubbleSize` prop sets a lower limit for scaling data points in a bubble chart. If not given, this prop will be calculated based on the calculated `maxBubbleSize`.
 
 For more information on bubble charts, see [`bubbleProperty`][]
@@ -276,6 +306,8 @@ minBubbleSize={5}
 ```
 
 ### name
+
+`type: string`
 
 The `name` prop is used to reference a component instance when defining shared events.
 
@@ -300,6 +332,8 @@ padding={{ top: 20, bottom: 60 }}
 ```
 
 ### polar
+
+`type: boolean`
 
 `VictoryScatter` uses the standard `polar` prop. [Read about it in detail here](/docs/common-props#polar)
 
@@ -331,6 +365,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### samples
 
+`type: integer`
+
 `VictoryScatter` uses the standard `samples` prop to generate data when plotting functions. [Read about it in more detail here](/docs/common-props#samples)
 
 *default:* `samples={50}`
@@ -355,6 +391,8 @@ scale={{x: "linear", y: "log"}}
 
 ### size
 
+`type: number || function`
+
 The `size` prop determines how to scale each data point. This prop may also be given as a function of data. If `size` is not specified, it will default to 1. `size` may also be set directly on each data object.
 
 ```playground
@@ -366,6 +404,8 @@ The `size` prop determines how to scale each data point. This prop may also be g
 
 ### sortKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryScatter` uses the standard `sortKey` prop to determine how data should be ordered. [Read about it in more detail here](/docs/common-props#sortkey)
 
 ```jsx
@@ -373,6 +413,8 @@ sortKey="x"
 ```
 
 ### standalone
+
+`type: boolean`
 
 `VictoryScatter` uses the standard `standalone` prop. [Read about it in detail here](/docs/common-props#standalone)
 
@@ -421,6 +463,8 @@ sortKey="x"
 
 ### symbol
 
+`type: function || options`
+
 The `symbol` prop determines which symbol should be drawn to represent data points. Options are: "circle", "diamond", "plus", "square", "star", "triangleDown", "triangleUp". This prop may also be given as a function of data. If no `symbol` prop is specified, a circle will be rendered. `symbol` may also be set directly on each data object.
 
 *default:* `symbol="circle"`
@@ -447,6 +491,8 @@ theme={VictoryTheme.material}
 
 ### width
 
+`type: number`
+
 `VictoryScatter` uses the standard `width` prop. [Read about it in detail here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
@@ -456,6 +502,8 @@ width={400}
 ```
 
 ### x
+
+`type: string || integer || array[string] || function`
 
 `VictoryScatter` uses the standard `x` data accessor prop. [Read about it in detail here](/docs/common-props#x)
 
@@ -467,6 +515,9 @@ x="employee.name"
 
 ### y
 
+`type: string || integer || array[string] || function`
+
+
 `VictoryScatter` uses the standard `y` data accessor prop. [Read about it in detail here](/docs/common-props#y)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -476,6 +527,8 @@ y={(d) => d.value + d.error}
 ```
 
 ### y0
+
+`type: string || integer || array[string] || function`
 
 **It is not common to set a `y0` prop with `VictoryScatter`, as baselines for `VictoryScatter` are only relevant for stacked charts.** [Read more about the `y0` prop here](/docs/common-props#y0)
 

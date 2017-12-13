@@ -25,6 +25,8 @@ VictoryBar renders a dataset as series of bars. VictoryBar can be composed with 
 
 ### alignment
 
+`type: "start" || "middle" || "end"`
+
 The `alignment` prop specifies how bars should be aligned relative to their data points. This prop may be given as "start", "middle" or "end". When this prop is not specified, bars will have "middle" alignment relative to their data points.
 
 ```playground
@@ -41,6 +43,8 @@ The `alignment` prop specifies how bars should be aligned relative to their data
 
 ### animate
 
+`type: boolean || object`
+
 `VictoryBar` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
@@ -53,6 +57,8 @@ animate={{
 ```
 
 ### barRatio
+
+`type: number`
 
 The `barRatio` prop specifies an _approximate_ ratio between bar widths and spaces between bars. When width is not specified in bar styles, the `barRatio` prop will be used to calculate a default width for each bar given the total number of bars in the data series and the overall width of the chart.
 
@@ -73,6 +79,8 @@ The `barRatio` prop specifies an _approximate_ ratio between bar widths and spac
 
 ### categories
 
+`type: array[string] || { x: array[string], y: array[string] }`
+
 `VictoryBar` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 ```jsx
@@ -81,6 +89,8 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 ### containerComponent
 
+`type: element`
+
 `VictoryBar` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 ```jsx
@@ -88,6 +98,8 @@ containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### cornerRadius
+
+`type: number`
 
 The `cornerRadius` prop specifies a radius to apply to the _top_ corners of each bar.
 
@@ -111,6 +123,8 @@ The `cornerRadius` prop specifies a radius to apply to the _top_ corners of each
 
 ### data
 
+`type: array[object]`
+
 `VictoryBar` uses the standard `data` prop. [Read about it here](/docs/common-props#data)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -131,6 +145,8 @@ In addition to svg style properties and `label`, `VictoryBar` will also preferen
 
 ### dataComponent
 
+`type: element`
+
 `VictoryBar` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryBar` supplies the following props to its `dataComponent`: `data`, `datum`, `horizontal`, `index`, `padding`, `polar`, `origin`, `scale`, `style`, `width`, `height`, `x`, `y`, `y0`, `x0`
@@ -146,6 +162,8 @@ dataComponent={<Bar events={{ onClick: handleClick }}/>}
 
 ### domain
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 `VictoryBar` uses the standard `domain` prop. [Read about it here](/docs/common-props#domain)
 
 ```jsx
@@ -153,6 +171,8 @@ domain={{x: [0, 100], y: [0, 1]}}
 ```
 
 ### domainPadding
+
+`type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
 `VictoryBar` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
 
@@ -162,6 +182,8 @@ domainPadding={{x: [10, -10], y: 5}}
 
 ### eventKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryBar` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
@@ -169,6 +191,8 @@ eventKey="x"
 ```
 
 ### events
+
+`type: array[object]`
 
 `VictoryBar` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
@@ -209,6 +233,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
+`type: element`
+
 `VictoryBar` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
@@ -219,6 +245,8 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 ### height
 
+`type: number`
+
 `VictoryBar` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
@@ -228,6 +256,8 @@ height={400}
 ```
 
 ### horizontal
+
+`type: boolean`
 
 The horizontal prop determines whether the bars will be laid vertically or horizontally. The bars will be vertical if this prop is false or unspecified, or horizontal if the prop is set to true.
 
@@ -248,6 +278,8 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 ```
 
 ### labelComponent
+
+`type: element`
 
 `VictoryBar` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
@@ -275,6 +307,8 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 
 ### name
 
+`type: string`
+
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
@@ -299,6 +333,8 @@ padding={{ top: 20, bottom: 60 }}
 ```
 
 ### polar
+
+`type: boolean`
 
 `VictoryBar` uses the standard `polar` prop. [Read about it here](/docs/common-props#polar)
 
@@ -328,6 +364,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### samples
 
+`type: number`
+
 `VictoryBar` uses the standard `samples` prop. [Read about it here](/docs/common-props#samples)
 
 *default:* `samples={50}`
@@ -352,6 +390,9 @@ scale={{x: "linear", y: "log"}}
 
 ### sortKey
 
+`type: string || integer || array[string] || function`
+
+
 `VictoryBar` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -361,6 +402,8 @@ sortKey="x"
 ```
 
 ### standalone
+
+`type: boolean`
 
 `VictoryBar` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
@@ -418,6 +461,8 @@ theme={VictoryTheme.material}
 
 ### width
 
+`type: number`
+
 `VictoryBar` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
@@ -427,6 +472,9 @@ width={400}
 ```
 
 ### x
+
+`type: string || integer || array[string] || function`
+
 
 `VictoryBar` uses the standard `x` data accessor prop. [Read about it here](/docs/common-props#x)
 
@@ -438,6 +486,8 @@ x="employee.name"
 
 ### y
 
+`type: string || integer || array[string] || function`
+
 `VictoryBar` uses the standard `y` data accessor prop. [Read about it here](/docs/common-props#y)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
@@ -447,6 +497,8 @@ y={(d) => d.value + d.error}
 ```
 
 ### y0
+
+`type: string || integer || array[string] || function`
 
 `VictoryBar` uses the standard `y0` data accessor prop to set a baseline. [Read about it here](/docs/common-props#y0)
 

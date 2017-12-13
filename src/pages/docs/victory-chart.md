@@ -31,6 +31,8 @@ scope:
 
 ### animate
 
+`type: boolean || object`
+
 `VictoryChart` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
@@ -46,12 +48,16 @@ animate={{
 
 ### children
 
+`type: element || array[element]`
+
 `VictoryChart` works with any combination of the following children: [VictoryArea][], [VictoryAxis][] / [VictoryPolarAxis][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryChart` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
 **Note: polar charts must use `VictoryPolarAxis` rather than `VictoryAxis`**
 
 
 ### containerComponent
+
+`type: element`
 
 `VictoryChart` uses the standard `containerComponent` prop. [Read about it in detail here](/docs/common-props#containercomponent)
 
@@ -60,6 +66,8 @@ containerComponent={<VictoryVoronoiContainer/>}
 ```
 
 ### domain
+
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
 
 `VictoryChart` uses the standard `domain` prop. [Read about it in detail here](/docs/common-props#domain)
 
@@ -71,6 +79,8 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 ### domainPadding
 
+`type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
+
 `VictoryChart` uses the standard `domainPadding` prop. [Read about it in detail here](/docs/common-props#domainpadding)
 
 **note: `VictoryChart` controls the `domainPadding` prop of its children.**
@@ -80,6 +90,8 @@ domainPadding={{x: [10, -10], y: 5}}
 ```
 
 ### endAngle
+
+`type: number`
 
 The `endAngle` props defines the overall end angle of a polar chart in degrees. This prop is used in conjunction with `startAngle` to create polar chart that spans only a segment of a circle, or to change overall rotation of the chart. This prop should be given as a number of degrees. Degrees are defined as starting at the 3 o'clock position, and proceeding counterclockwise.
 
@@ -132,6 +144,8 @@ The `endAngle` props defines the overall end angle of a polar chart in degrees. 
 
 ### events
 
+`type: array[object]`
+
 `VictoryChart` uses the standard `events` prop. [Read about it in more detail here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
@@ -175,6 +189,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
+`type: element`
+
 `VictoryChart` uses the standard `groupComponent` prop. [Read about it in detail here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
@@ -184,6 +200,8 @@ groupComponent={<g transform="translate(10, 10)" />}
 ```
 
 ### height
+
+`type: number`
 
 `VictoryChart` uses the standard `height` prop. [Read about it in detail here](/docs/common-props#height)
 
@@ -196,6 +214,8 @@ height={400}
 ```
 
 ### innerRadius
+
+`type: number`
 
 When the `innerRadius` prop is set, polar charts will be hollow rather than circular.
 
@@ -220,6 +240,8 @@ padding={{ top: 20, bottom: 60 }}
 ```
 
 ### polar
+
+`type: boolean`
 
 `VictoryChart` uses the standard `polar` prop. [Read about it in detail here](/docs/common-props#polar)
 
@@ -278,6 +300,8 @@ scale={{x: "linear", y: "log"}}
 
 ### standalone
 
+`type: boolean`
+
 `VictoryChart` uses the standard `standalone` prop. [Read about it in detail here](/docs/common-props#standalone)
 
 **note:** `VictoryChart` sets `standalone={false} for all of its children.
@@ -294,6 +318,8 @@ scale={{x: "linear", y: "log"}}
 </svg>
 ```
 ### startAngle
+
+`type: number`
 
 The `startAngle` props defines the overall start angle of a polar chart in degrees. This prop is used in conjunction with `endAngle` to create polar chart that spans only a segment of a circle, or to change overall rotation of the chart. This prop should be given as a number of degrees. Degrees are defined as starting at the 3 o'clock position, and proceeding counterclockwise.
 
@@ -373,6 +399,8 @@ theme={VictoryTheme.material}
 ```
 
 ### width
+
+`type: number`
 
 `VictoryChart` uses the standard `width` prop. [Read about it in detail here](/docs/common-props#width)
 

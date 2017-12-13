@@ -36,6 +36,8 @@ However, the component that uses it must be standalone
 
 ### selectionDimension
 
+`type: "x" || "y"`
+
 When the `selectionDimension` prop is set, the selection will only take the given dimension into account.
 For example, when `dimension` is set to "x", the selected area will cover the entire y domain
 regardless of mouse position.
@@ -55,6 +57,8 @@ regardless of mouse position.
 ```
 
 ### selectionStyle
+
+`type: object`
 
 The `selectionStyle` prop should be given as an object of style attributes to be applied to the
 `selectionComponent`
@@ -80,6 +84,8 @@ The `selectionStyle` prop should be given as an object of style attributes to be
 
 ### selectionComponent
 
+`type: element`
+
 The `selectionComponent` prop specifies the element to be rendered for the selected area. When
 this prop is not specified, a `<rect/>` will be rendered. This component will be supplied with the
 following props: `x`, `y`, `width`, `height`, and `style`.
@@ -88,6 +94,8 @@ following props: `x`, `y`, `width`, `height`, and `style`.
 
 ### onSelection
 
+`type: function`
+
 The `onSelection` prop accepts a function to be called whenever new data points are selected. The
 function is called with the parameters `points` (an array of objects with `childName`, `eventKey`,
 and `data`), `bounds` (an object with min / max arrays specified for `x` and `y`), and `props` (the props used by `VictorySelectionContainer`)
@@ -95,6 +103,8 @@ and `data`), `bounds` (an object with min / max arrays specified for `x` and `y`
 *example:* `onSelection={(points, bounds, props) => handleSelection(points, bounds, props)}`
 
 ### onSelectionCleared
+
+`type: function`
 
 The `onSelectionCleared` prop accepts a function to be called whenever the selection is cleared. The function is called with the props used by `VictorySelectionContainer`
 

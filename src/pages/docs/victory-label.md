@@ -12,6 +12,8 @@ VictoryLabel renders the label components that are used across all of Victory.
 
 ### active
 
+`type: boolean`
+
 The `active` prop specifies whether the label is active or not. The `active` prop is set by `defaultEvents` in components like `VictoryTooltip` and `VictorySelectionContainer`. The `active` prop is used when evaluating functional styles and props.
 
 ### angle
@@ -24,19 +26,26 @@ The `capHeight` prop defines a text metric for the font being used: the expected
 
 ### className
 
+`type: string`
+
 The `className` prop specifies a class name that will be applied to the rendered text element.
 
 *example:* `className="myLabel"`
 
 ### data
 
+`type: array[object]`
+
 Victory components can pass a `data` prop to their label component. This can be useful in custom components that need to make use of the entire dataset.
 
 ### datum
 
+`type: object`
+
 Victory components can pass a `datum` prop to their label component. This can be used to calculate functional styles, and determine text. If `x` and `y` are not specified, `datum` will be used to determine label position.
 
 ### desc
+
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
 ### dx
@@ -59,6 +68,8 @@ The `index` prop represents the index of the datum in the data array. **This pro
 
 ### labelPlacement
 
+`type: "parallel" || "perpendicular" || "vertical"
+
 The `labelPlacement` prop is used to specify the placement of labels relative to the data point they represent. This prop may be given as "vertical", "parallel" or "perpendicular". This props is particularly useful in polar charts, where it may be desireable to position a label either parallel or perpendicular to its corresponding angle. When this prop is not set, perpendicular label placement will be used for polar charts, and vertical label placement will be used for cartesian charts.
 
 ### lineHeight
@@ -71,9 +82,13 @@ Victory components will pass an `origin` prop is to define the center point in s
 
 ### polar
 
+`type: boolean`
+
 Victory components can pass a boolean `polar` prop to specify whether a label is part of a polar chart. **This prop should not be set manually.**
 
 ### renderInPortal
+
+`type: boolean`
 
 The `renderInPortal` prop specifies whether `VictoryLabel` should render text in place or within a `VictoryPortal`. Setting `renderInPortal` to true is equivalent to wrapping `VictoryLabel` in a `VictoryPortal`. This prop is false by default.
 
@@ -82,6 +97,8 @@ The `renderInPortal` prop specifies whether `VictoryLabel` should render text in
 Victory components can pass a `scale` prop to their label component. This can be used to calculate the position of label elements from `datum`. **This prop should not be set manually.**
 
 ### style
+
+`type: object`
 
 The `style` prop defines a set of SVG style properties that will be applied to the rendered
 `<text/>` element. This prop should be given as an object, or array of objects. When this prop is
@@ -111,8 +128,12 @@ The `verticalAnchor` prop defines how the text is vertically positioned relative
 
 ### x
 
+`type: number`
+
 The `x` prop defines the x coordinate to use as a basis for positioning the label element.
 
 ### y
+
+`type: number`
 
 The `y` prop defines the y coordinate to use as a basis for positioning the label element.

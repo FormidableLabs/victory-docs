@@ -36,11 +36,15 @@ If you would like to instead highlight only the data points, consider using [Vic
 
 ### cursorComponent
 
+`type: element`
+
 The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [Line][] component will be rendered.
 
 *default:* `cursorComponent={<Line/>}`
 
 ### cursorDimension
+
+`type: "x" || "y"`
 
 When the `cursorDimension` prop is set, the cursor will be a line to inspect the given dimension
 (either "x" or "y"). When this prop is not specified, the cursor will be a 2-dimensional crosshair.
@@ -62,6 +66,8 @@ the cursor will then be a vertical line that will inspect the time value of the 
 
 ### cursorLabel
 
+`type: function`
+
 The `cursorLabel` prop defines the label that will appear next to the cursor.
 A label will only appear if `cursorLabel` is set. This prop should be given as a function of a point (an Object with `x` and `y` properties).
 
@@ -69,11 +75,15 @@ A label will only appear if `cursorLabel` is set. This prop should be given as a
 
 ### cursorLabelComponent
 
+`type: element`
+
 The `cursorLabelComponent` prop takes a component instance which will be used to render a label for the cursor. The new element created from the passed `cursorLabelComponent` will be supplied with the following props: `x`, `y`, `active`, `text`. If `cursorLabelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
 *default:* `cursorLabelComponent={<VictoryLabel/>}`
 
 ### cursorLabelOffset
+
+`type: number || { x: number, y: number }`
 
 The `cursorLabelOffset` prop determines the pixel offset of the cursor label from the cursor point.
 This prop should be an Object with `x` and `y` properties, or a number to be used for both dimensions.
@@ -82,12 +92,16 @@ This prop should be an Object with `x` and `y` properties, or a number to be use
 
 ### defaultCursorValue
 
+`type: number || { x: number, y: number }`
+
 Whenever the mouse is not over the chart, the cursor will not be displayed.
 If instead you would like to keep it displayed, use the `defaultCursorValue` prop to set the default value. The prop should be a point (an Object with `x` and `y` properties) for 2-dimensional cursors, or a number for 1-dimensional cursors.
 
 *examples:* `defaultCursorValue={{x: 1, y: 1}}`, `defaultCursorValue={0}`
 
 ### onCursorChange
+
+`type: function`
 
 If provided, the `onChange` function will be called every time the cursor value changes. `onCursorChange` is called with `value` (the updated cursor value) and `props` (the props used by `VictoryCursorContainer`). A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
 
