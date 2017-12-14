@@ -120,7 +120,6 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
-
 `VictoryLine` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
 
 ```jsx
@@ -333,7 +332,7 @@ padding={{ top: 20, bottom: 60 }}
 
 ### samples
 
-`type: integer`
+`type: number`
 
 `VictoryLine` uses the standard `samples` prop. [Read about it here](/docs/common-props#samples)
 

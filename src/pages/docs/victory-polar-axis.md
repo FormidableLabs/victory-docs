@@ -468,7 +468,7 @@ tickComponent={<Line events={{ onClick: handleClick }}/>}
 
 ### tickCount
 
-`type: integer`
+`type: number`
 
 The `tickCount` prop specifies approximately how many ticks should be drawn on the axis. If an array of ticks is supplied in `tickValues` or `tickFormat`, the `tickCount` prop will be used to _downsample_ the provided array to the specified length. If `tickValues` are not explicitly provided, this value is used by [d3Scale][] to calculate an _approximate_ number of ticks. [d3Scale][] prioritizes returning "nice" values and evenly spaced ticks over an exact number of ticks. This prop must be given as a positive integer.
 

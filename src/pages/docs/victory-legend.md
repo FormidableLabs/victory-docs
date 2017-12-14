@@ -242,7 +242,7 @@ height={400}
 
 ### itemsPerRow
 
-`type: integer`
+`type: number`
 
 The `itemsPerRow` prop determines how many items to render in each row of a horizontal legend, or in each column of a vertical legend. This prop should be given as an integer. When this prop is not given, legend items will be rendered in a single row or column.
 
