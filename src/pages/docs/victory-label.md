@@ -18,9 +18,13 @@ The `active` prop specifies whether the label is active or not. The `active` pro
 
 ### angle
 
+`type: string || number`
+
 The `angle` prop specifies the angle to rotate the text around its anchor point.
 
 ### capHeight
+
+`type: string || number || function`
 
 The `capHeight` prop defines a text metric for the font being used: the expected height of capital letters. This is necessary because of SVG, which (a) positions the *bottom* of the text at `y`, and (b) has no notion of line height. This prop should be given as a number of ems.
 
@@ -46,23 +50,33 @@ Victory components can pass a `datum` prop to their label component. This can be
 
 ### desc
 
+`type: string`
+
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
 ### dx
+
+`type: string || number || function`
 
 The `dx` prop defines a horizontal shift from the `x` coordinate.
 
 ### dy
 
+`type: string || number || function`
+
 The `dy` prop defines a vertical shift from the `y` coordinate. This prop is affected by `capHeight`, `lineHeight`, and `verticalAnchor`, and the number of lines of text that make up the label.
 
 ### events
+
+`type: object`
 
 The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey`.
 
 *example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 ### index
+
+`type: string || number`
 
 The `index` prop represents the index of the datum in the data array. **This prop should not be set manually.**
 
@@ -74,9 +88,13 @@ The `labelPlacement` prop is used to specify the placement of labels relative to
 
 ### lineHeight
 
+`type: string || number || function`
+
 The `lineHeight` prop defines how much space a single line of text should take up. Note that SVG has no notion of line-height, so the positioning may differ slightly from what you would expect with CSS, but the result is similar: a roughly equal amount of extra space is distributed above and below the line of text. This prop should be given as a number of ems.
 
 ### origin
+
+`type: { x: number, y: number }`
 
 Victory components will pass an `origin` prop is to define the center point in svg coordinates for polar charts. **This prop should not be set manually.**
 
@@ -94,6 +112,8 @@ The `renderInPortal` prop specifies whether `VictoryLabel` should render text in
 
 ### scale
 
+`type: { x: scale, y: scale }`
+
 Victory components can pass a `scale` prop to their label component. This can be used to calculate the position of label elements from `datum`. **This prop should not be set manually.**
 
 ### style
@@ -107,6 +127,8 @@ given as an array of objects, each style object in the array will be applied to 
 
 ### text
 
+`type: string || number || function || array`
+
 The `text` prop defines the text `VictoryLabel` will render. The `text` prop may be given as a
 string, number, a function of `datum`, or an array of any of these. Strings may include newline
 characters, which `VictoryLabel` will split into separate `<tspan/>` elements. When `text` is given
@@ -116,13 +138,19 @@ as an array, separate `<tspan/>` elements will be created for each element in th
 
 ### textAnchor
 
+`type: "start" || "middle" || "end" || "inherit"`
+
 The `textAnchor` prop defines how the text is horizontally positioned relative to the given `x` and `y` coordinates. Options are "start", "middle", "end", and "inherit".
 
 ### transform
 
+`type: string || object || function`
+
 The `transform` prop applies a transform to the rendered `<text>` element. This prop may be supplied as a string or an object containing transform definitions.
 
 ### verticalAnchor
+
+`type: "start" || "middle" || "end"`
 
 The `verticalAnchor` prop defines how the text is vertically positioned relative to the given `x` and `y` coordinates. Options are "start", "middle" and "end".
 

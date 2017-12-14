@@ -249,6 +249,8 @@ The `orientation` prop specifies the position and orientation of your axis. Opti
 
 ### padding
 
+`type: number || { top: number, bottom: number, left: number, right: number }`
+
 `VictoryAxis` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
@@ -267,14 +269,17 @@ padding={{ top: 20, bottom: 60 }}
 
 ### scale
 
+`type: scale || { x: scale, y: scale }`
+
 `VictoryAxis` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 **note:** Though `VictoryAxis` can take a `scale` prop with scales defined for both `x` and `y`, only the scale that corresponds the given axis will be used.
 
 *default:* `scale="linear"`
 
 ```jsx
-scale={{x: "time"}}
+scale={{ x: "time" }}
 ```
 
 ### sharedEvents
@@ -314,6 +319,8 @@ scale={{x: "time"}}
 
 ### style
 
+`type: { axis: object, axisLabel: object, grid: object, ticks: object, tickLabels: object }`
+
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `axis`, `axisLabel`, `grid`, `ticks`, and `tickLabels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `grid`, `tick`, and `tickLabel` style properties, and they will be evaluated with each tick.
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
@@ -336,6 +343,8 @@ The `style` prop defines the style of the component. The style prop should be gi
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryAxis` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
@@ -367,6 +376,8 @@ The `tickCount` prop specifies approximately how many ticks should be drawn on t
 
 ### tickFormat
 
+`type: array || function`
+
 The `tickFormat` prop specifies how tick values should be labeled. The `tickFormat` prop can be given as an array of values to display for each tick, or as a function to be applied to every `tickValue`. When given as a function, `tickFormat` will be called with the following arguments: `tick` - the individual tick value, `index` - the index of the tick in the array, and `ticks` - the entire array of ticks.
 
 ```playground
@@ -389,6 +400,8 @@ tickLabelComponent={<VictoryLabel dy={20}/>}
 ```
 
 ### tickValues
+
+`type: array`
 
 The `tickValues` prop explicitly specifies a set of tick values to draw on the axis. This prop should be given as an array of unique values of the same type (_i.e.,_ all numbers). The `tickValues` prop is used to specify the _values_ of each tick, so numeric values are typically appropriate. An array of strings or dates may be supplied for categorical and time series data respectively. Use the [tickFormat][] prop to specify how ticks should be labeled. *Note:* `tickValues` should be given as a unique array.
 

@@ -209,6 +209,8 @@ height={400}
 
 ### labels
 
+`type: array || function`
+
 `VictoryVoronoi` uses the standard `labels` prop to define labels for each point. [Read about it in more detail here](/docs/common-props#labels)
 
 ```playground
@@ -234,11 +236,15 @@ name="series-1"
 
 ### origin
 
+`type: { x: number, y: number }`
+
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
 [Read about the `origin` prop in detail](/docs/common-props#origin)
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryVoronoi` uses the standard `padding` prop. [Read about it in detail here](/docs/common-props#padding)
 
@@ -258,6 +264,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
 [Read about the `range` prop in detail](/docs/common-props#range)
@@ -276,7 +284,10 @@ samples={100}
 
 ### scale
 
-`VictoryVoronoi` uses the standard `scale` prop. [Read about it in detail here](/docs/common-props#scale)
+`type: scale || { x: scale, y: scale }`
+
+`VictoryVoronoi` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 *default:* `scale="linear"`
 
@@ -289,6 +300,8 @@ scale={{x: "linear", y: "log"}}
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
 ### size
+
+`type: number`
 
 The size prop determines the maximum size of each voronoi area. When this prop is given, a circular area of the specified size will be rendered, and clipped where it would overlap with other voronoi areas. If this prop is not given, the entire voronoi area will be used.
 
@@ -337,6 +350,8 @@ sortKey="x"
 
 ### style
 
+`type: { parent: object, data: object, labels: object }`
+
 `VictoryVoronoi` uses the standard `style` prop. [Read about it in detail here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
@@ -358,6 +373,8 @@ sortKey="x"
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryVoronoi` uses the standard `theme` prop. [Read about it in detail here](/docs/common-props#theme)
 

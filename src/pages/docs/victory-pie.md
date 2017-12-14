@@ -263,6 +263,8 @@ The `labelRadius` prop defines the radius of the arc that will be used for posit
 
 ### labels
 
+`type: array || function`
+
 `VictoryPie` uses the standard `labels` prop. [Read about it here](/docs/common-props#labels)
 
 ```playground
@@ -297,6 +299,8 @@ The `padAngle` prop defines the amount of separation between adjacent data slice
 ```
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryPie` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
@@ -368,6 +372,8 @@ The `startAngle` props defines the overall start angle of the pie in degrees. Th
 
 ### style
 
+`type: { parent: object, data: object, labels: object }`
+
 `VictoryPie` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
@@ -387,6 +393,8 @@ The `startAngle` props defines the overall start angle of the pie in degrees. Th
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryPie` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 

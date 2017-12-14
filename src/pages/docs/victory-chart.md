@@ -229,6 +229,8 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 
 ### padding
 
+`type: number || { top: number, bottom: number, left: number, right: number }`
+
 `VictoryChart` uses the standard `padding` prop. [Read about it in detail here](/docs/common-props#padding)
 
 **note: `VictoryChart` controls the `padding` prop of its children.**
@@ -275,6 +277,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 **The `range` prop is usually calculated based on other props. It will not typically be necessary to set a `range` prop manually**
 
 **note: `VictoryChart` controls the `range` prop of its children.**
@@ -284,7 +288,10 @@ padding={{ top: 20, bottom: 60 }}
 
 ### scale
 
-`VictoryChart` uses the standard `scale` prop. [Read about it in detail here](/docs/common-props#scale)
+`type: scale || { x: scale, y: scale }`
+
+`VictoryChart` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 **note: `VictoryChart` controls the `scale` prop of its children.**
 
@@ -372,6 +379,8 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 
 ### style
 
+`type: { parent: object }`
+
 `VictoryChart` uses the standard `style` prop. [Read about it in detail here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
@@ -387,6 +396,8 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryChart` uses the standard `theme` prop. [Read about it in detail here](/docs/common-props#theme)
 

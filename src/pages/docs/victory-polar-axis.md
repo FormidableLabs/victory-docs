@@ -321,7 +321,17 @@ The `labelPlacement` prop specifies how tick labels should be placed relative to
 name="series-1"
 ```
 
+### origin
+
+`type: { x: number, y: number }`
+
+**The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
+
+[Read about the `origin` prop in detail](/docs/common-props#origin)
+
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryPolarAxis` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
@@ -333,20 +343,25 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
 [Read about the `range` prop in detail](/docs/common-props#range)
 
 ### scale
 
+`type: scale || { x: scale, y: scale }`
+
 `VictoryPolarAxis` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 **note:** Though `VictoryPolarAxis` can take a `scale` prop with scales defined for both `x` and `y`, only the scale that corresponds the given axis will be used.
 
 *default:* `scale="linear"`
 
 ```jsx
-scale={{x: "time"}}
+scale={{x: "linear", y: "log"}}
 ```
 
 ### sharedEvents
@@ -405,6 +420,8 @@ The `startAngle` props defines the overall end angle of the axis in degrees. Thi
 
 ### style
 
+`type: { axis: object, axisLabel: object, grid: object, ticks: object, tickLabels: object }`
+
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `axis`, `axisLabel`, `grid`, `ticks`, and `tickLabels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `grid`, `tick`, and `tickLabel` style properties, and they will be evaluated with each tick.
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
@@ -424,6 +441,8 @@ The `style` prop defines the style of the component. The style prop should be gi
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryPolarAxis` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
@@ -455,6 +474,8 @@ The `tickCount` prop specifies approximately how many ticks should be drawn on t
 
 ### tickFormat
 
+`type: array || function`
+
 The `tickFormat` prop specifies how tick values should be labeled. The `tickFormat` prop can be given as an array of values to display for each tick, or as a function to be applied to every `tickValue`. When given as a function, `tickFormat` will be called with the following arguments: `tick` - the individual tick value, `index` - the index of the tick in the array, and `ticks` - the entire array of ticks.
 
 ```playground
@@ -478,6 +499,8 @@ tickLabelComponent={<VictoryLabel dy={20}/>}
 ```
 
 ### tickValues
+
+`type: array`
 
 The `tickValues` prop explicitly specifies a set of tick values to draw on the axis. This prop should be given as an array of unique values of the same type (_i.e.,_ all numbers). The `tickValues` prop is used to specify the _values_ of each tick, so numeric values are typically appropriate. An array of strings or dates may be supplied for categorical and time series data respectively. Use the [tickFormat][] prop to specify how ticks should be labeled. *Note:* `tickValues` should be given as a unique array.
 

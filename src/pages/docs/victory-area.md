@@ -245,6 +245,8 @@ Cartesian area charts may use the following interpolation options: "basis", "car
 
 ### labels
 
+`type: array || function`
+
 `VictoryArea` uses the standard `labels` prop. [Read about it in detail](/docs/common-props#labels)
 
 ```playground
@@ -266,11 +268,15 @@ name="series-1"
 
 ### origin
 
+`type: { x: number, y: number }`
+
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
 [Read about the `origin` prop in detail](/docs/common-props#origin)
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryArea` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
@@ -306,6 +312,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
 [Read about the `range` prop in detail](/docs/common-props#range)
@@ -324,7 +332,10 @@ samples={100}
 
 ### scale
 
+`type: scale || { x: scale, y: scale }`
+
 `VictoryArea` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 *default:* `scale="linear"`
 
@@ -371,6 +382,8 @@ sortKey="x"
 
 ### style
 
+`type: { parent: object, data: object, labels: object }`
+
 `VictoryArea` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
@@ -392,6 +405,8 @@ sortKey="x"
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryArea` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 

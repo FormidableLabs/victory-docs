@@ -49,6 +49,8 @@ borderComponent={<Border width={300}/>}
 
 ### borderPadding
 
+`type: number || { top: number, bottom: number, left: number, right: number }`
+
 The `borderPadding` specifies the amount of padding that should be added between the legend items and the border. This prop may be given as a number, or as an object with values specified for `top`, `bottom`, `left`, and `right`. Please note that the default width and height calculated for the border component is based on _approximated_ text measurements, so padding may need to be adjusted.
 
 ```jsx
@@ -209,6 +211,8 @@ groupComponent={<g transform="rotate(90)" />}
 
 ### gutter
 
+`type: number || { left: number, right: number }`
+
 The `gutter` prop defines the number of pixels between legend columns. This prop may be given as a number, or as an object with values specified for "left" and "right" gutters. To set spacing between rows, use the `rowGutter` prop.
 
 *default:* `gutter={10}`
@@ -281,6 +285,8 @@ The `orientation` prop takes a string that defines whether legend data are displ
 
 ### padding
 
+`type: number || { top: number, bottom: number, left: number, right: number }`
+
 `VictoryLegend` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
@@ -290,6 +296,8 @@ padding={{ top: 20, bottom: 60 }}
 ```
 
 ### rowGutter
+
+`type: number || { top: number, bottom: number }`
 
 The `rowGutter` prop defines the number of pixels between legend rows. This prop may be given as a number, or as an object with values specified for "top" and "bottom" gutters. To set spacing between columns, use the `gutter` prop.
 
@@ -352,6 +360,8 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 ### symbolSpacer
 
+`type: number`
+
 The `symbolSpacer` prop defines the number of pixels between data components and label components. When a `symbolSpacer` is not defined, spacing is calculated based on symbol size and label font size.
 
 ```playground
@@ -367,11 +377,15 @@ The `symbolSpacer` prop defines the number of pixels between data components and
 
 ### theme
 
+`type: object`
+
 The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme][]. [Read more about themes here][].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
 ### title
+
+`type: string || array[string]`
 
 The `title` prop specifies a title to render with the legend. This prop should be given as a string, or an array of strings for multi-line titles.
 

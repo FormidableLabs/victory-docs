@@ -255,6 +255,8 @@ Cartesian line charts may use the following interpolation options: "basis", "bun
 
 ### labels
 
+`type: array || function`
+
 `VictoryLine` uses the standard `labels` prop. [Read about it here](/docs/common-props#labels)
 
 ```playground
@@ -276,11 +278,15 @@ name="series-1"
 
 ### origin
 
+`type: { x: number, y: number }`
+
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
 [Read about the `origin` prop in detail](/docs/common-props#origin)
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryLine` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
@@ -317,6 +323,8 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
 [Read about the `range` prop in detail](/docs/common-props#range)
@@ -346,7 +354,10 @@ padding={{ top: 20, bottom: 60 }}
 
 ### scale
 
+`type: scale || { x: scale, y: scale }`
+
 `VictoryLine` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 *default:* `scale="linear"`
 
@@ -398,6 +409,8 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### style
 
+`type: { parent: object, data: object, labels: object }`
+
 `VictoryLine` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
@@ -419,6 +432,8 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryLine` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 

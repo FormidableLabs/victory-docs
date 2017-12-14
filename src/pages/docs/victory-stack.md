@@ -218,6 +218,8 @@ labelComponent={<VictoryLabel dy={20}/>}
 
 ### labels
 
+`type: array || function`
+
 The `labels` prop defines labels that will appear above each stack of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the `labels` prop of child components. Omit this prop, and set `labels` props on children for individual labels.
 
 ```jsx
@@ -236,12 +238,16 @@ name="series-1"
 
 ### origin
 
+`type: { x: number, y: number }`
+
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
 [Read about the `origin` prop in detail](/docs/common-props#origin)
 
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryStack` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
@@ -259,13 +265,20 @@ padding={{ top: 20, bottom: 60 }}
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
 [Read about the `range` prop in detail](/docs/common-props#range)
 
 ### scale
 
+`type: scale || { x: scale, y: scale }`
+
 `VictoryStack` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
+
+**note: `VictoryStack` controls the `scale` prop of its children.**
 
 *default:* `scale="linear"`
 
@@ -302,6 +315,8 @@ sortKey="x"
 
 ### style
 
+`type: { parent: object, data: object, labels: object }`
+
 `VictoryStack` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
 Styles on children of `VictoryGroup` will override styles set on the `VictoryGroup` component.
@@ -328,6 +343,8 @@ Styles on children of `VictoryGroup` will override styles set on the `VictoryGro
 ```
 
 ### theme
+
+`type: object`
 
 `VictoryStack` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
