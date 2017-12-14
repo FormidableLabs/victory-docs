@@ -82,7 +82,7 @@ The `index` prop represents the index of the datum in the data array. **This pro
 
 ### labelPlacement
 
-`type: "parallel" || "perpendicular" || "vertical"
+`type: "parallel" || "perpendicular" || "vertical"`
 
 The `labelPlacement` prop is used to specify the placement of labels relative to the data point they represent. This prop may be given as "vertical", "parallel" or "perpendicular". This props is particularly useful in polar charts, where it may be desireable to position a label either parallel or perpendicular to its corresponding angle. When this prop is not set, perpendicular label placement will be used for polar charts, and vertical label placement will be used for cartesian charts.
 

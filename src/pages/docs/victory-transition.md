@@ -12,6 +12,8 @@ scope: null
 
 ### children
 
+`type: element`
+
 `VictoryTransiton` adds transitions to a single child.
 
 ### animate
