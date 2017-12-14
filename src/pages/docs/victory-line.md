@@ -4,6 +4,7 @@ title: VictoryLine
 category: charts
 scope:
   - sampleData
+  - range
 ---
 # VictoryLine
 
