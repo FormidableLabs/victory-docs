@@ -14,6 +14,8 @@ The props explanations given here are general. Each component docs page should b
 
 ### animate
 
+`type: boolean || object`
+
 The `animate` prop specifies props for [VictoryAnimation][] and [VictoryTransition][] to use. The animate prop may be used to specify the duration, delay, and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop.
 
 See the [Animations Guide][] for more detail on animations and transitions
@@ -77,6 +79,8 @@ ReactDOM.render(<App/>, mountNode)
 
 ### categories
 
+`type: array[string] || { x: array[string], y: array[string] }`
+
 The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
 
 *example:* `categories={{ x: ["apples", "oranges", "bananas"] }}`
@@ -99,6 +103,8 @@ The `categories` prop specifies how categorical data for a chart should be order
 ```
 
 ### containerComponent
+
+`type: element`
 
 The `containerComponent` prop takes a component instance which will be used to create a container element for standalone charts. If a `containerComponent` is not provided, the default `VictoryContainer` component will be used. Other Victory container components include:
   - [VictoryBrushContainer][]
@@ -135,6 +141,8 @@ Container components are suppied with the following props:
 
 ### data
 
+`type: array[object]`
+
 Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x][] and [y][] data accessor props to define a custom data format. The `data` prop must be given as an array. Data objects may also include information about styles, labels, and props that may be applied to individual data components.
 
 **Note:** All values stored on the data object will be interpolated during animation. Do not store functions on data objects.
@@ -152,6 +160,8 @@ Specify data via the `data` prop. By default, Victory components expect data as 
 ```
 
 ### dataComponent
+
+`type: element`
 
 The `dataComponent` prop takes a component instance which will be responsible for rendering a data element. The new element created from the passed `dataComponent` will be provided with all the props it needs to render. These props will always include `data`, `events`, `scale` and `style`. Individual components will supply additional props expected by their default `dataComponents`. See individual api docs for complete props lists. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `dataComponent` is not provided, each component will use its own default `dataComponent`.
 
@@ -190,6 +200,8 @@ ReactDOM.render(<App/>, mountNode);
 
 ### domain
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated from data, or other available information.
 
 *examples:*
@@ -205,6 +217,8 @@ The `domain` prop describes the range of data the component will include. This p
 ```
 
 ### domainPadding
+
+`type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
 The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum.
 
@@ -224,11 +238,15 @@ The `domainPadding` prop specifies a number of pixels of padding to add the begi
 
 ### eventKey
 
+`type: string || integer || array[string] || function`
+
 The `eventKey` prop is used to assign eventKeys to data. This prop operates identically to the [x][] and [y][] data accessor props. By default, the eventKey of each datum will be equal to its index in the data array. **This prop is not commonly used.**
 
 See the [Events Guide][] for more information on defining events and using event keys.
 
 ### events
+
+`type: array[object]`
 
 The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
 
@@ -271,6 +289,8 @@ The `events` prop takes an array of event objects. Event objects are composed of
 
 ### groupComponent
 
+`type: element`
+
 The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. For most components, this prop defaults to a `<g>` tag. Continuous data components like `VictoryLine` and `VictoryArea` use [VictoryClipContainer][] a component which renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. `VictoryClipContainer` may also be used with components like `VictoryScatter` to prevent data from overflowing the chart area.
 
 ```playground
@@ -284,6 +304,8 @@ The `groupComponent` prop takes a component instance which will be used to creat
 ```
 
 ### height
+
+`type: number`
 
 The `height` prop determines the height of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container. When a component is nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` setting the `height` prop on the child component will have no effect.
 
@@ -299,6 +321,8 @@ The `height` prop determines the height of the containing `<svg>`. By default Vi
 ```
 
 ### labelComponent
+
+`type: element`
 
 The `labelComponent` prop takes a component instance which will be used to render labels for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, data, datum, verticalAnchor, textAnchor, angle, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above. [VictoryTooltip][] is commonly used as a `labelComponent`
 
@@ -319,6 +343,8 @@ The `labelComponent` prop takes a component instance which will be used to rende
 
 ### labels
 
+`type: array || function`
+
 The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function of data.
 
 *examples:*
@@ -334,15 +360,21 @@ The `labels` prop defines the labels that will appear above each point. This pro
 
 ### name
 
+`type: string`
+
 The `name` prop is used to reference a component instance when defining shared events.
 
 *example:* `name="series-1"`
 
 ### origin
 
+`type: { x: number, y: number }`
+
 The origin prop is used to define the center point in svg coordinates for polar charts. All children within a polar chart must share the same origin, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. When this prop is not set, it will be calculated based on the `width`, `height` and `padding` of the chart. **This prop is usually not set manually.**
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 The `padding` prop specifies the amount of padding in number of pixels between the edge of the chart and any rendered child components. This prop can be given as a number or as an object with padding specified for top, bottom, left and right. As with [width][] and [height][], the absolute padding will depend on whether the component is rendered in a responsive container. When a component is nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` setting `padding` on the child component will have no effect.
 
@@ -361,6 +393,8 @@ The `padding` prop specifies the amount of padding in number of pixels between t
 ```
 
 ### polar
+
+`type: boolean`
 
 The boolean `polar` prop specifies whether a chart should be plotted on a polar coordinate system. All components in a given chart must share the same coordinate system, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect.
 
@@ -385,6 +419,8 @@ The boolean `polar` prop specifies whether a chart should be plotted on a polar 
 
 ### range
 
+`type: array[low, high] || { x: [low, high], y: [low, high] }`
+
 The `range` prop describes the dimensions over which data may be plotted. For cartesian coordinate systems, this cooresponds to minimum and maximum svg coordinates in the x and y dimension. In polar coordinate systems this corresponds to a range of angles and radii. When this value is not given it will be calculated from the `width`, `height`, and `padding`, or from the `startAngle` and `endAngle` in the case of polar charts. All components in a given chart must share the same range, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. **This prop is usually not set manually.**
 
 *examples:*
@@ -392,6 +428,8 @@ The `range` prop describes the dimensions over which data may be plotted. For ca
   - Polar: `range={{ x: [0, 360], y: [0, 250] }}`
 
 ### samples
+
+`type: number`
 
 The `samples` prop specifies how many individual points to plot when plotting
 y as a function of x. The `samples` prop is ignored if `data` is supplied in props.
@@ -413,6 +451,8 @@ y as a function of x. The `samples` prop is ignored if `data` is supplied in pro
 ```
 
 ### scale
+
+`type: scale || { x: scale, y: scale }`
 
 The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. For "time" scales, data points should be `Date` objects or `getTime()` ints.
 
@@ -439,6 +479,8 @@ The `scale` prop determines which scales your chart should use. This prop can be
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. **This prop should not be set manually.**
 
 ### sortKey
+
+`type: string || integer || array[string] || function`
 
 Use the `sortKey` prop to indicate how data should be sorted. This prop is
 given directly to the lodash [sortBy][] function to be executed on the final
@@ -481,6 +523,8 @@ sortKey={["age", "height"]}
 
 ### standalone
 
+`type: boolean`
+
 The `standalone` props specifies whether the component should be rendered in a independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`, however, wrapper components like `VictoryChart`, `VictoryStack`, and `VictoryGroup` force children to use `standalone={false}`.
 
 *default:* `standalone={true}`
@@ -497,6 +541,8 @@ The `standalone` props specifies whether the component should be rendered in a i
 ```
 
 ### style
+
+`type: object`
 
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `data`, `labels` and `parent`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart.
 
@@ -537,6 +583,8 @@ style={{
 
 ### theme
 
+`type: object`
+
 The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overwritten by props specified on the component instance. By default, components use a [grayscale theme][].
 
 See the [Themes Guide][] for information about creating custom themes.
@@ -548,6 +596,8 @@ theme={VictoryTheme.material}
 ```
 
 ### width
+
+`type: number`
 
 The `width` prop determines the width of the containing `<svg>`. By default Victory components render responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%`, `height="auto`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, pass `responsive={false}` to the `containerComponent` like `containerComponent={<VictoryContainer responsive={false}/>}`, or set `standalone={false}` and render the resulting `<g>` tag in your own `<svg>` container. When a component is nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` setting `width` prop on the child component will have no effect.
 
@@ -562,6 +612,8 @@ The `width` prop determines the width of the containing `<svg>`. By default Vict
 </div>
 ```
 ### x
+
+`type: string || integer || array[string] || function`
 
 Use the `x` data accessor prop to determine how the component defines data in the x dimension. This prop may be given in a variety of formats:
 
@@ -593,6 +645,8 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 ### y
 
+`type: string || integer || array[string] || function`
+
 Use `y` data accessor prop to determine how the component defines data in the y dimension. This prop may be given in a variety of formats:
 
 **string:** specify which property in an array of data objects should be used as the y value
@@ -623,6 +677,8 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 
 ### y0
+
+`type: string || integer || array[string] || function`
 
 Use `y0` data accessor prop to determine how the component defines the baseline y0 data. This prop is useful for defining custom baselines for components like `VictoryBar` or `VictoryArea`. This prop may be given in a variety of formats.
 

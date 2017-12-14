@@ -40,6 +40,8 @@ However, the component that uses it must be standalone
 
 ### voronoiDimension
 
+`type: "x" || "y"`
+
 When the `voronoiDimension` prop is set, voronoi selection will only take the given dimension into account.
 For example, when `dimension` is set to "x", all data points matching a particular x mouse position
 will be activated regardless of y value. When this prop is not given, voronoi selection is
@@ -72,12 +74,16 @@ determined by both x any y values.
 
 ### radius
 
+`type: number`
+
 When the `radius` prop is set, the voronoi areas associated with each data point will be no larger
 than the given radius. This prop should be given as a number.
 
 *example:* `radius={25}`
 
 ### voronoiPadding
+
+`type: number`
 
 When the `voronoiPadding` prop is given, the area of the chart that will trigger voronoi events is
 reduced by the given padding on every side. By default, no padding is applied, and the entire range
@@ -87,13 +93,16 @@ of a given chart may trigger voronoi events. This prop should be given as a numb
 
 ### onActivated
 
+`type: function`
+
 The `onActivated` prop accepts a function to be called whenever new data points are activated.
 The function is called with the parameters `points` (an array of active data objects) and `props` (the props used by `VictoryVoronoiContainer`).
 
 *example:* `onActivated={(points, props) => filterList(points, props)}`
 
-
 ### onDeactivated
+
+`type: function`
 
 The `onDeactivated` prop accepts a function to be called whenever points are deactivated.
 The function is called with the parameters `points` (an array of the newly-deactivated data objects) and `props` (the props used by `VictoryVoronoiContainer`).
@@ -101,6 +110,8 @@ The function is called with the parameters `points` (an array of the newly-deact
 *example:* `onDeactivated={(points, props) => removeFromList(points, props)}`
 
 ### labels
+
+`type: function`
 
 When a `labels` prop is provided to `VictoryVoronoiContainer` it will render a label component
 rather than activating labels on the child components it renders. This is useful for creating multi-
@@ -110,6 +121,8 @@ point.
 *example:* `labels={(d) => "y: " + d.y}`
 
 ### labelComponent
+
+`type: element`
 
 The `labelComponent` prop specified the component that will be rendered when `labels` are defined
 on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label component will be rendered.

@@ -22,9 +22,13 @@ scope: null
 
 ### children
 
+`type: function`
+
 `VictoryAnimation` takes a single child, which should be given as a function of a tweened props object and an animation information object. The child function should return a component to render.
 
 ### data
+
+`type: object || array`
 
 The `data` prop specifies a set of values to tween between. When this prop changes, `VictoryAnimation` will begin animating between the current and next values. This prop should be given as an array or an object. `VictoryAnimation` uses [d3-interpolate][] to tween between values, with some [slight modifications][].
 
@@ -32,11 +36,15 @@ The `data` prop specifies a set of values to tween between. When this prop chang
 
 ### duration
 
+`type: number`
+
 The `duration` prop determines the number of milliseconds the animation should take to complete. This prop should be given as a number.
 
 *default:* `duration={1000}`
 
 ### delay
+
+`type: number`
 
 The `delay` prop specifies a delay in milliseconds before the start of an animation, or between each animation in the queue. This prop should be given as a number.
 
@@ -44,11 +52,15 @@ The `delay` prop specifies a delay in milliseconds before the start of an animat
 
 ### easing
 
+`type: options`
+
 The `easing` prop specifies the type of easing to use for an animation. The supported types of easing are: *"back", "backIn", "backOut", "backInOut", "bounce", "bounceIn", "bounceOut", "bounceInOut", "circle", "circleIn", "circleOut", "circleInOut", "linear", "linearIn", "linearOut", "linearInOut", "cubic", "cubicIn", "cubicOut", "cubicInOut", "elastic", "elasticIn", "elasticOut", "elasticInOut", "exp", "expIn", "expOut", "expInOut", "poly", "polyIn", "polyOut", "polyInOut", "quad", "quadIn", "quadOut", "quadInOut", "sin", "sinIn", "sinOut", "sinInOut"*.
 
 *default:* `easing="quadInOut"`
 
 ### onEnd
+
+`type: function`
 
 The `onEnd` prop specifies a function that will be called when the animation ends. If there are multiple animations in the queue, the `onEnd` function will be called after the last animation in the queue completes.
 

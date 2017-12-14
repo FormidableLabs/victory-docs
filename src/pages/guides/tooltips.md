@@ -7,8 +7,6 @@ scope: null
 
 [`VictoryTooltip`][] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`
 
-[`VictoryVoronoiTooltip`][] attaches the `VictoryTooltip` label component to an invisible `VictoryVoronoi` data component. `VictoryVoronoi` tooltip is useful for adding tooltips to elements that do not have individual data elements, like `VictoryLine`, or adding tooltips to any element that is too small to hover over effectively.
-
 This guide discusses customization and advanced usage of tooltips in Victory
 
 ## Simple tooltips

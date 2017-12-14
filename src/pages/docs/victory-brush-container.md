@@ -43,17 +43,23 @@ However, the component that uses it must be standalone
 
 ### allowDrag
 
+`type: boolean`
+
 The optional `allowDrag` prop accepts a boolean that enables dragging behavior for the highlighted brush area. Resizing will still be enabled when the `allowDrag` prop is set to false.
 
 *default:* `allowDrag={true}`
 
 ### allowResize
 
+`type: boolean`
+
 The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fized.
 
 *default:* `allowResize={true}`
 
 ### brushComponent
+
+`type: element`
 
 The `brushComponent` prop specifies the component to be rendered for the highlighted area.
 This component will be supplied with the following props: x, y, width, height, and style.
@@ -63,6 +69,8 @@ When this prop is not specified, a `<rect/>` will be rendered.
 
 ### brushDimension
 
+`type: "x" || "y"`
+
 When the `brushDimension` prop is set, brushing will only be specific to the to the given dimension
 (either "x" or "y"), and the entire domain of the other dimension will be highlighted. When this prop
 is not specified, highlighting will occur along both dimensions.
@@ -70,6 +78,8 @@ is not specified, highlighting will occur along both dimensions.
 *example:* `brushDimension="x"`
 
 ### brushDomain
+
+`type: { x: [low, high], y: [low, high] }`
 
 The optional `brushDomain` prop describes the highlighted state. This prop is an object that
 specifies separate arrays for `x` and `y`. Each array is a tuple that describes the minimum and maximum
@@ -80,12 +90,16 @@ domain highlighted. When this prop changes, the chart will render with a new hig
 
 ### brushStyle
 
+`type: object`
+
 The `brushStyle` adds custom styles to the `brushComponent`. This prop should be given as
 an object of SVG style attributes.
 
 *default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
 
 ### handleComponent
+
+`type: element`
 
 The `handleComponent` prop specifies the component to be rendered for each handle for the highlighted
 area.  This component will be supplied with the following props: `x`, `y`, `width`, `height`, `cursor`, and `style`.
@@ -94,6 +108,8 @@ When this prop is not specified, a `<rect/>` will be rendered.
 *default:* `handleComponent={<rect/>}`
 
 ### handleStyle
+
+`type: object`
 
 The `handleStyle` adds custom styles to the `handleComponents`. This prop should be given as
 an object of SVG style attributes.
@@ -106,6 +122,8 @@ with cursors appropriate to their orientation.
 *default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}
 
 ### onBrushDomainChange
+
+`type: function`
 
 The optional `onBrushDomainChange` prop accepts an function to be called on each update to the highlighted domain. The function accepts the parameters of `domain` (the updated domain), and `props` (the props used by `VictoryBrushContainer`).
 

@@ -37,6 +37,8 @@ scope: null
 
 ### borderComponent
 
+`type: element`
+
 The `borderComponent` prop takes a component instance which will be responsible for rendering a border around the legend. The new element created from the passed `borderComponent` will be provided with the following properties calculated by `VictoryLegend`: `x`, `y`, `width`, `height`, and `style`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `borderComponent` is not provided, `VictoryLegend` will use its default [Border component][]. Please note that the default width and height calculated for the border component is based on _approximated_ text measurements, and may need to be adjusted.
 
 *default:* `<Border/>`
@@ -47,6 +49,8 @@ borderComponent={<Border width={300}/>}
 
 ### borderPadding
 
+`type: number || { top: number, bottom: number, left: number, right: number }`
+
 The `borderPadding` specifies the amount of padding that should be added between the legend items and the border. This prop may be given as a number, or as an object with values specified for `top`, `bottom`, `left`, and `right`. Please note that the default width and height calculated for the border component is based on _approximated_ text measurements, so padding may need to be adjusted.
 
 ```jsx
@@ -54,6 +58,8 @@ borderPadding={{ top: 20, bottom: 10 }}
 ```
 
 ### centerTitle
+
+`type: boolean`
 
 The `centerTitle` boolean prop specifies whether a legend title should be centered.
 
@@ -72,6 +78,8 @@ The `centerTitle` boolean prop specifies whether a legend title should be center
 
 ### colorScale
 
+`type: array[string]`
+
 The `colorScale` prop defines a color scale to be applied to each data symbol in `VictoryLegend`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryLegend` will assign a color to each symbol by index, unless they are explicitly specified in the data object. Colors will repeat when there are more symbols than colors in the provided `colorScale`.
 
 ```playground
@@ -89,6 +97,8 @@ The `colorScale` prop defines a color scale to be applied to each data symbol in
 
 ### containerComponent
 
+`type: element`
+
 `VictoryLegend` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 **Note:** `VictoryLegend` only works with the `VictoryContainer` component
@@ -101,6 +111,8 @@ containerComponent={<VictoryContainer responsive={false}/>}
 
 
 ### data
+
+`type: array[{ name, symbol, labels }]`
 
 Specify data via the `data` prop. `VictoryLegend` expects data as an array of objects with `name` (required), `symbol`, and `labels` properties. The `data` prop must be given as an array.
 
@@ -120,6 +132,9 @@ Specify data via the `data` prop. `VictoryLegend` expects data as an array of ob
 ```
 
 ### dataComponent
+
+`type: element`
+
 `VictoryLegend` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryLegend` supplies the following props to its `dataComponent`: `data`, `datum`, `events`, `index`, `x`, `y`, `size`, `style`, and `symbol`. `VictoryLegend` renders a [Point component][] by default.
@@ -134,6 +149,8 @@ dataComponent={<Point events={{ onClick: handleClick }}/>}
 
 ### eventKey
 
+`type: string || integer || array[string] || function`
+
 `VictoryLegend` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
@@ -141,6 +158,8 @@ eventKey="x"
 ```
 
 ### events
+
+`type: array[object]`
 
 `VictoryLegend` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
@@ -180,6 +199,8 @@ See the [Events Guide][] for more information on defining events.
 
 ### groupComponent
 
+`type: element`
+
 `VictoryLegend` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
@@ -189,6 +210,8 @@ groupComponent={<g transform="rotate(90)" />}
 ```
 
 ### gutter
+
+`type: number || { left: number, right: number }`
 
 The `gutter` prop defines the number of pixels between legend columns. This prop may be given as a number, or as an object with values specified for "left" and "right" gutters. To set spacing between rows, use the `rowGutter` prop.
 
@@ -207,6 +230,8 @@ The `gutter` prop defines the number of pixels between legend columns. This prop
 
 ### height
 
+`type: number`
+
 `VictoryLegend` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
 *default (provided by default theme):* `height={400}`
@@ -216,6 +241,8 @@ height={400}
 ```
 
 ### itemsPerRow
+
+`type: number`
 
 The `itemsPerRow` prop determines how many items to render in each row of a horizontal legend, or in each column of a vertical legend. This prop should be given as an integer. When this prop is not given, legend items will be rendered in a single row or column.
 
@@ -233,6 +260,8 @@ The `itemsPerRow` prop determines how many items to render in each row of a hori
 
 ### labelComponent
 
+`type: element`
+
 `VictoryLegend` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel/>`
@@ -248,11 +277,15 @@ The `itemsPerRow` prop determines how many items to render in each row of a hori
 
 ### orientation
 
+`type: "vertical" || "horizontal"`
+
 The `orientation` prop takes a string that defines whether legend data are displayed in a row or column. When `orientation` is `"horizontal"`, legend items will be displayed in rows. When `orientation` is `"vertical"`, legend items will be displayed in columns.
 
 *default:* `orientation="vertical"`
 
 ### padding
+
+`type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryLegend` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
@@ -263,6 +296,8 @@ padding={{ top: 20, bottom: 60 }}
 ```
 
 ### rowGutter
+
+`type: number || { top: number, bottom: number }`
 
 The `rowGutter` prop defines the number of pixels between legend rows. This prop may be given as a number, or as an object with values specified for "top" and "bottom" gutters. To set spacing between columns, use the `gutter` prop.
 
@@ -285,11 +320,15 @@ The `rowGutter` prop defines the number of pixels between legend rows. This prop
 
 ### standalone
 
+`type: boolean`
+
 The `standalone` props specifies whether the component should be rendered in an independent `<svg>` element or in a `<g>` tag. This prop defaults to true, and renders an `svg`.
 
 *default:* `standalone={true}`
 
 ### style
+
+`type: { border: object, data: object, labels: object, parent: object, title: object }`
 
 The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `data`, `labels`, `title`, and `border`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `data`, and `labels` style properties, and they will be evaluated with each datum.
 
@@ -321,6 +360,8 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 ### symbolSpacer
 
+`type: number`
+
 The `symbolSpacer` prop defines the number of pixels between data components and label components. When a `symbolSpacer` is not defined, spacing is calculated based on symbol size and label font size.
 
 ```playground
@@ -336,11 +377,15 @@ The `symbolSpacer` prop defines the number of pixels between data components and
 
 ### theme
 
+`type: object`
+
 The `theme` prop specifies a theme to use for determining styles and layout properties for a component. Any styles or props defined in `theme` may be overridden by props specified on the component instance. By default, components use a [grayscale theme][]. [Read more about themes here][].
 
 *default:* `theme={VictoryTheme.grayscale}`
 
 ### title
+
+`type: string || array[string]`
 
 The `title` prop specifies a title to render with the legend. This prop should be given as a string, or an array of strings for multi-line titles.
 
@@ -357,6 +402,8 @@ The `title` prop specifies a title to render with the legend. This prop should b
 ```
 
 ### titleComponent
+
+`type: element`
 
 The `titleComponent` prop takes a component instance which will be used to render a title for the component. The new element created from the passed `labelComponent` will be supplied with the following properties: `x`, `y`, `index`, `data`, `datum`, `verticalAnchor`, `textAnchor`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
@@ -378,6 +425,8 @@ The `titleComponent` prop takes a component instance which will be used to rende
 
 ### titleOrientation
 
+`type: "top" || "bottom" || "left" || "right"`
+
 The `titleOrientation` prop specifies where the a title should be rendered in relation to the rest of the legend. Possible values for this prop are "top", "bottom", "left", and "right".
 
 *default (provided by default theme):* `titleOrientation="top"`
@@ -397,6 +446,8 @@ The `titleOrientation` prop specifies where the a title should be rendered in re
 
 ### width
 
+`type: number`
+
 `VictoryLegend` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
 *default (provided by default theme):* `width={400}`
@@ -407,9 +458,13 @@ width={400}
 
 ### x
 
+`type: number`
+
 The `x` prop defines the x coordinate corresponding to the upper left corner of the legend.
 
 ### y
+
+`type: number`
 
 The `y` prop defines the y coordinate corresponding to the upper left corner of the legend.
 

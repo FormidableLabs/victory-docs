@@ -12,6 +12,8 @@ scope: null
 
 ### children
 
+`type: element`
+
 `VictoryPortal` takes a single `children`, and renders it in a top level portal element. Any additional props passed to `VictoryPortal` will be spread onto the child. In the following example, the `labelComponent` passed to the first series of bars has been wrapped in `VictoryPortal`. The resulting labels will be rendered in a top-level portal container, and will not be overlapped by subsequent data series, as they otherwise would have.
 
 ```jsx
@@ -34,6 +36,8 @@ scope: null
 ```
 
 ### groupComponent
+
+`type: element`
 
 The `groupComponent` prop takes a component instance which will be used to create a group element for `VictoryPortal` to render its child component into. This prop defaults to a `<g>` tag.
 
