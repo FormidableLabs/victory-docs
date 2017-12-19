@@ -290,18 +290,6 @@ scale={{x: "linear", y: "log"}}
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### sortKey
-
-`type: string || integer || array[string] || function`
-
-`VictoryStack` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
-
-See the [Data Accessors Guide][] for more detail on formatting and processing data.
-
-```jsx
-sortKey="x"
-```
-
 ### standalone
 
 `type: boolean`
@@ -311,7 +299,6 @@ sortKey="x"
 **note:** When `VictoryGroup` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
 *default:* `standalone={true}`
-
 
 ### style
 

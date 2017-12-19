@@ -360,6 +360,14 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 sortKey="x"
 ```
 
+### sortOrder
+
+`type: "ascending" || "descending"`
+
+The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
+
+*default:* `sortOrder="ascending"`
+
 ### standalone
 
 `type: boolean`

@@ -423,6 +423,14 @@ The `size` prop determines how to scale each data point. This prop may also be g
 sortKey="x"
 ```
 
+### sortOrder
+
+`type: "ascending" || "descending"`
+
+The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
+
+*default:* `sortOrder="ascending"`
+
 ### standalone
 
 `type: boolean`

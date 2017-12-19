@@ -325,6 +325,14 @@ The size prop determines the maximum size of each voronoi area. When this prop i
 sortKey="x"
 ```
 
+### sortOrder
+
+`type: "ascending" || "descending"`
+
+The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
+
+*default:* `sortOrder="ascending"`
+
 ### standalone
 
 `type: boolean`
