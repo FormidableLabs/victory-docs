@@ -8,16 +8,11 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      zoomDomain: { x: [new Date(1990, 1, 1), new Date(2009, 1, 1)] },
-      selectedDomain: { x: [new Date(1990, 1, 1), new Date(2009, 1, 1)] }
+      zoomDomain: { x: [new Date(1990, 1, 1), new Date(2009, 1, 1)] }
     };
   }
 
   handleZoom(domain) {
-    this.setState({ selectedDomain: domain });
-  }
-
-  handleBrush(domain) {
     this.setState({ zoomDomain: domain });
   }
 
@@ -58,8 +53,8 @@ class App extends React.Component {
             containerComponent={
               <VictoryBrushContainer
                 brushDimension="x"
-                brushDomain={this.state.selectedDomain}
-                onBrushDomainChange={this.handleBrush.bind(this)}
+                brushDomain={this.state.zoomDomain}
+                onBrushDomainChange={this.handleZoom.bind(this)}
               />
             }
           >
