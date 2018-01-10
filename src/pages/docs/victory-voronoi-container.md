@@ -38,6 +38,38 @@ However, the component that uses it must be standalone
 
 `VictoryVoronoiContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
+### voronoiBlacklist
+
+`type: array[string]`
+
+The `voronoiBlacklist` prop is used to specify a list of components to ignore when calculating a shared voronoi diagram. Components with a `name` prop matching an element in the `voronoiBlacklist` array will be ignored by `VictoryVoronoiContainer`. Ignored components will never be flagged as active, and will not contribute date to shared tooltips or labels.
+
+*example:* `voronoiBlacklist={["redPoints"]}`
+
+
+```playground
+<VictoryChart domain={{ y: [0, 6] }}
+  containerComponent={
+    <VictoryVoronoiContainer
+      voronoiBlacklist={["redPoints"]}
+      labels={(d) => `y: ${d.y}`}
+    />
+  }
+>
+  <VictoryScatter name="redPoints"
+  	style={{ data: { fill: "red" }, labels: { fill: "red" } }}
+    data={[
+      { x: 0, y: 2 }, { x: 2, y: 3 }, { x: 4, y: 4 }, { x: 6, y: 5 }
+    ]}
+  />
+  <VictoryScatter
+    data={[
+      { x: 2, y: 2 }, { x: 4, y: 3 }, { x: 6, y: 4 }, { x: 8, y: 5 }
+    ]}
+  />
+</VictoryChart>
+```
+
 ### voronoiDimension
 
 `type: "x" || "y"`
