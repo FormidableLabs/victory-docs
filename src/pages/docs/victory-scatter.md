@@ -222,6 +222,12 @@ See the [Events Guide][] for more information on defining events.
 </div>
 ```
 
+### externalEventMutations
+
+`type: array[object]`
+
+`VictoryScatter` uses the standard `externalEventMutations` prop. [Read about it in detail](/docs/common-props#externalEventsMutations)
+
 ### groupComponent
 
 `type: element`

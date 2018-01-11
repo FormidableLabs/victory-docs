@@ -229,6 +229,12 @@ See the [Events Guide] []for more information on defining events.
 **note:** valid event targets for `VictoryPolarAxis` are "axis", "axisLabel", "grid", "ticks", and "tickLabels".
 Targets that correspond to only one element {"axis" and "axisLabel") should use the special eventKey "all".
 
+### externalEventMutations
+
+`type: array[object]`
+
+`VictoryPolarAxis` uses the standard `externalEventMutations` prop. [Read about it in detail](/docs/common-props#externalEventsMutations)
+
 ### gridComponent
 
 `type: element`

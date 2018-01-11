@@ -287,6 +287,113 @@ The `events` prop takes an array of event objects. Event objects are composed of
 </VictoryChart>
 ```
 
+### externalEventMutations
+
+`type: array[object]`
+
+Occasionally is it necessary to trigger events in Victory's event system from some external element such as a button or a form field. Use the `externalEventMutation` prop to specify a set of mutations to apply to a given chart. The `externalEventMutations` should be given in the following form:
+
+```jsx
+externalEventMutations: PropTypes.arrayOf(PropTypes.shape({
+  callback: PropTypes.function,
+  childName: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  eventKey: PropTypes.oneOfType([
+    PropTypes.array,
+    CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
+    PropTypes.string
+  ]),
+  mutation: PropTypes.function,
+  target: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ])
+}))
+```
+
+The `target`, `eventKey`, and `childName` (when applicable) must always be specified. The `mutation` function will be called with the current props of the element specified by the `target`, `eventKey` and `childName` provided. The mutation function should return a mutation object for that element. The `callback` prop should be used to clear the `externalEventMutations` prop once the mutation has been applied. Clearing `externalEventMutations` is crucial for charts that animate.
+
+```playground_norender
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      externalMutations: undefined
+    };
+  }
+  removeMutation() {
+    this.setState({
+      externalMutations: undefined
+    });
+  }
+
+  clearClicks() {
+    this.setState({
+      externalMutations: [
+        {
+          childName: "Bar-1",
+          target: ["data"],
+          eventKey: "all",
+          mutation: () => ({ style: undefined }),
+          callback: this.removeMutation.bind(this)
+        }
+      ]
+    });
+  }
+
+  render() {
+    const buttonStyle = {
+      backgroundColor: "black",
+      color: "white",
+      padding: "10px",
+      marginTop: "10px"
+    };
+    return (
+      <div>
+        <button
+          onClick={this.clearClicks.bind(this)}
+          style={buttonStyle}
+        >
+          Reset
+        </button>
+        <VictoryChart domain={{ x: [0, 5 ] }}
+          externalEventMutations={this.state.externalMutations}
+          events={[
+            {
+              target: "data",
+              childName: "Bar-1",
+              eventHandlers: {
+                onClick: () => ({
+                  target: "data",
+                  mutation: () => ({ style: { fill: "orange" } })
+                })
+              }
+            }
+          ]}
+        >
+          <VictoryBar name="Bar-1"
+            style={{ data: { fill: "grey"} }}
+            labels={() => "click me!"}
+            data={[
+              { x: 1, y: 2 },
+              { x: 2, y: 4 },
+              { x: 3, y: 1 },
+              { x: 4, y: 5 }
+            ]}
+          />
+        </VictoryChart>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode)
+```
+
+*Note* External mutations are applied to the same state object that is used to control events in Victory, so depending on the order in which they are triggered, external event mutations may override mutations caused by internal Victory events or vice versa.
+
 ### groupComponent
 
 `type: element`

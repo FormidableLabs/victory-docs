@@ -186,6 +186,11 @@ See the [Events Guide][] for more information on defining events.
   </VictoryStack>
 </VictoryChart>
 ```
+### externalEventMutations
+
+`type: array[object]`
+
+`VictoryChart` uses the standard `externalEventMutations` prop. [Read about it in detail](/docs/common-props#externalEventsMutations)
 
 ### groupComponent
 

@@ -224,6 +224,11 @@ See the [Events Guide][] for more information on defining events.
   />
 </VictoryGroup>
 ```
+### externalEventMutations
+
+`type: array[object]`
+
+`VictoryGroup` uses the standard `externalEventMutations` prop. [Read about it in detail](/docs/common-props#externalEventsMutations)
 
 ### groupComponent
 
