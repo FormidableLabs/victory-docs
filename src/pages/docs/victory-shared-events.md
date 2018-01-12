@@ -216,6 +216,6 @@ ReactDOM.render(<App/>, mountNode)
 
 *Note* External mutations are applied to the same state object that is used to control events in Victory, so depending on the order in which they are triggered, external event mutations may override mutations caused by internal Victory events or vice versa.
 
-[VictoryChart]: /docs/victory-chart
-[VictoryGroup]: /docs/victory-group
-[VictoryStack]: /docs/victory-stack
+[VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
+[VictoryGroup]: https://formidable.com/open-source/victory/docs/victory-group
+[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack

@@ -824,26 +824,26 @@ y0="employees.salary"`, `y={["employees", "salary"]}
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 
-[x]: /docs/common-props#x
-[y]: /docs/common-props#y
+[x]: https://formidable.com/open-source/victory/docs/common-props#x
+[y]: https://formidable.com/open-source/victory/docs/common-props#y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[width]: /docs/common-props#width
-[height]: /docs/common-props#height
-[VictoryLabel]: /docs/victory-label
-[VictoryTooltip]: /docs/victory-tooltip
-[VictoryPortal]: /docs/victory-portal
-[VictoryClipContainer]: /docs/victory-clip-container
-[VictoryBrushContainer]: /docs/victory-brush-container
-[VictoryCursorContainer]: /docs/victory-cursor-container
-[VictorySelectionContainer]: /docs/victory-selection-container
-[VictoryVoronoiContainer]: /docs/victory-voronoi-container
-[VictoryZoomContainer]: /docs/victory-zoom-container
-[createContainer]: /docs/create-container
-[VictoryAnimation]: /docs/victory-animation
-[VictoryTransition]: /docs/victory-transition
+[width]: https://formidable.com/open-source/victory/docs/common-props#width
+[height]: https://formidable.com/open-source/victory/docs/common-props#height
+[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
+[VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
+[VictoryClipContainer]: https://formidable.com/open-source/victory/docs/victory-clip-container
+[VictoryBrushContainer]: https://formidable.com/open-source/victory/docs/victory-brush-container
+[VictoryCursorContainer]: https://formidable.com/open-source/victory/docs/victory-cursor-container
+[VictorySelectionContainer]: https://formidable.com/open-source/victory/docs/victory-selection-container
+[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
+[VictoryZoomContainer]: https://formidable.com/open-source/victory/docs/victory-zoom-container
+[createContainer]: https://formidable.com/open-source/victory/docs/create-container
+[VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
+[VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
 [sortBy]: https://lodash.com/docs/4.17.4#sortBy
-[Animations Guide]: /guides/animations
-[Data Accessors Guide]: /guides/data-accessors
-[Custom Components Guide]: /guides/custom-components
-[Events Guide]: /guides/events
-[Themes Guide]: /guides/themes
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
+[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
+[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Themes Guide]: https://formidable.com/open-source/victory/guides/themes

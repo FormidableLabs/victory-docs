@@ -103,5 +103,5 @@ specified, both x and y dimensions will pan and zoom.
 
 *example:* `zoomDimension="x"`
 
-[VictoryContainer]: /docs/victory-container
-[See an example of a zoomable chart]: /guides/brush-and-zoom
+[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[See an example of a zoomable chart]: https://formidable.com/open-source/victory/guides/brush-and-zoom

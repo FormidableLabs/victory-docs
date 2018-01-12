@@ -130,5 +130,5 @@ The optional `onBrushDomainChange` prop accepts an function to be called on each
 *example:* `onBrushDomainChange={(domain, props) => handeDomainChange(domain, props)}`
 
 
-[brush and zoom guide]: /guides/brush-and-zoom
-[VictoryContainer]: /docs/victory-container
+[brush and zoom guide]: https://formidable.com/open-source/victory/guides/brush-and-zoom
+[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
