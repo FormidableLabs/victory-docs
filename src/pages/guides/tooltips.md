@@ -353,6 +353,5 @@ ReactDOM.render(<App/>, mountNode);
 
 
 [`VictoryTooltip`]: /docs/victory-tooltip
-[`VictoryVoronoiTooltip`]: /docs/victory-voronoi-tooltip
 [`VictoryLabel`]: /docs/victory-label
 [`Flyout`]: /docs/victory-primitives#flyout

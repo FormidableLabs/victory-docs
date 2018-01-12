@@ -370,7 +370,6 @@ The `xOffset` prop is used for grouping stacks of bars. This prop will be set by
 
 
 [Animations Guide]: /guides/animations
-[Data Accessors Guide]: /guides/data-accessors
 [Events Guide]: /guides/events
 [Themes Guide]: /guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
