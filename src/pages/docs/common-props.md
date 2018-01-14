@@ -287,6 +287,113 @@ The `events` prop takes an array of event objects. Event objects are composed of
 </VictoryChart>
 ```
 
+### externalEventMutations
+
+`type: array[object]`
+
+Occasionally is it necessary to trigger events in Victory's event system from some external element such as a button or a form field. Use the `externalEventMutation` prop to specify a set of mutations to apply to a given chart. The `externalEventMutations` should be given in the following form:
+
+```jsx
+externalEventMutations: PropTypes.arrayOf(PropTypes.shape({
+  callback: PropTypes.function,
+  childName: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ]),
+  eventKey: PropTypes.oneOfType([
+    PropTypes.array,
+    CustomPropTypes.allOfType([CustomPropTypes.integer, CustomPropTypes.nonNegative]),
+    PropTypes.string
+  ]),
+  mutation: PropTypes.function,
+  target: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array
+  ])
+}))
+```
+
+The `target`, `eventKey`, and `childName` (when applicable) must always be specified. The `mutation` function will be called with the current props of the element specified by the `target`, `eventKey` and `childName` provided. The mutation function should return a mutation object for that element. The `callback` prop should be used to clear the `externalEventMutations` prop once the mutation has been applied. Clearing `externalEventMutations` is crucial for charts that animate.
+
+```playground_norender
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      externalMutations: undefined
+    };
+  }
+  removeMutation() {
+    this.setState({
+      externalMutations: undefined
+    });
+  }
+
+  clearClicks() {
+    this.setState({
+      externalMutations: [
+        {
+          childName: "Bar-1",
+          target: ["data"],
+          eventKey: "all",
+          mutation: () => ({ style: undefined }),
+          callback: this.removeMutation.bind(this)
+        }
+      ]
+    });
+  }
+
+  render() {
+    const buttonStyle = {
+      backgroundColor: "black",
+      color: "white",
+      padding: "10px",
+      marginTop: "10px"
+    };
+    return (
+      <div>
+        <button
+          onClick={this.clearClicks.bind(this)}
+          style={buttonStyle}
+        >
+          Reset
+        </button>
+        <VictoryChart domain={{ x: [0, 5 ] }}
+          externalEventMutations={this.state.externalMutations}
+          events={[
+            {
+              target: "data",
+              childName: "Bar-1",
+              eventHandlers: {
+                onClick: () => ({
+                  target: "data",
+                  mutation: () => ({ style: { fill: "orange" } })
+                })
+              }
+            }
+          ]}
+        >
+          <VictoryBar name="Bar-1"
+            style={{ data: { fill: "grey"} }}
+            labels={() => "click me!"}
+            data={[
+              { x: 1, y: 2 },
+              { x: 2, y: 4 },
+              { x: 3, y: 1 },
+              { x: 4, y: 5 }
+            ]}
+          />
+        </VictoryChart>
+      </div>
+    )
+  }
+}
+
+ReactDOM.render(<App/>, mountNode)
+```
+
+*Note* External mutations are applied to the same state object that is used to control events in Victory, so depending on the order in which they are triggered, external event mutations may override mutations caused by internal Victory events or vice versa.
+
 ### groupComponent
 
 `type: element`
@@ -717,26 +824,26 @@ y0="employees.salary"`, `y={["employees", "salary"]}
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 
-[x]: /docs/common-props#x
-[y]: /docs/common-props#y
+[x]: https://formidable.com/open-source/victory/docs/common-props#x
+[y]: https://formidable.com/open-source/victory/docs/common-props#y
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[width]: /docs/common-props#width
-[height]: /docs/common-props#height
-[VictoryLabel]: /docs/victory-label
-[VictoryTooltip]: /docs/victory-tooltip
-[VictoryPortal]: /docs/victory-portal
-[VictoryClipContainer]: /docs/victory-clip-container
-[VictoryBrushContainer]: /docs/victory-brush-container
-[VictoryCursorContainer]: /docs/victory-cursor-container
-[VictorySelectionContainer]: /docs/victory-selection-container
-[VictoryVoronoiContainer]: /docs/victory-voronoi-container
-[VictoryZoomContainer]: /docs/victory-zoom-container
-[createContainer]: /docs/create-container
-[VictoryAnimation]: /docs/victory-animation
-[VictoryTransition]: /docs/victory-transition
+[width]: https://formidable.com/open-source/victory/docs/common-props#width
+[height]: https://formidable.com/open-source/victory/docs/common-props#height
+[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
+[VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
+[VictoryClipContainer]: https://formidable.com/open-source/victory/docs/victory-clip-container
+[VictoryBrushContainer]: https://formidable.com/open-source/victory/docs/victory-brush-container
+[VictoryCursorContainer]: https://formidable.com/open-source/victory/docs/victory-cursor-container
+[VictorySelectionContainer]: https://formidable.com/open-source/victory/docs/victory-selection-container
+[VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
+[VictoryZoomContainer]: https://formidable.com/open-source/victory/docs/victory-zoom-container
+[createContainer]: https://formidable.com/open-source/victory/docs/create-container
+[VictoryAnimation]: https://formidable.com/open-source/victory/docs/victory-animation
+[VictoryTransition]: https://formidable.com/open-source/victory/docs/victory-transition
 [sortBy]: https://lodash.com/docs/4.17.4#sortBy
-[Animations Guide]: /guides/animations
-[Data Accessors Guide]: /guides/data-accessors
-[Custom Components Guide]: /guides/custom-components
-[Events Guide]: /guides/events
-[Themes Guide]: /guides/themes
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
+[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
+[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Themes Guide]: https://formidable.com/open-source/victory/guides/themes

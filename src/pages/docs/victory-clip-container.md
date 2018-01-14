@@ -106,4 +106,4 @@ should be given as a number. If this prop is not given, it will be calculated ba
 of the parent chart.
 
 
-[ClipPath Component]: /docs/victory-primitives#clippath
+[ClipPath Component]: https://formidable.com/open-source/victory/docs/victory-primitives#clippath

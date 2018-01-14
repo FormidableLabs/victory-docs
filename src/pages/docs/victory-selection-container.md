@@ -110,4 +110,4 @@ The `onSelectionCleared` prop accepts a function to be called whenever the selec
 
 *example:* `onSelectionCleared={(props) => handleSelectionCleared(props)}`
 
-[VictoryContainer]: /docs/victory-container
+[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container

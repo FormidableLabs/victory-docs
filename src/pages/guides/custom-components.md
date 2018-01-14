@@ -367,5 +367,5 @@ ReactDOM.render(<App/>, mountNode)
 ```
 
 
-[primitive components]: /docs/victory-primitives
+[primitive components]: https://formidable.com/open-source/victory/docs/victory-primitives
 [sleep at night]: https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4#.j7h5c0sia

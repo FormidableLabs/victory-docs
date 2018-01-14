@@ -35,7 +35,7 @@ VictoryAxis renders a single axis which can be used on its own or composed with 
 
 `type: boolean || object`
 
-`VictoryAxis` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
+`VictoryAxis` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations
 
@@ -74,7 +74,7 @@ axisLabelComponent={<VictoryLabel dy={20}/>}
 
 `type: element`
 
-`VictoryAxis` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
+`VictoryAxis` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryZoomContainer zoomDimension="x"/>}
@@ -104,7 +104,7 @@ The `dependentAxis` boolean prop specifies whether the axis corresponds to the d
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
-`VictoryAxis` uses the standard `domain` prop. [Read about it here](/docs/common-props#domain)
+`VictoryAxis` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
 ```jsx
 domain={{x: [0, 100], y: [0, 1]}}
@@ -114,7 +114,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
-`VictoryAxis` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
+`VictoryAxis` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
 ```jsx
 domainPadding={{x: [10, -10], y: 5}}
@@ -124,12 +124,18 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `type array[object]`
 
-`VictoryAxis` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
+`VictoryAxis` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
 **note:** valid event targets for `VictoryAxis` are "axis", "axisLabel", "grid", "ticks", and "tickLabels".
 Targets that correspond to only one element {"axis" and "axisLabel") should use the special eventKey "all".
+
+### externalEventMutations
+
+`type: array[object]`
+
+`VictoryAxis` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#externalEventsMutations)
 
 ### fixLabelOverlap
 
@@ -157,7 +163,7 @@ gridComponent={<Line events={{ onClick: handleClick }}/>}
 
 `type: element`
 
-`VictoryAxis` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
+`VictoryAxis` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -169,7 +175,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 `type: number`
 
-`VictoryAxis` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
+`VictoryAxis` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -201,7 +207,7 @@ The `label` prop defines the label that will appear with the axis. This prop sho
 
 `type: string`
 
-`VictoryAxis` uses the standard `name` prop. [Read about it here](/docs/common-props#name)
+`VictoryAxis` uses the standard `name` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#name)
 
 ```jsx
 name="series-1"
@@ -251,7 +257,7 @@ The `orientation` prop specifies the position and orientation of your axis. Opti
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
-`VictoryAxis` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
+`VictoryAxis` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -265,13 +271,13 @@ padding={{ top: 20, bottom: 60 }}
 
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-[Read about the `range` prop in detail](/docs/common-props#range)
+[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
 ### scale
 
 `type: scale || { x: scale, y: scale }`
 
-`VictoryAxis` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
+`VictoryAxis` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 **note:** Though `VictoryAxis` can take a `scale` prop with scales defined for both `x` and `y`, only the scale that corresponds the given axis will be used.
@@ -290,7 +296,7 @@ scale={{ x: "time" }}
 
 `type: boolean`
 
-`VictoryAxis` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
+`VictoryAxis` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
 
 **note:** When `VictoryAxis` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -346,11 +352,13 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 `type: object`
 
-`VictoryAxis` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
+`VictoryAxis` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
+
+*Note:* Use the `dependentAxis` and `independentAxis` namespaces to theme axes by type. These namespaces will be merged with any props and styles supplied in the `axis` namespace.
 
 ```jsx
 theme={VictoryTheme.material}
@@ -413,7 +421,7 @@ The `tickValues` prop explicitly specifies a set of tick values to draw on the a
 
 `type: number`
 
-`VictoryAxis` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
+`VictoryAxis` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -421,12 +429,12 @@ The `tickValues` prop explicitly specifies a set of tick values to draw on the a
 width={400}
 ```
 
-[Animations Guide]: /guides/animations
-[Events Guide]: /guides/events
-[Themes Guide]: /guides/themes
-[`VictoryChart`]: /docs/victory-chart
-[tickFormat]: /docs/victory-axis#tickformat
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
+[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
+[tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
 [d3Scale]: https://github.com/d3/d3-scale
 [grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
-[Line component]: /docs/victory-primitives#line
-[`VictoryLabel`]: /docs/victory-label
+[Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
+[`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label
