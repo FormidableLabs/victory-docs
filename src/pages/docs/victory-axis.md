@@ -358,6 +358,8 @@ See the [Themes Guide][] for information about creating custom themes.
 
 *default:* `theme={VictoryTheme.grayscale}`
 
+*Note:* Use the `dependentAxis` and `independentAxis` namespaces to theme axes by type. These namespaces will be merged with any props and styles supplied in the `axis` namespace.
+
 ```jsx
 theme={VictoryTheme.material}
 ```
