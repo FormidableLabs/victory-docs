@@ -74,7 +74,6 @@ module.exports = {
         color: config.themeColor
       }
     },
-    "gatsby-plugin-catch-links",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap"
   ]
