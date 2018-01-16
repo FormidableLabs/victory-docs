@@ -1,3 +1,4 @@
+/* global describe, test, expect */
 import React from "react";
 import { mount } from "enzyme";
 import Gallery from "../../../src/pages/about/index";

@@ -86,7 +86,7 @@
     "build": "gatsby build",
     "build:pp": "gatsby build --prefix-paths",
     "clean": "rm -rf public .cache",
-    "lint:js": "eslint --ext .js src",
+    "lint:js": "eslint --ext .js ./",
     "lint:md": "remark src",
     "lint": "npm run lint:js && npm run lint:md",
     "test": "jest",
@@ -96,8 +96,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "^(?!.*\\.module\\.css$).*\\.css$": "<rootDir>/__mocks__/styleMock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file-mock.js",
+      "^(?!.*\\.module\\.css$).*\\.css$": "<rootDir>/__mocks__/style-mock.js"
     },
     "testPathIgnorePatterns": [
       "/node_modules/",
