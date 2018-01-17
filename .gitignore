@@ -57,10 +57,6 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
-# tests
-__mocks__
-__tests__
-
 # Build Files
 public/
 .cache/
