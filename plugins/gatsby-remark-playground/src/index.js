@@ -1,4 +1,3 @@
-const Promise = require("bluebird");
 const visit = require("unist-util-visit");
 
 module.exports = ({ markdownAST }, { customCodeLang = "playground" } = {}) => {
