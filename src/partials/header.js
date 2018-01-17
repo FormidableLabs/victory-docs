@@ -22,21 +22,11 @@ class VictoryHeader extends Component {
     return (
       <Header className={classes} logoProject={victoryLogo}>
         <div className="default" style={{ textAlign: "center" }}>
-          <Link to="/about/">
-            About
-          </Link>
-          <Link to="/docs/">
-            Docs
-          </Link>
-          <Link to="/docs/faq">
-            FAQ
-          </Link>
-          <Link to="/guides/">
-            Guides
-          </Link>
-          <Link to="/gallery/">
-            Gallery
-          </Link>
+          <Link to="/about/">About</Link>
+          <Link to="/docs/">Docs</Link>
+          <Link to="/docs/faq">FAQ</Link>
+          <Link to="/guides/">Guides</Link>
+          <Link to="/gallery/">Gallery</Link>
           {config.projectLinks.map((link) => {
             return (
               <a key={link.url} href={link.url}>

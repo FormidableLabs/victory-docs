@@ -541,7 +541,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 </VictoryChart>
 ```
 
-[Animations Guidhttps://formidable.com/open-source/victorye]: /guides/animations
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
 [Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events

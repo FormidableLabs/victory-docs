@@ -12,7 +12,7 @@ export default class PureRender extends React.Component {
         if (typeof next === "object") {
           return false; // don't attempt to evaluate objects
         } else {
-          return (next !== current); // has the value changed?
+          return next !== current; // has the value changed?
         }
       }
     }, false);

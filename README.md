@@ -46,7 +46,7 @@ To publish to NPM run
 npm version <newversion | major | minor | patch> (see Versioning notes below)
 ```
 
-###  Versioning Notes
+### Versioning Notes
 
 For a reliable systems of releases, `victory-docs` should aim for versioning along these lines:
 

@@ -5,15 +5,13 @@ import { Footer } from "formidable-landers";
 
 class VictoryFooter extends React.Component {
   render() {
-    const trademark = <div className="default">Victory is a trademark of Formidable Labs, Inc.</div>;
-
-    return (
-      <Footer
-        className="victory"
-        trademark={trademark}
-        theme="dark"
-      />
+    const trademark = (
+      <div className="default">
+        Victory is a trademark of Formidable Labs, Inc.
+      </div>
     );
+
+    return <Footer className="victory" trademark={trademark} theme="dark" />;
   }
 }
 
@@ -24,6 +22,5 @@ VictoryFooter.propTypes = {
 VictoryFooter.defaultProps = {
   home: false
 };
-
 
 export default VictoryFooter;

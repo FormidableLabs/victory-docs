@@ -16,9 +16,7 @@ class ShowcaseApp extends React.Component {
           <h3 className="SubHeading u-textLeft u-noMargin">
             {this.props.company}
           </h3>
-          <p>
-            {this.props.description}
-          </p>
+          <p>{this.props.description}</p>
         </div>
       </div>
     );

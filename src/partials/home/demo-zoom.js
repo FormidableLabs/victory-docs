@@ -1,10 +1,13 @@
 import React from "react";
 import {
-  VictoryChart, VictoryLine, VictoryBrushContainer, VictoryZoomContainer, VictoryAxis
+  VictoryChart,
+  VictoryLine,
+  VictoryBrushContainer,
+  VictoryZoomContainer,
+  VictoryAxis
 } from "victory";
 
 export default class App extends React.Component {
-
   constructor() {
     super();
     this.state = {
@@ -38,7 +41,10 @@ export default class App extends React.Component {
       <div className="Benefits-demo fancyBorder">
         <VictoryChart
           padding={{ left: 50, right: 50, bottom: 35, top: 20 }}
-          width={450} height={275} scale={{ x: "time" }} style={styles}
+          width={450}
+          height={275}
+          scale={{ x: "time" }}
+          style={styles}
           containerComponent={
             <VictoryZoomContainer
               zoomDimension="x"
@@ -65,7 +71,10 @@ export default class App extends React.Component {
         </VictoryChart>
         <VictoryChart
           padding={{ top: 0, left: 50, right: 50, bottom: 35 }}
-          width={450} height={75} scale={{ x: "time" }} style={styles}
+          width={450}
+          height={75}
+          scale={{ x: "time" }}
+          style={styles}
           containerComponent={
             <VictoryBrushContainer
               brushDimension="x"
@@ -100,7 +109,6 @@ export default class App extends React.Component {
               { x: new Date(2013, 1, 1), y: 470 }
             ]}
           />
-
         </VictoryChart>
       </div>
     );

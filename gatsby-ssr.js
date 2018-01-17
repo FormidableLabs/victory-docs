@@ -11,6 +11,9 @@ exports.onRenderBody = ({ setHeadComponents }) => {
   })(document);`;
 
   setHeadComponents([
-    <script key={"typekit-txh3mim"} dangerouslySetInnerHTML={{ __html: script }} />
+    <script
+      key={"typekit-txh3mim"}
+      dangerouslySetInnerHTML={{ __html: script }}
+    />
   ]);
 };

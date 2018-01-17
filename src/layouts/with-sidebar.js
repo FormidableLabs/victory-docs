@@ -35,12 +35,9 @@ class LayoutWithSidebar extends React.Component {
         <Header home={false} />
         <main className="Page">
           <div className="Page-sidebar">
-            <Sidebar
-              content={allRecipes}
-              location={this.props.location}
-            />
+            <Sidebar content={allRecipes} location={this.props.location} />
           </div>
-        {children()}
+          {children()}
         </main>
       </div>
     );
@@ -59,7 +56,7 @@ export default LayoutWithSidebar;
 // this query takes care of sorting!! :magic:
 export const query = graphql`
   query LayoutWithSidebarQuery {
-    allMarkdownRemark(sort: {fields: [frontmatter___title], order: ASC}) {
+    allMarkdownRemark(sort: { fields: [frontmatter___title], order: ASC }) {
       edges {
         node {
           fields {
@@ -71,7 +68,7 @@ export const query = graphql`
             depth
             value
           }
-          frontmatter{
+          frontmatter {
             id
             category
             display

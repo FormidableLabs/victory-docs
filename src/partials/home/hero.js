@@ -8,8 +8,8 @@ class Hero extends React.Component {
     return (
       <div className="Hero">
         <h1 className="Heading u-noMargin">
-           React.js components <span className="em">for</span>
-           <br/>
+          React.js components <span className="em">for</span>
+          <br />
           modular charting <span className="em">and</span> data visualization
         </h1>
 

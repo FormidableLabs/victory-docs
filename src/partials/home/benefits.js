@@ -19,19 +19,22 @@ class Benefits extends React.Component {
             <div className="Grid-cell u-textCenter">
               <h3>Robust</h3>
               <p style={{ display: "inline-block" }}>
-                Area charts. Scatter plots. Voronoi polygons. Easy-to-use components for complex charting.
+                Area charts. Scatter plots. Voronoi polygons. Easy-to-use
+                components for complex charting.
               </p>
             </div>
             <div className="Grid-cell u-textCenter">
               <h3>Flexible</h3>
               <p style={{ display: "inline-block" }}>
-                Fully-contained, reusable data visualization elements are responsible for their own styles and behaviors.
+                Fully-contained, reusable data visualization elements are
+                responsible for their own styles and behaviors.
               </p>
             </div>
             <div className="Grid-cell u-textCenter">
               <h3>Native</h3>
               <p style={{ display: "inline-block" }}>
-                Extend the Victory experience on Android and iOS platforms with an identical&nbsp;API. <br />
+                Extend the Victory experience on Android and iOS platforms with
+                an identical&nbsp;API. <br />
                 <code>npm install victory-native</code>
               </p>
             </div>
@@ -51,9 +54,7 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoCustomChart />
                 <p className="SubHeading">
-                  <Link to="/guides/custom-charts">
-                    Custom Charts
-                  </Link>
+                  <Link to="/guides/custom-charts">Custom Charts</Link>
                 </p>
               </div>
             </div>
@@ -61,9 +62,7 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoZoom />
                 <p className="SubHeading">
-                  <Link to="/guides/brush-and-zoom">
-                    Brush and Zoom
-                  </Link>
+                  <Link to="/guides/brush-and-zoom">Brush and Zoom</Link>
                 </p>
               </div>
             </div>
@@ -71,9 +70,7 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoCustomComponents />
                 <p className="SubHeading">
-                  <Link to="/guides/custom-components">
-                    Custom Components
-                  </Link>
+                  <Link to="/guides/custom-components">Custom Components</Link>
                 </p>
               </div>
             </div>
@@ -81,9 +78,7 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoTooltips />
                 <p className="SubHeading">
-                  <Link to="/guides/tooltips">
-                    Tooltips
-                  </Link>
+                  <Link to="/guides/tooltips">Tooltips</Link>
                 </p>
               </div>
             </div>
@@ -91,9 +86,7 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoSharedEvents />
                 <p className="SubHeading">
-                  <Link to="/guides/events">
-                    Events
-                  </Link>
+                  <Link to="/guides/events">Events</Link>
                 </p>
               </div>
             </div>
@@ -101,9 +94,7 @@ class Benefits extends React.Component {
               <div className="u-paddingSm">
                 <DemoAnimation />
                 <p className="SubHeading">
-                  <Link to="/guides/animations">
-                    Animations
-                  </Link>
+                  <Link to="/guides/animations">Animations</Link>
                 </p>
               </div>
             </div>
@@ -121,6 +112,5 @@ Benefits.propTypes = {
 Benefits.defaultProps = {
   style: null
 };
-
 
 export default Benefits;

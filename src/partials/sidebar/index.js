@@ -20,9 +20,7 @@ class Sidebar extends React.Component {
 
   handleInputChange(value, content) {
     const options = {
-      keys: [
-        "node.headings.value"
-      ],
+      keys: ["node.headings.value"],
       threshold: 0.2,
       findAllMatches: true,
       distance: 100
@@ -44,9 +42,7 @@ class Sidebar extends React.Component {
 
   getMatchTree(link, filterTerm) {
     const options = {
-      keys: [
-        "value"
-      ],
+      keys: ["value"],
       threshold: 0.2,
       findAllMatches: true,
       distance: 100
@@ -56,20 +52,26 @@ class Sidebar extends React.Component {
     if (!isEmpty(matches)) {
       const maxDepth = maxBy(matches, "depth").depth;
       let matchIndices = matches.map((match) => {
-        return findIndex(link.headings, (heading) => includes(heading.value, match.value));
+        return findIndex(link.headings, (heading) =>
+          includes(heading.value, match.value)
+        );
       });
       matchIndices = matchIndices.sort((a, b) => a - b);
-      return link.headings.slice(0, last(matchIndices) + 1).reduce((memo, curr, i) => {
-        const useHeading = i === matchIndices[0] || i < matchIndices[0] && curr.depth < maxDepth;
-        if (useHeading && curr.value !== "Props") {
-          memo = memo.concat(curr);
-          matchIndices = i === matchIndices[0] ? matchIndices.slice(1) : matchIndices;
-        }
-        return memo;
-      }, []);
+      return link.headings
+        .slice(0, last(matchIndices) + 1)
+        .reduce((memo, curr, i) => {
+          const useHeading =
+            i === matchIndices[0] ||
+            (i < matchIndices[0] && curr.depth < maxDepth);
+          if (useHeading && curr.value !== "Props") {
+            memo = memo.concat(curr);
+            matchIndices =
+              i === matchIndices[0] ? matchIndices.slice(1) : matchIndices;
+          }
+          return memo;
+        }, []);
     }
     return [];
-
   }
 
   renderLinksList(edges, type, category) {
@@ -93,19 +95,21 @@ class Sidebar extends React.Component {
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const active =
-        category !== "introduction" && location.pathname.includes(link.fields.slug)
+        category !== "introduction" &&
+        location.pathname.includes(link.fields.slug)
           ? true
           : this.state.filterTerm !== "";
-      const headings = this.state.filterTerm !== "" ?
-        this.getMatchTree(link, this.state.filterTerm) : link.headings;
-
+      const headings =
+        this.state.filterTerm !== ""
+          ? this.getMatchTree(link, this.state.filterTerm)
+          : link.headings;
 
       return (
         <li className="Sidebar-List-Item" key={link.fields.slug}>
           <Link to={link.fields.slug} activeClassName="is-active">
             {link.frontmatter.title}
           </Link>
-          <TableOfContents active={active} link={link} headings={headings}/>
+          <TableOfContents active={active} link={link} headings={headings} />
         </li>
       );
     });
@@ -129,26 +133,45 @@ class Sidebar extends React.Component {
         <div className="Sidebar-Grid">
           <div className="Sidebar-Search">
             <SidebarSearchInput
-              onHandleInputChange={ this.handleInputChange.bind(this) }
-              content={ content }
-              searchText={ this.state.filterTerm }
-              onClearInput={ this.clearInput.bind(this) }
+              onHandleInputChange={this.handleInputChange.bind(this)}
+              content={content}
+              searchText={this.state.filterTerm}
+              onClearInput={this.clearInput.bind(this)}
             />
           </div>
-          { isEmpty(filteredContent) ? this.renderNoResults() : null }
-          <Introduction content={this.renderLinksList(filteredContent, "docs", "introduction")}/>
-          <Category title="Support" content={this.renderLinksList(filteredContent, "docs", "faq")}/>
-          <Category title="Guides" content={this.renderLinksList(filteredContent, "guides", null)}/>
-          <Category title="Documentation"
+          {isEmpty(filteredContent) ? this.renderNoResults() : null}
+          <Introduction
+            content={this.renderLinksList(
+              filteredContent,
+              "docs",
+              "introduction"
+            )}
+          />
+          <Category
+            title="Support"
+            content={this.renderLinksList(filteredContent, "docs", "faq")}
+          />
+          <Category
+            title="Guides"
+            content={this.renderLinksList(filteredContent, "guides", null)}
+          />
+          <Category
+            title="Documentation"
             content={this.renderLinksList(filteredContent, "docs", "none")}
             subCategories={[
               {
                 title: "Charts",
                 content: this.renderLinksList(filteredContent, "docs", "charts")
-              }, {
+              },
+              {
                 title: "Containers",
-                content: this.renderLinksList(filteredContent, "docs", "containers")
-              }, {
+                content: this.renderLinksList(
+                  filteredContent,
+                  "docs",
+                  "containers"
+                )
+              },
+              {
                 title: "More",
                 content: this.renderLinksList(filteredContent, "docs", "more")
               }

@@ -46,7 +46,9 @@ class SEO extends Component {
 
   render() {
     const { postPath, postSEO } = this.props;
-    const postURL = postSEO ? config.siteUrl + config.pathPrefix + postPath : null;
+    const postURL = postSEO
+      ? config.siteUrl + config.pathPrefix + postPath
+      : null;
     const blogURL = config.siteUrl + config.pathPrefix;
     const title = this.generateTitle();
     const description = this.generateDescription();

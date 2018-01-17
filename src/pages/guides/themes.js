@@ -21,15 +21,19 @@ class Themes extends React.Component {
     };
     // just load once
     this.themeTexts = {
-      grayscale: this.processCodeText(require("!!raw!../../partials/guides/themes/grayscale.example.js")),
-      material: this.processCodeText(require("!!raw!../../partials/guides/themes/material.example.js"))
+      grayscale: this.processCodeText(
+        require("!!raw!../../partials/guides/themes/grayscale.example.js")
+      ),
+      material: this.processCodeText(
+        require("!!raw!../../partials/guides/themes/material.example.js")
+      )
     };
   }
 
   processCodeText(text) {
     return text
-            .replace(/\/\* [global|eslint|NOTE](.|[\n])*?\*\//g, "") // remove dev comments
-            .trim(); // remove left-over whitespace
+      .replace(/\/\* [global|eslint|NOTE](.|[\n])*?\*\//g, "") // remove dev comments
+      .trim(); // remove left-over whitespace
   }
   resetTheme(themeName) {
     this.setState({ themeName });
@@ -45,16 +49,26 @@ class Themes extends React.Component {
     return (
       <div className="ThemeParkMenu">
         <div className="ThemeParkMenu-Bar">
-          <button className="btn" onClick={this.resetTheme.bind(this, "grayscale")}>
+          <button
+            className="btn"
+            onClick={this.resetTheme.bind(this, "grayscale")}
+          >
             reset to <b>grayscale</b>
           </button>
-          <button className="btn" onClick={this.resetTheme.bind(this, "material")}>
+          <button
+            className="btn"
+            onClick={this.resetTheme.bind(this, "material")}
+          >
             reset to <b>material</b>
           </button>
         </div>
         <h3 className="ThemeParkMenu-Title">
-          Viewing the <strong>{this.state.themeName}
-          {this.state.editted ? "*" : ""}</strong> theme
+          Viewing the{" "}
+          <strong>
+            {this.state.themeName}
+            {this.state.editted ? "*" : ""}
+          </strong>{" "}
+          theme
         </h3>
       </div>
     );
@@ -67,16 +81,20 @@ class Themes extends React.Component {
           <div className="Recipe">
             <h1>Themes</h1>
             <p>
-              Try out the Victory themes and make your own.
-              Check out
-              the <Link to="/docs/victory-theme/">
-                VictoryTheme documentation
-              </Link> for more details on themes.
+              Try out the Victory themes and make your own. Check out the{" "}
+              <Link to="/docs/victory-theme/">VictoryTheme documentation</Link>{" "}
+              for more details on themes.
             </p>
             {this.renderMenu()}
-            <PureRender themeName={this.state.themeName} editted={this.state.editted}>
+            <PureRender
+              themeName={this.state.themeName}
+              editted={this.state.editted}
+            >
               <pre className="u-noMarginTop u-noPadding">
-                <div className="Interactive" onKeyPress={this.handleUserEdit.bind(this)}>
+                <div
+                  className="Interactive"
+                  onKeyPress={this.handleUserEdit.bind(this)}
+                >
                   <Playground
                     codeText={this.getCodeText()}
                     scope={{

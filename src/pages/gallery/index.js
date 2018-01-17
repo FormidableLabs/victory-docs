@@ -35,17 +35,17 @@ class Gallery extends React.Component {
     const slug = node.fields.slug;
     const title = node.frontmatter.title;
     return (
-        <Link to={slug}>
-          <Preview
-            codeText={code}
-            noRender={false}
-            theme="elegant"
-            scope={this.scope}
-          />
-          <p className="Gallery-item-heading">
-            {title}&nbsp;<Icon glyph="internal-link" />
-          </p>
-        </Link>
+      <Link to={slug}>
+        <Preview
+          codeText={code}
+          noRender={false}
+          theme="elegant"
+          scope={this.scope}
+        />
+        <p className="Gallery-item-heading">
+          {title}&nbsp;<Icon glyph="internal-link" />
+        </p>
+      </Link>
     );
   }
 
@@ -62,9 +62,7 @@ class Gallery extends React.Component {
     return (
       <article className="Article Article--noBottom">
         <h1 className="u-noMargin">Gallery</h1>
-        <div className="Gallery">
-          {previews}
-        </div>
+        <div className="Gallery">{previews}</div>
       </article>
     );
   }
@@ -84,9 +82,7 @@ class Gallery extends React.Component {
       <div>
         <article className="Article Article--noBottom">
           <h1 className="u-noMargin">Gallery</h1>
-          <div className="Gallery">
-            {previews}
-          </div>
+          <div className="Gallery">{previews}</div>
         </article>
         <Footer />
       </div>
@@ -107,16 +103,14 @@ export default Gallery;
 // this query returns only gallery md
 export const query = graphql`
   query GalleryQuery {
-    allMarkdownRemark(
-      filter: { fields: { type: { eq: "gallery" } } }
-    ) {
+    allMarkdownRemark(filter: { fields: { type: { eq: "gallery" } } }) {
       edges {
         node {
           fields {
             slug
             raw
           }
-          frontmatter{
+          frontmatter {
             id
             title
           }
