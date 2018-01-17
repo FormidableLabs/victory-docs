@@ -43,13 +43,25 @@ class HTML extends React.Component {
           {css}
 
           {/* Fonts */}
-          <link href="https://formidable.com/open-source/fonts.css" rel="stylesheet" type="text/css" />
-          <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i" rel="stylesheet" />
-          <link href="https://fonts.googleapis.com/css?family=Andada" rel="stylesheet" />
+          <link
+            href="https://formidable.com/open-source/fonts.css"
+            rel="stylesheet"
+            type="text/css"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i"
+            rel="stylesheet"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Andada"
+            rel="stylesheet"
+          />
 
           {/* CodeMirror for Component Playgrounds */}
-          <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>
-
+          <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"
+          />
         </head>
         <body>
           <div

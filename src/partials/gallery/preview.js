@@ -74,7 +74,12 @@ class Preview extends Component {
 
   render() {
     return (
-      <div ref={(div) => {this.mount = div;}} className="Preview" />
+      <div
+        ref={(div) => {
+          this.mount = div;
+        }}
+        className="Preview"
+      />
     );
   }
 }

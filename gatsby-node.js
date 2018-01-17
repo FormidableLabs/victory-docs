@@ -59,7 +59,8 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     // Separate /docs from /guides for <Sidebar />
     createNodeField({ node, name: "type", value: parsedFilePath.dir });
 
-    const useSidebar = parsedFilePath.dir === "docs" || parsedFilePath.dir === "guides";
+    const useSidebar =
+      parsedFilePath.dir === "docs" || parsedFilePath.dir === "guides";
     createNodeField({ node, name: "sidebar", value: useSidebar });
   }
 };
@@ -78,29 +79,29 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     resolve(
       graphql(
         `
-        {
-          allMarkdownRemark {
-            edges {
-              node {
-                frontmatter {
-                  id
-                  category
-                }
-                headings {
-                  depth
-                  value
-                }
-                fields {
-                  slug
-                  type
-                  sidebar
-                  raw
+          {
+            allMarkdownRemark {
+              edges {
+                node {
+                  frontmatter {
+                    id
+                    category
+                  }
+                  headings {
+                    depth
+                    value
+                  }
+                  fields {
+                    slug
+                    type
+                    sidebar
+                    raw
+                  }
                 }
               }
             }
           }
-        }
-      `
+        `
       ).then((result) => {
         if (result.errors) {
           /* eslint no-console: "off"*/
@@ -110,7 +111,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         // const categorySet = new Set();
         result.data.allMarkdownRemark.edges.forEach((edge) => {
-
           const useSidebar = edge.node.fields.sidebar;
           createPage({
             path: edge.node.fields.slug, // required

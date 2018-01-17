@@ -4,7 +4,6 @@ import Link from "gatsby-link";
 import { maxBy, minBy, isEmpty } from "lodash";
 
 class TableOfContents extends React.Component {
-
   getTree(headings) {
     if (!headings || !headings.length) {
       return [];
@@ -21,9 +20,15 @@ class TableOfContents extends React.Component {
       return memo;
     }, []);
     return parentIndices.reduce((memo, curr, index) => {
-      const lastChild = index === parentIndices.length + 1 ? undefined : parentIndices[index + 1];
+      const lastChild =
+        index === parentIndices.length + 1
+          ? undefined
+          : parentIndices[index + 1];
       const children = [headings.slice(curr + 1, lastChild)];
-      memo = children.length > 0 ? memo.concat(headings[curr], children) : memo.concat(headings[curr]);
+      memo =
+        children.length > 0
+          ? memo.concat(headings[curr], children)
+          : memo.concat(headings[curr]);
       return memo;
     }, []);
   }
@@ -49,16 +54,14 @@ class TableOfContents extends React.Component {
                 {this.getTOC(link, item, i++)}
               </li>
             );
-
           }
-          return item.depth > 1 ?
-            (
-              <li key={index} className="Sidebar-toc-item">
-                <Link to={`${link.fields.slug}#${toAnchor(item.value)}`}>
-                  {item.value}
-                </Link>
-              </li>
-            ) : null;
+          return item.depth > 1 ? (
+            <li key={index} className="Sidebar-toc-item">
+              <Link to={`${link.fields.slug}#${toAnchor(item.value)}`}>
+                {item.value}
+              </Link>
+            </li>
+          ) : null;
         })}
       </ul>
     );
@@ -66,8 +69,7 @@ class TableOfContents extends React.Component {
 
   render() {
     const { active, link, headings } = this.props;
-    return active && !isEmpty(headings) ?
-      this.getTOC(link, headings) : null;
+    return active && !isEmpty(headings) ? this.getTOC(link, headings) : null;
   }
 }
 

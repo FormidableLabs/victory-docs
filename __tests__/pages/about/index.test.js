@@ -5,7 +5,7 @@ import About from "../../../src/pages/about/index";
 
 describe("<About />", () => {
   test("should render correctly.", () => {
-    const wrapper = mount(<About/>);
+    const wrapper = mount(<About />);
     expect(wrapper).toMatchSnapshot();
   });
 });

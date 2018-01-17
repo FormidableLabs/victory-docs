@@ -26,35 +26,35 @@ class Icon extends React.Component {
     switch (glyph) {
     case "back":
       return (
-          <span
-            {...otherProps}
-            style={styles.base}
-            dangerouslySetInnerHTML={{ __html: IconBack }}
-          />
+        <span
+          {...otherProps}
+          style={styles.base}
+          dangerouslySetInnerHTML={{ __html: IconBack }}
+        />
       );
     case "coming-soon":
       return (
-          <span
-            {...otherProps}
-            style={styles.base}
-            dangerouslySetInnerHTML={{ __html: IconBarrier }}
-          />
+        <span
+          {...otherProps}
+          style={styles.base}
+          dangerouslySetInnerHTML={{ __html: IconBarrier }}
+        />
       );
     case "external-link":
       return (
-          <span
-            {...otherProps}
-            style={styles.base}
-            dangerouslySetInnerHTML={{ __html: IconExternalLink }}
-          />
+        <span
+          {...otherProps}
+          style={styles.base}
+          dangerouslySetInnerHTML={{ __html: IconExternalLink }}
+        />
       );
     case "internal-link":
       return (
-          <span
-            {...otherProps}
-            style={styles.base}
-            dangerouslySetInnerHTML={{ __html: IconInternalLink }}
-          />
+        <span
+          {...otherProps}
+          style={styles.base}
+          dangerouslySetInnerHTML={{ __html: IconInternalLink }}
+        />
       );
     default:
       return <span />;

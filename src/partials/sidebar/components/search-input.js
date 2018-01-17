@@ -21,14 +21,10 @@ class SidebarSearchInput extends React.Component {
             value={this.props.searchText}
             onChange={this.onChange.bind(this)}
           />
-          <button
-            className="btn Input-clear"
-            onClick={this.onClear.bind(this)}
-          >
+          <button className="btn Input-clear" onClick={this.onClear.bind(this)}>
             &times;
           </button>
         </div>
-
       </div>
     );
   }
