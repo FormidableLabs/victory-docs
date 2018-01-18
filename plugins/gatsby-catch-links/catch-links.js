@@ -1,5 +1,5 @@
 /* eslint-disable complexity, max-statements */
-module.exports = (root, cb) => {
+module.exports = (root, cb, pathPrefix = "") => {
   root.addEventListener(`click`, (ev) => {
     if (
       ev.button !== 0 ||
@@ -59,7 +59,12 @@ module.exports = (root, cb) => {
 
     ev.preventDefault();
 
-    cb(anchor.pathname);
+    const indexOfPathPrefix = anchor.pathname.indexOf(pathPrefix);
+    const pathname = indexOfPathPrefix === -1
+      ? anchor.pathname
+      : anchor.pathname.substring(indexOfPathPrefix + pathPrefix.length);
+
+    cb(pathname);
     return false;
   });
 };
