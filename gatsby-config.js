@@ -75,8 +75,7 @@ module.exports = {
       }
     },
     "gatsby-plugin-sharp",
-    "gatsby-plugin-sitemap",
-    "gatsby-catch-links"
+    "gatsby-plugin-sitemap"
   ]
 };
 /* eslint-enable camelcase */
