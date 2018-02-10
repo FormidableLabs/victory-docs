@@ -36,7 +36,7 @@
     "gatsby-transformer-remark": "^1.7.9",
     "lodash": "^4.17.4",
     "postcss-cssnext": "^3.0.2",
-    "postcss-import": "^10.0.0",
+    "postcss-import": "^11.1.0",
     "postcss-inline-svg": "^3.0.0",
     "postcss-url": "^7.1.2",
     "prop-types": "^15.5.8",
