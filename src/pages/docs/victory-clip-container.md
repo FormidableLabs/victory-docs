@@ -16,6 +16,14 @@ scope: null
 
 `VictoryClipContainer` renders a single child, or an array of children in group element.
 
+### circleComponent
+
+`type: element`
+
+The `circleComponent` specifies the element to use when a `VictoryClipContainer` renders a circular clip path. By default, `VictoryClipContainer` uses the [Circle component][].
+
+*default:* `<Circle/>`
+
 ### className
 
 `type: string`
@@ -51,7 +59,9 @@ that data or labels are not cut off.
 
 `type: element`
 
-The `clipPathComponent` prop specifies the clip path to apply to the rendered group when appropriate. By default, `VictoryClipContainer` uses the rectangular [ClipPath component][].
+The `clipPathComponent` prop specifies the clip path to apply to the rendered group when appropriate. By default, `VictoryClipContainer` uses the [ClipPath component][].
+
+*default:* `<ClipPath/>`
 
 ### clipWidth
 
@@ -68,6 +78,14 @@ of the parent chart.
 The `events` prop attaches arbitrary event handlers to the group element. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component it is attached to, and an `eventKey` when applicable.
 
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+
+### groupComponent
+
+`type: element`
+
+`VictoryClipContainer` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+
+*default:* `<g/>`
 
 ### origin
 
@@ -89,6 +107,14 @@ The `radius` prop determines the radius of the circular clip path used for polar
 given as a number. If this prop is not given, it will be calculated based on the dimensions and padding
 of the parent chart.
 
+### rectComponent
+
+`type: element`
+
+The `circleComponent` specifies the element to use when a `VictoryClipContainer` renders a rectangular clip path. By default, `VictoryClipContainer` uses the [Rect component][].
+
+*default:* `<Rect/>`
+
 ### translateX
 
 `type: number`
@@ -107,3 +133,5 @@ of the parent chart.
 
 
 [ClipPath Component]: https://formidable.com/open-source/victory/docs/victory-primitives#clippath
+[Circle Component]: https://formidable.com/open-source/victory/docs/victory-primitives#circle
+[Rect Component]: https://formidable.com/open-source/victory/docs/victory-primitives#rect

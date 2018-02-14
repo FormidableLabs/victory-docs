@@ -470,6 +470,12 @@ See the [Themes Guide][] for information about creating custom themes.
 theme={VictoryTheme.material}
 ```
 
+### wickStrokeWidth
+
+`type: number`
+
+When the `wickStrokeWidth` prop is set, this value will be used to determine the stroke width for the candle wick. When this prop is not set, the `strokeWidth` set by the `style` prop will apply to both the candle and the wick.
+
 ### width
 
 `type: number`

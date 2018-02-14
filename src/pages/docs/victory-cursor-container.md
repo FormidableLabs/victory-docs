@@ -99,6 +99,12 @@ If instead you would like to keep it displayed, use the `defaultCursorValue` pro
 
 *examples:* `defaultCursorValue={{x: 1, y: 1}}`, `defaultCursorValue={0}`
 
+### diasble
+
+`type: boolean`
+
+When the `disable` prop is set to `true`, `VictoryCursorContainer` events will not fire.
+
 ### onCursorChange
 
 `type: function`
