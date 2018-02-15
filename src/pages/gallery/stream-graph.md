@@ -98,7 +98,7 @@ class App extends React.Component {
                 <VictoryArea key={i}
                   interpolation="monotoneX"
                   data={d}
-                  style={{ data: { fill: colors[i] } }}
+                  style={{ data: { fill: colors[i], stroke: "none" } }}
                   dataComponent={
                     <Area
                       pathComponent={<GradientPath percent={this.state.percent}/>}

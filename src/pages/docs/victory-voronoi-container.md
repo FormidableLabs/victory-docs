@@ -66,10 +66,9 @@ When the `disable` prop is set to `true`, `VictoryVoronoiContainer` events will 
 
 When a `labels` prop is provided to `VictoryVoronoiContainer` it will render a label component
 rather than activating labels on the child components it renders. This is useful for creating multi-
-point tooltips. This prop should be given as a function to be called with datum for each active
-point.
+point tooltips. This prop should be given as a function which will be called once for each active point.  The `labels` function will be called with the arguments `point`, `index`, and `points`, where `point` refers to a single active point, `index` refers to the position of that point in the array of active points, and `points` is an array of all active points.
 
-*example:* `labels={(d) => "y: " + d.y}`
+*example:* `labels={(point) => "y: " + point.y}`
 
 ### labelComponent
 
