@@ -38,6 +38,74 @@ However, the component that uses it must be standalone
 
 `VictoryVoronoiContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
+### activateData
+
+`type: boolean`
+
+When the `activateData` prop is set to true, the `active` prop will be set to true on all data components within a voronoi area. When this prop is set to false, the `onActivated` and `onDeactivated` callbacks will still fire, but no mutations to data components will occur via Victory's event system.
+
+*default:* `activateData={true}`
+
+### activateLabels
+
+`type: boolean`
+
+When the `activateLabels` prop is set to true, the `active` prop will be set to true on all labels corresponding to points within a voronoi area. When this prop is set to false, the `onActivated` and `onDeactivated` callbacks will still fire, but no mutations to label components will occur via Victory's event system. Labels defined directly on `VictoryVoronoiContainer` via the `labels` prop will still appear when this prop is set to false.
+
+*default:* `activateLabels={true}`
+
+### diasble
+
+`type: boolean`
+
+When the `disable` prop is set to `true`, `VictoryVoronoiContainer` events will not fire.
+
+### labels
+
+`type: function`
+
+When a `labels` prop is provided to `VictoryVoronoiContainer` it will render a label component
+rather than activating labels on the child components it renders. This is useful for creating multi-
+point tooltips. This prop should be given as a function which will be called once for each active point.  The `labels` function will be called with the arguments `point`, `index`, and `points`, where `point` refers to a single active point, `index` refers to the position of that point in the array of active points, and `points` is an array of all active points.
+
+*example:* `labels={(point) => "y: " + point.y}`
+
+### labelComponent
+
+`type: element`
+
+The `labelComponent` prop specified the component that will be rendered when `labels` are defined
+on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label component will be rendered.
+
+*default:* `labelComponent={<VictoryTooltip/>}`
+
+### onActivated
+
+`type: function`
+
+The `onActivated` prop accepts a function to be called whenever new data points are activated.
+The function is called with the parameters `points` (an array of active data objects) and `props` (the props used by `VictoryVoronoiContainer`).
+
+*example:* `onActivated={(points, props) => filterList(points, props)}`
+
+### onDeactivated
+
+`type: function`
+
+The `onDeactivated` prop accepts a function to be called whenever points are deactivated.
+The function is called with the parameters `points` (an array of the newly-deactivated data objects) and `props` (the props used by `VictoryVoronoiContainer`).
+
+*example:* `onDeactivated={(points, props) => removeFromList(points, props)}`
+
+### radius
+
+`type: number`
+
+When the `radius` prop is set, the voronoi areas associated with each data point will be no larger
+than the given radius. This prop should be given as a number.
+
+*example:* `radius={25}`
+
 ### voronoiBlacklist
 
 `type: array[string]`
@@ -104,15 +172,6 @@ determined by both x any y values.
 </VictoryChart>
 ```
 
-### radius
-
-`type: number`
-
-When the `radius` prop is set, the voronoi areas associated with each data point will be no larger
-than the given radius. This prop should be given as a number.
-
-*example:* `radius={25}`
-
 ### voronoiPadding
 
 `type: number`
@@ -122,44 +181,6 @@ reduced by the given padding on every side. By default, no padding is applied, a
 of a given chart may trigger voronoi events. This prop should be given as a number.
 
 *example:* `voronoiPadding={5}`
-
-### onActivated
-
-`type: function`
-
-The `onActivated` prop accepts a function to be called whenever new data points are activated.
-The function is called with the parameters `points` (an array of active data objects) and `props` (the props used by `VictoryVoronoiContainer`).
-
-*example:* `onActivated={(points, props) => filterList(points, props)}`
-
-### onDeactivated
-
-`type: function`
-
-The `onDeactivated` prop accepts a function to be called whenever points are deactivated.
-The function is called with the parameters `points` (an array of the newly-deactivated data objects) and `props` (the props used by `VictoryVoronoiContainer`).
-
-*example:* `onDeactivated={(points, props) => removeFromList(points, props)}`
-
-### labels
-
-`type: function`
-
-When a `labels` prop is provided to `VictoryVoronoiContainer` it will render a label component
-rather than activating labels on the child components it renders. This is useful for creating multi-
-point tooltips. This prop should be given as a function to be called with datum for each active
-point.
-
-*example:* `labels={(d) => "y: " + d.y}`
-
-### labelComponent
-
-`type: element`
-
-The `labelComponent` prop specified the component that will be rendered when `labels` are defined
-on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label component will be rendered.
-
-*default:* `labelComponent={<VictoryTooltip/>}`
 
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi

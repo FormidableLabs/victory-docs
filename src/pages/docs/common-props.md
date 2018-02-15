@@ -248,9 +248,20 @@ See the [Events Guide][] for more information on defining events and using event
 
 `type: array[object]`
 
-The `events` prop takes an array of event objects. Event objects are composed of a `target`, an `eventKey`, and `eventHandlers`. Targets may be any valid style namespace for a given component, so "data" and "labels" are valid targets for this component. `eventKey` may be given as a single value, or as an array of values to specify individual targets. If `eventKey` is not specified, the given `eventHandlers` will be attached to all elements of the specified `target` type. The `eventHandlers` object should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. The return value of an event handler is used to modify elemnts. The return value should be given as an object or an array of objects with optional `target` and `eventKey` keys for specifying the element(s) to be modified, and a `mutation` key whose value is a function. The `target` and `eventKey` keys will default to those corresponding to the element the event handler was attached to. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+The `events` prop takes an array of event objects. Event objects are composed of identifying properties, and `eventHandlers`.
 
-**note:** Elements that render only one element for a given dataset (_e.g._ `VictoryArea`) will use the special `eventKey` "all" rather than refering to data by index. Refer to individual API docs for additinal caveats
+Identifying properties include:
+
+- `childName`: the name of the component the event should be attached to. When events are specified in `VictorySharedEvents` or on a component that renders several Victory components as children (_i.e._ `VictoryChart`, `VictoryGroup`, `VictoryStack`), it is necessary to specify which child events should apply to. The given `childName` should match the `name` prop of a child component. This identifier can be given as a string, an array of strings, or as "all".
+
+- `target`: the type of element the event should be attached to. Valid targets for most Victory components will be `"parent"`, `"data"`, and `"labels"`. Events with the "parent" target will be attached to to the top level svg. Events with `"data"` and `"labels"` targets will be attached to `dataComponent` and `labelComponent` elements respectively. Some components, like `VictoryAxis` use non-standard targets like `"grid"`. Refer to individual API docs for additinal caveats.
+
+- `eventKey`: the specific element to be targeted. Events may be attached to specific elements by `eventKey`. By default, `eventKey` corresponds to the index in the `data` array (or `tickValues` array) corresponding to a rendered element. This value may be given as a single string or number, an array of strings or numbers, or as "all". It is not typically necessary to specify an individual `eventKey` for attaching events. When no `eventKey` is given, events will be attached to all elements that match a given `childName` and `target`. Some components like `VictoryArea` and `VictoryLine` render only a single element for an entire series of data. For these, the `eventKey` should be "all".
+
+`eventHandlers` should be given as an object whose keys are standard event names (_e.g.,_ `onClick`) and whose values are event callbacks. Callbacks are called with the props of the individual element that triggered the event. For example, when a click event occurs on a bar, the props object supplied to the `onClick` handler will include props specific to that individual bar, such as `datum`, `index`, `style`, etc. Return values from event handler callbacks may be used to mutate other elements.
+
+Event returns should be given as an array of objects composed of identifying properties for specifying the element(s) to be modified and a `mutation` function. Identifying properties include `childName`, `target`, and `eventKey`. When these values are not provided, the identifiers of the element that triggered the event will be used, including the specific `eventKey`. The `mutation` function will be called with the calculated props for each element that should be modified (_e.g.,_ a bar label), and the object returned from the mutation function will override the props of that element via object assignment.
+
 
 ```playground
 <VictoryChart

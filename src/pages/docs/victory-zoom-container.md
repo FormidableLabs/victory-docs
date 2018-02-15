@@ -54,6 +54,12 @@ The optional `allowZoom` prop accepts a boolean that enables the zoom functional
 
 *example:* `clipContainerComponent={<VictoryClipContainer clipPadding={{top: 10, right: 10}}}/>}`
 
+### diasble
+
+`type: boolean`
+
+When the `disable` prop is set to `true`, `VictoryZoomContainer` events will not fire.
+
 ### downsample
 
 `type: number || boolean`

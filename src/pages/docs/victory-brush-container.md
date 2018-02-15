@@ -97,6 +97,12 @@ an object of SVG style attributes.
 
 *default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
 
+### diasble
+
+`type: boolean`
+
+When the `disable` prop is set to `true`, `VictoryBrushContainer` events will not fire.
+
 ### handleComponent
 
 `type: element`

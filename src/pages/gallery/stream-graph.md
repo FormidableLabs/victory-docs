@@ -4,8 +4,8 @@ title: Stream Graph
 ---
 
 ```playground_norender
-// This customized component is supplied to VictoryArea
-class GradientArea extends Area {
+// This custom component is supplied in place of Path
+class GradientPath extends React.Component {
   toGrayscale(color) {
     const integerColor = parseInt(color.replace("#", ""), 16);
     const r = (integerColor >> 16) & 255;
@@ -15,8 +15,8 @@ class GradientArea extends Area {
     return `rgb(${gray}, ${gray}, ${gray})`;
   }
 
-  // This method exists in Area, and is completely overridden for the custom component.
-  renderArea(path, style, events) {
+  render() {
+    const { style, d, events } = this.props;
     const gradientId = `gradient-${Math.random()}`;
     const areaStyle = Object.assign(
       {}, style, { fill: `url(${location.href}#${gradientId})` }
@@ -33,7 +33,7 @@ class GradientArea extends Area {
               <stop offset="100%" stopColor={gray}/>
           </linearGradient>
         </defs>
-        <path key="area" style={areaStyle} d={path} {...events}/>
+        <path key="area" style={areaStyle} d={d} {...events}/>
       </g>
     );
   }
@@ -48,9 +48,7 @@ class App extends React.Component {
     };
   }
 
-  // This data is manipulated to approximate a stream. Victory doesn't yet have a stream layout,
-  // so for now you would compute the appropriate y and y0.
-  // Adding a stream layout to Victory would only be ~ a day of work.
+  // This data is manipulated to approximate a stream.
   getStreamData() {
     return _.range(7).map((i) => {
       return _.range(26).map((j) => {
@@ -100,9 +98,11 @@ class App extends React.Component {
                 <VictoryArea key={i}
                   interpolation="monotoneX"
                   data={d}
-                  style={{ data: { fill: colors[i] } }}
+                  style={{ data: { fill: colors[i], stroke: "none" } }}
                   dataComponent={
-                    <GradientArea percent={this.state.percent}/>
+                    <Area
+                      pathComponent={<GradientPath percent={this.state.percent}/>}
+                    />
                   }
                 />
               );
