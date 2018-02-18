@@ -21,13 +21,14 @@ class App extends React.Component {
   constructor() {
     super();
     const maxima = this.getMaxima();
-    const datasets = this.transformData(maxima);
+    const datasets = this.normalizeData(maxima);
     this.state = {
       maxima, datasets, filters: {}, activeDatasets: [], isFiltered: false
     };
   }
 
   getMaxima() {
+    // Find the maximum value for each axis. This will be used to normalize data and re-scale axis ticks
     return axes.map((category) => {
       return data.reduce((memo, datum) => {
         return datum[category] > memo ? datum[category] : memo;
@@ -35,22 +36,24 @@ class App extends React.Component {
     });
   }
 
-  transformData(maxima) {
+  normalizeData(maxima) {
+    // construct normalized datasets by dividing the value for each category by the maximum value
     return data.map((datum) => ({
       name: datum.name,
       data: axes.map((category, i) => ({ x: category, y: datum[category] / maxima[i] }))
     }));
   }
 
-  getNewFilters(domain, props) {
+  addNewFilters(domain, props) {
     const filters = this.state.filters || {};
     const extent = domain && Math.abs(domain[1] - domain[0]);
     const minVal = 1 / Number.MAX_SAFE_INTEGER;
-    filters[props.name] = extent === minVal ? undefined : domain;
+    filters[props.name] = extent <= minVal ? undefined : domain;
     return filters;
   }
 
   getActiveData(filters) {
+    // Return the names from all datasets that have values within all filters
     const isActive = (dataset) => {
       return _.keys(filters).reduce((memo, name) => {
         if (!memo || !Array.isArray(filters[name])) {
@@ -69,13 +72,14 @@ class App extends React.Component {
   }
 
   onDomainChange(domain, props) {
-    const filters = this.getNewFilters(domain, props);
+    const filters = this.addNewFilters(domain, props);
     const isFiltered = !_.isEmpty(_.values(filters).filter(Boolean));
     const activeDatasets = isFiltered ? this.getActiveData(filters) : this.state.datasets;
     this.setState({ filters, activeDatasets, isFiltered });
   }
 
   isActive(dataset) {
+    // Determine whether a given dataset is active
     return !this.state.isFiltered ? true : _.includes(this.state.activeDatasets, dataset.name);
   }
 
@@ -115,11 +119,11 @@ class App extends React.Component {
                 onBrushDomainChange={this.onDomainChange.bind(this)}
               />
             }
-            tickValues={[0.2, 0.4, 0.6, 0.8, 1]}
             offsetX={this.getAxisOffset(index)}
             style={{
               tickLabels: { fontSize: 15, padding: 15, pointerEvents: "none" },
             }}
+            tickValues={[0.2, 0.4, 0.6, 0.8, 1]}
             tickFormat={(tick) => Math.round(tick * this.state.maxima[index])}
           />
         ))}
