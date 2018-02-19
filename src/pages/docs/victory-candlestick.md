@@ -60,7 +60,7 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
-`VictoryCandlestick` uses the standard `categories` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#categories)
+`VictoryCandlestick` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
 
 ```jsx
 categories={{ x: ["dogs", "cats", "mice"] }}
@@ -92,7 +92,7 @@ Use `close` data accessor prop to define the close value of a candle.
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#containercomponent)
+`VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
@@ -120,7 +120,7 @@ Specify data via the `data` prop. By default, `VictoryCandlestick` expects data 
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `dataComponent` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#datacomponent)
+`VictoryCandlestick` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
 
 `VictoryCandlestick` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `padding`, `polar`, `origin`, `scale`, `style`, `candleHeight`, `x1`, `y1`, `y2`, `x2`
 
@@ -136,7 +136,7 @@ dataComponent={<Candle events={{ onClick: handleClick }}/>}
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
-`VictoryCandlestick` uses the standard `domain` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#domain)
+`VictoryCandlestick` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
 
 ```jsx
 domain={{x: [0, 100], y: [0, 1]}}
@@ -146,7 +146,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
-`VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#domainpadding)
+`VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
 
 ```jsx
 domainPadding={{x: [10, -10], y: 5}}
@@ -156,7 +156,7 @@ domainPadding={{x: [10, -10], y: 5}}
 
 `type: string || integer || array[string] || function`
 
-`VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail herehttps://formidable.com/open-source/victory](/docs/common-props#eventkey)
+`VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```jsx
 eventKey="x"
@@ -166,7 +166,7 @@ eventKey="x"
 
 `type: array[object]`
 
-`VictoryCandlestick` uses the standard `events` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#events)
+`VictoryCandlestick` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -199,7 +199,7 @@ See the [Events Guide][] for more information on defining events.
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `groupComponent` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#groupcomponent)
+`VictoryCandlestick` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
 *default:* `<g/>`
 
@@ -211,7 +211,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 `type: number`
 
-`VictoryCandlestick` uses the standard `height` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#height)
+`VictoryCandlestick` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
 *default (provided by default theme):* `height={300}`
 
@@ -245,7 +245,7 @@ Use `high` data accessor prop to define the high value of a candle.
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#labelcomponent)
+`VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
 *default:* `<VictoryLabel/>`
 
@@ -262,7 +262,7 @@ Use `high` data accessor prop to define the high value of a candle.
 
 `type: array || function`
 
-`VictoryCandlestick` uses the standard `labels` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#labels)
+`VictoryCandlestick` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
 
 ```playground
 <VictoryCandlestick
@@ -339,7 +339,7 @@ Use `open` data accessor prop to define the open value of a candle.
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
-`VictoryCandlestick` uses the standard `padding` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#padding)
+`VictoryCandlestick` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
 *default (provided by default theme):* `padding={50}`
 
@@ -351,7 +351,7 @@ padding={{ top: 20, bottom: 60 }}
 
 `type: boolean`
 
-`VictoryCandlestick` uses the standard `polar` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#polar)
+`VictoryCandlestick` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
 **Note:** Polar Charts are not yet supported for `VictoryCandlestick`
 
@@ -367,7 +367,7 @@ padding={{ top: 20, bottom: 60 }}
 
 `type: number`
 
-`VictoryCandlestick` uses the standard `samples` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#samples)
+`VictoryCandlestick` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
 *default:* `samples={50}`
 
@@ -379,7 +379,7 @@ samples={100}
 
 `type: scale || { x: scale, y: scale }`
 
-`VictoryCandlestick` uses the standard `scale` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#scale)
+`VictoryCandlestick` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 *default:* `scale="linear"`
@@ -396,7 +396,7 @@ scale={{x: "linear", y: "log"}}
 
 `type: string || integer || array[string] || function`
 
-`VictoryCandlestick` uses the standard `sortKey` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#sortkey)
+`VictoryCandlestick` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -416,7 +416,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 `type: boolean`
 
-`VictoryCandlestick` uses the standard `standalone` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#standalone)
+`VictoryCandlestick` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
 
 **note:** When `VictoryCandlestick` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
@@ -437,7 +437,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 `type: { parent: object, data: object, labels: object }`
 
-`VictoryCandlestick` uses the standard `style` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#style)
+`VictoryCandlestick` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
 
@@ -460,7 +460,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 `type: object`
 
-`VictoryCandlestick` uses the standard `theme` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#theme)
+`VictoryCandlestick` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
@@ -480,7 +480,7 @@ When the `wickStrokeWidth` prop is set, this value will be used to determine the
 
 `type: number`
 
-`VictoryCandlestick` uses the standard `width` prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#width)
+`VictoryCandlestick` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
 *default (provided by default theme):* `width={450}`
 
@@ -492,7 +492,7 @@ width={400}
 
 `type: string || integer || array[string] || function`
 
-`VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it herehttps://formidable.com/open-source/victory](/docs/common-props#x)
+`VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
