@@ -54,7 +54,7 @@ When the `activateLabels` prop is set to true, the `active` prop will be set to 
 
 *default:* `activateLabels={true}`
 
-### diasble
+### disable
 
 `type: boolean`
 

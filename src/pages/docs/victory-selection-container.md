@@ -42,7 +42,7 @@ When the `activateSelectedData` prop is set to true, the `active` prop will be s
 
 *default:* `activateSelectedData={true}`
 
-### diasble
+### disable
 
 `type: boolean`
 
