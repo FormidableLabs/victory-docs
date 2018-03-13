@@ -97,7 +97,7 @@ an object of SVG style attributes.
 
 *default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
 
-### diasble
+### disable
 
 `type: boolean`
 
