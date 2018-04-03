@@ -2,8 +2,6 @@
 id: 0
 title: VictoryBoxPlot
 category: charts
-scope:
-  - sampleData
 ---
 # VictoryBoxPlot
 
@@ -298,6 +296,8 @@ Use the `max` data accessor prop to define the max value of a box plot.
 
 The `maxComponent` prop takes a component instance which will be responsible for rendering an element to represent the maximum value of the box plot. The new element created from the passed `maxComponent` will be provided with the following props calculated by `VictoryBoxPlot`:  `datum`, `index`, `scale`, `style`, `events`, `majorWhisker` and `minorWhisker`. The `majorWhisker` and `minorWhisker` props are given as objects with values for `x1`, `y1`, `x2` and `y2` that describes the lines that make up the major and minor whisker. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `maxComponent` is not provided, `VictoryBoxPlot` will use its default [Whisker component][].
 
+See the [Custom Components Guide][] for more detail on creating your own components
+
 *default:* `maxComponent={<Whisker/>}`
 
 ```jsx
@@ -309,6 +309,8 @@ maxComponent={<Whisker events={{ onClick: handleClick }}/>}
 `type: element`
 
 The `maxLabelComponent` prop takes a component instance which will be used to render the label corresponding to the maximum value for each box. The new element created from the passed `maxLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `maxLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
 
 *default:* `maxLabelComponent={<VictoryLabel/>}`
 
@@ -369,6 +371,8 @@ Use the `median` data accessor prop to define the median value of a box plot.
 
 The `medianComponent` prop takes a component instance which will be responsible for rendering an element to represent the median value of the box plot. The new element created from the passed `medianComponent` will be provided with the following props calculated by `VictoryBoxPlot`:  `datum`, `index`, `scale`, `style`, `events`, `x1`, `y1`, `x2` and `y2` Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `medianComponent` is not provided, `VictoryBoxPlot` will use its default [Line component][].
 
+See the [Custom Components Guide][] for more detail on creating your own components
+
 *default:* `medianComponent={<Line/>}`
 
 ```jsx
@@ -380,6 +384,8 @@ medianComponent={<Line events={{ onClick: handleClick }}/>}
 `type: element`
 
 The `medianLabelComponent` prop takes a component instance which will be used to render the label corresponding to the median value for each box. The new element created from the passed `medianLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `medianLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
 
 *default:* `medianLabelComponent={<VictoryLabel/>}`
 
@@ -440,6 +446,8 @@ Use the `min` data accessor prop to define the min value of a box plot.
 
 The `minComponent` prop takes a component instance which will be responsible for rendering an element to represent the minimum value of the box plot. The new element created from the passed `minComponent` will be provided with the following props calculated by `VictoryBoxPlot`:  `datum`, `index`, `scale`, `style`, `events`, `majorWhisker` and `minorWhisker`. The `majorWhisker` and `minorWhisker` props are given as objects with values for `x1`, `y1`, `x2` and `y2` that describes the lines that make up the major and minor whisker. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `minComponent` is not provided, `VictoryBoxPlot` will use its default [Whisker component][].
 
+See the [Custom Components Guide][] for more detail on creating your own components
+
 *default:* `minComponent={<Whisker/>}`
 
 ```jsx
@@ -451,6 +459,8 @@ minComponent={<Whisker events={{ onClick: handleClick }}/>}
 `type: element`
 
 The `minLabelComponent` prop takes a component instance which will be used to render the label corresponding to the minimum value for each box. The new element created from the passed `minLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `minLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
 
 *default:* `minLabelComponent={<VictoryLabel/>}`
 
@@ -549,6 +559,8 @@ Use the `q1` data accessor prop to define the q1 value of a box plot.
 
 The `q1Component` prop takes a component instance which will be responsible for rendering an element to represent the q1 value of the box plot. The new element created from the passed `q1Component` will be provided with the following props calculated by `VictoryBoxPlot`:  `datum`, `index`, `scale`, `style`, `events`, `x`, `y`, `width` and `height` Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `q1Component` is not provided, `VictoryBoxPlot` will use its default [Box component][].
 
+See the [Custom Components Guide][] for more detail on creating your own components
+
 *default:* `q1Component={<Box/>}`
 
 ```jsx
@@ -560,6 +572,8 @@ q1Component={<Box events={{ onClick: handleClick }}/>}
 `type: element`
 
 The `q1LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q1imum value for each box. The new element created from the passed `q1LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q1LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
 
 *default:* `q1LabelComponent={<VictoryLabel/>}`
 
@@ -613,28 +627,32 @@ Use the `q3` data accessor prop to define the q3 value of a box plot.
 
 *examples:* `q3="bonds.q3"`, `q3={["bonds", "q3"]}`
 
-### q1Component
+### q3Component
 
 `type: element`
 
-The `q1Component` prop takes a component instance which will be responsible for rendering an element to represent the q1 value of the box plot. The new element created from the passed `q1Component` will be provided with the following props calculated by `VictoryBoxPlot`:  `datum`, `index`, `scale`, `style`, `events`, `x`, `y`, `width` and `height` Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `q1Component` is not provided, `VictoryBoxPlot` will use its default [Box component][].
+The `q3Component` prop takes a component instance which will be responsible for rendering an element to represent the q3 value of the box plot. The new element created from the passed `q3Component` will be provided with the following props calculated by `VictoryBoxPlot`:  `datum`, `index`, `scale`, `style`, `events`, `x`, `y`, `width` and `height` Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `q3Component` is not provided, `VictoryBoxPlot` will use its default [Box component][].
 
-*default:* `q1Component={<Box/>}`
+See the [Custom Components Guide][] for more detail on creating your own components
+
+*default:* `q3Component={<Box/>}`
 
 ```jsx
-q1Component={<Box events={{ onClick: handleClick }}/>}
+q3Component={<Box events={{ onClick: handleClick }}/>}
 ```
 
-### q1LabelComponent
+### q3LabelComponent
 
 `type: element`
 
-The `q1LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q1imum value for each box. The new element created from the passed `q1LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q1LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+The `q3LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q3imum value for each box. The new element created from the passed `q3LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q3LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
 
-*default:* `q1LabelComponent={<VictoryLabel/>}`
+See the [Custom Components Guide][] for more detail on creating your own components
+
+*default:* `q3LabelComponent={<VictoryLabel/>}`
 
 ```jsx
-q1LabelComponent={<VictoryLabel dy={20}/>}
+q3LabelComponent={<VictoryLabel dy={20}/>}
 ```
 
 ```playground
@@ -645,8 +663,8 @@ q1LabelComponent={<VictoryLabel dy={20}/>}
     { x: 3, y: [2, 8, 6, 5] },
     { x: 4, y: [1, 3, 2, 9] }
   ]}
-  q1Labels
-  q1LabelComponent={
+  q3Labels
+  q3LabelComponent={
     <VictoryLabel
       dx={5} dy={5}
     />
@@ -654,16 +672,16 @@ q1LabelComponent={<VictoryLabel dy={20}/>}
 />
 ```
 
-### q1Labels
+### q3Labels
 
 `type: array || function || boolean`
 
-The `q1Labels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the q1 value of each datum will be used for the label.
+The `q3Labels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the q3 value of each datum will be used for the label.
 
 *examples:*
-- `q1Labels`
-- `q1Labels={["first", "second", "third"]}`
-- `q1Labels={(d) => Math.round(d.q1)}`
+- `q3Labels`
+- `q3Labels={["first", "second", "third"]}`
+- `q3Labels={(d) => Math.round(d.q3)}`
 
 ### range
 
@@ -780,6 +798,20 @@ The `style` prop defines the style of the component. The style prop should be gi
 />
 ```
 
+### theme
+
+`type: object`
+
+`VictoryBoxPlot` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+
+See the [Themes Guide][] for information about creating custom themes.
+
+*default:* `theme={VictoryTheme.grayscale}`
+
+```jsx
+theme={VictoryTheme.material}
+```
+
 ### whiskerWidth
 
 `type: number`
@@ -837,4 +869,29 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 ```jsx
 y={(d) => d.value + d.error}
 ```
+
+
+[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
+[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
+[Events Guide]: https://formidable.com/open-source/victory/guides/events
+[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
+[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[`x`]: https://formidable.com/open-source/victory/docs/victory-boxplot#x
+[`y`]: https://formidable.com/open-source/victory/docs/victory-boxplot#y
+[`max`]: https://formidable.com/open-source/victory/docs/victory-boxplot#max
+[`maxLabels`]: https://formidable.com/open-source/victory/docs/victory-boxplot#maxlabels
+[`min`]: https://formidable.com/open-source/victory/docs/victory-boxplot#min
+[`minLabels`]: https://formidable.com/open-source/victory/docs/victory-boxplot#minlabels
+[`median`]: https://formidable.com/open-source/victory/docs/victory-boxplot#median
+[`medianLabels`]: https://formidable.com/open-source/victory/docs/victory-boxplot#medianlabels
+[`q1`]: https://formidable.com/open-source/victory/docs/victory-boxplot#q1
+[`q1Labels`]: https://formidable.com/open-source/victory/docs/victory-boxplot#q1labels
+[`q3`]: https://formidable.com/open-source/victory/docs/victory-boxplot#q3
+[`q3labels`]: https://formidable.com/open-source/victory/docs/victory-boxplot#q3labels
+[Whisker component]: https://formidable.com/open-source/victory/docs/victory-primitives#whisker
+[Box component]: https://formidable.com/open-source/victory/docs/victory-primitives#box
+[Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
+[`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label
 

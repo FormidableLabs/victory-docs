@@ -457,6 +457,24 @@ render() {
   - `x` *number* the x coordinate of the data point
   - `y` *number* the y coordinate of the data point
 
+  ### Whisker
+
+[VictoryBoxPlot][] uses the `Whisker` component to draw whiskers for the minimum and maximum values in a box plot. `Whisker` renders a group of `<Line/>` elements. [View the source][whisker]
+
+**Props**
+
+  - `active` *boolean* a flag signifying whether the component is active
+  - `className` *string* the class name that will be applied to the rendered element
+  - `events` *object* events to attach to the rendered element
+  - `groupComponent` *element* the rendered group element  *default* `<g/>`
+  - `lineComponent` *element* the rendered line element  *default* `<Line/>`
+  - `majorWhisker` *object* an object with values `x1`, `x2`, `y1`, `y2` describing the major whisker line
+  - `minorWhisker` *object* an object with values `x1`, `x2`, `y1`, `y2` describing the minor whisker line
+  - `role` *string* the aria role to assign to the element
+  - `shapeRendering` *string* the shape rendering attribute to apply to the rendered element
+  - `style` *object* the styles to apply to the rendered element
+
+
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [VictoryClipContainer]: https://formidable.com/open-source/victory/docs/victory-clip-container
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
@@ -470,19 +488,20 @@ render() {
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
 [candle]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/candle.js
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[clippath]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/clip-path.js
 [curve]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/curve.js
 [VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
 [errorbar]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/error-bar.js
 [VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
 [flyout]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/flyout.js
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
-[line]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/line.js
 [VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
+[axis]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/axis.js
 [point]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/point.js
 [slice]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/slice.js
+[whisker]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/whisker.js
 [VictoryPie]: https://formidable.com/open-source/victory/docs/victory-pie
 [voronoi]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/voronoi.js
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
 [VictoryLegend]: https://formidable.com/open-source/victory/docs/victory-legend
+[VictoryBoxPlot]: https://formidable.com/open-source/victory/docs/victory-boxplot
