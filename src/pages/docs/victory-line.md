@@ -36,7 +36,7 @@ VictoryLine renders a dataset as a single line. VictoryLine can be composed with
 
 `type: boolean || object`
 
-`VictoryLine` uses the standard `animate` prop. [Read about it herhttps://formidable.com/open-source/victorye](/docs/common-props#animate)
+`VictoryLine` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
