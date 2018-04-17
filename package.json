@@ -54,7 +54,7 @@
     "babel-preset-react": "^6.24.1",
     "cli-glob": "^0.1.0",
     "enzyme": "^2.9.1",
-    "enzyme-to-json": "^2.0.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.15.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-config-formidable": "^3.0.0",
