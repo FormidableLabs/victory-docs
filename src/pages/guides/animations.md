@@ -59,6 +59,12 @@ class App extends React.Component {
       <VictoryChart animate={{ duration: 2000, easing: "bounce" }}>
         <VictoryScatter
           data={this.state.scatterData}
+          style={{
+            data: {
+              fill: (d) => d.fill,
+              opacity: (d) => d.opacity
+            }
+          }}
         />
       </VictoryChart>
     );

@@ -58,55 +58,6 @@ In the example below, clicking on any of the bars will trigger a change in the t
   />
 ```
 
-
-Events may also be targeted specific data elements or groups of data elements by event key using the `eventKey` property. The `eventKey` property may be given as a single value or as an array of values. If no `eventKey` is specified, events will be attached to all elements of a specified target type, and mutations will affect only elements corresponding to the event key of the element that triggered the event. Element event keys may be applied directly to data objects, or set using the `eventKey` data accessor prop. By default, the event key will be set to the index of the element in the data array.
-
-
-```playground
-  <VictoryBar
-    data={[
-      {x: 1, y: 2, label: "A"},
-      {x: 2, y: 4, label: "B"},
-      {x: 3, y: 7, label: "C"},
-      {x: 4, y: 3, label: "D"},
-      {x: 5, y: 5, label: "E"},
-    ]}
-    eventKey={(datum) => datum.label}
-    events={[
-      {
-        target: "data",
-        eventKey: ["A", "B"],
-        eventHandlers: {
-          onClick: () => {
-            return [
-              {
-                eventKey: "D",
-                mutation: (props) => {
-                  return {
-                    style: assign(props.style, {fill: "green"})
-                  }
-                }
-              },
-              {
-                eventKey: "E",
-                mutation: (props) => {
-                  return {
-                    style: assign(props.style, {fill: "red"})
-                  }
-                }
-              }
-            ];
-          }
-        }
-      }
-    ]}
-  />
-```
-
-
-If an `eventKey` is not specified in the mutation, the event mutation will target the same event key as the element that triggered the event. Similarly, if the target is not specified, the target will be assumed to be the same target type as the element that triggered the event.
-
-
 ## Nested Component Events
 
 

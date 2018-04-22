@@ -164,14 +164,7 @@ See the [Events Guide][] for more information on defining events.
               target: "data",
               eventKey: "all",
               mutation: (props) => {
-                const stroke = props.style && props.style.stroke;
-                return stroke === "black" ? null : { style: { stroke: "black" } };
-              }
-            }, {
-              target: "labels",
-              eventKey: 2,
-              mutation: (props) => {
-                return props.text ? null : { text: "clicked" };
+                return stroke === "black" ? null : { style: { stroke: "black", strokeWidth: 5 } };
               }
             }
           ];

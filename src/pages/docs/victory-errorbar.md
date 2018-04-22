@@ -196,7 +196,7 @@ See the [Events Guide][] for more information on defining events.
   <h3>Click Me</h3>
   <VictoryErrorBar
     style={{
-      data: { strokeWidth: 5 }
+      data: { strokeWidth: 5}
     }}
     events={[{
       target: "data",
@@ -214,7 +214,13 @@ See the [Events Guide][] for more information on defining events.
         }
       }
     }]}
-    data={sampleData}
+    data={[
+      {x: 15, y: 35, errorX: 1, errorY: 3},
+      {x: 20, y: 42, errorX: 3, errorY: 2},
+      {x: 25, y: 30, errorX: 5, errorY: 5},
+      {x: 30, y: 35, errorX: 5, errorY: 3},
+      {x: 35, y: 22, errorX: 8, errorY: 2}
+    ]}
   />
 </div>
 ```
