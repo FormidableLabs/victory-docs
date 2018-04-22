@@ -51,8 +51,7 @@ export default class App extends React.Component {
         y: random(2, 100),
         size: random(8) + 3,
         symbol: symbols[scaledIndex],
-        fill: colors[random(0, 6)],
-        opacity: 0.6
+        fill: colors[random(0, 6)]
       };
     });
   }
@@ -79,7 +78,15 @@ export default class App extends React.Component {
           height={350}
           animate={{ duration: 2000 }}
         >
-          <VictoryScatter data={this.state.scatterData} />
+          <VictoryScatter
+            data={this.state.scatterData}
+            style={{
+              data: {
+                fill: (d) => d.fill,
+                opacity: 0.6
+              }
+            }}
+          />
         </VictoryChart>
       </div>
     );
