@@ -169,15 +169,15 @@ See the [Events Guide][] for more information on defining events.
 <div>
   <h3>Click Me</h3>
   <VictoryBoxPlot
+    medianLabels={() => null}
     events={[{
       target: "q3",
       eventHandlers: {
         onClick: () => {
           return [
             {
-              target: "medianLabels",
               mutation: (props) => {
-                return props.text ? null : { text: "clicked" };
+                return { style: Object.assign(props.style, { fill: "tomato" }) };
               }
             }
           ];

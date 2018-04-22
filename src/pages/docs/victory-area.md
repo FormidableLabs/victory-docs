@@ -157,12 +157,6 @@ See the [Events Guide][] for more information on defining events.
                 const fill = props.style && props.style.fill;
                 return fill === "black" ? null : { style: { fill: "black" } };
               }
-            }, {
-              target: "labels",
-              eventKey: 2,
-              mutation: (props) => {
-                return props.text ? null : { text: "clicked" };
-              }
             }
           ];
         }

@@ -34,6 +34,7 @@ class App extends React.Component {
         <VictoryScatter
           size={5}
           data={this.state.data}
+          style={{ data: { opacity: (d) => d.opacity || 1 } }}
           animate={{
             onExit: {
               duration: 500,
@@ -143,9 +144,11 @@ Container components are suppied with the following props:
 
 `type: array[object]`
 
-Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x][] and [y][] data accessor props to define a custom data format. The `data` prop must be given as an array. Data objects may also include information about styles, labels, and props that may be applied to individual data components.
+Specify data via the `data` prop. By default, Victory components expect data as an array of objects with `x` and `y` properties. Use the [x][] and [y][] data accessor props to define a custom data format. The `data` prop must be given as an array. Data objects may also include information about ~~styles~~, labels, and props that may be applied to individual data components.
 
 **Note:** All values stored on the data object will be interpolated during animation. Do not store functions on data objects.
+
+**Note:** As of `victory@0.26.0` styles provided via the `data` prop are no longer automatically applied. To use styles from the data object, add functional styles as in the example below.
 
 ```playground
 <VictoryScatter
@@ -153,9 +156,15 @@ Specify data via the `data` prop. By default, Victory components expect data as 
   data={[
     { x: 1, y: 1, label: "first", symbol: "star", opacity: 0.5, fill: "blue" },
     { x: 2, y: 2, label: "second", symbol: "circle", opacity: 0.8, fill: "red" },
-    { x: 3, y: 3, label: "third", symbol: "square", fill: "white", stroke: "black", strokeWidth: 2 },
+    { x: 3, y: 3, label: "third", symbol: "square", fill: "gold" },
     { x: 4, y: 4, label: "fourth", symbol: "diamond", fill: "green" }
   ]}
+  style={{
+    data: {
+      fill: (d) => d.fill,
+      opacity: (d) => d.opacity
+    }
+  }}
 />
 ```
 

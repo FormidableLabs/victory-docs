@@ -196,6 +196,7 @@ See the [Events Guide][] for more information on defining events.
   <VictoryScatter
     style={{ data: { fill: "#c43a31" } }}
     size={9}
+    labels={() => null}
     events={[{
       target: "data",
       eventHandlers: {
@@ -210,7 +211,8 @@ See the [Events Guide][] for more information on defining events.
             }, {
               target: "labels",
               mutation: (props) => {
-                return props.text ? null : { text: "clicked" };
+                return props.text === "clicked ?
+                  null : { text: "clicked" };
               }
             }
           ];

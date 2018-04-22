@@ -134,11 +134,11 @@ In addition to svg style properties and `label`, `VictoryBar` will also preferen
 ```playground
 <VictoryBar
   data={[
-    { x: 1, y: 2, y0: 1, width: 4 },
-    { x: 2, y: 3, y0: 2, width: 6 },
-    { x: 3, y: 5, y0: 2, width: 8 },
-    { x: 4, y: 4, y0: 3, width: 10 },
-    { x: 5, y: 6, y0: 3, width: 12 }
+    { x: 1, y: 2, y0: 1 },
+    { x: 2, y: 3, y0: 2 },
+    { x: 3, y: 5, y0: 2 },
+    { x: 4, y: 4, y0: 3 },
+    { x: 5, y: 6, y0: 3 }
   ]}
 />
 ```
@@ -215,11 +215,6 @@ See the [Events Guide][] for more information on defining events.
               mutation: (props) => {
                 const fill = props.style && props.style.fill;
                 return fill === "black" ? null : { style: { fill: "black" } };
-              }
-            }, {
-              target: "labels",
-              mutation: (props) => {
-                return props.text ? null : { text: "clicked" };
               }
             }
           ];
