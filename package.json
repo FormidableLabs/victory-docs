@@ -14,11 +14,10 @@
   "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
   "dependencies": {
     "component-playground": "^2.1.0",
-    "formidable-landers": "^7.0.0",
+    "formidable-landers": "^7.1.1",
     "fuse.js": "^3.2.0",
-    "gatsby": "^1.9.155",
+    "gatsby": "^1.9.243",
     "gatsby-link": "^1.6.7",
-    "gatsby-plugin-feed": "^1.3.4",
     "gatsby-plugin-google-analytics": "^1.0.3",
     "gatsby-plugin-manifest": "^1.0.3",
     "gatsby-plugin-nprogress": "^1.0.2",
@@ -34,7 +33,7 @@
     "gatsby-remark-smartypants": "^1.4.7",
     "gatsby-source-filesystem": "^1.4.2",
     "gatsby-transformer-remark": "^1.7.9",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "postcss-cssnext": "^3.0.2",
     "postcss-import": "^10.0.0",
     "postcss-inline-svg": "^3.0.0",
@@ -44,8 +43,6 @@
     "react-dom": "^15.6.1",
     "react-helmet": "^5.1.3",
     "react-live": "^1.7.1",
-    "react-share": "^1.15.1",
-    "react-twitter-widgets": "^1.4.0",
     "victory": "~0.26.0"
   },
   "devDependencies": {
