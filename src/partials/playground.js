@@ -3,13 +3,14 @@ import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Playground from "component-playground";
 import * as Victory from "victory";
+import _, { assign, random, range, round } from "lodash";
 
 const scopeMap = {
-  _: require("lodash"),
-  assign: require("lodash").assign,
-  random: require("lodash").random,
-  range: require("lodash").range,
-  round: require("lodash").round,
+  _,
+  assign,
+  random,
+  range,
+  round,
   sampleData: [
     { x: 1, y: 2 },
     { x: 2, y: 3 },
