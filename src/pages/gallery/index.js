@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import Link from "gatsby-link";
 import * as Victory from "victory";
-import _ from "lodash";
 
 // Child Components
 import Footer from "../../partials/footer";
@@ -17,7 +16,7 @@ class Gallery extends React.Component {
 
     this.scope = {
       ...Victory,
-      _,
+      _: require("lodash"),
       React,
       ReactDOM,
       PropTypes
@@ -52,8 +51,7 @@ class Gallery extends React.Component {
 
   renderGallery(props) {
     const { data } = props;
-    const markdown = data ? data.allMarkdownRemark || {} : {};
-    const items = markdown.edges;
+    const items = data.allMarkdownRemark.edges;
     const previews = items.map((item, index) => {
       return (
         <div key={index} className="Gallery-item">
@@ -71,8 +69,7 @@ class Gallery extends React.Component {
 
   render() {
     const { data } = this.props;
-    const markdown = data ? data.allMarkdownRemark || {} : {};
-    const items = markdown.edges;
+    const items = data.allMarkdownRemark.edges;
     const previews = items.map((item, index) => {
       return (
         <div key={index} className="Gallery-item">
