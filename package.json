@@ -16,7 +16,7 @@
     "component-playground": "^2.1.0",
     "formidable-landers": "^7.1.1",
     "fuse.js": "^3.2.0",
-    "gatsby": "^1.9.243",
+    "gatsby": "1.9.155",
     "gatsby-link": "^1.6.7",
     "gatsby-plugin-google-analytics": "^1.0.3",
     "gatsby-plugin-manifest": "^1.0.3",
