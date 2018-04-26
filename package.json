@@ -19,7 +19,7 @@
     "gatsby": "1.9.243",
     "gatsby-link": "1.6.40",
     "gatsby-plugin-google-analytics": "1.0.25",
-    "gatsby-plugin-manifest": "1.0.15",
+    "gatsby-plugin-manifest": "1.0.21",
     "gatsby-plugin-nprogress": "1.0.14",
     "gatsby-plugin-postcss-sass": "1.0.19",
     "gatsby-plugin-react-helmet": "2.0.10",
