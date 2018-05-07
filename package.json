@@ -1,7 +1,7 @@
 {
   "name": "victory-docs",
   "description": "Documentation site for Victory by Formidable",
-  "version": "6.7.0",
+  "version": "6.8.0",
   "author": "Formidable <hello@formidable.com>",
   "main": "webpack.config.dev.js",
   "repository": {
@@ -71,7 +71,12 @@
     "stylelint": "^8.0.0",
     "stylelint-config-standard": "^17.0.0"
   },
-  "keywords": ["gatsby", "victory", "charting", "docs"],
+  "keywords": [
+    "gatsby",
+    "victory",
+    "charting",
+    "docs"
+  ],
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
@@ -90,18 +95,28 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/__mocks__/file-mock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/file-mock.js",
       "^(?!.*\\.module\\.css$).*\\.css$": "<rootDir>/__mocks__/style-mock.js"
     },
-    "testPathIgnorePatterns": ["/node_modules/", "<rootDir>/.cache/"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "<rootDir>/.cache/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "remarkConfig": {
     "plugins": [
       "remark-preset-lint-recommended",
-      ["remark-lint-list-item-indent", false],
-      ["remark-lint-list-item-bullet-indent", false]
+      [
+        "remark-lint-list-item-indent",
+        false
+      ],
+      [
+        "remark-lint-list-item-bullet-indent",
+        false
+      ]
     ]
   }
 }
