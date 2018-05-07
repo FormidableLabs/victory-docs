@@ -2,14 +2,9 @@
   padding: 0;
 }
 
-.formidableHeader.victory.isHome .formidableHeader-container {
-  padding: 60px 0;
-}
-
 .formidableHeader.victory .formidableHeader-container {
   margin-right: 3vw;
   margin-left: 3vw;
-  padding: 40px 0;
 }
 
 .formidableHeader.victory .formidableHeader-by {

@@ -1,20 +1,25 @@
 /* 
 * 1. Hide scrollbars for Playgrounds 
-*/ 
+*/
 html {
   background-color: var(--black);
   box-sizing: border-box;
-  font-size: 16px;
   overflow-x: hidden;
 }
 
+.index-container {
+  font-size: 16px;
+}
+
 @media (--medium-viewport) {
-  html {
+  .index-container {
     font-size: 18px;
   }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -35,10 +40,12 @@ body {
   z-index: 1;
 }
 
-html, body, .root, .root > div {
+html,
+body,
+.root,
+.root > div {
   height: 100%;
 }
-
 
 /**
  * Reset default spacing and border for appropriate elements.
@@ -87,7 +94,7 @@ button:focus {
  * (suitcss-base)
  */
 
-[tabindex="-1"]:focus {
+[tabindex='-1']:focus {
   outline: none !important;
 }
 
@@ -166,7 +173,7 @@ h6 code {
   background-color: var(--lightestSand);
   border: 0;
   font-size: 0.85em;
-  padding: 0.25em 0.333em 0.20em;
+  padding: 0.25em 0.333em 0.2em;
 }
 
 strong {
@@ -180,14 +187,14 @@ code {
 }
 
 pre,
-.Ecology pre[class*="language-"],
-.Ecology pre code[class*="lang-"] {
+.Ecology pre[class*='language-'],
+.Ecology pre code[class*='lang-'] {
   padding: 2rem var(--gutter);
 }
 @media (--medium-viewport) {
   pre,
-  .Ecology pre[class*="language-"],
-  .Ecology pre code[class*="lang-"] {
+  .Ecology pre[class*='language-'],
+  .Ecology pre code[class*='lang-'] {
     margin-left: calc(-1 * var(--gutter));
     margin-right: calc(-1 * var(--gutter));
   }
@@ -197,8 +204,8 @@ li > pre {
   margin-left: 0;
 }
 
-pre[class*="language-"] code,
-pre[class*="lang-"] code {
+pre[class*='language-'] code,
+pre[class*='lang-'] code {
   display: block;
   margin: 0 auto;
   max-width: 100%;
@@ -209,10 +216,10 @@ pre code {
 }
 
 code {
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 1px;
   font-variant-ligatures: none;
-  padding: 0.33em .333em .28em;
+  padding: 0.33em 0.333em 0.28em;
   word-break: break-word;
 }
 @media (--medium-viewport) {
