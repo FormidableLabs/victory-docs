@@ -1,6 +1,6 @@
 ---
 id: 29
-title: VictoryVoroniContainer
+title: VictoryVoronoiContainer
 category: containers
 scope:
   - round
