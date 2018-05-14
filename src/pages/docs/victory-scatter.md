@@ -211,7 +211,7 @@ See the [Events Guide][] for more information on defining events.
             }, {
               target: "labels",
               mutation: (props) => {
-                return props.text === "clicked ?
+                return props.text === "clicked" ?
                   null : { text: "clicked" };
               }
             }
