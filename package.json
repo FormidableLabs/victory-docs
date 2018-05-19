@@ -45,7 +45,7 @@
     "react-live": "^1.7.1",
     "react-share": "^1.15.1",
     "react-twitter-widgets": "^1.4.0",
-    "victory": "~0.26.0"
+    "victory": "~0.26.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

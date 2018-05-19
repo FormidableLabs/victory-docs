@@ -242,7 +242,7 @@ render() {
   - `alignment` *"start", "middle", or "end" specifies how a bar path should be aligned in relation to its data point
   - `barRatio` *number* a number between zero and one that will be used to calculate bar width when an explicit width is not given
   - `className` *string* the class name that will be applied to the rendered path
-  - `cornerRadius` *number* the number of pixels of corner radius to apply when calculating a bar path
+  - `cornerRadius` *number, function or object* the number of pixels of corner radius to apply when calculating a bar path
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this bar
   - `events` *object* events to attach to the rendered element

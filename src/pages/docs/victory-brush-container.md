@@ -97,6 +97,25 @@ an object of SVG style attributes.
 
 *default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
 
+### defaultBrushArea
+
+`type: "all", "none", "disable"`
+
+The `defaultBrushArea` prop specifies how the container will behave when a region outside the active brush is clicked without selecting a new area. When the prop is set to "all", the entire domain will be selected. When the prop is set to "none", no new region will be selected, and any existing active brush will be cleared. When the prop is set to "disable" the new selected region will default to the current active brush.
+
+```playground
+<VictoryChart
+  containerComponent={
+    <VictoryBrushContainer
+      defaultBrushArea="disable"
+      brushDomain={{x: [0.1, 0.3]}}
+    />
+  }
+>
+  <VictoryLine />
+</VictoryChart>
+```
+
 ### disable
 
 `type: boolean`
