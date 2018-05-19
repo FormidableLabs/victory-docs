@@ -53,7 +53,7 @@ The optional `allowDrag` prop accepts a boolean that enables dragging behavior f
 
 `type: boolean`
 
-The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fized.
+The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fixed.
 
 *default:* `allowResize={true}`
 
@@ -152,7 +152,7 @@ with cursors appropriate to their orientation.
 
 The optional `onBrushDomainChange` prop accepts an function to be called on each update to the highlighted domain. The function accepts the parameters of `domain` (the updated domain), and `props` (the props used by `VictoryBrushContainer`).
 
-*example:* `onBrushDomainChange={(domain, props) => handeDomainChange(domain, props)}`
+*example:* `onBrushDomainChange={(domain, props) => handleDomainChange(domain, props)}`
 
 
 [brush and zoom guide]: https://formidable.com/open-source/victory/guides/brush-and-zoom

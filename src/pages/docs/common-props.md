@@ -117,7 +117,7 @@ The `containerComponent` prop takes a component instance which will be used to c
 
 Victory container components all support `title` and `desc` props, which are intended to add accessibility to Victory components. The more descriptive these props are, the more accessible your data will be for people using screen readers. These props may be set by passing them directly to the supplied component. By default, all Victory container components render responsive `svg` elements using the `viewBox` attribute. To render a static container, set `responsive={false}` directly on the container instance supplied via the `containerComponent` prop. All Victory container components also render a `Portal` element that may be used in conjunction with [VictoryPortal][] to force components to render above other children.
 
-Container components are suppied with the following props:
+Container components are supplied with the following props:
   - `domain`
   - `height`
   - `origin` (for polar charts)
@@ -235,7 +235,7 @@ The `domainPadding` prop specifies a number of pixels of padding to add the begi
   - `domainPadding={20}`
   - `domainPadding={{x: [20, 0]}}`
 
-**note:** Values supplied for `domainPadding` will be coerced so that padding a domain will never result in charts including an additonal quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
+**note:** Values supplied for `domainPadding` will be coerced so that padding a domain will never result in charts including an additional quadrant. For example, if an original domain included only positive values, `domainPadding` will be coerced so that the resulted padded domain will not include negative values.
 
 ```playground
 <VictoryChart
@@ -263,7 +263,7 @@ Identifying properties include:
 
 - `childName`: the name of the component the event should be attached to. When events are specified in `VictorySharedEvents` or on a component that renders several Victory components as children (_i.e._ `VictoryChart`, `VictoryGroup`, `VictoryStack`), it is necessary to specify which child events should apply to. The given `childName` should match the `name` prop of a child component. This identifier can be given as a string, an array of strings, or as "all".
 
-- `target`: the type of element the event should be attached to. Valid targets for most Victory components will be `"parent"`, `"data"`, and `"labels"`. Events with the "parent" target will be attached to to the top level svg. Events with `"data"` and `"labels"` targets will be attached to `dataComponent` and `labelComponent` elements respectively. Some components, like `VictoryAxis` use non-standard targets like `"grid"`. Refer to individual API docs for additinal caveats.
+- `target`: the type of element the event should be attached to. Valid targets for most Victory components will be `"parent"`, `"data"`, and `"labels"`. Events with the "parent" target will be attached to to the top level svg. Events with `"data"` and `"labels"` targets will be attached to `dataComponent` and `labelComponent` elements respectively. Some components, like `VictoryAxis` use non-standard targets like `"grid"`. Refer to individual API docs for additional caveats.
 
 - `eventKey`: the specific element to be targeted. Events may be attached to specific elements by `eventKey`. By default, `eventKey` corresponds to the index in the `data` array (or `tickValues` array) corresponding to a rendered element. This value may be given as a single string or number, an array of strings or numbers, or as "all". It is not typically necessary to specify an individual `eventKey` for attaching events. When no `eventKey` is given, events will be attached to all elements that match a given `childName` and `target`. Some components like `VictoryArea` and `VictoryLine` render only a single element for an entire series of data. For these, the `eventKey` should be "all".
 
@@ -548,7 +548,7 @@ The boolean `polar` prop specifies whether a chart should be plotted on a polar 
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
-The `range` prop describes the dimensions over which data may be plotted. For cartesian coordinate systems, this cooresponds to minimum and maximum svg coordinates in the x and y dimension. In polar coordinate systems this corresponds to a range of angles and radii. When this value is not given it will be calculated from the `width`, `height`, and `padding`, or from the `startAngle` and `endAngle` in the case of polar charts. All components in a given chart must share the same range, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. **This prop is usually not set manually.**
+The `range` prop describes the dimensions over which data may be plotted. For cartesian coordinate systems, this corresponds to minimum and maximum svg coordinates in the x and y dimension. In polar coordinate systems this corresponds to a range of angles and radii. When this value is not given it will be calculated from the `width`, `height`, and `padding`, or from the `startAngle` and `endAngle` in the case of polar charts. All components in a given chart must share the same range, so setting this prop on children nested within `VictoryChart`, `VictoryStack`, or `VictoryGroup` will have no effect. **This prop is usually not set manually.**
 
 *examples:*
   - Cartesian: `range={{ x: [50, 250], y: [50, 250] }}`
@@ -581,7 +581,7 @@ y as a function of x. The `samples` prop is ignored if `data` is supplied in pro
 
 `type: scale || { x: scale, y: scale }`
 
-The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. For "time" scales, data points should be `Date` objects or `getTime()` ints.
+The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. For "time" scales, data points should be `Date` objects or `getTime()` instances.
 
 *default:* `scale="linear"`
 

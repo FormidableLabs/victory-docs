@@ -136,7 +136,7 @@ eventKey="x"
 
 See the [Events Guide][] for more information on defining events.
 
-**note:** `VictoryArea` will use the special `eventKey` "all" rather than refering to data by index, as it renders only one element for an entire dataset
+**note:** `VictoryArea` will use the special `eventKey` "all" rather than referring to data by index, as it renders only one element for an entire dataset
 
 ```playground
 <div style={{ margin: 50 }}>

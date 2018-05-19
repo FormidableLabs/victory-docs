@@ -5,7 +5,7 @@ scope: null
 ---
 # Tooltips
 
-[`VictoryTooltip`][] is a label component with `defaultEvents` It renders a customizeable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`
+[`VictoryTooltip`][] is a label component with `defaultEvents` It renders a customizable flyout container as well as a `VictoryLabel` component. `VictoryTooltip` can be used with any Victory component by setting the `labelComponent` prop like so `labelComponent={<VictoryTooltip/>`
 
 This guide discusses customization and advanced usage of tooltips in Victory
 
@@ -174,7 +174,7 @@ on appropriate data and label elements.
 </VictoryChart>
 ```
 
-## Mutli-point Tooltips with VictoryVoronoiContainer
+## Multi-point Tooltips with VictoryVoronoiContainer
 
 `VictoryVoronoiContainer` can also be used to create multi-point labels when the `labels` prop is
 provided. In the example below the `voronoiDimension` prop indicates that the voronoi diagram

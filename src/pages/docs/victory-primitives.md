@@ -294,7 +294,7 @@ render() {
   - `datum` *object* the data point corresponding to this candle
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
-  - `high` *numbner* the y coordinate of the high value
+  - `high` *number* the y coordinate of the high value
   - `index` *number* the index of this candle within the dataset
   - `lineComponent` *element* the rendered line element  *default* `<Line/>`
   - `low` *number* the y coordinate of the low value

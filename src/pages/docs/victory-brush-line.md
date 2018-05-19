@@ -38,7 +38,7 @@ The optional `allowDrag` prop accepts a boolean that enables dragging behavior f
 
 `type: boolean`
 
-The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fized.
+The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fixed.
 
 *default:* `allowResize={true}`
 
@@ -143,7 +143,7 @@ When the `disable` prop is set to `true`, `VictoryBrushLine` events will not fir
 
 `type: object`
 
-The `events` prop specifes a set of events that will be attached to the brush component group. This prop should not be set manually.
+The `events` prop specifies a set of events that will be attached to the brush component group. This prop should not be set manually.
 
 
 ### groupComponent
