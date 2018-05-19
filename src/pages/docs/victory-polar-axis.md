@@ -127,7 +127,7 @@ The `axisValue` prop may be used instead of `axisAngle` to position the dependen
 The `circularAxisComponent` prop takes a component instance which will be responsible for rendering an axis arc for the independent axis. The dependent axis renders an `axisComponent`. The new element created from the passed `circularAxisComponent` will be provided with the following props calculated by `VictoryPolarAxis`: `style`, `events`,
 `cx`, `cy`, `r`, `startAngle`, and `endAngle`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `circularAxisComponent` is not provided, `VictoryPolarAxis` will use its default [Arc component][].
 
-*default:* `curcularAxisComponent={<Arc type={"axis"}/>}`
+*default:* `circularAxisComponent={<Arc type={"axis"}/>}`
 
 ```jsx
 circularAxisComponent={<Arc r={300}/>}

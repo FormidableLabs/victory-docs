@@ -17,7 +17,7 @@ The `children` prop specifies the child or children that will be rendered within
 
 `type: string`
 
-The `className` prop specifies a className that will be applied to the outer-most div renered by `VictoryContainer` if this prop is not set, the className will default to "VictoryContainer"
+The `className` prop specifies a className that will be applied to the outer-most div rendered by `VictoryContainer` if this prop is not set, the className will default to "VictoryContainer"
 
 *example:* `className="myChart"`
 
@@ -41,7 +41,7 @@ The `containerRef` prop may be used to attach a ref to the outermost element ren
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
-*example:* `desc="Golden retreivers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
+*example:* `desc="Golden retrievers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
 ### events
 
@@ -57,7 +57,7 @@ system that target parent elements.
 
 ### height
 
-`type: numner`
+`type: number`
 
 The `height` prop determines the height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="100%"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 

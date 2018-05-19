@@ -14,7 +14,7 @@ scope: null
 
 `type: element`
 
-`VictoryTransiton` adds transitions to a single child.
+`VictoryTransition` adds transitions to a single child.
 
 ### animate
 

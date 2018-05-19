@@ -183,7 +183,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 ### height
 
-`type: numnber`
+`type: number`
 
 `VictoryVoronoi` uses the standard `height` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#height)
 
@@ -402,7 +402,7 @@ theme={VictoryTheme.material}
 
 ### width
 
-`type: numbner`
+`type: number`
 
 `VictoryVoronoi` uses the standard `width` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#width)
 

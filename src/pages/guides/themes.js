@@ -17,7 +17,7 @@ class Themes extends React.Component {
     super();
     this.state = {
       themeName: "grayscale",
-      editted: false
+      edited: false
     };
     // just load once
     this.themeTexts = {
@@ -37,10 +37,10 @@ class Themes extends React.Component {
   }
   resetTheme(themeName) {
     this.setState({ themeName });
-    this.setState({ editted: false });
+    this.setState({ edited: false });
   }
   handleUserEdit() {
-    this.setState({ editted: true });
+    this.setState({ edited: true });
   }
   getCodeText() {
     return this.themeTexts[this.state.themeName];
@@ -66,7 +66,7 @@ class Themes extends React.Component {
           Viewing the{" "}
           <strong>
             {this.state.themeName}
-            {this.state.editted ? "*" : ""}
+            {this.state.edited ? "*" : ""}
           </strong>{" "}
           theme
         </h3>
@@ -88,7 +88,7 @@ class Themes extends React.Component {
             {this.renderMenu()}
             <PureRender
               themeName={this.state.themeName}
-              editted={this.state.editted}
+              edited={this.state.edited}
             >
               <pre className="u-noMarginTop u-noPadding">
                 <div

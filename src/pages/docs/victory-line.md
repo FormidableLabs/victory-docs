@@ -146,7 +146,7 @@ eventKey="x"
 
 See the [Events Guide][] for more information on defining events.
 
-**note:** `VictoryLine` will use the special `eventKey` "all" rather than refering to data by index, as it renders only one element for an entire dataset
+**note:** `VictoryLine` will use the special `eventKey` "all" rather than referring to data by index, as it renders only one element for an entire dataset
 
 ```playground
 <div>
@@ -492,7 +492,7 @@ y={(d) => d.value + d.error}
 
 `type: string || integer || array[string] || function`
 
-**It is not common to set a `y0` prop with `VictoryLine`, as baselines for `VictoryLine` are only relevant for stacked lines.** [Read more abou the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
+**It is not common to set a `y0` prop with `VictoryLine`, as baselines for `VictoryLine` are only relevant for stacked lines.** [Read more about the `y0` prop here](https://formidable.com/open-source/victory/docs/common-props#y0)
 
 [Animations Guide]: https://formidable.com/open-source/victory/guides/animations
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors

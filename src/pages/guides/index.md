@@ -33,7 +33,7 @@ Add interactive brushing and zooming to your charts. This guide explains how to 
 Apply consistent styles across all your components. This guide explains how to create your own themes, and includes a playground where you can test your own themes.
 
 **[Tooltips][]**:
-Add interactity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
+Add interactivity with tooltips. This guide explains how to create and customize tooltips. Topics include simple tooltips, voronoi tooltips, and integrating tooltips with custom events.
 
 **[Polar Charts][]**:
 Create polar charts and configure polar axes.

@@ -571,7 +571,7 @@ q1Component={<Box events={{ onClick: handleClick }}/>}
 
 `type: element`
 
-The `q1LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q1imum value for each box. The new element created from the passed `q1LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q1LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+The `q1LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q1 value for each box. The new element created from the passed `q1LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q1LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
@@ -645,7 +645,7 @@ q3Component={<Box events={{ onClick: handleClick }}/>}
 
 `type: element`
 
-The `q3LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q3imum value for each box. The new element created from the passed `q3LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q3LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+The `q3LabelComponent` prop takes a component instance which will be used to render the label corresponding to the q3 value for each box. The new element created from the passed `q3LabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `q3LabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
