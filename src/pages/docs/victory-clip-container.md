@@ -42,7 +42,7 @@ of the parent chart.
 
 ### clipId
 
-`type: string`
+`type: string || number`
 
 The `clipId` prop may be used to set a deterministic id for the container. When a `containerId` is not manually set, a unique id will be generated. It is usually necessary to set deterministic ids for automated testing.
 

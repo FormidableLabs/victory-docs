@@ -99,9 +99,9 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 ### cornerRadius
 
-`type: number`
+`type: function || number || { top: number || function, bottom: number || function }`
 
-The `cornerRadius` prop specifies a radius to apply to the _top_ corners of each bar.
+The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaulated with the arguments `datum`, and `active`.
 
 ```playground
 <VictoryChart
