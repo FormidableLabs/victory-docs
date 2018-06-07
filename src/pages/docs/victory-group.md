@@ -282,6 +282,18 @@ The `labelComponent` prop takes a component instance which will be used to rende
 labelComponent={<VictoryLabel dy={20}/>}
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryGroup` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryGroup` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
 ### name
 
 `type: string`

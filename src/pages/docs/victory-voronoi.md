@@ -230,6 +230,19 @@ height={400}
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryVoronoi` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryVoronoi` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
 ### name
 
 `type: string`

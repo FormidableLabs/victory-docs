@@ -232,6 +232,32 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 </VictoryChart>
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryChart` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={{ y: 4.5 }}>
+  <VictoryLine data={sampleData}/>
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryChart` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={{ y: 0 }}>
+  <VictoryLine data={sampleData}/>
+</VictoryChart>
+```
+
 ### padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`

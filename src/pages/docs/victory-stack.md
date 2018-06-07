@@ -232,6 +232,18 @@ The `labels` prop defines labels that will appear above each stack of data. This
 labels={["spring", "summer", "fall", "winter"]}`, `labels={(datum) => datum.title}
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryStack` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryStack` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
 ### name
 
 `type: string`

@@ -347,6 +347,26 @@ The `maxLabels` prop defines the labels that will appear above each point. This 
 - `maxLabels={["first", "second", "third"]}`
 - `maxLabels={(d) => Math.round(d.max)}`
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryBoxPlot` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={{ x: 3 }}>
+  <VictoryBoxPlot
+    data={[
+      { x: 1, y: [1, 2, 3, 5] },
+      { x: 2, y: [3, 2, 8, 10] },
+      { x: 3, y: [2, 8, 6, 5] },
+      { x: 4, y: [1, 3, 2, 9] }
+    ]}
+  />
+</VictoryChart>
+```
+
 ### median
 
 `type: string || array[string] || function`
@@ -496,6 +516,26 @@ The `minLabels` prop defines the labels that will appear above each point. This 
 - `minLabels`
 - `minLabels={["first", "second", "third"]}`
 - `minLabels={(d) => Math.round(d.min)}`
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryBoxPlot` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={{ y: 0 }}>
+  <VictoryBoxPlot
+    data={[
+      { x: 1, y: [1, 2, 3, 5] },
+      { x: 2, y: [3, 2, 8, 10] },
+      { x: 3, y: [2, 8, 6, 5] },
+      { x: 4, y: [1, 3, 2, 9] }
+    ]}
+  />
+</VictoryChart>
+```
 
 ### name
 

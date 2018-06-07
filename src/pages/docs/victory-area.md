@@ -242,6 +242,31 @@ Cartesian area charts may use the following interpolation options: "basis", "car
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryArea` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={{ x: 3 }}>
+  <VictoryArea data={sampleData}/>
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryArea` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={{ x: 2 }}>
+  <VictoryArea data={sampleData}/>
+</VictoryChart>
+```
 
 ### labels
 

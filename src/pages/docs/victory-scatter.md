@@ -302,6 +302,18 @@ For more information on bubble charts, see [`bubbleProperty`][]
 ```jsx
 maxBubbleSize={25}
 ```
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryScatter` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={8}>
+  <VictoryScatter data={sampleData}/>
+</VictoryChart>
+```
 
 ### minBubbleSize
 
@@ -313,6 +325,19 @@ For more information on bubble charts, see [`bubbleProperty`][]
 
 ```jsx
 minBubbleSize={5}
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryScatter` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={0}>
+  <VictoryScatter data={sampleData}/>
+</VictoryChart>
 ```
 
 ### name

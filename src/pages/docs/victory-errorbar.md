@@ -3,7 +3,7 @@ id: 13
 title: VictoryErrorBar
 category: charts
 scope:
-  - sampleData
+  - sampleErrorData
 ---
 # VictoryErrorBar
 
@@ -259,7 +259,7 @@ height={400}
 
 ```playground
 <VictoryErrorBar
-  data={sampleData}
+  data={sampleErrorData}
   labels={(d) => d.y}
   labelComponent={<VictoryLabel dx={-20} dy={18}/>}
 />
@@ -273,9 +273,35 @@ height={400}
 
 ```playground
 <VictoryErrorBar
-  data={sampleData}
+  data={sampleErrorData}
   labels={(d) => d.y}
 />
+```
+
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryErrorBar` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={8}>
+  <VictoryErrorBar data={sampleErrorData}/>
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryErrorBar` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={{ 0 }}>
+  <VictoryErrorBar data={sampleErrorData}/>
+</VictoryChart>
 ```
 
 ### name
@@ -390,7 +416,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
   <VictoryErrorBar
     standalone={false}
     width={300} height={300} padding={20}
-    data={sampleData}
+    data={sampleErrorData}
   />
 </svg>
 ```
