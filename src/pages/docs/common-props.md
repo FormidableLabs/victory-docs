@@ -485,6 +485,52 @@ The `labels` prop defines the labels that will appear above each point. This pro
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+The `maxDomain` prop defines a maximum domain value for a chart. This prop is useful in situations where the maximum domain of a chart is static, while the minimum value depends on data or other variable information. If the `domain` prop is set in addition to `maximumDomain`, `domain` will be used.
+
+*examples:*
+- `maxDomain={0}`
+- `maxDomain={{ y: 0 }}`
+
+```playground
+<VictoryChart maxDomain={{ y: 0 }}>
+  <VictoryLine
+    data={[
+      { x: 1, y: -2 },
+      { x: 2, y: 1 },
+      { x: 3, y: -1 },
+      { x: 4, y: -3 }
+    ]}
+  />
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+The `minDomain` prop defines a minimum domain value for a chart. This prop is useful in situations where the minimum domain of a chart is static, while the maximum value depends on data or other variable information. If the `domain` prop is set in addition to `minimumDomain`, `domain` will be used.
+
+*examples:*
+- `minDomain={0}`
+- `minDomain={{ y: 0 }}`
+
+```playground
+<VictoryChart minDomain={{ y: 0 }}>
+  <VictoryLine
+    data={[
+      { x: 1, y: 2 },
+      { x: 2, y: -1 },
+      { x: 3, y: 1 },
+      { x: 4, y: 3 }
+    ]}
+  />
+</VictoryChart>
+```
+
 ### name
 
 `type: string`
@@ -604,6 +650,26 @@ The `scale` prop determines which scales your chart should use. This prop can be
 ### sharedEvents
 
 The `sharedEvents` prop is used to coordinate events between Victory components using `VictorySharedEvents`. **This prop should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+By default `domainPadding` is coerced to existing quadrants. This means that if a given domain only includes positive values, no amount of padding applied by `domainPadding` will result in a domain with negative values. This is the desired behavior in most cases. For users that need to apply padding without regard to quadrant, the `singleQuadrantDomainPadding` prop may be used. This prop may be given as a boolean or an object with boolean values specified for "x" and/or "y". When this prop is false (or false for a given dimension), padding will be applied without regard to quadrant. If this prop is not specified, `domainPadding` will be coerced to existing quadrants.
+
+*examples:*
+  - `singleQuadrantDomainPadding={false}`
+  - `singleQuadrantDomainPadding={{ x: false }}`
+
+```playground
+<VictoryChart
+  singleQuadrantDomainPadding={{ x: false }}
+  domainPadding={100}
+>
+  <VictoryBar data={sampleData}/>
+  <VictoryAxis crossAxis={false}/>
+</VictoryChart>
+```
 
 ### sortKey
 
