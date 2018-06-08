@@ -321,7 +321,7 @@ The `labelPlacement` prop specifies how tick labels should be placed relative to
 
 `type: number || { x: number, y: number }`
 
-`VictoryAxis` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+`VictoryPolarAxis` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
 
 
 ```playground
@@ -336,7 +336,7 @@ The `labelPlacement` prop specifies how tick labels should be placed relative to
 
 `type: number || { x: number, y: number }`
 
-`VictoryAxis` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+`VictoryPolarAxis` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
 
 
 ```playground
