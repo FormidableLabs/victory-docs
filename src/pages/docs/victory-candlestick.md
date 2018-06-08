@@ -293,6 +293,43 @@ Use `low` data accessor prop to define the low value of a candle.
 
 *examples:* `low="bonds.low"`, `low={["bonds", "low"]}`
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryCandlestick` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart
+  maxDomain={{ y: 30 }}
+  scale={{ x: "time" }}
+>
+  <VictoryCandlestick
+    data={sampleDataDates}
+  />
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryCandlestick` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart
+  minDomain={{ y: 0 }}
+  scale={{ x: "time" }}
+>
+  <VictoryCandlestick
+    data={sampleDataDates}
+  />
+</VictoryChart>
+```
+
+
 ### name
 
 `type: string`
@@ -391,6 +428,12 @@ scale={{x: "linear", y: "log"}}
 ### sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryCandlestick` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
 ### sortKey
 

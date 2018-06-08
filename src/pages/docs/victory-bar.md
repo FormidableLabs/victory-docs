@@ -308,6 +308,32 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryBar` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={{ x: 3 }}>
+  <VictoryBar data={sampleData}/>
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryBar` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={{ x: 2 }}>
+  <VictoryBar data={sampleData}/>
+</VictoryChart>
+```
+
 ### name
 
 `type: string`
@@ -398,6 +424,12 @@ scale={{x: "linear", y: "log"}}
 ### sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryBar` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
 ### sortKey
 

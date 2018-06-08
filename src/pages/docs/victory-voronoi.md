@@ -230,6 +230,19 @@ height={400}
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryVoronoi` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryVoronoi` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
 ### name
 
 `type: string`
@@ -304,6 +317,12 @@ scale={{x: "linear", y: "log"}}
 ### sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryVoronoi` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
 ### size
 

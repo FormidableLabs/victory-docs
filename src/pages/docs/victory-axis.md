@@ -203,6 +203,34 @@ The `label` prop defines the label that will appear with the axis. This prop sho
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryAxis` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryAxis
+  tickValues={[2, 3, 4, 5]}
+  maxDomain={{ x: 3 }}
+/>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryAxis` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryAxis
+  tickValues={[2, 3, 4, 5]}
+  minDomain={{ x: 0 }}
+/>
+```
+
 ### name
 
 `type: string`
@@ -291,6 +319,12 @@ scale={{ x: "time" }}
 ### sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryAxis` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
 ### standalone
 

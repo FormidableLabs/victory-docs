@@ -317,6 +317,36 @@ The `labelPlacement` prop specifies how tick labels should be placed relative to
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryPolarAxis` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryPolarAxis
+  dependentAxis
+  tickValues={[1, 2, 3]}
+  maxDomain={5}
+/>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryPolarAxis` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryPolarAxis
+  dependentAxis
+  tickValues={[2, 3, 4, 5]}
+  minDomain={0}
+/>
+```
+
 ### name
 
 `type: string`
@@ -373,6 +403,12 @@ scale={{x: "linear", y: "log"}}
 ### sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryPolarAxis` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
 ### standalone
 

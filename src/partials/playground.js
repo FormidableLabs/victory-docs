@@ -17,6 +17,13 @@ const scopeMap = {
     { x: 4, y: 4 },
     { x: 5, y: 7 }
   ],
+  sampleErrorData: [
+    { x: 1, y: 2, errorX: 0.1, errorY: 0.4 },
+    { x: 2, y: 3, errorX: 0.5, errorY: 0.1 },
+    { x: 3, y: 5, errorX: 0.3, errorY: 0.2 },
+    { x: 4, y: 4, errorX: 0.1, errorY: 0.3 },
+    { x: 5, y: 7, errorX: 0.2, errorY: 0.5 }
+  ],
   sampleDataDates: [
     { x: new Date(2016, 6, 1), open: 5, close: 10, high: 15, low: 0 },
     { x: new Date(2016, 6, 2), open: 10, close: 15, high: 20, low: 5 },

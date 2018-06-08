@@ -265,6 +265,32 @@ Cartesian line charts may use the following interpolation options: "basis", "bun
 />
 ```
 
+### maxDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryLine` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+
+
+```playground
+<VictoryChart maxDomain={{ y: 4.5 }}>
+  <VictoryLine data={sampleData}/>
+</VictoryChart>
+```
+
+### minDomain
+
+`type: number || { x: number, y: number }`
+
+`VictoryLine` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+
+
+```playground
+<VictoryChart minDomain={{ y: 0 }}>
+  <VictoryLine data={sampleData}/>
+</VictoryChart>
+```
+
 ### name
 
 `type: string`
@@ -367,6 +393,12 @@ scale={{x: "linear", y: "log"}}
 ### sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
+
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryLine` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
 ### sortKey
 
