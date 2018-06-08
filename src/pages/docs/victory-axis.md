@@ -320,6 +320,12 @@ scale={{ x: "time" }}
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
+### singleQuadrantDomainPadding
+
+`type: boolean || { x: boolean, y: boolean }`
+
+`VictoryAxis` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
+
 ### standalone
 
 `type: boolean`
