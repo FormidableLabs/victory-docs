@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/FormidableLabs/victory-docs#readme",
   "dependencies": {
-    "component-playground": "^3.1.0",
+    "component-playground": "^2.1.0",
     "formidable-landers": "^8.1.8",
     "fuse.js": "^3.2.0",
     "gatsby": "^1.9.261",
