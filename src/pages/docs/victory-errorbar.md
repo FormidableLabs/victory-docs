@@ -299,7 +299,7 @@ height={400}
 
 
 ```playground
-<VictoryChart minDomain={{ 0 }}>
+<VictoryChart minDomain={0}>
   <VictoryErrorBar data={sampleErrorData}/>
 </VictoryChart>
 ```
