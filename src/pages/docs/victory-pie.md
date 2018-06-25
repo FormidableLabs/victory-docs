@@ -290,6 +290,20 @@ The `name` prop is used to reference a component instance when defining shared e
 name="series-1"
 ```
 
+### origin
+
+`type: { x: number, y: number }`
+
+The `origin` prop specifies coordinates for the center of the pie. When this prop is not given, the origin will be calculated based on the `width`, `height`, and `padding` props.
+
+```playground
+<VictoryPie
+  origin={{ y: 250 }}
+  padding={100}
+  data={sampleData}
+/>
+```
+
 ### padAngle
 
 `type: number`
@@ -315,6 +329,21 @@ The `padAngle` prop defines the amount of separation between adjacent data slice
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
+
+### radius
+
+`type: number`
+
+The `radius` prop specifies the radius of the pie. When this prop is not given, it will be calculated base on the `width`, `height`, and `padding` props.
+
+
+```playground
+<VictoryPie
+  radius={100}
+  data={sampleData}
+/>
+```
+
 
 ### sharedEvents
 
