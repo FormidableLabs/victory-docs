@@ -234,7 +234,7 @@ exports[`<About /> should render correctly. 1`] = `
     >
       <Footer
         className="victory"
-        theme="dark"
+        theme="light"
         trademark={
           <div
             className="default"
@@ -244,7 +244,7 @@ exports[`<About /> should render correctly. 1`] = `
         }
       >
         <footer
-          className="formidableFooter isDark victory"
+          className="formidableFooter isLight victory"
         >
           <div
             className="formidableFooter-container"
