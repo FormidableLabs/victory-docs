@@ -18,7 +18,7 @@ class VictoryHeader extends Component {
     );
 
     return (
-      <Header className={"victory"}>
+      <Header className={"victory"} theme="light">
         <div className="default" style={{ paddingBottom: 0 }}>
           {victoryLogo}
           <Link to="/about/">About</Link>

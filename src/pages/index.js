@@ -7,11 +7,6 @@ import Hero from "../partials/home/hero";
 
 class Index extends React.Component {
   render() {
-    const trademark = (
-      <div className="default">
-        Victory is a trademark of Formidable Labs, Inc.
-      </div>
-    );
     return (
       <div className="index-container">
         <section className="Home playgroundsMaxHeight">
@@ -38,7 +33,7 @@ class Index extends React.Component {
             </p>
           </div>
         </section>
-        <Footer trademark={trademark} />
+        <Footer />
       </div>
     );
   }
