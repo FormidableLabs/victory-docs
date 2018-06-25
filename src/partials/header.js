@@ -9,8 +9,6 @@ import LOGO from "../../static/logotype-hero.svg";
 
 class VictoryHeader extends Component {
   render() {
-    const classes = this.props.home ? "victory isHome" : "victory";
-
     const victoryLogo = (
       <Link
         to="/"
@@ -20,8 +18,9 @@ class VictoryHeader extends Component {
     );
 
     return (
-      <Header className={classes} logoProject={victoryLogo}>
-        <div className="default" style={{ textAlign: "center" }}>
+      <Header className={"victory"}>
+        <div className="default" style={{ paddingBottom: 0 }}>
+          {victoryLogo}
           <Link to="/about/">About</Link>
           <Link to="/docs/">Docs</Link>
           <Link to="/docs/faq">FAQ</Link>
