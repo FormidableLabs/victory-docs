@@ -9,19 +9,31 @@ import LOGO from "../../static/logotype-hero.svg";
 
 class VictoryHeader extends Component {
   render() {
-    const classes = this.props.home ? "victory isHome" : "victory";
+    const className = this.props.home ? undefined : "victory";
 
-    const victoryLogo = (
-      <Link
-        to="/"
-        style={{ display: "block", height: "50px" }}
-        dangerouslySetInnerHTML={{ __html: LOGO }}
-      />
-    );
+    const victoryLogo = this.props.home ?
+      (
+        <Link
+          to="/"
+          style={{ display: "block", height: "50px" }}
+          dangerouslySetInnerHTML={{ __html: LOGO }}
+        />
+      ) : undefined;
+
+    const victoryLink = this.props.home ?
+      undefined :
+      (
+        <Link
+          to="/"
+          style={{ height: "50px" }}
+          dangerouslySetInnerHTML={{ __html: LOGO }}
+        />
+      );
 
     return (
-      <Header className={classes} logoProject={victoryLogo}>
-        <div className="default" style={{ textAlign: "center" }}>
+      <Header className={className} logoProject={victoryLogo}>
+        <div className="default" style={{ paddingBottom: 0 }}>
+          {victoryLink}
           <Link to="/about/">About</Link>
           <Link to="/docs/">Docs</Link>
           <Link to="/docs/faq">FAQ</Link>

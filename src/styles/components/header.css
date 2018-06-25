@@ -5,6 +5,9 @@
 .formidableHeader.victory .formidableHeader-container {
   margin-right: 3vw;
   margin-left: 3vw;
+  padding-top: 50px;
+  padding-bottom: 0px;
+  align-items: flex-start
 }
 
 .formidableHeader.victory .formidableHeader-by {
