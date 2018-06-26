@@ -2,7 +2,9 @@
 
 exports[`<Gallery /> should render correctly. 1`] = `
 <About>
-  <div>
+  <div
+    className="index-container"
+  >
     <article
       className="Article"
     >
