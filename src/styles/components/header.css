@@ -1,10 +1,16 @@
 .formidableHeader.victory {
   padding: 0;
+  background-color: var(--lightestSand);
+  border-bottom: 1px solid var(--darkSand);
 }
 
 .formidableHeader.victory .formidableHeader-container {
   margin-right: 3vw;
   margin-left: 3vw;
+  padding-top: 48px;
+  padding-bottom: 2px;
+  background-color: var(--lightestSand);
+
 }
 
 .formidableHeader.victory .formidableHeader-by {

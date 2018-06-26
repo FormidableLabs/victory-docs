@@ -79,7 +79,7 @@ class Gallery extends React.Component {
     });
 
     return (
-      <div>
+      <div className="index-container">
         <article className="Article Article--noBottom">
           <h1 className="u-noMargin">Gallery</h1>
           <div className="Gallery">{previews}</div>

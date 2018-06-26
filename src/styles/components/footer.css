@@ -1,9 +1,13 @@
 .formidableFooter.victory {
   margin: 0;
   padding: 0;
+  background-color: var(--lightestSand);
 }
 
 .formidableFooter.victory .formidableFooter-container {
   margin-right: 3vw;
   margin-left: 3vw;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--lightestSand);
 }

@@ -11,7 +11,7 @@ class VictoryFooter extends React.Component {
       </div>
     );
 
-    return <Footer className="victory" trademark={trademark} theme="dark" />;
+    return <Footer className="victory" trademark={trademark} theme="light" />;
   }
 }
 
