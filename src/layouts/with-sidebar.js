@@ -31,7 +31,7 @@ class LayoutWithSidebar extends React.Component {
     }
 
     return (
-      <div className="u-fullHeight">
+      <div className="Page-wrapper u-fullHeight">
         <Header home={false} />
         <main className="Page">
           <div className="Page-sidebar">
