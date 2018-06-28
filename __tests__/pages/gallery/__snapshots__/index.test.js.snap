@@ -3,7 +3,7 @@
 exports[`<Gallery /> should render correctly. 1`] = `
 <About>
   <div
-    className="index-container"
+    className="Page-content"
   >
     <article
       className="Article"
