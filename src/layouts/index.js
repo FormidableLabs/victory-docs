@@ -43,7 +43,7 @@ class MainLayout extends React.Component {
       .replace("/", "");
 
     return (
-      <div className="u-fullHeight">
+      <div className="Page-wrapper u-fullHeight">
         <Helmet>
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />

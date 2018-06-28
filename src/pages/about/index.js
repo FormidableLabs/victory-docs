@@ -7,7 +7,7 @@ import Showcase from "../../partials/about/showcase";
 class About extends React.Component {
   render() {
     return (
-      <div className="index-container">
+      <div className="Page-content">
         <article className="Article">
           <h1 className="u-noMargin">
             Victory: Charting for React and React Native
