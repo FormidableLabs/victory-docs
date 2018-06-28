@@ -8,7 +8,7 @@ import Hero from "../partials/home/hero";
 class Index extends React.Component {
   render() {
     return (
-      <div className="index-container">
+      <div className="Page-content">
         <section className="Home playgroundsMaxHeight">
           <Hero />
 
