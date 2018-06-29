@@ -293,6 +293,20 @@ Long axis labels can be problematic. There are several ways to address the issue
 </div>
 ```
 
+### My axis labels are showing very small numbers. How do I fix this?
+
+When a dataset is provided with all values on an axis being `null` or `0`, Victory will set the axis domain to be between zero and a very small number, to avoid any errors.
+To solve this, you will need to manually set sensible defaults on the `domain` of your chart.
+
+```playground
+  <VictoryChart>
+      <VictoryBar
+        data={[{x: 1, y: 0}, {x: 2, y: 0}]}
+        domain={{y: [0,1]}}
+      />
+    </VictoryChart>
+```
+
 ## Labels and Tooltips
 
 ### How can I add tooltips to a line?
