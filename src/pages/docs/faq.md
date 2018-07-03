@@ -293,6 +293,22 @@ Long axis labels can be problematic. There are several ways to address the issue
 </div>
 ```
 
+### My axis labels are showing very small numbers. How do I fix this?
+
+When a dataset only has a single value, or when all values on an axis have the same value, the single-point domain for that axis will be converted to a two-point domain.
+Victory does this by offsetting the domain value by a very small number.
+To solve this, you will need to manually set sensible defaults on the `domain` of your chart.
+
+```playground
+  <VictoryChart
+        domain={{x: [0,2]}}
+       >
+      <VictoryBar
+        data={[{x: 1, y: 1}]}
+      />
+    </VictoryChart>
+```
+
 ## Labels and Tooltips
 
 ### How can I add tooltips to a line?
