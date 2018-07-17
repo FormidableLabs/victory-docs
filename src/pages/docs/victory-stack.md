@@ -12,6 +12,8 @@ scope:
 `VictoryStack` works with:
 [VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][],[VictoryLine][], and [VictoryScatter][]
 
+`VictoryStack` _should not_ be used with [VictoryAxis][] children.
+
 ```playground
 <VictoryStack>
   <VictoryArea
@@ -392,6 +394,7 @@ The `xOffset` prop is used for grouping stacks of bars. This prop will be set by
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
+[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
 [VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar

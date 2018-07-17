@@ -10,7 +10,9 @@ scope:
 `VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack several components on the same level, _e.g.,_ stacked area charts with data markers.
 
 `VictoryGroup` works with:
-[VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][].
+[VictoryArea][], [VictoryBar][], [VictoryBoxPlot][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][].
+
+`VictoryGroup` _should not_ be used with [VictoryAxis][] children. Use [VictoryChart][] instead.
 
 ```playground
 <VictoryChart>
@@ -530,8 +532,11 @@ y0={() => 10}
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
+[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
+[VictoryBoxPlot]: https://formidable.com/open-source/victory/docs/victory-boxplot
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
+[VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
 [VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
 [VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
 [VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
