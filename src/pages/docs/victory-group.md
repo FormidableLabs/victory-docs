@@ -528,7 +528,7 @@ y0={() => 10}
 [Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick

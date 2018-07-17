@@ -43,4 +43,4 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
-[Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
+[Portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js

@@ -573,7 +573,7 @@ width={400}
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
 [d3Scale]: https://github.com/d3/d3-scale
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
 [Arc component]: https://formidable.com/open-source/victory/docs/victory-primitives#arc
 [`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label

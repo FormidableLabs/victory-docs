@@ -475,7 +475,7 @@ The `y` prop defines the y coordinate corresponding to the upper left corner of 
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [Point component]: https://formidable.com/open-source/victory/docs/victory-primitives#point
 [Border component]: https://formidable.com/open-source/victory/docs/victory-primitives#border
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
 [Events Guide]: https://formidable.com/open-source/victory/guides/events

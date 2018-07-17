@@ -155,11 +155,11 @@ The optional `onTouchStart` prop takes a function that is called on every touch 
 The optional `onTouchEnd` prop takes a function that is called at the conclusion of every touch event on the chart (when using `victory-native`). The most common use of `onTouchEnd` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event][]. Also see `onTouchStart`.
 
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
-[Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
+[Portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
 [VictoryTheme]: https://formidable.com/open-source/victory/docs/victory-theme
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
 [Synthetic Event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
 [React event handlers]: https://reactjs.org/docs/handling-events.html

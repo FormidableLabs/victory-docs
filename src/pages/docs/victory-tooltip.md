@@ -180,5 +180,5 @@ The `y` prop defines the y coordinate to use as a basis for positioning the tool
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
-[Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
-[approximate text size]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-util/textsize.js
+[Portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
+[approximate text size]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-util/textsize.js

@@ -11,4 +11,4 @@ By default, `VictoryContainer` renders responsive SVGs. `VictoryContainer` also 
 container that can be accessed via [VictoryPortal][] in order to render specified children above others.
 
 [VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
-[Portal]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-portal/portal.js
+[Portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js

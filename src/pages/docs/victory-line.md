@@ -533,5 +533,5 @@ y={(d) => d.value + d.error}
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [Explore all the interpolation options]: https://formidable.com/open-source/victory/gallery/interpolation
