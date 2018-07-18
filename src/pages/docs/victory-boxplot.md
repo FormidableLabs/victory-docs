@@ -393,10 +393,10 @@ The `medianComponent` prop takes a component instance which will be responsible 
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
-*default:* `medianComponent={<Line/>}`
+*default:* `medianComponent={<LineSegment/>}`
 
 ```jsx
-medianComponent={<Line events={{ onClick: handleClick }}/>}
+medianComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### medianLabelComponent

@@ -50,12 +50,12 @@ animate={{
 
 `type: element`
 
-The `axisComponent` prop takes a component instance which will be responsible for rendering an axis line. The new element created from the passed `axisComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If an `axisComponent` is not provided, `VictoryAxis` will use its default [Line component][].
+The `axisComponent` prop takes a component instance which will be responsible for rendering an axis line. The new element created from the passed `axisComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If an `axisComponent` is not provided, `VictoryAxis` will use its default [LineSegment component][].
 
-*default:* `axisComponent={<Line type={"axis"}/>}`
+*default:* `axisComponent={<LineSegment type={"axis"}/>}`
 
 ```jsx
-axisComponent={<Line events={{ onClick: handleClick }}/>}
+axisComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### axisLabelComponent
@@ -151,12 +151,12 @@ well for labels that are approximately evenly spaced.
 
 `type: element`
 
-The `gridComponent` prop takes a component instance which will be responsible for rendering a grid element. The new element created from the passed `gridComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `gridComponent` is not provided, `VictoryAxis` will use its default [Line component][].
+The `gridComponent` prop takes a component instance which will be responsible for rendering a grid element. The new element created from the passed `gridComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `gridComponent` is not provided, `VictoryAxis` will use its default [LinSegmente component][].
 
-*default:* `gridComponent={<Line type={"grid"}/>}`
+*default:* `gridComponent={<LineSegment type={"grid"}/>}`
 
 ```jsx
-gridComponent={<Line events={{ onClick: handleClick }}/>}
+gridComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### groupComponent
@@ -402,12 +402,12 @@ theme={VictoryTheme.material}
 
 `type: element`
 
-The `tickComponent` prop takes a component instance which will be responsible for rendering a tick element. The new element created from the passed `tickComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `tickComponent` is not provided, `VictoryAxis` will use its default [Line component][].
+The `tickComponent` prop takes a component instance which will be responsible for rendering a tick element. The new element created from the passed `tickComponent` will be provided with the following props calculated by `VictoryAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `tickComponent` is not provided, `VictoryAxis` will use its default [LinSegmente component][].
 
-*default:* `tickComponent={<Line type={"tick"}/>}`
+*default:* `tickComponent={<LineSegment type={"tick"}/>}`
 
 ```jsx
-tickComponent={<Line events={{ onClick: handleClick }}/>}
+tickComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### tickCount
@@ -470,5 +470,5 @@ width={400}
 [tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
 [d3Scale]: https://github.com/d3/d3-scale
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
+[LineSegment component]: https://formidable.com/open-source/victory/docs/victory-primitives#linesegment
 [`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label

@@ -61,12 +61,12 @@ The `axisAngle` prop is used to position the dependent axis. This prop should be
 
 `type: element`
 
-The `axisComponent` prop takes a component instance which will be responsible for rendering an axis line for the dependent axis. The independent axis renders a `circularAxisComponent`. The new element created from the passed `axisComponent` will be provided with the following props calculated by `VictoryPolarAxis`: `x1`, `y1`, `x2`, `y2`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If an `axisComponent` is not provided, `VictoryPolarAxis` will use its default [Line component][].
+The `axisComponent` prop takes a component instance which will be responsible for rendering an axis line for the dependent axis. The independent axis renders a `circularAxisComponent`. The new element created from the passed `axisComponent` will be provided with the following props calculated by `VictoryPolarAxis`: `x1`, `y1`, `x2`, `y2`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If an `axisComponent` is not provided, `VictoryPolarAxis` will use its default [LineSegment component][].
 
-*default:* `axisComponent={<Line type={"axis"}/>}`
+*default:* `axisComponent={<LineSegment type={"axis"}/>}`
 
 ```jsx
-axisComponent={<Line events={{ onClick: handleClick }}/>}
+axisComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### axisLabelComponent
@@ -239,12 +239,12 @@ Targets that correspond to only one element {"axis" and "axisLabel") should use 
 
 `type: element`
 
-The `gridComponent` prop takes a component instance which will be responsible for rendering a grid element. The new element created from the passed `gridComponent` will be provided with the following props calculated by `VictoryPolarAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `gridComponent` is not provided, `VictoryPolarAxis` will use its default [Line component][].
+The `gridComponent` prop takes a component instance which will be responsible for rendering a grid element. The new element created from the passed `gridComponent` will be provided with the following props calculated by `VictoryPolarAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `gridComponent` is not provided, `VictoryPolarAxis` will use its default [LineSegment component][].
 
-*default:* `gridComponent={<Line type={"grid"}/>}`
+*default:* `gridComponent={<LineSegment type={"grid"}/>}`
 
 ```jsx
-gridComponent={<Line events={{ onClick: handleClick }}/>}
+gridComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### groupComponent
@@ -504,10 +504,10 @@ theme={VictoryTheme.material}
 
 The `tickComponent` prop takes a component instance which will be responsible for rendering a tick element. The new element created from the passed `tickComponent` will be provided with the following props calculated by `VictoryPolarAxis`: `x1`, `y1`, `x2`, `y2`, `tick`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If a `tickComponent` is not provided, `VictoryPolarAxis` will use its default [Line component][].
 
-*default:* `tickComponent={<Line type={"tick"}/>}`
+*default:* `tickComponent={<LineSegment type={"tick"}/>}`
 
 ```jsx
-tickComponent={<Line events={{ onClick: handleClick }}/>}
+tickComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### tickCount
@@ -574,6 +574,6 @@ width={400}
 [tickFormat]: https://formidable.com/open-source/victory/docs/victory-axis#tickformat
 [d3Scale]: https://github.com/d3/d3-scale
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[Line component]: https://formidable.com/open-source/victory/docs/victory-primitives#line
+[LineSegment component]: https://formidable.com/open-source/victory/docs/victory-primitives#linesegment
 [Arc component]: https://formidable.com/open-source/victory/docs/victory-primitives#arc
 [`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label

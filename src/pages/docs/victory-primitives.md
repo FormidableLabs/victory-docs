@@ -210,10 +210,9 @@ render() {
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `style` *object* the styles to apply to the rendered element
 
-### Axis
+### LineSegment
 
-  The `Axis` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis][]. [View the source][axis]
-  **Note** `Axis` is also exported as `Grid`
+  The `LineSegment` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis][]. [View the source][axis]
 
 **Props**
 
