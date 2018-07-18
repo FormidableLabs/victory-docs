@@ -38,9 +38,9 @@ If you would like to instead highlight only the data points, consider using [Vic
 
 `type: element`
 
-The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [Line][] component will be rendered.
+The `cursorComponent` prop takes a component instance which will be used to render a cursor element. The new element created will be supplied with `x1`, `y1`, `x2` and `y2` positioning props. If a `cursorComponent` is not supplied, a new [LineSegment][] component will be rendered.
 
-*default:* `cursorComponent={<Line/>}`
+*default:* `cursorComponent={<LineSegment/>}`
 
 ### cursorDimension
 
@@ -116,4 +116,4 @@ If provided, the `onChange` function will be called every time the cursor value 
 [VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[Line]: https://formidable.com/open-source/victory/docs/victory-primitives#line
+[LineSegment]: https://formidable.com/open-source/victory/docs/victory-primitives#linesegment

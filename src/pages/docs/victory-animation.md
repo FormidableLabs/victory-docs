@@ -65,4 +65,4 @@ The `easing` prop specifies the type of easing to use for an animation. The supp
 The `onEnd` prop specifies a function that will be called when the animation ends. If there are multiple animations in the queue, the `onEnd` function will be called after the last animation in the queue completes.
 
 [d3-interpolate]: https://github.com/d3/d3-interpolate
-[slight modifications]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-animation/util.js
+[slight modifications]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-animation/util.js

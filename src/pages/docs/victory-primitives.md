@@ -210,10 +210,9 @@ render() {
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `style` *object* the styles to apply to the rendered element
 
-### Axis
+### LineSegment
 
-  The `Axis` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis][]. [View the source][axis]
-  **Note** `Axis` is also exported as `Grid`
+  The `LineSegment` component renders straight lines. This component is used to render grids, ticks, and axis lines in [VictoryAxis][]. [View the source][axis]
 
 **Props**
 
@@ -479,28 +478,28 @@ render() {
 [VictoryClipContainer]: https://formidable.com/open-source/victory/docs/victory-clip-container
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
-[arc]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/arc.js
+[arc]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/arc.js
 [VictoryPolarAxis]: https://formidable.com/open-source/victory/docs/victory-polar-axis
-[area]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/area.js
+[area]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/area.js
 [VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
-[bar]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/bar.js
-[border]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/border.js
+[bar]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/bar.js
+[border]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/border.js
 [VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
-[candle]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/candle.js
+[candle]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/candle.js
 [VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[curve]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/curve.js
+[curve]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/curve.js
 [VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
-[errorbar]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/error-bar.js
+[errorbar]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/error-bar.js
 [VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
-[flyout]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/flyout.js
+[flyout]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/flyout.js
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
-[axis]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/axis.js
-[point]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/point.js
-[slice]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/slice.js
-[whisker]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/whisker.js
+[axis]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/axis.js
+[point]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/point.js
+[slice]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/slice.js
+[whisker]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/whisker.js
 [VictoryPie]: https://formidable.com/open-source/victory/docs/victory-pie
-[voronoi]: https://github.com/formidablelabs/victory-core/blob/master/src/victory-primitives/voronoi.js
+[voronoi]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/voronoi.js
 [VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
 [VictoryLegend]: https://formidable.com/open-source/victory/docs/victory-legend

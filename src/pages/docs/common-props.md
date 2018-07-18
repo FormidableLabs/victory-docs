@@ -912,7 +912,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 [x]: https://formidable.com/open-source/victory/docs/common-props#x
 [y]: https://formidable.com/open-source/victory/docs/common-props#y
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [width]: https://formidable.com/open-source/victory/docs/common-props#width
 [height]: https://formidable.com/open-source/victory/docs/common-props#height
 [VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label

@@ -467,4 +467,4 @@ y={(d) => d.value + d.error}
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js

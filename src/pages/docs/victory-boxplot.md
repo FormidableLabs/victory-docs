@@ -393,10 +393,10 @@ The `medianComponent` prop takes a component instance which will be responsible 
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
-*default:* `medianComponent={<Line/>}`
+*default:* `medianComponent={<LineSegment/>}`
 
 ```jsx
-medianComponent={<Line events={{ onClick: handleClick }}/>}
+medianComponent={<LineSegment events={{ onClick: handleClick }}/>}
 ```
 
 ### medianLabelComponent
@@ -923,7 +923,7 @@ y={(d) => d.value + d.error}
 [Events Guide]: https://formidable.com/open-source/victory/guides/events
 [Themes Guide]: https://formidable.com/open-source/victory/guides/themes
 [`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
-[grayscale theme]: https://github.com/FormidableLabs/victory-core/blob/master/src/victory-theme/grayscale.js
+[grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
 [`x`]: https://formidable.com/open-source/victory/docs/victory-boxplot#x
 [`y`]: https://formidable.com/open-source/victory/docs/victory-boxplot#y
 [`max`]: https://formidable.com/open-source/victory/docs/victory-boxplot#max
