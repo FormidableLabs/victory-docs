@@ -112,7 +112,7 @@ containerComponent={<VictoryContainer responsive={false}/>}
 
 `type: array[{ name, symbol, labels }]`
 
-Specify data via the `data` prop. `VictoryLegend` expects data as an array of objects with `name` (required), `symbol`, and `labels` properties. The `data` prop must be given as an array.
+Specify data via the `data` prop. `VictoryLegend` expects data as an array of objects with `name` (required), `symbol`, and `labels` properties. The `data` prop must be given as an array. The symbol rendered may be changed by altering the `type` property of the `symbol` object. Valid types include: circle", "diamond", "plus", "minus", "square", "star", "triangleDown", and "triangleUp"
 
 *default:* `data={[{ name: "Series 1" }, { name: "Series 2" }]}`
 

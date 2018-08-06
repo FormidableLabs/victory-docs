@@ -146,6 +146,14 @@ with cursors appropriate to their orientation.
 
 *default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}
 
+### onBrushCleared
+
+`type: function`
+
+The optional `onBrushCleared` prop accepts an function to be called when tha active brush area is cleared. The function accepts the parameters of `domain` (the updated domain), and `props` (the props used by `VictoryBrushContainer`).
+
+*example:* `onBrushCleared={(domain, props) => handleBrushCleared(domain, props)}`
+
 ### onBrushDomainChange
 
 `type: function`

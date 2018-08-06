@@ -60,7 +60,7 @@ animate={{
 
 `type: number`
 
-The `barRatio` prop specifies an _approximate_ ratio between bar widths and spaces between bars. When width is not specified in bar styles, the `barRatio` prop will be used to calculate a default width for each bar given the total number of bars in the data series and the overall width of the chart.
+The `barRatio` prop specifies an _approximate_ ratio between bar widths and spaces between bars. When width is not specified via the `barWidth` prop or in bar styles, the `barRatio` prop will be used to calculate a default width for each bar given the total number of bars in the data series and the overall width of the chart.
 
 ```playground
 <VictoryChart
@@ -69,6 +69,29 @@ The `barRatio` prop specifies an _approximate_ ratio between bar widths and spac
 >
   <VictoryBar
     barRatio={0.8}
+    style={{
+      data: { fill: "#c43a31" }
+    }}
+    data={sampleData}
+  />
+</VictoryChart>
+```
+
+### barWidth
+
+`type: number || function`
+
+The `barWidth` prop is used to specify the width of each bar. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of bars.
+
+*Note:* It is still possible to define bar width via the style prop with the `width` attribute, but `barWidth` will take precedence.
+
+```playground
+<VictoryChart
+  theme={VictoryTheme.material}
+  domainPadding={{ x: 20 }}
+>
+  <VictoryBar
+    barWidth={40}
     style={{
       data: { fill: "#c43a31" }
     }}
@@ -101,7 +124,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 `type: function || number || { top: number || function, bottom: number || function }`
 
-The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaulated with the arguments `datum`, and `active`.
+The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`.
 
 ```playground
 <VictoryChart

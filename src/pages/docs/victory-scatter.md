@@ -525,7 +525,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 `type: function || options`
 
-The `symbol` prop determines which symbol should be drawn to represent data points. Options are: "circle", "diamond", "plus", "square", "star", "triangleDown", "triangleUp". This prop may also be given as a function of data. If no `symbol` prop is specified, a circle will be rendered. `symbol` may also be set directly on each data object.
+The `symbol` prop determines which symbol should be drawn to represent data points. Options are: "circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp". This prop may also be given as a function of data. If no `symbol` prop is specified, a circle will be rendered. `symbol` may also be set directly on each data object.
 
 *default:* `symbol="circle"`
 
