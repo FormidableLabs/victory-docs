@@ -56,6 +56,34 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 />
 ```
 
+### candleRatio
+
+`type: number`
+
+The `candleRatio` prop specifies an _approximate_ ratio between candle widths and spaces between candles. When width is not specified via the `candleWidth` prop or in candle styles, the `candleRatio` prop will be used to calculate a default width for each candle given the total number of candles in the data series and the overall width of the chart.
+
+```playground
+<VictoryCandlestick
+  candleRatio={0.8}
+  data={sampleDataDates}
+/>
+```
+
+### candleWidth
+
+`type: number || function`
+
+The `candleWidth` prop is used to specify the width of each candle. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of candles.
+
+*Note:* It is still possible to define candle width via the style prop with the `width` attribute, but `candleWidth` will take precedence.
+
+```playground
+<VictoryCandlestick
+  candleWidth={55}
+  data={sampleDataDates}
+/>
+```
+
 ### categories
 
 `type: array[string] || { x: array[string], y: array[string] }`

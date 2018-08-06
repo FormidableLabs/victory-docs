@@ -240,6 +240,7 @@ render() {
   - `active` *boolean* a flag signifying whether the component is active
   - `alignment` *"start", "middle", or "end" specifies how a bar path should be aligned in relation to its data point
   - `barRatio` *number* a number between zero and one that will be used to calculate bar width when an explicit width is not given
+  - `barWidth` *number or function* A prop defining the width of the bar
   - `className` *string* the class name that will be applied to the rendered path
   - `cornerRadius` *number, function or object* the number of pixels of corner radius to apply when calculating a bar path
   - `data` *array* the entire dataset
@@ -247,7 +248,6 @@ render() {
   - `events` *object* events to attach to the rendered element
   - `index` *number* the index of this bar within the dataset
   - `origin` *object* the svg coordinates of the center point of a polar chart
-  - `padding` *number* the padding of the parent chart (used to calculate default bar width if `style.width` is not supplied)
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
   - `polar` *boolean* a flag specifying whether the component is part of a polar chart
   - `role` *string* the aria role to assign to the element
@@ -286,7 +286,8 @@ render() {
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
-  - `candleHeight` *number* the height of the candle (abs(open - close))
+  - `candleRatio` *number* a number between zero and one that will be used to calculate candle width when an explicit width is not given
+  - `candleWidth` *number or function* A prop defining the width of the candle
   - `className` *string* the class name that will be applied to the rendered element
   - `close` *number* the y coordinate of the closing value
   - `data` *array* the entire dataset
@@ -298,7 +299,6 @@ render() {
   - `lineComponent` *element* the rendered line element  *default* `<Line/>`
   - `low` *number* the y coordinate of the low value
   - `open` *number* the y coordinate of the opening value
-  - `padding` *number* the padding of the parent chart (used to calculate default candle width if `style.width` is not supplied)
   - `rectComponent` *element* the rendered path element  *default* `<Rect/>`
   - `role` *string* the aria role to assign to the element
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
