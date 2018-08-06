@@ -33,7 +33,7 @@ Victory components set props on their primitive components, but these may be ove
 Victory components may be wrapped to customize or change behavior. Wrapper components should apply any props they receive from other Victory components to the components they render.
 
 ```playground_norender
-class Wrapper extends React.Component {
+class WrapperComponent extends React.Component {
   renderChildren() {
     const children = React.Children.toArray(this.props.children);
     return children.map((child) => {
@@ -61,7 +61,7 @@ class App extends React.Component {
   render() {
     return (
       <VictoryChart>
-        <Wrapper>
+        <WrapperComponent>
           <VictoryScatter
             y={(d) => Math.sin(2 * Math.PI * d.x)}
             samples={15}
@@ -69,7 +69,7 @@ class App extends React.Component {
             size={6}
             style={{ data: { stroke: "tomato", strokeWidth: 3 }}}
           />
-        </Wrapper>
+        </WrapperComponent>
       </VictoryChart>
     );
   }
