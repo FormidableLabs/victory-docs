@@ -405,7 +405,7 @@ render() {
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `size` *number* the size of the point
   - `style` *object* the styles to apply to the rendered element
-  - `symbol` *"circle", "diamond", "plus", "square", "star", "triangleDown", "triangleUp"* which symbol the point should render
+  - `symbol` *"circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp"* which symbol the point should render
   - `x` *number* the x coordinate of the center of the point
   - `y` *number* the y coordinate of the center of the point
 
