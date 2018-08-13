@@ -46,6 +46,8 @@ To publish to NPM run
 
 ```bash
 npm version <newversion | major | minor | patch> (see Versioning notes below)
+git push origin master && git push --tags
+npm publish
 ```
 
 ### Versioning Notes
