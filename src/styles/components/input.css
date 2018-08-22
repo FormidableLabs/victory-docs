@@ -4,7 +4,7 @@
 
 .Input-search {
   background-color: var(--lightestSand);
-  background-image: url('../../../static/icon-search.svg');
+  background-image: url('./../../static/icon-search.svg');
   background-position: 3px center;
   background-repeat: no-repeat;
   background-size: 22px 22px;
