@@ -86,30 +86,3 @@
   position: relative;
   z-index: 3;
 }
-
-/* Fancy btn
-*/
-.btn--fancy {
-  border-style: solid;
-  border-width: 39px 41px;
-  border-image-source: url("../../static/btn-border.svg");
-  border-image-slice: 39 41;
-  border-image-repeat: repeat stretch;
-  color: var(--red);
-  display: inline-block;
-  font-family: var(--fontSubHeading);
-  font-size: 1rem;
-  font-weight: normal;
-  letter-spacing: 0.2em;
-  line-height: 1;
-  text-transform: uppercase;
-  padding: 30px 24px;
-  width: 100%;
-  transition: color 300ms ease-out;
-}
-
-.btn--fancy:hover {
-  color: var(--nearBlack);
-  fill: var(--nearBlack);
-  transition: color 300ms ease;
-}
