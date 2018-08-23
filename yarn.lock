@@ -4476,7 +4476,7 @@ format@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
 
-formidable-landers@^8.1.8:
+formidable-landers@^8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/formidable-landers/-/formidable-landers-8.4.0.tgz#ca6643881289d36a1a661af5935043dbf5927d68"
   dependencies:
