@@ -31,15 +31,20 @@ Most components in Victory use a standard `style` prop with style namespaces for
 
 ### How can I change the color of an individual point or bar?
 
-Individual elements in Victory can be styled by adding style attributes directly to your data object. Functional styles and props can also be used to change the appearance of an element based on the data point it represents.
+Individual elements in Victory can be styled by adding style attributes directly to your data object and using functional styles and props as in the example below.
 
 ```playground
 <VictoryChart>
   <VictoryBar
+    style={{
+      data: {
+        fill: (datum) => datum.fill,
+      }
+    }}
     data={[
-      { x: 1, y: 2, fill: "red", width: 5 },
-      { x: 2, y: 4 , fill: "orange", width: 10},
-      { x: 3, y: 6, fill: "gold", width: 20 }
+      { x: 1, y: 2, fill: "red" },
+      { x: 2, y: 4 , fill: "orange" },
+      { x: 3, y: 6, fill: "gold" }
     ]}
   />
   <VictoryScatter
