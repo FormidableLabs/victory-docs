@@ -13,22 +13,28 @@ In this guide, we’ll show you how to get started with Victory Native and the R
 
 Visit the [the guide on getting started](https://facebook.github.io/react-native/docs/getting-started.html) with React Native if you’re just getting started with React Native.
 
-To add Victory Native to your React Native app install `victory-native` and `react-native-svg`. Victory Native is compatible with React Native 0.50 or higher.
+Victory Native is compatible with React Native 0.50 or higher.
+
+To add Victory Native to your React Native app install `victory-native`.
 
 ```bash
-$ yarn add victory-native react-native-svg # or
-$ npm install --save victory-native react-native-svg
+$ yarn add victory-native # or
+$ npm install --save victory-native
 ```
 
-You will need to link the native dependencies of React Native SVG to the iOS and Android projects.
+#### 2. Add React Native SVG to your app
+
+If you are building a project with native code, you will need to link the native dependencies of React Native SVG to the iOS and Android projects.
+
+This step is not required if you are using Expo (SDK 23.0.0 or higher) as it is already included.
 
 ```bash
-$ react-native link react-native-svg
+$ react-native install react-native-svg
 ```
 
 **Note:** If you run the iOS app and see a linker error for `-lRNSVG-tvOS` you will need to remove `libRNSVG-tvOS.a` from the “Link Binary with Libraries” section within your iOS app’s target’s properties.
 
-#### 2. Using Victory Native in your React Native app
+#### 3. Using Victory Native in your React Native app
 
 Victory Native behaves and functions the same way for React Native as it does for the web. Just import components from `victory-native` to get started. To learn move about how to use Victory visit the [Getting Started Guide][].
 
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-#### 3. Testing Components that use Victory Native
+#### 4. Testing Components that use Victory Native
 
 You can test your components that render Victory Native using Jest and React Test Renderer which is included out–of–the box with React Native. The `jest` configuration section in `package.json` will need to be modified to ensure dependencies are transformed otherwise you will see an error when tests are run.
 
