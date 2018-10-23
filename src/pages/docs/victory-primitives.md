@@ -491,7 +491,7 @@ render() {
 [VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
 [errorbar]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/error-bar.js
 [VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
-[flyout]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/flyout.js
+[flyout]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-tooltip/src/flyout.js
 [VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
 [axis]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/axis.js
