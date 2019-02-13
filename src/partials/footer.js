@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 // Common
-import { Footer } from "formidable-landers";
+import { Footer } from "../formidable-landers/src";
 
 class VictoryFooter extends React.Component {
   render() {

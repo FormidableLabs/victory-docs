@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
+import { SiteData, RouteData, Link, withRouteData } from "react-static";
 import { maxBy, minBy, isEmpty } from "lodash";
 
 class TableOfContents extends React.Component {
@@ -35,16 +35,19 @@ class TableOfContents extends React.Component {
 
   getTOC(link, headings, i = 0) {
     const tree = this.getTree(headings);
+
     if (!tree.length) {
       return null;
     }
 
-    const toAnchor = (content) => {
+    const toAnchor = content => {
       const baseContent = content.toLowerCase();
       const safeString = baseContent.replace(/[^\w]+/g, " ");
       return safeString.trim().replace(/\s/g, "-");
     };
+
     const depth = minBy(headings, "depth").depth;
+
     return (
       <ul key={`${i}-${depth}`} className="Sidebar-toc">
         {tree.map((item, index) => {
@@ -55,9 +58,20 @@ class TableOfContents extends React.Component {
               </li>
             );
           }
+          // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
+          // it's a purely relative link hash, if it's from a search tem hit then we need the type and slug.
+          const hashPath = `#${toAnchor(item.value)}`;
+          const absPath = `/${link.type}/${link.slug}`;
+          let scrollToTop = true;
+
+          const path = this.props.location.pathname.includes(absPath)
+            ? ((scrollToTop = false), hashPath)
+            : `${absPath}${hashPath}`;
+
+          // console.log(scrollToTop, this.props.location.pathname, "just scroll to top");
           return item.depth > 1 ? (
             <li key={index} className="Sidebar-toc-item">
-              <Link to={`${link.fields.slug}#${toAnchor(item.value)}`}>
+              <Link to={path} scrollToTop={scrollToTop}>
                 {item.value}
               </Link>
             </li>
@@ -76,7 +90,9 @@ class TableOfContents extends React.Component {
 TableOfContents.propTypes = {
   active: PropTypes.bool,
   headings: PropTypes.array,
-  link: PropTypes.object
+  link: PropTypes.object,
+  location: PropTypes.object,
+  searchTerm: PropTypes.string
 };
 
 export default TableOfContents;

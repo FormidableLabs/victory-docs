@@ -33,6 +33,7 @@
 * recipe:       Styles for the /recipes/*
 * showcase:     <ShowcaseApp /> styles to style screenshot images
 * sidebar:      <Sidebar /> styles, including the .Nav classes
+* content-and-sidebar: docs page with sidebar controller + component styles
 *
 */
 @import "./components/article.css";

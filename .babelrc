@@ -1,7 +1,6 @@
 {
-	"env": {
-		"test": {
-			"presets": [["es2015"], "react"]
-		}
-	}
+  "extends": "react-static/.babelrc",
+  "plugins": [
+    "react-hot-loader/babel"
+  ]
 }

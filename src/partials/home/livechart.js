@@ -45,20 +45,26 @@ const LiveChart = ({ data, period, domain }) => (
       tickFormat={makeDate.bind(null, period)}
       tickCount={3}
       style={{
-        ticks: { stroke: "black", strokeWidth: 3 }
+        ticks: {
+          stroke: "black",
+          strokeWidth: 3
+        }
       }}
     />
     <VictoryAxis
       dependentAxis
       label="Price"
       tickCount={4}
-      tickFormat={(y) => round(y, 2)}
+      tickFormat={y => round(y, 2)}
       domain={domain}
       style={{
         axisLabel: {
           padding: 50
         },
-        ticks: { stroke: "black", strokeWidth: 3 }
+        ticks: {
+          stroke: "black",
+          strokeWidth: 3
+        }
       }}
     />
     <VictoryLine

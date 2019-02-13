@@ -32,15 +32,28 @@ class Native extends React.Component {
   }
 
   getData() {
-    return [1, 2, 3, 4, 5].map(() => {
-      return [
-        { x: 1, y: Math.random() },
-        { x: 2, y: Math.random() },
-        { x: 3, y: Math.random() },
-        { x: 4, y: Math.random() },
-        { x: 5, y: Math.random() }
-      ];
-    });
+    return [1, 2, 3, 4, 5].map(() => [
+      {
+        x: 1,
+        y: Math.random()
+      },
+      {
+        x: 2,
+        y: Math.random()
+      },
+      {
+        x: 3,
+        y: Math.random()
+      },
+      {
+        x: 4,
+        y: Math.random()
+      },
+      {
+        x: 5,
+        y: Math.random()
+      }
+    ]);
   }
 
   render() {

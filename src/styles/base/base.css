@@ -33,6 +33,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   position: relative;
+  overflow: hidden;
 }
 
 /*
@@ -48,6 +49,12 @@ body,
 .root,
 .root > div {
   height: 100%;
+}
+
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 /**

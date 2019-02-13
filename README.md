@@ -4,7 +4,7 @@
 
 ***
 
-[Documentation site](https://formidable.com/open-source/victory/) for [victory](https://github.com/FormidableLabs/victory). `victory-docs` is running on [gatsbyjs](gatsbyjs.org).
+[Documentation site](https://formidable.com/open-source/victory/) for [victory](https://github.com/FormidableLabs/victory). `victory-docs` is running on [react-static](https://github.com/nozzle/react-static).
 
 
 ## Getting Started
@@ -16,7 +16,7 @@ yarn install
 yarn run develop
 ```
 
-Then, open your favorite browser to [localhost:8000](http://localhost:8000/). GraphiQL runs at [localhost:8000/___graphql](http://localhost:8000/___graphql).
+Then, open your favorite browser to [localhost:3000](http://localhost:3000/).
 
 ## Ready to Deploy :shipit:
 
@@ -32,7 +32,7 @@ Serve the build.
 yarn run serve
 ```
 
-Then, open your favorite browser to [localhost:9000](http://localhost:9000/) to verify everything looks correct.
+Then, open your favorite browser to [localhost:3001](http://localhost:3001/) to verify everything looks correct.
 
 If everything checks out, build the production site with the prefixed path, `/open-source/victory/`, so the files load at the correct URL!
 

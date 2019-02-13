@@ -12,11 +12,10 @@ class Preview extends Component {
 
   compileCode() {
     const { codeText, context, noRender, scope } = this.props;
-    const generateContextTypes = (c) => {
-      return `{ ${Object.keys(c)
-        .map((val) => `${val}: PropTypes.any.isRequired`)
+    const generateContextTypes = c =>
+      `{ ${Object.keys(c)
+        .map(val => `${val}: PropTypes.any.isRequired`)
         .join(", ")} }`;
-    };
 
     if (noRender) {
       return transform(
@@ -38,16 +37,15 @@ class Preview extends Component {
       `,
         { presets: ["es2015", "react", "stage-1"] }
       ).code;
-    } else {
-      return transform(
-        `
+    }
+    return transform(
+      `
         ((${Object.keys(scope).join(",")}, mountNode) => {
           ${codeText}
         });
       `,
-        { presets: ["es2015", "react", "stage-1"] }
-      ).code;
-    }
+      { presets: ["es2015", "react", "stage-1"] }
+    ).code;
   }
 
   executeCode() {
@@ -55,7 +53,7 @@ class Preview extends Component {
     const { scope, noRender, previewComponent } = this.props;
     const tempScope = [];
 
-    Object.keys(scope).forEach((s) => tempScope.push(scope[s]));
+    Object.keys(scope).forEach(s => tempScope.push(scope[s]));
     tempScope.push(mountNode);
     const compiledCode = this.compileCode();
     if (noRender) {
@@ -75,7 +73,7 @@ class Preview extends Component {
   render() {
     return (
       <div
-        ref={(div) => {
+        ref={div => {
           this.mount = div;
         }}
         className="Preview"

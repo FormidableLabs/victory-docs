@@ -6,7 +6,12 @@
 *     .Page-content
 */
 
-@media (--medium-viewport) {
+@custom-media --small-viewport only screen and (min-width: 650px);
+@custom-media --medium-viewport only screen and (min-width: 960px);
+@custom-media --large-viewport only screen and (min-width: 1200px);
+
+
+@media only screen and (min-width: 960px) {
   .Page-wrapper {
     display: flex;
     flex-direction: column;
@@ -20,7 +25,7 @@
   flex-wrap: nowrap;
 }
 
-@media (--medium-viewport) {
+@media only screen and (min-width: 960px) {
   .Page {
     display: flex;
     flex-direction: row;
@@ -36,9 +41,10 @@
   z-index: 1;
 }
 
-@media (--medium-viewport) {
+@media only screen and (min-width: 960px) {
   .Page-sidebar {
     flex: 0 0 280px;
+    overflow-y: scroll;
   }
 }
 
@@ -49,9 +55,12 @@
   padding: 0;
 }
 
-@media (--medium-viewport) {
+.without-content-sidebar {
+  max-height: calc(100vh - 10em); /* Number is absolutely magical */
+}
+
+@media only screen and (min-width: 960px) {
   .Page-content {
-    height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 }

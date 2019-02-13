@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
+import { Link } from "react-static";
 
 // Common
 import Icon from "../icon";
@@ -12,6 +12,7 @@ import AIRBNB from "../../../static/logos/logo-airbnb.svg";
 import REDFIN from "../../../static/logos/logo-redfin.svg";
 import TUNE from "../../../static/logos/logo-tune.svg";
 import ZILLOW from "../../../static/logos/logo-zillow.svg";
+import IconBack from "../../../static/icon-back.svg";
 
 class Companies extends React.Component {
   render() {
@@ -19,47 +20,55 @@ class Companies extends React.Component {
       <div className="Companies">
         <h2 className="SubHeading">A few of our fans</h2>
         <ul className="Companies-List">
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "171px" }}
-            dangerouslySetInnerHTML={{ __html: AIRBNB }}
+            style={{ maxWidth: "171px", filter: "invert(1)"}}
+            src={AIRBNB}
           />
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "300px" }}
-            dangerouslySetInnerHTML={{ __html: FIVETHIRTYEIGHT }}
+            style={{ maxWidth: "300px", filter: "invert(1)"}}
+            src={FIVETHIRTYEIGHT}
           />
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "350px" }}
-            dangerouslySetInnerHTML={{ __html: USAFACTS }}
+            style={{ maxWidth: "350px"}}
+            src={USAFACTS}
           />
         </ul>
         <ul className="Companies-List">
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "200px" }}
-            dangerouslySetInnerHTML={{ __html: VIACOM }}
+            style={{ maxWidth: "200px", filter: "invert(1)"}}
+            src={VIACOM}
           />
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "177px", paddingTop: "2px" }}
-            dangerouslySetInnerHTML={{ __html: REDFIN }}
+            style={{
+              maxWidth: "177px",
+              paddingTop: "2px",
+            }}
+            src={REDFIN}
           />
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "190px", paddingBottom: "3px" }}
-            dangerouslySetInnerHTML={{ __html: ZILLOW }}
+            style={{
+              maxWidth: "190px",
+              paddingBottom: "3px",
+              filter: "invert(1)"
+            }}
+            src={ZILLOW}
           />
-          <li
+          <img
             className="Companies-logo"
-            style={{ maxWidth: "141px" }}
-            dangerouslySetInnerHTML={{ __html: TUNE }}
+            style={{ maxWidth: "141px", filter: "invert(1)"}}
+            src={TUNE}
           />
         </ul>
         <p className="SubHeading">
           <Link to="/about#showcase" className="isLight">
-            See showcase&nbsp;<Icon glyph="internal-link" />
+            See showcase&nbsp;
+            <Icon glyph="internal-link" style={{filter: "invert(1)"}} />
           </Link>
         </p>
       </div>

@@ -1,4 +1,4 @@
-/*global window:false */
+/* global window:false */
 
 import React from "react";
 import { VictoryScatter, VictoryChart } from "victory";
@@ -14,15 +14,19 @@ export default class App extends React.Component {
 
   componentDidMount() {
     /* eslint-disable react/no-did-mount-set-state */
-    this.setStateInterval = window.setInterval(() => {
-      this.setState({
-        scatterData: this.getScatterData()
-      });
-    }, 3000);
+    if (typeof window !== "undefined") {
+      this.setStateInterval = window.setInterval(() => {
+        this.setState({
+          scatterData: this.getScatterData()
+        });
+      }, 3000);
+    }
   }
 
   componentWillUnmount() {
-    window.clearInterval(this.setStateInterval);
+    if (typeof window !== "undefined") {
+      window.clearInterval(this.setStateInterval);
+    }
   }
 
   getScatterData() {
@@ -44,7 +48,7 @@ export default class App extends React.Component {
       "diamond",
       "plus"
     ];
-    return range(25).map((index) => {
+    return range(25).map(index => {
       const scaledIndex = Math.floor(index % 7);
       return {
         x: random(10, 50),
@@ -82,7 +86,7 @@ export default class App extends React.Component {
             data={this.state.scatterData}
             style={{
               data: {
-                fill: (d) => d.fill,
+                fill: d => d.fill,
                 opacity: 0.6
               }
             }}

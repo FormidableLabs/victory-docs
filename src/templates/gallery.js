@@ -1,43 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import Link from "gatsby-link";
+import { withRouteData, Link } from "react-static";
 import Footer from "../partials/footer";
 import Playground from "../partials/playground";
 import Seo from "../partials/seo/index";
-import config from "../../data/site-config";
+import config from "../../static-config-parts/site-data";
 
 class GalleryTemplate extends React.Component {
   render() {
-    const { slug } = this.props.pathContext;
-    const postNode = this.props.data.markdownRemark;
-    const post = postNode.frontmatter;
-    if (!post.id) {
-      post.id = slug;
-    }
-    if (!post.id) {
-      post.categoryId = config.postDefaultCategoryID;
-    }
+    const { slug, title, contents, scope } = this.props.galleryItem;
     return (
-      <div className="Page-content">
+      <div className="Page-content without-content-sidebar">
         <Helmet>
-          <title>{`${config.siteTitle} |  ${post.title}`}</title>
+          <title>{`${config.siteTitle} |  ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <Seo postPath={slug} postNode={postNode} postSEO />
+        {/* <Seo postPath={slug} postNode={contents} postSEO />*/}
         <article className="Article">
           <Link to="/gallery" className="SubHeading">
             Back to Gallery
           </Link>
           <div className="Recipe Recipe--gallery">
-            <h1>{post.title}</h1>
+            <h1>{title}</h1>
             <pre className="u-noMarginTop u-noPadding">
               <div className="Interactive">
-                <Playground
-                  html={postNode.html}
-                  scope={post.scope}
-                  theme="elegant"
-                />
+                <Playground html={contents} scope={scope} theme="elegant" />
               </div>
             </pre>
           </div>
@@ -49,24 +37,10 @@ class GalleryTemplate extends React.Component {
 }
 
 GalleryTemplate.propTypes = {
-  data: PropTypes.object,
-  pathContext: PropTypes.object
+  galleryItem: PropTypes.object
 };
 
-export default GalleryTemplate;
+export default withRouteData(({ galleryItem, location }) => (
+  <GalleryTemplate galleryItem={galleryItem} location={location} />
+));
 
-export const pageQuery = graphql`
-  query ExampleBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        id
-        scope
-        title
-      }
-      fields {
-        slug
-      }
-    }
-  }
-`;

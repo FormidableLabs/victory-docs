@@ -4,13 +4,13 @@ import Helmet from "react-helmet";
 
 import Footer from "../partials/footer";
 import Playground from "../partials/playground";
-import Seo from "../partials/seo/index";
-import config from "../../data/site-config";
+// import Seo from "../partials/seo/index";
+import config from "../../static-config-parts/site-data";
 
 class DocsTemplate extends React.Component {
   render() {
-    const { slug } = this.props.pathContext;
-    const postNode = this.props.data.markdownRemark;
+    const { slug } = this.props.doc.data;
+    const postNode = this.props.doc.markdownRemark;
     const post = postNode.frontmatter;
     if (!post.id) {
       post.id = slug;
@@ -25,7 +25,8 @@ class DocsTemplate extends React.Component {
           <title>{`${config.siteTitle} |  ${post.title}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <Seo postPath={slug} postNode={postNode} postSEO />
+        {/* TODO: leverage Document to put this preternaturally knowledgeable component and pattern behind us*/}
+        {/* <Seo postPath={slug} postNode={{...this.props.doc.data, ...this.props.doc.content}} postSEO />*/}
         <article className="Article">
           <div className="Recipe Markdown">
             {/* TODO: Add edit this page link once everything is merged to master

@@ -13,6 +13,7 @@
 
 .Recipe p {
   max-width: 38em;
+  margin-left: 2em;
 }
 
 .Recipe .Interactive .playground {

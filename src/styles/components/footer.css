@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   background-color: var(--lightestSand);
+  margin-top: 1rem;
 }
 
 .formidableFooter.victory .formidableFooter-container {
