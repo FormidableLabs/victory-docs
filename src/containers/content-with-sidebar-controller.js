@@ -173,6 +173,9 @@ const getPathPrefix = item => {
   if (item.category === "support") {
     return "/docs/faq/";
   }
+  if (item.category === "documentation") {
+    return "/docs/common-props/";
+  }
   const checkedCategory = documentationSubcategories.includes(item.category)
     ? "docs"
     : item.category;

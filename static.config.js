@@ -42,13 +42,14 @@ export default {
     const homeIntro = _.find(introduction, intro => intro.data.id === 0);
     // only one file here, use a selector-style fn if that ever changes
     const faqIntro = faq[0];
+    const commonPropsIntro = commonProps[0];
 
     const orderById = items => _.orderBy(items, ["data.id"], ["asc"]);
     const allSidebarItems = [
       ...introduction,
-      faq[0],
+      faqIntro,
       ...guides,
-      ...commonProps,
+      commonPropsIntro,
       ...trueDocs
     ];
     const sidebarContent = allSidebarItems.reduce((av, cv, i, arr) => {
@@ -76,6 +77,7 @@ export default {
         ...introduction,
         ...support,
         ...guides,
+        commonPropsIntro,
         ...charts,
         ...containers,
         ...more
@@ -126,6 +128,14 @@ export default {
         component: "src/containers/doc",
         getData: async () => ({
           doc: faqIntro,
+          sidebarContent: sbContent
+        })
+      },
+      {
+        path: "docs/common-props",
+        component: "src/containers/doc",
+        getData: async () => ({
+          doc: commonPropsIntro,
           sidebarContent: sbContent
         })
       },
