@@ -1,35 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  withRouter,
-  Link,
-  PrefetchWhenSeen
-} from "react-static";
+import { withRouter, Link, PrefetchWhenSeen } from "react-static";
 import Footer from "../partials/footer";
 import Fuse from "fuse.js";
-import {
-  maxBy,
-  minBy,
-  findIndex,
-  includes,
-  last,
-  isEmpty,
-  kebabCase
-} from "lodash";
+import { maxBy, minBy, findIndex, includes, last, isEmpty } from "lodash";
 import Introduction from "../partials/sidebar/components/introduction";
 import Category from "../partials/sidebar/components/category";
 import SidebarSearchInput from "../partials/sidebar/components/search-input";
 import styled from "styled-components";
 
-
 // ContentWithSidebarPage aka .new-docs-page
 const ContentWithSidebarPage = styled.main`
   display: grid;
   position: absolute;
-  top: 212px;
+  top: 161px;
   box-sizing: border-box;
   column-gap: 0rem;
-  grid-template-rows: 0 calc(100vh - 220px);
+  grid-template-rows: 0 calc(100vh - 161px);
   grid-template-columns: 280px auto;
   grid-template-areas:
     "header header" /* conceptually desirable but doesn't work great with how our landers are built */
@@ -43,6 +30,7 @@ const ContentWithSidebarPage = styled.main`
   }
 
   .new-docs-nav {
+    background-color: #ebe7e4;
     grid-area: nav;
     overflow-y: auto;
     padding: 1.375rem 1.375rem 3.75rem;
@@ -141,11 +129,11 @@ class TableOfContents extends React.Component {
             : `${absPath}${hashPath}`;
 
           return item.depth > 1 ? (
-            <li key={index}  className="Sidebar-toc-item">
+            <li key={index} className="Sidebar-toc-item">
               <PrefetchWhenSeen path={path}>
-              <Link to={path} prefetch={"data"} scrollToTop={true}>
-                {item.value}
-              </Link>
+                <Link to={path} prefetch={"data"} scrollToTop>
+                  {item.value}
+                </Link>
               </PrefetchWhenSeen>
             </li>
           ) : null;
@@ -172,7 +160,7 @@ TableOfContents.propTypes = {
 // behavior is based on a bunch of magic strings for a non-configurable internal method
 const documentationSubcategories = ["charts", "containers", "more"];
 
-const getPathPrefix = (item, location) => {
+const getPathPrefix = item => {
   // just a bunch of one-offs, elegance is harder to realize gains from
   if (item.title === "Getting Started" && item.category === "introduction") {
     return "/docs/";
@@ -191,6 +179,7 @@ const getPathPrefix = (item, location) => {
   return `/${checkedCategory}/${item.slug}`;
 };
 
+// eslint-disable-next-line react/no-multi-comp
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -255,11 +244,17 @@ class Sidebar extends React.Component {
           : link.subHeadings;
 
       return (
-        <li className="Sidebar-List-Item" key={link.slug} onClick={() => this.setState({content: this.state.content, filterTerm: ""})}>
+        <li
+          className="Sidebar-List-Item"
+          key={link.slug}
+          onClick={() =>
+            this.setState({ content: this.state.content, filterTerm: "" })
+          }
+        >
           <Link
             to={getPathPrefix(link, location)}
             activeClassName={category !== "introduction" ? "is-active" : ""}
-            scrollToTop={true}
+            scrollToTop
             prefetch={"data"}
           >
             {link.title}
@@ -321,7 +316,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { content} = this.props;
+    const { content } = this.props;
     const filteredContent = this.state.filteredResults;
 
     return (
@@ -412,6 +407,7 @@ Sidebar.propTypes = {
   location: PropTypes.object
 };
 
+// eslint-disable-next-line react/no-multi-comp
 class ContentWithSidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -440,5 +436,11 @@ class ContentWithSidebar extends React.Component {
     );
   }
 }
+
+ContentWithSidebar.propTypes = {
+  children: PropTypes.array,
+  content: PropTypes.array,
+  sidebarContent: PropTypes.array
+};
 
 export default withRouter(ContentWithSidebar);
