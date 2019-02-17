@@ -14,7 +14,7 @@ import {
   getCommonProps
 } from "./static-config-helpers/md-data-transforms";
 import { generateGuideRoutes } from "./static-config-parts/guide-routes";
-const {ServerStyleSheet} = require('styled-components');
+const { ServerStyleSheet } = require("styled-components");
 
 chokidar.watch("content").on("all", () => reloadRoutes());
 
@@ -27,6 +27,7 @@ export default {
     devDist: "tmp/dev-server", // The development scratch directory.
     public: "public" // The public directory (files copied to dist during build)
   },
+  // eslint-disable-next-line max-statements
   getRoutes: async () => {
     const trueDocs = await getDocs();
     const faq = await getFaq();
@@ -69,15 +70,8 @@ export default {
     // about up front and less tangible to modify later
     const docSubroutes = commonProps.concat(introduction, trueDocs);
 
-    const convertToSidebarArray = (content) => {
-      const {
-        introduction,
-        support,
-        guides,
-        charts,
-        containers,
-        more
-      } = content;
+    const convertToSidebarArray = content => {
+      const { support, charts, containers, more } = content;
       return [
         ...introduction,
         ...support,
@@ -159,9 +153,9 @@ export default {
     // you can stick whatever you want here, but it's mutable at build-time, not dynamic
     // at run-time -- key difference!
     meta.styleTags = sheet.getStyleElement();
-    return html
+    return html;
   },
-  Document: Document,
+  Document,
   // turn this on if it helps your local development workflow for build testing
   bundleAnalyzer: false,
   webpack: staticWebpackConfig

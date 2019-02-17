@@ -23,6 +23,7 @@ class VictoryHeader extends Component {
           height: "50px"
         }}
       >
+        {/* eslint-disable-next-line react/jsx-pascal-case */}
         <SVG
           style={{ height: "30px" }}
           src="../../static/logotype-hero.svg"

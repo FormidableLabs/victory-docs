@@ -21,12 +21,12 @@ class Companies extends React.Component {
         <ul className="Companies-List">
           <img
             className="Companies-logo"
-            style={{ maxWidth: "171px", filter: "invert(1)"}}
+            style={{ maxWidth: "171px", filter: "invert(1)" }}
             src={AIRBNB}
           />
           <img
             className="Companies-logo"
-            style={{ maxWidth: "300px", filter: "invert(1)"}}
+            style={{ maxWidth: "300px", filter: "invert(1)" }}
             src={FIVETHIRTYEIGHT}
           />
           <img
@@ -38,7 +38,7 @@ class Companies extends React.Component {
         <ul className="Companies-List">
           <img
             className="Companies-logo"
-            style={{ maxWidth: "200px", filter: "invert(1)"}}
+            style={{ maxWidth: "200px", filter: "invert(1)" }}
             src={VIACOM}
           />
           <img

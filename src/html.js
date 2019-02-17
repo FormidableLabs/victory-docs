@@ -1,6 +1,7 @@
 import React from "react";
 
-export default ({ Html, Head, Body, children, siteData, renderMeta }) => (
+// eslint-disable-next-line react/prop-types
+export default ({ Html, Head, Body, children, renderMeta }) => (
   <Html lang="en">
     <Head>
       <meta charSet="utf-8" />

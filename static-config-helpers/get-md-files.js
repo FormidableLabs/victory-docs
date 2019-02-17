@@ -203,7 +203,6 @@ const getMdFiles = async (
           }
         })
         .on("error", e => {
-
           throw e;
         })
         .on("end", () => {
