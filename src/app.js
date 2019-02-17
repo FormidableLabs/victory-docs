@@ -14,11 +14,17 @@ import "./app.css";
 // import "prismjs/themes/prism-coy.css"
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
-  document.querySelector(contentPaneClass + " " + hash).scrollIntoView();
+  const item = document.querySelector(contentPaneClass + " " + hash);
+  if (item) {
+    item.scrollIntoView();
+  }
 };
 
 const scrollSidebar = async (location, activeItemClass = ".is-active") => {
-  document.querySelector(activeItemClass).scrollIntoView();
+  const item = document.querySelector(activeItemClass);
+  if (item) {
+    item.scrollIntoView();
+  }
 };
 
 const checkScrollRoutes = (pathname, routes = ["docs", "faq", "guides"]) =>
