@@ -1,3 +1,4 @@
+/* eslint-disable func-style */
 const fs = require("fs");
 const klaw = require("klaw");
 const path = require("path");
@@ -8,15 +9,17 @@ const remark = require("remark");
 const _ = require("lodash");
 const select = require("unist-util-select");
 const visit = require("unist-util-visit");
-const remarkToc = require("remark-toc");
 const slug = require("remark-slug");
-const headings = require("remark-autolink-headings");
-const toString = require("mdast-util-to-string");
+
 const slugs = require("github-slugger")();
 // at a certain point we have to ask if custom dependency injection tooling is designed to provide a good developer
 // experience or if it's an interface-obscuring cornice that contributes more to the wall than the garden. Our
 // expectation should be that we can use any remark plugins which will generally include gatsby-remark plugins.
 const remarkPrism = require("gatsby-remark-prismjs");
+
+function defaultSort(items) {
+  return items;
+}
 
 function codeHighlightTransformer() {
   return node => remarkPrism({ markdownAST: node });
@@ -32,11 +35,10 @@ function slugTransformer(ast) {
       const nodeClass = props.className
         ? `${props.className} doc-hash-link`
         : "doc-hash-link";
-      // Would love to tell you this isn't kinda bullshit, but it is. It adds GH style links to our md based on existing
-      // behaviors by converting mdast heading nodes to html so we can inject the link and svg directly rather than do
-      // something like add a marker value to the mdast and let the renderer handle it, in part because our "renderer"
-      // is __dangerouslySetHTML on a div. Given more time we could change things, but that's true of everything,
-      // even time itself.
+      // This adds GH style links to our md based on existing behaviors by converting mdast heading
+      // nodes to html so we can inject the link and svg directly rather than do something like add
+      // a marker value to the mdast and let the renderer handle it, in part because our "renderer"
+      // is __dangerouslySetHTML on a div.
       const elInnerHTML = ` <h${node.depth}>
           <a class="${
             node.depth > 1 ? "Anchor" : "hidden-anchor"
@@ -47,7 +49,7 @@ function slugTransformer(ast) {
                   d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
           </svg>
         </a> ${node.children[0].value}
-</h${node.depth}>        
+</h${node.depth}>
 `;
       node.type = `html`;
       node.value = elInnerHTML;
@@ -118,14 +120,13 @@ function playground(options = { customCodeLang: "playground" }) {
   // we're just mutating the ast here, fyi
   function transformer(ast) {
     visit(ast, `code`, node => {
-      const escape = html => {
-        return html
+      const escape = rawHtml =>
+        rawHtml
           .replace(/&/g, "&amp;")
           .replace(/</g, "&lt;")
           .replace(/>/g, "&gt;")
           .replace(/"/g, "&quot;")
           .replace(/'/g, "&#39;");
-      };
 
       const { customCodeLang } = options;
 
@@ -170,13 +171,12 @@ const baseConfig = {
   })
 };
 
+// eslint-disable-next-line max-params
 const getMdFiles = async (
   mdPath,
   items,
   mutations = [],
-  // terrible take, linter
-  // eslint-disable-next-line no-shadow
-  sort = items => items,
+  sort = defaultSort,
   config = baseConfig
 ) =>
   new Promise(resolve => {

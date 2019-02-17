@@ -1,9 +1,6 @@
 /* eslint-disable func-style */
 const _ = require("lodash");
-const fs = require("fs");
-const path = require("path");
 const getMdFiles = require("./get-md-files");
-const moment = require("moment");
 
 // this function takes care of sorting!! :code:
 // The only difference between this and allMarkdownRemark(sort: { fields: [frontmatter___title], order: ASC })
@@ -45,9 +42,7 @@ const orderByIdAndAddThemesEntry = items => {
   return _.orderBy(items.concat(themes), ["data.id"], ["asc"]);
 };
 
-const orderById = items => _.orderBy(items, ["data.id"], ["asc"]);
-
-const slugMutation = (mdData, mdPath) => {
+const slugMutation = mdData => {
   mdData.data.slug = _.kebabCase(mdData.data.title)
     .toLowerCase()
     .trim();
@@ -55,7 +50,7 @@ const slugMutation = (mdData, mdPath) => {
 
 // for sidebar purposes, guide type and guide category are the same, but we'd rather have
 // a consistent shape at the component layer than need an additional check there
-const sidebarTypeMutation = (mdData, mdPath) => {
+const sidebarTypeMutation = mdData => {
   mdData.data.type = mdData.data.category;
 };
 
@@ -64,13 +59,13 @@ const sidebarTypeMutation = (mdData, mdPath) => {
 // not significantly cleaner for modifying multiple levels simultaneously. I like immutability-helper though, but
 // it feels more like the kind of thing we'd want to bring in as a cross-project standard rather than a one-off.
 
-const sidebarTreeMutation = (mdData, mdPath) => {
+const sidebarTreeMutation = mdData => {
   if (!mdData.data.subHeadings || !mdData.data.subHeadings.length) {
     mdData.data.sidebarTree = [];
     return;
   }
 
-  mdData.data.sidebarTree = mdData.data.subHeadings.reduce((av, cv, i, arr) => {
+  mdData.data.sidebarTree = mdData.data.subHeadings.reduce((av, cv) => {
     if (cv.depth === 1) {
       return av.concat({ ...cv, category: mdData.data.category });
     }
