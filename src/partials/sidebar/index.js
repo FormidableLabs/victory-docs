@@ -7,7 +7,6 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SidebarSearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
-import { kebabCase } from "lodash";
 
 // I yield, I yield! The rendering between different sections has sufficiently different
 // behavior that the case for generalization in the view layer isn't there. Just because you feel it -- doesn't mean
@@ -51,7 +50,7 @@ import { kebabCase } from "lodash";
 
 const documentationSubcategories = ["charts", "containers", "more"];
 
-const getPathPrefix = (item, location) => {
+const getPathPrefix = item => {
   // just a bunch of one-offs, elegance is harder to realize gains from
   if (item.title === "Getting Started" && item.category === "introduction") {
     return "/docs/";
@@ -200,9 +199,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { content, exampleItems } = this.props;
-    const { hash, pathname, search } = this.props.location;
-    const activePath = pathname;
+    const { content } = this.props;
     const filteredContent = this.state.filteredResults;
 
     return (

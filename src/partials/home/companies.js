@@ -12,7 +12,6 @@ import AIRBNB from "../../../static/logos/logo-airbnb.svg";
 import REDFIN from "../../../static/logos/logo-redfin.svg";
 import TUNE from "../../../static/logos/logo-tune.svg";
 import ZILLOW from "../../../static/logos/logo-zillow.svg";
-import IconBack from "../../../static/icon-back.svg";
 
 class Companies extends React.Component {
   render() {
@@ -32,7 +31,7 @@ class Companies extends React.Component {
           />
           <img
             className="Companies-logo"
-            style={{ maxWidth: "350px"}}
+            style={{ maxWidth: "350px" }}
             src={USAFACTS}
           />
         </ul>
@@ -46,7 +45,7 @@ class Companies extends React.Component {
             className="Companies-logo"
             style={{
               maxWidth: "177px",
-              paddingTop: "2px",
+              paddingTop: "2px"
             }}
             src={REDFIN}
           />
@@ -61,14 +60,14 @@ class Companies extends React.Component {
           />
           <img
             className="Companies-logo"
-            style={{ maxWidth: "141px", filter: "invert(1)"}}
+            style={{ maxWidth: "141px", filter: "invert(1)" }}
             src={TUNE}
           />
         </ul>
         <p className="SubHeading">
           <Link to="/about#showcase" className="isLight">
             See showcase&nbsp;
-            <Icon glyph="internal-link" style={{filter: "invert(1)"}} />
+            <Icon glyph="internal-link" style={{ filter: "invert(1)" }} />
           </Link>
         </p>
       </div>

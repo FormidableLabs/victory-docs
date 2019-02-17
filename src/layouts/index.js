@@ -5,7 +5,7 @@ import config from "../../static-config-parts/site-data";
 import Footer from "../partials/footer";
 
 class MainLayout extends React.Component {
-  //TODO/FIXME/ALERT since React-Static uses a different convention, this may bork things when deployed
+  // TODO/FIXME/ALERT since React-Static uses a different convention, this may bork things when deployed
   // with a siteroot
   getLocalTitle() {
     const capitalize = string =>
@@ -38,7 +38,7 @@ class MainLayout extends React.Component {
     const { children } = this.props;
     return (
       <div>
-        {/*<div className="Page-wrapper u-fullHeight">*/}
+        {/* <div className="Page-wrapper u-fullHeight"> */}
         <Helmet>
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />

@@ -7,14 +7,13 @@ class Category extends React.Component {
     if (isEmpty(subCategories)) {
       return;
     }
-    const categories = subCategories.map(
-      (category, index) =>
-        !isEmpty(category.content) ? (
-          <div key={index}>
-            <p className="Sidebar-SubHeading SubHeading">{category.title}</p>
-            <ul className="Sidebar-List">{category.content}</ul>
-          </div>
-        ) : null
+    const categories = subCategories.map((category, index) =>
+      !isEmpty(category.content) ? (
+        <div key={index}>
+          <p className="Sidebar-SubHeading SubHeading">{category.title}</p>
+          <ul className="Sidebar-List">{category.content}</ul>
+        </div>
+      ) : null
     );
     return categories.filter(Boolean);
   }

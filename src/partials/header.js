@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Router, Route, Link, Prefetch } from "react-static";
+import { Link, Prefetch } from "react-static";
 // import SVGInline from "react-svg-inline"
 // I don't love this solution but I've been having major trubs trying to get
 // the base64 encoded string to convert to an svg, attempted using both
@@ -41,7 +41,7 @@ class VictoryHeader extends Component {
           <Link to="/docs/faq">FAQ</Link>
           <Link to="/guides/">Guides</Link>
           <Prefetch path="/gallery">
-          <Link to="/gallery/">Gallery</Link>
+            <Link to="/gallery/">Gallery</Link>
           </Prefetch>
           {config.projectLinks.map(link => (
             <a key={link.url} href={link.url}>

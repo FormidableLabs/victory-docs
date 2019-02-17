@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SiteData, RouteData, Link, withRouteData } from "react-static";
+import { Link } from "react-static";
 import { maxBy, minBy, isEmpty } from "lodash";
 
 class TableOfContents extends React.Component {
