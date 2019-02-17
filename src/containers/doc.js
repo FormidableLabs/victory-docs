@@ -40,7 +40,7 @@ DocsTemplate.propTypes = {
   children: PropTypes.array,
   doc: PropTypes.shape({
     data: PropTypes.object,
-    content: PropTypes.object
+    content: PropTypes.string
   }),
   location: PropTypes.object,
   sidebarContent: PropTypes.array

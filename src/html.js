@@ -1,20 +1,5 @@
 import React from "react";
 
-const scrollScript = `
-    document.addEventListener("DOMContentLoaded", function(event) {
-        var hash = window.decodeURI(location.hash.replace('#', ''))
-        const headerOffset = 57;
-        if (hash !== '') {
-        var element = document.getElementById(hash)
-        if (element) {
-        var offset = element.offsetTop + headerOffset;
-        
-        
-        // Wait for the browser to finish rendering before scrolling.
-        setTimeout((function() {
-        document.querySelector(".new-docs-content").scrollTo(0, offset - 0)
-      }), 0)}}})`;
-
 export default ({ Html, Head, Body, children, siteData, renderMeta }) => (
   <Html lang="en">
     <Head>
@@ -35,7 +20,7 @@ export default ({ Html, Head, Body, children, siteData, renderMeta }) => (
         href="https://fonts.googleapis.com/css?family=Andada"
         rel="stylesheet"
       />
-      {/*<script dangerouslySetInnerHTML={{ __html: scrollScript }} />*/}
+      {/* <script dangerouslySetInnerHTML={{ __html: scrollScript }} />*/}
 
       {/* CodeMirror for Component Playgrounds */}
       <link
