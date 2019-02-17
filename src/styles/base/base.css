@@ -1,5 +1,5 @@
-/* 
-* 1. Hide scrollbars for Playgrounds 
+/*
+* 1. Hide scrollbars for Playgrounds
 */
 html {
   background-color: var(--black);
@@ -65,7 +65,6 @@ body,
 blockquote,
 dl,
 dd,
-h1,
 h2,
 h3,
 h4,

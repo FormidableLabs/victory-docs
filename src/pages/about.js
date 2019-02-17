@@ -8,9 +8,7 @@ class About extends React.Component {
     return (
       <div className="Page-content without-content-sidebar">
         <article className="Article">
-          <h1 className="u-noMargin">
-            Victory: Charting for React and React Native
-          </h1>
+          <h1> Victory: Charting for React and React Native</h1>
           <p>
             {/*
              * TODO: Customize these buttons
