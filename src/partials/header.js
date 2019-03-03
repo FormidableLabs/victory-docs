@@ -12,6 +12,7 @@ import SVG from "react-inlinesvg";
 // Common
 import { Header } from "formidable-landers";
 import config from "../../static-config-parts/site-data";
+import svgHeroLogo from "../../static/logotype-hero.svg";
 
 class VictoryHeader extends Component {
   render() {
@@ -26,7 +27,7 @@ class VictoryHeader extends Component {
         {/* eslint-disable-next-line react/jsx-pascal-case */}
         <SVG
           style={{ height: "30px" }}
-          src="../../static/logotype-hero.svg"
+          src={svgHeroLogo}
           onLoad={src => src}
         />
       </Link>

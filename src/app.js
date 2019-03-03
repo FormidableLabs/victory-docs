@@ -87,7 +87,7 @@ RenderRoutes.propTypes = {
 let history;
 if (typeof window !== "undefined") {
   const createBrowserHistory = require("history/createBrowserHistory").default;
-  history = createBrowserHistory();
+  history = createBrowserHistory({ basename: '/open-source/victory'});
 }
 
 // eslint-disable-next-line react/no-multi-comp

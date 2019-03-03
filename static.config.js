@@ -27,6 +27,12 @@ export default {
     devDist: "tmp/dev-server", // The development scratch directory.
     public: "public" // The public directory (files copied to dist during build)
   },
+  generateSourceMaps: false,
+  inlineCss: true,
+  basePath: "open-source/victory",
+  //TODO: disable for ease of local development once prod build is confirmed working as expected
+  devBasePath: "open-source/victory",
+  stagingBasePath: "open-source/victory",
   // eslint-disable-next-line max-statements
   getRoutes: async () => {
     const trueDocs = await getDocs();
