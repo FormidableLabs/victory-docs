@@ -1,16 +1,14 @@
 import React from "react";
-import { withRouteData, withRouter, Link } from "react-static";
+import PropTypes from "prop-types";
+import { withRouteData, withRouter } from "react-static";
 import Helmet from "react-helmet";
 import config from "../../static-config-parts/site-data";
-import Seo from "../partials/seo/index";
-import Footer from "../partials/footer";
-import Playground from "../partials/playground";
 import Themes from "../pages/themes";
 import ContentWithSidebarController from "../containers/content-with-sidebar-controller";
 
 class DocsTemplate extends React.Component {
   render() {
-    const { title, scope } = this.props.doc.data;
+    const { title } = this.props.doc.data;
     return (
       <ContentWithSidebarController
         {...this.props}
@@ -37,6 +35,15 @@ class DocsTemplate extends React.Component {
     );
   }
 }
+
+DocsTemplate.propTypes = {
+  children: PropTypes.array,
+  doc: PropTypes.shape({
+    data: PropTypes.object
+  }),
+  location: PropTypes.object,
+  sidebarContent: PropTypes.array
+};
 
 export default withRouter(
   withRouteData(({ doc, sidebarContent, sidebarNestedList, ...rest }) => (

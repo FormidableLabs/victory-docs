@@ -20,7 +20,7 @@ class Icon extends React.Component {
         width: "15px",
         height: "15px",
         display: "inline-block",
-        verticalAlign: "-4px",
+        verticalAlign: "-4px"
       }
     };
   }
@@ -32,30 +32,45 @@ class Icon extends React.Component {
         return (
           <span
             {...otherProps}
-            style={{...styles.base, ...style, background: `url("${IconBack}")`}}
+            style={{
+              ...styles.base,
+              ...style,
+              background: `url("${IconBack}")`
+            }}
           />
         );
       case "coming-soon":
         return (
           <span
             {...otherProps}
-            style={{...styles.base, ...style, background: `url("${IconBarrier}")`}}
+            style={{
+              ...styles.base,
+              ...style,
+              background: `url("${IconBarrier}")`
+            }}
           />
         );
       case "external-link":
         return (
           <span
             {...otherProps}
-            style={{...styles.base, ...style, background: `url("${IconExternalLink}")`}}
+            style={{
+              ...styles.base,
+              ...style,
+              background: `url("${IconExternalLink}")`
+            }}
           />
         );
       case "internal-link":
         return (
           <span
             {...otherProps}
-            style={{...styles.base, ...style, background: `url("${IconInternalLink}")`}}
-          >
-          </span>
+            style={{
+              ...styles.base,
+              ...style,
+              background: `url("${IconInternalLink}")`
+            }}
+          />
         );
       default:
         return <span />;
@@ -69,7 +84,8 @@ Icon.propTypes = {
     "coming-soon",
     "external-link",
     "internal-link"
-  ])
+  ]),
+  style: PropTypes.object
 };
 
 Icon.defaultProps = {

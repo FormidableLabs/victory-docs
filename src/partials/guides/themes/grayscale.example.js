@@ -2,6 +2,7 @@
   all one-line star comments starting with "eslint", "global", or "NOTE"
   will be removed before displaying this document to the user
 */
+// eslint-disable-next-line no-unused-vars
 /* global React, ReactDOM, DemoComponent, mountNode, assign */
 
 /*

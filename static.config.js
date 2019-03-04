@@ -14,7 +14,7 @@ import {
   getCommonProps
 } from "./static-config-helpers/md-data-transforms";
 import { generateGuideRoutes } from "./static-config-parts/guide-routes";
-const {ServerStyleSheet} = require('styled-components');
+const { ServerStyleSheet } = require("styled-components");
 
 chokidar.watch("content").on("all", () => reloadRoutes());
 
@@ -27,6 +27,7 @@ export default {
     devDist: "tmp/dev-server", // The development scratch directory.
     public: "public" // The public directory (files copied to dist during build)
   },
+  // eslint-disable-next-line max-statements
   getRoutes: async () => {
     const trueDocs = await getDocs();
     const faq = await getFaq();
@@ -41,13 +42,14 @@ export default {
     const homeIntro = _.find(introduction, intro => intro.data.id === 0);
     // only one file here, use a selector-style fn if that ever changes
     const faqIntro = faq[0];
+    const commonPropsIntro = commonProps[0];
 
     const orderById = items => _.orderBy(items, ["data.id"], ["asc"]);
     const allSidebarItems = [
       ...introduction,
-      faq[0],
+      faqIntro,
       ...guides,
-      ...commonProps,
+      commonPropsIntro,
       ...trueDocs
     ];
     const sidebarContent = allSidebarItems.reduce((av, cv, i, arr) => {
@@ -69,19 +71,13 @@ export default {
     // about up front and less tangible to modify later
     const docSubroutes = commonProps.concat(introduction, trueDocs);
 
-    const convertToSidebarArray = (content) => {
-      const {
-        introduction,
-        support,
-        guides,
-        charts,
-        containers,
-        more
-      } = content;
+    const convertToSidebarArray = content => {
+      const { support, charts, containers, more } = content;
       return [
         ...introduction,
         ...support,
         ...guides,
+        commonPropsIntro,
         ...charts,
         ...containers,
         ...more
@@ -136,6 +132,14 @@ export default {
         })
       },
       {
+        path: "docs/common-props",
+        component: "src/containers/doc",
+        getData: async () => ({
+          doc: commonPropsIntro,
+          sidebarContent: sbContent
+        })
+      },
+      {
         path: "/gallery",
         component: "src/pages/gallery",
         getData: async () => ({
@@ -159,9 +163,9 @@ export default {
     // you can stick whatever you want here, but it's mutable at build-time, not dynamic
     // at run-time -- key difference!
     meta.styleTags = sheet.getStyleElement();
-    return html
+    return html;
   },
-  Document: Document,
+  Document,
   // turn this on if it helps your local development workflow for build testing
   bundleAnalyzer: false,
   webpack: staticWebpackConfig

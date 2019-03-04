@@ -2,9 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import { assign } from "lodash";
-import { withRouteData, Link } from "react-static";
+import { Link } from "react-static";
 
-import Footer from "../partials/footer";
 import PureRender from "../partials/guides/themes/pure-render";
 import DemoComponent from "../partials/guides/themes/demo-component";
 

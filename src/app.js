@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { Router, Route, Link, withRouter } from "react-static";
+import PropTypes from "prop-types";
+import { Router, Route, withRouter } from "react-static";
 import VictoryHeader from "./partials/header";
+/* "react-static-routes" is generated at runtime https://github.com/nozzle/react-static/issues/52 */
+// eslint-disable-next-line import/no-unresolved
 import Routes from "react-static-routes";
 import Analytics from "./google-analytics";
 import "./app.css";
@@ -8,30 +11,43 @@ import "./app.css";
 // https://github.com/PrismJS/prism-themes
 // Note that themes also manage code block dimensions -- currently we don't use any theme, unclear if the current
 // look is by design, though. To bring in a theme, uncomment out the line below:
-//import "prismjs/themes/prism-coy.css"
+// import "prismjs/themes/prism-coy.css"
 
-const scrollContent = async({hash}, contentPaneClass = ".Page-content") => {
-  document.querySelector(contentPaneClass + " " + hash).scrollIntoView();
+const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
+  const item = document.querySelector(contentPaneClass + " " + hash);
+  if (item) {
+    item.scrollIntoView();
+  }
 };
 
 const scrollSidebar = async (location, activeItemClass = ".is-active") => {
-  document.querySelector(activeItemClass).scrollIntoView();
+  const item = document.querySelector(activeItemClass);
+  if (item) {
+    item.scrollIntoView();
+  }
 };
 
-const checkScrollRoutes = (pathname, routes = ['docs', 'faq', 'guides']) =>  routes.some(r => pathname.includes(r));
+const checkScrollRoutes = (pathname, routes = ["docs", "faq", "guides"]) =>
+  routes.some(r => pathname.includes(r));
 
 class ScrollToTop extends Component {
   componentDidMount() {
-    if (typeof window !== "undefined" && checkScrollRoutes(this.props.location.pathname)) {
-        scrollContent(this.props.location);
-        scrollSidebar(this.props.location);
+    if (
+      typeof window !== "undefined" &&
+      checkScrollRoutes(this.props.location.pathname)
+    ) {
+      scrollContent(this.props.location);
+      scrollSidebar(this.props.location);
     }
   }
 
   componentDidUpdate() {
-    if (typeof window !== "undefined" && checkScrollRoutes(this.props.location.pathname)) {
-     scrollContent(this.props.location);
-     scrollSidebar(this.props.location);
+    if (
+      typeof window !== "undefined" &&
+      checkScrollRoutes(this.props.location.pathname)
+    ) {
+      scrollContent(this.props.location);
+      scrollSidebar(this.props.location);
     }
   }
 
@@ -42,20 +58,31 @@ class ScrollToTop extends Component {
   }
 }
 
+ScrollToTop.propTypes = {
+  children: PropTypes.array,
+  location: PropTypes.object
+};
+
 const WrappedScrollToTop = withRouter(ScrollToTop);
 
+// eslint-disable-next-line react/no-multi-comp
 const RenderRoutes = ({ getComponentForPath }) => (
   // use a catch all route to receive the pathname
   <Route
     path="*"
     render={props => {
       // The pathname is used to retrieve the component for that path
-      const Comp = getComponentForPath(props.location.pathname);
+      const comp = getComponentForPath(props.location.pathname);
       // The component is rendered w/ the possibility of remaining mounted if it passes component reconciliation
-      return Comp && Comp(props);
+      return comp && comp(props);
     }}
   />
 );
+
+RenderRoutes.propTypes = {
+  getComponentForPath: PropTypes.func,
+  location: PropTypes.object
+};
 
 let history;
 if (typeof window !== "undefined") {
@@ -63,12 +90,13 @@ if (typeof window !== "undefined") {
   history = createBrowserHistory();
 }
 
+// eslint-disable-next-line react/no-multi-comp
 const App = () => (
   <Router
     showErrorsInProduction={false}
     autoScrollToHash={false}
     scrollToHashDuration={100}
-    autoScrollToTop={true}
+    autoScrollToTop
     history={history}
   >
     <WrappedScrollToTop>

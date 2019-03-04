@@ -146,7 +146,7 @@ class WithPlayground extends React.Component {
   // this is an extremely inefficient way of doing things, the #1 way we can
   // improve doc site perf is by optimizing how we render playgrounds
   componentDidUpdate() {
-      this.renderPlaygrounds();
+    this.renderPlaygrounds();
   }
 
   mountContainer(source, noRender) {

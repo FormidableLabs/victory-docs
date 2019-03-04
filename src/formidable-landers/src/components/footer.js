@@ -24,13 +24,13 @@ class Footer extends React.Component {
       <footer className={classes}>
         <div className="formidableFooter-container">
           {this.props.children}
-            <a
-              className="formidableFooter-logo-link"
-              href="https://formidable.com/"
-              target="_blank"
-            >
-              <img className="formidableFooter-logo"  src={LOGO}/>
-            </a>
+          <a
+            className="formidableFooter-logo-link"
+            href="https://formidable.com/"
+            target="_blank"
+          >
+            <img className="formidableFooter-logo" src={LOGO} />
+          </a>
           {this.props.trademark}
         </div>
       </footer>
@@ -49,15 +49,11 @@ const defaultFooterChildren = (
   <div className="default">
     <a href="https://formidable.com/contact/">Contact</a>
     <a href="https://formidable.com/careers/">Careers</a>
-    <a
-      href="https://twitter.com/FormidableLabs"
-    >
-      <img src={LOGO_TWITTER}/>
+    <a href="https://twitter.com/FormidableLabs">
+      <img src={LOGO_TWITTER} />
     </a>
-    <a
-      href="https://github.com/FormidableLabs/"
-    >
-      <img src={LOGO_GITHUB}/>
+    <a href="https://github.com/FormidableLabs/">
+      <img src={LOGO_GITHUB} />
     </a>
   </div>
 );

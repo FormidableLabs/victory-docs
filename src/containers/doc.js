@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { withRouteData, withRouter } from "react-static";
 import Helmet from "react-helmet";
 import config from "../../static-config-parts/site-data";
@@ -35,8 +36,18 @@ class DocsTemplate extends React.Component {
   }
 }
 
+DocsTemplate.propTypes = {
+  children: PropTypes.array,
+  doc: PropTypes.shape({
+    data: PropTypes.object,
+    content: PropTypes.string
+  }),
+  location: PropTypes.object,
+  sidebarContent: PropTypes.array
+};
+
 export default withRouter(
-  withRouteData(({ doc, sidebarContent, sidebarNestedList, ...rest }) => (
+  withRouteData(({ doc, sidebarContent, ...rest }) => (
     <DocsTemplate doc={doc} sidebarContent={sidebarContent} {...rest} />
   ))
 );

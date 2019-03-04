@@ -28,7 +28,7 @@ const staticWebpackConfig = (config, { defaultLoaders, stage }) => {
               require("postcss-browser-reporter"),
               require("postcss-reporter"),
               require("postcss-preset-env"),
-              require('postcss-focus'),
+              require("postcss-focus"),
               require("postcss-custom-media")({ stage: 0 }),
               require("postcss-url")({ url: "inline", encodeType: "base64" }),
               autoprefixer({

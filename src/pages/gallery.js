@@ -63,7 +63,6 @@ class Gallery extends React.Component {
     return (
       <div className="Page-content without-content-sidebar">
         <article className="Article Article--noBottom">
-          <h1 className="u-noMargin">Gallery</h1>
           <div className="Gallery">{previews}</div>
         </article>
         <Footer />
@@ -73,7 +72,8 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  gallery: PropTypes.object
 };
 
 Gallery.defaultProps = {
@@ -83,23 +83,3 @@ Gallery.defaultProps = {
 export default withRouteData(({ gallery, location }) => (
   <Gallery gallery={gallery} location={location} />
 ));
-
-// this query returns only gallery md
-// export const query = graphql`
-//   query GalleryQuery {
-//     allMarkdownRemark(filter: { fields: { type: { eq: "gallery" } } }) {
-//       edges {
-//         node {
-//           fields {
-//             slug
-//             raw
-//           }
-//           frontmatter {
-//             id
-//             title
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
