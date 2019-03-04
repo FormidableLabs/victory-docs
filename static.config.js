@@ -15,6 +15,7 @@ import {
 } from "./static-config-helpers/md-data-transforms";
 import { generateGuideRoutes } from "./static-config-parts/guide-routes";
 const { ServerStyleSheet } = require("styled-components");
+const { stage, landerBasePath } = require("./static-config-parts/constants");
 
 chokidar.watch("content").on("all", () => reloadRoutes());
 
@@ -23,16 +24,16 @@ export default {
   paths: {
     root: process.cwd(), // The root of your project. Don't change this unless you know what you're doing.
     src: "src", // The source directory. Must include an index.js entry file.
-    dist: "dist", // The production output directory.
+    // See app.js for how stage is used to make client-side routing resolve correctly by stage.
+    dist: stage === "staging" ? `dist/${landerBasePath}` : "dist", // The production output directory.
     devDist: "tmp/dev-server", // The development scratch directory.
     public: "public" // The public directory (files copied to dist during build)
   },
   generateSourceMaps: false,
   inlineCss: true,
-  basePath: "open-source/victory",
-  //TODO: disable for ease of local development once prod build is confirmed working as expected
-  devBasePath: "open-source/victory",
-  stagingBasePath: "open-source/victory",
+  basePath: landerBasePath,
+  stagingBasePath: landerBasePath,
+  devBasePath: "",
   // eslint-disable-next-line max-statements
   getRoutes: async () => {
     const trueDocs = await getDocs();
