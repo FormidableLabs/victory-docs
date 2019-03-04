@@ -73,7 +73,7 @@ class Gallery extends React.Component {
 
 Gallery.propTypes = {
   data: PropTypes.object,
-  gallery: PropTypes.object
+  gallery: PropTypes.array
 };
 
 Gallery.defaultProps = {

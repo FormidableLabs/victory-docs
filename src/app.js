@@ -85,9 +85,11 @@ RenderRoutes.propTypes = {
 };
 
 let history;
+
 if (typeof window !== "undefined") {
   const createBrowserHistory = require("history/createBrowserHistory").default;
-  history = createBrowserHistory();
+  const {stage, landerBasePath} = require("../static-config-parts/constants");
+  history = stage === "development" ?  createBrowserHistory() : createBrowserHistory({ basename: `/${landerBasePath}`});
 }
 
 // eslint-disable-next-line react/no-multi-comp
