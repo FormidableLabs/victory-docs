@@ -9,11 +9,6 @@ export default ({ Html, Head, Body, children, renderMeta }) => (
       <link rel="shortcut icon" href="../static/logos/favicon.ico" />
       {/* Fonts */}
       <link
-        href="https://formidable.com/open-source/fonts.css"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link
         href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i"
         rel="stylesheet"
       />
