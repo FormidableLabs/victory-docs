@@ -66,23 +66,23 @@ const DemoComponent = ({ theme }) => {
           theme={theme}
           height={250}
           width={250}
-          domainPadding={{ x: 50 }}
+          domainPadding={{ x: 40 }}
         >
-          <VictoryAxis tickValues={["A", "B", "C"]} />
+          <VictoryAxis tickFormat={["A", "B", "C"]} />
           <VictoryAxis tickCount={3} dependentAxis />
           <VictoryStack>
             <VictoryBar
               data={[
                 {
-                  x: "apples",
+                  x: "A",
                   y: 1
                 },
                 {
-                  x: "bananas",
+                  x: "B",
                   y: 3
                 },
                 {
-                  x: "oranges",
+                  x: "C",
                   y: 3
                 }
               ]}
@@ -90,15 +90,15 @@ const DemoComponent = ({ theme }) => {
             <VictoryBar
               data={[
                 {
-                  x: "apples",
+                  x: "A",
                   y: 2
                 },
                 {
-                  x: "bananas",
+                  x: "B",
                   y: 1
                 },
                 {
-                  x: "oranges",
+                  x: "C",
                   y: 3
                 }
               ]}
@@ -106,15 +106,15 @@ const DemoComponent = ({ theme }) => {
             <VictoryBar
               data={[
                 {
-                  x: "apples",
+                  x: "A",
                   y: 3
                 },
                 {
-                  x: "bananas",
+                  x: "B",
                   y: 1
                 },
                 {
-                  x: "oranges",
+                  x: "C",
                   y: 1
                 }
               ]}

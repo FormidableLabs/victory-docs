@@ -423,11 +423,16 @@ render() {
   - `datum` *object* the data point corresponding to this slice
   - `events` *object* events to attach to the rendered element
   - `index` *number* the index of this slice within the dataset
+  - `innerRadius` *number or function* the inner radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
+  - `padAngle` *number or function* the angular padding to add to the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
-  - `pathFunction` *function* a function that calculates the path of a given slice.
+  - `pathFunction` *function* a function that calculates the path of a given slice. (No longer supplied by `VictoryPie`. When this prop is supplied it will be called with `slice`)
+   - `radius` *number or function* the outer radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `slice` *object* an object specifying the startAngle, endAngle, padAngle, and data of the slice
+  - `sliceEndAngle` *number or function* the end angle the slice. When this prop is given as a function it will be called with `datum` and `active`.
+   - `sliceStartAngle` *number or function* the start angle the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `style` *object* the styles to apply to the rendered element
 
 

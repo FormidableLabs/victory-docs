@@ -96,14 +96,14 @@ The `axisValue` prop may be used instead of `axisAngle` to position the dependen
   theme={VictoryTheme.material}
 >
   {
-    ["intelligence", "strength", "speed", "stealth", "charisma"].map((d, i) => {
+     ["cat", "dog", "bird", "dog", "frog", "fish"].map((d, i) => {
       return (
         <VictoryPolarAxis dependentAxis
           key={i}
           label={d}
           labelPlacement="perpendicular"
           style={{ tickLabels: { fill: "none" } }}
-          axisValue={i}
+          axisValue={d}
         />
       );
     })
@@ -111,11 +111,11 @@ The `axisValue` prop may be used instead of `axisAngle` to position the dependen
   <VictoryBar
     style={{ data: { fill: "tomato", width: 25 } }}
     data={[
-      { x: 0, y: 10 },
-      { x: 1, y: 25 },
-      { x: 2, y: 40 },
-      { x: 3, y: 50 },
-      { x: 4, y: 50 }
+      { x: "cat", y: 10 },
+      { x: "dog", y: 25 },
+      { x: "bird", y: 40 },
+      { x: "frog", y: 50 },
+      { x: "fish", y: 50 }
     ]}
   />
 </VictoryChart>

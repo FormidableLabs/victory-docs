@@ -123,7 +123,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 ### cornerRadius
 
-`type: function || number || { top: number || function, bottom: number || function }`
+`type: function || number || { top, bottom, topLeft, topRight, bottomLeft, bottomRight }`
 
 The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`.
 
@@ -133,7 +133,7 @@ The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is
   domainPadding={{ x: 15 }}
 >
   <VictoryBar
-    cornerRadius={10}
+    cornerRadius={{ topLeft: (d) => d.x * 4 }}
     style={{
       data: {
         fill: "#c43a31",
