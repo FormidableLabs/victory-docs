@@ -55,6 +55,14 @@ Victory components can pass a `datum` prop to their label component. This can be
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
+### direction
+
+`type: "rtl" || "ltr" || "inherit"
+
+The `direction` prop determines which text direction to apply to the rendered `text` element
+
+*default:* `direction="inherit"`
+
 ### dx
 
 `type: string || number || function`
