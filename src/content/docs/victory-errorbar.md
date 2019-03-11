@@ -256,10 +256,8 @@ height={400}
 
 `VictoryErrorBar` uses the standard `horizontal` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
 
-```playground
-<VictoryErrorBar horizontal
-  data={sampleErrorData}
-/>
+```jsx
+horizontal={true}
 ```
 
 ### labelComponent
