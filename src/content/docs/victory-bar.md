@@ -291,7 +291,7 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 ```playground
 <VictoryChart
   theme={VictoryTheme.material}
-  domainPadding={{ y: 10 }}
+  domainPadding={{ x: 10 }}
 >
   <VictoryBar horizontal
     style={{

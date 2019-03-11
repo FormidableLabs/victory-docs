@@ -248,6 +248,18 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
+### horizontal
+
+`type: boolean`
+
+`VictoryCandlestick` uses the standard `horizontal` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
+
+```playground
+<VictoryCandlestick horizontal
+  data={sampleDataDates}
+/>
+```
+
 ### high
 
 `type: string || integer || array[string] || function`

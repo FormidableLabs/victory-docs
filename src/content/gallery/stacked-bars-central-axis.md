@@ -35,7 +35,7 @@ class App extends React.Component {
         <VictoryStack horizontal
           standalone={false}
           /* setting a symmetric domain makes it much easier to center the axis  */
-          domain={{ x: [-60, 60] }}
+          domain={{ y: [-60, 60] }}
           padding={padding}
           height={height}
           width={width}

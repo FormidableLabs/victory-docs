@@ -261,7 +261,8 @@ height={400}
 
 `type: boolean`
 
-The `horizontal` prop determines whether the bars of any `VictoryBar` children supplied to `VictoryGroup` will be laid out vertically or horizontally. The bars will be vertical if this prop is false or unspecified, or horizontal if the prop is set to true.
+The `horizontal` prop determines whether the children supplied to `VictoryGroup` will be laid out vertically or horizontally. [Read about the horizontal prop in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
+
 
 ### labels
 

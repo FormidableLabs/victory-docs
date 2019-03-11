@@ -136,6 +136,7 @@ Victory container components all support `title` and `desc` props, which are int
 Container components are supplied with the following props:
   - `domain`
   - `height`
+  - `horizontal`
   - `origin` (for polar charts)
   - `padding`
   - `polar`
@@ -143,6 +144,7 @@ Container components are supplied with the following props:
   - `standalone`
   - `style`
   - `theme`
+  - `width`
 
 *default:* `containerComponent={<VictoryContainer/>}`
 

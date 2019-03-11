@@ -87,7 +87,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 The `data` prop for `VictoryBoxPlot` may be given in a a variety of formats:
 
 - As an array of standard data objects with values specified for `x` and `y`
-  When given in this format, repeated values for either `x `or `y` will be used for calculating summary statistics
+  When given in this format, repeated values for `x` will be used for calculating summary statistics
 
 ```jsx
 data={[
@@ -101,7 +101,7 @@ data={[
 ]}
 ```
 
-- As an array of data objects where _either_ `x` _or_ `y` is given as an array of values
+- As an array of data objects where `y` is given as an array of values
   When given in this format, array values are used for calculating summary statistics.
 
 ```jsx
@@ -231,37 +231,33 @@ height={400}
 
 The horizontal prop determines whether boxes will be laid vertically or horizontally. The boxes will be vertical if this prop is false or unspecified, or horizontal if the prop is set to true.
 
-*Note: Data should be flipped when `horizontal` is true*
-
 ```playground
-<VictoryChart domainPadding={20}>
-  <VictoryBoxPlot horizontal
-    data={[
-      { y: 1, x: [1, 2, 3, 5] },
-      { y: 2, x: [3, 2, 8, 10] },
-      { y: 3, x: [2, 8, 6, 5] },
-      { y: 4, x: [1, 3, 2, 9] }
-    ]}
-  />
-</VictoryChart>
+<VictoryBoxPlot horizontal
+  data={[
+    { x: 1, y: [1, 2, 3, 5] },
+    { x: 2, y: [3, 2, 8, 10] },
+    { x: 3, y: [2, 8, 6, 5] },
+    { x: 4, y: [1, 3, 2, 9] }
+  ]}
+/>
 ```
 
 ### labelOrientation
 
-`type: "top" || "bottom" || "left" || "right"`
+`type: "top" || "bottom" || "left" || "right"` || { min, max, median, q1, q3 }
 
 The `labelOrientation` prop determines where labels are placed relative to their corresponding data. If this prop is not set, it will be set to "top" for horizontal charts, and "right" for vertical charts.
 
 ```playground
-<VictoryChart domainPadding={20}>
-  <VictoryBoxPlot horizontal
+<VictoryChart horizontal domainPadding={20}>
+  <VictoryBoxPlot
     labels
     labelOrientation="top"
     data={[
-      { y: 1, x: [1, 2, 3, 5] },
-      { y: 2, x: [3, 2, 8, 10] },
-      { y: 3, x: [2, 8, 6, 5] },
-      { y: 4, x: [1, 3, 2, 9] }
+      { x: 1, y: [1, 2, 3, 5] },
+      { x: 2, y: [3, 2, 8, 10] },
+      { x: 3, y: [2, 8, 6, 5] },
+      { x: 4, y: [1, 3, 2, 9] }
     ]}
   />
 </VictoryChart>

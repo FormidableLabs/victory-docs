@@ -219,6 +219,30 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
+### horizontal
+
+`type: boolean`
+
+The horizontal prop determines whether data will be plotted horizontally. When this prop is set to true, the independent variable will be plotted on the y axis and the dependent variable will be plotted on the x axis.
+
+*default:* horizontal={false}
+
+```playground
+<VictoryChart horizontal
+  domainPadding={{ x: 8 }}
+>
+  <VictoryBar
+    style={{
+      data: { fill: "#c43a31" }
+    }}
+    data={sampleData}
+  />
+  <VictoryScatter
+    data={sampleData}
+  />
+</VictoryChart>
+```
+
 ### innerRadius
 
 `type: number`
