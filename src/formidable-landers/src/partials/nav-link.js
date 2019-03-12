@@ -13,7 +13,6 @@ export default class NavLink extends Component {
     className: PropTypes.string,
     current: PropTypes.string.isRequired,
     item: PropTypes.object.isRequired,
-    linkRenderer: PropTypes.func,
     onClick: PropTypes.func
   };
 
@@ -25,9 +24,7 @@ export default class NavLink extends Component {
   handleLinkRenderer(props) {
     const { className, item, onClick, activeLink } = props;
     const activeClass = activeLink(props) ? "active" : "inactive";
-    return props.linkRenderer ? (
-      props.linkRenderer({ ...props, activeClass })
-    ) : (
+    return (
       <a
         href={item.path}
         className={`${className} ${activeClass}`}

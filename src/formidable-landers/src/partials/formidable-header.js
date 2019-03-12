@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import NavLink from "./nav-link";
 
+const siteRoot = "https://formidable.com";
 const navItems = [
-  { path: "/about/", title: "What We Do" },
-  { path: "/work/", title: "Our Work" },
-  { path: "/careers/", title: "Careers" },
-  { path: "/open-source/", title: "Open Source" },
-  { path: "/blog/", title: "Journal" },
-  { path: "/contact/", title: "Contact" }
-];
+  { path: "/about", title: "What We Do" },
+  { path: "/work", title: "Our Work" },
+  { path: "/careers", title: "Careers" },
+  { path: "/open-source", title: "Open Source" },
+  { path: "/blog", title: "Journal" },
+  { path: "/contact", title: "Contact" }
+].map(ni => ({...ni, path: `${siteRoot}${ni.path}`}));
+
 const ESCSAPE_KEY_CODE = 27;
 // eslint-disable-next-line max-len
 const LOGO_PATH =
@@ -21,7 +23,6 @@ export default class Header extends Component {
   static propTypes = {
     activeLink: PropTypes.func,
     isOpen: PropTypes.bool,
-    linkRenderer: PropTypes.func,
     location: PropTypes.object,
     onToggleMenu: PropTypes.func,
     preventSamePathReload: PropTypes.bool
@@ -114,8 +115,7 @@ export default class Header extends Component {
         <div className={`site-header isOpen-${this.props.isOpen}`}>
           {/* Site-Header: Logo */}
           <a
-            onClick={this.handleAnchorClick}
-            href="/"
+            href={siteRoot}
             className="site-header__logo"
             title="Formidable"
           >
@@ -137,7 +137,6 @@ export default class Header extends Component {
                 item={item}
                 current={this.props.location.pathname}
                 onClick={this.handleAnchorClick}
-                linkRenderer={this.props.linkRenderer}
                 activeLink={this.props.activeLink}
                 key={i}
               />
@@ -168,7 +167,6 @@ export default class Header extends Component {
                   onClick={this.handleToggleMenu}
                   item={item}
                   current={this.props.location.pathname}
-                  linkRenderer={this.props.linkRenderer}
                   activeLink={this.props.activeLink}
                   key={i}
                 />

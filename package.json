@@ -76,6 +76,7 @@
     "postcss-reporter": "^6.0.0",
     "postcss-svgo": "^4.0.1",
     "postcss-url": "^8.0.0",
+    "puppeteer": "^1.13.0",
     "raw-loader": "0.5.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
