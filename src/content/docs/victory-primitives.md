@@ -447,7 +447,7 @@ render() {
   - `innerRadius` *number or function* the inner radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `padAngle` *number or function* the angular padding to add to the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
-  - `pathFunction` *function* a function that calculates the path of a given slice.
+  - `pathFunction` *function* a function that calculates the path of a given slice. When given, this prop will be called with the `slice` object
    - `radius` *number or function* the outer radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
@@ -460,7 +460,7 @@ render() {
 
 ### Voronoi
 
-  [VictoryVoronoi][] uses `Voronoi` to render voronoi polygons. `Voronoi` renders either a `<Path>` element corresponding to a voronoi polygon, or a `<Circle/>` clipped with a `<ClipPath>` defined by the path of the polygon. [View the source][voronoi]
+[VictoryVoronoi][] uses `Voronoi` to render voronoi polygons. `Voronoi` renders either a `<Path>` element corresponding to a voronoi polygon, or a `<Circle/>` clipped with a `<ClipPath>` defined by the path of the polygon. [View the source][voronoi]
 
 **Props**
 
@@ -486,7 +486,7 @@ render() {
   - `x` *number* the x coordinate of the data point
   - `y` *number* the y coordinate of the data point
 
-  ### Whisker
+### Whisker
 
 [VictoryBoxPlot][] uses the `Whisker` component to draw whiskers for the minimum and maximum values in a box plot. `Whisker` renders a group of `<Line/>` elements. [View the source][whisker]
 
