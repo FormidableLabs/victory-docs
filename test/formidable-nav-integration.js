@@ -1,4 +1,5 @@
 const puppeteer = require("puppeteer");
+const path = require("path");
 
 try {
   (async () => {
@@ -11,7 +12,8 @@ try {
       const l = links[i];
       await page.click(`[href='https://formidable.com/${l}']`);
       await page.waitFor(2500);
-      await page.screenshot({path: `screenshots/${l}-formidable.png`, type: "png"});
+      await page.screenshot({path:  path.basename(process.cwd()) === "test" ?
+          `screenshots/${l}.png`: `test/screenshots/${l}-formidable.png`, type: "png"});
       await page.goBack();
       console.log(`See resolved route screenshot at screenshots/${l}-formidable`);
     }

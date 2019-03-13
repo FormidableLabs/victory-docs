@@ -21,8 +21,10 @@ inline or doing url parsing, as the production output root will be "open-source/
 ## Want to see if you're ready to :shipit:?
 To build the staging build output and serve it with the canonical path it'll have when built as a lander for formidable.com:
 ```bash
-yarn stage
-yarn serve
+#builds and serves staging content at localhost:3000/open-source/victory
+yarn stage-and-serve
+# Runs integration smoke tests and generates screenshots for human sanity-checking
+yarn test-local 
 ```
 This step is important for validating that both the `basePath` used by the static HTML output and the `basename` used
 by the client-side router are working as expected. This is also where you'll want to validate that there are no hardcoded, 

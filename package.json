@@ -112,6 +112,8 @@
     "serve": "serve dist -p 3000",
     "prettier": "npx prettier --write '**/*.js'",
     "lint": "eslint 'src/**/*.js' 'static-config-*/*.js' 'src/**/*.js'static.config.js",
-    "lint:md": "remark ."
+    "lint:md": "remark .",
+    "stage-and-serve": "yarn stage && yarn serve",
+    "test-local": "node test/formidable-nav-integration.js && node test/victory-nav-integration.js"
   }
 }
