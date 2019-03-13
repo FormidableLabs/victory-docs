@@ -183,6 +183,7 @@ render() {
   - `endAngle` *number* the end angle of the arc given in degrees
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
+  - `id` *string or number* an id to apply to the rendered component
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
   - `r` *number* the radius of the arc
   - `role` *string* the aria role to assign to the element
@@ -190,6 +191,7 @@ render() {
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `startAngle` *number* the start angle of the arc given in degrees
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
 
 ### Area
 
@@ -202,6 +204,7 @@ render() {
   - `data` *array* the entire dataset used to define the area
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
+  - `id` *string or number* an id to apply to the rendered component
   - `interpolation` *string* the interpolation to use when calculating a path
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `polar` *boolean* a flag specifying whether the component is part of a polar chart
@@ -210,6 +213,7 @@ render() {
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
 
 ### LineSegment
 
@@ -222,11 +226,13 @@ render() {
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this line
   - `events` *object* events to attach to the rendered element
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this line within the dataset
   - `lineComponent` *element* the rendered line element  *default* `<Line/>`
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `x1` *number* the x coordinate of the beginning of the line
   - `x2` *number* the x coordinate of the end of the line
   - `y1` *number* the y coordinate of the beginning of the line
@@ -247,6 +253,7 @@ render() {
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this bar
   - `events` *object* events to attach to the rendered element
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this bar within the dataset
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
@@ -255,6 +262,7 @@ render() {
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `width` *number* the width of parent chart (used to calculate default bar width `style.width` is not supplied)
   - `x` *number* the x coordinate of the top of the bar
   - `y0` *number* the y coordinate of the baseline of the bar
@@ -272,10 +280,12 @@ render() {
   - `className` *string* the class name that will be applied to the rendered element
   - `events` *object* events to attach to the rendered element
   - `height` *number* the height of the `<rect/>` element
+  - `id` *string or number* an id to apply to the rendered component
   - `rectComponent` *element* the rendered path element  *default* `<Rect/>`
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered element
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `width` *number* the width of the `<rect/>` element
   - `x` *number* the x coordinate of the upper-left corner of the `<rect/>` element
   - `y` *number* the y coordinate of the upper-left corner of the `<rect/>` element
@@ -296,6 +306,7 @@ render() {
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
   - `high` *number* the y coordinate of the high value
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this candle within the dataset
   - `lineComponent` *element* the rendered line element  *default* `<Line/>`
   - `low` *number* the y coordinate of the low value
@@ -305,6 +316,7 @@ render() {
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `width` *number* the width of parent chart (used to calculate default candle width `style.width` is not supplied)
   - `widthStrokeWidth` *number* the stroke width of the candle wick. (style.strokeWidth will be used when this value is not given)
   - `x` *number* the x coordinate of the candle
@@ -320,6 +332,7 @@ render() {
   - `data` *array* the entire dataset used to define the curve
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
+  - `id` *string or number* an id to apply to the rendered component
   - `interpolation` *string* the interpolation to use when calculating a path
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
@@ -328,6 +341,7 @@ render() {
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
 
 ### ErrorBar
 
@@ -344,6 +358,7 @@ render() {
   - `errorY` *number, array, or boolean* errors in the y dimension.
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this error bar within the dataset
   - `lineComponent` *element* the rendered line element  *default* `<Line/>`
   - `origin` *object* the svg coordinates of the center point of a polar chart
@@ -352,6 +367,7 @@ render() {
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `x` *number* the x coordinate of the center of the error bar
   - `y` *number* the y coordinate of the center of the error bar
 
@@ -371,6 +387,7 @@ render() {
   - `dy` *number* offset in the y dimension.
   - `events` *object* events to attach to the rendered element
   - `height` *number* the height of the flyout
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this flyout within the dataset
   - `orientation` *"top", "bottom", "left", "right"*
   - `origin` *object* the svg coordinates of the center point of a polar chart
@@ -381,6 +398,7 @@ render() {
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered elements
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `width` *number* the width of the flyout
   - `x` *number* the x coordinate of data point associated with this flyout
   - `y` *number* the y coordinate of data point associated with this flyout
@@ -397,6 +415,7 @@ render() {
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this point
   - `events` *object* events to attach to the rendered element
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this point within the dataset
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
@@ -407,6 +426,7 @@ render() {
   - `size` *number* the size of the point
   - `style` *object* the styles to apply to the rendered element
   - `symbol` *"circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp"* which symbol the point should render
+  - `transform` *string* a transform that will be supplied to elements this component renders
   - `x` *number* the x coordinate of the center of the point
   - `y` *number* the y coordinate of the center of the point
 
@@ -422,11 +442,12 @@ render() {
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this slice
   - `events` *object* events to attach to the rendered element
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this slice within the dataset
   - `innerRadius` *number or function* the inner radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `padAngle` *number or function* the angular padding to add to the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
-  - `pathFunction` *function* a function that calculates the path of a given slice. (No longer supplied by `VictoryPie`. When this prop is supplied it will be called with `slice`)
+  - `pathFunction` *function* a function that calculates the path of a given slice.
    - `radius` *number or function* the outer radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
@@ -434,6 +455,7 @@ render() {
   - `sliceEndAngle` *number or function* the end angle the slice. When this prop is given as a function it will be called with `datum` and `active`.
    - `sliceStartAngle` *number or function* the start angle the slice. When this prop is given as a function it will be called with `datum` and `active`.
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders
 
 
 ### Voronoi
@@ -450,6 +472,7 @@ render() {
   - `datum` *object* the data point corresponding to this voronoi polygon
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the rendered group element  *default* `<g/>`
+  - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this voronoi polygon within the dataset
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
@@ -459,6 +482,7 @@ render() {
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `size` *number* the maximum size of the voronoi polygon
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders.
   - `x` *number* the x coordinate of the data point
   - `y` *number* the y coordinate of the data point
 
@@ -472,12 +496,15 @@ render() {
   - `className` *string* the class name that will be applied to the rendered element
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the rendered group element  *default* `<g/>`
+  - `id` *string or number* an id to apply to the rendered component
   - `lineComponent` *element* the rendered line element  *default* `<Line/>`
   - `majorWhisker` *object* an object with values `x1`, `x2`, `y1`, `y2` describing the major whisker line
   - `minorWhisker` *object* an object with values `x1`, `x2`, `y1`, `y2` describing the minor whisker line
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered element
   - `style` *object* the styles to apply to the rendered element
+  - `transform` *string* a transform that will be supplied to elements this component renders.
+
 
 
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container

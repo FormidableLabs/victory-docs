@@ -8,7 +8,7 @@ slug: faq
 ---
 # Frequently Asked Questions (FAQ)
 
-Thanks for trying Victory! The FAQs below are based on issues and questions from our [support channel](https://gitter.im/FormidableLabs/victory). You can find more examples in [our gallery](https://formidable.com/open-source/victory/gallery). Can't find what you're looking for? Help us improve these docs by [opening an issue](https://github.com/FormidableLabs/victory-docs/issues/new).
+Thanks for trying Victory! The FAQs below are based on issues and questions from our [support channel](https://spectrum.chat/victory). You can find more examples in [our gallery](https://formidable.com/open-source/victory/gallery). Can't find what you're looking for? Help us improve these docs by [opening an issue](https://github.com/FormidableLabs/victory-docs/issues/new).
 
 ## Styles
 

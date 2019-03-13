@@ -16,6 +16,7 @@
 
 .Markdown ul li {
   list-style: disc;
+  margin-left: 2em;
 }
 
 .Markdown h1,
