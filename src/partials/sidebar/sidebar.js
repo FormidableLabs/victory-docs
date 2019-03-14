@@ -7,6 +7,8 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SidebarSearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
+import closeButton from "../../../static/x.svg";
+import menuButton from "../../../static/burger.svg";
 
 import styled from "styled-components";
 
@@ -26,6 +28,26 @@ const SubContentWrapper = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     display: ${props => (props.openSidebar ? "" : "none")};
+  }
+`;
+
+const CloseButton = styled.img`
+  cursor: pointer;
+  display: none;
+  padding: 0 0 20px 220px;
+
+  @media (max-width: 768px) {
+    display: ${props => (props.openSidebar ? "block" : "none")};
+  }
+`;
+
+const MenuButton = styled.img`
+  cursor: pointer;
+  display: none;
+  margin: -9px -11px;
+
+  @media (max-width: 768px) {
+    display: ${props => (props.openSidebar ? "none" : "block")};
   }
 `;
 
@@ -289,21 +311,29 @@ class Sidebar extends React.Component {
     this.openSidebar = this.openSidebar.bind(this);
   }
 
-  openSidebar(evt) {
+  openSidebar() {
     this.setState({ openSidebar: true });
   }
 
-  closeSidebar(evt) {
-    this.setState({ openSidebar: false, scrollTop: evt.target.scrollTop });
+  closeSidebar() {
+    this.setState({ openSidebar: false });
   }
 
   render() {
     return (
-      <ContentWrapper
-        openSidebar={this.state.openSidebar}
-        onMouseEnter={this.openSidebar}
-        onMouseLeave={this.closeSidebar}
-      >
+      <ContentWrapper openSidebar={this.state.openSidebar}>
+        <CloseButton
+          src={closeButton}
+          alt="X"
+          openSidebar={this.state.openSidebar}
+          onClick={this.closeSidebar}
+        />
+        <MenuButton
+          src={menuButton}
+          alt=">"
+          openSidebar={this.state.openSidebar}
+          onClick={this.openSidebar}
+        />
         <SubContentWrapper openSidebar={this.state.openSidebar}>
           <SidebarContent {...this.props} scrollTop={this.state.scrollTop} />
         </SubContentWrapper>
