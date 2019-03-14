@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter, Link, PrefetchWhenSeen } from "react-static";
+import { withRouter } from "react-static";
 import Footer from "../partials/footer";
-import Fuse from "fuse.js";
-import { maxBy, minBy, findIndex, includes, last, isEmpty } from "lodash";
-import Introduction from "../partials/sidebar/components/introduction";
-import Category from "../partials/sidebar/components/category";
-import SidebarSearchInput from "../partials/sidebar/components/search-input";
 import Sidebar from "../partials/sidebar/sidebar";
 import styled from "styled-components";
+import closeButton from "../../static/x.svg";
+import menuButton from "../../static/burger.svg";
 
 // ContentWithSidebarPage aka .new-docs-page
 const ContentWithSidebarPage = styled.main`
@@ -52,20 +49,87 @@ const ContentWithSidebarPage = styled.main`
   }
 `;
 
+const ContentWrapper = styled.div`
+  width: 280px;
+  background-color: #ebe7e4;
+  grid-area: nav;
+  overflow-y: auto;
+  padding: 1.375rem 1.375rem 3.75rem;
+
+  @media (max-width: 768px) {
+    width: ${props => (props.openSidebar ? "280px" : "20px")};
+  }
+`;
+
+const SubContentWrapper = styled.div`
+  height: 100vh;
+  @media (max-width: 768px) {
+    display: ${props => (props.openSidebar ? "" : "none")};
+  }
+`;
+
+const CloseButton = styled.img`
+  cursor: pointer;
+  display: none;
+  padding: 0 0 20px 220px;
+
+  @media (max-width: 768px) {
+    display: ${props => (props.openSidebar ? "block" : "none")};
+  }
+`;
+
+const MenuButton = styled.img`
+  cursor: pointer;
+  display: none;
+  margin: -9px -11px;
+
+  @media (max-width: 768px) {
+    display: ${props => (props.openSidebar ? "none" : "block")};
+  }
+`;
+
 // eslint-disable-next-line react/no-multi-comp
 class ContentWithSidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: this.props.content
+      content: this.props.content,
+      openSidebar: false
     };
+    this.closeSidebar = this.closeSidebar.bind(this);
+    this.openSidebar = this.openSidebar.bind(this);
   }
+
+  openSidebar() {
+    this.setState({ openSidebar: true });
+  }
+
+  closeSidebar() {
+    this.setState({ openSidebar: false });
+  }
+
   render() {
     const { children, sidebarContent } = this.props;
     return (
       <React.Fragment>
         <ContentWithSidebarPage className="new-docs-page">
-          <Sidebar {...this.props} content={sidebarContent} />
+          <ContentWrapper openSidebar={this.state.openSidebar}>
+            <CloseButton
+              src={closeButton}
+              alt="X"
+              openSidebar={this.state.openSidebar}
+              onClick={this.closeSidebar}
+            />
+            <MenuButton
+              src={menuButton}
+              alt=">"
+              openSidebar={this.state.openSidebar}
+              onClick={this.openSidebar}
+            />
+            <SubContentWrapper openSidebar={this.state.openSidebar}>
+              <Sidebar {...this.props} content={sidebarContent} />
+            </SubContentWrapper>
+          </ContentWrapper>
           <div className="new-docs-content">
             <div className="new-docs-article">
               {children}

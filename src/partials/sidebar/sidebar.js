@@ -7,49 +7,6 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SidebarSearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
-import closeButton from "../../../static/x.svg";
-import menuButton from "../../../static/burger.svg";
-
-import styled from "styled-components";
-
-const ContentWrapper = styled.div`
-  width: 280px;
-  background-color: #ebe7e4;
-  grid-area: nav;
-  overflow-y: auto;
-  padding: 1.375rem 1.375rem 3.75rem;
-
-  @media (max-width: 768px) {
-    width: ${props => (props.openSidebar ? "280px" : "20px")};
-  }
-`;
-
-const SubContentWrapper = styled.div`
-  height: 100vh;
-  @media (max-width: 768px) {
-    display: ${props => (props.openSidebar ? "" : "none")};
-  }
-`;
-
-const CloseButton = styled.img`
-  cursor: pointer;
-  display: none;
-  padding: 0 0 20px 220px;
-
-  @media (max-width: 768px) {
-    display: ${props => (props.openSidebar ? "block" : "none")};
-  }
-`;
-
-const MenuButton = styled.img`
-  cursor: pointer;
-  display: none;
-  margin: -9px -11px;
-
-  @media (max-width: 768px) {
-    display: ${props => (props.openSidebar ? "none" : "block")};
-  }
-`;
 
 // was gonna pass this but I'm leaning towards this being an internal detail since at the end of the day the proper
 // behavior is based on a bunch of magic strings for a non-configurable internal method
@@ -77,7 +34,7 @@ const getPathPrefix = item => {
   return `/${checkedCategory}/${item.slug}`;
 };
 
-class SidebarContent extends React.Component {
+class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -86,7 +43,6 @@ class SidebarContent extends React.Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
-
 
   handleInputChange(value, content) {
     const options = {
@@ -297,49 +253,9 @@ class SidebarContent extends React.Component {
   }
 }
 
-SidebarContent.propTypes = {
+Sidebar.propTypes = {
   content: PropTypes.array,
   location: PropTypes.object
 };
-
-// eslint-disable-next-line react/no-multi-comp
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { openSidebar: false };
-    this.closeSidebar = this.closeSidebar.bind(this);
-    this.openSidebar = this.openSidebar.bind(this);
-  }
-
-  openSidebar() {
-    this.setState({ openSidebar: true });
-  }
-
-  closeSidebar() {
-    this.setState({ openSidebar: false });
-  }
-
-  render() {
-    return (
-      <ContentWrapper openSidebar={this.state.openSidebar}>
-        <CloseButton
-          src={closeButton}
-          alt="X"
-          openSidebar={this.state.openSidebar}
-          onClick={this.closeSidebar}
-        />
-        <MenuButton
-          src={menuButton}
-          alt=">"
-          openSidebar={this.state.openSidebar}
-          onClick={this.openSidebar}
-        />
-        <SubContentWrapper openSidebar={this.state.openSidebar}>
-          <SidebarContent {...this.props} scrollTop={this.state.scrollTop} />
-        </SubContentWrapper>
-      </ContentWrapper>
-    );
-  }
-}
 
 export default Sidebar;
