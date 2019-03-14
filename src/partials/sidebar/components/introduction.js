@@ -8,14 +8,7 @@ class Introduction extends React.Component {
       <div>
         <p className="Sidebar-Heading u-noPadding">Introduction</p>
         <ul className="Sidebar-List">
-          <ul className="Sidebar-List">
-            {this.props.content}
-            <li className="Sidebar-List-Item">
-              <a href="https://github.com/FormidableLabs/victory/#contributing">
-                Contributing
-              </a>
-            </li>
-          </ul>
+          <ul className="Sidebar-List">{this.props.content}</ul>
         </ul>
       </div>
     ) : null;
