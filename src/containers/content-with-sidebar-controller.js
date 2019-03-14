@@ -4,7 +4,6 @@ import { withRouter } from "react-static";
 import Footer from "../partials/footer";
 import Sidebar from "../partials/sidebar/sidebar";
 import styled from "styled-components";
-import closeButton from "../../static/x.svg";
 import menuButton from "../../static/burger.svg";
 
 // ContentWithSidebarPage aka .new-docs-page
@@ -29,7 +28,6 @@ const ContentWithSidebarPage = styled.main`
   body {
     margin: 0 !important;
     box-sizing: border-box;
-    overflow-x: scroll;
   }
 
   .new-docs-header {
@@ -42,7 +40,6 @@ const ContentWithSidebarPage = styled.main`
 
   .new-docs-content {
     grid-area: content;
-    overflow-x: scroll;
     overflow-y: auto; /* overflow condition on parent */
   }
 
@@ -59,7 +56,6 @@ const SidebarWrapper = styled.div`
   background-color: #ebe7e4;
   grid-area: nav;
   overflow-y: auto;
-  overflow-x: hidden;
   padding: 1.375rem 1.375rem 3.75rem;
 
   @media (max-width: 768px) {
@@ -71,16 +67,6 @@ const SidebarContentWrapper = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     display: ${props => (props.openSidebar ? "" : "none")};
-  }
-`;
-
-const CloseButton = styled.img`
-  cursor: pointer;
-  display: none;
-  padding: 0 0 20px 220px;
-
-  @media (max-width: 768px) {
-    display: ${props => (props.openSidebar ? "block" : "none")};
   }
 `;
 
@@ -96,7 +82,7 @@ const MenuButton = styled.img`
 
 const ArticleWrapper = styled.div`
   grid-area: content;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: auto; /* overflow condition on parent */
   min-width: 700px;
 `;
@@ -133,12 +119,6 @@ class ContentWithSidebar extends React.Component {
             openSidebar={this.state.openSidebar}
             onClick={this.openSidebar}
           >
-            <CloseButton
-              src={closeButton}
-              alt="X"
-              openSidebar={this.state.openSidebar}
-              onClick={this.closeSidebar}
-            />
             <MenuButton
               src={menuButton}
               alt=">"
