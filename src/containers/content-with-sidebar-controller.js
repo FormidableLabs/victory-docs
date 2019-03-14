@@ -20,12 +20,16 @@ const ContentWithSidebarPage = styled.main`
     "header header" /* conceptually desirable but doesn't work great with how our landers are built */
     "nav content"
     "footer footer";
+
+    @media (max-width: 768px) {
+      grid-template-columns: ${props => (props.openSidebar ? "45px auto" : "auto auto")}
+    }
   }
 
   body {
     margin: 0 !important;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow-x: scroll;
   }
 
   .new-docs-header {
@@ -38,7 +42,7 @@ const ContentWithSidebarPage = styled.main`
 
   .new-docs-content {
     grid-area: content;
-    overflow-x: hidden;
+    overflow-x: scroll;
     overflow-y: auto; /* overflow condition on parent */
   }
 
@@ -49,11 +53,13 @@ const ContentWithSidebarPage = styled.main`
   }
 `;
 
-const ContentWrapper = styled.div`
+const SidebarWrapper = styled.div`
+  z-index: 99;
   width: 280px;
   background-color: #ebe7e4;
   grid-area: nav;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 1.375rem 1.375rem 3.75rem;
 
   @media (max-width: 768px) {
@@ -61,7 +67,7 @@ const ContentWrapper = styled.div`
   }
 `;
 
-const SubContentWrapper = styled.div`
+const SidebarContentWrapper = styled.div`
   height: 100vh;
   @media (max-width: 768px) {
     display: ${props => (props.openSidebar ? "" : "none")};
@@ -88,6 +94,13 @@ const MenuButton = styled.img`
   }
 `;
 
+const ArticleWrapper = styled.div`
+  grid-area: content;
+  overflow-x: scroll;
+  overflow-y: auto; /* overflow condition on parent */
+  min-width: 700px;
+`;
+
 // eslint-disable-next-line react/no-multi-comp
 class ContentWithSidebar extends React.Component {
   constructor(props) {
@@ -112,8 +125,14 @@ class ContentWithSidebar extends React.Component {
     const { children, sidebarContent } = this.props;
     return (
       <React.Fragment>
-        <ContentWithSidebarPage className="new-docs-page">
-          <ContentWrapper openSidebar={this.state.openSidebar}>
+        <ContentWithSidebarPage
+          className="new-docs-page"
+          openSidebar={this.state.openSidebar}
+        >
+          <SidebarWrapper
+            openSidebar={this.state.openSidebar}
+            onClick={this.openSidebar}
+          >
             <CloseButton
               src={closeButton}
               alt="X"
@@ -126,16 +145,19 @@ class ContentWithSidebar extends React.Component {
               openSidebar={this.state.openSidebar}
               onClick={this.openSidebar}
             />
-            <SubContentWrapper openSidebar={this.state.openSidebar}>
+            <SidebarContentWrapper openSidebar={this.state.openSidebar}>
               <Sidebar {...this.props} content={sidebarContent} />
-            </SubContentWrapper>
-          </ContentWrapper>
-          <div className="new-docs-content">
+            </SidebarContentWrapper>
+          </SidebarWrapper>
+          <ArticleWrapper
+            openSidebar={this.state.openSidebar}
+            onClick={this.closeSidebar}
+          >
             <div className="new-docs-article">
               {children}
               <Footer />
             </div>
-          </div>
+          </ArticleWrapper>
         </ContentWithSidebarPage>
       </React.Fragment>
     );
