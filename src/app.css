@@ -132,7 +132,8 @@
 /* Height and Width */
 .u-fullHeight {
   height: 100% !important;
-   overflow-y: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .u-maxWidth {
