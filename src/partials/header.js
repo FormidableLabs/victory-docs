@@ -25,11 +25,7 @@ class VictoryHeader extends Component {
         }}
       >
         {/* eslint-disable-next-line react/jsx-pascal-case */}
-        <SVG
-          style={{ height: "30px" }}
-          src={svgHeroLogo}
-          onLoad={src => src}
-        />
+        <SVG style={{ height: "30px" }} src={svgHeroLogo} onLoad={src => src} />
       </Link>
     );
 

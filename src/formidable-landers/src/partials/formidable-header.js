@@ -10,7 +10,7 @@ const navItems = [
   { path: "/open-source", title: "Open Source" },
   { path: "/blog", title: "Journal" },
   { path: "/contact", title: "Contact" }
-].map(ni => ({...ni, path: `${siteRoot}${ni.path}`}));
+].map(ni => ({ ...ni, path: `${siteRoot}${ni.path}` }));
 
 const ESCSAPE_KEY_CODE = 27;
 // eslint-disable-next-line max-len
@@ -114,11 +114,7 @@ export default class Header extends Component {
       <div>
         <div className={`site-header isOpen-${this.props.isOpen}`}>
           {/* Site-Header: Logo */}
-          <a
-            href={siteRoot}
-            className="site-header__logo"
-            title="Formidable"
-          >
+          <a href={siteRoot} className="site-header__logo" title="Formidable">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 97 18"

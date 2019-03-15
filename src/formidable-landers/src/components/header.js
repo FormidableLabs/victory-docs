@@ -52,7 +52,7 @@ class Header extends React.Component {
           onToggleMenu={this.handleToggleMenu}
           isOpen={this.state.navOpen}
           location={this.props.location}
-          activeLink={({item}) => item.path.includes("open-source")}
+          activeLink={({ item }) => item.path.includes("open-source")}
           preventSamePathReload={this.props.preventSamePathReload}
         />
         {this.props.subheader ? (
