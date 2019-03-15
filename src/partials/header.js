@@ -10,7 +10,7 @@ import { Link, Prefetch } from "react-static";
 import SVG from "react-inlinesvg";
 
 // Common
-import { Header } from "formidable-landers";
+import Header from "../../src/formidable-landers/src/components/header";
 import config from "../../static-config-parts/site-data";
 import svgHeroLogo from "../../static/logotype-hero.svg";
 
