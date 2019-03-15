@@ -2,10 +2,6 @@
   margin-top: 5;
 }
 
-.Markdown p {
-  max-width: 38em;
-}
-
 .Markdown hr {
   background-color: var(--sand);
   border: 0;
@@ -72,7 +68,3 @@
   opacity: 1;
   visibility: visible;
 }
-
-
-
-

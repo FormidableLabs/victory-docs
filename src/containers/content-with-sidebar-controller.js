@@ -21,7 +21,8 @@ const ContentWithSidebarPage = styled.main`
     "footer footer";
 
     @media (max-width: 768px) {
-      grid-template-columns: ${props => (props.openSidebar ? "45px auto" : "auto auto")}
+      grid-template-columns: ${props =>
+        props.openSidebar ? "45px auto" : "auto auto"}
     }
   }
 
@@ -84,7 +85,6 @@ const ArticleWrapper = styled.div`
   grid-area: content;
   overflow-x: auto;
   overflow-y: auto; /* overflow condition on parent */
-  min-width: 700px;
 `;
 
 // eslint-disable-next-line react/no-multi-comp
