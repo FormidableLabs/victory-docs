@@ -62,7 +62,7 @@ class Gallery extends React.Component {
 
     return (
       <div className="Page-content without-content-sidebar">
-        <article className="Article Article--noBottom">
+        <article className="Gallery-article Article--noBottom">
           <div className="Gallery">{previews}</div>
         </article>
         <Footer />
