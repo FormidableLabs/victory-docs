@@ -40,8 +40,6 @@ class VictoryHeader extends Component {
           {victoryLogo}
           <Link to="/about/">About</Link>
           <Link to="/docs/">Docs</Link>
-          <Link to="/docs/faq">FAQ</Link>
-          <Link to="/guides/">Guides</Link>
           <Prefetch path="/gallery">
             <Link to="/gallery/">Gallery</Link>
           </Prefetch>

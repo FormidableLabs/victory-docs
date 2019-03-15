@@ -1,3 +1,14 @@
+.Gallery-article {
+  background-color: var(--lighterSand);
+  flex: 1 0 auto;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
+}
+
+.Gallery-article p {
+  max-width: 38em;
+}
+
 .Gallery {
   display: flex;
   flex-direction: row;
