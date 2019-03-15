@@ -8,7 +8,7 @@ slug: faq
 ---
 # Frequently Asked Questions (FAQ)
 
-Thanks for trying Victory! The FAQs below are based on issues and questions from our [support channel](https://gitter.im/FormidableLabs/victory). You can find more examples in [our gallery](https://formidable.com/open-source/victory/gallery). Can't find what you're looking for? Help us improve these docs by [opening an issue](https://github.com/FormidableLabs/victory-docs/issues/new).
+Thanks for trying Victory! The FAQs below are based on issues and questions from our [support channel](https://spectrum.chat/victory). You can find more examples in [our gallery](https://formidable.com/open-source/victory/gallery). Can't find what you're looking for? Help us improve these docs by [opening an issue](https://github.com/FormidableLabs/victory-docs/issues/new).
 
 ## Styles
 
@@ -137,7 +137,10 @@ Victory doesn't have specific components for annotations. Instead, use standard 
     x={() => 5}
   />
   <VictoryScatter
-    data={[{ x: 5, y: 5, fill: "red", symbol: "star", size: 8 }]}
+    symbol="star"
+    size={8}
+    style={{ data: { fill: "red" }}}
+    data={[{ x: 5, y: 5 }]}
   />
 </VictoryChart>
 ```
@@ -264,11 +267,10 @@ Long axis labels can be problematic. There are several ways to address the issue
     <VictoryLine/>
   </VictoryChart>
 
-
   <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
-    <VictoryLabel text="overflowing labels with VictoryPortal" x={225} y={30} textAnchor="middle"/>
+    <VictoryLabel text="Angled labels" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis
-      tickLabelComponent={<VictoryPortal><VictoryLabel/></VictoryPortal>}
+      style={{ tickLabels: { angle: -60 } }}
       tickFormat={[
         "first label",
         "second label",
@@ -282,9 +284,9 @@ Long axis labels can be problematic. There are several ways to address the issue
   </VictoryChart>
 
   <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
-    <VictoryLabel text="Angled labels" x={225} y={30} textAnchor="middle"/>
+    <VictoryLabel text="overflowing labels with VictoryPortal" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis
-      style={{ tickLabels: { angle: -60 } }}
+      tickLabelComponent={<VictoryPortal><VictoryLabel/></VictoryPortal>}
       tickFormat={[
         "first label",
         "second label",
@@ -323,7 +325,7 @@ To solve this, you will need to manually set sensible defaults on the `domain` o
 `VictoryLine` only renders a single element to represent an entire dataset, so replacing its `labelComponent` with `VictoryTooltip` wont work as expected, since there will be only a single event trigger. Voronoi tooltips can be used to add tooltips and other interactions components without unique event triggers, or with event triggers that are too small, or too close together to be useful. Use `VictoryVoronoiContainer` to associate mouse position with the nearest data points. [Read more about Voronoi Tooltips](https://formidable.com/open-source/victory/guides/tooltips#tooltips-with-victoryvoronoicontainer) and [`VictoryVoronoiContainer`](https://formidable.com/open-source/victory/docs/victory-voronoi-container).
 
 
-### How can I add my own events when I'm using `VictoryTooltip`?
+### How can I add my own events when I'm using VictoryTooltip?
 
 `VictoryTooltip` uses `defaultEvents` which are prepended onto any events array provided in props. When `events` container `onMouseOver` and `onMouseOut` events, they will interfere with the `defaultEvents` on `VictoryTooltip` to correct this, your events prop will need to return the same mutations as `defaultEvents`. [Read about tooltip events here](https://formidable.com/open-source/victory/guides/tooltips).
 

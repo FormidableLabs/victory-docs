@@ -254,6 +254,20 @@ The `innerRadius` prop determines the number of pixels between the center of the
 />
 ```
 
+### labelPosition
+
+`type "startAngle" || "endAngle" || "centroid"
+
+The `labelPosition` prop specifies the angular position of each label relative to its corresponding slice. When this prop is not given, the label will be positioned at the  centroid of each slice.
+
+```playground
+<VictoryPie
+  data={sampleData}
+  labels={(d) => d.y}
+  labelPosition="endAngle"
+/>
+```
+
 ### labelRadius
 
 `type: number`

@@ -13,13 +13,13 @@ Not every component uses all of these props. These are all common to things like
 
 The props explanations given here are general. Each component docs page should be considered as the the source of truth for a component's props, and any caveats will be listed there.
 
-## Props 
+## Props
 
 ### animate
 
 `type: boolean || object`
 
-The `animate` prop specifies props for [VictoryAnimation][] and [VictoryTransition][] to use. The animate prop may be used to specify the duration, delay, and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop.
+The `animate` prop specifies props for [VictoryAnimation][] and [VictoryTransition][] to use. The animate prop may be used to specify the duration, delay, and easing of an animation as well as the behavior of `onEnter` and `onExit` and `onLoad` transitions. Each Victory component defines its own default transitions, be these may be modified, or overwritten with the `animate` prop. An `animationWhitelist` may also be specified on the `animate` prop. When given, only props specified in the whitelist will animate.
 
 See the [Animations Guide][] for more detail on animations and transitions
 
@@ -35,10 +35,11 @@ class App extends React.Component {
       	animate={{ duration: 2000 }}
       >
         <VictoryScatter
-          size={5}
+          size={this.state.size}
           data={this.state.data}
           style={{ data: { opacity: (d) => d.opacity || 1 } }}
           animate={{
+            animationWhitelist: ["style", "data", "size"], // Try removing "size"
             onExit: {
               duration: 500,
               before: () => ({ opacity: 0.3, _y: 0 })
@@ -56,12 +57,18 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { data: this.getData() };
+    this.state = {
+       data: this.getData(),
+       size: this.getSize()
+    };
   }
 
   componentDidMount() {
     this.setStateInterval = window.setInterval(() => {
-      this.setState({ data: this.getData() });
+      this.setState({
+        data: this.getData(),
+        size: this.getSize()
+      });
     }, 3000);
   }
 
@@ -76,6 +83,10 @@ class App extends React.Component {
       return { x: index + 1, y: Math.random() };
     });
   }
+
+  getSize() {
+    return Math.random() * 10
+  }
 }
 
 ReactDOM.render(<App/>, mountNode)
@@ -86,6 +97,8 @@ ReactDOM.render(<App/>, mountNode)
 `type: array[string] || { x: array[string], y: array[string] }`
 
 The `categories` prop specifies how categorical data for a chart should be ordered. This prop should be given as an array of string values, or an object with these arrays of values specified for x and y. If this prop is not set, categorical data will be plotted in the order it was given in the data array.
+
+*note:* The `x` value supplied to the `categories` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
 
 *example:* `categories={{ x: ["apples", "oranges", "bananas"] }}`
 
@@ -123,6 +136,7 @@ Victory container components all support `title` and `desc` props, which are int
 Container components are supplied with the following props:
   - `domain`
   - `height`
+  - `horizontal`
   - `origin` (for polar charts)
   - `padding`
   - `polar`
@@ -130,6 +144,7 @@ Container components are supplied with the following props:
   - `standalone`
   - `style`
   - `theme`
+  - `width`
 
 *default:* `containerComponent={<VictoryContainer/>}`
 
@@ -216,6 +231,8 @@ ReactDOM.render(<App/>, mountNode);
 
 The `domain` prop describes the range of data the component will include. This prop can be given as a array of the minimum and maximum expected values of the data or as an object that specifies separate arrays for x and y. If this prop is not provided, a domain will be calculated from data, or other available information.
 
+*note:* The `x` value supplied to the `domain` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
+
 *examples:*
 - `domain={[-1, 1]}`
 - `domain={{x: [0, 100], y: [0, 1]}}`
@@ -233,6 +250,8 @@ The `domain` prop describes the range of data the component will include. This p
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
 The `domainPadding` prop specifies a number of pixels of padding to add the beginning or end of a domain. This prop is useful for explicitly spacing data elements farther from the beginning or end of a domain to prevent axis crowding. When given as a single number, `domainPadding` will be applied to the upper and lower bound of both the x and y domains. This prop may also be given as an object with numbers or two-element arrays specified for x and y. When specifying arrays for `domainPadding`, the first element of the array will specify the padding to be applied to domain minimum, and the second element will specify padding the be applied to domain maximum.
+
+*note:* The `x` value supplied to the `domainPadding` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
 
 *examples:*
   - `domainPadding={20}`
@@ -450,6 +469,26 @@ The `height` prop determines the height of the containing `<svg>`. By default Vi
 </div>
 ```
 
+### horizontal
+
+`type: boolean`
+
+The horizontal prop determines whether data will be plotted horizontally. When this prop is set to true, the independent variable will be plotted on the y axis and the dependent variable will be plotted on the x axis.
+
+```playground
+<VictoryChart
+  theme={VictoryTheme.material}
+  domainPadding={{ x: 10 }}
+>
+  <VictoryBar horizontal
+    style={{
+      data: { fill: "#c43a31" }
+    }}
+    data={sampleData}
+  />
+</VictoryChart>
+```
+
 ### labelComponent
 
 `type: element`
@@ -494,6 +533,8 @@ The `labels` prop defines the labels that will appear above each point. This pro
 
 The `maxDomain` prop defines a maximum domain value for a chart. This prop is useful in situations where the maximum domain of a chart is static, while the minimum value depends on data or other variable information. If the `domain` prop is set in addition to `maximumDomain`, `domain` will be used.
 
+*note:* The `x` value supplied to the `maxDomain` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
+
 *examples:*
 - `maxDomain={0}`
 - `maxDomain={{ y: 0 }}`
@@ -516,6 +557,8 @@ The `maxDomain` prop defines a maximum domain value for a chart. This prop is us
 `type: number || { x: number, y: number }`
 
 The `minDomain` prop defines a minimum domain value for a chart. This prop is useful in situations where the minimum domain of a chart is static, while the maximum value depends on data or other variable information. If the `domain` prop is set in addition to `minimumDomain`, `domain` will be used.
+
+*note:* The `x` value supplied to the `minDomain` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
 
 *examples:*
 - `minDomain={0}`
@@ -632,6 +675,8 @@ y as a function of x. The `samples` prop is ignored if `data` is supplied in pro
 
 The `scale` prop determines which scales your chart should use. This prop can be given as a string specifying a supported scale ("linear", "time", "log", "sqrt"), or as an object with scales specified for x and y. For "time" scales, data points should be `Date` objects or `getTime()` instances.
 
+*note:* The `x` value supplied to the `scale` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
+
 *default:* `scale="linear"`
 
 *examples:*
@@ -659,6 +704,8 @@ The `sharedEvents` prop is used to coordinate events between Victory components 
 `type: boolean || { x: boolean, y: boolean }`
 
 By default `domainPadding` is coerced to existing quadrants. This means that if a given domain only includes positive values, no amount of padding applied by `domainPadding` will result in a domain with negative values. This is the desired behavior in most cases. For users that need to apply padding without regard to quadrant, the `singleQuadrantDomainPadding` prop may be used. This prop may be given as a boolean or an object with boolean values specified for "x" and/or "y". When this prop is false (or false for a given dimension), padding will be applied without regard to quadrant. If this prop is not specified, `domainPadding` will be coerced to existing quadrants.
+
+*note:* The `x` value supplied to the `singleQuadrantDomainPadding` prop refers to the _independent_ variable, and the `y` value refers to the _dependent_ variable. This may cause confusion in horizontal charts, as the independent variable will corresponds to the y axis.
 
 *examples:*
   - `singleQuadrantDomainPadding={false}`

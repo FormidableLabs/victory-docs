@@ -10,7 +10,7 @@ export default {
   projectLinks: [
     {
       label: "Support",
-      url: "https://gitter.im/FormidableLabs/victory"
+      url: "https://spectrum.chat/victory"
     },
     {
       label: "GitHub",

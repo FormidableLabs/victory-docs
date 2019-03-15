@@ -71,6 +71,39 @@ The `axisLabelComponent` prop takes a component instance which will be used to r
 axisLabelComponent={<VictoryLabel dy={20}/>}
 ```
 
+### axisValue
+
+The `axisValue` prop may be used instead of `axisAngle` to position the dependent axis. Ths prop is useful when dependent axes should line up with values on the independent axis.
+
+
+```playground
+ <VictoryChart>
+  <VictoryBar
+    style={{ data: { fill: "tomato", width: 25 } }}
+    data={[
+      { x: "cat", y: 10 },
+      { x: "dog", y: 25 },
+      { x: "bird", y: 40 },
+      { x: "frog", y: 50 },
+      { x: "fish", y: 50 }
+    ]}
+  />
+  <VictoryAxis />
+  {
+    ["cat", "dog", "bird", "dog", "frog", "fish"].map((d, i) => {
+      return (
+        <VictoryAxis dependentAxis
+          key={i}
+          label={d}
+          style={{ tickLabels: { fill: "none" } }}
+          axisValue={d}
+        />
+      );
+    })
+  }
+</VictoryChart>
+```
+
 ### containerComponent
 
 `type: element`

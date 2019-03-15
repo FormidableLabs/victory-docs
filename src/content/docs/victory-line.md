@@ -215,6 +215,18 @@ See the [Events Guide][] for more information on defining events.
 height={400}
 ```
 
+### horizontal
+
+`type: boolean`
+
+`VictoryLine` uses the standard `horizontal` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
+
+```playground
+<VictoryLine horizontal
+  data={sampleData}
+/>
+```
+
 ### interpolation
 
 `type: options`
