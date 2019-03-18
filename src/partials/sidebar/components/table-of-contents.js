@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "gatsby-link";
+import { Link, PrefetchWhenSeen } from "react-static";
 import { maxBy, minBy, isEmpty } from "lodash";
 
 class TableOfContents extends React.Component {
@@ -35,16 +35,19 @@ class TableOfContents extends React.Component {
 
   getTOC(link, headings, i = 0) {
     const tree = this.getTree(headings);
+
     if (!tree.length) {
       return null;
     }
 
-    const toAnchor = (content) => {
+    const toAnchor = content => {
       const baseContent = content.toLowerCase();
       const safeString = baseContent.replace(/[^\w]+/g, " ");
       return safeString.trim().replace(/\s/g, "-");
     };
+
     const depth = minBy(headings, "depth").depth;
+
     return (
       <ul key={`${i}-${depth}`} className="Sidebar-toc">
         {tree.map((item, index) => {
@@ -55,11 +58,25 @@ class TableOfContents extends React.Component {
               </li>
             );
           }
+          // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
+          // it's a purely relative link hash, if it's from a search tem hit then we need the type and slug.
+          const hashPath = `#${toAnchor(item.value)}`;
+          const absPath = `/${link.type}/${link.slug}`;
+          // Normally I'd lean way back in a wicker chair on the porch, snap my suspenders, shake my head,
+          // and take a long sip from a mint julep while mumbling something about the brittleness of scope and the joys of
+          // referential transparency, but we're not generalizing this behavior and location-injection is table stakes
+          // for front-end routing
+          const path = this.props.location.pathname.includes(absPath)
+            ? hashPath
+            : `${absPath}${hashPath}`;
+
           return item.depth > 1 ? (
             <li key={index} className="Sidebar-toc-item">
-              <Link to={`${link.fields.slug}#${toAnchor(item.value)}`}>
-                {item.value}
-              </Link>
+              <PrefetchWhenSeen path={path}>
+                <Link to={path} prefetch={"data"} scrollToTop>
+                  {item.value}
+                </Link>
+              </PrefetchWhenSeen>
             </li>
           ) : null;
         })}
@@ -76,7 +93,9 @@ class TableOfContents extends React.Component {
 TableOfContents.propTypes = {
   active: PropTypes.bool,
   headings: PropTypes.array,
-  link: PropTypes.object
+  link: PropTypes.object,
+  location: PropTypes.object,
+  searchTerm: PropTypes.string
 };
 
 export default TableOfContents;

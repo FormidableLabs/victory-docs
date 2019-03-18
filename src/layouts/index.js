@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import Header from "../partials/header";
-import config from "../../data/site-config";
-import "../styles/styles.css";
+import config from "../../static-config-parts/site-data";
+import Footer from "../partials/footer";
 
 class MainLayout extends React.Component {
+  // TODO/FIXME/ALERT since React-Static uses a different convention, this may bork things when deployed
+  // with a siteroot
   getLocalTitle() {
-    const capitalize = (string) => {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    };
+    const capitalize = string =>
+      string.charAt(0).toUpperCase() + string.slice(1);
     const pathPrefix = config.pathPrefix ? config.pathPrefix : "/";
     const currentPath = this.props.location.pathname
       .replace(pathPrefix, "")
@@ -36,25 +36,21 @@ class MainLayout extends React.Component {
   }
   render() {
     const { children } = this.props;
-
-    const pathPrefix = config.pathPrefix ? config.pathPrefix : "/";
-    const currentPath = this.props.location.pathname
-      .replace(pathPrefix, "")
-      .replace("/", "");
-
     return (
-      <div className="Page-wrapper u-fullHeight">
+      <div>
+        {/* <div className="Page-wrapper u-fullHeight"> */}
         <Helmet>
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
-        <Header home={currentPath === "" ? true : false} />
-        {children()}
+        {children}
+        <Footer />
       </div>
     );
   }
 }
 
+// {children()}
 MainLayout.propTypes = {
   children: PropTypes.any,
   history: PropTypes.any,

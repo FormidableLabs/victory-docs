@@ -8,11 +8,11 @@
 **/
 .Guide h1:first-child,
 .Recipe h1:first-child {
-  margin-top: 0;
+  margin-top: 5;
 }
 
 .Recipe p {
-  max-width: 38em;
+  margin-left: 2em;
 }
 
 .Recipe .Interactive .playground {

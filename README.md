@@ -4,7 +4,7 @@
 
 ***
 
-[Documentation site](https://formidable.com/open-source/victory/) for [victory](https://github.com/FormidableLabs/victory). `victory-docs` is running on [gatsbyjs](gatsbyjs.org).
+[Documentation site](https://formidable.com/open-source/victory/) for [victory](https://github.com/FormidableLabs/victory). `victory-docs` is running on [react-static](https://github.com/nozzle/react-static).
 
 
 ## Getting Started
@@ -13,33 +13,24 @@ To install and run the docs site locally:
 
 ```bash
 yarn install
-yarn run develop
+yarn start
 ```
+Note that paths in local development are based on a root of "/" but be careful when defining relative and absolute paths
+inline or doing url parsing, as the production output root will be "open-source/victory."
 
-Then, open your favorite browser to [localhost:8000](http://localhost:8000/). GraphiQL runs at [localhost:8000/___graphql](http://localhost:8000/___graphql).
-
-## Ready to Deploy :shipit:
-
-Build the site to test locally.
-
+## Want to see if you're ready to :shipit:?
+To build the staging build output and serve it with the canonical path it'll have when built as a lander for formidable.com:
 ```bash
-yarn run build
+#builds and serves staging content at localhost:3000/open-source/victory
+yarn stage-and-serve
+# Runs integration smoke tests and generates screenshots for human sanity-checking
+yarn test-local 
 ```
+This step is important for validating that both the `basePath` used by the static HTML output and the `basename` used
+by the client-side router are working as expected. This is also where you'll want to validate that there are no hardcoded, 
+inlined, or malformed asset paths that worked locally but will not resolve correctly in production!
 
-Serve the build.
-
-```bash
-yarn run serve
-```
-
-Then, open your favorite browser to [localhost:9000](http://localhost:9000/) to verify everything looks correct.
-
-If everything checks out, build the production site with the prefixed path, `/open-source/victory/`, so the files load at the correct URL!
-
-```bash
-yarn run build:pp
-```
-
+## Ready to Publish?
 To publish to NPM run
 
 **This package _must_ be published with `npm@5.6.0`**
@@ -49,6 +40,10 @@ npm version <newversion | major | minor | patch> (see Versioning notes below)
 git push origin master && git push --tags
 npm publish
 ```
+
+## Ready to Deploy?
+OSS landers are deployed by the formidable.com package, see `DEPLOYMENT.md` or `lib/actions.js` there for how 
+the build output is consumed. 
 
 ### Versioning Notes
 

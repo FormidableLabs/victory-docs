@@ -10,7 +10,7 @@
   padding-top: 48px;
   padding-bottom: 2px;
   background-color: var(--lightestSand);
-
+  /* position: sticky; */
 }
 
 .formidableHeader.victory .formidableHeader-by {

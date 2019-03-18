@@ -29,7 +29,7 @@
 }
 
 .Interactive {
-  background-color: color(var(--codeMirrorbg) a(50%));
+  background-color: rgba(255,254,252,.5);
   position: relative;
   width: 100%;
 }
@@ -261,4 +261,10 @@
 .cm-s-elegant span.CodeMirror-nonmatchingbracket {
   border-bottom: 1px solid;
   background: none;
+}
+
+@media only screen and (min-width: 960px) {
+  .Ecology pre[class*=language-], .Ecology pre code[class*=lang-], pre {
+    margin-left: 0;
+  }
 }

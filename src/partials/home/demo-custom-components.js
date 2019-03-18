@@ -1,4 +1,4 @@
-/*global window:false */
+/* global window:false */
 
 import React from "react";
 import { range, random } from "lodash";
@@ -56,15 +56,13 @@ export default class App extends React.Component {
   }
 
   getStreamData() {
-    return range(7).map((i) => {
-      return range(26).map((j) => {
-        return {
-          x: j,
-          y: (10 - i) * random(10 - i, 20 - 2 * i),
-          _y0: -1 * (10 - i) * random(10 - i, 20 - 2 * i)
-        };
-      });
-    });
+    return range(7).map(i =>
+      range(26).map(j => ({
+        x: j,
+        y: (10 - i) * random(10 - i, 20 - 2 * i),
+        _y0: -1 * (10 - i) * random(10 - i, 20 - 2 * i)
+      }))
+    );
   }
 
   getStyles() {
@@ -99,7 +97,10 @@ export default class App extends React.Component {
           width={450}
           height={350}
           style={{ parent: styles.parent }}
-          domain={{ x: [0, 25], y: [-300, 300] }}
+          domain={{
+            x: [0, 25],
+            y: [-300, 300]
+          }}
         >
           <VictoryAxis
             style={{
@@ -115,24 +116,31 @@ export default class App extends React.Component {
             crossAxis={false}
           />
 
-          {streamData.map((d, i) => {
-            return (
-              <VictoryArea
-                key={i}
-                interpolation="monotoneX"
-                data={d}
-                style={{ data: { fill: colors[i] } }}
-                dataComponent={<GradientArea percent={this.state.percent} />}
-              />
-            );
-          })}
+          {streamData.map((d, i) => (
+            <VictoryArea
+              key={i}
+              interpolation="monotoneX"
+              data={d}
+              style={{ data: { fill: colors[i] } }}
+              dataComponent={<GradientArea percent={this.state.percent} />}
+            />
+          ))}
           <VictoryLine
             style={{
-              data: { stroke: "#c33409", strokeWidth: 3 }
+              data: {
+                stroke: "#c33409",
+                strokeWidth: 3
+              }
             }}
             data={[
-              { x: 25 * this.state.percent / 100, y: -300 },
-              { x: 25 * this.state.percent / 100, y: 300 }
+              {
+                x: (25 * this.state.percent) / 100,
+                y: -300
+              },
+              {
+                x: (25 * this.state.percent) / 100,
+                y: 300
+              }
             ]}
           />
         </VictoryChart>

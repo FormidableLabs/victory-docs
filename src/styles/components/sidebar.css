@@ -1,5 +1,8 @@
+
+
 :root {
-  --navIndent: 10px;
+    --navIndent: 10px;
+    --fontSubHeading: 'freight-sans-pro', 'Work Sans', 'akkurat', 'Consolas', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Monaco', 'Courier', monospace;
 }
 
 .Sidebar-Grid {
@@ -76,11 +79,9 @@
 .Sidebar-toc {
   font-size: 0.95em;
   line-height: 1.2;
-  position: absolute;
-  visibility: hidden;
 }
 
-@media (--medium-viewport) {
+@media (min-width: 960px) {
   .Sidebar-toc {
     position: static;
     visibility: visible;
@@ -103,8 +104,10 @@
   border-left: 1px solid color(var(--black) alpha(-75%));
   margin: 0 0 0.5em 0.125em;
   padding: 0 0 0 0.75em;
+  border-left: 1px solid rgba(36,33,33,.25);
 }
 
 .Sidebar-toc-item > .Sidebar-toc .Sidebar-toc-item {
   padding: 0.166em 0;
 }
+

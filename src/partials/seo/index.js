@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import config from "../../../data/site-config";
+import config from "../../../static-config-parts/site-data";
 
 class SEO extends Component {
   generateTitle() {
     const { postNode, postSEO } = this.props;
     let title;
     if (postSEO) {
-      const postMeta = postNode.frontmatter;
-      title = postMeta.title;
+      title = postNode.title;
     } else {
       title = config.siteTitle;
     }
@@ -20,9 +19,8 @@ class SEO extends Component {
     const { postNode, postSEO } = this.props;
     let description;
     if (postSEO) {
-      const postMeta = postNode.frontmatter;
-      description = postMeta.description
-        ? postMeta.description
+      description = postNode.description
+        ? postNode.description
         : postNode.excerpt;
     } else {
       description = config.siteDescription;
@@ -34,8 +32,7 @@ class SEO extends Component {
     const { postNode, postSEO } = this.props;
     let image;
     if (postSEO) {
-      const postMeta = postNode.frontmatter;
-      image = postMeta.cover;
+      image = postNode.cover;
     } else {
       image = config.siteLogo;
     }

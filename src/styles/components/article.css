@@ -1,7 +1,6 @@
 .Article {
   background-color: var(--lighterSand);
   flex: 1 0 auto;
-  padding: var(--gutter-small);
 }
 
 .Article--noBottom {
@@ -9,15 +8,20 @@
 }
 
 .Article p {
-  max-width: 38em;
+  max-width: 65em;
+  margin-right: 2em;
 }
 
-@media (--medium-viewport) {
+@media (min-width: 768px) {
   .Article {
-    padding: var(--gutter);
+    padding-left: 3.75rem;
+    padding-right: 3.75rem;
   }
-  
-  .Article--noBottom {
-    padding-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .Article {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }

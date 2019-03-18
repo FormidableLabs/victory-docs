@@ -40,7 +40,12 @@ export default class App extends React.Component {
     return (
       <div className="Benefits-demo fancyBorder">
         <VictoryChart
-          padding={{ left: 50, right: 50, bottom: 35, top: 20 }}
+          padding={{
+            left: 50,
+            right: 50,
+            bottom: 35,
+            top: 20
+          }}
           width={450}
           height={275}
           scale={{ x: "time" }}
@@ -58,19 +63,48 @@ export default class App extends React.Component {
               data: { stroke: "tomato" }
             }}
             data={[
-              { x: new Date(1982, 1, 1), y: 125 },
-              { x: new Date(1987, 1, 1), y: 257 },
-              { x: new Date(1993, 1, 1), y: 345 },
-              { x: new Date(1997, 1, 1), y: 515 },
-              { x: new Date(2001, 1, 1), y: 132 },
-              { x: new Date(2005, 1, 1), y: 305 },
-              { x: new Date(2011, 1, 1), y: 270 },
-              { x: new Date(2013, 1, 1), y: 470 }
+              {
+                x: new Date(1982, 1, 1),
+                y: 125
+              },
+              {
+                x: new Date(1987, 1, 1),
+                y: 257
+              },
+              {
+                x: new Date(1993, 1, 1),
+                y: 345
+              },
+              {
+                x: new Date(1997, 1, 1),
+                y: 515
+              },
+              {
+                x: new Date(2001, 1, 1),
+                y: 132
+              },
+              {
+                x: new Date(2005, 1, 1),
+                y: 305
+              },
+              {
+                x: new Date(2011, 1, 1),
+                y: 270
+              },
+              {
+                x: new Date(2013, 1, 1),
+                y: 470
+              }
             ]}
           />
         </VictoryChart>
         <VictoryChart
-          padding={{ top: 0, left: 50, right: 50, bottom: 35 }}
+          padding={{
+            top: 0,
+            left: 50,
+            right: 50,
+            bottom: 35
+          }}
           width={450}
           height={75}
           scale={{ x: "time" }}
@@ -92,21 +126,45 @@ export default class App extends React.Component {
               new Date(2005, 1, 1),
               new Date(2010, 1, 1)
             ]}
-            tickFormat={(x) => new Date(x).getFullYear()}
+            tickFormat={x => new Date(x).getFullYear()}
           />
           <VictoryLine
             style={{
               data: { stroke: "tomato" }
             }}
             data={[
-              { x: new Date(1982, 1, 1), y: 125 },
-              { x: new Date(1987, 1, 1), y: 257 },
-              { x: new Date(1993, 1, 1), y: 345 },
-              { x: new Date(1997, 1, 1), y: 515 },
-              { x: new Date(2001, 1, 1), y: 132 },
-              { x: new Date(2005, 1, 1), y: 305 },
-              { x: new Date(2011, 1, 1), y: 270 },
-              { x: new Date(2013, 1, 1), y: 470 }
+              {
+                x: new Date(1982, 1, 1),
+                y: 125
+              },
+              {
+                x: new Date(1987, 1, 1),
+                y: 257
+              },
+              {
+                x: new Date(1993, 1, 1),
+                y: 345
+              },
+              {
+                x: new Date(1997, 1, 1),
+                y: 515
+              },
+              {
+                x: new Date(2001, 1, 1),
+                y: 132
+              },
+              {
+                x: new Date(2005, 1, 1),
+                y: 305
+              },
+              {
+                x: new Date(2011, 1, 1),
+                y: 270
+              },
+              {
+                x: new Date(2013, 1, 1),
+                y: 470
+              }
             ]}
           />
         </VictoryChart>

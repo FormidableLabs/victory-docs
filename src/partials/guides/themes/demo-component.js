@@ -11,12 +11,12 @@ import {
   VictoryAxis
 } from "victory";
 
-const scatterData = times(20, (i) => ({
+const scatterData = times(20, i => ({
   x: (i - 10) / 3,
   y: i / 2 - 2 * Math.random() - 4
 }));
 
-const toInteger = (number) => parseInt(number).toString();
+const toInteger = number => parseInt(number).toString();
 
 const DemoComponent = ({ theme }) => {
   const positions = [
@@ -30,7 +30,10 @@ const DemoComponent = ({ theme }) => {
       viewBox="0 0 400 400"
       role="img"
       aria-labelledby="title desc"
-      style={{ height: "auto", width: "100%" }}
+      style={{
+        height: "auto",
+        width: "100%"
+      }}
     >
       <g transform={positions[0].transform}>
         <VictoryPie
@@ -53,7 +56,7 @@ const DemoComponent = ({ theme }) => {
         <VictoryChart theme={theme} standalone={false} height={250} width={250}>
           <VictoryAxis tickCount={4} domain={[0, 3]} tickFormat={toInteger} />
           <VictoryAxis tickCount={4} dependentAxis domain={[0, 10]} />
-          <VictoryLine y={(data) => data.x * data.x} />
+          <VictoryLine y={data => data.x * data.x} />
         </VictoryChart>
       </g>
 
@@ -63,30 +66,57 @@ const DemoComponent = ({ theme }) => {
           theme={theme}
           height={250}
           width={250}
-          domainPadding={{ x: 50 }}
+          domainPadding={{ x: 40 }}
         >
-          <VictoryAxis tickValues={["A", "B", "C"]} />
+          <VictoryAxis tickFormat={["A", "B", "C"]} />
           <VictoryAxis tickCount={3} dependentAxis />
           <VictoryStack>
             <VictoryBar
               data={[
-                { x: "apples", y: 1 },
-                { x: "bananas", y: 3 },
-                { x: "oranges", y: 3 }
+                {
+                  x: "A",
+                  y: 1
+                },
+                {
+                  x: "B",
+                  y: 3
+                },
+                {
+                  x: "C",
+                  y: 3
+                }
               ]}
             />
             <VictoryBar
               data={[
-                { x: "apples", y: 2 },
-                { x: "bananas", y: 1 },
-                { x: "oranges", y: 3 }
+                {
+                  x: "A",
+                  y: 2
+                },
+                {
+                  x: "B",
+                  y: 1
+                },
+                {
+                  x: "C",
+                  y: 3
+                }
               ]}
             />
             <VictoryBar
               data={[
-                { x: "apples", y: 3 },
-                { x: "bananas", y: 1 },
-                { x: "oranges", y: 1 }
+                {
+                  x: "A",
+                  y: 3
+                },
+                {
+                  x: "B",
+                  y: 1
+                },
+                {
+                  x: "C",
+                  y: 1
+                }
               ]}
             />
           </VictoryStack>

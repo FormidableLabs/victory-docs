@@ -39,35 +39,27 @@ class SharedEvents extends React.Component {
                 childName: ["pie", "bar"],
                 target: "data",
                 eventHandlers: {
-                  onMouseOver: () => {
-                    return [
-                      {
-                        childName: ["pie", "bar"],
-                        mutation: (props) => {
-                          return {
-                            style: Object.assign({}, props.style, {
-                              fill: "tomato"
-                            })
-                          };
-                        }
-                      }
-                    ];
-                  },
-                  onMouseOut: () => {
-                    return [
-                      {
-                        childName: ["pie", "bar"],
-                        mutation: () => {
-                          return null;
-                        }
-                      }
-                    ];
-                  }
+                  onMouseOver: () => [
+                    {
+                      childName: ["pie", "bar"],
+                      mutation: props => ({
+                        style: Object.assign({}, props.style, {
+                          fill: "tomato"
+                        })
+                      })
+                    }
+                  ],
+                  onMouseOut: () => [
+                    {
+                      childName: ["pie", "bar"],
+                      mutation: () => null
+                    }
+                  ]
                 }
               }
             ]}
           >
-            <g transform={"translate(150, 50)"}>
+            <g transform="translate(150, 50)">
               <VictoryBar
                 name="bar"
                 width={300}
@@ -77,26 +69,55 @@ class SharedEvents extends React.Component {
                   labels: { fontSize: 25 }
                 }}
                 data={[
-                  { x: "a", y: 2 },
-                  { x: "b", y: 3 },
-                  { x: "c", y: 5 },
-                  { x: "d", y: 4 }
+                  {
+                    x: "a",
+                    y: 2
+                  },
+                  {
+                    x: "b",
+                    y: 3
+                  },
+                  {
+                    x: "c",
+                    y: 5
+                  },
+                  {
+                    x: "d",
+                    y: 4
+                  }
                 ]}
                 labels={["a", "b", "c", "d"]}
                 labelComponent={<VictoryLabel y={280} />}
               />
             </g>
-            <g transform={"translate(0, -75)"}>
+            <g transform="translate(0, -75)">
               <VictoryPie
                 name="pie"
                 width={250}
                 standalone={false}
-                style={{ labels: { fontSize: 25, padding: 10 } }}
+                style={{
+                  labels: {
+                    fontSize: 25,
+                    padding: 10
+                  }
+                }}
                 data={[
-                  { x: "a", y: 1 },
-                  { x: "b", y: 4 },
-                  { x: "c", y: 5 },
-                  { x: "d", y: 7 }
+                  {
+                    x: "a",
+                    y: 1
+                  },
+                  {
+                    x: "b",
+                    y: 4
+                  },
+                  {
+                    x: "c",
+                    y: 5
+                  },
+                  {
+                    x: "d",
+                    y: 7
+                  }
                 ]}
               />
             </g>

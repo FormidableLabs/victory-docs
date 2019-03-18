@@ -1,9 +1,5 @@
 .Markdown h1:first-child {
-  margin-top: 0;
-}
-
-.Markdown p {
-  max-width: 38em;
+  margin-top: 5;
 }
 
 .Markdown hr {
@@ -16,6 +12,7 @@
 
 .Markdown ul li {
   list-style: disc;
+  margin-left: 2em;
 }
 
 .Markdown h1,
@@ -35,19 +32,27 @@
   font-size: 1.5rem; /* match h3, but with sans-serif */
 }
 
-/*.Anchor {
-  background: url("../../../static/icon-link.svg") 0 no-repeat;
-  border-bottom: 0 !important;
-  position: absolute !important;
-  top: 0;
-  right: 100%;
-  bottom: 0;
-
+.Anchor {
   opacity: 0;
   line-height: 1;
   width: 24px;
-  speak: none; // Wishing for .screenreader-hidden class
-}*/
+  speak: none;
+  float: left;
+  margin-left: -2px;
+  padding-right: 4px;
+  visibility: hidden;
+}
+
+.hidden-anchor {
+  opacity: 0;
+  line-height: 1;
+  width: 24px;
+  speak: none;
+  float: left;
+  margin-left: -2px;
+  padding-right: 4px;
+  visibility: hidden;
+}
 
 .Markdown h1:hover .Anchor,
 .Markdown h2:hover .Anchor,
@@ -56,4 +61,11 @@
 .Markdown h5:hover .Anchor,
 .Markdown h6:hover .Anchor {
   opacity: 1;
+  visibility: visible;
+}
+
+.doc-hash-link:hover .Anchor
+ {
+  opacity: 1;
+  visibility: visible;
 }

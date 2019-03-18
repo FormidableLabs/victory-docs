@@ -1,5 +1,11 @@
-.cache/
-.git/
-node_modules/
-public/
-static/
+.vscode
+coverage
+dist
+public
+static
+node_modules
+npm-debug.log*
+lerna-debug.log*
+yarn-error.log*
+.cache
+lerna.json
