@@ -114,6 +114,8 @@
     "lint": "eslint 'src/**/*.js' 'static-config-*/*.js' 'src/**/*.js'static.config.js",
     "lint:md": "remark .",
     "stage-and-serve": "yarn stage && yarn serve",
-    "test-local": "node test/formidable-nav-integration.js && node test/victory-nav-integration.js"
+    "test-local": "node test/formidable-nav-integration.js && node test/victory-nav-integration.js",
+    "preversion": "yarn lint",
+    "version": "yarn build"
   }
 }
