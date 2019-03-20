@@ -30,7 +30,6 @@ export default {
     public: "public" // The public directory (files copied to dist during build)
   },
   generateSourceMaps: false,
-  inlineCss: true,
   basePath: landerBasePath,
   stagingBasePath: landerBasePath,
   devBasePath: "",
