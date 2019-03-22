@@ -83,6 +83,7 @@ const staticWebpackConfig = (config, { defaultLoaders, stage }) => {
       });
     }
 
+    config.devtool = false;
     config.module.rules = [
       {
         oneOf: [
