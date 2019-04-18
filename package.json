@@ -1,7 +1,7 @@
 {
   "name": "victory-docs",
   "description": "Documentation site for Victory by Formidable",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "author": "Formidable <hello@formidable.com>",
   "main": "static.config.js",
   "repository": {
