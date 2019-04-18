@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 8.0.3 (2019-04-17)
+
+- Update Formidable wordmark
+
 ## 8.0.2 (2019-03-19)
 
 - add `.map` to `.npmignore`
