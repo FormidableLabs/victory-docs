@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 8.0.4 (2019-04-19)
+
+- Fix Formidable workmark padding
+
 ## 8.0.3 (2019-04-17)
 
 - Update Formidable wordmark
