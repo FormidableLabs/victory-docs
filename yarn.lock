@@ -4664,9 +4664,9 @@ format@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
 
-formidable-landers@^9.0.1:
-  version "9.0.1"
-  resolved "https://registry.yarnpkg.com/formidable-landers/-/formidable-landers-9.0.1.tgz#57027914f6ab128bb778034574e7c7490452bb73"
+formidable-landers@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/formidable-landers/-/formidable-landers-9.0.2.tgz#51f40d59085094d7f3f8848b5a4fd418d9558e8a"
   dependencies:
     prop-types "^15.5.8"
     react "^15.6.1"

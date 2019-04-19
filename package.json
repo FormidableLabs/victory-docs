@@ -17,7 +17,7 @@
     "babel-standalone": "^6.26.0",
     "chokidar": "2.0.3",
     "component-playground": "^3.2.1",
-    "formidable-landers": "^9.0.1",
+    "formidable-landers": "^9.0.2",
     "fuse.js": "^3.2.1",
     "history": "^4.7.2",
     "htmr": "0.6.3",
