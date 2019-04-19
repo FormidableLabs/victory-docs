@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 8.0.5 (2019-04-19)
+
+- Fix nav link padding
+
 ## 8.0.4 (2019-04-19)
 
 - Fix Formidable workmark padding
