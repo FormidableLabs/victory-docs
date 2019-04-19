@@ -24,7 +24,7 @@
 .formidableFooter a:link {
   text-decoration: none;
   transition: color 250ms ease-in, fill 300ms ease-in;
-  padding: 10px 15px;
+  padding: 0px;
   position: relative;
 }
 
