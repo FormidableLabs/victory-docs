@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 8.0.6 (2019-04-19)
+
+- Fix surge issue
+
 ## 8.0.5 (2019-04-19)
 
 - Fix nav link padding
