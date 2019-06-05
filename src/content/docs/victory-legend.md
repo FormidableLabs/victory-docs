@@ -309,7 +309,6 @@ The `rowGutter` prop defines the number of pixels between legend rows. This prop
 ```playground
 <VictoryLegend x={125} y={50}
   orientation="vertical"
-  orientation="vertical"
   gutter={20}
   rowGutter={{ top: 0, bottom: 10 }}
   style={{ border: { stroke: "black" } }}
