@@ -353,7 +353,7 @@ ReactDOM.render(<App/>, mountNode);
 ```
 
 ## Victory Native
-In Victory Native tooltips are presented when a data element is pressed and hidden when the press is released. A `VictoryVoronoiContainer` is required for the chart to enable the press events to show tooltips. On press it will show the user the tooltip for the closest data point. Since data points can be quite small showing the closest data point increases the tap targets for the tooltip. Set `VictoryVoronoiContainer` as the `container` prop to the chart itself, like `VictoryScatter`, or the `VictoryChart` wrapper.
+In Victory Native tooltips are presented when a data element is pressed and hidden when the press is released. A `VictoryVoronoiContainer` is required for the chart to enable the press events to show tooltips. On press it will show the user the tooltip for the closest data point. Since data points can be quite small showing the closest data point increases the tap targets for the tooltip. Set `VictoryVoronoiContainer` as the `containerComponent` prop to the chart itself, like `VictoryScatter`, or the `VictoryChart` wrapper.
 
 ```playground
 <VictoryChart 
@@ -361,6 +361,7 @@ In Victory Native tooltips are presented when a data element is pressed and hidd
 >
   <VictoryScatter
     labelComponent={<VictoryTooltip />}
+    style={{ data: { fill: (d) => d.fill } }}
     data={[
       {
         x: 1,
@@ -376,7 +377,7 @@ In Victory Native tooltips are presented when a data element is pressed and hidd
         fill: "green",
         symbol: "plus",
         size: 10,
-        label: "Red"
+        label: "Green"
       }
     ]}
   />
@@ -387,6 +388,7 @@ In Victory Native tooltips are presented when a data element is pressed and hidd
 <VictoryScatter
   containerComponent={<VictoryVoronoiContainer />}
   labelComponent={<VictoryTooltip />}
+  style={{ data: { fill: (d) => d.fill } }}
   data={[
     {
       x: 1,
@@ -402,7 +404,7 @@ In Victory Native tooltips are presented when a data element is pressed and hidd
      fill: "green",
      symbol: "plus",
      size: 10,
-     label: "Red"
+     label: "Green"
     }
   ]}
 />
