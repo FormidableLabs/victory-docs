@@ -352,6 +352,61 @@ class App extends React.Component {
 ReactDOM.render(<App/>, mountNode);
 ```
 
+## Victory Native
+In Victory Native tooltips are presented when a data element is pressed and hidden when the press is released. A `VictoryVoronoiContainer` is required for the chart to enable the press events to show tooltips. On press it will show the user the tooltip for the closest data point. Since data points can be quite small showing the closest data point increases the tap targets for the tooltip. Set `VictoryVoronoiContainer` as the `container` prop to the chart itself, like `VictoryScatter`, or the `VictoryChart` wrapper.
+
+```playground
+<VictoryChart 
+  containerComponent={<VictoryVoronoiContainer />}
+>
+  <VictoryScatter
+    labelComponent={<VictoryTooltip />}
+    data={[
+      {
+        x: 1,
+        y: 3,
+        fill: "red",
+        symbol: "plus",
+        size: 6,
+        label: "Red"
+      },
+      {
+        x: 3,
+        y: 5,
+        fill: "green",
+        symbol: "plus",
+        size: 10,
+        label: "Red"
+      }
+    ]}
+  />
+</VictoryChart>
+```
+
+```playground
+<VictoryScatter
+  containerComponent={<VictoryVoronoiContainer />}
+  labelComponent={<VictoryTooltip />}
+  data={[
+    {
+      x: 1,
+      y: 3,
+      fill: "red",
+      symbol: "plus",
+      size: 6,
+      label: "Red"
+    },
+    {
+     x: 3,
+     y: 5,
+     fill: "green",
+     symbol: "plus",
+     size: 10,
+     label: "Red"
+    }
+  ]}
+/>
+```
 
 [`VictoryTooltip`]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label
