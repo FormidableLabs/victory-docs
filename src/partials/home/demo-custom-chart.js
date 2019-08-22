@@ -183,7 +183,7 @@ class MultipleAxes extends React.Component {
           strokeWidth: 1
         },
         ticks: {
-          size: tick => {
+          size: ({ tick }) => {
             const tickSize = tick.getFullYear() % 5 === 0 ? 10 : 5;
             return tickSize;
           },
@@ -200,7 +200,7 @@ class MultipleAxes extends React.Component {
       // DATA SET ONE
       axisOne: {
         grid: {
-          stroke: tick => (tick === -10 ? "transparent" : "#ffffff"),
+          stroke: ({ tick }) => (tick === -10 ? "transparent" : "#ffffff"),
           strokeWidth: 2
         },
         axis: {

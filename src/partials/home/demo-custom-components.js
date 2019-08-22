@@ -10,45 +10,44 @@ import {
   VictoryLine
 } from "victory";
 
-class GradientArea extends Area {
-  toGrayscale(color) {
+const GradientPath = props => {
+  const toGrayscale = color => {
     const integerColor = parseInt(color.replace("#", ""), 16);
     const r = (integerColor >> 16) & 255; // eslint-disable-line no-bitwise
     const g = (integerColor >> 8) & 255; // eslint-disable-line no-bitwise
     const b = integerColor & 255; // eslint-disable-line no-bitwise
     const gray = parseInt(0.299 * r + 0.587 * g + 0.114 * b, 10);
     return `rgb(${gray}, ${gray}, ${gray})`;
-  }
+  };
 
-  // This method exists in Area, and is completely overridden for the custom component.
-  renderArea(path, style, events) {
-    const gradientId = `gradient-${Math.random()}`;
+  // eslint-disable-next-line react/prop-types
+  const { percent, style = {}, ...rest } = props;
 
-    const isBrowser =
-      typeof window !== "undefined" && window.__STATIC_GENERATOR !== true;
-    const loc = isBrowser ? window.location.href : "";
+  const gradientId = `gradient-${Math.random()}`;
+  const isBrowser =
+    typeof window !== "undefined" && window.__STATIC_GENERATOR !== true;
+  const loc = isBrowser ? window.location.href : "";
+  const areaStyle = Object.assign({}, style, {
+    fill: `url(${loc}#${gradientId})`,
+    stroke: "none"
+  });
 
-    const areaStyle = Object.assign({}, style, {
-      fill: `url(${loc}#${gradientId})`
-    });
-    const percent = `${this.props.percent}%`;
-    const gray = this.toGrayscale(style.fill);
-    return (
-      <g key="area">
-        <defs>
-          <linearGradient id={gradientId}>
-            <stop offset="0%" stopColor={style.fill} />
-            <stop offset={percent} stopColor={style.fill} />
-            <stop offset={percent} stopColor={gray} />
-            <stop offset="100%" stopColor={gray} />
-          </linearGradient>
-        </defs>
-        <path key="area" style={areaStyle} d={path} {...events} />
-      </g>
-    );
-  }
-}
+  return (
+    <g key="area">
+      <defs>
+        <linearGradient id={gradientId}>
+          <stop offset="0%" stopColor={style.fill} />
+          <stop offset={`${percent}%`} stopColor={style.fill} />
+          <stop offset={`${percent}%`} stopColor={toGrayscale(style.fill)} />
+          <stop offset="100%" stopColor={toGrayscale(style.fill)} />
+        </linearGradient>
+      </defs>
+      <path key="area" {...rest} style={areaStyle} />
+    </g>
+  );
+};
 
+// eslint-disable-next-line react/no-multi-comp
 export default class App extends React.Component {
   constructor() {
     super();
@@ -122,7 +121,11 @@ export default class App extends React.Component {
               interpolation="monotoneX"
               data={d}
               style={{ data: { fill: colors[i] } }}
-              dataComponent={<GradientArea percent={this.state.percent} />}
+              dataComponent={
+                <Area
+                  pathComponent={<GradientPath percent={this.state.percent} />}
+                />
+              }
             />
           ))}
           <VictoryLine
