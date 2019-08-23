@@ -271,7 +271,7 @@ horizontal={true}
 ```playground
 <VictoryErrorBar
   data={sampleErrorData}
-  labels={(d) => d.y}
+  labels={({ datum }) => datum.y}
   labelComponent={<VictoryLabel dx={-20} dy={18}/>}
 />
 ```
@@ -285,7 +285,7 @@ horizontal={true}
 ```playground
 <VictoryErrorBar
   data={sampleErrorData}
-  labels={(d) => d.y}
+  labels={({ datum }) => datum.y}
 />
 ```
 
@@ -457,7 +457,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
       }
     }}
     data={sampleData}
-    labels={(d) => d.x}
+    labels={({ datum }) => datum.x}
   />
 ```
 

@@ -37,7 +37,7 @@ class App extends React.Component {
         <VictoryScatter
           size={this.state.size}
           data={this.state.data}
-          style={{ data: { opacity: (d) => d.opacity || 1 } }}
+          style={{ data: { opacity: ({ datum }) => datum.opacity || 1 } }}
           animate={{
             animationWhitelist: ["style", "data", "size"], // Try removing "size"
             onExit: {
@@ -152,7 +152,7 @@ Container components are supplied with the following props:
 <VictoryScatter
   containerComponent={
     <VictoryCursorContainer
-      cursorLabel={(d) => `${d.x.toPrecision(2)}, ${d.y.toPrecision(2)}`}
+      cursorLabel={({ datum }) => `${datum.x.toPrecision(2)}, ${datum.y.toPrecision(2)}`}
     />
   }
 />
@@ -179,8 +179,8 @@ Specify data via the `data` prop. By default, Victory components expect data as 
   ]}
   style={{
     data: {
-      fill: (d) => d.fill,
-      opacity: (d) => d.opacity
+      fill: ({ datum }) => datum.fill,
+      opacity: ({ datum }) => datum.opacity
     }
   }}
 />
@@ -462,7 +462,7 @@ The `height` prop determines the height of the containing `<svg>`. By default Vi
 
 ```playground
 <div>
-  <VictoryBar height={500}/>
+  <VictoryBar height={500} />
   <VictoryBar height={500}
     containerComponent={<VictoryContainer responsive={false}/>}
   />
@@ -504,9 +504,9 @@ The `labelComponent` prop takes a component instance which will be used to rende
 ```playground
 <VictoryBar
   data={sampleData}
-  labels={(d) => d.y}
+  labels={({ datum }) => datum.y}
   style={{ labels: { fill: "white" } }}
-  labelComponent={<VictoryLabel dy={30}/>}
+  labelComponent={<VictoryLabel dy={30} />}
 />
 ```
 
@@ -514,16 +514,16 @@ The `labelComponent` prop takes a component instance which will be used to rende
 
 `type: array || function`
 
-The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function of data.
+The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function of label props. A full list of props that will be passed to `VictoryLabel` is given [here](https://formidable.com/open-source/victory/docs/victory-label).
 
 *examples:*
 - `labels={["first", "second", "third"]}`
-- `labels={(d) => d.y}`
+- `labels={({ datum }) => datum.y}`
 
 ```playground
 <VictoryBar
   data={sampleData}
-  labels={(d) => `y: ${d.y}`}
+  labels={({ datum }) => `y: ${datum.y}`}
 />
 ```
 
@@ -799,9 +799,19 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 ```jsx
 style={{
-  data: {fill: "tomato", opacity: 0.7},
-  labels: {fontSize: 12},
-  parent: {border: "1px solid #ccc"}
+  data: { fill: "tomato", opacity: 0.7 },
+  labels: { fontSize: 12 },
+  parent: { border: "1px solid #ccc" }
+}}
+```
+
+Any style attribute may also be defined as a function of the props for whatever element it applies to. For example:
+
+```jsx
+style={{
+  data: { fill: ({ datum }) => datum.y > 0 ? "green" : "red" },
+  labels: { fontSize: ({ text }) => text.length > 10 ? 8 : 12 },
+  parent: { border: "1px solid #ccc" }
 }}
 ```
 
@@ -828,7 +838,7 @@ style={{
   }}
   size={9}
   data={sampleData}
-  labels={(datum) => datum.x}
+  labels={({ datum }) => datum.x}
 />
 ```
 

@@ -73,7 +73,7 @@ axisLabelComponent={<VictoryLabel dy={20}/>}
 
 ### axisValue
 
-The `axisValue` prop may be used instead of `axisAngle` to position the dependent axis. Ths prop is useful when dependent axes should line up with values on the independent axis.
+The `axisValue` prop may be used to position the dependent axis. Ths prop is useful when dependent axes should line up with values on the independent axis.
 
 
 ```playground
@@ -397,7 +397,7 @@ scale={{ x: "time" }}
 
 `type: { axis: object, axisLabel: object, grid: object, ticks: object, tickLabels: object }`
 
-The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `axis`, `axisLabel`, `grid`, `ticks`, and `tickLabels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `grid`, `tick`, and `tickLabel` style properties, and they will be evaluated with each tick.
+The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `axis`, `axisLabel`, `grid`, `ticks`, and `tickLabels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `grid`, `tick`, and `tickLabel` style properties, and they will be evaluated with the props corresponding to each of these elements, such as `tick`, `index`, and `text`.
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
 
@@ -411,7 +411,7 @@ The `style` prop defines the style of the component. The style prop should be gi
   style={{
     axis: {stroke: "#756f6a"},
     axisLabel: {fontSize: 20, padding: 30},
-    grid: {stroke: (t) => t > 0.5 ? "red" : "grey"},
+    grid: {stroke: ({ tick }) => tick > 0.5 ? "red" : "grey"},
     ticks: {stroke: "grey", size: 5},
     tickLabels: {fontSize: 15, padding: 5}
   }}

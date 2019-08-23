@@ -294,8 +294,19 @@ Use `high` data accessor prop to define the high value of a candle.
 ```playground
 <VictoryCandlestick
   data={sampleDataDates}
-  labels={(d) => d.open}
-  labelComponent={<VictoryLabel dx={-10} dy={22}/>}
+  labels={({ datum }) => datum.open}
+  style={{
+  	labels: {
+    	fill: ({ datum}) => datum.close > datum.open
+        	? "black"
+            : "white"
+      }
+  }}
+  labelComponent={
+  	<VictoryLabel
+    	dx={({ text }) => text[0].length === 1 ? -4 : -8}
+    />
+  }
 />
 ```
 
@@ -308,7 +319,7 @@ Use `high` data accessor prop to define the high value of a candle.
 ```playground
 <VictoryCandlestick
   data={sampleDataDates}
-  labels={(d) => `open: ${d.open}`}
+  labels={({ datum }) => `open: ${datum.open}`}
 />
 ```
 
@@ -536,7 +547,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
       }
     }}
     data={sampleDataDates}
-    labels={(d) => d.open}
+    labels={({ datum }) => datum.open}
   />
 ```
 
