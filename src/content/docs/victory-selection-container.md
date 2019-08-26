@@ -26,7 +26,7 @@ However, the component that uses it must be standalone
 ```playground
 <VictoryChart containerComponent={<VictorySelectionContainer/>}>
   <VictoryScatter
-    style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
+    style={{ data: { fill: ({ active }) => active ? "tomato" : "gray" } }}
   />
 </VictoryChart>
 ```
@@ -103,7 +103,7 @@ regardless of mouse position.
   }
 >
   <VictoryScatter
-    style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
+    style={{ data: { fill: ({ active }) => active ? "tomato" : "gray" } }}
   />
 </VictoryChart>
 ```
@@ -129,7 +129,7 @@ The `selectionStyle` prop should be given as an object of style attributes to be
   }
 >
   <VictoryScatter
-    style={{ data: { fill: (d, active) => active ? "tomato" : "gray" } }}
+    style={{ data: { fill: ({ active }) => active ? "tomato" : "gray" } }}
   />
 </VictoryChart>
 ```

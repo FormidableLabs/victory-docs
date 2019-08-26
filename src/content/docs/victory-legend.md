@@ -334,7 +334,7 @@ The `standalone` props specifies whether the component should be rendered in an 
 
 `type: { border: object, data: object, labels: object, parent: object, title: object }`
 
-The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `data`, `labels`, `title`, and `border`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `data`, and `labels` style properties, and they will be evaluated with each datum.
+The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `data`, `labels`, `title`, and `border`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for `data`, and `labels` style properties, and they will be evaluated with the props corresponding to each element.
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
 

@@ -74,7 +74,7 @@ The `candleRatio` prop specifies an _approximate_ ratio between candle widths an
 
 `type: number || function`
 
-The `candleWidth` prop is used to specify the width of each candle. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of candles.
+The `candleWidth` prop is used to specify the width of each candle. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated with a single argument: an object containing all the props passed to the `Candle` component. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of candles.
 
 *Note:* It is still possible to define candle width via the style prop with the `width` attribute, but `candleWidth` will take precedence.
 

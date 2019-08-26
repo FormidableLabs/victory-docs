@@ -284,7 +284,7 @@ horizontal={true}
   data={sampleData}
   size={20}
   style={{ labels: { fill: "white", fontSize: 18} }}
-  labels={(datum) => datum.y}
+  labels={({ datum }) => datum.y}
   labelComponent={<VictoryLabel dy={18}/>}
 />
 ```
@@ -298,7 +298,7 @@ horizontal={true}
 ```playground
 <VictoryScatter
   data={sampleData}
-  labels={(datum) => `y: ${datum.y}`}
+  labels={({ datum }) => `y: ${datum.y}`}
 />
 ```
 
@@ -454,11 +454,11 @@ scale={{x: "linear", y: "log"}}
 
 `type: number || function`
 
-The `size` prop determines how to scale each data point. This prop may also be given as a function of data. If `size` is not specified, it will default to 1. `size` may also be set directly on each data object.
+The `size` prop determines how to scale each data point. When this prop given as a function, it will be called for each point with the props corresponding to that point. If `size` is not specified, either in props or in a theme, it will default to 1. `size` may also be set directly on each data object.
 
 ```playground
 <VictoryScatter
-  size={(datum) => datum.y + 2 }
+  size={({ datum }) => datum.y + 2 }
   data={sampleData}
 />
 ```
@@ -516,19 +516,19 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 <VictoryScatter
   style={{
     data: {
-      fill: (d) => d.x === 3 ? "#000000" : "#c43a31",
-      stroke: (d) => d.x === 3 ? "#000000" : "#c43a31",
+      fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31",
+      stroke: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31",
       fillOpacity: 0.7,
       strokeWidth: 3
     },
     labels: {
       fontSize: 15,
-      fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
+      fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
     }
   }}
   size={9}
   data={sampleData}
-  labels={(datum) => datum.x}
+  labels={({ datum }) => datum.x}
 />
 ```
 
@@ -536,7 +536,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 `type: function || options`
 
-The `symbol` prop determines which symbol should be drawn to represent data points. Options are: "circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp". This prop may also be given as a function of data. If no `symbol` prop is specified, a circle will be rendered. `symbol` may also be set directly on each data object.
+The `symbol` prop determines which symbol should be drawn to represent data points. Options are: "circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp". When this prop is given as a function, it will be evaluated for each point with the props corresponding to that point. If no `symbol` prop is specified, a circle will be rendered. `symbol` may also be set directly on each data object.
 
 *default:* `symbol="circle"`
 

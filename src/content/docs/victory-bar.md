@@ -82,7 +82,7 @@ The `barRatio` prop specifies an _approximate_ ratio between bar widths and spac
 
 `type: number || function`
 
-The `barWidth` prop is used to specify the width of each bar. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated for each bar with the props corresponding to that bar. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of bars.
+The `barWidth` prop is used to specify the width of each bar. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated for each bar with the props object corresponding to that bar. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of bars.
 
 *Note:* It is still possible to define bar width via the style prop with the `width` attribute, but `barWidth` will take precedence.
 
@@ -125,7 +125,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 `type: function || number || { top, bottom, topLeft, topRight, bottomLeft, bottomRight }`
 
-The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaluated for each bar with the props corresponding to that bar.
+The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaluated for each bar with the props object corresponding to that bar.
 
 ```playground
 <VictoryChart

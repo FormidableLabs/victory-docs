@@ -77,13 +77,13 @@ containerComponent={<VictoryContainer responsive={false}/>}
 
 ### cornerRadius
 
-`type: number`
+`type: number || function`
 
-The `cornerRadius` prop specifies the corner radius of the slices rendered in the pie chart.
+The `cornerRadius` prop specifies the corner radius of the slices rendered in the pie chart. When given as a function, `cornerRadius` will be evaluated for each slice of the pie with an object corresponding to the props for that slice.
 
 ```playground
 <VictoryPie
-  cornerRadius={25}
+  cornerRadius={({ datum }) => datum.y * 5}
   data={sampleData}
 />
 ```
@@ -176,14 +176,13 @@ See the [Events Guide][] for more information on defining events.
           return [
             {
               target: "data",
-              mutation: (props) => {
-                const fill = props.style && props.style.fill;
-                return fill === "#c43a31" ? null : { style: { fill: "#c43a31" } };
+              mutation: ({ style }) => {
+                return style.fill === "#c43a31" ? null : { style: { fill: "#c43a31" } };
               }
             }, {
               target: "labels",
-              mutation: (props) => {
-                return props.text === "clicked" ? null : { text: "clicked" };
+              mutation: ({ text }) => {
+                return text === "clicked" ? null : { text: "clicked" };
               }
             }
           ];
@@ -227,13 +226,13 @@ height={400}
 
 ### innerRadius
 
-`type: number`
+`type: number || function`
 
-The `innerRadius` prop determines the number of pixels between the center of the chart and the inner edge of a donut chart. When this prop is set to zero a regular pie chart is rendered.
+The `innerRadius` prop determines the number of pixels between the center of the chart and the inner edge of a donut chart. When this prop is set to zero a regular pie chart is rendered. When this prop is given as a function, `innerRadius` will be evaluated for each slice of the pie with the props corresponding to that slice
 
 ```playground
 <VictoryPie
-  innerRadius={100}
+  innerRadius={({ datum }) => datum.y * 20}
   data={sampleData}
 />
 ```
@@ -249,7 +248,7 @@ The `innerRadius` prop determines the number of pixels between the center of the
 ```playground
 <VictoryPie
   data={sampleData}
-  labels={(d) => d.y}
+  labels={({ datum }) => datum.y}
   labelComponent={<VictoryLabel angle={45}/>}
 />
 ```
@@ -263,21 +262,23 @@ The `labelPosition` prop specifies the angular position of each label relative t
 ```playground
 <VictoryPie
   data={sampleData}
-  labels={(d) => d.y}
+  labels={({ datum }) => datum.y}
   labelPosition="endAngle"
 />
 ```
 
 ### labelRadius
 
-`type: number`
+`type: number || function`
 
-The `labelRadius` prop defines the radius of the arc that will be used for positioning each slice label. If this prop is not set, the label radius will default to the radius of the pie + label padding.
+The `labelRadius` prop defines the radius of the arc that will be used for positioning each slice label. If this prop is not set, the label radius will default to the radius of the pie + label padding. If this prop is given as a function, it will be evaluated for each label `VictoryPie` renders, and will be evaluated with the props that correspond to that label, as well as the radius and innerRadius of the corresponding slice.
 
 ```playground
 <VictoryPie
   data={sampleData}
-  labelRadius={90}
+  labelRadius={({ innerRadius }) => innerRadius + 5 }
+  radius={({ datum }) => 50 + datum.y * 20}
+  innerRadius={50}
   style={{ labels: { fill: "white", fontSize: 20, fontWeight: "bold" } }}
 />
 ```
@@ -291,7 +292,7 @@ The `labelRadius` prop defines the radius of the arc that will be used for posit
 ```playground
 <VictoryPie
   data={sampleData}
-  labels={(d) => `y: ${d.y}`}
+  labels={({ datum }) => `y: ${datum.y}`}
 />
 ```
 
@@ -321,13 +322,13 @@ The `origin` prop specifies coordinates for the center of the pie. When this pro
 
 ### padAngle
 
-`type: number`
+`type: number || function`
 
-The `padAngle` prop defines the amount of separation between adjacent data slices in number of degrees.
+The `padAngle` prop defines the amount of separation between adjacent data slices in number of degrees. When this prop is given as a function it will be evaluated for each slice, and will be evaluated with the props that correspond to that slice.
 
 ```playground
 <VictoryPie
-  padAngle={3}
+  padAngle={({ datum }) => datum.y}
   innerRadius={100}
   data={sampleData}
 />
@@ -347,14 +348,14 @@ padding={{ top: 20, bottom: 60 }}
 
 ### radius
 
-`type: number`
+`type: number || function`
 
-The `radius` prop specifies the radius of the pie. When this prop is not given, it will be calculated base on the `width`, `height`, and `padding` props.
+The `radius` prop specifies the radius of the pie. When this prop is not given, it will be calculated based on the `width`, `height`, and `padding` props. When this prop is given as a function it will be evaluated for each slice with the props corresponding to that slice.
 
 
 ```playground
 <VictoryPie
-  radius={100}
+  radius={({ datum }) => 20 + datum.y * 20}
   data={sampleData}
 />
 ```

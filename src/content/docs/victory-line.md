@@ -164,8 +164,10 @@ See the [Events Guide][] for more information on defining events.
             {
               target: "data",
               eventKey: "all",
-              mutation: (props) => {
-                return stroke === "black" ? null : { style: { stroke: "black", strokeWidth: 5 } };
+              mutation: ({ style }) => {
+                return style.stroke === "black"
+                  ? null
+                  : { style: { stroke: "black", strokeWidth: 5 } };
               }
             }
           ];
@@ -259,7 +261,7 @@ Cartesian line charts may use the following interpolation options: "basis", "bun
 ```playground
 <VictoryLine
   data={sampleData}
-  labels={(datum) => datum.y}
+  labels={({ datum }) => datum.y}
   labelComponent={<VictoryLabel renderInPortal dy={-20}/>}
 />
 ```
@@ -274,7 +276,7 @@ Cartesian line charts may use the following interpolation options: "basis", "bun
 ```playground
 <VictoryLine
   data={sampleData}
-  labels={(datum) => datum.y}
+  labels={({ datum }) => datum.y}
 />
 ```
 
@@ -471,15 +473,16 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
   <VictoryLine
     style={{
       data: {
-        stroke: "#c43a31", strokeWidth: 3
+        stroke: "#c43a31",
+        strokeWidth: ({ data }) => data.length
       },
       labels: {
         fontSize: 15,
-        fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
+        fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
       }
     }}
     data={sampleData}
-    labels={(d) => d.x}
+    labels={({ datum }) => datum.x}
   />
 ```
 

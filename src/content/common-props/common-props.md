@@ -514,7 +514,7 @@ The `labelComponent` prop takes a component instance which will be used to rende
 
 `type: array || function`
 
-The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function of label props. A full list of props that will be passed to `VictoryLabel` is given [here](https://formidable.com/open-source/victory/docs/victory-label).
+The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function. When given as a function, `labels` will be called with a single argument: an object containing all the props supplied to the label component. A full list of props that will be passed to `VictoryLabel` is given [here](https://formidable.com/open-source/victory/docs/victory-label).
 
 *examples:*
 - `labels={["first", "second", "third"]}`

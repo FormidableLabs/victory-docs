@@ -10898,10 +10898,10 @@ victory-line@^33.0.1:
     prop-types "^15.5.8"
     victory-core "^33.0.1"
 
-victory-pie@^33.0.1:
-  version "33.0.1"
-  resolved "https://registry.yarnpkg.com/victory-pie/-/victory-pie-33.0.1.tgz#146e1757a081cb43d90e1dd684bbf8f6c737a78b"
-  integrity sha512-YH2p1Biy8SZgBeYHVv4pmM600Nk70qMWtnwQe2l3hROVh4PaAlrVhasikxAcpcdlQtovNKmdaP/NiMcBY7YlNg==
+victory-pie@^33.0.3:
+  version "33.0.3"
+  resolved "https://registry.yarnpkg.com/victory-pie/-/victory-pie-33.0.3.tgz#38549320aa2b8e78b6da01254ca651264f3312da"
+  integrity sha512-3qfac+rzniOLvSH7BfUYxfdasU8mp+QlSAPDydnt2I9hnWUc/zUxrOD72wZSgT+sDLcL81Hz6En3K1Ujlbv49w==
   dependencies:
     d3-shape "^1.0.0"
     lodash "^4.17.15"
@@ -10994,10 +10994,10 @@ victory-zoom-container@^33.0.1:
     prop-types "^15.5.8"
     victory-core "^33.0.1"
 
-victory@33.0.1:
-  version "33.0.1"
-  resolved "https://registry.yarnpkg.com/victory/-/victory-33.0.1.tgz#5f6cdd063a1eda3070c00822ae3c29d5c2eed934"
-  integrity sha512-XjmHB/0oAnHth/4w6yXt9eLgkYz9o7llhT6/8CdsogZ7gJuDelPuMM9GIrWuoM+xsIBVgSOEc1XnAi4ChKvo7w==
+victory@33.0.3:
+  version "33.0.3"
+  resolved "https://registry.yarnpkg.com/victory/-/victory-33.0.3.tgz#5e8496293d4314385165061b7db3a5a4f2c1e670"
+  integrity sha512-WU4LDFFUPhmC0xvHx+ONTbfdvwMZOcLcyFQUHKhN6ZX7uX4KESVOkTWdtvVHPonJC5BEMimVJYmwPu0VTtK7JQ==
   dependencies:
     victory-area "^33.0.1"
     victory-axis "^33.0.1"
@@ -11014,7 +11014,7 @@ victory@33.0.1:
     victory-group "^33.0.1"
     victory-legend "^33.0.1"
     victory-line "^33.0.1"
-    victory-pie "^33.0.1"
+    victory-pie "^33.0.3"
     victory-polar-axis "^33.0.1"
     victory-scatter "^33.0.1"
     victory-selection-container "^33.0.1"
