@@ -41,31 +41,20 @@ const GradientPath = props => {
   );
 };
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor() {
     super();
     this.state = { percent: 62 };
   }
 
   getStreamData() {
-    return range(7).map(i =>
-      range(26).map(j => ({
+    return _.range(7).map(i =>
+      _.range(26).map(j => ({
         x: j,
-        y: (10 - i) * random(10 - i, 20 - 2 * i),
-        _y0: -1 * (10 - i) * random(10 - i, 20 - 2 * i)
+        y: (10 - i) * _.random(10 - i, 20 - 2 * i),
+        _y0: -1 * (10 - i) * _.random(10 - i, 20 - 2 * i)
       }))
     );
-  }
-
-  getStyles() {
-    return {
-      parent: {
-        boxSizing: "border-box",
-        display: "block",
-        margin: "0 auto",
-        padding: 0
-      }
-    };
   }
 
   render() {
@@ -81,66 +70,62 @@ export default class App extends React.Component {
       "#c33409"
     ];
 
-    const styles = this.getStyles();
 
     return (
-      <div className="Benefits-demo fancyBorder">
-        <VictoryChart
-          width={450}
-          height={350}
-          style={{ parent: styles.parent }}
-          domain={{
-            x: [0, 25],
-            y: [-300, 300]
+      <VictoryChart
+        width={400}
+        height={400}
+        domain={{
+          x: [0, 25],
+          y: [-300, 300]
+        }}
+      >
+        <VictoryAxis
+          style={{
+            axis: { stroke: "none" },
+            tickLabels: { fill: "none" },
+            grid: { stroke: "gray" }
           }}
-        >
-          <VictoryAxis
-            style={{
-              axis: { stroke: "none" },
-              tickLabels: { fill: "none" },
-              grid: { stroke: "gray" }
-            }}
-            tickValues={[2, 4, 6, 8, 10, 12, 14, 17, 19, 21, 23, 25]}
-          />
-          <VictoryAxis
-            dependentAxis
-            style={{ tickLabels: { fontSize: 15 } }}
-            crossAxis={false}
-          />
+          tickValues={[2, 4, 6, 8, 10, 12, 14, 17, 19, 21, 23, 25]}
+        />
+        <VictoryAxis
+          dependentAxis
+          style={{ tickLabels: { fontSize: 15 } }}
+          crossAxis={false}
+        />
 
-          {streamData.map((d, i) => (
-            <VictoryArea
-              key={i}
-              interpolation="monotoneX"
-              data={d}
-              style={{ data: { fill: colors[i] } }}
-              dataComponent={
-                <Area
-                  pathComponent={<GradientPath percent={this.state.percent} />}
-                />
-              }
-            />
-          ))}
-          <VictoryLine
-            style={{
-              data: {
-                stroke: "#c33409",
-                strokeWidth: 3
-              }
-            }}
-            data={[
-              {
-                x: (25 * this.state.percent) / 100,
-                y: -300
-              },
-              {
-                x: (25 * this.state.percent) / 100,
-                y: 300
-              }
-            ]}
+        {streamData.map((d, i) => (
+          <VictoryArea
+            key={i}
+            interpolation="monotoneX"
+            data={d}
+            style={{ data: { fill: colors[i] } }}
+            dataComponent={
+              <Area
+                pathComponent={<GradientPath percent={this.state.percent} />}
+              />
+            }
           />
-        </VictoryChart>
-      </div>
+        ))}
+        <VictoryLine
+          style={{
+            data: {
+              stroke: "#c33409",
+              strokeWidth: 3
+            }
+          }}
+          data={[
+            {
+              x: (25 * this.state.percent) / 100,
+              y: -300
+            },
+            {
+              x: (25 * this.state.percent) / 100,
+              y: 300
+            }
+          ]}
+        />
+      </VictoryChart>
     );
   }
 }
