@@ -17,11 +17,14 @@ scope: null
 
 `VictoryPortal` takes a single `children`, and renders it in a top level portal element. Any additional props passed to `VictoryPortal` will be spread onto the child. In the following example, the `labelComponent` passed to the first series of bars has been wrapped in `VictoryPortal`. The resulting labels will be rendered in a top-level portal container, and will not be overlapped by subsequent data series, as they otherwise would have.
 
-```jsx
-<VictoryChart>
-  <VictoryGroup offset={12}>
+```playground
+<VictoryChart domainPadding={{ x: 50 }}>
+  <VictoryGroup offset={15}>
     <VictoryBar
       labels={["apples", "bananas", "cherries"]}
+      style={{
+        labels: { fontSize: 20, fill: "tomato" }
+      }}
       labelComponent={<VictoryPortal><VictoryLabel/></VictoryPortal>}
       data={[{x: 1, y: 1}, {x: 2, y: 2}, {x: 3, y: 5}]}
     />

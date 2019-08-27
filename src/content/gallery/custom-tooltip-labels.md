@@ -35,7 +35,7 @@ class App extends React.Component {
           style={{ labels: { fill: "white" } }}
           innerRadius={100}
           labelRadius={120}
-          labels={(d) => d.y}
+          labels={({ datum }) => datum.y}
           labelComponent={<CustomLabel/>}
           data={[
             { x: 1, y: 5 },

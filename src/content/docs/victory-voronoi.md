@@ -219,7 +219,7 @@ horizontal={true}
     data: { stroke: "#c43a31", strokeWidth: 2 },
     labels: { fontSize: 18}
   }}
-  labels={(datum) => datum.y}
+  labels={({ datum }) => datum.y}
   labelComponent={<VictoryLabel dx={-10}/>}
 />
 ```
@@ -237,7 +237,7 @@ horizontal={true}
     data: { stroke: "#c43a31", strokeWidth: 2 },
     labels: { fontSize: 18}
   }}
-  labels={(datum) => `y: ${datum.y}`}
+  labels={({ datum }) => `y: ${datum.y}`}
 />
 ```
 
@@ -412,7 +412,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
   }}
   size={50}
   data={sampleData}
-  labels={(datum) => datum.x}
+  labels={({ datum }) => datum.x}
 />
 ```
 

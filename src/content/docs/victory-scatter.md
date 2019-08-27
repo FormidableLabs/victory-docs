@@ -285,7 +285,7 @@ horizontal={true}
   size={20}
   style={{ labels: { fill: "white", fontSize: 18} }}
   labels={({ datum }) => datum.y}
-  labelComponent={<VictoryLabel dy={18}/>}
+  labelComponent={<VictoryLabel dy={8}/>}
 />
 ```
 
@@ -542,7 +542,7 @@ The `symbol` prop determines which symbol should be drawn to represent data poin
 
 ```playground
 <VictoryScatter
-  symbol={(datum) => datum.y > 3 ? "triangleUp" : "triangleDown"}
+  symbol={({ datum }) => datum.y > 3 ? "triangleUp" : "triangleDown"}
   size={7}
   data={sampleData}
 />

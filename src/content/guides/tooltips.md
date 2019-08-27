@@ -48,11 +48,12 @@ Tooltips can be customized directly on the `VictoryTooltip` component
   <VictoryBar
     labelComponent={
       <VictoryTooltip
-        cornerRadius={(d) => d.x > 6 ? 0 : 20}
-        pointerLength={(d) => d.y > 0 ? 5 : 20}
+        cornerRadius={({ datum }) => datum.x > 6 ? 0 : 20}
+        pointerLength={({ datum }) => datum.y > 0 ? 5 : 20}
         flyoutStyle={{
-          stroke: (d) => d.x === 10 ?
-            "tomato" : "black"
+          stroke: ({ datum }) => datum.x === 10
+            ? "tomato"
+            : "black"
         }}
       />
     }
@@ -76,7 +77,7 @@ Tooltips can be customized directly on the `VictoryTooltip` component
 class CustomFlyout extends React.Component {
   render() {
     const {x, y, orientation} = this.props;
-    const newY = orientation === "top" ? y - 25 : y + 25;
+    const newY = orientation === "top" ? y - 35 : y + 35;
     return (
       <g>
         <circle cx={x} cy={newY} r="20" stroke="tomato" fill="none"/>
@@ -137,8 +138,8 @@ on appropriate data and label elements.
     style={{
       data: {fill: "tomato"}, labels: {fill: "tomato"}
     }}
-    size={(datum, active) => active ? 5 : 3}
-    labels={(d) => d.y}
+    size={({ active }) => active ? 5 : 3}
+    labels={({ datum }) => datum.y}
     labelComponent={<VictoryTooltip/>}
     data={[
       {x: 1, y: -4},
@@ -152,7 +153,7 @@ on appropriate data and label elements.
       data: {fill: "blue"}, labels: {fill: "blue"}
     }}
     size={(datum, active) => active ? 5 : 3}
-    labels={(d) => d.y}
+    labels={({ datum }) => datum.y}
     labelComponent={<VictoryTooltip/>}
     data={[
       {x: 1, y: -3},
@@ -168,9 +169,9 @@ on appropriate data and label elements.
       {x: 3, y: -2},
       {x: 4, y: -3}
     ]}
-    labels={(d) => d.y}
+    labels={({ datum }) => datum.y}
     labelComponent={<VictoryTooltip/>}
-    size={(datum, active) => active ? 5 : 3}
+    size={({ active }) => active ? 5 : 3}
   />
 </VictoryChart>
 ```
@@ -188,7 +189,7 @@ several tooltips being active at the same time. Provide a `labels` and (optional
 <VictoryChart
   containerComponent={
     <VictoryVoronoiContainer voronoiDimension="x"
-      labels={(d) => `y: ${d.y}`}
+      labels={({ datum }) => `y: ${datum.y}`}
       labelComponent={<VictoryTooltip cornerRadius={0} flyoutStyle={{fill: "white"}}/>}
     />
   }
@@ -202,7 +203,7 @@ several tooltips being active at the same time. Provide a `labels` and (optional
       {x: 3, y: -2, l: "three"}
     ]}
     style={{
-      data: { stroke: "tomato", strokeWidth: (d, active) => active ? 4 : 2},
+      data: { stroke: "tomato", strokeWidth: ({ active }) => active ? 4 : 2},
       labels: {fill: "tomato"}
     }}
   />
@@ -214,7 +215,7 @@ several tooltips being active at the same time. Provide a `labels` and (optional
       {x: 3, y: 3, l: "blue"}
     ]}
     style={{
-      data: { stroke: "blue", strokeWidth: (d, active) => active ? 4 : 2},
+      data: { stroke: "blue", strokeWidth: ({ active }) => active ? 4 : 2},
       labels: {fill: "blue"}
     }}
   />
@@ -226,7 +227,7 @@ several tooltips being active at the same time. Provide a `labels` and (optional
       {x: 3, y: -2, l: "bird"}
     ]}
     style={{
-      data: { stroke: "black", strokeWidth: (d, active) => active ? 4 : 2},
+      data: { stroke: "black", strokeWidth: ({ active }) => active ? 4 : 2},
       labels: {fill: "black"}
     }}
   />
@@ -353,61 +354,20 @@ ReactDOM.render(<App/>, mountNode);
 ```
 
 ## Victory Native
-In Victory Native tooltips are presented when a data element is pressed and hidden when the press is released. A `VictoryVoronoiContainer` is required for the chart to enable the press events to show tooltips. On press it will show the user the tooltip for the closest data point. Since data points can be quite small showing the closest data point increases the tap targets for the tooltip. Set `VictoryVoronoiContainer` as the `containerComponent` prop to the chart itself, like `VictoryScatter`, or the `VictoryChart` wrapper.
+In Victory Native tooltips are much more reliable when using `VictoryVoronoiContainer`. Using `VictoryVoronoiContainer` registers all touch events on the container itself, which mitigates interference with other chart element, which can be a problem on some platforms. Showing the closest data point with `VictoryVoronoiContainer` also increases the tap targets for the tooltip, which can otherwise be quite small. Set `VictoryVoronoiContainer` as the `containerComponent` prop on the outermost Victory component.
 
-```playground
-<VictoryChart 
-  containerComponent={<VictoryVoronoiContainer />}
->
+```jsx
+<VictoryChart containerComponent={<VictoryVoronoiContainer />} >
   <VictoryScatter
     labelComponent={<VictoryTooltip />}
-    style={{ data: { fill: (d) => d.fill } }}
+    labels={({ datum }) => datum.y}
+    style={{ data: { fill: ({ datum }) => datum.fill } }}
     data={[
-      {
-        x: 1,
-        y: 3,
-        fill: "red",
-        symbol: "plus",
-        size: 6,
-        label: "Red"
-      },
-      {
-        x: 3,
-        y: 5,
-        fill: "green",
-        symbol: "plus",
-        size: 10,
-        label: "Green"
-      }
+      { x: 1, y: 3 },
+      { x: 3, y: 5 }
     ]}
   />
 </VictoryChart>
-```
-
-```playground
-<VictoryScatter
-  containerComponent={<VictoryVoronoiContainer />}
-  labelComponent={<VictoryTooltip />}
-  style={{ data: { fill: (d) => d.fill } }}
-  data={[
-    {
-      x: 1,
-      y: 3,
-      fill: "red",
-      symbol: "plus",
-      size: 6,
-      label: "Red"
-    },
-    {
-     x: 3,
-     y: 5,
-     fill: "green",
-     symbol: "plus",
-     size: 10,
-     label: "Green"
-    }
-  ]}
-/>
 ```
 
 [`VictoryTooltip`]: https://formidable.com/open-source/victory/docs/victory-tooltip

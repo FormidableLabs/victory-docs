@@ -229,10 +229,10 @@ labelComponent={<VictoryLabel dy={20}/>}
 
 `type: array || function`
 
-The `labels` prop defines labels that will appear above each stack of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the `labels` prop of child components. Omit this prop, and set `labels` props on children for individual labels.
+The `labels` prop defines labels that will appear above each stack of data. This prop should be given as an array of values or as a function. When this prop is given as a function, it will be evaluated for each label with the props corresponding to that label. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the `labels` prop of child components. Omit this prop, and set `labels` props on children for individual labels.
 
 ```jsx
-labels={["spring", "summer", "fall", "winter"]}`, `labels={(datum) => datum.title}
+labels={["spring", "summer", "fall", "winter"]}`, `labels={({ datum }) => datum.title}
 ```
 
 ### maxDomain
