@@ -117,6 +117,44 @@ Use `close` data accessor prop to define the close value of a candle.
 
 *examples:* `close="bonds.close"`, `close={["bonds", "close"]}`
 
+### closeLabelComponent
+
+`type: element`
+
+The `closeLabelComponent` prop takes a component instance which will be used to render the label corresponding to the close value for each candle. The new element created from the passed `closeLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `closeLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
+
+*default:* `closeLabelComponent={<VictoryLabel/>}`
+
+```jsx
+closeLabelComponent={<VictoryLabel dy={20}/>}
+```
+
+```playground
+<VictoryCandlestick
+  data={sampleDataDates}
+  closeLabels
+  closeLabelComponent={
+    <VictoryLabel
+      dx={-30}
+      textAnchor="middle"
+    />
+  }
+/>
+```
+
+### closeLabels
+
+`type: array || function || boolean`
+
+The `closeLabels` prop defines the labels that will correspond to the close value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
+
+*examples:*
+- `closeLabels`
+- `closeLabels={["first", "second", "third"]}`
+- `closeLabels={({ datum }) => Math.round(datum.close)}`
+
 ### containerComponent
 
 `type: element`
@@ -248,18 +286,6 @@ groupComponent={<g transform="translate(10, 10)" />}
 height={400}
 ```
 
-### horizontal
-
-`type: boolean`
-
-`VictoryCandlestick` uses the standard `horizontal` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
-
-```playground
-<VictoryCandlestick horizontal
-  data={sampleDataDates}
-/>
-```
-
 ### high
 
 `type: string || integer || array[string] || function`
@@ -281,6 +307,56 @@ Use `high` data accessor prop to define the high value of a candle.
 **path string or path array:** specify which property in an array of nested data objects should be used as a high value
 
 *examples:* `high="bonds.high"`, `high={["bonds", "high"]}`
+
+### highLabelComponent
+
+`type: element`
+
+The `highLabelComponent` prop takes a component instance which will be used to render the label corresponding to the highest value for each candle. The new element created from the passed `highLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `highLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
+
+*default:* `highLabelComponent={<VictoryLabel/>}`
+
+```jsx
+highLabelComponent={<VictoryLabel dy={20}/>}
+```
+
+```playground
+<VictoryCandlestick
+  data={sampleDataDates}
+  highLabels
+  highLabelComponent={
+    <VictoryLabel
+      dx={-10}
+      textAnchor="middle"
+    />
+  }
+/>
+```
+
+### highLabels
+
+`type: array || function || boolean`
+
+The `highLabels` prop defines the labels that will correspond to the high value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
+
+*examples:*
+- `highLabels`
+- `highLabels={["first", "second", "third"]}`
+- `highLabels={({ datum }) => Math.round(datum.high)}`
+
+### horizontal
+
+`type: boolean`
+
+`VictoryCandlestick` uses the standard `horizontal` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
+
+```playground
+<VictoryCandlestick horizontal
+  data={sampleDataDates}
+/>
+```
 
 ### labelComponent
 
@@ -309,6 +385,32 @@ Use `high` data accessor prop to define the high value of a candle.
   }
 />
 ```
+
+### labelOrientation
+
+`type: "top", "bottom", "left", "right" || { open, close, low, high }`
+
+The `labelOrientation` prop determines where a label should be placed in relation to the candle it corresponds to. This prop may be given as "top", "bottom", "left", "right", or as an object with an option defined for some or all of the labels.
+
+
+```playground
+<VictoryCandlestick
+  data={sampleDataDates}
+  closeLabels={() => "close"}
+  highLabels={() => "high"}
+  lowLabels={() => "low"}
+  openLabels={() => "open"}
+  style={{ labels: { padding: 4 } }}
+  labelOrientation={{
+    close: "right",
+    open: "right",
+    high: "top",
+    low: "bottom"
+  }}
+/>
+```
+
+
 
 ### labels
 
@@ -344,6 +446,50 @@ Use `low` data accessor prop to define the low value of a candle.
 **path string or path array:** specify which property in an array of nested data objects should be used as a low value
 
 *examples:* `low="bonds.low"`, `low={["bonds", "low"]}`
+
+### lowLabelComponent
+
+`type: element`
+
+The `lowLabelComponent` prop takes a component instance which will be used to render the label corresponding to the lowest value for each candle. The new element created from the passed `lowLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `lowLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
+
+*default:* `lowLabelComponent={<VictoryLabel/>}`
+
+```jsx
+lowLabelComponent={<VictoryLabel dy={20}/>}
+```
+
+```playground
+<VictoryCandlestick
+  data={sampleDataDates}
+  lowLabels
+  lowLabelComponent={<VictoryTooltip pointerLength={0}/>}
+  events={[{
+  	target: "data",
+    eventHandlers: {
+      onMouseOver: () => ({
+        target: "lowLabels", mutation: () => ({ active: true })
+      }),
+      onMouseOut: () => ({
+        target: "lowLabels", mutation: () => ({ active: false })
+      })
+    }
+  }]}
+/>
+```
+
+### lowLabels
+
+`type: array || function || boolean`
+
+The `lowLabels` prop defines the labels that will correspond to the low value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
+
+*examples:*
+- `lowLabels`
+- `lowLabels={["first", "second", "third"]}`
+- `lowLabels={({ datum }) => Math.round(datum.low)}`
 
 ### maxDomain
 
@@ -413,6 +559,44 @@ Use `open` data accessor prop to define the open value of a candle.
 **path string or path array:** specify which property in an array of nested data objects should be used as a open value
 
 *examples:* `open="bonds.open"`, `open={["bonds", "open"]}`
+
+### openLabelComponent
+
+`type: element`
+
+The `openLabelComponent` prop takes a component instance which will be used to render the label corresponding to the open value for each candle. The new element created from the passed `openLabelComponent` will be supplied with the following props: `x`, `y`, `datum`, `index`, `scale`, `verticalAnchor`, `textAnchor`, `angle`, `transform`, `style` and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `openLabelComponent` is omitted, a new [`VictoryLabel`][] will be created with props described above.
+
+See the [Custom Components Guide][] for more detail on creating your own components
+
+*default:* `openLabelComponent={<VictoryLabel/>}`
+
+```jsx
+openLabelComponent={<VictoryLabel dy={20}/>}
+```
+
+```playground
+<VictoryCandlestick
+  data={sampleDataDates}
+  openLabels
+  openLabelComponent={
+    <VictoryLabel
+      dx={-30}
+      textAnchor="middle"
+    />
+  }
+/>
+```
+
+### openLabels
+
+`type: array || function || boolean`
+
+The `openLabels` prop defines the labels that will correspond to the open value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
+
+*examples:*
+- `openLabels`
+- `openLabels={["first", "second", "third"]}`
+- `openLabels={({ datum }) => Math.round(datum.open)}`
 
 
 ### origin
@@ -530,25 +714,45 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 ### style
 
-`type: { parent: object, data: object, labels: object }`
+```
+type: {
+  parent: object,
+  data: object,
+  labels: object,
+  closeLabels: object,
+  highLabels: object,
+  lowLabels: object,
+  openLabels: object
+}
+```
 
-`VictoryCandlestick` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
+The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `data`, `labels`, `closeLabels`, `highLabels`,`lowLabels`, and `openLabels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for style properties, and they will be evaluated with the props corresponding to each element.
+
+**note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
+
+**note:** custom `angle` and `verticalAnchor` properties may be included in `labels` styles.
 
 *default (provided by default theme):* See [grayscale theme][] for more detail
 
 ```playground
-  <VictoryCandlestick
-    style={{
-      data: {
-        fill: "#c43a31", fillOpacity: 0.7, stroke: "#c43a31", strokeWidth: 3
-      },
-      labels: {
-        fontSize: 15, fill: "#c43a31"
-      }
-    }}
-    data={sampleDataDates}
-    labels={({ datum }) => datum.open}
-  />
+<VictoryCandlestick
+  data={sampleDataDates}
+  labels={() => "labels"}
+  closeLabels={() => "close"}
+  highLabels={() => "high"}
+  lowLabels={() => "low"}
+  openLabels={() => "open"}
+  style={{
+    data: {
+      fill: "#c43a31", fillOpacity: 0.7, stroke: "#c43a31", strokeWidth: 3
+    },
+    labels: { fill: "tomato", padding: 2 },
+    closeLabels: { fill: "orange", padding: 2 },
+    highLabels: { fill: "blue", padding: 2 },
+    lowLabels: { fill: "teal", padding: 2 },
+    openLabels: { fill: "green", padding: 2 },
+  }}
+/>
 ```
 
 ### theme
