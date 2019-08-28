@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 8.1.0 (2019-08-27)
+
+- update victory to 33.0.4
+
 ## 8.0.6 (2019-04-19)
 
 - Fix surge issue
