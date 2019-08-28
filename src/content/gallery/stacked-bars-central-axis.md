@@ -45,12 +45,12 @@ class App extends React.Component {
             style={{ data: { fill: "tomato" } }}
             data={dataA}
             y={(data) => (-Math.abs(data.y))}
-            labels={(data) => (`${Math.abs(data.y)}%`)}
+            labels={({ datum }) => (`${Math.abs(datum.y)}%`)}
           />
           <VictoryBar
             style={{ data: { fill: "orange" } }}
             data={dataB}
-            labels={(data) => (`${Math.abs(data.y)}%`)}
+            labels={({ datum }) => (`${Math.abs(datum.y)}%`)}
           />
         </VictoryStack>
 

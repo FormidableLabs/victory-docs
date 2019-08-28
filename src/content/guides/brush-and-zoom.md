@@ -43,8 +43,8 @@ class App extends React.Component {
           data={this.state.data}
           style={{
             data: {
-              opacity: (d) =>  d.y % 5 === 0 ? 1 : 0.7,
-              fill: (d) => d.y % 5 === 0 ? "tomato" : "black"
+              opacity: ({ datum }) =>  datum.y % 5 === 0 ? 1 : 0.7,
+              fill: ({ datum }) => datum.y % 5 === 0 ? "tomato" : "black"
             }
           }}
         />

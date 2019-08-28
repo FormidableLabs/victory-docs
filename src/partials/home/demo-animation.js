@@ -86,7 +86,7 @@ export default class App extends React.Component {
             data={this.state.scatterData}
             style={{
               data: {
-                fill: d => d.fill,
+                fill: ({ datum }) => datum.fill,
                 opacity: 0.6
               }
             }}

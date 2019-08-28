@@ -25,7 +25,7 @@ If you would like to instead highlight only the data points, consider using [Vic
 <VictoryScatter
   containerComponent={
     <VictoryCursorContainer
-      cursorLabel={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
+      cursorLabel={({ datum }) => `${round(datum.x, 2)}, ${round(datum.y, 2)}`}
     />
   }
 />
@@ -59,7 +59,7 @@ the cursor will then be a vertical line that will inspect the time value of the 
   containerComponent={
     <VictoryCursorContainer
       cursorDimension="x"
-      cursorLabel={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
+      cursorLabel={({ datum }) => `${round(datum.x, 2)}, ${round(datum.y, 2)}`}
     />
   }
 />

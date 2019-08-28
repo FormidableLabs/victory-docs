@@ -44,9 +44,9 @@ class App extends React.Component {
             cornerRadius={25}
             labels={() => null}
             style={{
-              data: { fill: (d) => {
-                const color = d.y > 30 ? "green" : "red";
-                return d.x === 1 ? color : "transparent";
+              data: { fill: ({ datum }) => {
+                const color = datum.y > 30 ? "green" : "red";
+                return datum.x === 1 ? color : "transparent";
               }
               }
             }}

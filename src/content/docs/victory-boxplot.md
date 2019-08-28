@@ -337,12 +337,12 @@ maxLabelComponent={<VictoryLabel dy={20}/>}
 
 `type: array || function || boolean`
 
-The `maxLabels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the max value of each datum will be used for the label.
+The `maxLabels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
 
 *examples:*
 - `maxLabels`
 - `maxLabels={["first", "second", "third"]}`
-- `maxLabels={(d) => Math.round(d.max)}`
+- `maxLabels={({ datum }) => Math.round(datum.max)}`
 
 ### maxDomain
 
@@ -432,12 +432,12 @@ medianLabelComponent={<VictoryLabel dy={20}/>}
 
 `type: array || function || boolean`
 
-The `medianLabels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the median value of each datum will be used for the label.
+The `medianLabels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the median value of each datum will be used for the label.
 
 *examples:*
 - `medianLabels`
 - `medianLabels={["first", "second", "third"]}`
-- `medianLabels={(d) => Math.round(d.median)}`
+- `medianLabels={({ datum }) => Math.round(datum.median)}`
 
 ### min
 
@@ -507,12 +507,12 @@ minLabelComponent={<VictoryLabel dy={20}/>}
 
 `type: array || function || boolean`
 
-The `minLabels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the min value of each datum will be used for the label.
+The `minLabels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the min value of each datum will be used for the label.
 
 *examples:*
 - `minLabels`
 - `minLabels={["first", "second", "third"]}`
-- `minLabels={(d) => Math.round(d.min)}`
+- `minLabels={({ datum }) => Math.round(datum.min)}`
 
 ### minDomain
 
@@ -639,12 +639,12 @@ q1LabelComponent={<VictoryLabel dy={20}/>}
 
 `type: array || function || boolean`
 
-The `q1Labels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the q1 value of each datum will be used for the label.
+The `q1Labels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the q1 value of each datum will be used for the label.
 
 *examples:*
 - `q1Labels`
 - `q1Labels={["first", "second", "third"]}`
-- `q1Labels={(d) => Math.round(d.q1)}`
+- `q1Labels={({ datum }) => Math.round(datum.q1)}`
 
 ### q3
 
@@ -713,12 +713,12 @@ q3LabelComponent={<VictoryLabel dy={20}/>}
 
 `type: array || function || boolean`
 
-The `q3Labels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of data. When given as a boolean value, the q3 value of each datum will be used for the label.
+The `q3Labels` prop defines the labels that will appear above each point. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the q3 value of each datum will be used for the label.
 
 *examples:*
 - `q3Labels`
 - `q3Labels={["first", "second", "third"]}`
-- `q3Labels={(d) => Math.round(d.q3)}`
+- `q3Labels={({ datum }) => Math.round(datum.q3)}`
 
 ### range
 
@@ -811,7 +811,7 @@ type: {
 }
 ```
 
-The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `max`, `maxLabels`, `min`, `minLabels`,`median`, `medianLabels`,`q1`, `q1Labels`,`q3`, `q3Labels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for style properties, and they will be evaluated with each datum.
+The `style` prop defines the style of the component. The style prop should be given as an object with styles defined for `parent`, `max`, `maxLabels`, `min`, `minLabels`,`median`, `medianLabels`,`q1`, `q1Labels`,`q3`, `q3Labels`. Any valid svg styles are supported, but `width`, `height`, and `padding` should be specified via props as they determine relative layout for components in VictoryChart. Functional styles may be defined for style properties, and they will be evaluated with the props corresponding to each element.
 
 **note:** When a component is rendered as a child of another Victory component, or within a custom `<svg>` element with `standalone={false}` parent styles will be applied to the enclosing `<g>` tag. Many styles that can be applied to a parent `<svg>` will not be expressed when applied to a `<g>`.
 

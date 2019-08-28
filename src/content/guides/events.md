@@ -155,7 +155,7 @@ Components like `VictoryChart` use the `VictorySharedEvents` wrapper automatical
           {x: "a", y: 2}, {x: "b", y: 3}, {x: "c", y: 5}, {x: "d", y: 4}
         ]}
         labels={["a", "b", "c", "d"]}
-        labelComponent={<VictoryLabel y={280}/>}
+        labelComponent={<VictoryLabel y={290}/>}
       />
     </g>
     <g transform={"translate(0, -75)"}>

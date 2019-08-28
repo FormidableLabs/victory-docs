@@ -51,7 +51,7 @@ const App = () => (
   <VictoryChart
     containerComponent={
       <VictoryZoomVoronoiContainer
-        labels={(d) => `${d.x}, ${d.y}`}
+        labels={({ datum }) => `${datum.x}, ${datum.y}`}
       />
     }>
     <VictoryScatter data={data} />

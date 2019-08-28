@@ -82,7 +82,7 @@ The `barRatio` prop specifies an _approximate_ ratio between bar widths and spac
 
 `type: number || function`
 
-The `barWidth` prop is used to specify the width of each bar. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of bars.
+The `barWidth` prop is used to specify the width of each bar. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated for each bar with the props object corresponding to that bar. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of bars.
 
 *Note:* It is still possible to define bar width via the style prop with the `width` attribute, but `barWidth` will take precedence.
 
@@ -92,7 +92,7 @@ The `barWidth` prop is used to specify the width of each bar. This prop may be g
   domainPadding={{ x: 20 }}
 >
   <VictoryBar
-    barWidth={40}
+    barWidth={({ index }) => index * 2 + 8}
     style={{
       data: { fill: "#c43a31" }
     }}
@@ -125,7 +125,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 `type: function || number || { top, bottom, topLeft, topRight, bottomLeft, bottomRight }`
 
-The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaluated with the arguments `datum`, and `active`.
+The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is given as a single number, the radius will only be applied to the _top_ of each bar. When this prop is given as a function, it will be evaluated for each bar with the props object corresponding to that bar.
 
 ```playground
 <VictoryChart
@@ -133,7 +133,7 @@ The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is
   domainPadding={{ x: 15 }}
 >
   <VictoryBar
-    cornerRadius={{ topLeft: (d) => d.x * 4 }}
+    cornerRadius={{ topLeft: ({ datum }) => datum.x * 4 }}
     style={{
       data: {
         fill: "#c43a31",
@@ -313,7 +313,7 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 ```playground
 <VictoryBar
   data={sampleData}
-  labels={(d) => d.y}
+  labels={({ datum }) => datum.y}
   style={{ labels: { fill: "white" } }}
   labelComponent={<VictoryLabel dy={30}/>}
 />
@@ -328,7 +328,7 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 ```playground
 <VictoryBar
   data={sampleData}
-  labels={(d) => `y: ${d.y}`}
+  labels={({ datum }) => `y: ${datum.y}`}
 />
 ```
 
@@ -509,18 +509,18 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
   <VictoryBar
     style={{
       data: {
-        fill: (d) => d.x === 3 ? "#000000" : "#c43a31",
-        stroke: (d) => d.x === 3 ? "#000000" : "#c43a31",
+        fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31",
+        stroke: ({ index }) => +index % 2 === 0  ? "#000000" : "#c43a31",
         fillOpacity: 0.7,
         strokeWidth: 3
       },
       labels: {
         fontSize: 15,
-        fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
+        fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
       }
     }}
     data={sampleData}
-    labels={(d) => d.x}
+    labels={({ datum }) => datum.x}
   />
 ```
 

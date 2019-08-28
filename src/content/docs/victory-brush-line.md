@@ -66,7 +66,7 @@ an object of SVG style attributes. Styles supplied to `brushAreaStyle` are assig
 {
   stroke: "none",
   fill: "black",
-  opacity: (d, a) => a ? 0.2 : 0.1
+  opacity: ({ active }) => active ? 0.2 : 0.1
 }
 ```
 
@@ -110,7 +110,7 @@ an object of SVG style attributes. Styles supplied to `brushStyle` are assigned 
   pointerEvents: "none",
   stroke: "none",
   fill: "black",
-  opacity: (d, a) => a ? 0.4 : 0.3
+  opacity: ({ active }) => active ? 0.4 : 0.3
 }
 ```
 

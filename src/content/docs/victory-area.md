@@ -147,12 +147,11 @@ See the [Events Guide][] for more information on defining events.
       data: { fill: "#c43a31" }
     }}
     events={[{
-      target: "parent",
+      target: "data",
       eventHandlers: {
         onClick: () => {
           return [
             {
-              target: "data",
               eventKey: "all",
               mutation: (props) => {
                 const fill = props.style && props.style.fill;
@@ -250,8 +249,21 @@ Cartesian area charts may use the following interpolation options: "basis", "car
 ```playground
 <VictoryArea
   data={sampleData}
-  labels={(datum) => datum.y}
+  labels={({ datum }) => datum.y}
   labelComponent={<VictoryLabel renderInPortal dy={-20}/>}
+/>
+```
+
+### labels
+
+`type: array || function`
+
+`VictoryArea` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
+
+```playground
+<VictoryArea
+  data={sampleData}
+  labels={({ data, index }) => index == data.length - 1 ? "last label" : index}
 />
 ```
 
@@ -279,19 +291,6 @@ Cartesian area charts may use the following interpolation options: "basis", "car
 <VictoryChart minDomain={{ x: 2 }}>
   <VictoryArea data={sampleData}/>
 </VictoryChart>
-```
-
-### labels
-
-`type: array || function`
-
-`VictoryArea` uses the standard `labels` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#labels)
-
-```playground
-<VictoryArea
-  data={sampleData}
-  labels={(datum) => datum.y}
-/>
 ```
 
 ### name
@@ -448,11 +447,11 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
       },
       labels: {
         fontSize: 15,
-        fill: (d) => d.x === 3 ? "#000000" : "#c43a31"
+        fill: ({ datum }) => datum.x === 3 ? "#000000" : "#c43a31"
       }
     }}
     data={sampleData}
-    labels={(d) => d.x}
+    labels={({ datum }) => datum.x}
   />
 ```
 

@@ -227,7 +227,7 @@ class CustomTheme extends React.Component {
       axisYears: {
         axis: { stroke: "black", strokeWidth: 1},
         ticks: {
-          size: (tick) => {
+          size: ({ tick }) => {
             const tickSize =
               tick.getFullYear() % 5 === 0 ? 10 : 5;
             return tickSize;
@@ -245,7 +245,7 @@ class CustomTheme extends React.Component {
       // DATA SET ONE
       axisOne: {
         grid: {
-          stroke: (tick) =>
+          stroke: ({ tick }) =>
             tick === -10 ? "transparent" : "#ffffff",
           strokeWidth: 2
         },

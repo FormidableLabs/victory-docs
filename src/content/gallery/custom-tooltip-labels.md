@@ -12,12 +12,11 @@ class CustomLabel extends React.Component {
         <VictoryTooltip
           {...this.props}
           x={200} y={250}
-          text={`# ${this.props.text}`}
           orientation="top"
           pointerLength={0}
           cornerRadius={50}
-          width={100}
-          height={100}
+          flyoutWidth={100}
+          flyoutHeight={100}
           flyoutStyle={{ fill: "black" }}
         />
       </g>
@@ -26,7 +25,7 @@ class CustomLabel extends React.Component {
 }
 
 CustomLabel.defaultEvents = VictoryTooltip.defaultEvents;
-CustomLabel.propTypes = { text: PropTypes.string };
+
 
 class App extends React.Component {
   render() {
@@ -35,8 +34,8 @@ class App extends React.Component {
           style={{ labels: { fill: "white" } }}
           innerRadius={100}
           labelRadius={120}
-          labels={(d) => d.y}
-          labelComponent={<CustomLabel/>}
+          labels={({ datum }) => `# ${datum.y}`}
+          labelComponent={<CustomLabel />}
           data={[
             { x: 1, y: 5 },
             { x: 2, y: 4 },

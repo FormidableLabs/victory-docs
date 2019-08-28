@@ -11,29 +11,14 @@ Victory is built around a set of simple, stateless components. Along with [Victo
 
 ## Primitive Components
 
-Each of these primitive components renders SVG elements. Custom `shouldComponentUpdate` logic is added to improve performance. The following components are the only Victory components that render SVG elements with the exception of `VictoryContainer` and `VictoryPortal`. These elements are used by other simple components such as `Bar` and `Area`. Their render methods are shown so that users may easily override their behavior.
+Each of these primitive components renders SVG elements. The following components are the only Victory components that render SVG elements with the exception of `VictoryContainer` and `VictoryPortal`. These elements are used by other simple components such as `Bar` and `Area`.
 
 ### Circle
 
 Used by `VictoryClipContainer` and `Voronoi`
 
 ```jsx
-render() {
-  return (
-    <circle
-      cx={this.props.cx}
-      cy={this.props.cy}
-      r={this.props.r}
-      className={this.props.className}
-      clipPath={this.props.clipPath}
-      transform={this.props.transform}
-      style={this.props.style}
-      role={this.props.role || "presentation"}
-      shapeRendering={this.props.shapeRendering || "auto"}
-      {...this.props.events}
-    />
-  );
-}
+const Circle = (props) => <circle vectorEffect="non-scaling-stroke" {...props} />;
   ```
 
 ### ClipPath
@@ -41,129 +26,55 @@ render() {
 Used by `VictoryClipContainer` and `Voronoi`
 
 ```jsx
-render() {
-  return (
-    <defs>
-      <clipPath id={this.props.clipId}>
-        {this.props.children}
-      </clipPath>
-    </defs>
-  );
-}
+const ClipPath = (props) => (
+  <defs>
+    <clipPath id={props.clipId}>{props.children}</clipPath>
+  </defs>
+);
 ```
 ### Line
 
 Used by `Axis`, `Candle`, and `ErrorBar`
 
 ```jsx
-render() {
-  return (
-    <line
-      x1={this.props.x1}
-      x2={this.props.x2}
-      y1={this.props.y1}
-      y2={this.props.y2}
-      className={this.props.className}
-      clipPath={this.props.clipPath}
-      transform={this.props.transform}
-      style={this.props.style}
-      role={this.props.role || "presentation"}
-      shapeRendering={this.props.shapeRendering || "auto"}
-      {...this.props.events}
-    />
-  );
-}
+const Line = (props) => <line vectorEffect="non-scaling-stroke" {...props} />;
 ```
 ### Path
 
 Used by `Arc`, `Area`, `Bar`, `Curve`, `Flyout`, `Point`, `Slice`, and `Voronoi`
 
 ```jsx
-render() {
-  return (
-    <path
-      d={this.props.d}
-      transform={this.props.transform}
-      className={this.props.className}
-      clipPath={this.props.clipPath}
-      style={this.props.style}
-      role={this.props.role || "presentation"}
-      shapeRendering={shapeRendering || "auto"}
-      {...this.props.events}
-    />
-  );
-}
+const Path = (props) => <path {...props} />;
 ```
 ### Rect
 
 Used by `VictoryClipPath`, `Border`, and `Candle`
 
 ```jsx
-render() {
-  return (
-    <rect
-      x={this.props.x}
-      y={this.props.y}
-      rx={this.props.rx}
-      ry={this.props.ry}
-      width={this.props.width}
-      height={this.props.height}
-      className={this.props.className}
-      clipPath={this.props.clipPath}
-      style={this.props.style}
-      transform={this.props.transform}
-      role={this.props.role || "presentation"}
-      shapeRendering={this.props.shapeRendering || "auto"}
-      {...this.props.events}
-    />
-  );
-}
+const Rect = (props) => <rect vectorEffect="non-scaling-stroke" {...props} />;
 ```
 ### Text
 
 Used by `VictoryLabel`
 
 ```jsx
-render() {
+const Text = (props) => {
+  const { children, title, desc, ...rest } = props;
   return (
-    <text
-      x={this.props.x}
-      dx={this.props.dx}
-      y={this.props.y}
-      dy={this.props.dy}
-      className={this.props.className}
-      transform={this.props.transform}
-      style={this.props.style}
-      {...this.props.events}
-    >
-      {this.props.title && <title>{this.props.title}</title>}
-      {this.props.desc && <desc>{this.props.desc}</desc>}
-      {this.props.children}
+    <text {...rest}>
+      {title && <title>{title}</title>}
+      {desc && <desc>{desc}</desc>}
+      {children}
     </text>
   );
-}
+};
 ```
 ### TSpan
 
 Used by `VictoryLabel`
 
 ```jsx
-render() {
-  return (
-    <tspan
-      x={this.props.x}
-      y={this.props.y}
-      dx={this.props.dx}
-      dy={this.props.dy}
-      textAnchor={this.props.textAnchor}
-      className={this.props.className}
-      style={this.props.style}
-      {...this.props.events}
-    >
-      {this.props.content}
-    </tspan>
-  );
-}
+const TSpan = (props) => <tspan {...props} />;
 ```
 
 ## Simple Components
@@ -247,9 +158,9 @@ render() {
   - `active` *boolean* a flag signifying whether the component is active
   - `alignment` *"start", "middle", or "end" specifies how a bar path should be aligned in relation to its data point
   - `barRatio` *number* a number between zero and one that will be used to calculate bar width when an explicit width is not given
-  - `barWidth` *number or function* A prop defining the width of the bar
+  - `barWidth` *number or function* A prop defining the width of the bar. When this prop is given as a function, it will be called with the rest of the props supplied to `Bar`.
   - `className` *string* the class name that will be applied to the rendered path
-  - `cornerRadius` *number, function or object* the number of pixels of corner radius to apply when calculating a bar path
+  - `cornerRadius` *number, function or object* the number of pixels of corner radius to apply when calculating a bar path. When this prop is given as a function, it will be called with the rest of the props supplied to `Bar`. When given as an object, this prop may include values for top, bottom, topLeft, topRight, bottomLeft and bottomRight, with more specific values overriding less specific values
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this bar
   - `events` *object* events to attach to the rendered element
@@ -298,7 +209,7 @@ render() {
 
   - `active` *boolean* a flag signifying whether the component is active
   - `candleRatio` *number* a number between zero and one that will be used to calculate candle width when an explicit width is not given
-  - `candleWidth` *number or function* A prop defining the width of the candle
+  - `candleWidth` *number or function* A prop defining the width of the candle. When this prop is given as a function, it will be called with the rest of the props supplied to `Candle`.
   - `className` *string* the class name that will be applied to the rendered element
   - `close` *number* the y coordinate of the closing value
   - `data` *array* the entire dataset
@@ -379,6 +290,7 @@ render() {
 **Props**
 
   - `active` *boolean* a flag signifying whether the component is active
+  - `center` *object* the center coordinates of the flyout
   - `className` *string* the class name that will be applied to the rendered element
   - `cornerRadius` *number* the corner radius of the flyout
   - `data` *array* the entire dataset if applicable
@@ -415,6 +327,7 @@ render() {
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this point
   - `events` *object* events to attach to the rendered element
+  - `getPath` *function* a function of `x`, `y`, and `size` that returns a path string. When this optional function is provided, it will be used to calculate a path, rather than one of the path functions corresponding to the `symbol`s supported by `Point`.
   - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this point within the dataset
   - `origin` *object* the svg coordinates of the center point of a polar chart
@@ -423,9 +336,9 @@ render() {
   - `role` *string* the aria role to assign to the element
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
-  - `size` *number* the size of the point
+  - `size` *number or function* the size of the point. When this prop is given as a function, it will be called with the rest of the props supplied to `Point`.
   - `style` *object* the styles to apply to the rendered element
-  - `symbol` *"circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp"* which symbol the point should render
+  - `symbol` *"circle", "diamond", "plus", "minus", "square", "star", "triangleDown", "triangleUp"* which symbol the point should render. This prop may also be given as a function that returns one of the above options. When this prop is given as a function, it will be called with the rest of the props supplied to `Point`.
   - `transform` *string* a transform that will be supplied to elements this component renders
   - `x` *number* the x coordinate of the center of the point
   - `y` *number* the y coordinate of the center of the point
@@ -439,21 +352,22 @@ render() {
 
   - `active` *boolean* a flag signifying whether the component is active
   - `className` *string* the class name that will be applied to the rendered element
+  - `cornerRadius` *number or function* the corner radius to apply to this slice. When this prop is given as a function it will be called with the rest of the props supplied to `Slice`.
   - `data` *array* the entire dataset
   - `datum` *object* the data point corresponding to this slice
   - `events` *object* events to attach to the rendered element
   - `id` *string or number* an id to apply to the rendered component
   - `index` *number* the index of this slice within the dataset
   - `innerRadius` *number or function* the inner radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
-  - `padAngle` *number or function* the angular padding to add to the slice. When this prop is given as a function it will be called with `datum` and `active`.
+  - `padAngle` *number or function* the angular padding to add to the slice. When this prop is given as a function it will be called with the rest of the props supplied to `Slice`.
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
   - `pathFunction` *function* a function that calculates the path of a given slice. When given, this prop will be called with the `slice` object
-   - `radius` *number or function* the outer radius of the slice. When this prop is given as a function it will be called with `datum` and `active`.
+   - `radius` *number or function* the outer radius of the slice. When this prop is given as a function it will be called with the rest of the props supplied to `Slice`.
   - `role` *string* the aria role to assign to the element
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `slice` *object* an object specifying the startAngle, endAngle, padAngle, and data of the slice
-  - `sliceEndAngle` *number or function* the end angle the slice. When this prop is given as a function it will be called with `datum` and `active`.
-   - `sliceStartAngle` *number or function* the start angle the slice. When this prop is given as a function it will be called with `datum` and `active`.
+  - `sliceEndAngle` *number or function* the end angle the slice. When this prop is given as a function it will be called with the rest of the props supplied to `Slice`.
+   - `sliceStartAngle` *number or function* the start angle the slice. When this prop is given as a function it will be called with the rest of the props supplied to `Slice`.
   - `style` *object* the styles to apply to the rendered element
   - `transform` *string* a transform that will be supplied to elements this component renders
 

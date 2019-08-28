@@ -268,10 +268,10 @@ The `horizontal` prop determines whether the children supplied to `VictoryGroup`
 
 `type: array || function`
 
-The `labels` prop defines labels that will appear above each group of data. This prop should be given as an array of values or as a function of data. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the `labels` prop of child components. Omit this prop, and set `labels` props on children for individual labels.
+The `labels` prop defines labels that will appear above each group of data. This prop should be given as an array of values or as a function. When given as a function, `labels` will be called with a single argument: an object of all the props provided to the label component. If given as an array, the number of elements in the array should be equal to the length of the data array. Group labels will appear above the center series of the group, and will override the `labels` prop of child components. Omit this prop, and set `labels` props on children for individual labels.
 
 ```jsx
-labels={["spring", "summer", "fall", "winter"]}`, `labels={(datum) => datum.title}
+labels={["spring", "summer", "fall", "winter"]}`, `labels={({ datum }) => datum.title}
 ```
 
 ### labelComponent

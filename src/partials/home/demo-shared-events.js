@@ -87,7 +87,7 @@ class SharedEvents extends React.Component {
                   }
                 ]}
                 labels={["a", "b", "c", "d"]}
-                labelComponent={<VictoryLabel y={280} />}
+                labelComponent={<VictoryLabel y={290} />}
               />
             </g>
             <g transform="translate(0, -75)">

@@ -83,6 +83,12 @@ The `events` prop attaches arbitrary event handlers to the label component. This
 
 *example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
+### height
+
+`type: number`
+
+This prop refers to the height of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually.**
+
 ### index
 
 `type: string || number`
@@ -162,6 +168,13 @@ The `transform` prop applies a transform to the rendered `<text>` element. This 
 `type: "start" || "middle" || "end"`
 
 The `verticalAnchor` prop defines how the text is vertically positioned relative to the given `x` and `y` coordinates. Options are "start", "middle" and "end".
+
+### width
+
+`type: number`
+
+This props refers to the width of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually.**
+
 
 ### x
 

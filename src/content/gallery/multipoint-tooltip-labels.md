@@ -12,7 +12,7 @@ class App extends React.Component {
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"
-            labels={(d) => `y: ${d.y}`}
+            labels={({ datum }) => `y: ${datum.y}`}
             labelComponent={
               <VictoryTooltip
                 cornerRadius={0}
@@ -30,7 +30,7 @@ class App extends React.Component {
           style={{
             data: {
               stroke: "tomato",
-              strokeWidth: (d, active) => {return active ? 4 : 2;}
+              strokeWidth: ({ active }) => active ? 4 : 2
             },
             labels: { fill: "tomato" }
           }}
@@ -45,7 +45,7 @@ class App extends React.Component {
           style={{
             data: {
               stroke: "blue",
-              strokeWidth: (d, active) => {return active ? 4 : 2;}
+              strokeWidth: ({ active }) => active ? 4 : 2
             },
             labels: { fill: "blue" }
           }}
@@ -60,7 +60,7 @@ class App extends React.Component {
           style={{
             data: {
               stroke: "black",
-              strokeWidth: (d, active) => {return active ? 4 : 2;}
+              strokeWidth: ({ active }) => active ? 4 : 2
             },
             labels: { fill: "black" }
           }}

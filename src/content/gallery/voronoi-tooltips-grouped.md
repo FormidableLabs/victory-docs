@@ -12,7 +12,7 @@ class App extends React.Component {
       >
           <VictoryGroup
             color="#c43a31"
-            labels={(d) => `y: ${d.y}`}
+            labels={({ datum }) => `y: ${datum.y}`}
             labelComponent={
               <VictoryTooltip
                 style={{ fontSize: 10 }}
@@ -30,11 +30,11 @@ class App extends React.Component {
           >
             <VictoryLine/>
             <VictoryScatter
-              size={(d, a) => {return a ? 8 : 3;}}
+              size={({ active }) => active ? 8 : 3}
             />
           </VictoryGroup>
           <VictoryGroup
-            labels={(d) => `y: ${d.y}`}
+            labels={({ datum }) => `y: ${datum.y}`}
             labelComponent={
               <VictoryTooltip
                 style={{ fontSize: 10 }}
@@ -52,7 +52,7 @@ class App extends React.Component {
           >
             <VictoryLine/>
             <VictoryScatter
-              size={(d, a) => {return a ? 8 : 3;}}
+              size={({ active }) => active ? 8 : 3}
             />
           </VictoryGroup>
        </VictoryChart>

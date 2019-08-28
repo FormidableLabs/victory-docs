@@ -115,7 +115,7 @@ class App extends React.Component {
         <VictoryStack>
           <VictoryBar
             style={{ data: {
-              fill: (d, a) => a ? orange.highlight : orange.base,
+              fill: ({ active }) => active ? orange.highlight : orange.base,
               width: 40
             } }}
             data={this.state.wind}
