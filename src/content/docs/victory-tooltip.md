@@ -3,7 +3,8 @@ id: 27
 title: VictoryTooltip
 category: more
 type: docs
-scope: null
+scope:
+  - sampleData
 ---
 # VictoryTooltip
 
@@ -31,11 +32,61 @@ When true, tooltip events will set the `active` prop on both data and label elem
 
 The `angle` prop specifies the angle to rotate the tooltip around its origin point.
 
+### center
+
+`type: { x: number, y: number }`
+
+The `center` prop determines the position of the center of the tooltip flyout. This prop should be given as an object that describes the desired x and y svg coordinates of the center of the tooltip. This prop is useful for positioning the flyout of a tooltip _independent from_ the pointer. When `VictoryTooltip` is used with `VictoryVoronoiContainer`, the `center` prop is what enables the `mouseFollowTooltips` option. When this prop is set, non-zero `pointerLength` values will no longer be respected.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}
+  labelComponent={<VictoryTooltip  center={{ x: 225, y: 30 }} />}
+/>
+```
+
+### centerOffset
+
+`type: { x: number || function, y: number || function }`
+
+The `centerOffset` prop determines the position of the center of the tooltip flyout _in relation to_ the flyout pointer. This prop should be given as an object of x and y, where each is either a numeric offset value or a function that returns a numeric value. When this prop is set, non-zero `pointerLength` values will no longer be respected.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}
+  labelComponent={<VictoryTooltip dy={0} centerOffset={{ x: 25 }} />}
+/>
+```
+
+### constrainToVisibleArea
+
+`type: boolean`
+
+The `constrainToVisibleArea` prop determines whether to coerce tooltips so that they fit within the visible area of the chart. When this prop is set to true, tooltip pointers will still point to the correct data point, but the center of the tooltip will be shifted to fit within the overall width and height of the svg Victory renders.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={() => "These labels just go on, and on, and on..."}
+  labelComponent={<VictoryTooltip constrainToVisibleArea />}
+/>
+```
+
 ### cornerRadius
 
 `type: number || function`
 
 The `cornerRadius` prop determines corner radius of the flyout container. This prop may be given as a positive number or a function of datum.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={<VictoryTooltip  cornerRadius={10} />}
+/>
+```
 
 ### data
 
@@ -70,11 +121,52 @@ The `events` prop attaches arbitrary event handlers to the label component. This
 
 *examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
+### flyoutHeight
+
+`type: number || function`
+
+The `flyoutHeight` prop defines the height of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `flyoutHeight` will be determined based on an [approximate text size][] calculated from the `text` and `style` props provided to `VictoryTooltip`.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={<VictoryTooltip  flyoutHeight={60} />}
+/>
+```
+
+
 ### flyoutStyle
 
 `type: object`
 
 The `style` prop applies SVG style properties to the rendered flyout container. These props will be passed to the `flyoutComponent`.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={
+    <VictoryTooltip
+      flyoutStyle={{ stroke: "tomato", strokeWidth: 2 }}
+    />
+  }
+/>
+```
+
+### flyoutWidth
+
+`type: number || function`
+
+The `flyoutWidth` prop defines the width of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `flyoutWidth` will be determined based on an [approximate text size][] calculated from the `text` and `style` props provided to `VictoryTooltip`.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={<VictoryTooltip  flyoutWidth={90} />}
+/>
+```
 
 ### flyoutComponent
 
@@ -95,11 +187,12 @@ The `groupComponent` prop takes a component instance which will be used to creat
 
 *default:* `groupComponent={<g/>}`
 
+
 ### height
 
-`type: number || function`
+`type: number`
 
-The `height` prop defines the height of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `height` will be determined based on an [approximate text size][] calculated from the `text` and `style` props provided to `VictoryTooltip`.
+This prop refers to the height of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually. In versions before `^33.0.0` this prop referred to the height of the tooltip flyout. Please use `flyoutHeight` instead**
 
 ### horizontal
 
@@ -133,13 +226,29 @@ The `orientation` prop determines which side of the (x, y) coordinate the toolti
 
 `type: number || function`
 
-The `pointerLength` prop determines the length of the triangular pointer extending from the flyout. This prop may be given as a positive number or a function of datum.
+The `pointerLength` prop determines the length of the triangular pointer extending from the flyout. This prop may be given as a positive number or a function of datum. **Note: When `center`, `centerOffset` or `constrainToVisibleArea` props are used, non-zero `pointerLength` values are not guaranteed.**
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={<VictoryTooltip  pointerLength={20} />}
+/>
+```
 
 ### pointerWidth
 
 `type: number || function`
 
 The `pointerWidth` prop determines the width of the base of the triangular pointer extending from the flyout. This prop may be given as a positive number or a function of datum.
+
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={<VictoryTooltip  pointerWidth={20} />}
+/>
+```
 
 ### renderInPortal
 
@@ -153,17 +262,30 @@ When `renderInPortal` is true, rendered tooltips will be wrapped in [VictoryPort
 
 The `style` prop applies SVG style properties to the rendered `<text>` element.
 
+```playground
+<VictoryBar
+  data={sampleData}
+  labels={({ datum }) => `y: ${datum.y}`}
+  labelComponent={
+    <VictoryTooltip
+      style={{ fill: "tomato" }}
+    />
+  }
+/>
+```
+
 ### text
 
 `type: string || number || function || array[string || number]`
 
 The `text` prop defines the text `VictoryTooltip` will render. The `text` prop may be given as a string, number, or function of `datum`. When [VictoryLabel][] is used as the `labelComponent`, strings may include newline characters, which VictoryLabel will split in to separate `<tspan/>` elements.
 
+
 ### width
 
-`type: number || function`
+`type: number`
 
-The `width` prop defines the width of the tooltip flyout. This prop may be given as a positive number or a function of datum. If this prop is not set, `width` will be determined based on an [approximate text size][] calculated from the `text` and `style` props provided to `VictoryTooltip`.
+This prop refers to the width of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually. In versions before `^33.0.0` this prop referred to the width of the tooltip flyout. Please use `flyoutWidth` instead**
 
 ### x
 
