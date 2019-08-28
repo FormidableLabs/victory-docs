@@ -25,7 +25,7 @@ However, the component that uses it must be standalone
 <VictoryChart domainPadding={{ y: 10 }}
   containerComponent={
     <VictoryVoronoiContainer
-      labels={(d) => `${round(d.x, 2)}, ${round(d.y, 2)}`}
+      labels={({ datum }) => `${round(datum.x, 2)}, ${round(datum.y, 2)}`}
     />
   }
 >
@@ -67,9 +67,9 @@ When the `disable` prop is set to `true`, `VictoryVoronoiContainer` events will 
 
 When a `labels` prop is provided to `VictoryVoronoiContainer` it will render a label component
 rather than activating labels on the child components it renders. This is useful for creating multi-
-point tooltips. This prop should be given as a function which will be called once for each active point.  The `labels` function will be called with the arguments `point`, `index`, and `points`, where `point` refers to a single active point, `index` refers to the position of that point in the array of active points, and `points` is an array of all active points.
+point tooltips. This prop should be given as a function which will be called once for each active point.  The `labels` function will be called with the the props that correspond to the active label.
 
-*example:* `labels={(point) => "y: " + point.y}`
+*example:* `labels={({ datum }) => "y: " + datum.y}`
 
 ### labelComponent
 
@@ -78,7 +78,62 @@ point tooltips. This prop should be given as a function which will be called onc
 The `labelComponent` prop specified the component that will be rendered when `labels` are defined
 on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label component will be rendered.
 
-*default:* `labelComponent={<VictoryTooltip/>}`
+*default:* `labelComponent={<VictoryTooltip centerOffset={{ x: 5 }} />}`
+
+```playground
+<VictoryChart domain={{ y: [0, 6] }}
+  containerComponent={
+    <VictoryVoronoiContainer
+      labels={() => "Long, verbose labels"}
+      labelComponent={
+        <VictoryTooltip  dy={-7} constrainToVisibleArea />
+      }
+    />
+  }
+>
+  <VictoryScatter
+  	style={{ data: { fill: "red" }, labels: { fill: "red" } }}
+    data={[
+      { x: 0, y: 2 }, { x: 2, y: 3 }, { x: 4, y: 4 }, { x: 6, y: 5 }
+    ]}
+  />
+  <VictoryScatter
+    data={[
+      { x: 2, y: 2 }, { x: 4, y: 3 }, { x: 6, y: 4 }, { x: 8, y: 5 }
+    ]}
+  />
+</VictoryChart>
+```
+
+### mouseFollowTooltips
+
+`type: boolean`
+
+When the `mouseFollowTooltip` prop is set on `VictoryVoronoiContainer`, The position of the center of the tooltip follows the position of the mouse.
+
+```playground
+<VictoryChart domain={{ y: [0, 6] }}
+  containerComponent={
+    <VictoryVoronoiContainer
+      mouseFollowTooltips
+      voronoiDimension="x"
+      labels={({ datum }) => `y: ${datum.y}`}
+    />
+  }
+>
+  <VictoryScatter
+  	style={{ data: { fill: "red" }, labels: { fill: "red" } }}
+    data={[
+      { x: 0, y: 2 }, { x: 2, y: 3 }, { x: 4, y: 4 }, { x: 6, y: 5 }
+    ]}
+  />
+  <VictoryScatter
+    data={[
+      { x: 2, y: 2 }, { x: 4, y: 3 }, { x: 6, y: 4 }, { x: 8, y: 5 }
+    ]}
+  />
+</VictoryChart>
+```
 
 ### onActivated
 
@@ -121,7 +176,7 @@ The `voronoiBlacklist` prop is used to specify a list of components to ignore wh
   containerComponent={
     <VictoryVoronoiContainer
       voronoiBlacklist={["redPoints"]}
-      labels={(d) => `y: ${d.y}`}
+      labels={({ datum }) => `y: ${datum.y}`}
     />
   }
 >
@@ -155,7 +210,7 @@ determined by both x any y values.
   containerComponent={
     <VictoryVoronoiContainer
       voronoiDimension="x"
-      labels={(d) => `y: ${d.y}`}
+      labels={({ datum }) => `y: ${datum.y}`}
     />
   }
 >
