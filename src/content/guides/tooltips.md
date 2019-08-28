@@ -77,7 +77,7 @@ Tooltips can be customized directly on the `VictoryTooltip` component
 class CustomFlyout extends React.Component {
   render() {
     const {x, y, orientation} = this.props;
-    const newY = orientation === "top" ? y - 35 : y + 35;
+    const newY = orientation === "bottom" ? y - 35 : y + 35;
     return (
       <g>
         <circle cx={x} cy={newY} r="20" stroke="tomato" fill="none"/>
@@ -230,6 +230,32 @@ several tooltips being active at the same time. Provide a `labels` and (optional
       data: { stroke: "black", strokeWidth: ({ active }) => active ? 4 : 2},
       labels: {fill: "black"}
     }}
+  />
+</VictoryChart>
+```
+
+`VictoryVoronoiContainer` also has a `mouseFollowTooltips` boolean prop that works with single point and multi-point tooltip labels.
+
+```playground
+<VictoryChart domain={{ y: [0, 6] }}
+  containerComponent={
+    <VictoryVoronoiContainer
+      mouseFollowTooltips
+      voronoiDimension="x"
+      labels={({ datum }) => `y: ${datum.y}`}
+    />
+  }
+>
+  <VictoryScatter
+  	style={{ data: { fill: "red" }, labels: { fill: "red" } }}
+    data={[
+      { x: 0, y: 2 }, { x: 2, y: 3 }, { x: 4, y: 4 }, { x: 6, y: 5 }
+    ]}
+  />
+  <VictoryScatter
+    data={[
+      { x: 2, y: 2 }, { x: 4, y: 3 }, { x: 6, y: 4 }, { x: 8, y: 5 }
+    ]}
   />
 </VictoryChart>
 ```
