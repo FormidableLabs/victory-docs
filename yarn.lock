@@ -10838,17 +10838,17 @@ victory-core@^33.0.1:
     prop-types "^15.5.8"
     react-fast-compare "^2.0.0"
 
-victory-create-container@^33.0.1:
-  version "33.0.1"
-  resolved "https://registry.yarnpkg.com/victory-create-container/-/victory-create-container-33.0.1.tgz#edf9c97963a6025181b6233833c52c0e2ba5ce74"
-  integrity sha512-9Bl0Xtvn723bYwoH/ioidjbGqCDdiH3BPDKfG1PcrjV7zOphAHD+Bi6CJqrAEqs0Fd9KjcF/oQENPyP4jU9gNA==
+victory-create-container@^33.0.4:
+  version "33.0.4"
+  resolved "https://registry.yarnpkg.com/victory-create-container/-/victory-create-container-33.0.4.tgz#40d4ef2483714db88ecc5954af243d11c45602ac"
+  integrity sha512-5AxMVKRury0UQ79lhOVcAKV8admD84m1Lzh3F3COWfKipBInCPY8AICOKfyBiNjg/Kp/RiNdaWkR/h0cILVORQ==
   dependencies:
     lodash "^4.17.15"
     victory-brush-container "^33.0.1"
     victory-core "^33.0.1"
     victory-cursor-container "^33.0.1"
     victory-selection-container "^33.0.1"
-    victory-voronoi-container "^33.0.1"
+    victory-voronoi-container "^33.0.4"
     victory-zoom-container "^33.0.1"
 
 victory-cursor-container@^33.0.1:
@@ -10955,25 +10955,25 @@ victory-stack@^33.0.1:
     react-fast-compare "^2.0.0"
     victory-core "^33.0.1"
 
-victory-tooltip@^33.0.1:
-  version "33.0.1"
-  resolved "https://registry.yarnpkg.com/victory-tooltip/-/victory-tooltip-33.0.1.tgz#beafa44af8261a82a92cb776b380274dc5202541"
-  integrity sha512-fhkEvEzpL2QVLwz3vd70zsKfpfpQJI2bXXqzT4+GIOOJgLkNLE8nJWZ74uqRomCAEcIneUHfbXjKqQNo1J7sNQ==
+victory-tooltip@^33.0.4:
+  version "33.0.4"
+  resolved "https://registry.yarnpkg.com/victory-tooltip/-/victory-tooltip-33.0.4.tgz#c4e2da461ed755a6a64714585871fd7118614548"
+  integrity sha512-kq2BZW0TTZkQJwZt4psrUn09SAAc443fjavNsic5YdEiypFlfTucAYbthRz7g+SSE2GBRcPkdYVWx69fdU3FsA==
   dependencies:
     lodash "^4.17.15"
     prop-types "^15.5.8"
     victory-core "^33.0.1"
 
-victory-voronoi-container@^33.0.1:
-  version "33.0.1"
-  resolved "https://registry.yarnpkg.com/victory-voronoi-container/-/victory-voronoi-container-33.0.1.tgz#fdaff1f0b19883f9fa0789773fad551e69b90812"
-  integrity sha512-clXbYeCJJD2fjk2qstPfJUvGHtRfTyKJXnSDZVqtJAJFkvBsSoSoWDJE6sxjr+GIxuRggtOMttr8sqPkrjPemg==
+victory-voronoi-container@^33.0.4:
+  version "33.0.4"
+  resolved "https://registry.yarnpkg.com/victory-voronoi-container/-/victory-voronoi-container-33.0.4.tgz#daea662215b5666144e126af8b06729c39a94229"
+  integrity sha512-8rD8jz0C4HfzYSFBdFIX6GAFQEJ2+DTvSOjiZlQ1VD+DbLZJ2fMDVwGk4Mw96QZLm7Qiu9xjUEjdDsW/1A4z/w==
   dependencies:
     delaunay-find "0.0.3"
     lodash "^4.17.15"
     prop-types "^15.5.8"
     victory-core "^33.0.1"
-    victory-tooltip "^33.0.1"
+    victory-tooltip "^33.0.4"
 
 victory-voronoi@^33.0.1:
   version "33.0.1"
@@ -10994,10 +10994,10 @@ victory-zoom-container@^33.0.1:
     prop-types "^15.5.8"
     victory-core "^33.0.1"
 
-victory@33.0.3:
-  version "33.0.3"
-  resolved "https://registry.yarnpkg.com/victory/-/victory-33.0.3.tgz#5e8496293d4314385165061b7db3a5a4f2c1e670"
-  integrity sha512-WU4LDFFUPhmC0xvHx+ONTbfdvwMZOcLcyFQUHKhN6ZX7uX4KESVOkTWdtvVHPonJC5BEMimVJYmwPu0VTtK7JQ==
+victory@^33.0.4:
+  version "33.0.4"
+  resolved "https://registry.yarnpkg.com/victory/-/victory-33.0.4.tgz#6820611e2df82bc813050ebc2340d3ce698948de"
+  integrity sha512-8sRnoR9twsrOLhy5V5Q6rN0nVF2iAjsRNWXuz6Wswfld5qkhcLM14KTtjPVHLfyeoCtB0Xmvo3U5PubQh6+0xg==
   dependencies:
     victory-area "^33.0.1"
     victory-axis "^33.0.1"
@@ -11008,7 +11008,7 @@ victory@33.0.3:
     victory-candlestick "^33.0.1"
     victory-chart "^33.0.1"
     victory-core "^33.0.1"
-    victory-create-container "^33.0.1"
+    victory-create-container "^33.0.4"
     victory-cursor-container "^33.0.1"
     victory-errorbar "^33.0.1"
     victory-group "^33.0.1"
@@ -11020,9 +11020,9 @@ victory@33.0.3:
     victory-selection-container "^33.0.1"
     victory-shared-events "^33.0.1"
     victory-stack "^33.0.1"
-    victory-tooltip "^33.0.1"
+    victory-tooltip "^33.0.4"
     victory-voronoi "^33.0.1"
-    victory-voronoi-container "^33.0.1"
+    victory-voronoi-container "^33.0.4"
     victory-zoom-container "^33.0.1"
 
 vm-browserify@0.0.4:

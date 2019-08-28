@@ -40,9 +40,19 @@ The `center` prop determines the position of the center of the tooltip flyout. T
 
 ```playground
 <VictoryBar
+  domain={{ y: [0, 10] }}
   data={sampleData}
-  labels={({ datum }) => `x: ${datum.x}, y: ${datum.y}`}
-  labelComponent={<VictoryTooltip  center={{ x: 225, y: 30 }} />}
+  labels={() => "HELLO"}
+  labelComponent={
+    <VictoryTooltip
+      center={{ x: 225, y: 30 }}
+      pointerOrientation="bottom"
+      flyoutWidth={150}
+      flyoutHeight={50}
+      pointerWidth={150}
+      cornerRadius={0}
+    />
+  }
 />
 ```
 
@@ -84,7 +94,7 @@ The `cornerRadius` prop determines corner radius of the flyout container. This p
 <VictoryBar
   data={sampleData}
   labels={({ datum }) => `y: ${datum.y}`}
-  labelComponent={<VictoryTooltip  cornerRadius={10} />}
+  labelComponent={<VictoryTooltip  cornerRadius={({ datum }) => datum.x * 2} />}
 />
 ```
 
@@ -233,6 +243,33 @@ The `pointerLength` prop determines the length of the triangular pointer extendi
   data={sampleData}
   labels={({ datum }) => `y: ${datum.y}`}
   labelComponent={<VictoryTooltip  pointerLength={20} />}
+/>
+```
+
+### pointerOrientation
+
+`type: "top", "bottom", "left", "right" || function`
+
+This prop determines which side of the tooltip flyout the pointer should originate on. When this prop is not set, it will be determined based on the overall `orientation` of the flyout in relation to its data point, and any `center` or `centerOffset` values.
+
+```playground
+// Try changing `pointerOrientation` to "bottom"
+<VictoryBar
+  barWidth={20}
+  data={sampleData}
+  labels={({ datum }) => datum.y}
+  labelComponent={
+    <VictoryTooltip
+      pointerOrientation="right"
+      dy={0}
+      dx={-12}
+      pointerWidth={25}
+      flyoutHeight={25}
+      flyoutWidth={25}
+      cornerRadius={0}
+      centerOffset={{ x: -50 }}
+      />
+  }
 />
 ```
 
