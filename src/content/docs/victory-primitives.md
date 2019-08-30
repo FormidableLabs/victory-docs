@@ -116,7 +116,7 @@ const TSpan = (props) => <tspan {...props} />;
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
   - `id` *string or number* an id to apply to the rendered component
-  - `interpolation` *string* the interpolation to use when calculating a path
+  - `interpolation` *string or function* the interpolation to use when calculating a path
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `polar` *boolean* a flag specifying whether the component is part of a polar chart
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
@@ -244,7 +244,7 @@ const TSpan = (props) => <tspan {...props} />;
   - `events` *object* events to attach to the rendered element
   - `groupComponent` *element* the element used to group rendered elements *default* `<g/>`
   - `id` *string or number* an id to apply to the rendered component
-  - `interpolation` *string* the interpolation to use when calculating a path
+  - `interpolation` *string or function* the interpolation to use when calculating a path
   - `origin` *object* the svg coordinates of the center point of a polar chart
   - `pathComponent` *element* the rendered path element  *default* `<Path/>`
   - `polar` *boolean* a flag specifying whether the component is part of a polar chart

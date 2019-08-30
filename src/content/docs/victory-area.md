@@ -219,13 +219,15 @@ height={400}
 
 ### interpolation
 
-`type: options`
+`type: options || function`
 
 The `interpolation` prop determines how data points should be connected when creating a path. Victory uses [d3-shape](https://github.com/d3/d3-shape#curves) for interpolating curves.
 
 Polar area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear"
 
 Cartesian area charts may use the following interpolation options: "basis", "cardinal", "catmullRom", "linear", "monotoneX", "monotoneY", "natural", "step", "stepAfter", "stepBefore"
+
+You can also provide a function if you need to adjust parameters for d3-shape curves or to use a [custom curve function](https://github.com/d3/d3-shape#custom-curves).
 
 [Explore all the interpolation options][].
 
