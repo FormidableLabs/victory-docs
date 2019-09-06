@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 8.1.1 (2019-09-06)
+
+ - [#615](https://github.com/FormidableLabs/victory-docs/pull/615) Document addition to `interpolation` prop. Thanks @sanniassin
+
 ## 8.1.0 (2019-08-27)
 
 - update victory to 33.0.4
