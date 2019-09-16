@@ -26,7 +26,7 @@ class Benefits extends React.Component {
             <div className="Grid-cell u-textCenter">
               <h3>Flexible</h3>
               <p style={{ display: "inline-block" }}>
-                Fully-contained, reusable data visualization elements are
+                Fully contained, reusable data visualization elements are
                 responsible for their own styles and behaviors.
               </p>
             </div>
