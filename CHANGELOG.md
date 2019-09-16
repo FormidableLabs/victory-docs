@@ -1,5 +1,11 @@
 # Victory Docs Changelog
 
+## 8.1.2 (2019-09-16)
+
+- [#617](https://github.com/FormidableLabs/victory-docs/pull/617) Fix missing backtick. Thanks @xseignard!
+- [#618](https://github.com/FormidableLabs/victory-docs/pull/618) Add logo for Benaroya Research Institute
+- [#619](https://github.com/FormidableLabs/victory-docs/pull/619) Remove unnecessary hyphen
+
 ## 8.1.1 (2019-09-06)
 
  - [#615](https://github.com/FormidableLabs/victory-docs/pull/615) Document addition to `interpolation` prop. Thanks @sanniassin
