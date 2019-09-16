@@ -12,6 +12,7 @@ import AIRBNB from "../../../static/logos/logo-airbnb.svg";
 import REDFIN from "../../../static/logos/logo-redfin.svg";
 import TUNE from "../../../static/logos/logo-tune.svg";
 import ZILLOW from "../../../static/logos/logo-zillow.svg";
+import BENAROYA from "../../../static/logos/benaroya.png";
 
 class Companies extends React.Component {
   render() {
@@ -31,6 +32,14 @@ class Companies extends React.Component {
           />
           <img
             className="Companies-logo"
+            style={{
+              maxWidth: "177px",
+              paddingTop: "2px"
+            }}
+            src={REDFIN}
+          />
+          <img
+            className="Companies-logo"
             style={{ maxWidth: "350px" }}
             src={USAFACTS}
           />
@@ -43,11 +52,8 @@ class Companies extends React.Component {
           />
           <img
             className="Companies-logo"
-            style={{
-              maxWidth: "177px",
-              paddingTop: "2px"
-            }}
-            src={REDFIN}
+            style={{ maxWidth: "300px", height: "50px" }}
+            src={BENAROYA}
           />
           <img
             className="Companies-logo"
