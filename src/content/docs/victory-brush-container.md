@@ -96,7 +96,7 @@ domain highlighted. When this prop changes, the chart will render with a new hig
 The `brushStyle` adds custom styles to the `brushComponent`. This prop should be given as
 an object of SVG style attributes.
 
-*default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}
+*default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}`
 
 ### defaultBrushArea
 
