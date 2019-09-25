@@ -95,6 +95,14 @@ This prop refers to the height of the `svg` that `VictoryLabel` is rendered with
 
 The `index` prop represents the index of the datum in the data array. **This prop should not be set manually.**
 
+### inline
+
+`type: boolean`
+
+When the `text` property contains an array of strings, the `inline` property lets the `<tspan />` elements lay out next to each other. If this property is not specified, the `<tspan />` elements will stack vertically instead.
+
+*default:* `false`
+
 ### labelPlacement
 
 `type: "parallel" || "perpendicular" || "vertical"`
