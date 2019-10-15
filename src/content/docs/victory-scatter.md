@@ -35,7 +35,7 @@ VictoryScatter renders a dataset as a series of points. VictoryScatter can be co
 
 `type: boolean || object`
 
-`VictoryScatter` uses the standard `animate` prop. [Read about it herhttps://formidable.com/open-source/victorye](/docs/common-props#animate)
+`VictoryScatter` uses the standard `animate` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
