@@ -1,5 +1,11 @@
 # Victory Docs Changelog
 
+## 8.1.3 (2019-10-21)
+
+-[#623](https://github.com/FormidableLabs/victory-docs/pull/623) - Fix a broken link. Thanks @arosequist!
+-[#622](https://github.com/FormidableLabs/victory-docs/pull/622) - Fix some typos. Thanks @arosequist!
+- [#620](https://github.com/FormidableLabs/victory-docs/pull/620) - document `inline` prop on `VictoryLabel`. Thanks @alecf!
+
 ## 8.1.2 (2019-09-16)
 
 - [#617](https://github.com/FormidableLabs/victory-docs/pull/617) Fix missing backtick. Thanks @xseignard!
