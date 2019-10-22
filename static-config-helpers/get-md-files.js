@@ -170,8 +170,7 @@ const baseConfig = {
     raw: result.raw
   })
 };
-
-// eslint-disable-next-line max-params
+/* eslint-disable max-params */
 const getMdFiles = async (
   mdPath,
   items,
@@ -212,5 +211,7 @@ const getMdFiles = async (
       resolve(items);
     }
   });
+
+/* eslint-enable max-params */
 
 module.exports = getMdFiles;

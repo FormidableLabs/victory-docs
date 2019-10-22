@@ -87,7 +87,7 @@ RenderRoutes.propTypes = {
 let history;
 
 if (typeof window !== "undefined") {
-  const createBrowserHistory = require("history/createBrowserHistory").default;
+  const createBrowserHistory = require("history").createBrowserHistory;
   const { stage, landerBasePath } = require("../static-config-parts/constants");
   history =
     stage === "development"
