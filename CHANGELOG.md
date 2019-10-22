@@ -1,7 +1,8 @@
 # Victory Docs Changelog
 
-## 8.1.3 (2019-10-21)
+## 8.1.3 (2019-10-22)
 
+-[#627](https://github.com/FormidableLabs/victory-docs/pull/627) - Update dependencies and fix linting
 -[#623](https://github.com/FormidableLabs/victory-docs/pull/623) - Fix a broken link. Thanks @arosequist!
 -[#622](https://github.com/FormidableLabs/victory-docs/pull/622) - Fix some typos. Thanks @arosequist!
 - [#620](https://github.com/FormidableLabs/victory-docs/pull/620) - document `inline` prop on `VictoryLabel`. Thanks @alecf!
