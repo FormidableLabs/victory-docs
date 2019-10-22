@@ -171,13 +171,12 @@ const baseConfig = {
   })
 };
 
-// eslint-disable-next-line max-params
 const getMdFiles = async (
   mdPath,
   items,
   mutations = [],
   sort = defaultSort,
-  config = baseConfig
+  config = baseConfig // eslint-disable-next-line max-params
 ) =>
   new Promise(resolve => {
     if (fs.existsSync(mdPath)) {

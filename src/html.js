@@ -24,6 +24,7 @@ export default ({ Html, Head, Body, children, renderMeta }) => (
         href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"
       />
     </Head>
+    {/*  eslint-disable-next-line react/prop-types */}
     {renderMeta.styleTags}
     <title>Victory</title>
     <Body>{children}</Body>
