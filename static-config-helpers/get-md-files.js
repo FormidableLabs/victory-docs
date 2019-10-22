@@ -170,13 +170,13 @@ const baseConfig = {
     raw: result.raw
   })
 };
-
+/* eslint-disable max-params */
 const getMdFiles = async (
   mdPath,
   items,
   mutations = [],
   sort = defaultSort,
-  config = baseConfig // eslint-disable-next-line max-params
+  config = baseConfig
 ) =>
   new Promise(resolve => {
     if (fs.existsSync(mdPath)) {
@@ -211,5 +211,7 @@ const getMdFiles = async (
       resolve(items);
     }
   });
+
+/* eslint-enable max-params */
 
 module.exports = getMdFiles;
