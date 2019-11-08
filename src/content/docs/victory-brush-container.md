@@ -100,9 +100,9 @@ an object of SVG style attributes.
 
 ### defaultBrushArea
 
-`type: "all", "none", "disable"`
+`type: "all", "none", "disable", "move"`
 
-The `defaultBrushArea` prop specifies how the container will behave when a region outside the active brush is clicked without selecting a new area. When the prop is set to "all", the entire domain will be selected. When the prop is set to "none", no new region will be selected, and any existing active brush will be cleared. When the prop is set to "disable" the new selected region will default to the current active brush.
+The `defaultBrushArea` prop specifies how the container will behave when a region outside the active brush is clicked without selecting a new area. When the prop is set to "all", the entire domain will be selected. When the prop is set to "none", no new region will be selected, and any existing active brush will be cleared. When the prop is set to "disable" the new selected region will default to the current active brush. When this prop is set to "move", the active brush will be moved so that it is centered over the location of the click event.
 
 ```playground
 <VictoryChart
