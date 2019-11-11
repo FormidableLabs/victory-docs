@@ -1,5 +1,10 @@
 # Victory Docs Changelog
 
+## 8.1.4 (2019-11-11)
+
+-[#630](https://github.com/FormidableLabs/victory-docs/pull/630) - Add area hover highlight gallery example
+-[#629](https://github.com/FormidableLabs/victory-docs/pull/629) - Update victory and document new "move" option for the `defaultBrushArea` prop on `VictoryBrushContainer`
+
 ## 8.1.3 (2019-10-22)
 
 -[#627](https://github.com/FormidableLabs/victory-docs/pull/627) - Update dependencies and fix linting
