@@ -67,7 +67,7 @@ Note that continuous data types such as `VictoryLine` and `VictoryArea` cannot b
 
 ### How can I use gradient fills in Victory?
 
-Create a gradient def as usual and then reference it by id in your style object. A more complicated example using gradient fills can be found [here](/gallery/stream-graph)
+Create a gradient def as usual and then reference it by id in your style object. Gradients can be used to give continuous charts (_i.e._ line or area charts) the appearance of discrete data elements and hover states. A more complex example is given [here](/gallery/area-hover-styles).
 
 ```playground
 <div>
