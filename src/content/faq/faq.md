@@ -197,7 +197,7 @@ When no axes are supplied to `VictoryChart` it will render pair of default axes.
 
 ### Can I make a chart with multiple dependent axes?
 
-`VictoryChart` will render any number of axes, but all children rendered by `VictoryChart` will be forced to use the same domain. To create a single chart with the appearance of several different domains, you can either compose components manually without the aid of `VictoryChart`, as described in [this guide](/guides/custom-charts), or normalize all of your data, and re-scale your axis tick labels to give the appearance of separate domains as in [this example](/gallery/multiple-dependent-axes).
+`VictoryChart` will render any number of axes, but all children rendered by `VictoryChart` will be forced to use the same domain. To create a single chart with the appearance of several different domains, you can either compose components manually without the aid of `VictoryChart`, as described in [this guide](https://formidable.com/open-source/victory/guides/custom-charts), or normalize all of your data, and re-scale your axis tick labels to give the appearance of separate domains as in [this example](https://formidable.com/open-source/victory/gallery/multiple-dependent-axes).
 
 ### How can I change the position of my axis?
 
