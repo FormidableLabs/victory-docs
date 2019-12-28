@@ -10,6 +10,7 @@ class DocsTemplate extends React.Component {
   render() {
     const { title, scope } = this.props.doc.data;
     const content = this.props.doc.content;
+
     return (
       <ContentWithSidebarController
         {...this.props}
@@ -27,7 +28,11 @@ class DocsTemplate extends React.Component {
               {/* TODO: Add edit this page link once everything is merged to master
               <a className="SubHeading" href="">Edit this page</a>
             */}
-              <Playground html={content} scope={scope} theme="elegant" />
+              <Playground
+                html={content}
+                scope={scope}
+                playgroundTheme="elegant"
+              />
             </div>
           </article>
         </div>
