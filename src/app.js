@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Router, Route, withRouter } from "react-static";
-import VictoryHeader from "./partials/header";
 /* "react-static-routes" is generated at runtime https://github.com/nozzle/react-static/issues/52 */
 // eslint-disable-next-line import/no-unresolved
 import Routes from "react-static-routes";
+import { ThemeProvider } from "styled-components";
+
+import GlobalStyle from "./styles/global";
+import theme from "./styles/theme";
+import VictoryHeader from "./partials/header";
 import Analytics from "./google-analytics";
 import "./app.css";
 //  If none of the base prism js themes are quite what we want for our site's aesthetic, we can use/extend any of these:
@@ -104,12 +108,15 @@ const App = () => (
     autoScrollToTop
     history={history}
   >
-    <WrappedScrollToTop>
-      <VictoryHeader />
-      <Analytics id="UA-43290258-1">
-        <Routes>{RenderRoutes}</Routes>
-      </Analytics>
-    </WrappedScrollToTop>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <WrappedScrollToTop>
+        <VictoryHeader />
+        <Analytics id="UA-43290258-1">
+          <Routes>{RenderRoutes}</Routes>
+        </Analytics>
+      </WrappedScrollToTop>
+    </ThemeProvider>
   </Router>
 );
 
