@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-// Common
-import { Footer } from "../formidable-landers/src";
 
 class VictoryFooter extends React.Component {
   render() {
@@ -11,7 +9,7 @@ class VictoryFooter extends React.Component {
       </div>
     );
 
-    return <Footer className="victory" trademark={trademark} theme="light" />;
+    return <div className="victory" trademark={trademark} theme="light" />;
   }
 }
 

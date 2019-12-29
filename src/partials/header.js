@@ -9,8 +9,6 @@ import { Link, Prefetch } from "react-static";
 // but this solution is working, which is always a nice feature to have.
 import SVG from "react-inlinesvg";
 
-// Common
-import Header from "../../src/formidable-landers/src/components/header";
 import config from "../../static-config-parts/site-data";
 import svgHeroLogo from "../../static/logotype-hero.svg";
 
@@ -30,7 +28,7 @@ class VictoryHeader extends Component {
     );
 
     return (
-      <Header className="victory" theme="light">
+      <div className="victory" theme="light">
         <div className="default" style={{ paddingBottom: 0 }}>
           {/* <SVGInline svg={ LOGO }/> */}
           {victoryLogo}
@@ -45,7 +43,7 @@ class VictoryHeader extends Component {
             </a>
           ))}
         </div>
-      </Header>
+      </div>
     );
   }
 }
