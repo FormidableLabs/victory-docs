@@ -11,14 +11,9 @@ import theme from "./styles/theme";
 import VictoryHeader from "./partials/header";
 import Analytics from "./google-analytics";
 import "./app.css";
-//  If none of the base prism js themes are quite what we want for our site's aesthetic, we can use/extend any of these:
-// https://github.com/PrismJS/prism-themes
-// Note that themes also manage code block dimensions -- currently we don't use any theme, unclear if the current
-// look is by design, though. To bring in a theme, uncomment out the line below:
-// import "prismjs/themes/prism-coy.css"
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
-  const item = document.querySelector(contentPaneClass + " " + hash);
+  const item = document.querySelector(`${contentPaneClass} ${hash}`);
   if (item) {
     item.scrollIntoView();
   }
