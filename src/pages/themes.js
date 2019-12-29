@@ -4,6 +4,7 @@ import Playground from "component-playground";
 import { assign } from "lodash";
 import { Link } from "react-static";
 
+import PlaygroundContainer from "../partials/playground/playground-container";
 import PureRender from "../partials/guides/themes/pure-render";
 import DemoComponent from "../partials/guides/themes/demo-component";
 
@@ -91,17 +92,19 @@ class Themes extends React.Component {
               className="Interactive"
               onKeyPress={this.handleUserEdit.bind(this)}
             >
-              <Playground
-                codeText={this.getCodeText()}
-                scope={{
-                  React,
-                  ReactDOM,
-                  assign,
-                  DemoComponent
-                }}
-                theme="elegant"
-                noRender={false}
-              />
+              <PlaygroundContainer>
+                <Playground
+                  codeText={this.getCodeText()}
+                  scope={{
+                    React,
+                    ReactDOM,
+                    assign,
+                    DemoComponent
+                  }}
+                  theme="elegant"
+                  noRender={false}
+                />
+              </PlaygroundContainer>
             </div>
           </pre>
         </PureRender>
