@@ -57,7 +57,7 @@ The `desc` prop specifies the description of the chart/SVG to assist with access
 
 ### direction
 
-`type: "rtl" || "ltr" || "inherit"
+`type: "rtl" || "ltr" || "inherit"`
 
 The `direction` prop determines which text direction to apply to the rendered `text` element
 
