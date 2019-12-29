@@ -10,7 +10,6 @@ import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 import VictoryHeader from "./partials/header";
 import Analytics from "./google-analytics";
-import "./app.css";
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
