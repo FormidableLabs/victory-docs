@@ -25,26 +25,6 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
   }
 
-  /*
-  * Layer page content on top of body:before selector
-  */
-  .root {
-    position: relative;
-    z-index: 1;
-  }
-
-  html,
-  body,
-  .root,
-  .root > div {
-    height: 100%;
-  }
-
-  #root {
-    position: relative;
-    z-index: 1;
-  }
-
   /**
    * Reset default spacing and border for appropriate elements.
    * (suitcss-base)
