@@ -40,19 +40,16 @@ class ScrollToTop extends Component {
   }
 
   componentDidUpdate() {
-    if (
-      typeof window !== "undefined" &&
-      checkScrollRoutes(this.props.location.pathname)
-    ) {
-      scrollContent(this.props.location);
-      scrollSidebar(this.props.location);
+    const { location } = this.props;
+    if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
+      scrollContent(location);
+      scrollSidebar(location);
     }
   }
 
   render() {
-    return (
-      <div className="Page-wrapper u-fullHeight">{this.props.children}</div>
-    );
+    const { children } = this.props;
+    return children;
   }
 }
 
