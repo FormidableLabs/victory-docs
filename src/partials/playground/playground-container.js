@@ -32,7 +32,7 @@ const PlaygroundContainer = styled.div`
       flex-wrap: none;
       padding: 0;
     }
-    @media (${theme.mediaQuery.small}) {
+    @media ${theme.mediaQuery.sm} {
       .playground {
         flex-direction: row;
       }
@@ -41,7 +41,7 @@ const PlaygroundContainer = styled.div`
     .playgroundCode {
       flex: auto;
       order: 2;
-      margin: 0 0 ${theme.spacing.small} 0;
+      margin: 0 0 ${theme.spacing.sm} 0;
       position: relative;
     }
 
@@ -70,7 +70,7 @@ const PlaygroundContainer = styled.div`
     .playgroundStage {
       background-color: ${theme.color.codeMirror.bgDim};
       overflow: auto;
-      padding: ${theme.spacing.small} ${theme.spacing.medium};
+      padding: ${theme.spacing.sm} ${theme.spacing.md};
       width: 80%;
       margin: 0 auto;
       resize: both;
@@ -134,7 +134,7 @@ const PlaygroundContainer = styled.div`
       font-weight: normal;
       line-height: 1.2;
       overflow: scroll;
-      padding: ${theme.spacing.small};
+      padding: ${theme.spacing.sm};
       text-align: left;
       white-space: pre;
       width: 100%;

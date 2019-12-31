@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { withRouteData, Link } from "react-static";
-import Footer from "../partials/footer";
 import Playground from "../partials/playground";
 import config from "../../static-config-parts/site-data";
 
@@ -30,7 +29,6 @@ class GalleryTemplate extends React.Component {
             </pre>
           </div>
         </article>
-        <Footer />
       </div>
     );
   }

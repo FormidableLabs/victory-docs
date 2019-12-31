@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import config from "../../static-config-parts/site-data";
-import Footer from "../partials/footer";
 
 class MainLayout extends React.Component {
   // TODO/FIXME/ALERT since React-Static uses a different convention, this may bork things when deployed
@@ -44,7 +43,6 @@ class MainLayout extends React.Component {
           <meta name="description" content={config.siteDescription} />
         </Helmet>
         {children}
-        <Footer />
       </div>
     );
   }

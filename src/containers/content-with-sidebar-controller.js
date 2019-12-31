@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-static";
-import Footer from "../partials/footer";
 import Sidebar from "../partials/sidebar/sidebar";
 import styled from "styled-components";
 import menuButton from "../../static/burger.svg";
@@ -133,10 +132,7 @@ class ContentWithSidebar extends React.Component {
             openSidebar={this.state.openSidebar}
             onClick={this.closeSidebar}
           >
-            <div className="new-docs-article">
-              {children}
-              <Footer />
-            </div>
+            <div className="new-docs-article">{children}</div>
           </ArticleWrapper>
         </ContentWithSidebarPage>
       </React.Fragment>

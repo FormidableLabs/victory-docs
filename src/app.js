@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
-import VictoryHeader from "./partials/header";
+import Footer from "./partials/footer";
 import Analytics from "./google-analytics";
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
@@ -102,10 +102,10 @@ const App = () => (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <WrappedScrollToTop>
-        <VictoryHeader />
         <Analytics id="UA-43290258-1">
           <Routes>{RenderRoutes}</Routes>
         </Analytics>
+        <Footer />
       </WrappedScrollToTop>
     </ThemeProvider>
   </Router>

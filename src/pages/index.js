@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "../partials/footer";
-// Home Components
 import Benefits from "../partials/home/benefits";
 import Companies from "../partials/home/companies";
 import Hero from "../partials/home/hero";
@@ -33,7 +31,6 @@ class Index extends React.Component {
             </p>
           </div>
         </section>
-        <Footer />
       </div>
     );
   }

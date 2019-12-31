@@ -8,8 +8,8 @@ const theme = {
 
     white: "#ffffff",
     gray: "#999999",
-    nearblack: "#242121",
-    black: "#1d1e1f",
+    nearBlack: "#242121",
+    black: "#1f1f1f",
 
     codeMirror: {
       bgDim: "#ebe7e4",
@@ -33,14 +33,16 @@ const theme = {
   },
 
   spacing: {
-    small: "1.375rem",
-    medium: "3.75rem"
+    sm: "1.35rem",
+    md: "2.5rem",
+    lg: "4.5rem",
+    xlg: "8rem"
   },
 
   mediaQuery: {
-    small: "only screen and (min-width: 650px)",
-    medium: "only screen and (min-width: 960px)",
-    large: "only screen and (min-width: 1200px)"
+    sm: "only screen and (min-width: 650px)",
+    md: "only screen and (min-width: 960px)",
+    lg: "only screen and (min-width: 1200px)"
   }
 };
 

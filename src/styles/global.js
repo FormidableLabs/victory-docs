@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
   ${prism}
 
   html {
+    background: ${({ theme }) => theme.color.black};
     box-sizing: border-box;
     overflow-x: hidden;
   }
@@ -19,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.color.white};
+    color: ${({ theme }) => theme.color.nearBlack};
     font-family: ${({ theme }) => theme.font.primary};
     line-height: 1.9;
     overflow: hidden;
@@ -114,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
   h2 {
     font-size: 1.75rem;
   }
-  @media (${({ theme }) => theme.mediaQuery.medium}) {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     h2 {
       font-size: 2rem;
     }
@@ -181,7 +183,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0.33em 0.333em 0.28em;
     word-break: break-word;
   }
-  @media (${({ theme }) => theme.mediaQuery.medium}) {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     code {
       font-size: 0.875rem;
     }
@@ -227,24 +229,9 @@ const GlobalStyle = createGlobalStyle`
     background: none;
   }
 
-  a:link {
+  a {
     color: ${({ theme }) => theme.color.red};
     text-decoration: none;
-    transition: color 250ms ease-in;
-  }
-
-  a:visited {
-    color: ${({ theme }) => theme.color.paleRed};
-  }
-
-  a:focus,
-  a:hover {
-    color: ${({ theme }) => theme.color.black};
-    transition: color 300ms ease-out;
-  }
-
-  a:active {
-    transition: color 300ms ease-out;
   }
 `;
 

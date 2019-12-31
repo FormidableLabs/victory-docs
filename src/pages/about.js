@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouteData } from "react-static";
-import Footer from "../partials/footer";
 import Showcase from "../partials/about/showcase";
 
 class About extends React.Component {
@@ -77,7 +76,6 @@ class About extends React.Component {
             thoughtful, and scalable systems.
           </p>
         </article>
-        <Footer />
       </div>
     );
   }
