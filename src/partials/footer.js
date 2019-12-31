@@ -1,7 +1,7 @@
 import React from "react";
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
-import formidableLogo from "../../static/logos/logo-formidable.svg";
+import formidableIcon from "../../static/logos/logo-formidable-icon.svg";
 
 const FooterContainer = styled.footer`
   background-color: ${({ theme }) => theme.color.black};
@@ -25,7 +25,7 @@ const InnerContainer = styled.div`
   }
 `;
 
-const LogoAndContact = styled.div`
+const IconAndContact = styled.div`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing.sm};
   margin-right: ${({ theme }) => theme.spacing.lg};
@@ -37,10 +37,11 @@ const Contact = styled.div`
 
   > a {
     color: ${({ theme }) => theme.color.white};
+    margin-bottom: ${({ theme }) => theme.spacing.xs};
   }
 `;
 
-const Logo = styled(SVG)`
+const Icon = styled(SVG)`
   margin-right: ${({ theme }) => theme.spacing.sm};
 
   > svg {
@@ -56,15 +57,15 @@ const Blurb = styled.div`
 const Footer = () => (
   <FooterContainer>
     <InnerContainer>
-      <LogoAndContact>
+      <IconAndContact>
         <a href="https://formidable.com">
-          <Logo src={formidableLogo} />
+          <Icon src={formidableIcon} />
         </a>
         <Contact>
           <a href="https://formidable.com/contact/">CONTACT</a>
           <a href="https://formidable.com/careers/">CAREERS</a>
         </Contact>
-      </LogoAndContact>
+      </IconAndContact>
       <Blurb>
         A little blurb about Formidable. Lorem ipsum dolor sit amet, consectetur
         adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
