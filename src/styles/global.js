@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     background: ${({ theme }) => theme.color.black};
     box-sizing: border-box;
+    font-size: 14px;
     overflow-x: hidden;
   }
 

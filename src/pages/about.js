@@ -1,11 +1,13 @@
 import React from "react";
 import { withRouteData } from "react-static";
+import Header from "../partials/header";
 import Showcase from "../partials/about/showcase";
 
 class About extends React.Component {
   render() {
     return (
       <div className="Page-content without-content-sidebar">
+        <Header />
         <article className="Article">
           <h1> Victory: Charting for React and React Native</h1>
           <p>
