@@ -10,6 +10,7 @@ import formidableLogo from "../../static/logos/logo-formidable.svg";
 import burgerIcon from "../../static/burger.svg";
 
 const HeaderContainer = styled.header`
+  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.14);
   display: flex;
   justify-content: center;
   padding: 0 ${({ theme }) => theme.layout.pageGutter};
@@ -30,6 +31,9 @@ const LeftContainer = styled.div`
 `;
 
 const BurgerIcon = styled(SVG)`
+  display: flex;
+  margin-right: ${({ theme }) => theme.spacing.sm};
+
   @media ${({ theme }) => theme.mediaQuery.sm} {
     display: none;
   }
@@ -45,6 +49,11 @@ const VictoryLogo = styled.span`
 
 const NavLinksList = styled.ul`
   margin: 0;
+  display: none;
+
+  @media ${({ theme }) => theme.mediaQuery.sm} {
+    display: block;
+  }
 `;
 
 const NavItemStyle = css`
@@ -65,8 +74,16 @@ const NavAnchor = styled.a`
 `;
 
 const FormidableIcon = styled(SVG)`
+  color: ${({ theme }) => theme.color.red};
+  display: flex;
+
   @media ${({ theme }) => theme.mediaQuery.sm} {
     display: none;
+  }
+
+  > svg {
+    height: 24px;
+    width: 18px;
   }
 `;
 
