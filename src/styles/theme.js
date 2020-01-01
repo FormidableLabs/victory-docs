@@ -34,7 +34,9 @@ const theme = {
 
   layout: {
     maxWidth: "1100px",
-    pageGutter: "1.35rem"
+    pageGutterSide: "1.35rem",
+    pageGutterTop: "1.35rem",
+    pageGutterBottom: "4.5rem"
   },
 
   mediaQuery: {

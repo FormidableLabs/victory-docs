@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link, Prefetch, withRouteData } from "react-static";
 import styled, { css } from "styled-components";
@@ -9,11 +9,16 @@ import formidableIcon from "../../static/logos/logo-formidable-icon.svg";
 import formidableLogo from "../../static/logos/logo-formidable.svg";
 import burgerIcon from "../../static/burger.svg";
 
+export const HEADER_HEIGHT = "64px";
+
 const HeaderContainer = styled.header`
+  background: ${({ theme }) => theme.color.white};
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.14);
   display: flex;
+  height: ${HEADER_HEIGHT};
   justify-content: center;
-  padding: 0 ${({ theme }) => theme.layout.pageGutter};
+  padding: 0 ${({ theme }) => theme.layout.pageGutterSide};
+  width: 100%;
 `;
 
 const InnerContainer = styled.div`
@@ -21,7 +26,6 @@ const InnerContainer = styled.div`
   display: flex;
   justify-content: space-between;
   max-width: ${({ theme }) => theme.layout.maxWidth};
-  padding: ${({ theme }) => theme.spacing.xs} 0;
   width: 100%;
 `;
 
@@ -98,12 +102,12 @@ const FormidableLogo = styled(SVG)`
   }
 `;
 
-const Header = ({ history }) => {
+const Header = ({ className, history }) => {
   const { location } = history;
   const { pathname } = location;
 
   return (
-    <HeaderContainer>
+    <HeaderContainer className={className || ""}>
       <InnerContainer>
         <LeftContainer>
           <BurgerIcon src={burgerIcon} />
@@ -153,6 +157,7 @@ const Header = ({ history }) => {
 };
 
 Header.propTypes = {
+  className: PropTypes.string,
   history: PropTypes.shape({
     location: PropTypes.shape({ pathname: PropTypes.string })
   })
