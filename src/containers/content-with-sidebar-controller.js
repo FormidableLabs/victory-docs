@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-static";
-import Sidebar from "../partials/sidebar/sidebar";
+import Sidebar from "../partials/sidebar";
 import styled from "styled-components";
 import menuButton from "../../static/burger.svg";
 

@@ -7,6 +7,7 @@ const theme = {
     darkBrown: "#4c2e29",
 
     white: "#ffffff",
+    nearWhite: "#f2f2f2",
     gray: "#999999",
     nearBlack: "#242121",
     black: "#1f1f1f",
@@ -34,8 +35,11 @@ const theme = {
 
   layout: {
     maxWidth: "1100px",
+    footerMaxWidth: "900px",
+
     headerHeight: "64px",
     stripesWidth: "26px",
+    sidebarWidth: "186px",
 
     pageGutterLeft: "1.35rem",
     pageGutterRight: "2.5rem",

@@ -1,10 +1,15 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import Header from "../partials/header";
-import Footer from "../partials/footer";
+import _Header from "../partials/header";
+import _Footer from "../partials/footer";
+import Sidebar from "../partials/sidebar";
 
-const FixedHeader = styled(Header)`
+const PageContainer = styled.main`
+  position: relative;
+`;
+
+const Header = styled(_Header)`
   left: ${({ theme }) => theme.layout.stripesWidth};
   position: fixed;
   top: 0;
@@ -12,12 +17,13 @@ const FixedHeader = styled(Header)`
   z-index: 1;
 `;
 
-const StripesContainer = styled.div`
+const SidebarContainer = styled.aside`
   display: flex;
   height: 100%;
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 1;
 `;
 
 const stripeStyle = css`
@@ -61,22 +67,30 @@ const Content = styled.div`
   width: 100%;
 `;
 
-const Page = ({ children }) => {
-  return (
-    <Fragment>
-      <FixedHeader />
+const Footer = styled(_Footer)`
+  position: relative;
+  z-index: 1;
+`;
 
-      <StripesContainer>
+const Page = ({ children }) => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  return (
+    <PageContainer>
+      <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+
+      <SidebarContainer>
         <RedStripe />
         <PaleRedStripe />
-      </StripesContainer>
+        {sidebarOpen && <Sidebar />}
+      </SidebarContainer>
 
       <ContentContainer>
         <Content>{children}</Content>
       </ContentContainer>
 
       <Footer />
-    </Fragment>
+    </PageContainer>
   );
 };
 

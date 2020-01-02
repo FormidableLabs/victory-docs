@@ -37,9 +37,12 @@ const LeftContainer = styled.div`
   display: flex;
 `;
 
+const MenuButton = styled.button`
+  margin-right: ${({ theme }) => theme.spacing.sm};
+`;
+
 const BurgerIcon = styled(SVG)`
   display: flex;
-  margin-right: ${({ theme }) => theme.spacing.sm};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     display: none;
@@ -106,15 +109,17 @@ const FormidableLogo = styled(SVG)`
   }
 `;
 
-const Header = ({ className, history }) => {
+const Header = ({ className = "", history, onMenuClick }) => {
   const { location } = history;
   const { pathname } = location;
 
   return (
-    <HeaderContainer className={className || ""}>
+    <HeaderContainer className={className}>
       <InnerContainer>
         <LeftContainer>
-          <BurgerIcon src={burgerIcon} />
+          <MenuButton onClick={onMenuClick}>
+            <BurgerIcon src={burgerIcon} />
+          </MenuButton>
           <VictoryLogoLink to="/">Victory</VictoryLogoLink>
 
           <NavLinksList>
@@ -164,7 +169,8 @@ Header.propTypes = {
   className: PropTypes.string,
   history: PropTypes.shape({
     location: PropTypes.shape({ pathname: PropTypes.string })
-  })
+  }),
+  onMenuClick: PropTypes.func
 };
 
 export default withRouteData(Header);

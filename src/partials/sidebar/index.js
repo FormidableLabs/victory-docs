@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-static";
+import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
+
 import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SidebarSearchInput from "./components/search-input";
@@ -33,6 +35,12 @@ const getPathPrefix = item => {
     : item.category;
   return `/${checkedCategory}/${item.slug}`;
 };
+
+const SidebarContainer = styled.nav`
+  background-color: ${({ theme }) => theme.color.nearWhite};
+  padding: ${({ theme }) => theme.spacing.sm} 0;
+  width: ${({ theme }) => theme.layout.sidebarWidth};
+`;
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -97,7 +105,6 @@ class Sidebar extends React.Component {
 
       return (
         <li
-          className="Sidebar-List-Item"
           key={link.slug}
           onClick={() =>
             this.setState({ content: this.state.content, filterTerm: "" })
@@ -170,85 +177,75 @@ class Sidebar extends React.Component {
   render() {
     const { content } = this.props;
     const filteredContent = this.state.filteredResults;
+
     return (
-      <nav className="Sidebar">
-        <div className="Sidebar-Grid">
-          <div className="Sidebar-Search">
-            <SidebarSearchInput
-              onHandleInputChange={this.handleInputChange}
-              content={content}
-              searchText={this.state.filterTerm}
-              onClearInput={this.clearInput.bind(this)}
+      <SidebarContainer>
+        <SidebarSearchInput
+          onHandleInputChange={this.handleInputChange}
+          content={content}
+          searchText={this.state.filterTerm}
+          onClearInput={this.clearInput.bind(this)}
+        />
+
+        {isEmpty(filteredContent) ? (
+          this.renderNoResults()
+        ) : (
+          <Fragment>
+            <Introduction
+              content={this.renderLinksList(
+                filteredContent,
+                "docs",
+                "introduction"
+              )}
             />
-          </div>
-          {isEmpty(filteredContent) ? (
-            this.renderNoResults()
-          ) : (
-            <div>
-              <Introduction
-                content={this.renderLinksList(
-                  filteredContent,
-                  "docs",
-                  "introduction"
-                )}
-              />
-              <Category
-                title="Support"
-                content={this.renderLinksList(
-                  filteredContent,
-                  "docs",
-                  "support"
-                )}
-                location={this.props.location}
-              />
-              <Category
-                title="Guides"
-                content={this.renderLinksList(
-                  filteredContent,
-                  "guides",
-                  "guides"
-                )}
-                location={this.props.location}
-              />
-              <Category
-                title="Documentation"
-                content={this.renderLinksList(
-                  filteredContent,
-                  "docs",
-                  "documentation"
-                )}
-                location={this.props.location}
-                subCategories={[
-                  {
-                    title: "Charts",
-                    content: this.renderLinksList(
-                      filteredContent,
-                      "docs",
-                      "charts"
-                    )
-                  },
-                  {
-                    title: "Containers",
-                    content: this.renderLinksList(
-                      filteredContent,
-                      "docs",
-                      "containers"
-                    )
-                  },
-                  {
-                    title: "More",
-                    content: this.renderLinksList(
-                      filteredContent,
-                      "docs",
-                      "more"
-                    )
-                  }
-                ]}
-              />
-            </div>
-          )}
-        </div>
-      </nav>
+            <Category
+              title="Support"
+              content={this.renderLinksList(filteredContent, "docs", "support")}
+              location={this.props.location}
+            />
+            <Category
+              title="Guides"
+              content={this.renderLinksList(
+                filteredContent,
+                "guides",
+                "guides"
+              )}
+              location={this.props.location}
+            />
+            <Category
+              title="Documentation"
+              content={this.renderLinksList(
+                filteredContent,
+                "docs",
+                "documentation"
+              )}
+              location={this.props.location}
+              subCategories={[
+                {
+                  title: "Charts",
+                  content: this.renderLinksList(
+                    filteredContent,
+                    "docs",
+                    "charts"
+                  )
+                },
+                {
+                  title: "Containers",
+                  content: this.renderLinksList(
+                    filteredContent,
+                    "docs",
+                    "containers"
+                  )
+                },
+                {
+                  title: "More",
+                  content: this.renderLinksList(filteredContent, "docs", "more")
+                }
+              ]}
+            />
+          </Fragment>
+        )}
+      </SidebarContainer>
     );
   }
 }

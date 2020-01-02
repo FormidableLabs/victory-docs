@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import SVG from "react-inlinesvg";
 import styled from "styled-components";
 import formidableIcon from "../../static/logos/logo-formidable-icon.svg";
@@ -19,7 +20,7 @@ const InnerContainer = styled.div`
   @media ${({ theme }) => theme.mediaQuery.sm} {
     flex-direction: row;
     justify-content: space-between;
-    max-width: 1072px;
+    max-width: ${({ theme }) => theme.layout.footerMaxWidth};
     padding-bottom: ${({ theme }) => theme.spacing.lg};
     padding-top: ${({ theme }) => theme.spacing.lg};
   }
@@ -54,8 +55,8 @@ const Blurb = styled.div`
   max-width: 536px;
 `;
 
-const Footer = () => (
-  <FooterContainer>
+const Footer = ({ className = "" }) => (
+  <FooterContainer className={className}>
     <InnerContainer>
       <IconAndContact>
         <a href="https://formidable.com">
@@ -77,5 +78,9 @@ const Footer = () => (
     </InnerContainer>
   </FooterContainer>
 );
+
+Footer.propTypes = {
+  className: PropTypes.string
+};
 
 export default Footer;
