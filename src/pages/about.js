@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouteData } from "react-static";
-import Page from "../partials/page";
+import Page from "../containers/page";
 import Showcase from "../partials/about/showcase";
 
 class About extends React.Component {
