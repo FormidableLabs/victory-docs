@@ -14,12 +14,14 @@ const FooterContainer = styled.footer`
 const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: ${({ theme }) => `${theme.spacing.xlg} ${theme.spacing.md}`};
+  height: ${({ theme }) => theme.layout.footerHeight};
+  justify-content: center;
+  padding: 0 ${({ theme }) => theme.spacing.md};
   width: 100%;
 
-  @media ${({ theme }) => theme.mediaQuery.sm} {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     flex-direction: row;
-    justify-content: space-between;
+    height: ${({ theme }) => theme.layout.md.footerHeight};
     max-width: ${({ theme }) => theme.layout.footerMaxWidth};
     padding-bottom: ${({ theme }) => theme.spacing.lg};
     padding-top: ${({ theme }) => theme.spacing.lg};
@@ -29,7 +31,7 @@ const InnerContainer = styled.div`
 const IconAndContact = styled.div`
   display: flex;
   margin-bottom: ${({ theme }) => theme.spacing.sm};
-  margin-right: ${({ theme }) => theme.spacing.lg};
+  margin-right: ${({ theme }) => theme.spacing.xl};
 `;
 
 const Contact = styled.div`
@@ -51,8 +53,8 @@ const Icon = styled(SVG)`
   }
 `;
 
-const Blurb = styled.div`
-  max-width: 536px;
+const Blurb = styled.p`
+  margin: 0;
 `;
 
 const Footer = ({ className = "" }) => (

@@ -38,6 +38,7 @@ const theme = {
     footerMaxWidth: "900px",
 
     headerHeight: "64px",
+    footerHeight: "432px",
     stripesWidth: "26px",
     sidebarWidth: "186px",
 
@@ -48,6 +49,8 @@ const theme = {
 
     // layout at md width and larger; use in conjunction with media query
     md: {
+      footerHeight: "256px",
+
       pageGutterLeft: "4rem",
       pageGutterRight: "6rem",
       pageGutterTop: "1.35rem",
@@ -66,7 +69,7 @@ const theme = {
     sm: "1.35rem",
     md: "2.5rem",
     lg: "4.5rem",
-    xlg: "8rem"
+    xl: "8rem"
   }
 };
 
