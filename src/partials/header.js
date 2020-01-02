@@ -9,16 +9,19 @@ import formidableIcon from "../../static/logos/logo-formidable-icon.svg";
 import formidableLogo from "../../static/logos/logo-formidable.svg";
 import burgerIcon from "../../static/burger.svg";
 
-export const HEADER_HEIGHT = "64px";
-
 const HeaderContainer = styled.header`
   background: ${({ theme }) => theme.color.white};
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.14);
   display: flex;
-  height: ${HEADER_HEIGHT};
+  height: ${({ theme }) => theme.layout.headerHeight};
   justify-content: center;
-  padding: 0 ${({ theme }) => theme.layout.pageGutterSide};
-  width: 100%;
+  padding-left: ${({ theme }) => theme.layout.pageGutterLeft};
+  padding-right: ${({ theme }) => theme.layout.pageGutterRight};
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    padding-left: ${({ theme }) => theme.layout.md.pageGutterLeft};
+    padding-right: ${({ theme }) => theme.layout.md.pageGutterRight};
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -38,7 +41,7 @@ const BurgerIcon = styled(SVG)`
   display: flex;
   margin-right: ${({ theme }) => theme.spacing.sm};
 
-  @media ${({ theme }) => theme.mediaQuery.sm} {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     display: none;
   }
 `;
@@ -55,12 +58,12 @@ const NavLinksList = styled.ul`
   margin: 0;
   display: none;
 
-  @media ${({ theme }) => theme.mediaQuery.sm} {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     display: block;
   }
 `;
 
-const NavItemStyle = css`
+const navItemStyle = css`
   color: ${({ active, theme }) =>
     active ? theme.color.red : theme.color.gray};
   font-weight: bold;
@@ -70,18 +73,18 @@ const NavItemStyle = css`
 `;
 
 const NavLink = styled(Link)`
-  ${NavItemStyle}
+  ${navItemStyle}
 `;
 
 const NavAnchor = styled.a`
-  ${NavItemStyle}
+  ${navItemStyle}
 `;
 
 const FormidableIcon = styled(SVG)`
   color: ${({ theme }) => theme.color.red};
   display: flex;
 
-  @media ${({ theme }) => theme.mediaQuery.sm} {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     display: none;
   }
 
@@ -97,7 +100,7 @@ const FormidableLogo = styled(SVG)`
   position: relative;
   top: -1px;
 
-  @media ${({ theme }) => theme.mediaQuery.sm} {
+  @media ${({ theme }) => theme.mediaQuery.md} {
     display: block;
   }
 `;

@@ -34,9 +34,21 @@ const theme = {
 
   layout: {
     maxWidth: "1100px",
-    pageGutterSide: "1.35rem",
+    headerHeight: "64px",
+    stripesWidth: "26px",
+
+    pageGutterLeft: "1.35rem",
+    pageGutterRight: "2.5rem",
     pageGutterTop: "1.35rem",
-    pageGutterBottom: "4.5rem"
+    pageGutterBottom: "4.5rem",
+
+    // layout at md width and larger; use in conjunction with media query
+    md: {
+      pageGutterLeft: "4rem",
+      pageGutterRight: "6rem",
+      pageGutterTop: "1.35rem",
+      pageGutterBottom: "4.5rem"
+    }
   },
 
   mediaQuery: {
