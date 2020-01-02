@@ -46,7 +46,8 @@ const BurgerIcon = styled(SVG)`
   }
 `;
 
-const VictoryLogo = styled.span`
+const VictoryLogoLink = styled(Link)`
+  color: ${({ theme }) => theme.color.nearBlack};
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 4px;
@@ -114,7 +115,7 @@ const Header = ({ className, history }) => {
       <InnerContainer>
         <LeftContainer>
           <BurgerIcon src={burgerIcon} />
-          <VictoryLogo>Victory</VictoryLogo>
+          <VictoryLogoLink to="/">Victory</VictoryLogoLink>
 
           <NavLinksList>
             <Prefetch path="/about">
