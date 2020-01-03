@@ -133,11 +133,6 @@ const Header = ({ className = "", history, onMenuClick }) => {
                 Docs
               </NavLink>
             </Prefetch>
-            <Prefetch path="/guides">
-              <NavLink active={pathname.includes("guides")} to="/guides/">
-                Guides
-              </NavLink>
-            </Prefetch>
             <Prefetch path="/gallery">
               <NavLink active={pathname.includes("gallery")} to="/gallery/">
                 Gallery
