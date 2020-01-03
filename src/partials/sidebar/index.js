@@ -40,8 +40,10 @@ const getPathPrefix = item => {
 
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
-  padding: 0 ${({ theme }) => theme.spacing.sm};
-  padding-top: ${({ theme }) => theme.spacing.md};
+  padding-left: ${({ theme }) => theme.spacing.sm};
+  padding-right: ${({ theme }) => theme.spacing.sm};
+  padding-top: ${({ spaceForCloseButton, theme }) =>
+    spaceForCloseButton ? theme.spacing.md : 0};
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
@@ -196,12 +198,17 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { className, content, onCloseClick } = this.props;
+    const { className, content, onCloseClick, hideCloseButton } = this.props;
     const filteredContent = this.state.filteredResults;
 
     return (
-      <SidebarContainer className={className}>
-        <CloseButton onClick={onCloseClick}>&times;</CloseButton>
+      <SidebarContainer
+        className={className}
+        spaceForCloseButton={!hideCloseButton}
+      >
+        {!hideCloseButton && (
+          <CloseButton onClick={onCloseClick}>&times;</CloseButton>
+        )}
         <VictoryLogo src={victoryLogo} />
         <SearchInput
           onHandleInputChange={this.handleInputChange}
@@ -276,6 +283,7 @@ class Sidebar extends React.Component {
 Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
+  hideCloseButton: PropTypes.bool,
   location: PropTypes.object,
   onCloseClick: PropTypes.func
 };

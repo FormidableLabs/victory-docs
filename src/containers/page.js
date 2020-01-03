@@ -2,18 +2,29 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import _Header from "../partials/header";
-import _Footer from "../partials/footer";
-import Sidebar from "../partials/sidebar";
+import _Sidebar from "../partials/sidebar";
+import Footer from "../partials/footer";
 
 const PageContainer = styled.main`
   position: relative;
+  padding-left: ${({ spaceForSidebar, theme }) =>
+    `calc(${theme.layout.stripesWidth} + ${
+      spaceForSidebar ? theme.layout.sidebarWidth : "0"
+    })`};
+  padding-top: ${({ theme }) => theme.layout.headerHeight};
 `;
 
 const Header = styled(_Header)`
-  left: ${({ theme }) => theme.layout.stripesWidth};
+  left: ${({ spaceForSidebar, theme }) =>
+    `calc(${theme.layout.stripesWidth} + ${
+      spaceForSidebar ? theme.layout.sidebarWidth : "0"
+    })`};
   position: fixed;
   top: 0;
-  width: ${({ theme }) => `calc(100% - ${theme.layout.stripesWidth})`};
+  width: ${({ spaceForSidebar, theme }) =>
+    `calc(100% - ${theme.layout.stripesWidth} - ${
+      spaceForSidebar ? theme.layout.sidebarWidth : "0"
+    })`};
   z-index: 1;
 `;
 
@@ -41,24 +52,23 @@ const PaleRedStripe = styled.div`
   background-color: ${({ theme }) => theme.color.paleRed};
 `;
 
+const Sidebar = styled(_Sidebar)`
+  height: 100%;
+  position: fixed;
+  left: ${({ theme }) => theme.layout.stripesWidth};
+  top: 0;
+  z-index: 1;
+`;
+
 const ContentContainer = styled.article`
   display: flex;
   justify-content: center;
-  left: ${({ theme }) => theme.layout.stripesWidth};
-  padding-bottom: ${({ theme }) => theme.layout.pageGutterBottom};
-  padding-left: ${({ theme }) => theme.layout.pageGutterLeft};
-  padding-right: ${({ theme }) => theme.layout.pageGutterRight};
-  padding-top: ${({ theme }) =>
-    `calc(${theme.layout.headerHeight} + ${theme.layout.pageGutterTop})`};
-  position: relative;
-  width: ${({ theme }) => `calc(100% - ${theme.layout.stripesWidth})`};
+  padding: ${({ theme }) =>
+    `${theme.layout.pageGutterTop} ${theme.layout.pageGutterRight} ${theme.layout.pageGutterBottom} ${theme.layout.pageGutterLeft}`};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
-    padding-bottom: ${({ theme }) => theme.layout.md.pageGutterBottom};
-    padding-left: ${({ theme }) => theme.layout.md.pageGutterLeft};
-    padding-right: ${({ theme }) => theme.layout.md.pageGutterRight};
-    padding-top: ${({ theme }) =>
-      `calc(${theme.layout.headerHeight} + ${theme.layout.md.pageGutterTop})`};
+    padding: ${({ theme }) =>
+      `${theme.layout.md.pageGutterTop} ${theme.layout.md.pageGutterRight} ${theme.layout.md.pageGutterBottom} ${theme.layout.md.pageGutterLeft}`};
   }
 `;
 
@@ -67,22 +77,19 @@ const Content = styled.div`
   width: 100%;
 `;
 
-const Footer = styled(_Footer)`
-  position: relative;
-  z-index: 1;
-`;
-
-const Page = ({ children }) => {
+const Page = ({ children, withSidebar }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <PageContainer>
+    <PageContainer spaceForSidebar={withSidebar}>
       <Header onMenuClick={() => setSidebarOpen(true)} />
 
       <SidebarContainer>
         <RedStripe />
         <PaleRedStripe />
-        {sidebarOpen && <Sidebar onCloseClick={() => setSidebarOpen(false)} />}
+        {(withSidebar || sidebarOpen) && (
+          <Sidebar onCloseClick={() => setSidebarOpen(false)} />
+        )}
       </SidebarContainer>
 
       <ContentContainer>
@@ -95,7 +102,8 @@ const Page = ({ children }) => {
 };
 
 Page.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  withSidebar: PropTypes.bool
 };
 
 export default Page;

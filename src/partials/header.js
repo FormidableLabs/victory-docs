@@ -39,14 +39,14 @@ const LeftContainer = styled.div`
 
 const MenuButton = styled.button`
   margin-right: ${({ theme }) => theme.spacing.sm};
-`;
-
-const BurgerIcon = styled(SVG)`
-  display: flex;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     display: none;
   }
+`;
+
+const BurgerIcon = styled(SVG)`
+  display: flex;
 `;
 
 const VictoryLogoLink = styled(Link)`
