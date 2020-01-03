@@ -4,10 +4,12 @@ import { Link } from "react-static";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
+import SVG from "react-inlinesvg";
 
+import victoryLogo from "../../../static/logos/logo-victory.svg";
 import Introduction from "./components/introduction";
 import Category from "./components/category";
-import SidebarSearchInput from "./components/search-input";
+import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
 
 // was gonna pass this but I'm leaning towards this being an internal detail since at the end of the day the proper
@@ -38,8 +40,27 @@ const getPathPrefix = item => {
 
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
-  padding: ${({ theme }) => theme.spacing.sm} 0;
+  padding: 0 ${({ theme }) => theme.spacing.sm};
+  padding-top: ${({ theme }) => theme.spacing.md};
+  position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
+`;
+
+const CloseButton = styled.button`
+  font-size: 28px;
+  position: absolute;
+  right: ${({ theme }) => theme.spacing.sm};
+  top: ${({ theme }) => `calc(${theme.spacing.sm} - 8px)`};
+`;
+
+const VictoryLogo = styled(SVG)`
+  display: flex;
+  justify-content: center;
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+
+  > svg {
+    width: 98px;
+  }
 `;
 
 class Sidebar extends React.Component {
@@ -175,12 +196,14 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { content } = this.props;
+    const { className, content, onCloseClick } = this.props;
     const filteredContent = this.state.filteredResults;
 
     return (
-      <SidebarContainer>
-        <SidebarSearchInput
+      <SidebarContainer className={className}>
+        <CloseButton onClick={onCloseClick}>&times;</CloseButton>
+        <VictoryLogo src={victoryLogo} />
+        <SearchInput
           onHandleInputChange={this.handleInputChange}
           content={content}
           searchText={this.state.filterTerm}
@@ -251,8 +274,14 @@ class Sidebar extends React.Component {
 }
 
 Sidebar.propTypes = {
+  className: PropTypes.string,
   content: PropTypes.array,
-  location: PropTypes.object
+  location: PropTypes.object,
+  onCloseClick: PropTypes.func
+};
+
+Sidebar.defaultProps = {
+  className: ""
 };
 
 export default Sidebar;

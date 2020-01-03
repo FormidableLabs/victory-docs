@@ -77,12 +77,12 @@ const Page = ({ children }) => {
 
   return (
     <PageContainer>
-      <Header onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+      <Header onMenuClick={() => setSidebarOpen(true)} />
 
       <SidebarContainer>
         <RedStripe />
         <PaleRedStripe />
-        {sidebarOpen && <Sidebar />}
+        {sidebarOpen && <Sidebar onCloseClick={() => setSidebarOpen(false)} />}
       </SidebarContainer>
 
       <ContentContainer>

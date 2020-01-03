@@ -40,7 +40,7 @@ const theme = {
     headerHeight: "64px",
     footerHeight: "432px",
     stripesWidth: "26px",
-    sidebarWidth: "186px",
+    sidebarWidth: "212px",
 
     pageGutterLeft: "1.35rem",
     pageGutterRight: "2.5rem",
