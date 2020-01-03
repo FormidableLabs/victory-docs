@@ -9,7 +9,7 @@ const PageContainer = styled.main`
   position: relative;
   padding-left: ${({ spaceForSidebar, theme }) =>
     `calc(${theme.layout.stripesWidth} + ${
-      spaceForSidebar ? theme.layout.sidebarWidth : "0"
+      spaceForSidebar ? theme.layout.sidebarWidth : "0px"
     })`};
   padding-top: ${({ theme }) => theme.layout.headerHeight};
 `;
@@ -17,13 +17,13 @@ const PageContainer = styled.main`
 const Header = styled(_Header)`
   left: ${({ spaceForSidebar, theme }) =>
     `calc(${theme.layout.stripesWidth} + ${
-      spaceForSidebar ? theme.layout.sidebarWidth : "0"
+      spaceForSidebar ? theme.layout.sidebarWidth : "0px"
     })`};
   position: fixed;
   top: 0;
   width: ${({ spaceForSidebar, theme }) =>
     `calc(100% - ${theme.layout.stripesWidth} - ${
-      spaceForSidebar ? theme.layout.sidebarWidth : "0"
+      spaceForSidebar ? theme.layout.sidebarWidth : "0px"
     })`};
   z-index: 1;
 `;
