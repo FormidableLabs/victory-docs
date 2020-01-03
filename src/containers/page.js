@@ -72,11 +72,6 @@ const PaleRedStripe = styled.div`
 
 const Sidebar = styled(_Sidebar)`
   display: ${({ show }) => (show ? "block" : "none")};
-  height: 100%;
-  position: fixed;
-  left: ${({ theme }) => theme.layout.stripesWidth};
-  top: 0;
-  z-index: 1;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     display: ${({ showMd }) => (showMd ? "block" : "none")};
@@ -100,7 +95,7 @@ const Content = styled.div`
   width: 100%;
 `;
 
-const Page = ({ children, withSidebar }) => {
+const Page = ({ children, sidebarContent, withSidebar }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -116,6 +111,7 @@ const Page = ({ children, withSidebar }) => {
         <Sidebar
           show={sidebarOpen}
           showMd={withSidebar}
+          content={sidebarContent}
           onCloseClick={() => setSidebarOpen(false)}
         />
       </SidebarContainer>
@@ -131,6 +127,7 @@ const Page = ({ children, withSidebar }) => {
 
 Page.propTypes = {
   children: PropTypes.node,
+  sidebarContent: PropTypes.array,
   withSidebar: PropTypes.bool
 };
 

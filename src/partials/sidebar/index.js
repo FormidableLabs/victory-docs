@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-static";
+import { Link, withRouteData } from "react-static";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -40,8 +40,8 @@ const getPathPrefix = item => {
 
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
-  padding: ${({ theme }) =>
-    `${theme.spacing.md} ${theme.spacing.sm} 0 ${theme.spacing.sm}`};
+  overflow: scroll;
+  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.sm}`};
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
@@ -102,7 +102,8 @@ class Sidebar extends React.Component {
   }
 
   renderLinksList(edges, type, category) {
-    const { location } = this.props;
+    const { history } = this.props;
+    const { location } = history;
     let filteredEdges = edges.filter(edge => edge.data.type === type);
 
     if (category) {
@@ -148,7 +149,7 @@ class Sidebar extends React.Component {
             active={active}
             link={link}
             headings={headings}
-            location={this.props.location}
+            location={location}
             filterTerm={this.state.filterTerm}
           />
         </li>
@@ -201,8 +202,9 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { className, content, onCloseClick } = this.props;
-    const filteredContent = this.state.filteredResults;
+    const { className, content, history, onCloseClick } = this.props;
+    const { location } = history;
+    const { filteredResults } = this.state;
 
     return (
       <SidebarContainer className={className}>
@@ -215,44 +217,44 @@ class Sidebar extends React.Component {
           onClearInput={this.clearInput.bind(this)}
         />
 
-        {isEmpty(filteredContent) ? (
+        {isEmpty(filteredResults) ? (
           this.renderNoResults()
         ) : (
           <Fragment>
             <Introduction
               content={this.renderLinksList(
-                filteredContent,
+                filteredResults,
                 "docs",
                 "introduction"
               )}
             />
             <Category
               title="Support"
-              content={this.renderLinksList(filteredContent, "docs", "support")}
-              location={this.props.location}
+              content={this.renderLinksList(filteredResults, "docs", "support")}
+              location={location}
             />
             <Category
               title="Guides"
               content={this.renderLinksList(
-                filteredContent,
+                filteredResults,
                 "guides",
                 "guides"
               )}
-              location={this.props.location}
+              location={location}
             />
             <Category
               title="Documentation"
               content={this.renderLinksList(
-                filteredContent,
+                filteredResults,
                 "docs",
                 "documentation"
               )}
-              location={this.props.location}
+              location={location}
               subCategories={[
                 {
                   title: "Charts",
                   content: this.renderLinksList(
-                    filteredContent,
+                    filteredResults,
                     "docs",
                     "charts"
                   )
@@ -260,14 +262,14 @@ class Sidebar extends React.Component {
                 {
                   title: "Containers",
                   content: this.renderLinksList(
-                    filteredContent,
+                    filteredResults,
                     "docs",
                     "containers"
                   )
                 },
                 {
                   title: "More",
-                  content: this.renderLinksList(filteredContent, "docs", "more")
+                  content: this.renderLinksList(filteredResults, "docs", "more")
                 }
               ]}
             />
@@ -282,7 +284,9 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
-  location: PropTypes.object,
+  history: PropTypes.shape({
+    location: PropTypes.shape({ pathname: PropTypes.string })
+  }),
   onCloseClick: PropTypes.func
 };
 
@@ -290,4 +294,4 @@ Sidebar.defaultProps = {
   className: ""
 };
 
-export default Sidebar;
+export default withRouteData(Sidebar);

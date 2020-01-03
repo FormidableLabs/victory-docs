@@ -1,12 +1,11 @@
 import React from "react";
-import { withRouteData } from "react-static";
 import Page from "../containers/page";
 import Showcase from "../partials/about/showcase";
 
 class About extends React.Component {
   render() {
     return (
-      <Page withSidebar>
+      <Page>
         <h1> Victory: Charting for React and React Native</h1>
         <p>
           {/*
@@ -79,4 +78,5 @@ class About extends React.Component {
     );
   }
 }
-export default withRouteData(props => <About {...props} />);
+
+export default About;
