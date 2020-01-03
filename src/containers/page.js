@@ -5,27 +5,45 @@ import _Header from "../partials/header";
 import _Sidebar from "../partials/sidebar";
 import Footer from "../partials/footer";
 
+// sidebar logic is as follows:
+// if on large devices, sidebar is only shown if the `withSidebar` prop is
+// `true`
+// if on small devices, sidebar is always hidden until toggled open, regardless
+// of the value of `withSidebar`
+
+// the PageContainer and Header components need to be nudged over to make space
+// for the sidebar only on large devices if `withSidebar` is `true`
+
 const PageContainer = styled.main`
   position: relative;
-  padding-left: ${({ spaceForSidebar, theme }) =>
-    `calc(${theme.layout.stripesWidth} + ${
-      spaceForSidebar ? theme.layout.sidebarWidth : "0px"
-    })`};
+  padding-left: ${({ theme }) => theme.layout.stripesWidth};
   padding-top: ${({ theme }) => theme.layout.headerHeight};
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    padding-left: ${({ spaceForSidebar, theme }) =>
+      `calc(${theme.layout.stripesWidth} + ${
+        spaceForSidebar ? theme.layout.sidebarWidth : "0px"
+      })`};
+  }
 `;
 
 const Header = styled(_Header)`
-  left: ${({ spaceForSidebar, theme }) =>
-    `calc(${theme.layout.stripesWidth} + ${
-      spaceForSidebar ? theme.layout.sidebarWidth : "0px"
-    })`};
+  left: ${({ theme }) => theme.layout.stripesWidth};
   position: fixed;
   top: 0;
-  width: ${({ spaceForSidebar, theme }) =>
-    `calc(100% - ${theme.layout.stripesWidth} - ${
-      spaceForSidebar ? theme.layout.sidebarWidth : "0px"
-    })`};
+  width: ${({ theme }) => `calc(100% - ${theme.layout.stripesWidth})`};
   z-index: 1;
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    left: ${({ spaceForSidebar, theme }) =>
+      `calc(${theme.layout.stripesWidth} + ${
+        spaceForSidebar ? theme.layout.sidebarWidth : "0px"
+      })`};
+    width: ${({ spaceForSidebar, theme }) =>
+      `calc(100% - ${theme.layout.stripesWidth} - ${
+        spaceForSidebar ? theme.layout.sidebarWidth : "0px"
+      })`};
+  }
 `;
 
 const SidebarContainer = styled.aside`
@@ -53,11 +71,16 @@ const PaleRedStripe = styled.div`
 `;
 
 const Sidebar = styled(_Sidebar)`
+  display: ${({ show }) => (show ? "block" : "none")};
   height: 100%;
   position: fixed;
   left: ${({ theme }) => theme.layout.stripesWidth};
   top: 0;
   z-index: 1;
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    display: ${({ showMd }) => (showMd ? "block" : "none")};
+  }
 `;
 
 const ContentContainer = styled.article`
@@ -90,9 +113,11 @@ const Page = ({ children, withSidebar }) => {
       <SidebarContainer>
         <RedStripe />
         <PaleRedStripe />
-        {(withSidebar || sidebarOpen) && (
-          <Sidebar onCloseClick={() => setSidebarOpen(false)} />
-        )}
+        <Sidebar
+          show={sidebarOpen}
+          showMd={withSidebar}
+          onCloseClick={() => setSidebarOpen(false)}
+        />
       </SidebarContainer>
 
       <ContentContainer>

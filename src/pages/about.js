@@ -6,7 +6,7 @@ import Showcase from "../partials/about/showcase";
 class About extends React.Component {
   render() {
     return (
-      <Page>
+      <Page withSidebar>
         <h1> Victory: Charting for React and React Native</h1>
         <p>
           {/*

@@ -40,19 +40,22 @@ const getPathPrefix = item => {
 
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
-  padding-left: ${({ theme }) => theme.spacing.sm};
-  padding-right: ${({ theme }) => theme.spacing.sm};
-  padding-top: ${({ spaceForCloseButton, theme }) =>
-    spaceForCloseButton ? theme.spacing.md : 0};
+  padding: ${({ theme }) =>
+    `${theme.spacing.md} ${theme.spacing.sm} 0 ${theme.spacing.sm}`};
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
 
+// only show close button on small devices
 const CloseButton = styled.button`
   font-size: 28px;
   position: absolute;
   right: ${({ theme }) => theme.spacing.sm};
   top: ${({ theme }) => `calc(${theme.spacing.sm} - 8px)`};
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    display: none;
+  }
 `;
 
 const VictoryLogo = styled(SVG)`
@@ -198,17 +201,12 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { className, content, onCloseClick, hideCloseButton } = this.props;
+    const { className, content, onCloseClick } = this.props;
     const filteredContent = this.state.filteredResults;
 
     return (
-      <SidebarContainer
-        className={className}
-        spaceForCloseButton={!hideCloseButton}
-      >
-        {!hideCloseButton && (
-          <CloseButton onClick={onCloseClick}>&times;</CloseButton>
-        )}
+      <SidebarContainer className={className}>
+        <CloseButton onClick={onCloseClick}>&times;</CloseButton>
         <VictoryLogo src={victoryLogo} />
         <SearchInput
           onHandleInputChange={this.handleInputChange}
