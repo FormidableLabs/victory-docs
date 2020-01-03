@@ -82,7 +82,10 @@ const Page = ({ children, withSidebar }) => {
 
   return (
     <PageContainer spaceForSidebar={withSidebar}>
-      <Header onMenuClick={() => setSidebarOpen(true)} />
+      <Header
+        spaceForSidebar={withSidebar}
+        onMenuClick={() => setSidebarOpen(true)}
+      />
 
       <SidebarContainer>
         <RedStripe />
