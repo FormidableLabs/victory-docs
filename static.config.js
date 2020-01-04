@@ -3,7 +3,6 @@ import React from "react";
 import chokidar from "chokidar";
 import Document from "./src/html";
 import _ from "lodash";
-import staticWebpackConfig from "./static-config-parts/static-webpack-config";
 import siteData from "./static-config-parts/site-data";
 import {
   getDocs,
@@ -173,6 +172,5 @@ export default {
   },
   Document,
   // turn this on if it helps your local development workflow for build testing
-  bundleAnalyzer: false,
-  webpack: staticWebpackConfig
+  bundleAnalyzer: false
 };
