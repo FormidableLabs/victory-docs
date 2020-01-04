@@ -57,6 +57,10 @@ const Blurb = styled.p`
   margin: 0;
 `;
 
+const FormidableLink = styled.a`
+  color: inherit;
+`;
+
 const Footer = ({ className = "" }) => (
   <FooterContainer className={className}>
     <InnerContainer>
@@ -70,12 +74,14 @@ const Footer = ({ className = "" }) => (
         </Contact>
       </IconAndContact>
       <Blurb>
-        A little blurb about Formidable. Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur.
+        Formidable is a Seattle, Denver, and London-based engineering
+        consultancy and open source software organization, specializing in
+        React.js, React Native, GraphQL, Node.js, and the extended JavaScript
+        ecosystem. For more information about Formidable, please visit{" "}
+        <FormidableLink href="https://formidable.com" target="_blank">
+          formidable.com
+        </FormidableLink>
+        .
       </Blurb>
     </InnerContainer>
   </FooterContainer>
