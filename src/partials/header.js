@@ -128,7 +128,12 @@ const Header = ({ className = "", location, onMenuClick }) => {
               </NavLink>
             </Prefetch>
             <Prefetch path="/docs">
-              <NavLink active={pathname.includes("docs")} to="/docs/">
+              {/* /faq is nested under /docs but is at top-level for convenience */}
+              {/* so we don't want to highlight the link if faq is the active path */}
+              <NavLink
+                active={pathname.includes("docs") && !pathname.includes("faq")}
+                to="/docs/"
+              >
                 Docs
               </NavLink>
             </Prefetch>
@@ -145,7 +150,7 @@ const Header = ({ className = "", location, onMenuClick }) => {
             ))}
 
             <Prefetch path="/faq">
-              <NavLink active={pathname.includes("faq")} to="/faq/">
+              <NavLink active={pathname.includes("faq")} to="/docs/faq/">
                 FAQs
               </NavLink>
             </Prefetch>
