@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../containers/page";
+import Page from "../partials/page";
 import Showcase from "../partials/about/showcase";
 
 class About extends React.Component {

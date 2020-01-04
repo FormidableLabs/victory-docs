@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link, withRouteData } from "react-static";
+import { Link, withRouter } from "react-static";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -202,8 +202,7 @@ class Sidebar extends React.Component {
   }
 
   render() {
-    const { className, content, history, onCloseClick } = this.props;
-    const { location } = history;
+    const { className, content, location, onCloseClick } = this.props;
     const { filteredResults } = this.state;
 
     return (
@@ -284,9 +283,7 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
-  history: PropTypes.shape({
-    location: PropTypes.shape({ pathname: PropTypes.string })
-  }),
+  location: PropTypes.shape({ pathname: PropTypes.string }),
   onCloseClick: PropTypes.func
 };
 
@@ -294,4 +291,4 @@ Sidebar.defaultProps = {
   className: ""
 };
 
-export default withRouteData(Sidebar);
+export default withRouter(Sidebar);

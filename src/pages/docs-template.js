@@ -4,7 +4,7 @@ import { withRouteData, withRouter } from "react-static";
 import Helmet from "react-helmet";
 import config from "../../static-config-parts/site-data";
 import Playground from "../partials/playground";
-import Page from "./page";
+import Page from "../partials/page";
 
 class DocsTemplate extends React.Component {
   render() {

@@ -36,7 +36,7 @@ const orderByIdAndAddThemesEntry = items => {
       subHeadings: []
     },
     // path: "/themes",
-    component: "src/containers/themes",
+    component: "src/pages/themes-template",
     name: "Themes"
   };
   return _.orderBy(items.concat(themes), ["data.id"], ["asc"]);

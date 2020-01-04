@@ -1,14 +1,18 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
 import Playground from "component-playground";
+import Helmet from "react-helmet";
 import { assign } from "lodash";
-import { Link } from "react-static";
+import { Link, withRouteData, withRouter } from "react-static";
 
+import config from "../../static-config-parts/site-data";
+import Page from "../partials/page";
 import PlaygroundContainer from "../partials/playground/playground-container";
 import PureRender from "../partials/guides/themes/pure-render";
 import DemoComponent from "../partials/guides/themes/demo-component";
 
-class Themes extends React.Component {
+class ThemesTemplate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -77,8 +81,20 @@ class Themes extends React.Component {
   }
 
   render() {
+    const { doc, sidebarContent } = this.props;
+    const { title } = doc.data;
+    const { edited, themeName } = this.state;
+
     return (
-      <div className="Recipe">
+      <Page withSidebar sidebarContent={sidebarContent}>
+        <Helmet>
+          <title>{`${config.siteTitle} |  ${title}`}</title>
+          <meta name="description" content={config.siteDescription} />
+        </Helmet>
+        {/* <Seo postPath={slug} postNode={contents} postSEO />*/}
+        {/* TODO: Add edit this page link once everything is merged to master
+              <a className="SubHeading" href="">Edit this page</a>
+            */}
         <h1>Themes</h1>
         <p>
           Try out the Victory themes and make your own. Check out the{" "}
@@ -86,7 +102,7 @@ class Themes extends React.Component {
           more details on themes.
         </p>
         {this.renderMenu()}
-        <PureRender themeName={this.state.themeName} edited={this.state.edited}>
+        <PureRender themeName={themeName} edited={edited}>
           <pre className="u-noMarginTop u-noPadding">
             <div
               className="Interactive"
@@ -108,9 +124,17 @@ class Themes extends React.Component {
             </div>
           </pre>
         </PureRender>
-      </div>
+      </Page>
     );
   }
 }
 
-export default Themes;
+ThemesTemplate.propTypes = {
+  children: PropTypes.array,
+  doc: PropTypes.shape({
+    data: PropTypes.object
+  }),
+  sidebarContent: PropTypes.array
+};
+
+export default withRouter(withRouteData(ThemesTemplate));

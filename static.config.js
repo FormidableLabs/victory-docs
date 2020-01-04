@@ -103,7 +103,7 @@ export default {
       },
       {
         path: "/guides",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: guidesIntro,
           sidebarContent: sbContent
@@ -113,7 +113,7 @@ export default {
 
       {
         path: "/docs",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: homeIntro,
           docs: trueDocs,
@@ -121,7 +121,7 @@ export default {
         }),
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
-          component: "src/containers/doc",
+          component: "src/pages/docs-template",
           getData: async () => ({
             doc,
             sidebarContent: sbContent,
@@ -131,7 +131,7 @@ export default {
       },
       {
         path: "docs/faq",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: faqIntro,
           sidebarContent: sbContent
@@ -139,7 +139,7 @@ export default {
       },
       {
         path: "docs/common-props",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: commonPropsIntro,
           sidebarContent: sbContent
@@ -153,7 +153,7 @@ export default {
         }),
         children: gallery.map(galleryItem => ({
           path: `/${galleryItem.data.slug}/`,
-          component: "src/containers/gallery",
+          component: "src/pages/gallery-item-template",
           getData: async () => ({
             galleryItem,
             location: { pathname: galleryItem.data.slug }

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import _Header from "../partials/header";
+import _Header from "./header";
 import _Sidebar from "../partials/sidebar";
-import Footer from "../partials/footer";
+import Footer from "./footer";
 
 // sidebar logic is as follows:
 // if on large devices, sidebar is only shown if the `withSidebar` prop is

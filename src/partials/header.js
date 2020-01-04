@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, Prefetch, withRouteData } from "react-static";
+import { Link, Prefetch, withRouter } from "react-static";
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
 
@@ -109,8 +109,7 @@ const FormidableLogo = styled(SVG)`
   }
 `;
 
-const Header = ({ className = "", history, onMenuClick }) => {
-  const { location } = history;
+const Header = ({ className = "", location, onMenuClick }) => {
   const { pathname } = location;
 
   return (
@@ -162,10 +161,8 @@ const Header = ({ className = "", history, onMenuClick }) => {
 
 Header.propTypes = {
   className: PropTypes.string,
-  history: PropTypes.shape({
-    location: PropTypes.shape({ pathname: PropTypes.string })
-  }),
+  location: PropTypes.shape({ pathname: PropTypes.string }),
   onMenuClick: PropTypes.func
 };
 
-export default withRouteData(Header);
+export default withRouter(Header);

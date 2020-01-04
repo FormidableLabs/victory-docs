@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { withRouteData, Link } from "react-static";
 import Playground from "../partials/playground";
 import config from "../../static-config-parts/site-data";
-import Page from "./page";
+import Page from "../partials/page";
 
 class GalleryTemplate extends React.Component {
   render() {

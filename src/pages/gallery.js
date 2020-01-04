@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { withRouteData, Link } from "react-static";
 import * as Victory from "victory";
 
-import Page from "../containers/page";
+import Page from "../partials/page";
 import Icon from "../partials/icon";
 import Preview from "../partials/gallery/preview";
 
