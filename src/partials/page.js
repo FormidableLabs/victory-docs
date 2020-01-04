@@ -16,11 +16,11 @@ import Footer from "./footer";
 
 const PageContainer = styled.main`
   position: relative;
-  padding-left: ${({ theme }) => theme.layout.stripesWidth};
-  padding-top: ${({ theme }) => theme.layout.headerHeight};
+  margin-left: ${({ theme }) => theme.layout.stripesWidth};
+  margin-top: ${({ theme }) => theme.layout.headerHeight};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
-    padding-left: ${({ spaceForSidebar, theme }) =>
+    margin-left: ${({ spaceForSidebar, theme }) =>
       `calc(${theme.layout.stripesWidth} + ${
         spaceForSidebar ? theme.layout.sidebarWidth : "0px"
       })`};
