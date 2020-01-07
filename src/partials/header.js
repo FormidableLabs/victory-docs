@@ -76,11 +76,15 @@ const navItemStyle = css`
   text-transform: uppercase;
 `;
 
-const NavLink = styled(Link)`
+// this is needed so that we don't forward these props to the base components
+// to avoid an error
+// eslint-disable-next-line no-unused-vars
+const NavLink = styled(({ active, theme, ...rest }) => <Link {...rest} />)`
   ${navItemStyle}
 `;
 
-const NavAnchor = styled.a`
+// eslint-disable-next-line no-unused-vars
+const NavAnchor = styled(({ active, theme, ...rest }) => <a {...rest} />)`
   ${navItemStyle}
 `;
 
