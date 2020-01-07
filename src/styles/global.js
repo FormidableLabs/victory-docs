@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     background: ${({ theme }) => theme.color.black};
     box-sizing: border-box;
-    font-size: 14px;
+    font-size: 62.5%;
     overflow-x: hidden;
   }
 
@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.white};
     color: ${({ theme }) => theme.color.nearBlack};
     font-family: ${({ theme }) => theme.font.primary};
+    font-size: 1.6rem;
     line-height: 1.9;
     overflow: hidden;
     position: relative;
@@ -63,8 +64,8 @@ const GlobalStyle = createGlobalStyle`
    */
 
   button:focus {
-    outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+    outline: 0.1rem dotted;
+    outline: 0.5rem auto -webkit-focus-ring-color;
   }
 
   /**
@@ -178,15 +179,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 1px;
+    border: 0.1rem solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.1rem;
     font-variant-ligatures: none;
     padding: 0.33em 0.333em 0.28em;
     word-break: break-word;
   }
   @media ${({ theme }) => theme.mediaQuery.md} {
     code {
-      font-size: 0.875rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -220,8 +221,8 @@ const GlobalStyle = createGlobalStyle`
 
   th,
   td {
-    border: 1px solid ${({ theme }) => theme.color.gray};
-    padding: 0.425em 0.75em;
+    border: 0.1rem solid ${({ theme }) => theme.color.gray};
+    padding: 0.425rem 0.75rem;
     vertical-align: top;
   }
 

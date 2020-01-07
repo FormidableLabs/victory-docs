@@ -14,7 +14,7 @@ const prism = css`
     pre[class*="language-"] {
       color: ${theme.color.black};
       background: none;
-      text-shadow: 0 1px ${theme.color.white};
+      text-shadow: 0 0.1rem ${theme.color.white};
       text-align: left;
       white-space: pre;
       word-spacing: normal;

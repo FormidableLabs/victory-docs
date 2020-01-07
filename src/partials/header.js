@@ -11,7 +11,7 @@ import burgerIcon from "../../static/burger.svg";
 
 const HeaderContainer = styled.header`
   background: ${({ theme }) => theme.color.white};
-  box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0 0.2rem 0.7rem 0 rgba(0, 0, 0, 0.14);
   display: flex;
   height: ${({ theme }) => theme.layout.headerHeight};
   justify-content: center;
@@ -51,9 +51,9 @@ const BurgerIcon = styled(SVG)`
 
 const VictoryLogoLink = styled(Link)`
   color: ${({ theme }) => theme.color.nearBlack};
-  font-size: 2rem;
+  font-size: 3.2rem;
   font-weight: bold;
-  letter-spacing: 4px;
+  letter-spacing: 0.4rem;
   margin-right: ${({ theme }) => theme.spacing.sm};
   text-transform: uppercase;
 `;
@@ -71,7 +71,7 @@ const navItemStyle = css`
   color: ${({ active, theme }) =>
     active ? theme.color.red : theme.color.gray};
   font-weight: bold;
-  letter-spacing: 1px;
+  letter-spacing: 0.1rem;
   margin-right: ${({ theme }) => theme.spacing.sm};
   text-transform: uppercase;
 `;
@@ -97,16 +97,16 @@ const FormidableIcon = styled(SVG)`
   }
 
   > svg {
-    height: 24px;
-    width: 18px;
+    height: 2.4rem;
+    width: 1.8rem;
   }
 `;
 
 const FormidableLogo = styled(SVG)`
   display: none;
-  height: 28px;
+  height: 2.8rem;
   position: relative;
-  top: -1px;
+  top: -0.1rem;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     display: block;

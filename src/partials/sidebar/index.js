@@ -48,10 +48,10 @@ const SidebarContainer = styled.nav`
 
 // only show close button on small devices
 const CloseButton = styled.button`
-  font-size: 28px;
+  font-size: 2.8rem;
   position: absolute;
   right: ${({ theme }) => theme.spacing.sm};
-  top: ${({ theme }) => `calc(${theme.spacing.sm} - 8px)`};
+  top: ${({ theme }) => `calc(${theme.spacing.sm} - 0.8rem)`};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     display: none;
@@ -64,7 +64,7 @@ const VictoryLogo = styled(SVG)`
   margin-bottom: ${({ theme }) => theme.spacing.md};
 
   > svg {
-    width: 98px;
+    width: 9.8rem;
   }
 `;
 

@@ -34,26 +34,26 @@ const theme = {
   },
 
   layout: {
-    maxWidth: "1100px",
-    footerMaxWidth: "900px",
+    maxWidth: "110rem",
+    footerMaxWidth: "90rem",
 
-    headerHeight: "64px",
-    footerHeight: "432px",
-    stripesWidth: "26px",
-    sidebarWidth: "212px",
+    headerHeight: "6.4rem",
+    footerHeight: "43.2rem",
+    stripesWidth: "2.6rem",
+    sidebarWidth: "21.2rem",
 
-    pageGutterLeft: "1.35rem",
-    pageGutterRight: "2.5rem",
-    pageGutterTop: "1.35rem",
-    pageGutterBottom: "4.5rem",
+    pageGutterLeft: "2rem",
+    pageGutterRight: "3rem",
+    pageGutterTop: "2rem",
+    pageGutterBottom: "5.5rem",
 
     // layout at md width and larger; use in conjunction with media query
     md: {
-      footerHeight: "256px",
+      footerHeight: "25.6rem",
 
-      pageGutterLeft: "4rem",
-      pageGutterRight: "6rem",
-      pageGutterTop: "1.35rem",
+      pageGutterLeft: "6rem",
+      pageGutterRight: "7.5rem",
+      pageGutterTop: "4rem",
       pageGutterBottom: "4.5rem"
     }
   },
@@ -65,11 +65,11 @@ const theme = {
   },
 
   spacing: {
-    xs: "0.4rem",
-    sm: "1.35rem",
-    md: "2.5rem",
-    lg: "4.5rem",
-    xl: "8rem"
+    xs: "0.6rem",
+    sm: "1.5rem",
+    md: "2.75rem",
+    lg: "4.75rem",
+    xl: "8.2rem"
   }
 };
 

@@ -12,7 +12,7 @@ import styled from "styled-components";
  *           |- div
  **/
 
-const STAGE_HEIGHT = "280px";
+const STAGE_HEIGHT = "28rem";
 
 const PlaygroundContainer = styled.div`
   background-color: rgba(255, 254, 252, 0.5);
@@ -121,7 +121,7 @@ const PlaygroundContainer = styled.div`
 
     .playgroundPreview .VictoryContainer svg {
       margin: 0 auto;
-      max-height: calc(${STAGE_HEIGHT} - 40px);
+      max-height: calc(${STAGE_HEIGHT} - 4rem);
       max-width: 100%;
       width: auto !important; /* override default Victory inline styles */
     }
@@ -160,7 +160,7 @@ const PlaygroundContainer = styled.div`
       hyphens: none;
       line-height: 1.5;
       tab-size: 2;
-      text-shadow: 0 1px white;
+      text-shadow: 0 0.1rem white;
       white-space: pre;
       word-break: normal;
       word-spacing: normal;
@@ -190,7 +190,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant div.CodeMirror-cursor {
-      border-left: 1px solid ${theme.color.black} !important;
+      border-left: 0.1rem solid ${theme.color.black} !important;
     }
 
     .cm-s-elegant span.cm-builtin {
@@ -268,11 +268,11 @@ const PlaygroundContainer = styled.div`
     .cm-s-elegant span.CodeMirror-matchingbracket {
       box-sizing: border-box;
       background: transparent;
-      border-bottom: 1px solid;
+      border-bottom: 0.1rem solid;
     }
 
     .cm-s-elegant span.CodeMirror-nonmatchingbracket {
-      border-bottom: 1px solid;
+      border-bottom: 0.1rem solid;
       background: none;
     }
 

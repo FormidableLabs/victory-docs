@@ -22,7 +22,7 @@ const PageContainer = styled.main`
   @media ${({ theme }) => theme.mediaQuery.md} {
     margin-left: ${({ spaceForSidebar, theme }) =>
       `calc(${theme.layout.stripesWidth} + ${
-        spaceForSidebar ? theme.layout.sidebarWidth : "0px"
+        spaceForSidebar ? theme.layout.sidebarWidth : "0rem"
       })`};
   }
 `;
@@ -37,11 +37,11 @@ const Header = styled(_Header)`
   @media ${({ theme }) => theme.mediaQuery.md} {
     left: ${({ spaceForSidebar, theme }) =>
       `calc(${theme.layout.stripesWidth} + ${
-        spaceForSidebar ? theme.layout.sidebarWidth : "0px"
+        spaceForSidebar ? theme.layout.sidebarWidth : "0rem"
       })`};
     width: ${({ spaceForSidebar, theme }) =>
       `calc(100% - ${theme.layout.stripesWidth} - ${
-        spaceForSidebar ? theme.layout.sidebarWidth : "0px"
+        spaceForSidebar ? theme.layout.sidebarWidth : "0rem"
       })`};
   }
 `;
