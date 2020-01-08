@@ -1,55 +1,68 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Router, Route, withRouter } from "react-static";
 /* "react-static-routes" is generated at runtime https://github.com/nozzle/react-static/issues/52 */
 // eslint-disable-next-line import/no-unresolved
 import Routes from "react-static-routes";
 import { ThemeProvider } from "styled-components";
+import { animateScroll as scroll } from "react-scroll";
 
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 import Analytics from "./google-analytics";
 
+const HEADER_PIXEL_HEIGHT = theme.layout.headerHeight.split("rem")[0] * 10;
+const SCROLL_PIXEL_OFFSET = 25;
+const SIDEBAR_CONTAINER_ID = "sidebar-sections";
+
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
+  console.log("SCROLL CONTENT ITEM: ", item);
   if (item) {
-    item.scrollIntoView();
+    const rect = item.getBoundingClientRect();
+    const truePosition =
+      (rect.top + window.pageYOffset || document.documentElement.scrollTop) -
+      HEADER_PIXEL_HEIGHT -
+      SCROLL_PIXEL_OFFSET;
+
+    scroll.scrollTo(truePosition, {
+      duration: 500,
+      delay: 0,
+      smooth: "easeOutQuad"
+    });
   }
 };
 
-const scrollSidebar = async (location, activeItemClass = ".is-active") => {
+const scrollSidebar = async (activeItemClass = ".is-active") => {
   const item = document.querySelector(activeItemClass);
   if (item) {
-    item.scrollIntoView();
+    const rect = item.getBoundingClientRect();
+    const truePosition =
+      rect.top + window.pageYOffset || document.documentElement.scrollTop;
+
+    const itemClassName = activeItemClass.split(".")[1];
+
+    scroll.scrollTo(itemClassName, {
+      duration: 200,
+      delay: 500,
+      smooth: "easeOutQuad",
+      containerId: SIDEBAR_CONTAINER_ID
+    });
+    // );
   }
 };
 
 const checkScrollRoutes = (pathname, routes = ["docs", "faq", "guides"]) =>
   routes.some(r => pathname.includes(r));
 
-class ScrollToTop extends Component {
-  componentDidMount() {
-    if (
-      typeof window !== "undefined" &&
-      checkScrollRoutes(this.props.location.pathname)
-    ) {
-      scrollContent(this.props.location);
-      scrollSidebar(this.props.location);
-    }
-  }
-
-  componentDidUpdate() {
-    const { location } = this.props;
+function ScrollToTop({ location, children }) {
+  useEffect(() => {
     if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
-      scrollContent(location);
-      scrollSidebar(location);
+      scrollContent(location).then(() => scrollSidebar());
     }
-  }
+  }, [location]);
 
-  render() {
-    const { children } = this.props;
-    return children;
-  }
+  return children;
 }
 
 ScrollToTop.propTypes = {
