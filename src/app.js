@@ -14,45 +14,44 @@ import Analytics from "./google-analytics";
 const HEADER_PIXEL_HEIGHT = theme.layout.headerHeight.split("rem")[0] * 10;
 const SCROLL_PIXEL_OFFSET = 25;
 const SIDEBAR_CONTAINER_ID = "sidebar-sections";
+const ROUTES = ["docs", "faq", "guides"];
 
-const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
+const scrollContent = async (hash, contentPaneClass = ".Page-content") => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
-  console.log("SCROLL CONTENT ITEM: ", item);
-  if (item) {
-    const rect = item.getBoundingClientRect();
-    const truePosition =
-      (rect.top + window.pageYOffset || document.documentElement.scrollTop) -
-      HEADER_PIXEL_HEIGHT -
-      SCROLL_PIXEL_OFFSET;
 
-    scroll.scrollTo(truePosition, {
-      duration: 500,
-      delay: 0,
-      smooth: "easeOutQuad"
-    });
+  if (!item) {
+    return;
   }
+
+  const rect = item.getBoundingClientRect();
+  const truePosition =
+    (rect.top + window.pageYOffset || document.documentElement.scrollTop) -
+    HEADER_PIXEL_HEIGHT -
+    SCROLL_PIXEL_OFFSET;
+
+  scroll.scrollTo(truePosition, {
+    duration: 500,
+    delay: 0,
+    smooth: "easeOutQuad"
+  });
 };
 
 const scrollSidebar = async (activeItemClass = ".is-active") => {
   const item = document.querySelector(activeItemClass);
-  if (item) {
-    const rect = item.getBoundingClientRect();
-    const truePosition =
-      rect.top + window.pageYOffset || document.documentElement.scrollTop;
-
-    const itemClassName = activeItemClass.split(".")[1];
-
-    scroll.scrollTo(itemClassName, {
-      duration: 200,
-      delay: 500,
-      smooth: "easeOutQuad",
-      containerId: SIDEBAR_CONTAINER_ID
-    });
-    // );
+  if (!item) {
+    return;
   }
+
+  const itemClassName = activeItemClass.split(".")[1];
+  scroll.scrollTo(itemClassName, {
+    duration: 200,
+    delay: 0,
+    smooth: "easeOutQuad",
+    containerId: SIDEBAR_CONTAINER_ID
+  });
 };
 
-const checkScrollRoutes = (pathname, routes = ["docs", "faq", "guides"]) =>
+const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
 function ScrollToTop({ location, children }) {
