@@ -283,6 +283,7 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
+  history: PropTypes.object,
   location: PropTypes.shape({ pathname: PropTypes.string }),
   onCloseClick: PropTypes.func
 };
