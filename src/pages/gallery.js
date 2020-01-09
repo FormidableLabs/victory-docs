@@ -4,10 +4,8 @@ import ReactDOM from "react-dom";
 import { withRouteData, Link } from "react-static";
 import * as Victory from "victory";
 
-// Child Components
-import Footer from "../partials/footer";
+import Page from "../partials/page";
 import Icon from "../partials/icon";
-
 import Preview from "../partials/gallery/preview";
 
 class Gallery extends React.Component {
@@ -60,14 +58,7 @@ class Gallery extends React.Component {
       </div>
     ));
 
-    return (
-      <div className="Page-content without-content-sidebar">
-        <article className="Gallery-article Article--noBottom">
-          <div className="Gallery">{previews}</div>
-        </article>
-        <Footer />
-      </div>
-    );
+    return <Page>{previews}</Page>;
   }
 }
 

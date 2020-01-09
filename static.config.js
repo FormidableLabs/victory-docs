@@ -3,7 +3,6 @@ import React from "react";
 import chokidar from "chokidar";
 import Document from "./src/html";
 import _ from "lodash";
-import staticWebpackConfig from "./static-config-parts/static-webpack-config";
 import siteData from "./static-config-parts/site-data";
 import {
   getDocs,
@@ -103,7 +102,7 @@ export default {
       },
       {
         path: "/guides",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: guidesIntro,
           sidebarContent: sbContent
@@ -113,7 +112,7 @@ export default {
 
       {
         path: "/docs",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: homeIntro,
           docs: trueDocs,
@@ -121,7 +120,7 @@ export default {
         }),
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
-          component: "src/containers/doc",
+          component: "src/pages/docs-template",
           getData: async () => ({
             doc,
             sidebarContent: sbContent,
@@ -131,7 +130,7 @@ export default {
       },
       {
         path: "docs/faq",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: faqIntro,
           sidebarContent: sbContent
@@ -139,7 +138,7 @@ export default {
       },
       {
         path: "docs/common-props",
-        component: "src/containers/doc",
+        component: "src/pages/docs-template",
         getData: async () => ({
           doc: commonPropsIntro,
           sidebarContent: sbContent
@@ -153,7 +152,7 @@ export default {
         }),
         children: gallery.map(galleryItem => ({
           path: `/${galleryItem.data.slug}/`,
-          component: "src/containers/gallery",
+          component: "src/pages/gallery-item-template",
           getData: async () => ({
             galleryItem,
             location: { pathname: galleryItem.data.slug }
@@ -173,6 +172,5 @@ export default {
   },
   Document,
   // turn this on if it helps your local development workflow for build testing
-  bundleAnalyzer: false,
-  webpack: staticWebpackConfig
+  bundleAnalyzer: false
 };

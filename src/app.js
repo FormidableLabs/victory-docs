@@ -1,20 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Router, Route, withRouter } from "react-static";
-import VictoryHeader from "./partials/header";
 /* "react-static-routes" is generated at runtime https://github.com/nozzle/react-static/issues/52 */
 // eslint-disable-next-line import/no-unresolved
 import Routes from "react-static-routes";
+import { ThemeProvider } from "styled-components";
+
+import GlobalStyle from "./styles/global";
+import theme from "./styles/theme";
 import Analytics from "./google-analytics";
-import "./app.css";
-//  If none of the base prism js themes are quite what we want for our site's aesthetic, we can use/extend any of these:
-// https://github.com/PrismJS/prism-themes
-// Note that themes also manage code block dimensions -- currently we don't use any theme, unclear if the current
-// look is by design, though. To bring in a theme, uncomment out the line below:
-// import "prismjs/themes/prism-coy.css"
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
-  const item = document.querySelector(contentPaneClass + " " + hash);
+  const item = document.querySelector(`${contentPaneClass} ${hash}`);
   if (item) {
     item.scrollIntoView();
   }
@@ -42,19 +39,16 @@ class ScrollToTop extends Component {
   }
 
   componentDidUpdate() {
-    if (
-      typeof window !== "undefined" &&
-      checkScrollRoutes(this.props.location.pathname)
-    ) {
-      scrollContent(this.props.location);
-      scrollSidebar(this.props.location);
+    const { location } = this.props;
+    if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
+      scrollContent(location);
+      scrollSidebar(location);
     }
   }
 
   render() {
-    return (
-      <div className="Page-wrapper u-fullHeight">{this.props.children}</div>
-    );
+    const { children } = this.props;
+    return children;
   }
 }
 
@@ -104,12 +98,14 @@ const App = () => (
     autoScrollToTop
     history={history}
   >
-    <WrappedScrollToTop>
-      <VictoryHeader />
-      <Analytics id="UA-43290258-1">
-        <Routes>{RenderRoutes}</Routes>
-      </Analytics>
-    </WrappedScrollToTop>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <WrappedScrollToTop>
+        <Analytics id="UA-43290258-1">
+          <Routes>{RenderRoutes}</Routes>
+        </Analytics>
+      </WrappedScrollToTop>
+    </ThemeProvider>
   </Router>
 );
 

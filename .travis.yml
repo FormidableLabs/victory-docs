@@ -10,6 +10,7 @@ sudo: false
 branches:
   only:
     - master
+    - rewrite
 
 install:
   # Fail if lockfile outdated.
