@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { withRouteData, Link } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 import Playground from "../partials/playground";
 import config from "../../static-config-parts/site-data";
 import Page from "../partials/page";

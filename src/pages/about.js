@@ -1,11 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Page from "../partials/page";
 import Showcase from "../partials/about/showcase";
+import { withRouteData } from "react-static";
 
 class About extends React.Component {
   render() {
     return (
-      <Page>
+      <Page history={this.props.history} location={this.props.location}>
         <h1> Victory: Charting for React and React Native</h1>
         <p>
           {/*
@@ -79,4 +81,9 @@ class About extends React.Component {
   }
 }
 
-export default About;
+About.propTypes = {
+  history: PropTypes.object,
+  location: PropTypes.object
+};
+
+export default withRouteData(About);

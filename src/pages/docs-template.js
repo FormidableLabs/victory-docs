@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouteData, withRouter } from "react-static";
+import { withRouteData } from "react-static";
 import Helmet from "react-helmet";
 import config from "../../static-config-parts/site-data";
 import Playground from "../partials/playground";
@@ -8,12 +8,17 @@ import Page from "../partials/page";
 
 class DocsTemplate extends React.Component {
   render() {
-    const { doc, sidebarContent } = this.props;
+    const { doc, sidebarContent, history, location } = this.props;
     const { content, data } = doc;
     const { title, scope } = data;
 
     return (
-      <Page withSidebar sidebarContent={sidebarContent}>
+      <Page
+        withSidebar
+        sidebarContent={sidebarContent}
+        history={history}
+        location={location}
+      >
         <Helmet>
           <title>{`${config.siteTitle} | ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
@@ -32,12 +37,11 @@ DocsTemplate.propTypes = {
     data: PropTypes.object,
     content: PropTypes.string
   }),
+  history: PropTypes.object,
   location: PropTypes.object,
   sidebarContent: PropTypes.array
 };
 
-export default withRouter(
-  withRouteData(({ doc, sidebarContent, ...rest }) => (
-    <DocsTemplate doc={doc} sidebarContent={sidebarContent} {...rest} />
-  ))
-);
+export default withRouteData(({ doc, sidebarContent, ...rest }) => (
+  <DocsTemplate doc={doc} sidebarContent={sidebarContent} {...rest} />
+));

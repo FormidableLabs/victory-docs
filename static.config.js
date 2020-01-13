@@ -1,22 +1,22 @@
-import { reloadRoutes } from "react-static/node";
-import React from "react";
-import chokidar from "chokidar";
-import Document from "./src/html";
-import _ from "lodash";
-import siteData from "./static-config-parts/site-data";
-import {
+const _ = require("lodash");
+const siteData = require("./static-config-parts/site-data");
+const {
   getDocs,
   getFaq,
   getIntroduction,
   getGallery,
   getGuides,
   getCommonProps
-} from "./static-config-helpers/md-data-transforms";
-import { generateGuideRoutes } from "./static-config-parts/guide-routes";
-const { ServerStyleSheet } = require("styled-components");
+} = require("./static-config-helpers/md-data-transforms");
+const { generateGuideRoutes } = require("./static-config-parts/guide-routes");
 const { stage, landerBasePath } = require("./static-config-parts/constants");
 
-chokidar.watch("content").on("all", () => reloadRoutes());
+// HMR for dev
+// if (stage === "development") {
+//   const { rebuildRoutes } = require("react-static/node");
+//   const chokidar = require("chokidar");
+//   chokidar.watch("src/content/**/*.md").on("all", () => rebuildRoutes());
+// }
 
 export default {
   getSiteData: () => siteData,
@@ -32,6 +32,11 @@ export default {
   basePath: landerBasePath,
   stagingBasePath: landerBasePath,
   devBasePath: "",
+  plugins: [
+    "react-static-plugin-react-router",
+    "react-static-plugin-sitemap",
+    "react-static-plugin-styled-components"
+  ],
   // eslint-disable-next-line max-statements
   getRoutes: async () => {
     const trueDocs = await getDocs();
@@ -94,15 +99,15 @@ export default {
     return [
       {
         path: "/",
-        component: "src/pages/index"
+        template: "src/pages/index"
       },
       {
         path: "/about",
-        component: "src/pages/about"
+        template: "src/pages/about"
       },
       {
         path: "/guides",
-        component: "src/pages/docs-template",
+        template: "src/pages/docs-template",
         getData: async () => ({
           doc: guidesIntro,
           sidebarContent: sbContent
@@ -112,7 +117,7 @@ export default {
 
       {
         path: "/docs",
-        component: "src/pages/docs-template",
+        template: "src/pages/docs-template",
         getData: async () => ({
           doc: homeIntro,
           docs: trueDocs,
@@ -120,7 +125,7 @@ export default {
         }),
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
-          component: "src/pages/docs-template",
+          template: "src/pages/docs-template",
           getData: async () => ({
             doc,
             sidebarContent: sbContent,
@@ -130,7 +135,7 @@ export default {
       },
       {
         path: "docs/faq",
-        component: "src/pages/docs-template",
+        template: "src/pages/docs-template",
         getData: async () => ({
           doc: faqIntro,
           sidebarContent: sbContent
@@ -138,7 +143,7 @@ export default {
       },
       {
         path: "docs/common-props",
-        component: "src/pages/docs-template",
+        template: "src/pages/docs-template",
         getData: async () => ({
           doc: commonPropsIntro,
           sidebarContent: sbContent
@@ -146,13 +151,13 @@ export default {
       },
       {
         path: "/gallery",
-        component: "src/pages/gallery",
+        template: "src/pages/gallery",
         getData: async () => ({
           gallery
         }),
         children: gallery.map(galleryItem => ({
           path: `/${galleryItem.data.slug}/`,
-          component: "src/pages/gallery-item-template",
+          template: "src/pages/gallery-item-template",
           getData: async () => ({
             galleryItem,
             location: { pathname: galleryItem.data.slug }
@@ -161,16 +166,5 @@ export default {
       }
     ];
   },
-  renderToHtml: (render, Comp, meta) => {
-    const sheet = new ServerStyleSheet();
-    const html = render(sheet.collectStyles(<Comp />));
-    // see https://github.com/nozzle/react-static/blob/v5/docs/config.md#rendertohtml
-    // you can stick whatever you want here, but it's mutable at build-time, not dynamic
-    // at run-time -- key difference!
-    meta.styleTags = sheet.getStyleElement();
-    return html;
-  },
-  Document,
-  // turn this on if it helps your local development workflow for build testing
-  bundleAnalyzer: false
+  Document: require("./src/html").default
 };

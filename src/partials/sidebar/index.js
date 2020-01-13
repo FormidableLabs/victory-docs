@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link, withRouter } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -292,4 +293,4 @@ Sidebar.defaultProps = {
   className: ""
 };
 
-export default withRouter(Sidebar);
+export default withRouteData(Sidebar);

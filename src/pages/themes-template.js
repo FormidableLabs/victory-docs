@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import Helmet from "react-helmet";
 import { assign } from "lodash";
-import { Link, withRouteData, withRouter } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 
 import config from "../../static-config-parts/site-data";
 import Page from "../partials/page";
@@ -137,4 +138,4 @@ ThemesTemplate.propTypes = {
   sidebarContent: PropTypes.array
 };
 
-export default withRouter(withRouteData(ThemesTemplate));
+export default withRouteData(ThemesTemplate);
