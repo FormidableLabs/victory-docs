@@ -12,6 +12,8 @@ const { generateGuideRoutes } = require("./static-config-parts/guide-routes");
 const { stage, landerBasePath } = require("./static-config-parts/constants");
 
 // HMR for dev
+// TODO: enable after rewrite
+// This is much slower when developing tons of things that _aren't_ content changes
 // if (stage === "development") {
 //   const { rebuildRoutes } = require("react-static/node");
 //   const chokidar = require("chokidar");
@@ -28,6 +30,7 @@ export default {
     devDist: "tmp/dev-server", // The development scratch directory.
     public: "public" // The public directory (files copied to dist during build)
   },
+  siteRoot: "https://formidable.com",
   generateSourceMaps: false,
   basePath: landerBasePath,
   stagingBasePath: landerBasePath,
