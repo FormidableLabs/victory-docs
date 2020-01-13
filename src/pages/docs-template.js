@@ -36,6 +36,4 @@ DocsTemplate.propTypes = {
   sidebarContent: PropTypes.array
 };
 
-export default withRouteData(({ doc, sidebarContent, ...rest }) => (
-  <DocsTemplate doc={doc} sidebarContent={sidebarContent} {...rest} />
-));
+export default withRouteData(DocsTemplate);

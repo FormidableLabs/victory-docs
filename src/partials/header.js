@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouteData } from "react-static";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
@@ -172,4 +171,4 @@ Header.propTypes = {
   onMenuClick: PropTypes.func
 };
 
-export default withRouteData(Header);
+export default Header;
