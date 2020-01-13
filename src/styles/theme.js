@@ -30,7 +30,14 @@ const theme = {
 
   font: {
     primary: "Helvetica, sans-serif",
-    monospace: "Monaco, Courier, monospace"
+    monospace: "Monaco, Courier, monospace",
+    bold: "Helvetica-Bold, sans-serif"
+  },
+  typography: {
+    lineHeight: {
+      sidebarHeading: "2.3rem",
+      sidebarItem: "2.8rem"
+    }
   },
 
   layout: {
