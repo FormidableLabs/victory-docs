@@ -52,25 +52,20 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { gallery, location, history } = this.props;
+    const { gallery, location } = this.props;
     const previews = gallery.map((item, index) => (
       <div key={index} className="Gallery-item">
         {this.renderPreviewItem(item)}
       </div>
     ));
 
-    return (
-      <Page history={history} location={location}>
-        {previews}
-      </Page>
-    );
+    return <Page location={location}>{previews}</Page>;
   }
 }
 
 Gallery.propTypes = {
   data: PropTypes.object,
   gallery: PropTypes.array,
-  history: PropTypes.object,
   location: PropTypes.object
 };
 

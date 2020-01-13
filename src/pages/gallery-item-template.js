@@ -13,7 +13,7 @@ class GalleryTemplate extends React.Component {
     const { title, scope } = data;
 
     return (
-      <Page>
+      <Page location={this.props.location}>
         <Helmet>
           <title>{`${config.siteTitle} |  ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
@@ -27,9 +27,8 @@ class GalleryTemplate extends React.Component {
 }
 
 GalleryTemplate.propTypes = {
-  galleryItem: PropTypes.object
+  galleryItem: PropTypes.object,
+  location: PropTypes.object
 };
 
-export default withRouteData(({ galleryItem }) => (
-  <GalleryTemplate galleryItem={galleryItem} />
-));
+export default withRouteData(GalleryTemplate);

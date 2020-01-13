@@ -103,8 +103,7 @@ class Sidebar extends React.Component {
   }
 
   renderLinksList(edges, type, category) {
-    const { history } = this.props;
-    const { location } = history;
+    const { location } = this.props;
     let filteredEdges = edges.filter(edge => edge.data.type === type);
 
     if (category) {
@@ -284,7 +283,6 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
-  history: PropTypes.object,
   location: PropTypes.shape({ pathname: PropTypes.string }),
   onCloseClick: PropTypes.func
 };

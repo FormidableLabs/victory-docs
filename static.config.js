@@ -95,7 +95,6 @@ export default {
     };
 
     const sbContent = convertToSidebarArray(sidebarContent);
-
     return [
       {
         path: "/",
@@ -128,8 +127,7 @@ export default {
           template: "src/pages/docs-template",
           getData: async () => ({
             doc,
-            sidebarContent: sbContent,
-            location: { pathname: doc.data.slug }
+            sidebarContent: sbContent
           })
         }))
       },
@@ -158,10 +156,7 @@ export default {
         children: gallery.map(galleryItem => ({
           path: `/${galleryItem.data.slug}/`,
           template: "src/pages/gallery-item-template",
-          getData: async () => ({
-            galleryItem,
-            location: { pathname: galleryItem.data.slug }
-          })
+          getData: async () => ({ galleryItem })
         }))
       }
     ];

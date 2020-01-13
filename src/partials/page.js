@@ -96,7 +96,7 @@ const Content = styled.div`
 `;
 
 const Page = props => {
-  const { children, sidebarContent, withSidebar, history, location } = props;
+  const { children, sidebarContent, withSidebar, location } = props;
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -111,7 +111,7 @@ const Page = props => {
         <RedStripe />
         <PaleRedStripe />
         <Sidebar
-          history={history}
+          location={location}
           show={sidebarOpen}
           showMd={withSidebar}
           content={sidebarContent}
@@ -130,7 +130,6 @@ const Page = props => {
 
 Page.propTypes = {
   children: PropTypes.node,
-  history: PropTypes.object,
   location: PropTypes.object,
   sidebarContent: PropTypes.array,
   withSidebar: PropTypes.bool

@@ -7,7 +7,7 @@ import { withRouteData } from "react-static";
 class About extends React.Component {
   render() {
     return (
-      <Page history={this.props.history} location={this.props.location}>
+      <Page location={this.props.location}>
         <h1> Victory: Charting for React and React Native</h1>
         <p>
           {/*
@@ -82,7 +82,6 @@ class About extends React.Component {
 }
 
 About.propTypes = {
-  history: PropTypes.object,
   location: PropTypes.object
 };
 

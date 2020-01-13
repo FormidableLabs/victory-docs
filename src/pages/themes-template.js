@@ -82,12 +82,12 @@ class ThemesTemplate extends React.Component {
   }
 
   render() {
-    const { doc, sidebarContent } = this.props;
+    const { doc, sidebarContent, location } = this.props;
     const { title } = doc.data;
     const { edited, themeName } = this.state;
 
     return (
-      <Page withSidebar sidebarContent={sidebarContent}>
+      <Page withSidebar sidebarContent={sidebarContent} location={location}>
         <Helmet>
           <title>{`${config.siteTitle} |  ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
@@ -135,6 +135,7 @@ ThemesTemplate.propTypes = {
   doc: PropTypes.shape({
     data: PropTypes.object
   }),
+  location: PropTypes.object,
   sidebarContent: PropTypes.array
 };
 

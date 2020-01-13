@@ -7,7 +7,6 @@ import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 import Analytics from "./google-analytics";
 import NotFound from "./pages/404";
-const { stage, landerBasePath } = require("../static-config-parts/constants");
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
@@ -56,15 +55,6 @@ ScrollToTop.propTypes = {
   location: PropTypes.object
 };
 
-let history;
-if (typeof window !== "undefined") {
-  const createBrowserHistory = require("history").createBrowserHistory;
-  history =
-    stage === "development"
-      ? createBrowserHistory()
-      : createBrowserHistory({ basename: `/${landerBasePath}` });
-}
-
 // eslint-disable-next-line react/no-multi-comp
 const App = () => {
   return (
@@ -73,7 +63,7 @@ const App = () => {
       <React.Suspense fallback={<h1>Loading</h1>}>
         <Analytics id="UA-43290258-1">
           <ThemeProvider theme={theme}>
-          <GlobalStyle />
+            <GlobalStyle />
             <Analytics id="UA-43290258-1">
               <Routes
                 render={({ routePath, getComponentForPath }) => (
@@ -83,15 +73,12 @@ const App = () => {
                         <NotFound />
                       );
                       // Add react-router route props like location and history
-                      const sharedProps = history
-                        ? Object.assign({}, props, { history })
-                        : props;
                       const CompWithRouteProps = React.cloneElement(
                         Comp,
-                        sharedProps
+                        props
                       );
                       return (
-                        <ScrollToTop {...sharedProps}>
+                        <ScrollToTop {...props}>
                           {CompWithRouteProps}
                         </ScrollToTop>
                       );

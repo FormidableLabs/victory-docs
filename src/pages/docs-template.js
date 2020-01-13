@@ -8,17 +8,11 @@ import Page from "../partials/page";
 
 class DocsTemplate extends React.Component {
   render() {
-    const { doc, sidebarContent, history, location } = this.props;
+    const { doc, sidebarContent, location } = this.props;
     const { content, data } = doc;
     const { title, scope } = data;
-
     return (
-      <Page
-        withSidebar
-        sidebarContent={sidebarContent}
-        history={history}
-        location={location}
-      >
+      <Page withSidebar sidebarContent={sidebarContent} location={location}>
         <Helmet>
           <title>{`${config.siteTitle} | ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
