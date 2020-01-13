@@ -1,7 +1,7 @@
 import React from "react";
 
 // eslint-disable-next-line react/prop-types
-export default ({ Html, Head, Body, children, renderMeta }) => (
+export default ({ Html, Head, Body, children }) => (
   <Html lang="en">
     <Head>
       <meta charSet="utf-8" />
@@ -24,8 +24,6 @@ export default ({ Html, Head, Body, children, renderMeta }) => (
         href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"
       />
     </Head>
-    {/*  eslint-disable-next-line react/prop-types */}
-    {renderMeta.styleTags}
     <title>Victory</title>
     <Body>{children}</Body>
   </Html>

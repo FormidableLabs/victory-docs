@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, Prefetch, withRouter } from "react-static";
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
 
@@ -126,31 +126,25 @@ const Header = ({ className = "", location, onMenuClick }) => {
           <VictoryLogoLink to="/">Victory</VictoryLogoLink>
 
           <NavLinksList>
-            <Prefetch path="/about">
-              <NavLink active={pathname.includes("about")} to="/about/">
-                About
-              </NavLink>
-            </Prefetch>
-            <Prefetch path="/docs">
-              {/* /faq is nested under /docs but is at top-level for convenience
-                  so we don't want to highlight the link if /faq is the active
-                  path; conversely, /guides is nested under /docs but is not
-                  top-level, so highlight docs when on guides */}
-              <NavLink
-                active={
-                  (pathname.includes("docs") || pathname.includes("guides")) &&
-                  !pathname.includes("faq")
-                }
-                to="/docs/"
-              >
-                Docs
-              </NavLink>
-            </Prefetch>
-            <Prefetch path="/gallery">
-              <NavLink active={pathname.includes("gallery")} to="/gallery/">
-                Gallery
-              </NavLink>
-            </Prefetch>
+            <NavLink active={pathname.includes("about")} to="/about/">
+              About
+            </NavLink>
+            {/* /faq is nested under /docs but is at top-level for convenience
+                so we don't want to highlight the link if /faq is the active
+                path; conversely, /guides is nested under /docs but is not
+                top-level, so highlight docs when on guides */}
+            <NavLink
+              active={
+                (pathname.includes("docs") || pathname.includes("guides")) &&
+                !pathname.includes("faq")
+              }
+              to="/docs/"
+            >
+              Docs
+            </NavLink>
+            <NavLink active={pathname.includes("gallery")} to="/gallery/">
+              Gallery
+            </NavLink>
 
             {config.projectLinks.map(link => (
               <NavAnchor key={link.url} href={link.url}>
@@ -158,11 +152,9 @@ const Header = ({ className = "", location, onMenuClick }) => {
               </NavAnchor>
             ))}
 
-            <Prefetch path="/faq">
-              <NavLink active={pathname.includes("faq")} to="/docs/faq/">
-                FAQs
-              </NavLink>
-            </Prefetch>
+            <NavLink active={pathname.includes("faq")} to="/docs/faq/">
+              FAQs
+            </NavLink>
           </NavLinksList>
         </LeftContainer>
 
@@ -179,4 +171,4 @@ Header.propTypes = {
   onMenuClick: PropTypes.func
 };
 
-export default withRouter(Header);
+export default Header;
