@@ -1,6 +1,6 @@
 <h1 align="center">victory documentation site</h1>
 
-[![Build Status](https://travis-ci.org/FormidableLabs/victory-docs.svg?branch=master)](https://travis-ci.org/FormidableLabs/victory-docs)
+[![Build Status](https://travis-ci.com/FormidableLabs/victory-docs.svg?branch=master)](https://travis-ci.com/FormidableLabs/victory-docs)
 
 ***
 
