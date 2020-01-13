@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from "react"; // TODO gut Fragment once react version is current
 import PropTypes from "prop-types";
 import { Link, withRouter } from "react-static";
 import styled from "styled-components";
@@ -68,6 +68,20 @@ const VictoryLogo = styled(SVG)`
   }
 `;
 
+const SidebarListItem = styled.li`
+  color: yellow;
+`;
+
+const SidebarListItemLink = styled(Link)`
+  color: ${({ theme }) => theme.color.darkRed};
+  font-family: ${({ theme }) => theme.font.bold};
+  font-size: 1.4rem;
+  letter-spacing: 0.53px;
+  line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
+  margin-left: ${({ theme }) => theme.spacing.sm};
+`;
+// margin left is only needed for charts
+
 class Sidebar extends React.Component {
   constructor(props) {
     super(props);
@@ -129,22 +143,22 @@ class Sidebar extends React.Component {
         this.state.filterTerm !== ""
           ? this.getMatchTree(link, this.state.filterTerm)
           : link.subHeadings;
-
+      console.log("LINK: ", link);
       return (
-        <li
+        <SidebarListItem
           key={link.slug}
           onClick={() =>
             this.setState({ content: this.state.content, filterTerm: "" })
           }
         >
-          <Link
+          <SidebarListItemLink
             to={getPathPrefix(link, location)}
             activeClassName={category !== "introduction" ? "is-active" : ""}
             scrollToTop
             prefetch={"data"}
           >
             {link.title}
-          </Link>
+          </SidebarListItemLink>
           <TableOfContents
             active={active}
             link={link}
@@ -152,7 +166,7 @@ class Sidebar extends React.Component {
             location={location}
             filterTerm={this.state.filterTerm}
           />
-        </li>
+        </SidebarListItem>
       );
     });
     return renderList;

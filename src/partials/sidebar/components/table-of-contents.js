@@ -2,6 +2,40 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, PrefetchWhenSeen } from "react-static";
 import { maxBy, minBy, isEmpty } from "lodash";
+import styled from "styled-components";
+
+const getStylesByDepth = (depth, theme) => {
+  if (depth === 1) {
+    return {
+      color: "yellow"
+    };
+  }
+  if (depth === 2) {
+    return {
+      "font-family": theme.font.bold,
+      "font-size": "1.4rem",
+      "letter-spacing": "0.53px",
+      height: theme.typography.lineHeight.sidebarHeading,
+      color: theme.color.brown
+    };
+  } else if (depth === 3) {
+    return {
+      "font-family": theme.font.bold,
+      "font-size": "1.2rem",
+      "letter-spacing": "0.53px",
+      height: theme.typography.lineHeight.sidebarItem,
+      color: theme.color.darkBrown
+    };
+  }
+  return {};
+};
+
+const SidebarSubSectionListItem = styled.li`
+  margin-left: ${({ theme }) => theme.spacing.sm};
+`;
+const SubItemLink = styled(Link)(props => ({
+  ...getStylesByDepth(props.depth, props.theme)
+}));
 
 class TableOfContents extends React.Component {
   getTree(headings) {
@@ -49,13 +83,13 @@ class TableOfContents extends React.Component {
     const depth = minBy(headings, "depth").depth;
 
     return (
-      <ul key={`${i}-${depth}`} className="Sidebar-toc">
+      <ul>
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
             return (
-              <li key={`${i}-${depth}`} className="Sidebar-toc-item">
+              <SidebarSubSectionListItem key={`${i}-${depth}`}>
                 {this.getTOC(link, item, i++)}
-              </li>
+              </SidebarSubSectionListItem>
             );
           }
           // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
@@ -71,11 +105,16 @@ class TableOfContents extends React.Component {
             : `${absPath}${hashPath}`;
 
           return item.depth > 1 ? (
-            <li key={index} className="Sidebar-toc-item">
+            <li key={index}>
               <PrefetchWhenSeen path={path}>
-                <Link to={path} prefetch={"data"} scrollToTop>
+                <SubItemLink
+                  depth={item.depth}
+                  to={path}
+                  prefetch={"data"}
+                  scrollToTop
+                >
                   {item.value}
-                </Link>
+                </SubItemLink>
               </PrefetchWhenSeen>
             </li>
           ) : null;
