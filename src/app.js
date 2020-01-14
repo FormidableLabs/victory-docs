@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Router, Route, withRouter } from "react-static";
-/* "react-static-routes" is generated at runtime https://github.com/nozzle/react-static/issues/52 */
-// eslint-disable-next-line import/no-unresolved
-import Routes from "react-static-routes";
+import { Root, Routes } from "react-static";
+import { Route } from "react-router";
 import { ThemeProvider } from "styled-components";
-
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 import Analytics from "./google-analytics";
+import NotFound from "./pages/404";
 
 const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
@@ -57,56 +55,43 @@ ScrollToTop.propTypes = {
   location: PropTypes.object
 };
 
-const WrappedScrollToTop = withRouter(ScrollToTop);
-
 // eslint-disable-next-line react/no-multi-comp
-const RenderRoutes = ({ getComponentForPath }) => (
-  // use a catch all route to receive the pathname
-  <Route
-    path="*"
-    render={props => {
-      // The pathname is used to retrieve the component for that path
-      const comp = getComponentForPath(props.location.pathname);
-      // The component is rendered w/ the possibility of remaining mounted if it passes component reconciliation
-      return comp && comp(props);
-    }}
-  />
-);
-
-RenderRoutes.propTypes = {
-  getComponentForPath: PropTypes.func,
-  location: PropTypes.object
-};
-
-let history;
-
-if (typeof window !== "undefined") {
-  const createBrowserHistory = require("history").createBrowserHistory;
-  const { stage, landerBasePath } = require("../static-config-parts/constants");
-  history =
-    stage === "development"
-      ? createBrowserHistory()
-      : createBrowserHistory({ basename: `/${landerBasePath}` });
-}
-
-// eslint-disable-next-line react/no-multi-comp
-const App = () => (
-  <Router
-    showErrorsInProduction={false}
-    autoScrollToHash={false}
-    scrollToHashDuration={100}
-    autoScrollToTop
-    history={history}
-  >
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <WrappedScrollToTop>
+const App = () => {
+  return (
+    <Root>
+      {/* TODO: create a better fallback component */}
+      <React.Suspense fallback={<h1>Loading</h1>}>
         <Analytics id="UA-43290258-1">
-          <Routes>{RenderRoutes}</Routes>
+          <ThemeProvider theme={theme}>
+            <GlobalStyle />
+            <Analytics id="UA-43290258-1">
+              <Routes
+                render={({ routePath, getComponentForPath }) => (
+                  <Route path="*">
+                    {props => {
+                      const Comp = getComponentForPath(routePath) || (
+                        <NotFound />
+                      );
+                      // Add react-router route props like location and history
+                      const CompWithRouteProps = React.cloneElement(
+                        Comp,
+                        props
+                      );
+                      return (
+                        <ScrollToTop {...props}>
+                          {CompWithRouteProps}
+                        </ScrollToTop>
+                      );
+                    }}
+                  </Route>
+                )}
+              />
+            </Analytics>
+          </ThemeProvider>
         </Analytics>
-      </WrappedScrollToTop>
-    </ThemeProvider>
-  </Router>
-);
+      </React.Suspense>
+    </Root>
+  );
+};
 
 export default App;

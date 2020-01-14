@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Link, withRouter } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -122,8 +123,7 @@ class Sidebar extends React.Component {
   }
 
   renderLinksList(edges, type, category) {
-    const { history } = this.props;
-    const { location } = history;
+    const { location } = this.props;
     let filteredEdges = edges.filter(edge => edge.data.type === type);
 
     if (category) {
@@ -299,7 +299,6 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
-  history: PropTypes.object,
   location: PropTypes.shape({ pathname: PropTypes.string }),
   onCloseClick: PropTypes.func
 };
@@ -308,4 +307,4 @@ Sidebar.defaultProps = {
   className: ""
 };
 
-export default withRouter(Sidebar);
+export default withRouteData(Sidebar);

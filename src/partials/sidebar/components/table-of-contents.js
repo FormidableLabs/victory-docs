@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, PrefetchWhenSeen } from "react-static";
+import { Link } from "react-router-dom";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
 
@@ -106,16 +106,14 @@ class TableOfContents extends React.Component {
 
           return item.depth > 1 ? (
             <SubItemListItem key={index} isActive={active} depth={item.depth}>
-              <PrefetchWhenSeen path={path}>
-                <SubItemLink
-                  depth={item.depth}
-                  to={path}
-                  prefetch={"data"}
-                  scrollToTop
-                >
-                  {item.value}
-                </SubItemLink>
-              </PrefetchWhenSeen>
+              <SubItemLink
+                depth={item.depth}
+                to={path}
+                prefetch={"data"}
+                scrollToTop
+              >
+                {item.value}
+              </SubItemLink>
             </SubItemListItem>
           ) : null;
         })}

@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactDOM from "react-dom";
-import { withRouteData, Link } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 import * as Victory from "victory";
 
 import Page from "../partials/page";
@@ -51,26 +52,25 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const { gallery } = this.props;
+    const { gallery, location } = this.props;
     const previews = gallery.map((item, index) => (
       <div key={index} className="Gallery-item">
         {this.renderPreviewItem(item)}
       </div>
     ));
 
-    return <Page>{previews}</Page>;
+    return <Page location={location}>{previews}</Page>;
   }
 }
 
 Gallery.propTypes = {
   data: PropTypes.object,
-  gallery: PropTypes.array
+  gallery: PropTypes.array,
+  location: PropTypes.object
 };
 
 Gallery.defaultProps = {
   params: null
 };
 
-export default withRouteData(({ gallery, location }) => (
-  <Gallery gallery={gallery} location={location} />
-));
+export default withRouteData(Gallery);
