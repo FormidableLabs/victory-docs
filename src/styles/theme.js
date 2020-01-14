@@ -30,6 +30,7 @@ const theme = {
 
   font: {
     primary: "Helvetica, sans-serif",
+    secondary: "Castledown-Bold, sans-serif",
     monospace: "Monaco, Courier, monospace",
     bold: "Helvetica-Bold, sans-serif"
   },

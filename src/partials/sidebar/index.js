@@ -41,7 +41,8 @@ const getPathPrefix = item => {
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
   overflow: scroll;
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.sm}`};
+  padding: ${({ theme }) =>
+    `${theme.spacing.md} ${theme.spacing.sm} ${theme.spacing.md} 0`};
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
@@ -67,20 +68,29 @@ const VictoryLogo = styled(SVG)`
     width: 9.8rem;
   }
 `;
-
 const SidebarListItem = styled.li`
-  color: yellow;
+  padding: ${({ theme }) => `0 0 0 ${theme.spacing.sm}`};
 `;
-
 const SidebarListItemLink = styled(Link)`
   color: ${({ theme }) => theme.color.darkRed};
   font-family: ${({ theme }) => theme.font.bold};
   font-size: 1.4rem;
   letter-spacing: 0.53px;
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  margin-left: ${({ theme }) => theme.spacing.sm};
+  margin: 0;
+  padding-left: ${({ theme }) => theme.spacing.sm};
 `;
-// margin left is only needed for charts
+
+const NoResultsText = styled.p`
+  text-transform: uppercase;
+  font-family: ${({ theme }) => theme.font.bold};
+  font-size: 1.4rem;
+  letter-spacing: 0.53px;
+  line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
+  color: ${({ theme }) => theme.color.red};
+  margin: ${({ theme }) => `${theme.spacing.sm} 0 0 0}`};
+  padding: 0;
+`;
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -143,7 +153,7 @@ class Sidebar extends React.Component {
         this.state.filterTerm !== ""
           ? this.getMatchTree(link, this.state.filterTerm)
           : link.subHeadings;
-      console.log("LINK: ", link);
+
       return (
         <SidebarListItem
           key={link.slug}
@@ -208,11 +218,7 @@ class Sidebar extends React.Component {
   }
 
   renderNoResults() {
-    return (
-      <div>
-        <p className="Sidebar-Heading u-noPadding">No Results</p>
-      </div>
-    );
+    return <NoResultsText>No Results</NoResultsText>;
   }
 
   render() {

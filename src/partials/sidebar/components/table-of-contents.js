@@ -4,37 +4,38 @@ import { Link, PrefetchWhenSeen } from "react-static";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
 
-const getStylesByDepth = (depth, theme) => {
-  if (depth === 1) {
-    return {
-      color: "yellow"
-    };
-  }
+const getStylesByDepth = (isActive, depth, theme) => {
   if (depth === 2) {
     return {
       "font-family": theme.font.bold,
       "font-size": "1.4rem",
       "letter-spacing": "0.53px",
       height: theme.typography.lineHeight.sidebarHeading,
-      color: theme.color.brown
+      color: theme.color.brown,
+      "margin-left": theme.spacing.sm
     };
-  } else if (depth === 3) {
+  }
+
+  if (depth === 3) {
     return {
       "font-family": theme.font.bold,
       "font-size": "1.2rem",
       "letter-spacing": "0.53px",
       height: theme.typography.lineHeight.sidebarItem,
-      color: theme.color.darkBrown
+      color: theme.color.darkBrown,
+      "margin-left": theme.spacing.sm
     };
   }
   return {};
 };
 
 const SidebarSubSectionListItem = styled.li`
-  margin-left: ${({ theme }) => theme.spacing.sm};
+  padding-left: ${({ theme }) => theme.spacing.sm};
 `;
+
+const SubItemListItem = styled.li``;
 const SubItemLink = styled(Link)(props => ({
-  ...getStylesByDepth(props.depth, props.theme)
+  ...getStylesByDepth(props.isActive, props.depth, props.theme)
 }));
 
 class TableOfContents extends React.Component {
@@ -67,7 +68,8 @@ class TableOfContents extends React.Component {
     }, []);
   }
 
-  getTOC(link, headings, i = 0) {
+  getTOC(active, link, headings, i = 0) {
+    console.log("is active: ", active);
     const tree = this.getTree(headings);
 
     if (!tree.length) {
@@ -88,7 +90,7 @@ class TableOfContents extends React.Component {
           if (Array.isArray(item)) {
             return (
               <SidebarSubSectionListItem key={`${i}-${depth}`}>
-                {this.getTOC(link, item, i++)}
+                {this.getTOC(active, link, item, i++)}
               </SidebarSubSectionListItem>
             );
           }
@@ -105,7 +107,7 @@ class TableOfContents extends React.Component {
             : `${absPath}${hashPath}`;
 
           return item.depth > 1 ? (
-            <li key={index}>
+            <SubItemListItem key={index} isActive={active} depth={item.depth}>
               <PrefetchWhenSeen path={path}>
                 <SubItemLink
                   depth={item.depth}
@@ -116,7 +118,7 @@ class TableOfContents extends React.Component {
                   {item.value}
                 </SubItemLink>
               </PrefetchWhenSeen>
-            </li>
+            </SubItemListItem>
           ) : null;
         })}
       </ul>
@@ -125,7 +127,9 @@ class TableOfContents extends React.Component {
 
   render() {
     const { active, link, headings } = this.props;
-    return active && !isEmpty(headings) ? this.getTOC(link, headings) : null;
+    return active && !isEmpty(headings)
+      ? this.getTOC(active, link, headings)
+      : null;
   }
 }
 
