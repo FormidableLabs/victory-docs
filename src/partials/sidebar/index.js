@@ -41,8 +41,8 @@ const getPathPrefix = item => {
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
   overflow: scroll;
-  padding: ${({ theme }) =>
-    `${theme.spacing.md} ${theme.spacing.sm} ${theme.spacing.md} 0`};
+  overflow-x: hidden;
+  padding: ${({ theme }) => `${theme.spacing.md} 0`};
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
@@ -68,8 +68,16 @@ const VictoryLogo = styled(SVG)`
     width: 9.8rem;
   }
 `;
+
+const StyledNavListContainer = styled.div`
+  width: 100%;
+  background-color: orange;
+`;
+
 const SidebarListItem = styled.li`
-  padding: ${({ theme }) => `0 0 0 ${theme.spacing.sm}`};
+  padding: 0;
+  margin: 0;
+  width: 100%;
 `;
 const SidebarListItemLink = styled(Link)`
   color: ${({ theme }) => theme.color.darkRed};
@@ -78,7 +86,9 @@ const SidebarListItemLink = styled(Link)`
   letter-spacing: 0.53px;
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
   margin: 0;
-  padding-left: ${({ theme }) => theme.spacing.sm};
+  padding: 0;
+  display: block;
+  padding-left: 34px;
 `;
 
 const NoResultsText = styled.p`
@@ -239,7 +249,7 @@ class Sidebar extends React.Component {
         {isEmpty(filteredResults) ? (
           this.renderNoResults()
         ) : (
-          <Fragment>
+          <StyledNavListContainer>
             <Introduction
               content={this.renderLinksList(
                 filteredResults,
@@ -292,7 +302,7 @@ class Sidebar extends React.Component {
                 }
               ]}
             />
-          </Fragment>
+          </StyledNavListContainer>
         )}
       </SidebarContainer>
     );

@@ -4,38 +4,48 @@ import { Link, PrefetchWhenSeen } from "react-static";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
 
-const getStylesByDepth = (isActive, depth, theme) => {
+import { SidebarSectionSublist } from "../styles";
+
+const getStylesByDepth = (depth, theme) => {
   if (depth === 2) {
     return {
-      "font-family": theme.font.bold,
       "font-size": "1.4rem",
-      "letter-spacing": "0.53px",
       height: theme.typography.lineHeight.sidebarHeading,
-      color: theme.color.brown,
-      "margin-left": theme.spacing.sm
+      color: theme.color.brown
     };
   }
 
   if (depth === 3) {
     return {
-      "font-family": theme.font.bold,
       "font-size": "1.2rem",
-      "letter-spacing": "0.53px",
       height: theme.typography.lineHeight.sidebarItem,
-      color: theme.color.darkBrown,
-      "margin-left": theme.spacing.sm
+      color: theme.color.darkBrown
     };
   }
   return {};
 };
 
-const SidebarSubSectionListItem = styled.li`
-  padding-left: ${({ theme }) => theme.spacing.sm};
-`;
+const getListItemIndent = depth => {
+  if (depth === 2) {
+    return "5.3rem";
+  }
+  if (depth === 3) {
+    return "7.7rem";
+  }
+  return "inherit";
+};
 
-const SubItemListItem = styled.li``;
+const SidebarSubSectionListItem = styled.li``;
+
+const SubItemListItem = styled.li`
+  background-color: antiquewhite;
+  padding-left: ${({ depth }) => getListItemIndent(depth)};
+  display: block;
+`;
 const SubItemLink = styled(Link)(props => ({
-  ...getStylesByDepth(props.isActive, props.depth, props.theme)
+  ...getStylesByDepth(props.depth, props.theme),
+  "font-family": props.theme.font.bold,
+  "letter-spacing": "0.53px"
 }));
 
 class TableOfContents extends React.Component {
@@ -69,7 +79,6 @@ class TableOfContents extends React.Component {
   }
 
   getTOC(active, link, headings, i = 0) {
-    console.log("is active: ", active);
     const tree = this.getTree(headings);
 
     if (!tree.length) {
@@ -85,7 +94,7 @@ class TableOfContents extends React.Component {
     const depth = minBy(headings, "depth").depth;
 
     return (
-      <ul>
+      <SidebarSectionSublist>
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
             return (
@@ -121,7 +130,7 @@ class TableOfContents extends React.Component {
             </SubItemListItem>
           ) : null;
         })}
-      </ul>
+      </SidebarSectionSublist>
     );
   }
 
