@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const NavSectionSubheading = styled.ul`
+const NavSectionList = styled.ul`
   font-family: ${({ theme }) => theme.font.bold};
   font-size: 1.4rem;
   letter-spacing: 0.53px;
@@ -9,4 +9,4 @@ const NavSectionSubheading = styled.ul`
   margin-top: 0;
 `;
 
-export default NavSectionSubheading;
+export default NavSectionList;

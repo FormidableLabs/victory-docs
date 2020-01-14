@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"; // TODO gut Fragment once react version is current
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Link, withRouter } from "react-static";
 import styled from "styled-components";
@@ -11,6 +11,7 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
+import { NavSectionHeading } from "./styles";
 
 // was gonna pass this but I'm leaning towards this being an internal detail since at the end of the day the proper
 // behavior is based on a bunch of magic strings for a non-configurable internal method
@@ -69,15 +70,13 @@ const VictoryLogo = styled(SVG)`
   }
 `;
 
-const StyledNavListContainer = styled.div`
-  width: 100%;
-  background-color: orange;
-`;
-
 const SidebarListItem = styled.li`
   padding: 0;
   margin: 0;
   width: 100%;
+  .is-active {
+    background-color: ${({ theme }) => theme.color.darkGray};
+  }
 `;
 const SidebarListItemLink = styled(Link)`
   color: ${({ theme }) => theme.color.darkRed};
@@ -85,21 +84,8 @@ const SidebarListItemLink = styled(Link)`
   font-size: 1.4rem;
   letter-spacing: 0.53px;
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  margin: 0;
-  padding: 0;
   display: block;
-  padding-left: 34px;
-`;
-
-const NoResultsText = styled.p`
-  text-transform: uppercase;
-  font-family: ${({ theme }) => theme.font.bold};
-  font-size: 1.4rem;
-  letter-spacing: 0.53px;
-  line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  color: ${({ theme }) => theme.color.red};
-  margin: ${({ theme }) => `${theme.spacing.sm} 0 0 0}`};
-  padding: 0;
+  padding: 0.4rem 0 0.3rem 3.4rem;
 `;
 
 class Sidebar extends React.Component {
@@ -228,7 +214,7 @@ class Sidebar extends React.Component {
   }
 
   renderNoResults() {
-    return <NoResultsText>No Results</NoResultsText>;
+    return <NavSectionHeading>No Results</NavSectionHeading>;
   }
 
   render() {
@@ -249,7 +235,7 @@ class Sidebar extends React.Component {
         {isEmpty(filteredResults) ? (
           this.renderNoResults()
         ) : (
-          <StyledNavListContainer>
+          <Fragment>
             <Introduction
               content={this.renderLinksList(
                 filteredResults,
@@ -302,7 +288,7 @@ class Sidebar extends React.Component {
                 }
               ]}
             />
-          </StyledNavListContainer>
+          </Fragment>
         )}
       </SidebarContainer>
     );

@@ -4,7 +4,7 @@ import { isEmpty } from "lodash";
 
 import {
   NavSectionHeading,
-  NavSectionSubheading,
+  NavSectionList,
   SidebarSectionSublist
 } from "../styles";
 
@@ -36,7 +36,7 @@ class Category extends React.Component {
     return (
       <Fragment>
         <NavSectionHeading>{title}</NavSectionHeading>
-        <NavSectionSubheading>{content}</NavSectionSubheading>
+        <NavSectionList>{content}</NavSectionList>
         {subCategories}
       </Fragment>
     );

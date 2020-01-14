@@ -6,46 +6,35 @@ import styled from "styled-components";
 
 import { SidebarSectionSublist } from "../styles";
 
-const getStylesByDepth = (depth, theme) => {
+const getLinkStylesByDepth = (depth, theme) => {
   if (depth === 2) {
     return {
       "font-size": "1.4rem",
-      height: theme.typography.lineHeight.sidebarHeading,
-      color: theme.color.brown
+      height: "3rem",
+      color: theme.color.brown,
+      "letter-spacing": "0.53px"
     };
   }
 
   if (depth === 3) {
     return {
       "font-size": "1.2rem",
-      height: theme.typography.lineHeight.sidebarItem,
       color: theme.color.darkBrown
     };
   }
   return {};
 };
 
-const getListItemIndent = depth => {
-  if (depth === 2) {
-    return "5.3rem";
-  }
-  if (depth === 3) {
-    return "7.7rem";
-  }
-  return "inherit";
-};
-
-const SidebarSubSectionListItem = styled.li``;
-
 const SubItemListItem = styled.li`
-  background-color: antiquewhite;
-  padding-left: ${({ depth }) => getListItemIndent(depth)};
+  padding-left: ${({ depth }) => (depth === 3 ? "7.7rem" : "5.3rem")};
+  line-height: ${({ depth }) => (depth === 3 ? "1.3rem" : "2.3rem")};
+  margin: ${({ depth }) => (depth === 3 ? "0 .7rem 1.3rem 0" : "0 0 0.7rem 0")};
   display: block;
+  hyphens: auto;
 `;
 const SubItemLink = styled(Link)(props => ({
-  ...getStylesByDepth(props.depth, props.theme),
-  "font-family": props.theme.font.bold,
-  "letter-spacing": "0.53px"
+  ...getLinkStylesByDepth(props.depth, props.theme),
+  "font-family": props.theme.font.bold
 }));
 
 class TableOfContents extends React.Component {
@@ -98,9 +87,9 @@ class TableOfContents extends React.Component {
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
             return (
-              <SidebarSubSectionListItem key={`${i}-${depth}`}>
+              <li key={`${i}-${depth}`}>
                 {this.getTOC(active, link, item, i++)}
-              </SidebarSubSectionListItem>
+              </li>
             );
           }
           // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
