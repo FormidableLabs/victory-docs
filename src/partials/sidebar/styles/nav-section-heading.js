@@ -9,7 +9,7 @@ const NavSectionHeading = styled.p`
   font-size: 1.4rem;
   letter-spacing: 0.53px;
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  color: ${({ theme }) => theme.color.red};
+  color: #ff684f;
   margin-top: 1.6rem;
   padding-left: ${({ theme }) => theme.spacing.sm};
 `;
