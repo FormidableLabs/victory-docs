@@ -42,7 +42,7 @@ const scrollSidebar = async (activeItemClass = ".is-active") => {
   }
 
   const itemClassName = activeItemClass.split(".")[1];
-  scroll.scrollTo(activeItemClass, {
+  scroll.scrollTo(itemClassName, {
     duration: 200,
     delay: 0,
     smooth: "easeOutQuad",
@@ -57,7 +57,7 @@ const ScrollToTop = ({ location, children }) => {
   useEffect(() => {
     if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
       console.log("scroll to top location update: ", location);
-      // scrollContent(location.hash);
+      scrollContent(location.hash);
       scrollSidebar();
     }
   }, [location]);

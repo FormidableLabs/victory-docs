@@ -236,7 +236,7 @@ class Sidebar extends React.Component {
         {isEmpty(filteredResults) ? (
           this.renderNoResults()
         ) : (
-          <>
+          <div id="sidebar-sections">
             <Introduction
               content={this.renderLinksList(
                 filteredResults,
@@ -289,7 +289,7 @@ class Sidebar extends React.Component {
                 }
               ]}
             />
-          </>
+          </div>
         )}
       </SidebarContainer>
     );
