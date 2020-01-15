@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import { withRouteData, Link } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 import Playground from "../partials/playground";
 import config from "../../static-config-parts/site-data";
 import Page from "../partials/page";
@@ -12,7 +13,7 @@ class GalleryTemplate extends React.Component {
     const { title, scope } = data;
 
     return (
-      <Page>
+      <Page location={this.props.location}>
         <Helmet>
           <title>{`${config.siteTitle} |  ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
@@ -26,9 +27,8 @@ class GalleryTemplate extends React.Component {
 }
 
 GalleryTemplate.propTypes = {
-  galleryItem: PropTypes.object
+  galleryItem: PropTypes.object,
+  location: PropTypes.object
 };
 
-export default withRouteData(({ galleryItem }) => (
-  <GalleryTemplate galleryItem={galleryItem} />
-));
+export default withRouteData(GalleryTemplate);

@@ -3,7 +3,7 @@
 
 const generateGuideRoute = ({ routeData }) => g => ({
   path: `/${g.data.slug}`,
-  component: g.component || "src/pages/docs-template",
+  template: g.component || "src/pages/docs-template",
   getData: () => ({
     title: `Victory | ${g.name}`,
     doc: g,
@@ -15,7 +15,7 @@ const baseConfig = {
   additionalRoutes: [
     {
       data: { slug: "themes" },
-      component: "src/pages/themes-template",
+      template: "src/pages/themes-template",
       name: "Themes"
     }
   ],

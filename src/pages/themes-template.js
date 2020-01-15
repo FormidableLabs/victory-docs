@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import Playground from "component-playground";
 import Helmet from "react-helmet";
 import { assign } from "lodash";
-import { Link, withRouteData, withRouter } from "react-static";
+import { withRouteData } from "react-static";
+import { Link } from "react-router-dom";
 
 import config from "../../static-config-parts/site-data";
 import Page from "../partials/page";
@@ -81,12 +82,12 @@ class ThemesTemplate extends React.Component {
   }
 
   render() {
-    const { doc, sidebarContent } = this.props;
+    const { doc, sidebarContent, location } = this.props;
     const { title } = doc.data;
     const { edited, themeName } = this.state;
 
     return (
-      <Page withSidebar sidebarContent={sidebarContent}>
+      <Page withSidebar sidebarContent={sidebarContent} location={location}>
         <Helmet>
           <title>{`${config.siteTitle} |  ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
@@ -134,7 +135,8 @@ ThemesTemplate.propTypes = {
   doc: PropTypes.shape({
     data: PropTypes.object
   }),
+  location: PropTypes.object,
   sidebarContent: PropTypes.array
 };
 
-export default withRouter(withRouteData(ThemesTemplate));
+export default withRouteData(ThemesTemplate);
