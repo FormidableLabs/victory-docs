@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -75,11 +75,8 @@ const SidebarListItem = styled.li`
   padding: 0;
   margin: 0;
   width: 100%;
-  .is-active {
-    background-color: ${({ theme }) => theme.color.darkGray};
-  }
 `;
-const SidebarListItemLink = styled(Link)`
+const SidebarListItemLink = styled(NavLink)`
   color: #bc5240;
   font-family: ${({ theme }) => theme.font.bold};
   font-size: 1.4rem;
@@ -87,6 +84,9 @@ const SidebarListItemLink = styled(Link)`
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
   display: block;
   padding: 0.4rem 0.7rem 0.3rem 3.4rem;
+  &.is-active {
+    background-color: ${({ theme }) => theme.color.darkGray};
+  }
 `;
 
 class Sidebar extends React.Component {
@@ -162,6 +162,7 @@ class Sidebar extends React.Component {
             activeClassName={category !== "introduction" ? "is-active" : ""}
             scrollToTop
             prefetch={"data"}
+            exact
           >
             {link.title}
           </SidebarListItemLink>
