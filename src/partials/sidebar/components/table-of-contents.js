@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
 
@@ -32,7 +32,7 @@ const SubItemListItem = styled.li`
   display: block;
   hyphens: auto;
 `;
-const SubItemLink = styled(Link)(props => ({
+const SubItemLink = styled(NavLink)(props => ({
   ...getLinkStylesByDepth(props.depth, props.theme),
   "font-family": props.theme.font.bold
 }));
