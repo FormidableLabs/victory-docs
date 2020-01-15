@@ -48,8 +48,8 @@ const theme = {
 
     headerHeight: "6.4rem",
     footerHeight: "43.2rem",
-    stripesWidth: "2.6rem",
-    sidebarWidth: "21.2rem",
+    stripesWidth: "2.8rem",
+    sidebarWidth: "18.6rem",
 
     pageGutterLeft: "2rem",
     pageGutterRight: "3rem",

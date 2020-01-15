@@ -74,7 +74,7 @@ class TableOfContents extends React.Component {
     }, []);
   }
 
-  getTOC(active, link, headings, i = 0) {
+  getTOC(link, headings, i = 0) {
     const tree = this.getTree(headings);
 
     if (!tree.length) {
@@ -94,9 +94,7 @@ class TableOfContents extends React.Component {
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
             return (
-              <li key={`${i}-${depth}`}>
-                {this.getTOC(active, link, item, i++)}
-              </li>
+              <li key={`${i}-${depth}`}>{this.getTOC(link, item, i++)}</li>
             );
           }
           // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
@@ -112,7 +110,7 @@ class TableOfContents extends React.Component {
             : `${absPath}${hashPath}`;
 
           return item.depth > 1 ? (
-            <SubItemListItem key={index} isActive={active} depth={item.depth}>
+            <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}
                 to={path}
@@ -130,9 +128,7 @@ class TableOfContents extends React.Component {
 
   render() {
     const { active, link, headings } = this.props;
-    return active && !isEmpty(headings)
-      ? this.getTOC(active, link, headings)
-      : null;
+    return active && !isEmpty(headings) ? this.getTOC(link, headings) : null;
   }
 }
 
