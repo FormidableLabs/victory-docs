@@ -32,7 +32,7 @@ const Header = styled(_Header)`
   position: fixed;
   top: 0;
   width: ${({ theme }) => `calc(100% - ${theme.layout.stripesWidth})`};
-  z-index: 100;
+  z-index: 6;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     left: ${({ spaceForSidebar, theme }) =>
@@ -52,7 +52,7 @@ const SidebarContainer = styled.aside`
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 100;
+  z-index: 5;
 `;
 
 const stripeStyle = css`

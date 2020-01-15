@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -12,6 +12,7 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
+import { SidebarSectionHeading } from "./styles";
 
 // was gonna pass this but I'm leaning towards this being an internal detail since at the end of the day the proper
 // behavior is based on a bunch of magic strings for a non-configurable internal method
@@ -42,7 +43,8 @@ const getPathPrefix = item => {
 const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
   overflow: scroll;
-  padding: ${({ theme }) => `${theme.spacing.md} ${theme.spacing.sm}`};
+  overflow-x: hidden;
+  padding: 1.8rem 0;
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
@@ -66,6 +68,24 @@ const VictoryLogo = styled(SVG)`
 
   > svg {
     width: 9.8rem;
+  }
+`;
+
+const SidebarListItem = styled.li`
+  padding: 0;
+  margin: 0;
+  width: 100%;
+`;
+const SidebarListItemLink = styled(NavLink)`
+  color: #bc5240;
+  font-family: ${({ theme }) => theme.font.bold};
+  font-size: 1.4rem;
+  letter-spacing: 0.53px;
+  line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
+  display: block;
+  padding: 0.4rem 0.7rem 0.3rem 3.4rem;
+  &.is-active {
+    background-color: ${({ theme }) => theme.color.darkGray};
   }
 `;
 
@@ -131,20 +151,21 @@ class Sidebar extends React.Component {
           : link.subHeadings;
 
       return (
-        <li
+        <SidebarListItem
           key={link.slug}
           onClick={() =>
             this.setState({ content: this.state.content, filterTerm: "" })
           }
         >
-          <Link
+          <SidebarListItemLink
             to={getPathPrefix(link, location)}
-            activeClassName={category !== "introduction" ? "is-active" : ""}
+            activeClassName={"is-active"}
             scrollToTop
             prefetch={"data"}
+            exact
           >
             {link.title}
-          </Link>
+          </SidebarListItemLink>
           <TableOfContents
             active={active}
             link={link}
@@ -152,7 +173,7 @@ class Sidebar extends React.Component {
             location={location}
             filterTerm={this.state.filterTerm}
           />
-        </li>
+        </SidebarListItem>
       );
     });
     return renderList;
@@ -194,11 +215,7 @@ class Sidebar extends React.Component {
   }
 
   renderNoResults() {
-    return (
-      <div>
-        <p className="Sidebar-Heading u-noPadding">No Results</p>
-      </div>
-    );
+    return <SidebarSectionHeading>No Results</SidebarSectionHeading>;
   }
 
   render() {
@@ -219,7 +236,7 @@ class Sidebar extends React.Component {
         {isEmpty(filteredResults) ? (
           this.renderNoResults()
         ) : (
-          <div id="sidebar-sections">
+          <>
             <Introduction
               content={this.renderLinksList(
                 filteredResults,
@@ -272,7 +289,7 @@ class Sidebar extends React.Component {
                 }
               ]}
             />
-          </div>
+          </>
         )}
       </SidebarContainer>
     );

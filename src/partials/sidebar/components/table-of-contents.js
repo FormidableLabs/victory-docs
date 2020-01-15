@@ -1,7 +1,48 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { maxBy, minBy, isEmpty } from "lodash";
+import styled from "styled-components";
+
+import { SidebarSectionSublist } from "../styles";
+
+const getLinkStylesByDepth = depth => {
+  if (depth === 2) {
+    return {
+      "font-size": "1.4rem",
+      height: "3rem",
+      color: "#793d33",
+      "letter-spacing": "0.53px"
+    };
+  }
+
+  if (depth === 3) {
+    return {
+      "font-size": "1.2rem",
+      color: "#242121"
+    };
+  }
+  return {};
+};
+
+const SubItemListItem = styled.li`
+  padding-left: ${({ depth }) => (depth === 3 ? "7.7rem" : "5.3rem")};
+  line-height: ${({ depth }) => (depth === 3 ? "1.3rem" : "2.3rem")};
+  margin: ${({ depth }) => (depth === 3 ? "0 .7rem 1.3rem 0" : "0 0 0.7rem 0")};
+  display: block;
+  hyphens: auto;
+`;
+SubItemListItem.propTypes = {
+  depth: PropTypes.number.isRequired
+};
+
+const SubItemLink = styled(NavLink)(props => ({
+  ...getLinkStylesByDepth(props.depth, props.theme),
+  "font-family": props.theme.font.bold
+}));
+SubItemLink.propTypes = {
+  depth: PropTypes.number.isRequired
+};
 
 class TableOfContents extends React.Component {
   getTree(headings) {
@@ -49,13 +90,11 @@ class TableOfContents extends React.Component {
     const depth = minBy(headings, "depth").depth;
 
     return (
-      <ul key={`${i}-${depth}`} className="Sidebar-toc">
+      <SidebarSectionSublist>
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
             return (
-              <li key={`${i}-${depth}`} className="Sidebar-toc-item">
-                {this.getTOC(link, item, i++)}
-              </li>
+              <li key={`${i}-${depth}`}>{this.getTOC(link, item, i++)}</li>
             );
           }
           // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
@@ -71,14 +110,19 @@ class TableOfContents extends React.Component {
             : `${absPath}${hashPath}`;
 
           return item.depth > 1 ? (
-            <li key={index} className="Sidebar-toc-item">
-              <Link to={path} prefetch={"data"} scrollToTop>
+            <SubItemListItem key={index} depth={item.depth}>
+              <SubItemLink
+                depth={item.depth}
+                to={path}
+                prefetch={"data"}
+                scrollToTop
+              >
                 {item.value}
-              </Link>
-            </li>
+              </SubItemLink>
+            </SubItemListItem>
           ) : null;
         })}
-      </ul>
+      </SidebarSectionSublist>
     );
   }
 

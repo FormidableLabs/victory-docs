@@ -9,6 +9,7 @@ const theme = {
     white: "#ffffff",
     nearWhite: "#f2f2f2",
     gray: "#999999",
+    darkGray: "#DDD",
     nearBlack: "#242121",
     black: "#1f1f1f",
 
@@ -30,7 +31,15 @@ const theme = {
 
   font: {
     primary: "Helvetica, sans-serif",
-    monospace: "Monaco, Courier, monospace"
+    secondary: "Castledown-Bold, sans-serif",
+    monospace: "Monaco, Courier, monospace",
+    bold: "Helvetica-Bold, sans-serif"
+  },
+  typography: {
+    lineHeight: {
+      sidebarHeading: "2.3rem",
+      sidebarItem: "2.8rem"
+    }
   },
 
   layout: {
@@ -39,8 +48,8 @@ const theme = {
 
     headerHeight: "6.4rem",
     footerHeight: "43.2rem",
-    stripesWidth: "2.6rem",
-    sidebarWidth: "21.2rem",
+    stripesWidth: "2.8rem",
+    sidebarWidth: "18.6rem",
 
     pageGutterLeft: "2rem",
     pageGutterRight: "3rem",

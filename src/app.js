@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Root, Routes } from "react-static";
 import { Route } from "react-router";
@@ -42,7 +42,7 @@ const scrollSidebar = async (activeItemClass = ".is-active") => {
   }
 
   const itemClassName = activeItemClass.split(".")[1];
-  scroll.scrollTo(itemClassName, {
+  scroll.scrollTo(activeItemClass, {
     duration: 200,
     delay: 0,
     smooth: "easeOutQuad",
@@ -53,15 +53,17 @@ const scrollSidebar = async (activeItemClass = ".is-active") => {
 const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
-function ScrollToTop({ location, children }) {
+const ScrollToTop = ({ location, children }) => {
   useEffect(() => {
     if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
-      scrollContent(location).then(() => scrollSidebar());
+      console.log("scroll to top location update: ", location);
+      // scrollContent(location.hash);
+      scrollSidebar();
     }
   }, [location]);
 
   return children;
-}
+};
 
 ScrollToTop.propTypes = {
   children: PropTypes.array,
