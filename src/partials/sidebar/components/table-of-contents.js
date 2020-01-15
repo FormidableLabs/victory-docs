@@ -111,12 +111,7 @@ class TableOfContents extends React.Component {
 
           return item.depth > 1 ? (
             <SubItemListItem key={index} depth={item.depth}>
-              <SubItemLink
-                depth={item.depth}
-                to={path}
-                prefetch={"data"}
-                scrollToTop
-              >
+              <SubItemLink depth={item.depth} to={path} prefetch={"data"}>
                 {item.value}
               </SubItemLink>
             </SubItemListItem>

@@ -160,7 +160,6 @@ class Sidebar extends React.Component {
           <SidebarListItemLink
             to={getPathPrefix(link, location)}
             activeClassName={"is-active"}
-            scrollToTop
             prefetch={"data"}
             exact
           >

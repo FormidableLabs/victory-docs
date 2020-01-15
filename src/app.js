@@ -58,7 +58,7 @@ const ScrollToTop = ({ location, children }) => {
     if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
       console.log("scroll to top location update: ", location);
       scrollContent(location.hash);
-      scrollSidebar();
+      // scrollSidebar();
     }
   }, [location]);
 
