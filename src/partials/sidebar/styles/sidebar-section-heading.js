@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
-//top level heading for side nav
-// todo fix hierarchy headings
+// TODO fix hierarchy of headings in sidebar
 
-const NavSectionHeading = styled.p`
+const SidebarSectionHeading = styled.p`
   text-transform: uppercase;
   font-family: ${({ theme }) => theme.font.bold};
   font-size: 1.4rem;
@@ -14,4 +13,4 @@ const NavSectionHeading = styled.p`
   padding-left: ${({ theme }) => theme.spacing.sm};
 `;
 
-export default NavSectionHeading;
+export default SidebarSectionHeading;

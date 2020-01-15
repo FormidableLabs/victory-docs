@@ -1,19 +1,17 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 
-import { NavSectionHeading, NavSectionList } from "../styles";
+import { SidebarSectionHeading, SidebarSectionList } from "../styles";
 
-class Introduction extends React.Component {
-  render() {
-    return !isEmpty(this.props.content) ? (
-      <Fragment>
-        <NavSectionHeading>Introduction</NavSectionHeading>
-        <NavSectionList>{this.props.content}</NavSectionList>
-      </Fragment>
-    ) : null;
-  }
-}
+const Introduction = ({ content }) => {
+  return !isEmpty(content) ? (
+    <>
+      <SidebarSectionHeading>Introduction</SidebarSectionHeading>
+      <SidebarSectionList>{content}</SidebarSectionList>
+    </>
+  ) : null;
+};
 
 Introduction.propTypes = {
   content: PropTypes.array

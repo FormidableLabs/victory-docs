@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
 import { NavLink } from "react-router-dom";
@@ -12,7 +12,7 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
-import { NavSectionHeading } from "./styles";
+import { SidebarSectionHeading } from "./styles";
 
 // was gonna pass this but I'm leaning towards this being an internal detail since at the end of the day the proper
 // behavior is based on a bunch of magic strings for a non-configurable internal method
@@ -215,7 +215,7 @@ class Sidebar extends React.Component {
   }
 
   renderNoResults() {
-    return <NavSectionHeading>No Results</NavSectionHeading>;
+    return <SidebarSectionHeading>No Results</SidebarSectionHeading>;
   }
 
   render() {
@@ -236,7 +236,7 @@ class Sidebar extends React.Component {
         {isEmpty(filteredResults) ? (
           this.renderNoResults()
         ) : (
-          <Fragment>
+          <>
             <Introduction
               content={this.renderLinksList(
                 filteredResults,
@@ -289,7 +289,7 @@ class Sidebar extends React.Component {
                 }
               ]}
             />
-          </Fragment>
+          </>
         )}
       </SidebarContainer>
     );

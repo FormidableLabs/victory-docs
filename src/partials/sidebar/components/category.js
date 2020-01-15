@@ -1,10 +1,10 @@
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 
 import {
-  NavSectionHeading,
-  NavSectionList,
+  SidebarSectionHeading,
+  SidebarSectionList,
   SidebarSectionSublist
 } from "../styles";
 
@@ -16,7 +16,7 @@ class Category extends React.Component {
     const categories = subCategories.map((category, index) =>
       !isEmpty(category.content) ? (
         <div key={index}>
-          <NavSectionHeading>{category.title}</NavSectionHeading>
+          <SidebarSectionHeading>{category.title}</SidebarSectionHeading>
           <SidebarSectionSublist>{category.content}</SidebarSectionSublist>
         </div>
       ) : null
@@ -34,11 +34,11 @@ class Category extends React.Component {
     }
 
     return (
-      <Fragment>
-        <NavSectionHeading>{title}</NavSectionHeading>
-        <NavSectionList>{content}</NavSectionList>
+      <>
+        <SidebarSectionHeading>{title}</SidebarSectionHeading>
+        <SidebarSectionList>{content}</SidebarSectionList>
         {subCategories}
-      </Fragment>
+      </>
     );
   }
 }

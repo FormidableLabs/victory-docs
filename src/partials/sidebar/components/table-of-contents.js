@@ -32,10 +32,17 @@ const SubItemListItem = styled.li`
   display: block;
   hyphens: auto;
 `;
+SubItemListItem.propTypes = {
+  depth: PropTypes.number.isRequired
+};
+
 const SubItemLink = styled(NavLink)(props => ({
   ...getLinkStylesByDepth(props.depth, props.theme),
   "font-family": props.theme.font.bold
 }));
+SubItemLink.propTypes = {
+  depth: PropTypes.number.isRequired
+};
 
 class TableOfContents extends React.Component {
   getTree(headings) {

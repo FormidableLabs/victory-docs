@@ -19,35 +19,25 @@ const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.font.secondary};
 `;
 
-class SidebarSearchInput extends React.Component {
-  onChange(e) {
-    this.props.onHandleInputChange(e.target.value, this.props.content);
-  }
+const SidebarSearchInput = ({ content, onHandleInputChange, searchText }) => {
+  const onChange = e => {
+    onHandleInputChange(e.target.value, content);
+  };
 
-  onClear() {
-    this.props.onClearInput(this.props.content);
-  }
-
-  render() {
-    return (
-      <InputContainer>
-        <StyledInput
-          placeholder="Filter..."
-          type="search"
-          value={this.props.searchText}
-          onChange={this.onChange.bind(this)}
-        />
-        {/* <button className="btn Input-clear" onClick={this.onClear.bind(this)}>
-          &times;
-        </button> */}
-      </InputContainer>
-    );
-  }
-}
+  return (
+    <InputContainer>
+      <StyledInput
+        placeholder="Filter..."
+        type="search"
+        value={searchText}
+        onChange={onChange.bind(this)}
+      />
+    </InputContainer>
+  );
+};
 
 SidebarSearchInput.propTypes = {
   content: PropTypes.array,
-  onClearInput: PropTypes.func,
   onHandleInputChange: PropTypes.func,
   searchText: PropTypes.string
 };
