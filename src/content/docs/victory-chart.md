@@ -6,10 +6,10 @@ type: docs
 scope:
   - sampleData
 ---
+
 # VictoryChart
 
 `VictoryChart` is a wrapper component that renders a given set of children on a set of Cartesian or polar axes. `VictoryChart` reconciles the domain for all its children, controls the layout of the chart, and coordinates animations and shared events. If no children are provided, `VictoryChart` will render a set of empty default axes.
-
 
 ```playground
 <div>
@@ -28,9 +28,7 @@ scope:
 </div>
 ```
 
-## Props
-
-### animate
+## animate
 
 `type: boolean || object`
 
@@ -47,7 +45,7 @@ animate={{
 }}
 ```
 
-### children
+## children
 
 `type: element || array[element]`
 
@@ -55,8 +53,7 @@ animate={{
 
 **Note: polar charts must use `VictoryPolarAxis` rather than `VictoryAxis`**
 
-
-### containerComponent
+## containerComponent
 
 `type: element`
 
@@ -66,7 +63,7 @@ animate={{
 containerComponent={<VictoryVoronoiContainer/>}
 ```
 
-### domain
+## domain
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -78,7 +75,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### domainPadding
+## domainPadding
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
@@ -90,13 +87,13 @@ domain={{x: [0, 100], y: [0, 1]}}
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
-### endAngle
+## endAngle
 
 `type: number`
 
 The `endAngle` props defines the overall end angle of a polar chart in degrees. This prop is used in conjunction with `startAngle` to create polar chart that spans only a segment of a circle, or to change overall rotation of the chart. This prop should be given as a number of degrees. Degrees are defined as starting at the 3 o'clock position, and proceeding counterclockwise.
 
-*default:* `endAngle={360}`
+_default:_ `endAngle={360}`
 
 ```playground
 <div>
@@ -143,7 +140,7 @@ The `endAngle` props defines the overall end angle of a polar chart in degrees. 
 </div>
 ```
 
-### events
+## events
 
 `type: array[object]`
 
@@ -187,25 +184,26 @@ See the [Events Guide][] for more information on defining events.
   </VictoryStack>
 </VictoryChart>
 ```
-### externalEventMutations
+
+## externalEventMutations
 
 `type: array[object]`
 
 `VictoryChart` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props/#externalEventsMutations)
 
-### groupComponent
+## groupComponent
 
 `type: element`
 
 `VictoryChart` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#groupcomponent)
 
-*default:* `<g/>`
+_default:_ `<g/>`
 
 ```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
-### height
+## height
 
 `type: number`
 
@@ -213,19 +211,19 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 **note: `VictoryChart` controls the `height` prop of its children.**
 
-*default (provided by default theme):* `height={300}`
+_default (provided by default theme):_ `height={300}`
 
 ```jsx
 height={400}
 ```
 
-### horizontal
+## horizontal
 
 `type: boolean`
 
 The horizontal prop determines whether data will be plotted horizontally. When this prop is set to true, the independent variable will be plotted on the y axis and the dependent variable will be plotted on the x axis.
 
-*default:* horizontal={false}
+_default:_ horizontal={false}
 
 ```playground
 <VictoryChart horizontal
@@ -243,7 +241,7 @@ The horizontal prop determines whether data will be plotted horizontally. When t
 </VictoryChart>
 ```
 
-### innerRadius
+## innerRadius
 
 `type: number`
 
@@ -257,12 +255,11 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 </VictoryChart>
 ```
 
-### maxDomain
+## maxDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryChart` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
-
 
 ```playground
 <VictoryChart maxDomain={{ y: 4.5 }}>
@@ -270,12 +267,11 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 </VictoryChart>
 ```
 
-### minDomain
+## minDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryChart` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
-
 
 ```playground
 <VictoryChart minDomain={{ y: 0 }}>
@@ -283,7 +279,7 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 </VictoryChart>
 ```
 
-### padding
+## padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
@@ -291,21 +287,22 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 
 **note: `VictoryChart` controls the `padding` prop of its children.**
 
-*default (provided by default theme):* `padding={50}`
+_default (provided by default theme):_ `padding={50}`
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### polar
+## polar
 
 `type: boolean`
 
 `VictoryChart` uses the standard `polar` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#polar)
 
 **Notes:**
-  - `VictoryChart` controls the `polar` prop of its children
-  - Polar charts should use `VictoryPolarAxis` rather than `VictoryAxis`
+
+- `VictoryChart` controls the `polar` prop of its children
+- Polar charts should use `VictoryPolarAxis` rather than `VictoryAxis`
 
 ```playground
 <div>
@@ -331,7 +328,7 @@ padding={{ top: 20, bottom: 60 }}
 </div>
 ```
 
-### range
+## range
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -341,8 +338,7 @@ padding={{ top: 20, bottom: 60 }}
 
 [Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props/#range)
 
-
-### scale
+## scale
 
 `type: scale || { x: scale, y: scale }`
 
@@ -351,23 +347,23 @@ Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` fun
 
 **note: `VictoryChart` controls the `scale` prop of its children.**
 
-*default:* `scale="linear"`
+_default:_ `scale="linear"`
 
 ```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
-### sharedEvents
+## sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### singleQuadrantDomainPadding
+## singleQuadrantDomainPadding
 
 `type: boolean || { x: boolean, y: boolean }`
 
 `VictoryChart` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
-### standalone
+## standalone
 
 `type: boolean`
 
@@ -375,7 +371,7 @@ scale={{x: "linear", y: "log"}}
 
 **note:** `VictoryChart` sets `standalone={false} for all of its children.
 
-*default:* `standalone={true}`
+_default:_ `standalone={true}`
 
 ```playground
 <svg width={300} height={300}>
@@ -386,13 +382,14 @@ scale={{x: "linear", y: "log"}}
   />
 </svg>
 ```
-### startAngle
+
+## startAngle
 
 `type: number`
 
 The `startAngle` props defines the overall start angle of a polar chart in degrees. This prop is used in conjunction with `endAngle` to create polar chart that spans only a segment of a circle, or to change overall rotation of the chart. This prop should be given as a number of degrees. Degrees are defined as starting at the 3 o'clock position, and proceeding counterclockwise.
 
-*default:* `startAngle={0}`
+_default:_ `startAngle={0}`
 
 ```playground
 <div>
@@ -439,13 +436,13 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 </div>
 ```
 
-### style
+## style
 
 `type: { parent: object }`
 
 `VictoryChart` uses the standard `style` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#style)
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
 <VictoryChart
@@ -457,7 +454,7 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 />
 ```
 
-### theme
+## theme
 
 `type: object`
 
@@ -465,13 +462,13 @@ The `startAngle` props defines the overall start angle of a polar chart in degre
 
 See the [Themes Guide][] for information about creating custom themes.
 
-*default:* `theme={VictoryTheme.grayscale}`
+_default:_ `theme={VictoryTheme.grayscale}`
 
 ```jsx
 theme={VictoryTheme.material}
 ```
 
-### width
+## width
 
 `type: number`
 
@@ -479,24 +476,24 @@ theme={VictoryTheme.material}
 
 **note: `VictoryChart` controls the `width` prop of its children.**
 
-*default (provided by default theme):* `width={450}`
+_default (provided by default theme):_ `width={450}`
 
 ```jsx
 width={400}
 ```
 
-[VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
-[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
-[VictoryPolarAxis]: https://formidable.com/open-source/victory/docs/victory-polar-axis
-[VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
-[VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
-[VictoryGroup]: https://formidable.com/open-source/victory/docs/victory-group
-[VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
-[VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
-[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
-[VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
+[victoryarea]: https://formidable.com/open-source/victory/docs/victory-area
+[victoryaxis]: https://formidable.com/open-source/victory/docs/victory-axis
+[victorypolaraxis]: https://formidable.com/open-source/victory/docs/victory-polar-axis
+[victorybar]: https://formidable.com/open-source/victory/docs/victory-bar
+[victorycandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
+[victoryerrorbar]: https://formidable.com/open-source/victory/docs/victory-errorbar
+[victorygroup]: https://formidable.com/open-source/victory/docs/victory-group
+[victoryline]: https://formidable.com/open-source/victory/docs/victory-line
+[victoryscatter]: https://formidable.com/open-source/victory/docs/victory-scatter
+[victorystack]: https://formidable.com/open-source/victory/docs/victory-stack
+[victoryvoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[animations guide]: https://formidable.com/open-source/victory/guides/animations
+[events guide]: https://formidable.com/open-source/victory/guides/events
+[themes guide]: https://formidable.com/open-source/victory/guides/themes
