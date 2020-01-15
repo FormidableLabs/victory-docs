@@ -84,6 +84,7 @@ const SidebarListItemLink = styled(NavLink)`
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
   display: block;
   padding: 0.4rem 0.7rem 0.3rem 3.4rem;
+  hyphens: auto;
   &.is-active {
     background-color: ${({ theme }) => theme.color.darkGray};
   }
@@ -142,7 +143,8 @@ class Sidebar extends React.Component {
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const active =
-        category !== "introduction" && location.pathname.includes(link.slug)
+        category !== "introduction" &&
+        location.pathname.includes(`/${link.type}/${link.slug}`)
           ? true
           : this.state.filterTerm !== "";
       const headings =
@@ -163,6 +165,7 @@ class Sidebar extends React.Component {
             scrollToTop
             prefetch={"data"}
             exact
+            strict
           >
             {link.title}
           </SidebarListItemLink>
