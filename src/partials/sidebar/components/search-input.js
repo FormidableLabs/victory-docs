@@ -20,17 +20,13 @@ const StyledInput = styled.input`
 `;
 
 const SidebarSearchInput = ({ content, onHandleInputChange, searchText }) => {
-  const onChange = e => {
-    onHandleInputChange(e.target.value, content);
-  };
-
   return (
     <InputContainer>
       <StyledInput
         placeholder="Filter..."
         type="search"
         value={searchText}
-        onChange={onChange.bind(this)}
+        onChange={e => onHandleInputChange(e.target.value, content)}
       />
     </InputContainer>
   );

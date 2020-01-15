@@ -11,7 +11,7 @@ import {
 class Category extends React.Component {
   renderSubCategories(subCategories) {
     if (isEmpty(subCategories)) {
-      return;
+      return null;
     }
     const categories = subCategories.map((category, index) =>
       !isEmpty(category.content) ? (
