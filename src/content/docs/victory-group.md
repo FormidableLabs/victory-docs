@@ -6,6 +6,7 @@ type: docs
 scope:
   - sampleData
 ---
+
 # VictoryGroup
 
 `VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack several components on the same level, _e.g.,_ stacked area charts with data markers.
@@ -33,9 +34,7 @@ scope:
 </VictoryChart>
 ```
 
-## Props
-
-### animate
+## animate
 
 `type: boolean || object`
 
@@ -52,7 +51,7 @@ See the [Animations Guide][] for more detail on animations and transitions
   }}
 ```
 
-### categories
+## categories
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
@@ -64,13 +63,13 @@ See the [Animations Guide][] for more detail on animations and transitions
 categories={["dogs", "cats", "mice"]}
 ```
 
-### children
+## children
 
 `type: element || array[element]`
 
 `VictoryGroup` works with any combination of the following children: [VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
-### color
+## color
 
 `type: string`
 
@@ -86,13 +85,13 @@ The `color` prop is an optional prop that defines a single color to be applied t
 </VictoryGroup>
 ```
 
-### colorScale
+## colorScale
 
 `type: array[string]`
 
 The `colorScale` prop is an optional prop that defines a color scale to be applied to the children of `VictoryGroup`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryGroup` will assign colors to its children by index, unless they are explicitly specified in styles. Colors will repeat when there are more children than colors in the provided `colorScale`.
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
 <VictoryGroup
@@ -111,8 +110,7 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 </VictoryGroup>
 ```
 
-
-### containerComponent
+## containerComponent
 
 `type: element`
 
@@ -122,7 +120,7 @@ The `colorScale` prop is an optional prop that defines a color scale to be appli
 containerComponent={<VictoryVoronoiContainer/>}
 ```
 
-### data
+## data
 
 `type: array[object]`
 
@@ -142,7 +140,7 @@ When `data` is provided for `VictoryGroup` it will be passed to every child in t
 
 ```
 
-### domain
+## domain
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -154,7 +152,7 @@ When `data` is provided for `VictoryGroup` it will be passed to every child in t
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### domainPadding
+## domainPadding
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
@@ -166,17 +164,17 @@ domain={{x: [0, 100], y: [0, 1]}}
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
-### eventKey
+## eventKey
 
 `type: string || integer || array[string] || function`
 
 `VictoryGroup` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```jsx
-eventKey="x"
+eventKey = "x";
 ```
 
-### events
+## events
 
 `type: array[object]`
 
@@ -227,44 +225,44 @@ See the [Events Guide][] for more information on defining events.
   />
 </VictoryGroup>
 ```
-### externalEventMutations
+
+## externalEventMutations
 
 `type: array[object]`
 
 `VictoryGroup` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#externalEventsMutations)
 
-### groupComponent
+## groupComponent
 
 `type: element`
 
 `VictoryGroup` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-*default:* `<g/>`
+_default:_ `<g/>`
 
 ```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
-### height
+## height
 
 `type: number`
 
 `VictoryGroup` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
-*default (provided by default theme):* `height={300}`
+_default (provided by default theme):_ `height={300}`
 
 ```jsx
 height={400}
 ```
 
-### horizontal
+## horizontal
 
 `type: boolean`
 
 The `horizontal` prop determines whether the children supplied to `VictoryGroup` will be laid out vertically or horizontally. [Read about the horizontal prop in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
 
-
-### labels
+## labels
 
 `type: array || function`
 
@@ -274,41 +272,41 @@ The `labels` prop defines labels that will appear above each group of data. This
 labels={["spring", "summer", "fall", "winter"]}`, `labels={({ datum }) => datum.title}
 ```
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
 The `labelComponent` prop takes a component instance which will be used to render labels for each group. The new element created from the passed `labelComponent` will be supplied with the following props: `x`, `y`, `index`, `datum`, `verticalAnchor`, `textAnchor`, `angle`, `style`, `text`, and `events`. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
-*default:* `<VictoryLabel/>`
+_default:_ `<VictoryLabel/>`
 
 ```jsx
 labelComponent={<VictoryLabel dy={20}/>}
 ```
 
-### maxDomain
+## maxDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryGroup` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
 
-### minDomain
+## minDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryGroup` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
 
-### name
+## name
 
 `type: string`
 
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
-name="series-1"
+name = "series-1";
 ```
 
-### offset
+## offset
 
 `type: number`
 
@@ -330,7 +328,7 @@ The `offset` prop determines the number of pixels each element in a group should
 </VictoryGroup>
 ```
 
-### origin
+## origin
 
 `type: { x: number, y: number }`
 
@@ -338,26 +336,25 @@ The `offset` prop determines the number of pixels each element in a group should
 
 [Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
-
-### padding
+## padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryGroup` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
-*default (provided by default theme):* `padding={50}`
+_default (provided by default theme):_ `padding={50}`
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### polar
+## polar
 
 `type: boolean`
 
 `VictoryGroup` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
 
-### range
+## range
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -365,19 +362,19 @@ padding={{ top: 20, bottom: 60 }}
 
 [Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
-### samples
+## samples
 
 `type: integer`
 
 `VictoryGroup` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
-*default:* `samples={50}`
+_default:_ `samples={50}`
 
 ```jsx
 samples={100}
 ```
 
-### scale
+## scale
 
 `type: scale || { x: scale, y: scale }`
 
@@ -386,44 +383,43 @@ Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` fun
 
 **note: `VictoryGroup` controls the `scale` prop of its children.**
 
-*default:* `scale="linear"`
+_default:_ `scale="linear"`
 
 ```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
-### sharedEvents
+## sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### singleQuadrantDomainPadding
+## singleQuadrantDomainPadding
 
 `type: boolean || { x: boolean, y: boolean }`
 
 `VictoryGroup` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
-### sortKey
+## sortKey
 
 `type: string || integer || array[string] || function`
-
 
 `VictoryGroup` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-sortKey="x"
+sortKey = "x";
 ```
 
-### sortOrder
+## sortOrder
 
 `type: "ascending" || "descending"`
 
 The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
 
-*default:* `sortOrder="ascending"`
+_default:_ `sortOrder="ascending"`
 
-### standalone
+## standalone
 
 `type: boolean`
 
@@ -431,10 +427,9 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 **note:** When `VictoryGroup` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
-*default:* `standalone={true}`
+_default:_ `standalone={true}`
 
-
-### style
+## style
 
 `type: { parent: object, data: object, labels: object }`
 
@@ -442,7 +437,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 Styles on children of `VictoryGroup` will override styles set on the `VictoryGroup` component.
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
 <VictoryGroup
@@ -466,7 +461,7 @@ Styles on children of `VictoryGroup` will override styles set on the `VictoryGro
 </VictoryGroup>
 ```
 
-### theme
+## theme
 
 `type: object`
 
@@ -474,25 +469,25 @@ Styles on children of `VictoryGroup` will override styles set on the `VictoryGro
 
 See the [Themes Guide][] for information about creating custom themes.
 
-*default:* `theme={VictoryTheme.grayscale}`
+_default:_ `theme={VictoryTheme.grayscale}`
 
 ```jsx
 theme={VictoryTheme.material}
 ```
 
-### width
+## width
 
 `type: number`
 
 `VictoryGroup` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
-*default (provided by default theme):* `width={450}`
+_default (provided by default theme):_ `width={450}`
 
 ```jsx
 width={400}
 ```
 
-### x
+## x
 
 `type: string || integer || array[string] || function`
 
@@ -501,10 +496,10 @@ width={400}
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-x="employee.name"
+x = "employee.name";
 ```
 
-### y
+## y
 
 `type: string || integer || array[string] || function`
 
@@ -516,7 +511,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 y={(d) => d.value + d.error}
 ```
 
-### y0
+## y0
 
 `type: string || integer || array[string] || function`
 
@@ -528,22 +523,22 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 y0={() => 10}
 ```
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[animations guide]: https://formidable.com/open-source/victory/guides/animations
+[data accessors guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[events guide]: https://formidable.com/open-source/victory/guides/events
+[themes guide]: https://formidable.com/open-source/victory/guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[VictoryArea]: https://formidable.com/open-source/victory/docs/victory-area
-[VictoryAxis]: https://formidable.com/open-source/victory/docs/victory-axis
-[VictoryBar]: https://formidable.com/open-source/victory/docs/victory-bar
-[VictoryBoxPlot]: https://formidable.com/open-source/victory/docs/victory-boxplot
-[VictoryCandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[VictoryChart]: https://formidable.com/open-source/victory/docs/victory-chart
-[VictoryErrorBar]: https://formidable.com/open-source/victory/docs/victory-errorbar
-[VictoryLine]: https://formidable.com/open-source/victory/docs/victory-line
-[VictoryScatter]: https://formidable.com/open-source/victory/docs/victory-scatter
-[VictoryStack]: https://formidable.com/open-source/victory/docs/victory-stack
-[VictoryVoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
-[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
+[victoryarea]: https://formidable.com/open-source/victory/docs/victory-area
+[victoryaxis]: https://formidable.com/open-source/victory/docs/victory-axis
+[victorybar]: https://formidable.com/open-source/victory/docs/victory-bar
+[victoryboxplot]: https://formidable.com/open-source/victory/docs/victory-boxplot
+[victorycandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
+[victorychart]: https://formidable.com/open-source/victory/docs/victory-chart
+[victoryerrorbar]: https://formidable.com/open-source/victory/docs/victory-errorbar
+[victoryline]: https://formidable.com/open-source/victory/docs/victory-line
+[victoryscatter]: https://formidable.com/open-source/victory/docs/victory-scatter
+[victorystack]: https://formidable.com/open-source/victory/docs/victory-stack
+[victoryvoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
+[victorylabel]: https://formidable.com/open-source/victory/docs/victory-label
 [x]: https://formidable.com/open-source/victory/docs/common-props#x
 [y]: https://formidable.com/open-source/victory/docs/common-props#y

@@ -28,7 +28,8 @@ const getLinkStylesByDepth = depth => {
 const SubItemListItem = styled.li`
   padding-left: ${({ depth }) => (depth === 3 ? "7.7rem" : "5.3rem")};
   line-height: ${({ depth }) => (depth === 3 ? "1.3rem" : "2.3rem")};
-  margin: ${({ depth }) => (depth === 3 ? "0 .7rem 1.3rem 0" : "0 0 0.7rem 0")};
+  margin: ${({ depth }) =>
+    depth === 3 ? "0 .7rem 1.3rem 0" : "0 0.7rem 0.7rem 0"};
   display: block;
   hyphens: auto;
 `;
@@ -111,7 +112,13 @@ class TableOfContents extends React.Component {
 
           return item.depth > 1 ? (
             <SubItemListItem key={index} depth={item.depth}>
-              <SubItemLink depth={item.depth} to={path} prefetch={"data"}>
+              <SubItemLink
+                depth={item.depth}
+                to={path}
+                prefetch={"data"}
+                strict
+                scrollToTop
+              >
                 {item.value}
               </SubItemLink>
             </SubItemListItem>

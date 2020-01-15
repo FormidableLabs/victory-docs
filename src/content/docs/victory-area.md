@@ -6,6 +6,7 @@ type: docs
 scope:
   - sampleData
 ---
+
 # VictoryArea
 
 VictoryArea renders a dataset as a single area. VictoryArea can be composed with [`VictoryChart`][] to create area charts.
@@ -21,9 +22,7 @@ VictoryArea renders a dataset as a single area. VictoryArea can be composed with
 </VictoryChart>
 ```
 
-## Props
-
-### animate
+## animate
 
 `type: boolean || object`
 
@@ -38,7 +37,7 @@ See the [Animations Guide][] for more detail on animations and transitions
   }}
 ```
 
-### categories
+## categories
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
@@ -48,7 +47,7 @@ See the [Animations Guide][] for more detail on animations and transitions
 categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
-### containerComponent
+## containerComponent
 
 `type: element`
 
@@ -58,7 +57,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 containerComponent={<VictoryVoronoiContainer/>}
 ```
 
-### data
+## data
 
 `type: array[object]`
 
@@ -80,7 +79,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 </VictoryChart>
 ```
 
-### dataComponent
+## dataComponent
 
 `type: element`
 
@@ -90,14 +89,13 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
-*default:* `<Area/>`
+_default:_ `<Area/>`
 
 ```jsx
 dataComponent={<Area events={{ onClick: handleClick }}/>}
 ```
 
-
-### domain
+## domain
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -107,7 +105,7 @@ dataComponent={<Area events={{ onClick: handleClick }}/>}
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### domainPadding
+## domainPadding
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
@@ -117,7 +115,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
-### eventKey
+## eventKey
 
 `type: string || integer || array[string] || function`
 
@@ -126,10 +124,10 @@ domainPadding={{x: [10, -10], y: 5}}
 **note:** `VictoryArea` only renders one element per dataset, so only one event key will be generated.
 
 ```jsx
-eventKey="x"
+eventKey = "x";
 ```
 
-### events
+## events
 
 `type: array[object]`
 
@@ -167,13 +165,13 @@ See the [Events Guide][] for more information on defining events.
 </div>
 ```
 
-### externalEventMutations
+## externalEventMutations
 
 `type: array[object]`
 
 `VictoryArea` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#externalEventsMutations)
 
-### groupComponent
+## groupComponent
 
 `type: element`
 
@@ -181,7 +179,7 @@ See the [Events Guide][] for more information on defining events.
 
 **note:** `VictoryArea` uses [`VictoryClipContainer`][] as its default `groupComponent` `VictoryClipContainer` renders a `<g>` tag with a `clipPath` `def`. This allows continuous data components to transition smoothly when new data points enter and exit. **Supplying a custom `groupComponent` to `VictoryArea` may result in broken animations.**
 
-*default:* `<VictoryClipContainer/>`
+_default:_ `<VictoryClipContainer/>`
 
 ```playground
 <VictoryChart>
@@ -193,19 +191,19 @@ See the [Events Guide][] for more information on defining events.
 </VictoryChart>
 ```
 
-### height
+## height
 
 `type: number`
 
 `VictoryArea` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
-*default (provided by default theme):* `height={300}`
+_default (provided by default theme):_ `height={300}`
 
 ```jsx
 height={400}
 ```
 
-### horizontal
+## horizontal
 
 `type: boolean`
 
@@ -217,7 +215,7 @@ height={400}
 />
 ```
 
-### interpolation
+## interpolation
 
 `type: options || function`
 
@@ -231,7 +229,7 @@ You can also provide a function if you need to adjust parameters for d3-shape cu
 
 [Explore all the interpolation options][].
 
-*default:* `"linear"`
+_default:_ `"linear"`
 
 ```playground
 <VictoryArea
@@ -240,13 +238,13 @@ You can also provide a function if you need to adjust parameters for d3-shape cu
 />
 ```
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
 `VictoryArea` uses the standard `labelComponent` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
-*default:* `<VictoryLabel renderInPortal/>`
+_default:_ `<VictoryLabel renderInPortal/>`
 
 ```playground
 <VictoryArea
@@ -256,7 +254,7 @@ You can also provide a function if you need to adjust parameters for d3-shape cu
 />
 ```
 
-### labels
+## labels
 
 `type: array || function`
 
@@ -269,12 +267,11 @@ You can also provide a function if you need to adjust parameters for d3-shape cu
 />
 ```
 
-### maxDomain
+## maxDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryArea` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
-
 
 ```playground
 <VictoryChart maxDomain={{ x: 3 }}>
@@ -282,12 +279,11 @@ You can also provide a function if you need to adjust parameters for d3-shape cu
 </VictoryChart>
 ```
 
-### minDomain
+## minDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryArea` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
-
 
 ```playground
 <VictoryChart minDomain={{ x: 2 }}>
@@ -295,17 +291,17 @@ You can also provide a function if you need to adjust parameters for d3-shape cu
 </VictoryChart>
 ```
 
-### name
+## name
 
 `type: string`
 
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
-name="series-1"
+name = "series-1";
 ```
 
-### origin
+## origin
 
 `type: { x: number, y: number }`
 
@@ -313,19 +309,19 @@ name="series-1"
 
 [Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
-### padding
+## padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryArea` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
-*default (provided by default theme):* `padding={50}`
+_default (provided by default theme):_ `padding={50}`
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### polar
+## polar
 
 `type: boolean`
 
@@ -349,7 +345,7 @@ padding={{ top: 20, bottom: 60 }}
 </VictoryChart>
 ```
 
-### range
+## range
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -357,42 +353,42 @@ padding={{ top: 20, bottom: 60 }}
 
 [Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
-### samples
+## samples
 
 `type: number`
 
 `VictoryArea` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
-*default:* `samples={50}`
+_default:_ `samples={50}`
 
 ```jsx
 samples={100}
 ```
 
-### scale
+## scale
 
 `type: scale || { x: scale, y: scale }`
 
 `VictoryArea` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
-*default:* `scale="linear"`
+_default:_ `scale="linear"`
 
 ```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
-### sharedEvents
+## sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### singleQuadrantDomainPadding
+## singleQuadrantDomainPadding
 
 `type: boolean || { x: boolean, y: boolean }`
 
 `VictoryArea` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
-### sortKey
+## sortKey
 
 `type: string || integer || array[string] || function`
 
@@ -401,18 +397,18 @@ scale={{x: "linear", y: "log"}}
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-sortKey="x"
+sortKey = "x";
 ```
 
-### sortOrder
+## sortOrder
 
 `type: "ascending" || "descending"`
 
 The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
 
-*default:* `sortOrder="ascending"`
+_default:_ `sortOrder="ascending"`
 
-### standalone
+## standalone
 
 `type: boolean`
 
@@ -420,7 +416,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 **note:** When `VictoryArea` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
-*default:* `standalone={true}`
+_default:_ `standalone={true}`
 
 ```playground
 <svg width={300} height={300}>
@@ -433,13 +429,13 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 </svg>
 ```
 
-### style
+## style
 
 `type: { parent: object, data: object, labels: object }`
 
 `VictoryArea` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
   <VictoryArea
@@ -457,7 +453,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
   />
 ```
 
-### theme
+## theme
 
 `type: object`
 
@@ -465,25 +461,25 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 See the [Themes Guide][] for information about creating custom themes.
 
-*default:* `theme={VictoryTheme.grayscale}`
+_default:_ `theme={VictoryTheme.grayscale}`
 
 ```jsx
 theme={VictoryTheme.material}
 ```
 
-### width
+## width
 
 `type: number`
 
 `VictoryArea` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
-*default (provided by default theme):* `width={450}`
+_default (provided by default theme):_ `width={450}`
 
 ```jsx
 width={400}
 ```
 
-### x
+## x
 
 `type: string || integer || array[string] || function`
 
@@ -492,10 +488,10 @@ width={400}
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-x="employee.name"
+x = "employee.name";
 ```
 
-### y
+## y
 
 `type: string || integer || array[string] || function`
 
@@ -507,7 +503,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 y={(d) => d.value + d.error}
 ```
 
-### y0
+## y0
 
 `type: string || integer || array[string] || function`
 
@@ -524,12 +520,12 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 </VictoryChart>
 ```
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
-[`VictoryClipContainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
+[animations guide]: https://formidable.com/open-source/victory/guides/animations
+[data accessors guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[custom components guide]: https://formidable.com/open-source/victory/guides/custom-components
+[events guide]: https://formidable.com/open-source/victory/guides/events
+[themes guide]: https://formidable.com/open-source/victory/guides/themes
+[`victorychart`]: https://formidable.com/open-source/victory/docs/victory-chart
+[`victoryclipcontainer`]: https://formidable.com/open-source/victory/docs/victory-clip-container
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[Explore all the interpolation options]: https://formidable.com/open-source/victory/gallery/interpolation
+[explore all the interpolation options]: https://formidable.com/open-source/victory/gallery/interpolation

@@ -6,6 +6,7 @@ type: docs
 scope:
   - round
 ---
+
 # VictoryVoronoiContainer
 
 `VictoryVoronoiContainer` adds the ability to associate a mouse position with the data point(s)
@@ -35,50 +36,48 @@ However, the component that uses it must be standalone
 </VictoryChart>
 ```
 
-## Props
-
 `VictoryVoronoiContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
-### activateData
+## activateData
 
 `type: boolean`
 
 When the `activateData` prop is set to true, the `active` prop will be set to true on all data components within a voronoi area. When this prop is set to false, the `onActivated` and `onDeactivated` callbacks will still fire, but no mutations to data components will occur via Victory's event system.
 
-*default:* `activateData={true}`
+_default:_ `activateData={true}`
 
-### activateLabels
+## activateLabels
 
 `type: boolean`
 
 When the `activateLabels` prop is set to true, the `active` prop will be set to true on all labels corresponding to points within a voronoi area. When this prop is set to false, the `onActivated` and `onDeactivated` callbacks will still fire, but no mutations to label components will occur via Victory's event system. Labels defined directly on `VictoryVoronoiContainer` via the `labels` prop will still appear when this prop is set to false.
 
-*default:* `activateLabels={true}`
+_default:_ `activateLabels={true}`
 
-### disable
+## disable
 
 `type: boolean`
 
 When the `disable` prop is set to `true`, `VictoryVoronoiContainer` events will not fire.
 
-### labels
+## labels
 
 `type: function`
 
 When a `labels` prop is provided to `VictoryVoronoiContainer` it will render a label component
 rather than activating labels on the child components it renders. This is useful for creating multi-
-point tooltips. This prop should be given as a function which will be called once for each active point.  The `labels` function will be called with the the props that correspond to the active label.
+point tooltips. This prop should be given as a function which will be called once for each active point. The `labels` function will be called with the the props that correspond to the active label.
 
-*example:* `labels={({ datum }) => "y: " + datum.y}`
+_example:_ `labels={({ datum }) => "y: " + datum.y}`
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
 The `labelComponent` prop specified the component that will be rendered when `labels` are defined
 on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label component will be rendered.
 
-*default:* `labelComponent={<VictoryTooltip centerOffset={{ x: 5 }} />}`
+_default:_ `labelComponent={<VictoryTooltip centerOffset={{ x: 5 }} />}`
 
 ```playground
 <VictoryChart domain={{ y: [0, 6] }}
@@ -105,7 +104,7 @@ on `VictoryVoronoiContainer`. If the `labels` prop is omitted, no label componen
 </VictoryChart>
 ```
 
-### mouseFollowTooltips
+## mouseFollowTooltips
 
 `type: boolean`
 
@@ -135,41 +134,40 @@ When the `mouseFollowTooltip` prop is set on `VictoryVoronoiContainer`, The posi
 </VictoryChart>
 ```
 
-### onActivated
+## onActivated
 
 `type: function`
 
 The `onActivated` prop accepts a function to be called whenever new data points are activated.
 The function is called with the parameters `points` (an array of active data objects) and `props` (the props used by `VictoryVoronoiContainer`).
 
-*example:* `onActivated={(points, props) => filterList(points, props)}`
+_example:_ `onActivated={(points, props) => filterList(points, props)}`
 
-### onDeactivated
+## onDeactivated
 
 `type: function`
 
 The `onDeactivated` prop accepts a function to be called whenever points are deactivated.
 The function is called with the parameters `points` (an array of the newly-deactivated data objects) and `props` (the props used by `VictoryVoronoiContainer`).
 
-*example:* `onDeactivated={(points, props) => removeFromList(points, props)}`
+_example:_ `onDeactivated={(points, props) => removeFromList(points, props)}`
 
-### radius
+## radius
 
 `type: number`
 
 When the `radius` prop is set, the voronoi areas associated with each data point will be no larger
 than the given radius. This prop should be given as a number.
 
-*example:* `radius={25}`
+_example:_ `radius={25}`
 
-### voronoiBlacklist
+## voronoiBlacklist
 
 `type: array[string]`
 
 The `voronoiBlacklist` prop is used to specify a list of components to ignore when calculating a shared voronoi diagram. Components with a `name` prop matching an element in the `voronoiBlacklist` array will be ignored by `VictoryVoronoiContainer`. Ignored components will never be flagged as active, and will not contribute date to shared tooltips or labels.
 
-*example:* `voronoiBlacklist={["redPoints"]}`
-
+_example:_ `voronoiBlacklist={["redPoints"]}`
 
 ```playground
 <VictoryChart domain={{ y: [0, 6] }}
@@ -194,7 +192,7 @@ The `voronoiBlacklist` prop is used to specify a list of components to ignore wh
 </VictoryChart>
 ```
 
-### voronoiDimension
+## voronoiDimension
 
 `type: "x" || "y"`
 
@@ -203,7 +201,7 @@ For example, when `dimension` is set to "x", all data points matching a particul
 will be activated regardless of y value. When this prop is not given, voronoi selection is
 determined by both x any y values.
 
-*example:* `voronoiDimension="x"`
+_example:_ `voronoiDimension="x"`
 
 ```playground
 <VictoryChart domain={{ y: [0, 6] }}
@@ -228,7 +226,7 @@ determined by both x any y values.
 </VictoryChart>
 ```
 
-### voronoiPadding
+## voronoiPadding
 
 `type: number`
 
@@ -236,8 +234,8 @@ When the `voronoiPadding` prop is given, the area of the chart that will trigger
 reduced by the given padding on every side. By default, no padding is applied, and the entire range
 of a given chart may trigger voronoi events. This prop should be given as a number.
 
-*example:* `voronoiPadding={5}`
+_example:_ `voronoiPadding={5}`
 
-[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[victorycontainer]: https://formidable.com/open-source/victory/docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi
 [this example]: https://formidable.com/open-source/victory/gallery/voronoi-tooltips-grouped
