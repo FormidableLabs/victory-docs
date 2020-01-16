@@ -1,32 +1,39 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
-class ShowcaseApp extends React.Component {
-  render() {
-    return (
-      <div className="Grid Grid--guttersSm Grid--center Grid--full medium-Grid--fit u-textLarge">
-        <div className="Grid-cell Grid-cell--autoSize u-maxWidth">
-          <img
-            alt={this.props.screenshot.alt}
-            className="Showcase-img fancyBorder"
-            src={this.props.screenshot.src}
-          />
-        </div>
-        <div className="Grid-cell">
-          <h3 className="SubHeading u-textLeft u-noMargin">
-            {this.props.company}
-          </h3>
-          <p>{this.props.description}</p>
-        </div>
+const Img = styled.img`
+  max-width: 100%;
+  box-shadow: -1rem 1rem 0px 0px ${({ theme }) => theme.color.darkRed};
+  margin-bottom: 1rem;
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  grid-gap: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+`;
+
+const Company = styled.h3`
+  font-size: 2.5rem;
+`;
+
+const ShowcaseApp = props => {
+  return (
+    <Grid>
+      <div>
+        <Company>{props.company}</Company>
+        <p>{props.description}</p>
       </div>
-    );
-  }
-}
+      <Img alt={props.screenshot.alt} src={props.screenshot.src} />
+    </Grid>
+  );
+};
 
 ShowcaseApp.propTypes = {
   company: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  even: PropTypes.bool,
   screenshot: PropTypes.shape({
     src: PropTypes.string.isRequired,
     alt: PropTypes.string.isRequired
