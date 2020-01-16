@@ -12,10 +12,13 @@ import NotFound from "./pages/404";
 
 const HEADER_PIXEL_HEIGHT = theme.layout.headerHeight.split("rem")[0] * 10;
 const SCROLL_PIXEL_OFFSET = 25;
-const SIDEBAR_CONTAINER_ID = "sidebar-sections";
+const DEFAULT_PAGE_CONTENT_CLASS = ".Page-content";
 const ROUTES = ["docs", "faq", "guides"];
 
-const scrollContent = async (hash, contentPaneClass = ".Page-content") => {
+const scrollContent = async (
+  hash,
+  contentPaneClass = DEFAULT_PAGE_CONTENT_CLASS
+) => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
 
   if (!item) {
@@ -35,30 +38,13 @@ const scrollContent = async (hash, contentPaneClass = ".Page-content") => {
   });
 };
 
-const scrollSidebar = async (activeItemClass = ".is-active") => {
-  const item = document.querySelector(activeItemClass);
-  if (!item) {
-    return;
-  }
-
-  const itemClassName = activeItemClass.split(".")[1];
-  scroll.scrollTo(itemClassName, {
-    duration: 200,
-    delay: 0,
-    smooth: "easeOutQuad",
-    containerId: SIDEBAR_CONTAINER_ID
-  });
-};
-
 const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
 const ScrollToTop = ({ location, children }) => {
   useEffect(() => {
     if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
-      console.log("scroll to top location update: ", location);
       scrollContent(location.hash);
-      // scrollSidebar();
     }
   }, [location]);
 
