@@ -2,16 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 
+import {
+  SidebarSectionHeading,
+  SidebarSectionList,
+  SidebarSectionSublist
+} from "../styles";
+
 class Category extends React.Component {
   renderSubCategories(subCategories) {
     if (isEmpty(subCategories)) {
-      return;
+      return null;
     }
     const categories = subCategories.map((category, index) =>
       !isEmpty(category.content) ? (
         <div key={index}>
-          <p className="Sidebar-SubHeading SubHeading">{category.title}</p>
-          <ul className="Sidebar-List">{category.content}</ul>
+          <SidebarSectionHeading>{category.title}</SidebarSectionHeading>
+          <SidebarSectionSublist>{category.content}</SidebarSectionSublist>
         </div>
       ) : null
     );
@@ -28,11 +34,11 @@ class Category extends React.Component {
     }
 
     return (
-      <div className="Sidebar-Grid-block">
-        <p className="Sidebar-Heading">{title}</p>
-        <ul className="Sidebar-List">{content}</ul>
+      <>
+        <SidebarSectionHeading>{title}</SidebarSectionHeading>
+        <SidebarSectionList>{content}</SidebarSectionList>
         {subCategories}
-      </div>
+      </>
     );
   }
 }

@@ -6,47 +6,46 @@ sidebar: true
 scope: null
 type: docs
 ---
+
 # Common Container Props
 
-## Props
-
-### children
+## children
 
 `type: element || array[element]`
 
 The `children` prop specifies the child or children that will be rendered within the container. This prop should not be set manually. It will be set by whatever Victory component is rendering the container.
 
-### className
+## className
 
 `type: string`
 
 The `className` prop specifies a className that will be applied to the outer-most div rendered by `VictoryContainer` if this prop is not set, the className will default to "VictoryContainer"
 
-*example:* `className="myChart"`
+_example:_ `className="myChart"`
 
-### containerId
+## containerId
 
 `type: number || string`
 
 The `containerId` prop may be used to set a deterministic id for the container. When a `containerId` is not manually set, a unique id will be generated. It is usually necessary to set deterministic ids for automated testing.
 
-### containerRef
+## containerRef
 
 `type: function`
 
 The `containerRef` prop may be used to attach a ref to the outermost element rendered by the container. This prop should be given as a function.
 
-*example:* `containerRef={(ref) => { this.chartRef = ref; }}`
+_example:_ `containerRef={(ref) => { this.chartRef = ref; }}`
 
-### desc
+## desc
 
 `type: string`
 
 The `desc` prop specifies the description of the chart/SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers.
 
-*example:* `desc="Golden retrievers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
+_example:_ `desc="Golden retrievers make up 30%, Labs make up 25%, and other dog breeds are not represented above 5% each."`
 
-### events
+## events
 
 `type: object`
 
@@ -56,39 +55,39 @@ via this prop will be masked by `defaultEvents` on `VictorySelectionContainer` (
 `onMouseUp`, and `onMouseMove`), and by any events defined through Victory's event
 system that target parent elements.
 
-*example:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+_example:_ `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
-### height
+## height
 
 `type: number`
 
 The `height` prop determines the height of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="100%"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 
-*example:* `height={350}`
+_example:_ `height={350}`
 
-### portalComponent
+## portalComponent
 
 `type: element`
 
 The `portalComponent` prop takes a component instance which will be used as a container for children that should render inside a top-level container so that they will always appear above other elements. [VictoryTooltip][] renders inside a portal so that tooltips always render above data. [VictoryPortal][] is used to define elements that should render in the portal container. This prop defaults to [Portal][], and should only be overridden when changing rendered elements from SVG to another type of element _e.g.,_ [react-native-svg][] elements.
 
-*default:* `portalComponent={<Portal/>}`
+_default:_ `portalComponent={<Portal/>}`
 
-### portalZIndex
+## portalZIndex
 
 `type: number`
 
 The `portalZIndex` prop determines the z-index of the div enclosing the portal component. If a `portalZIndex` prop is not set, the z-index of the enclosing div will be set to 99.
 
-### responsive
+## responsive
 
 `type: boolean`
 
 The `responsive` prop specifies whether the rendered container should be a responsive container with a `viewBox` attribute, or a static container with absolute width and height.
 
-*default:* `responsive={true}`
+_default:_ `responsive={true}`
 
-### style
+## style
 
 `type: object`
 
@@ -96,11 +95,11 @@ The `style` prop defines the style of the container, and should be given as an o
 The `width` and `height` should be specified via props instead of style attributes as they determine
 relative layout for components.
 
-*example:* `style={{border: "1px solid #ccc"}}`
+_example:_ `style={{border: "1px solid #ccc"}}`
 
-*default (provided by default theme):* VictoryTheme.grayscale. See [VictoryTheme][] for more detail.
+_default (provided by default theme):_ VictoryTheme.grayscale. See [VictoryTheme][] for more detail.
 
-### theme
+## theme
 
 `type: object`
 
@@ -108,33 +107,33 @@ The `theme` prop specifies a theme to use for determining styles and layout prop
 component. Any styles or props defined in `theme` may be overridden by props specified on the
 component instance. By default, components use a [grayscale theme][]. [Read more about themes here][].
 
-*example:* `theme={VictoryTheme.material}`
+_example:_ `theme={VictoryTheme.material}`
 
-### title
+## title
 
 `type: string`
 
 The `title` prop specifies the title to be applied to the SVG to assist with accessibility for screen readers. The more descriptive this title is, the more useful it will be for people using screen readers
 
-*example:* `title="Popularity of Dog Breeds by Percentage"`
+_example:_ `title="Popularity of Dog Breeds by Percentage"`
 
-### width
+## width
 
 `type: number`
 
 The `width` prop determines the width of the containing `<svg>`. By default VictoryContainer renders responsive containers with the `viewBox` attribute set to `viewBox="0, 0, width, height"` and `width="100%"`, `height="auto"`. In responsive containers, the `width` and `height` props affect the _aspect ratio_ of the rendered component, while the absolute width and height are determined by the container. To render a static container, set `responsive={false}`
 
-*example:* `width={350}`
+_example:_ `width={350}`
 
 ## Native-Only Props
 
-### onTouchStart
+## onTouchStart
 
 `type: function`
 
 The optional `onTouchStart` prop takes a function that is called on every touch event on the chart (when using `victory-native`). The most common use of `onTouchStart` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event][]. Also see `onTouchEnd`.
 
-*example:*
+_example:_
 
 ```jsx
 <ScrollView scrollEnabled={this.state.scrollEnabled}>
@@ -146,23 +145,23 @@ The optional `onTouchStart` prop takes a function that is called on every touch 
       />
     }
   >
-   <VictoryBar/>
+    <VictoryBar />
   </VictoryChart>
 </ScrollView>
 ```
 
-### onTouchEnd
+## onTouchEnd
 
 `type: function`
 
 The optional `onTouchEnd` prop takes a function that is called at the conclusion of every touch event on the chart (when using `victory-native`). The most common use of `onTouchEnd` is to prevent the chart's parent `ScrollView` from scrolling, so that the chart and container can be interacted with unencumbered. The function accepts a single parameter, `event`, a React Native [Synthetic Event][]. Also see `onTouchStart`.
 
-[VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
-[Portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
+[victoryportal]: https://formidable.com/open-source/victory/docs/victory-portal
+[portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
 [react-native-svg]: https://github.com/react-native-community/react-native-svg
-[VictoryTheme]: https://formidable.com/open-source/victory/docs/victory-theme
-[VictoryTooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
+[victorytheme]: https://formidable.com/open-source/victory/docs/victory-theme
+[victorytooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[Read more about themes here]: https://formidable.com/open-source/victory/guides/themes
-[Synthetic Event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
-[React event handlers]: https://reactjs.org/docs/handling-events.html
+[read more about themes here]: https://formidable.com/open-source/victory/guides/themes
+[synthetic event]: https://facebook.github.io/react-native/docs/gesture-responder-system.html#responder-lifecycle
+[react event handlers]: https://reactjs.org/docs/handling-events.html

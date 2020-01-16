@@ -6,6 +6,7 @@ type: docs
 scope:
   - sampleData
 ---
+
 # VictoryBar
 
 VictoryBar renders a dataset as series of bars. VictoryBar can be composed with [`VictoryChart`][] to create bar charts.
@@ -22,9 +23,7 @@ VictoryBar renders a dataset as series of bars. VictoryBar can be composed with 
 </VictoryChart>
 ```
 
-## Props
-
-### alignment
+## alignment
 
 `type: "start" || "middle" || "end"`
 
@@ -42,7 +41,7 @@ The `alignment` prop specifies how bars should be aligned relative to their data
 </VictoryChart>
 ```
 
-### animate
+## animate
 
 `type: boolean || object`
 
@@ -57,7 +56,7 @@ animate={{
 }}
 ```
 
-### barRatio
+## barRatio
 
 `type: number`
 
@@ -78,13 +77,13 @@ The `barRatio` prop specifies an _approximate_ ratio between bar widths and spac
 </VictoryChart>
 ```
 
-### barWidth
+## barWidth
 
 `type: number || function`
 
 The `barWidth` prop is used to specify the width of each bar. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated for each bar with the props object corresponding to that bar. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of bars.
 
-*Note:* It is still possible to define bar width via the style prop with the `width` attribute, but `barWidth` will take precedence.
+_Note:_ It is still possible to define bar width via the style prop with the `width` attribute, but `barWidth` will take precedence.
 
 ```playground
 <VictoryChart
@@ -101,7 +100,7 @@ The `barWidth` prop is used to specify the width of each bar. This prop may be g
 </VictoryChart>
 ```
 
-### categories
+## categories
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
@@ -111,7 +110,7 @@ The `barWidth` prop is used to specify the width of each bar. This prop may be g
 categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
-### containerComponent
+## containerComponent
 
 `type: element`
 
@@ -121,7 +120,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 containerComponent={<VictoryVoronoiContainer/>}
 ```
 
-### cornerRadius
+## cornerRadius
 
 `type: function || number || { top, bottom, topLeft, topRight, bottomLeft, bottomRight }`
 
@@ -145,7 +144,7 @@ The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is
 </VictoryChart>
 ```
 
-### data
+## data
 
 `type: array[object]`
 
@@ -167,7 +166,7 @@ In addition to svg style properties and `label`, `VictoryBar` will also preferen
 />
 ```
 
-### dataComponent
+## dataComponent
 
 `type: element`
 
@@ -177,14 +176,13 @@ In addition to svg style properties and `label`, `VictoryBar` will also preferen
 
 See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
-*default:* `<Bar/>`
+_default:_ `<Bar/>`
 
 ```jsx
 dataComponent={<Bar events={{ onClick: handleClick }}/>}
 ```
 
-
-### domain
+## domain
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -194,7 +192,7 @@ dataComponent={<Bar events={{ onClick: handleClick }}/>}
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### domainPadding
+## domainPadding
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
@@ -204,17 +202,17 @@ domain={{x: [0, 100], y: [0, 1]}}
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
-### eventKey
+## eventKey
 
 `type: string || integer || array[string] || function`
 
 `VictoryBar` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
 
 ```jsx
-eventKey="x"
+eventKey = "x";
 ```
 
-### events
+## events
 
 `type: array[object]`
 
@@ -250,43 +248,43 @@ See the [Events Guide][] for more information on defining events.
 </div>
 ```
 
-### externalEventMutations
+## externalEventMutations
 
 `type: array[object]`
 
 `VictoryBar` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#externalEventsMutations)
 
-### groupComponent
+## groupComponent
 
 `type: element`
 
 `VictoryBar` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
 
-*default:* `<g/>`
+_default:_ `<g/>`
 
 ```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
-### height
+## height
 
 `type: number`
 
 `VictoryBar` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
 
-*default (provided by default theme):* `height={300}`
+_default (provided by default theme):_ `height={300}`
 
 ```jsx
 height={400}
 ```
 
-### horizontal
+## horizontal
 
 `type: boolean`
 
 The horizontal prop determines whether the bars will be laid vertically or horizontally. The bars will be vertical if this prop is false or unspecified, or horizontal if the prop is set to true.
 
-*default:* horizontal={false}
+_default:_ horizontal={false}
 
 ```playground
 <VictoryChart
@@ -302,13 +300,13 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 </VictoryChart>
 ```
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
 `VictoryBar` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
 
-*default:* `<VictoryLabel/>`
+_default:_ `<VictoryLabel/>`
 
 ```playground
 <VictoryBar
@@ -319,7 +317,7 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 />
 ```
 
-### labels
+## labels
 
 `type: array || function`
 
@@ -332,12 +330,11 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 />
 ```
 
-### maxDomain
+## maxDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryBar` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
-
 
 ```playground
 <VictoryChart maxDomain={{ x: 3 }}>
@@ -345,12 +342,11 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 </VictoryChart>
 ```
 
-### minDomain
+## minDomain
 
 `type: number || { x: number, y: number }`
 
 `VictoryBar` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
-
 
 ```playground
 <VictoryChart minDomain={{ x: 2 }}>
@@ -358,17 +354,17 @@ The horizontal prop determines whether the bars will be laid vertically or horiz
 </VictoryChart>
 ```
 
-### name
+## name
 
 `type: string`
 
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
-name="series-1"
+name = "series-1";
 ```
 
-### origin
+## origin
 
 `type: { x: number, y: number }`
 
@@ -376,19 +372,19 @@ name="series-1"
 
 [Read about the `origin` prop in detail](https://formidable.com/open-source/victory/docs/common-props#origin)
 
-### padding
+## padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
 `VictoryBar` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
 
-*default (provided by default theme):* `padding={50}`
+_default (provided by default theme):_ `padding={50}`
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### polar
+## polar
 
 `type: boolean`
 
@@ -412,7 +408,7 @@ padding={{ top: 20, bottom: 60 }}
 </VictoryChart>
 ```
 
-### range
+## range
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
@@ -420,63 +416,62 @@ padding={{ top: 20, bottom: 60 }}
 
 [Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props#range)
 
-### samples
+## samples
 
 `type: number`
 
 `VictoryBar` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
 
-*default:* `samples={50}`
+_default:_ `samples={50}`
 
 ```jsx
 samples={100}
 ```
 
-### scale
+## scale
 
 `type: scale || { x: scale, y: scale }`
 
 `VictoryBar` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
 Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
-*default:* `scale="linear"`
+_default:_ `scale="linear"`
 
 ```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
-### sharedEvents
+## sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### singleQuadrantDomainPadding
+## singleQuadrantDomainPadding
 
 `type: boolean || { x: boolean, y: boolean }`
 
 `VictoryBar` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
 
-### sortKey
+## sortKey
 
 `type: string || integer || array[string] || function`
-
 
 `VictoryBar` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-sortKey="x"
+sortKey = "x";
 ```
 
-### sortOrder
+## sortOrder
 
 `type: "ascending" || "descending"`
 
 The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
 
-*default:* `sortOrder="ascending"`
+_default:_ `sortOrder="ascending"`
 
-### standalone
+## standalone
 
 `type: boolean`
 
@@ -484,7 +479,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 **note:** When `VictoryBar` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
-*default:* `standalone={true}`
+_default:_ `standalone={true}`
 
 ```playground
 <svg width={300} height={300}>
@@ -497,13 +492,13 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 </svg>
 ```
 
-### style
+## style
 
 `type: { parent: object, data: object, labels: object }`
 
 `VictoryBar` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
   <VictoryBar
@@ -524,7 +519,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
   />
 ```
 
-### theme
+## theme
 
 `type: object`
 
@@ -532,38 +527,37 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 
 See the [Themes Guide][] for information about creating custom themes.
 
-*default:* `theme={VictoryTheme.grayscale}`
+_default:_ `theme={VictoryTheme.grayscale}`
 
 ```jsx
 theme={VictoryTheme.material}
 ```
 
-### width
+## width
 
 `type: number`
 
 `VictoryBar` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
 
-*default (provided by default theme):* `width={450}`
+_default (provided by default theme):_ `width={450}`
 
 ```jsx
 width={400}
 ```
 
-### x
+## x
 
 `type: string || integer || array[string] || function`
-
 
 `VictoryBar` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-x="employee.name"
+x = "employee.name";
 ```
 
-### y
+## y
 
 `type: string || integer || array[string] || function`
 
@@ -575,7 +569,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 y={(d) => d.value + d.error}
 ```
 
-### y0
+## y0
 
 `type: string || integer || array[string] || function`
 
@@ -592,10 +586,10 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 </VictoryChart>
 ```
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
+[animations guide]: https://formidable.com/open-source/victory/guides/animations
+[data accessors guide]: https://formidable.com/open-source/victory/guides/data-accessors
+[custom components guide]: https://formidable.com/open-source/victory/guides/custom-components
+[events guide]: https://formidable.com/open-source/victory/guides/events
+[themes guide]: https://formidable.com/open-source/victory/guides/themes
+[`victorychart`]: https://formidable.com/open-source/victory/docs/victory-chart
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js

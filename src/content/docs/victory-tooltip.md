@@ -6,33 +6,32 @@ type: docs
 scope:
   - sampleData
 ---
+
 # VictoryTooltip
 
 `VictoryTooltip` renders a tooltip component with a set of default events. When `VictoryTooltip` is used as a label component for any Victory component that renders data, it will attach events to rendered data components that will activate the tooltip when hovered. `VictoryTooltip` renders text as well as a configurable [Flyout][] container.
 
-## Props
-
-### active
+## active
 
 `type: boolean`
 
 The `active` prop specifies whether the tooltip component should be displayed.
 
-### activateData
+## activateData
 
 `type: boolean`
 
 When true, tooltip events will set the `active` prop on both data and label elements.
 
-*default:* `activateData={false}`
+_default:_ `activateData={false}`
 
-### angle
+## angle
 
 `type: number`
 
 The `angle` prop specifies the angle to rotate the tooltip around its origin point.
 
-### center
+## center
 
 `type: { x: number, y: number }`
 
@@ -56,7 +55,7 @@ The `center` prop determines the position of the center of the tooltip flyout. T
 />
 ```
 
-### centerOffset
+## centerOffset
 
 `type: { x: number || function, y: number || function }`
 
@@ -70,7 +69,7 @@ The `centerOffset` prop determines the position of the center of the tooltip fly
 />
 ```
 
-### constrainToVisibleArea
+## constrainToVisibleArea
 
 `type: boolean`
 
@@ -84,7 +83,7 @@ The `constrainToVisibleArea` prop determines whether to coerce tooltips so that 
 />
 ```
 
-### cornerRadius
+## cornerRadius
 
 `type: number || function`
 
@@ -98,40 +97,40 @@ The `cornerRadius` prop determines corner radius of the flyout container. This p
 />
 ```
 
-### data
+## data
 
 `type: array[object]`
 
 Victory components can pass a `data` prop to their label component. This can be useful in custom components that need to make use of the entire dataset.
 
-### datum
+## datum
 
 `type: object`
 
 Victory components can pass a `datum` prop to their label component. This can
 be used to calculate functional styles, and determine text.
 
-### dx
+## dx
 
 `type: number || function`
 
 The `dx` prop defines a horizontal shift from the `x` coordinate.
 
-### dy
+## dy
 
 `type: number || function`
 
 The `dy` prop defines a vertical shift from the `y` coordinate.
 
-### events
+## events
 
 `type: object`
 
 The `events` prop attaches arbitrary event handlers to the label component. This prop should be given as an object of event names and corresponding event handlers. When events are provided via Victory's event system, event handlers will be called with the event, the props of the component is attached to, and an eventKey.
 
-*examples:* `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
+_examples:_ `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
-### flyoutHeight
+## flyoutHeight
 
 `type: number || function`
 
@@ -145,8 +144,7 @@ The `flyoutHeight` prop defines the height of the tooltip flyout. This prop may 
 />
 ```
 
-
-### flyoutStyle
+## flyoutStyle
 
 `type: object`
 
@@ -164,7 +162,7 @@ The `style` prop applies SVG style properties to the rendered flyout container. 
 />
 ```
 
-### flyoutWidth
+## flyoutWidth
 
 `type: number || function`
 
@@ -178,61 +176,59 @@ The `flyoutWidth` prop defines the width of the tooltip flyout. This prop may be
 />
 ```
 
-### flyoutComponent
+## flyoutComponent
 
 `type: element`
 
 The `flyoutComponent` prop takes a component instance which will be used to create the flyout path for each tooltip. The new element created from the passed `flyoutComponent` will be supplied with the following properties: x, y, dx, dy, index, datum, cornerRadius, pointerLength, pointerWidth, width, height, orientation, style, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `flyoutComponent` is omitted, a default [Flyout][] component will be created with props described above.
 
-*examples:* `flyoutComponent={<Flyout x={50} y={50}/>}`, `flyoutComponent={<MyCustomFlyout/>}`
+_examples:_ `flyoutComponent={<Flyout x={50} y={50}/>}`, `flyoutComponent={<MyCustomFlyout/>}`
 
+_default:_ `<Flyout/>`
 
-*default:* `<Flyout/>`
-
-### groupComponent
+## groupComponent
 
 `type: element`
 
 The `groupComponent` prop takes a component instance which will be used to create group elements for use within container elements. This prop defaults to a `<g>` tag.
 
-*default:* `groupComponent={<g/>}`
+_default:_ `groupComponent={<g/>}`
 
-
-### height
+## height
 
 `type: number`
 
 This prop refers to the height of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually. In versions before `^33.0.0` this prop referred to the height of the tooltip flyout. Please use `flyoutHeight` instead**
 
-### horizontal
+## horizontal
 
 `type: boolean`
 
 The `horizontal` prop determines whether to plot the flyouts to the left / right of the (x, y) coordinate rather than top / bottom. This is useful when an orientation prop is not provided, and data will determine the default orientation. _i.e._ negative values result in a left orientation and positive values will result in a right orientation by default.
 
-### index
+## index
 
 `type: number || string`
 
 The `index` prop represents the index of the datum in the data array.
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
 The `labelComponent` prop takes a component instance which will be used to render each tooltip label. The new element created from the passed `labelComponent` will be supplied with the following properties: x, y, index, datum, verticalAnchor, textAnchor, style, text, and events. Any of these props may be overridden by passing in props to the supplied component, or modified or ignored within the custom component itself. If `labelComponent` is omitted, a new [VictoryLabel][] will be created with the props described above.
 
-*examples:* `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
+_examples:_ `labelComponent={<VictoryLabel dy={20}/>}`, `labelComponent={<MyCustomLabel/>}`
 
-*default:* `<VictoryLabel/>`
+_default:_ `<VictoryLabel/>`
 
-### orientation
+## orientation
 
 `type: function || "top" || "bottom" || "left" || "right"`
 
 The `orientation` prop determines which side of the (x, y) coordinate the tooltip should be rendered on. This prop can be given as "top", "bottom", "left", "right", or as a function of datum that returns one of these values. If this prop is not provided it will be determined from the sign of the `datum`, and the value of the `horizontal` prop.
 
-### pointerLength
+## pointerLength
 
 `type: number || function`
 
@@ -246,7 +242,7 @@ The `pointerLength` prop determines the length of the triangular pointer extendi
 />
 ```
 
-### pointerOrientation
+## pointerOrientation
 
 `type: "top", "bottom", "left", "right" || function`
 
@@ -273,7 +269,7 @@ This prop determines which side of the tooltip flyout the pointer should origina
 />
 ```
 
-### pointerWidth
+## pointerWidth
 
 `type: number || function`
 
@@ -287,13 +283,13 @@ The `pointerWidth` prop determines the width of the base of the triangular point
 />
 ```
 
-### renderInPortal
+## renderInPortal
 
 `type: boolean`
 
 When `renderInPortal` is true, rendered tooltips will be wrapped in [VictoryPortal][] and rendered within the [Portal][] element within [VictoryContainer][]. _Note:_ This prop should _not_ be set to true when using a custom container element.
 
-### style
+## style
 
 `type: object`
 
@@ -311,34 +307,33 @@ The `style` prop applies SVG style properties to the rendered `<text>` element.
 />
 ```
 
-### text
+## text
 
 `type: string || number || function || array[string || number]`
 
 The `text` prop defines the text `VictoryTooltip` will render. The `text` prop may be given as a string, number, or function of `datum`. When [VictoryLabel][] is used as the `labelComponent`, strings may include newline characters, which VictoryLabel will split in to separate `<tspan/>` elements.
 
-
-### width
+## width
 
 `type: number`
 
 This prop refers to the width of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually. In versions before `^33.0.0` this prop referred to the width of the tooltip flyout. Please use `flyoutWidth` instead**
 
-### x
+## x
 
 `type: number`
 
 The `x` prop defines the x coordinate to use as a basis for positioning the tooltip element.
 
-### y
+## y
 
 `type: number`
 
 The `y` prop defines the y coordinate to use as a basis for positioning the tooltip element.
 
-[Flyout]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
-[VictoryLabel]: https://formidable.com/open-source/victory/docs/victory-label
-[VictoryPortal]: https://formidable.com/open-source/victory/docs/victory-portal
-[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
-[Portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
+[flyout]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
+[victorylabel]: https://formidable.com/open-source/victory/docs/victory-label
+[victoryportal]: https://formidable.com/open-source/victory/docs/victory-portal
+[victorycontainer]: https://formidable.com/open-source/victory/docs/victory-container
+[portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
 [approximate text size]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-util/textsize.js
