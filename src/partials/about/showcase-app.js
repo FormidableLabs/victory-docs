@@ -4,19 +4,22 @@ import PropTypes from "prop-types";
 
 const Img = styled.img`
   max-width: 100%;
-  box-shadow: -1rem 1rem 0px 0px ${({ theme }) => theme.color.darkRed};
-  margin-bottom: 1rem;
+  box-shadow: -1.2rem 1.2rem 0px 0px #bc5240;
+  margin: 0 0 1.2rem 1.2rem;
+  padding-right: 1.2rem;
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
   grid-gap: ${({ theme }) => theme.spacing.lg};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 6rem;
 `;
 
 const Company = styled.h3`
-  font-size: 2.5rem;
+  font-size: 2.4rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 `;
 
 const ShowcaseApp = props => {
@@ -24,7 +27,7 @@ const ShowcaseApp = props => {
     <Grid>
       <div>
         <Company>{props.company}</Company>
-        <p>{props.description}</p>
+        {props.description}
       </div>
       <Img alt={props.screenshot.alt} src={props.screenshot.src} />
     </Grid>

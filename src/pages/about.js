@@ -6,24 +6,39 @@ import Showcase from "../partials/about/showcase";
 import { withRouteData } from "react-static";
 
 const Divider = styled.hr`
+  height: 1px;
   border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.color.red};
-  margin-top: 2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.color.paleRed};
+  margin: 2.8rem 0 3rem 0;
 `;
 
 const Section = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: 4.6rem;
+`;
+
+const PageHeader = styled.h1`
+  font-family: ${({ theme }) => theme.font.bold};
+  font-size: 4.6rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
 `;
 
 const Subheader = styled.h2`
   font-size: 3rem;
+  font-family: ${({ theme }) => theme.font.bold};
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+`;
+
+const GitHubIconContainer = styled.div`
+  margin-bottom: 2.3rem;
 `;
 
 const About = ({ location }) => {
   return (
     <Page location={location}>
-      <h1>Victory: Charting for React and React Native</h1>
-      <p>
+      <PageHeader>Victory: Charting for React and React Native</PageHeader>
+      <GitHubIconContainer>
         {/*
          * TODO: Customize these buttons
          * https://github.com/FormidableLabs/formidable-landers/issues/175
@@ -55,7 +70,7 @@ const About = ({ location }) => {
         >
           &nbsp;
         </iframe>
-      </p>
+      </GitHubIconContainer>
       <p>
         Victory is a set of modular charting components for React and React
         Native. Victory makes it easy to get started without sacrificing
@@ -85,14 +100,17 @@ const About = ({ location }) => {
 
       <Showcase />
 
-      <h1>About Formidable</h1>
-      <p>
-        Formidable is a Seattle-based consultancy and development shop, focused
-        on open-source, full-stack JavaScript using React.js and Node.js, and
-        the architecture of large-scale JavaScript applications. We build
-        products for some of the world’s biggest companies, while helping their
-        internal teams develop smart, thoughtful, and scalable systems.
-      </p>
+      <Section>
+        <Subheader>About Formidable</Subheader>
+        <p>
+          Formidable is a Seattle-based consultancy and development shop,
+          focused on open-source, full-stack JavaScript using React.js and
+          Node.js, and the architecture of large-scale JavaScript applications.
+          We build products for some of the world’s biggest companies, while
+          helping their internal teams develop smart, thoughtful, and scalable
+          systems.
+        </p>
+      </Section>
     </Page>
   );
 };
