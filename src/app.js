@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Root, Routes } from "react-static";
 import { Route } from "react-router";
@@ -43,11 +43,12 @@ const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
 const ScrollToCurrentSection = ({ location, children }) => {
-  useEffect(() => {
-    if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
-      scrollContent(location.hash);
+  const { pathname, hash = "" } = location;
+  useLayoutEffect(() => {
+    if (checkScrollRoutes(pathname)) {
+      scrollContent(hash);
     }
-  }, [location]);
+  }, [hash, pathname]);
 
   return children;
 };
