@@ -20,7 +20,7 @@
     "history": "^4.7.2",
     "htmr": "0.6.3",
     "jdown": "^0.3.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "lodash.assign": "^4.2.0",
     "marked": "^0.6.1",
     "marked-ast": "^0.3.0",

@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Root, Routes } from "react-static";
 import { Route } from "react-router";
 import { ThemeProvider } from "styled-components";
 import { animateScroll as scroll } from "react-scroll";
+import { isEmpty } from "lodash/isEmpty";
 
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
@@ -41,7 +42,7 @@ const scrollContent = async (
 const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
-const ScrollToTop = ({ location, children }) => {
+const ScrollToCurrentSection = ({ location, children }) => {
   useEffect(() => {
     if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
       scrollContent(location.hash);
@@ -51,7 +52,7 @@ const ScrollToTop = ({ location, children }) => {
   return children;
 };
 
-ScrollToTop.propTypes = {
+ScrollToCurrentSection.propTypes = {
   children: PropTypes.array,
   location: PropTypes.object
 };
@@ -79,9 +80,9 @@ const App = () => {
                         props
                       );
                       return (
-                        <ScrollToTop {...props}>
+                        <ScrollToCurrentSection {...props}>
                           {CompWithRouteProps}
-                        </ScrollToTop>
+                        </ScrollToCurrentSection>
                       );
                     }}
                   </Route>
