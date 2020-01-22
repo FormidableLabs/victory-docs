@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.white};
     color: ${({ theme }) => theme.color.nearBlack};
     font-family: ${({ theme }) => theme.font.primary};
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.9;
     overflow: hidden;
     position: relative;
