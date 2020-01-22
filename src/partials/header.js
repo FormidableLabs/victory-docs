@@ -51,11 +51,14 @@ const BurgerIcon = styled(SVG)`
 
 const VictoryLogoLink = styled(Link)`
   color: ${({ theme }) => theme.color.nearBlack};
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   font-weight: bold;
   letter-spacing: 0.4rem;
-  margin-right: ${({ theme }) => theme.spacing.sm};
+  margin-right: 3rem;
   text-transform: uppercase;
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    font-size: 2.8rem;
+  }
 `;
 
 const NavLinksList = styled.ul`
@@ -69,10 +72,10 @@ const NavLinksList = styled.ul`
 
 const navItemStyle = css`
   color: ${({ active, theme }) =>
-    active ? theme.color.red : theme.color.gray};
-  font-weight: bold;
+    active ? theme.color.red : theme.color.darkBrown};
+  font-size: 1.4rem;
   letter-spacing: 0.1rem;
-  margin-right: ${({ theme }) => theme.spacing.sm};
+  margin-right: 2rem;
   text-transform: uppercase;
 `;
 
