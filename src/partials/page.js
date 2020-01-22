@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import _Header from "./header";
@@ -98,6 +98,25 @@ const Content = styled.div`
 const Page = props => {
   const { children, sidebarContent, withSidebar, location } = props;
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const ref = useRef();
+
+  const handleOutsideClick = e => {
+    if (
+      ref.current &&
+      !ref.current.contains(e.target) &&
+      sidebarOpen === true
+    ) {
+      setSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  });
 
   return (
     <PageContainer spaceForSidebar={withSidebar}>
@@ -107,7 +126,7 @@ const Page = props => {
         onMenuClick={() => setSidebarOpen(true)}
       />
 
-      <SidebarContainer>
+      <SidebarContainer ref={ref}>
         <RedStripe />
         <PaleRedStripe />
         <Sidebar

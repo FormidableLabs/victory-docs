@@ -43,7 +43,7 @@ const theme = {
   },
 
   layout: {
-    maxWidth: "110rem",
+    maxWidth: "121rem",
     footerMaxWidth: "90rem",
 
     headerHeight: "6.4rem",
