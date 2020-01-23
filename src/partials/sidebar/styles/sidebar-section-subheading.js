@@ -5,7 +5,7 @@ const SidebarSectionList = styled.ul`
   font-size: 1.4rem;
   letter-spacing: 0.53px;
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  color: #bc5240;
+  color: ${({ theme }) => theme.color.brown};
   margin-top: 0;
 `;
 
