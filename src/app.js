@@ -4,6 +4,8 @@ import { Root, Routes } from "react-static";
 import { Route } from "react-router";
 import { ThemeProvider } from "styled-components";
 import { animateScroll as scroll } from "react-scroll";
+import { ResizeObserver as _ResizeObserver } from "@juggle/resize-observer";
+import get from "lodash/get";
 
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
@@ -32,7 +34,7 @@ const scrollContent = async (
     SCROLL_PIXEL_OFFSET;
 
   scroll.scrollTo(truePosition, {
-    duration: 500,
+    duration: 200,
     delay: 0,
     smooth: "easeOutQuad"
   });
@@ -44,24 +46,27 @@ const checkScrollRoutes = (pathname, routes = ROUTES) =>
 const ScrollToCurrentSection = ({ location, children }) => {
   const { pathname, hash = "" } = location;
 
-  const [pageContentHeight, setPageContentHeight] = useState();
+  const [pageContentHeight, setPageContentHeight] = useState(null);
 
-  const pageContentHeightObserver = new ResizeObserver(element => {
-    const { height = 0 } = element[0].contentRect;
-    return setPageContentHeight(height);
+  const pageContentHeightObserver = new _ResizeObserver((element, observer) => {
+    const elementHeight = get(element, ["0", "contentRect", "height"], 0);
+    setPageContentHeight(elementHeight);
+    observer.disconnect();
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-    const mainElement = document.querySelector(DEFAULT_PAGE_CONTENT_CLASS);
-    pageContentHeightObserver.observe(mainElement);
+    if (typeof window !== "undefined" && pageContentHeight === null) {
+      const mainElement = document.querySelector(DEFAULT_PAGE_CONTENT_CLASS);
+      if (mainElement) {
+        pageContentHeightObserver.observe(mainElement);
+      }
+    }
   }, [pathname]);
 
   useLayoutEffect(() => {
     if (checkScrollRoutes(pathname)) {
       scrollContent(hash);
     }
-    pageContentHeightObserver.disconnect();
   }, [hash, pathname, pageContentHeight]);
 
   return children;
