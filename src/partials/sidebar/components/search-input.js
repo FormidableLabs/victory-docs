@@ -12,11 +12,11 @@ const StyledInput = styled.input`
   font-size: 1.6rem;
   line-height: 2.3rem;
   letter-spacing: -0.6px;
-  padding: 0.4rem 0.9rem 0.6rem;
+  padding: 0.6rem 1rem;
   color: ${({ theme }) => theme.color.black};
   background-color: rgba(255, 255, 255, 0.8);
   border: none;
-  font-family: ${({ theme }) => theme.font.secondary};
+  font-family: ${({ theme }) => theme.font.primary};
 `;
 
 const SidebarSearchInput = ({ content, onHandleInputChange, searchText }) => {

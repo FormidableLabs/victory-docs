@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
   *:before,
   *:after {
     box-sizing: inherit;
+    -webkit-font-smoothing: antialiased;
   }
 
   body {

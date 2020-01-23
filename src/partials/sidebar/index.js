@@ -77,7 +77,7 @@ const SidebarListItem = styled.li`
   width: 100%;
 `;
 const SidebarListItemLink = styled(NavLink)`
-  color: #bc5240;
+  color: ${({ theme }) => theme.color.brown};
   font-family: ${({ theme }) => theme.font.bold};
   font-size: 1.4rem;
   letter-spacing: 0.53px;
