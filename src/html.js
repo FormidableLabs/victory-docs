@@ -8,6 +8,7 @@ export default ({ Html, Head, Body, children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../static/logos/favicon.ico" />
       {/* Fonts */}
+      {/* // TODO update fonts */}
       <link
         href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i"
         rel="stylesheet"

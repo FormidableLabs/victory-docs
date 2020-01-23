@@ -32,7 +32,7 @@ const Header = styled(_Header)`
   position: fixed;
   top: 0;
   width: ${({ theme }) => `calc(100% - ${theme.layout.stripesWidth})`};
-  z-index: 1;
+  z-index: 4;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     left: ${({ spaceForSidebar, theme }) =>
@@ -119,7 +119,7 @@ const Page = props => {
   });
 
   return (
-    <PageContainer spaceForSidebar={withSidebar}>
+    <PageContainer spaceForSidebar={withSidebar} className="Page-content">
       <Header
         location={location}
         spaceForSidebar={withSidebar}

@@ -1,56 +1,78 @@
-import React, { Component } from "react";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Root, Routes } from "react-static";
 import { Route } from "react-router";
 import { ThemeProvider } from "styled-components";
+import { animateScroll as scroll } from "react-scroll";
+import { ResizeObserver as _ResizeObserver } from "@juggle/resize-observer";
+import get from "lodash/get";
+
 import GlobalStyle from "./styles/global";
 import theme from "./styles/theme";
 import Analytics from "./google-analytics";
 import NotFound from "./pages/404";
 
-const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
+const HEADER_PIXEL_HEIGHT = theme.layout.headerHeight.split("rem")[0] * 10;
+const SCROLL_PIXEL_OFFSET = 25;
+const DEFAULT_PAGE_CONTENT_CLASS = ".Page-content";
+const ROUTES = ["docs", "faq", "guides"];
+
+const scrollContent = async (
+  hash,
+  contentPaneClass = DEFAULT_PAGE_CONTENT_CLASS
+) => {
   const item = document.querySelector(`${contentPaneClass} ${hash}`);
-  if (item) {
-    item.scrollIntoView();
+
+  if (!item) {
+    return;
   }
+
+  const rect = item.getBoundingClientRect();
+  const truePosition =
+    (rect.top + window.pageYOffset || document.documentElement.scrollTop) -
+    HEADER_PIXEL_HEIGHT -
+    SCROLL_PIXEL_OFFSET;
+
+  scroll.scrollTo(truePosition, {
+    duration: 200,
+    delay: 0,
+    smooth: "easeOutQuad"
+  });
 };
 
-const scrollSidebar = async (location, activeItemClass = ".is-active") => {
-  const item = document.querySelector(activeItemClass);
-  if (item) {
-    item.scrollIntoView();
-  }
-};
-
-const checkScrollRoutes = (pathname, routes = ["docs", "faq", "guides"]) =>
+const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
-class ScrollToTop extends Component {
-  componentDidMount() {
-    if (
-      typeof window !== "undefined" &&
-      checkScrollRoutes(this.props.location.pathname)
-    ) {
-      scrollContent(this.props.location);
-      scrollSidebar(this.props.location);
+const ScrollToCurrentSection = ({ location, children }) => {
+  const { pathname, hash = "" } = location;
+
+  const [pageContentHeight, setPageContentHeight] = useState(null);
+
+  const pageContentHeightObserver = new _ResizeObserver((element, observer) => {
+    const elementHeight = get(element, ["0", "contentRect", "height"], 0);
+    setPageContentHeight(elementHeight);
+    observer.disconnect();
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && pageContentHeight === null) {
+      const mainElement = document.querySelector(DEFAULT_PAGE_CONTENT_CLASS);
+      if (mainElement) {
+        pageContentHeightObserver.observe(mainElement);
+      }
     }
-  }
+  }, [pathname]);
 
-  componentDidUpdate() {
-    const { location } = this.props;
-    if (typeof window !== "undefined" && checkScrollRoutes(location.pathname)) {
-      scrollContent(location);
-      scrollSidebar(location);
+  useLayoutEffect(() => {
+    if (checkScrollRoutes(pathname)) {
+      scrollContent(hash);
     }
-  }
+  }, [hash, pathname, pageContentHeight]);
 
-  render() {
-    const { children } = this.props;
-    return children;
-  }
-}
+  return children;
+};
 
-ScrollToTop.propTypes = {
+ScrollToCurrentSection.propTypes = {
   children: PropTypes.array,
   location: PropTypes.object
 };
@@ -78,9 +100,9 @@ const App = () => {
                         props
                       );
                       return (
-                        <ScrollToTop {...props}>
+                        <ScrollToCurrentSection {...props}>
                           {CompWithRouteProps}
-                        </ScrollToTop>
+                        </ScrollToCurrentSection>
                       );
                     }}
                   </Route>
