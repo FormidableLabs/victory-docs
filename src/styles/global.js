@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.color.nearBlack};
     font-family: ${({ theme }) => theme.font.primary};
     font-size: 1.4rem;
-    line-height: 1.9;
+    line-height: 1.7;
     overflow: hidden;
     position: relative;
   }
@@ -102,9 +102,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 2.75rem;
+    font-size: 3rem;
     font-weight: bold;
     line-height: 1.2;
+  }
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    h1 {
+      font-size: 4.6rem;
+    }
   }
 
   h2,

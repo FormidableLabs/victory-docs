@@ -18,7 +18,6 @@ const Section = styled.div`
 
 const PageHeader = styled.h1`
   font-family: ${({ theme }) => theme.font.bold};
-  font-size: 4.6rem;
   margin-top: 0;
   margin-bottom: 2rem;
 `;

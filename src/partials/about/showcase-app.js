@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Img = styled.img`
   max-width: 100%;
-  box-shadow: -1.2rem 1.2rem 0px 0px #bc5240;
+  box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.brown};
   margin: 0 0 1.2rem 1.2rem;
   padding-right: 1.2rem;
 `;
