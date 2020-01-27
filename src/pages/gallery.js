@@ -30,7 +30,7 @@ const GalleryWrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 1.8rem;
   font-family: ${({ theme }) => theme.font.bold};
   color: ${({ theme }) => theme.color.darkBrown};
