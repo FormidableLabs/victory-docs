@@ -14,18 +14,21 @@ const theme = {
     black: "#1f1f1f",
 
     codeMirror: {
-      bgDim: "#ebe7e4",
+      bgDim: "#f5f2f0",
       bg: "#fffefc",
       bgFocused: "#fffefc",
       bgSelected: "#b3d4fc",
-      comment: "#586e75",
+      def: "#333333",
+      comment: "#708090",
       function: "#cc2345",
-      keyword: "#0671bd",
+      keyword: "#07a",
       number: "#905",
-      operator: "#8a633e",
-      punctuation: "#666",
+      operator: "#9a6e3a",
+      attribute: "#690",
+      punctuation: "#999",
       selector: "#007a71",
-      variable: "#e90"
+      variable: "#e90",
+      tag: "#905"
     }
   },
 

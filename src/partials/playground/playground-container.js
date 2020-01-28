@@ -20,9 +20,11 @@ const PlaygroundContainer = styled.div`
   width: 100%;
 
   ${({ theme }) => `
-    .playgroundStage {
-      height: ${STAGE_HEIGHT};
-    }
+    @media ${theme.mediaQuery.md} {	
+      .playgroundStage {
+        height: ${STAGE_HEIGHT};
+      }
+  }
 
     .playground {
       position: relative;
@@ -31,18 +33,19 @@ const PlaygroundContainer = styled.div`
       flex-direction: column;
       flex-wrap: none;
       padding: 0;
-    }
-    @media ${theme.mediaQuery.sm} {
-      .playground {
-        flex-direction: row;
+      @media ${theme.mediaQuery.md} {	
+          flex-direction: row;	
       }
     }
 
     .playgroundCode {
-      flex: auto;
+      flex: 1 1 auto;
       order: 2;
-      margin: 0 0 ${theme.spacing.sm} 0;
+      margin: 4rem 0 ${theme.spacing.sm} 0;
       position: relative;
+      @media ${theme.mediaQuery.md} {	
+        margin-top: 4.3rem;
+    }
     }
 
     .playgroundCode:before,
@@ -51,7 +54,6 @@ const PlaygroundContainer = styled.div`
       top: 0;
       left: 0;
       right: 0;
-
       color: ${theme.color.codeMirror.comment};
       font-size: 0.9em;
       line-height: 1;
@@ -75,6 +77,7 @@ const PlaygroundContainer = styled.div`
       margin: 0 auto;
       resize: both;
       transition: background-color 195ms ease-in;
+      min-height: 60rem;
     }
 
     .playgroundStage.ReactCodeMirror--focused {
@@ -86,11 +89,17 @@ const PlaygroundContainer = styled.div`
     .playgroundPreview {
       align-items: center;
       display: flex;
-      flex: 1 1 ${STAGE_HEIGHT};
+      flex: 0 1 ${STAGE_HEIGHT};
       justify-content: center;
       order: 1;
       position: relative;
       text-align: center;
+      width: 80%;
+      max-width: 50rem;
+      margin: 0 auto;
+      @media ${theme.mediaQuery.md} {	
+        min-width: 40rem;
+      }
     }
 
     .playgroundPreview:before {
@@ -117,6 +126,9 @@ const PlaygroundContainer = styled.div`
       height: inherit;
       max-height: 100%;
       width: auto;
+      > svg {
+        max-height: 40rem;
+      }
     }
 
     .playgroundPreview .VictoryContainer svg {
@@ -155,10 +167,10 @@ const PlaygroundContainer = styled.div`
       background: none !important;
       color: ${theme.color.codeMirror.punctuation};
       font-family: ${theme.font.monospace};
-      font-size: 0.9em;
+      font-size: 1.3rem;
       font-variant-ligatures: none;
       hyphens: none;
-      line-height: 1.5;
+      line-height: 1.9;
       tab-size: 2;
       text-shadow: 0 0.1rem white;
       white-space: pre;
@@ -203,7 +215,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-attribute {
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.attribute};
     }
 
     .cm-s-elegant span.cm-comment {
@@ -211,7 +223,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-def {
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.def};
     }
 
     .cm-s-elegant span.cm-header {
@@ -223,7 +235,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-meta {
-      color: ${theme.color.codeMirror.bgSelected};
+      color: ${theme.color.codeMirror.comment};
     }
 
     .cm-s-elegant span.cm-number {
@@ -252,12 +264,12 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-tag {
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.tag};
     }
 
     .cm-s-elegant span.cm-tag.cm-bracket,
     .cm-s-elegant span.cm-bracket {
-      color: ${theme.color.codeMirror.punctuation};
+      color: ${theme.color.codeMirror.operator};
     }
 
     .cm-s-elegant span.cm-variable,
