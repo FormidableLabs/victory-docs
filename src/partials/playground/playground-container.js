@@ -32,11 +32,6 @@ const PlaygroundContainer = styled.div`
       flex-wrap: none;
       padding: 0;
     }
-    @media ${theme.mediaQuery.sm} {
-      .playground {
-        flex-direction: row;
-      }
-    }
 
     .playgroundCode {
       flex: auto;
@@ -117,6 +112,9 @@ const PlaygroundContainer = styled.div`
       height: inherit;
       max-height: 100%;
       width: auto;
+      > svg {
+        max-height: 400px;
+      }
     }
 
     .playgroundPreview .VictoryContainer svg {
@@ -155,10 +153,10 @@ const PlaygroundContainer = styled.div`
       background: none !important;
       color: ${theme.color.codeMirror.punctuation};
       font-family: ${theme.font.monospace};
-      font-size: 0.9em;
+      font-size: 1.3rem;
       font-variant-ligatures: none;
       hyphens: none;
-      line-height: 1.5;
+      line-height: 1.9;
       tab-size: 2;
       text-shadow: 0 0.1rem white;
       white-space: pre;
@@ -203,7 +201,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-attribute {
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.attribute};
     }
 
     .cm-s-elegant span.cm-comment {
@@ -211,7 +209,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-def {
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.def};
     }
 
     .cm-s-elegant span.cm-header {
@@ -223,7 +221,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-meta {
-      color: ${theme.color.codeMirror.bgSelected};
+      color: ${theme.color.codeMirror.comment};
     }
 
     .cm-s-elegant span.cm-number {
@@ -252,12 +250,12 @@ const PlaygroundContainer = styled.div`
     }
 
     .cm-s-elegant span.cm-tag {
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.tag};
     }
 
     .cm-s-elegant span.cm-tag.cm-bracket,
     .cm-s-elegant span.cm-bracket {
-      color: ${theme.color.codeMirror.punctuation};
+      color: ${theme.color.codeMirror.operator};
     }
 
     .cm-s-elegant span.cm-variable,
