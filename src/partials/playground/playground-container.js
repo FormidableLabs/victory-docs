@@ -12,7 +12,7 @@ import styled from "styled-components";
  *           |- div
  **/
 
-const STAGE_HEIGHT = "28rem";
+const STAGE_HEIGHT = "60rem";
 
 const PlaygroundContainer = styled.div`
   background-color: rgba(255, 254, 252, 0.5);
@@ -20,9 +20,11 @@ const PlaygroundContainer = styled.div`
   width: 100%;
 
   ${({ theme }) => `
-    .playgroundStage {
-      height: ${STAGE_HEIGHT};
-    }
+    @media ${theme.mediaQuery.md} {	
+      .playgroundStage {
+        height: ${STAGE_HEIGHT};
+      }
+  }
 
     .playground {
       position: relative;
@@ -31,13 +33,19 @@ const PlaygroundContainer = styled.div`
       flex-direction: column;
       flex-wrap: none;
       padding: 0;
+      @media ${theme.mediaQuery.md} {	
+          flex-direction: row;	
+      }
     }
 
     .playgroundCode {
-      flex: auto;
+      flex: 1 1 auto;
       order: 2;
       margin: 0 0 ${theme.spacing.sm} 0;
       position: relative;
+      @media ${theme.mediaQuery.md} {	
+        margin-top: 4.3rem;
+    }
     }
 
     .playgroundCode:before,
@@ -46,7 +54,6 @@ const PlaygroundContainer = styled.div`
       top: 0;
       left: 0;
       right: 0;
-
       color: ${theme.color.codeMirror.comment};
       font-size: 0.9em;
       line-height: 1;
@@ -70,6 +77,7 @@ const PlaygroundContainer = styled.div`
       margin: 0 auto;
       resize: both;
       transition: background-color 195ms ease-in;
+      min-height: 600px;
     }
 
     .playgroundStage.ReactCodeMirror--focused {
@@ -81,11 +89,15 @@ const PlaygroundContainer = styled.div`
     .playgroundPreview {
       align-items: center;
       display: flex;
-      flex: 1 1 ${STAGE_HEIGHT};
+      flex: 0 1 ${STAGE_HEIGHT};
       justify-content: center;
       order: 1;
       position: relative;
       text-align: center;
+      width: 100%;
+      max-width: 500px;
+      min-width: 275px;
+      margin: 0 auto;
     }
 
     .playgroundPreview:before {
