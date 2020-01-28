@@ -12,7 +12,7 @@ import styled from "styled-components";
  *           |- div
  **/
 
-const STAGE_HEIGHT = "60rem";
+const STAGE_HEIGHT = "28rem";
 
 const PlaygroundContainer = styled.div`
   background-color: rgba(255, 254, 252, 0.5);
@@ -41,7 +41,7 @@ const PlaygroundContainer = styled.div`
     .playgroundCode {
       flex: 1 1 auto;
       order: 2;
-      margin: 0 0 ${theme.spacing.sm} 0;
+      margin: 4rem 0 ${theme.spacing.sm} 0;
       position: relative;
       @media ${theme.mediaQuery.md} {	
         margin-top: 4.3rem;
@@ -77,7 +77,7 @@ const PlaygroundContainer = styled.div`
       margin: 0 auto;
       resize: both;
       transition: background-color 195ms ease-in;
-      min-height: 600px;
+      min-height: 60rem;
     }
 
     .playgroundStage.ReactCodeMirror--focused {
@@ -94,10 +94,12 @@ const PlaygroundContainer = styled.div`
       order: 1;
       position: relative;
       text-align: center;
-      width: 100%;
-      max-width: 500px;
-      min-width: 275px;
+      width: 80%;
+      max-width: 50rem;
       margin: 0 auto;
+      @media ${theme.mediaQuery.md} {	
+        min-width: 40rem;
+      }
     }
 
     .playgroundPreview:before {
@@ -125,7 +127,7 @@ const PlaygroundContainer = styled.div`
       max-height: 100%;
       width: auto;
       > svg {
-        max-height: 400px;
+        max-height: 40rem;
       }
     }
 
