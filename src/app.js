@@ -73,7 +73,7 @@ const ScrollToCurrentSection = ({ location, children }) => {
 };
 
 ScrollToCurrentSection.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.object,
   location: PropTypes.object
 };
 

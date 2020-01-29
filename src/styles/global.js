@@ -127,7 +127,7 @@ const GlobalStyle = createGlobalStyle`
   }
   @media ${({ theme }) => theme.mediaQuery.md} {
     h2 {
-      font-size: 2rem;
+      font-size: 3rem;
     }
   }
 
