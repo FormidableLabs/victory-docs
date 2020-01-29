@@ -8,18 +8,10 @@ import scopeMap from "./scope-map";
 import PlaygroundContainer from "./playground-container";
 
 const Wrapper = styled.div`
-  h4 {
-    font-size: 3rem;
-  }
-
   p,
   li {
     padding: 1rem 0;
     line-height: 2.4rem;
-  }
-
-  .playground {
-    margin: 4rem 0;
   }
 `;
 
