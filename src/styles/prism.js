@@ -12,6 +12,7 @@ const prism = css`
   ${({ theme }) => `
     code[class*="language-"],
     pre[class*="language-"] {
+      font-size: 1.5rem;
       color: ${theme.color.black};
       background: none;
       text-shadow: 0 0.1rem ${theme.color.white};
@@ -58,14 +59,21 @@ const prism = css`
 
     :not(pre) > code[class*="language-"],
     pre[class*="language-"] {
-      background: ${theme.color.codeMirror.bg};
+      background: ${theme.color.codeMirror.bgDim};
+      padding: 2rem;
     }
 
     /* Inline code */
     :not(pre) > code[class*="language-"] {
-      padding: .1em;
-      border-radius: .3em;
+      opacity: 0.8;
+      font-size: 1.5rem;
+      border: 1px solid ${theme.color.inlineCodeBorder};
+      border-image: initial;
+      padding: 0.5rem;
+      margin: 0px 0.5rem;
+      border-radius: .45rem;
       white-space: normal;
+      background: #f5f2f0;
     }
 
     .token.comment,
@@ -99,7 +107,7 @@ const prism = css`
     .token.char,
     .token.builtin,
     .token.inserted {
-      color: ${theme.color.codeMirror.selector};
+      color: ${theme.color.codeMirror.attribute};
     }
 
     .token.operator,

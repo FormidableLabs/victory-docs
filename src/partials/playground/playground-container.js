@@ -33,7 +33,8 @@ const PlaygroundContainer = styled.div`
       flex-direction: column;
       flex-wrap: none;
       padding: 0;
-      @media ${theme.mediaQuery.md} {	
+      margin: 4rem 0;
+      @media ${theme.mediaQuery.lg} {	
           flex-direction: row;	
       }
     }

@@ -13,8 +13,10 @@ const theme = {
     nearBlack: "#242121",
     black: "#1f1f1f",
 
+    inlineCodeBorder: "#d3d3d3",
+
     codeMirror: {
-      bgDim: "#f5f2f0",
+      bgDim: "#eeefee",
       bg: "#fffefc",
       bgFocused: "#fffefc",
       bgSelected: "#b3d4fc",
@@ -52,7 +54,7 @@ const theme = {
     headerHeight: "6.4rem",
     footerHeight: "43.2rem",
     stripesWidth: "2.8rem",
-    sidebarWidth: "18.6rem",
+    sidebarWidth: "26rem",
 
     pageGutterLeft: "2rem",
     pageGutterRight: "3rem",

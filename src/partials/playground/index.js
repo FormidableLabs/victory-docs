@@ -1,26 +1,31 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import ComponentPlayground from "component-playground";
 import * as Victory from "victory";
-import { withTheme } from "styled-components";
+import styled, { withTheme } from "styled-components";
 import scopeMap from "./scope-map";
 import PlaygroundContainer from "./playground-container";
 
-class Playground extends React.Component {
-  componentDidMount() {
-    this.renderPlaygrounds();
+const Wrapper = styled.div`
+  p,
+  li {
+    padding: 1rem 0;
+    line-height: 2.4rem;
   }
+`;
 
-  // this is an extremely inefficient way of doing things, the #1 way we can
-  // improve doc site perf is by optimizing how we render playgrounds
-  componentDidUpdate() {
-    this.renderPlaygrounds();
-  }
+const Playground = props => {
+  const { playgroundTheme, scope, theme, html } = props;
+  let ref = useRef();
 
-  mountContainer(source, noRender) {
-    const { playgroundTheme, scope, theme } = this.props;
+  const findPlayground = className => {
+    // eslint-disable-next-line react/no-find-dom-node
+    return ReactDOM.findDOMNode(ref).getElementsByClassName(className);
+  };
 
+  // eslint-disable-next-line react/no-multi-comp
+  const mountContainer = (source, noRender) => {
     const scopeObject =
       (scope &&
         scope.reduce(
@@ -48,58 +53,51 @@ class Playground extends React.Component {
         />
       </PlaygroundContainer>
     );
-  }
+  };
 
-  renderPlaygrounds() {
+  const renderPlaygrounds = () => {
     // innerText, innerHTML, outerHTML, outerText, textContent
     const playgrounds = Array.prototype.slice.call(
-      this.findPlayground("language-playground"),
+      findPlayground("language-playground"),
       0
     );
     for (const p in playgrounds) {
       if (playgrounds.hasOwnProperty(p)) {
         const source = playgrounds[p].textContent;
         ReactDOM.render(
-          this.mountContainer(source, true),
+          mountContainer(source, true),
           playgrounds[p].parentNode
         );
       }
     }
-
     const playgroundsNoRender = Array.prototype.slice.call(
-      this.findPlayground("language-playground_norender"),
+      findPlayground("language-playground_norender"),
       0
     );
     for (const p in playgroundsNoRender) {
       if (playgroundsNoRender.hasOwnProperty(p)) {
         const source = playgroundsNoRender[p].textContent;
         ReactDOM.render(
-          this.mountContainer(source, false),
+          mountContainer(source, false),
           playgroundsNoRender[p].parentNode
         );
       }
     }
-  }
+  };
 
-  findPlayground(className) {
-    // eslint-disable-next-line react/no-find-dom-node
-    return ReactDOM.findDOMNode(this.content).getElementsByClassName(className);
-  }
+  useEffect(() => {
+    renderPlaygrounds();
+  });
 
-  render() {
-    const { html } = this.props;
-
-    return (
-      <div
-        key="content"
-        ref={content => {
-          this.content = content;
-        }}
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    );
-  }
-}
+  return (
+    <Wrapper
+      ref={content => {
+        ref = content;
+      }}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+};
 
 Playground.propTypes = {
   content: PropTypes.string,

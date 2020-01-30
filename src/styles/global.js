@@ -127,7 +127,7 @@ const GlobalStyle = createGlobalStyle`
   }
   @media ${({ theme }) => theme.mediaQuery.md} {
     h2 {
-      font-size: 2rem;
+      font-size: 3rem;
     }
   }
 
@@ -136,8 +136,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h4 {
-    font-size: 1.25rem;
+    font-size: 1.6rem;
   }
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    h4 {
+      font-size: 2rem;
+    }
+  }
+
 
   h5 {
     font-size: 1.125rem;
