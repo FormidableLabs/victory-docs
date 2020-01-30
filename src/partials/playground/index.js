@@ -91,7 +91,6 @@ const Playground = props => {
 
   return (
     <Wrapper
-      key="content"
       ref={content => {
         ref = content;
       }}

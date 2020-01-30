@@ -67,9 +67,7 @@ const prism = css`
     :not(pre) > code[class*="language-"] {
       opacity: 0.8;
       font-size: 1.5rem;
-      border-width: 1px;
-      border-style: solid;
-      border-color: lightgrey;
+      border: 1px solid ${theme.color.inlineCodeBorder};
       border-image: initial;
       padding: 0.5rem;
       margin: 0px 0.5rem;

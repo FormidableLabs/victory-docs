@@ -13,6 +13,8 @@ const theme = {
     nearBlack: "#242121",
     black: "#1f1f1f",
 
+    inlineCodeBorder: "#d3d3d3",
+
     codeMirror: {
       bgDim: "#eeefee",
       bg: "#fffefc",
