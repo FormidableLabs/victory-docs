@@ -12,20 +12,13 @@ const generateGuideRoute = ({ routeData }) => g => ({
 });
 
 const baseConfig = {
-  additionalRoutes: [
-    {
-      data: { slug: "themes" },
-      template: "src/pages/themes-template",
-      name: "Themes"
-    }
-  ],
   routeFn: generateGuideRoute
 };
 
 const generateGuideRoutes = (guides, routeData, config = baseConfig) => {
-  const { routeFn, additionalRoutes } = config;
+  const { routeFn } = config;
   const genRouteWithData = routeFn({ routeData });
-  return guides.concat(additionalRoutes).map(genRouteWithData);
+  return guides.map(genRouteWithData);
 };
 
 module.exports = {
