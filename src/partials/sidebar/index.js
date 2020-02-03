@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -12,7 +11,11 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
-import { SidebarSectionHeading } from "./styles";
+import {
+  SidebarSectionHeading,
+  SidebarListItemLink,
+  SidebarListItem
+} from "./styles";
 
 // was gonna pass this but I'm leaning towards this being an internal detail since at the end of the day the proper
 // behavior is based on a bunch of magic strings for a non-configurable internal method
@@ -68,25 +71,6 @@ const VictoryLogo = styled(SVG)`
 
   > svg {
     width: 9.8rem;
-  }
-`;
-
-const SidebarListItem = styled.li`
-  padding: 0;
-  margin: 0;
-  width: 100%;
-`;
-const SidebarListItemLink = styled(NavLink)`
-  color: ${({ theme }) => theme.color.brown};
-  font-family: ${({ theme }) => theme.font.bold};
-  font-size: 1.4rem;
-  letter-spacing: 0.53px;
-  line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  display: block;
-  padding: 0.4rem 0.7rem 0.3rem 3.4rem;
-  hyphens: auto;
-  &.is-active {
-    background-color: ${({ theme }) => theme.color.darkGray};
   }
 `;
 
@@ -303,7 +287,6 @@ Sidebar.propTypes = {
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
   location: PropTypes.shape({ pathname: PropTypes.string }),
-  mobileSidebarContent: PropTypes.array,
   onCloseClick: PropTypes.func
 };
 

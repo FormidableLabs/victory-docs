@@ -1,38 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
-import styled, { css } from "styled-components";
-import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
-import { SidebarSectionHeading, SidebarSectionList } from "../styles";
-
-// Refactor these into shared styles
-const SidebarListItem = styled.li`
-  padding: 0;
-  margin: 0;
-  width: 100%;
-`;
-
-const SidebarListItemLinkStyle = css`
-  color: ${({ theme }) => theme.color.brown};
-  font-family: ${({ theme }) => theme.font.bold};
-  font-size: 1.4rem;
-  letter-spacing: 0.53px;
-  line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  display: block;
-  padding: 0.4rem 0.7rem 0.3rem 3.4rem;
-  hyphens: auto;
-  &.is-active {
-    background-color: ${({ theme }) => theme.color.darkGray};
-  }
-`;
-
-const SidebarListItemLink = styled(NavLink)`
-  ${SidebarListItemLinkStyle}
-`;
-const SidebarListItemAnchorLink = styled.a`
-  ${SidebarListItemLinkStyle}
-`;
+import {
+  SidebarSectionHeading,
+  SidebarSectionList,
+  SidebarListItem,
+  SidebarListItemLink,
+  SidebarListItemAnchorLink
+} from "../styles";
 
 const MobileSidebarLinks = styled.div`
   @media ${({ theme }) => theme.mediaQuery.md} {
@@ -66,10 +43,10 @@ const renderMobileSidebarLinks = mobileLinks => {
 const Introduction = ({ content }) => {
   const mobileLinks = [
     { slug: "/about", title: "About" },
-    { slug: "/docs/faqs", title: "Gallery" },
+    { slug: "/gallery", title: "Gallery" },
     { slug: "https://spectrum.chat/victory", title: "Support" },
     { slug: "https://github.com/FormidableLabs/victory", title: "Github" },
-    { slug: "/docs/faqs", title: "FAQs" }
+    { slug: "/docs/faq", title: "FAQs" }
   ];
   return !isEmpty(content) ? (
     <>

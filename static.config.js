@@ -155,6 +155,7 @@ export default {
         path: "/gallery",
         template: "src/pages/gallery",
         getData: async () => ({
+          sidebarContent: sbContent,
           gallery
         }),
         children: gallery.map(galleryItem => ({
