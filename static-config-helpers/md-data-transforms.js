@@ -35,7 +35,6 @@ const orderByIdAndAddThemesEntry = items => {
       type: "guides",
       subHeadings: []
     },
-    // path: "/themes",
     component: "src/pages/themes-template",
     name: "Themes"
   };
