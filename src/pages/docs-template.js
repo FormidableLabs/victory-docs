@@ -12,12 +12,7 @@ class DocsTemplate extends React.Component {
     const { content, data } = doc;
     const { title, scope } = data;
     return (
-      <Page
-        withSidebar
-        sidebarContent={sidebarContent}
-        sidebarContent={sidebarContent}
-        location={location}
-      >
+      <Page withSidebar sidebarContent={sidebarContent} location={location}>
         <Helmet>
           <title>{`${config.siteTitle} | ${title}`}</title>
           <meta name="description" content={config.siteDescription} />
