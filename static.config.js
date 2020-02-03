@@ -95,7 +95,6 @@ export default {
         ...more
       ];
     };
-
     const sbContent = convertToSidebarArray(sidebarContent);
 
     return [
@@ -119,7 +118,6 @@ export default {
         }),
         children: generateGuideRoutes(guides, { sidebarContent: sbContent })
       },
-
       {
         path: "/docs",
         template: "src/pages/docs-template",

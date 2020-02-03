@@ -1,6 +1,3 @@
-// I don't love the customization/edge-case fragmentation here, but it would require a conceptual shift to have
-// component paths described in markdown ingestion in a way that seems brittle/coupled
-
 const generateGuideRoute = ({ routeData }) => g => ({
   path: `/${g.data.slug}`,
   template: g.component || "src/pages/docs-template",
@@ -11,21 +8,9 @@ const generateGuideRoute = ({ routeData }) => g => ({
   })
 });
 
-const baseConfig = {
-  additionalRoutes: [
-    {
-      data: { slug: "themes" },
-      template: "src/pages/themes-template",
-      name: "Themes"
-    }
-  ],
-  routeFn: generateGuideRoute
-};
-
-const generateGuideRoutes = (guides, routeData, config = baseConfig) => {
-  const { routeFn, additionalRoutes } = config;
-  const genRouteWithData = routeFn({ routeData });
-  return guides.concat(additionalRoutes).map(genRouteWithData);
+const generateGuideRoutes = (guides, routeData) => {
+  const genRouteWithData = generateGuideRoute({ routeData });
+  return guides.map(genRouteWithData);
 };
 
 module.exports = {
