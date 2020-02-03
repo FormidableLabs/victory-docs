@@ -303,6 +303,7 @@ Sidebar.propTypes = {
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
   location: PropTypes.shape({ pathname: PropTypes.string }),
+  mobileSidebarContent: PropTypes.array,
   onCloseClick: PropTypes.func
 };
 
