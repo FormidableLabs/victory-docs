@@ -33,9 +33,9 @@ const GitHubIconContainer = styled.div`
   margin-bottom: 2.3rem;
 `;
 
-const About = ({ location }) => {
+const About = ({ location, sidebarContent }) => {
   return (
-    <Page location={location}>
+    <Page sidebarContent={sidebarContent} location={location}>
       <PageHeader>Victory: Charting for React and React Native</PageHeader>
       <GitHubIconContainer>
         {/*
@@ -115,7 +115,8 @@ const About = ({ location }) => {
 };
 
 About.propTypes = {
-  location: PropTypes.object
+  location: PropTypes.object,
+  sidebarContent: PropTypes.array
 };
 
 export default withRouteData(About);

@@ -51,7 +51,7 @@ const Divider = styled.hr`
   margin: 3rem 0;
 `;
 
-const Gallery = ({ gallery, location }) => {
+const Gallery = ({ gallery, location, sidebarContent }) => {
   const parseRaw = str => {
     const playground = "playground_norender";
     const start = str.indexOf(playground) + playground.length;
@@ -89,7 +89,7 @@ const Gallery = ({ gallery, location }) => {
   ));
 
   return (
-    <Page location={location}>
+    <Page sidebarContent={sidebarContent} location={location}>
       <PageHeader>Victory Gallery</PageHeader>
       <p>
         Here are some examples to help you get started. Each example below links
@@ -105,7 +105,8 @@ const Gallery = ({ gallery, location }) => {
 Gallery.propTypes = {
   data: PropTypes.object,
   gallery: PropTypes.array,
-  location: PropTypes.object
+  location: PropTypes.object,
+  sidebarContent: PropTypes.array
 };
 
 Gallery.defaultProps = {

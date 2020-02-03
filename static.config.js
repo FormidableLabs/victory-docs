@@ -85,10 +85,9 @@ export default {
     const docSubroutes = commonProps.concat(introduction, trueDocs);
 
     const convertToSidebarArray = content => {
-      const { support, charts, containers, more } = content;
+      const { charts, containers, more } = content;
       return [
         ...introduction,
-        ...support,
         ...guides,
         commonPropsIntro,
         ...charts,
@@ -97,6 +96,7 @@ export default {
       ];
     };
     const sbContent = convertToSidebarArray(sidebarContent);
+
     return [
       {
         path: "/",
@@ -104,7 +104,10 @@ export default {
       },
       {
         path: "/about",
-        template: "src/pages/about"
+        template: "src/pages/about",
+        getData: async () => ({
+          sidebarContent: sbContent
+        })
       },
       {
         path: "/guides",
@@ -152,6 +155,7 @@ export default {
         path: "/gallery",
         template: "src/pages/gallery",
         getData: async () => ({
+          sidebarContent: sbContent,
           gallery
         }),
         children: gallery.map(galleryItem => ({

@@ -95,8 +95,6 @@ const PlaygroundContainer = styled.div`
       order: 1;
       position: relative;
       text-align: center;
-      width: 80%;
-      max-width: 50rem;
       margin: 0 auto;
       @media ${theme.mediaQuery.md} {	
         min-width: 40rem;
@@ -118,7 +116,6 @@ const PlaygroundContainer = styled.div`
       background-color: white;
       height: 100%;
       min-height: calc(${STAGE_HEIGHT}* 0.5);
-      width: 80%;
       margin: 3em auto;
       overflow-x: auto;
     }
