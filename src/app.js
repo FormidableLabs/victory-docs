@@ -85,14 +85,15 @@ RenderRoutes.propTypes = {
 };
 
 let history;
-
+let basename;
 if (typeof window !== "undefined") {
   const createBrowserHistory = require("history").createBrowserHistory;
   const { stage, landerBasePath } = require("../static-config-parts/constants");
+  basename = `/${landerBasePath}`;
   history =
     stage === "development"
       ? createBrowserHistory()
-      : createBrowserHistory({ basename: `/${landerBasePath}` });
+      : createBrowserHistory({ basename });
 }
 
 // eslint-disable-next-line react/no-multi-comp
@@ -106,7 +107,7 @@ const App = () => (
   >
     <WrappedScrollToTop>
       <VictoryHeader />
-      <Analytics id="UA-43290258-1">
+      <Analytics id="UA-43290258-1" basename={basename}>
         <Routes>{RenderRoutes}</Routes>
       </Analytics>
     </WrappedScrollToTop>
