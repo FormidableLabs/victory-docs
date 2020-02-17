@@ -34,7 +34,7 @@ const FeaturesList = styled.ul`
   }
 `;
 
-const Feature = styled.div`
+const Feature = styled.li`
   justify-self: center;
   padding: 0;
   width: 18.5rem;

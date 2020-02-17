@@ -31,7 +31,9 @@ const OSSWrapper = styled.ul`
   @media ${({ theme }) => theme.mediaQuery.sm} {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 1fr;
-    grid-gap: 3rem;
+  }
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    grid-gap: 6rem;
   }
 `;
 
