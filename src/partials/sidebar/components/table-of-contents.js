@@ -6,12 +6,12 @@ import styled from "styled-components";
 
 import { SidebarSectionSublist } from "../styles";
 
-const getLinkStylesByDepth = depth => {
+const getLinkStylesByDepth = (depth, theme) => {
   if (depth === 2) {
     return {
       "font-size": "1.4rem",
       height: "3rem",
-      color: "#793d33",
+      color: theme.color.otherBrown,
       "letter-spacing": "0.53px"
     };
   }
@@ -19,7 +19,7 @@ const getLinkStylesByDepth = depth => {
   if (depth === 3) {
     return {
       "font-size": "1.2rem",
-      color: "#242121"
+      color: theme.color.nearBlack
     };
   }
   return {};

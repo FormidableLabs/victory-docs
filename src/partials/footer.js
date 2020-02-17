@@ -74,7 +74,7 @@ const Footer = ({ className = "" }) => (
         </Contact>
       </IconAndContact>
       <Blurb>
-        Formidable is a Seattle, Denver, and London-based engineering
+        Formidable is a Seattle, Denver, Phoenix, and London-based engineering
         consultancy and open source software organization, specializing in
         React.js, React Native, GraphQL, Node.js, and the extended JavaScript
         ecosystem. For more information about Formidable, please visit{" "}

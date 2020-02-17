@@ -4,6 +4,7 @@ import React from "react";
 import { VictoryScatter, VictoryChart } from "victory";
 import { range, random } from "lodash";
 
+import importedTheme from "../../styles/theme";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,13 +32,9 @@ export default class App extends React.Component {
 
   getScatterData() {
     const colors = [
-      "violet",
-      "cornflowerblue",
-      "gold",
-      "orange",
-      "turquoise",
-      "tomato",
-      "greenyellow"
+      ...importedTheme.color.homeCharts,
+      importedTheme.color.red,
+      importedTheme.color.accentBrown
     ];
     const symbols = [
       "circle",
@@ -75,24 +72,22 @@ export default class App extends React.Component {
     const styles = this.getStyles();
 
     return (
-      <div className="Benefits-demo fancyBorder">
-        <VictoryChart
-          style={{ parent: styles.parent }}
-          width={450}
-          height={350}
-          animate={{ duration: 2000 }}
-        >
-          <VictoryScatter
-            data={this.state.scatterData}
-            style={{
-              data: {
-                fill: ({ datum }) => datum.fill,
-                opacity: 0.6
-              }
-            }}
-          />
-        </VictoryChart>
-      </div>
+      <VictoryChart
+        style={{ parent: styles.parent }}
+        width={450}
+        height={350}
+        animate={{ duration: 2000 }}
+      >
+        <VictoryScatter
+          data={this.state.scatterData}
+          style={{
+            data: {
+              fill: ({ datum }) => datum.fill,
+              opacity: 0.6
+            }
+          }}
+        />
+      </VictoryChart>
     );
   }
 }
