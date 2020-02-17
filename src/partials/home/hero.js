@@ -254,7 +254,9 @@ const Hero = ({
             </LinkItem>
           ))}
         </LinkContainer>
-        <LearnMore to="Features">LEARN MORE</LearnMore>
+        <LearnMore to="Features" smooth offset={-25} duration={500}>
+          LEARN MORE
+        </LearnMore>
       </LandingSectionContent>
     </HeroContainer>
     <HeroDemo />
