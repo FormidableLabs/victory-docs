@@ -163,6 +163,14 @@ export default {
           template: "src/pages/gallery-item-template",
           getData: async () => ({ galleryItem })
         }))
+      },
+      // 404 Not Found
+      {
+        path: "/404",
+        template: "src/pages/404",
+        getData: async () => ({
+          sidebarContent: sbContent
+        })
       }
     ];
   },
