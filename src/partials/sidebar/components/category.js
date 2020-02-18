@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 
 import {
   SidebarSectionHeading,
@@ -8,40 +8,30 @@ import {
   SidebarSectionSublist
 } from "../styles";
 
-class Category extends React.Component {
-  renderSubCategories(subCategories) {
-    if (isEmpty(subCategories)) {
-      return null;
-    }
-    const categories = subCategories.map((category, index) =>
-      !isEmpty(category.content) ? (
+const Category = ({ content, title, subCategories }) => {
+  if (isEmpty(subCategories) || isEmpty(content)) {
+    return null;
+  }
+
+  const sectionContent = subCategories
+    .filter(category => category && !isEmpty(category.content))
+    .map((subcategory, index) => {
+      return (
         <div key={index}>
-          <SidebarSectionHeading>{category.title}</SidebarSectionHeading>
-          <SidebarSectionSublist>{category.content}</SidebarSectionSublist>
+          <SidebarSectionHeading>{subcategory.title}</SidebarSectionHeading>
+          <SidebarSectionSublist>{subcategory.content}</SidebarSectionSublist>
         </div>
-      ) : null
-    );
-    return categories.filter(Boolean);
-  }
+      );
+    });
 
-  render() {
-    const subCategories = this.renderSubCategories(this.props.subCategories);
-
-    const { content, title } = this.props;
-
-    if (isEmpty(subCategories) && isEmpty(content)) {
-      return null;
-    }
-
-    return (
-      <>
-        <SidebarSectionHeading>{title}</SidebarSectionHeading>
-        <SidebarSectionList>{content}</SidebarSectionList>
-        {subCategories}
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <SidebarSectionHeading>{title}</SidebarSectionHeading>
+      <SidebarSectionList>{content}</SidebarSectionList>
+      {sectionContent}
+    </>
+  );
+};
 
 Category.propTypes = {
   content: PropTypes.array,
