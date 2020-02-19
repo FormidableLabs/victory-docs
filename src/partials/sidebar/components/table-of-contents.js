@@ -39,7 +39,8 @@ SubItemListItem.propTypes = {
 
 const SubItemLink = styled(NavLink)(props => ({
   ...getLinkStylesByDepth(props.depth, props.theme),
-  "font-family": props.theme.font.bold
+  "font-family": props.theme.font.bold,
+  display: props.isVisible ? "inherit" : "none"
 }));
 SubItemLink.propTypes = {
   depth: PropTypes.number.isRequired
@@ -112,15 +113,17 @@ const TableOfContents = ({ active, link, headings, location }) => {
           if (Array.isArray(item)) {
             return <li key={`${i}-${depth}`}>{getTOC(tocLink, item, i++)}</li>;
           }
-
           if (item.depth <= 1) {
             return null;
           }
+
+          const isVisible = active || item.depth <= 1;
 
           return (
             <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}
+                isVisible={isVisible}
                 to={getPath(item, tocLink)}
                 prefetch={"data"}
                 strict

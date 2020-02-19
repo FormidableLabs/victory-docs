@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
 import styled from "styled-components";
@@ -11,6 +11,8 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
+import { SECTION_CATEGORIES, SECTION_TYPES } from "./constants";
+
 import {
   SidebarSectionHeading,
   SidebarListItemLink,
@@ -74,50 +76,63 @@ const VictoryLogo = styled(SVG)`
   }
 `;
 
-class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filteredResults: props.content,
-      filterTerm: ""
-    };
-    this.handleInputChange = this.handleInputChange.bind(this);
+const getMatchTree = (link, filterTerm) => {
+  const options = {
+    keys: ["value", "subHeadings.value", "subHeadings.subHeadings.value"],
+    threshold: 0.2,
+    findAllMatches: true,
+    distance: 100
+  };
+  const fuse = new Fuse(link.subHeadings, options);
+  const matches = fuse.search(filterTerm);
+  if (!isEmpty(matches)) {
+    const maxDepth = maxBy(matches, "depth").depth;
+    let matchIndices = matches.map(match =>
+      findIndex(link.subHeadings, heading =>
+        includes(heading.value, match.value)
+      )
+    );
+
+    matchIndices = matchIndices.sort((a, b) => a - b);
+    return link.subHeadings
+      .slice(0, last(matchIndices) + 1)
+      .reduce((memo, curr, i) => {
+        const useHeading =
+          i === matchIndices[0] ||
+          (i < matchIndices[0] && curr.depth < maxDepth);
+        if (useHeading && curr.value !== "Props") {
+          memo = memo.concat(curr);
+          matchIndices =
+            i === matchIndices[0] ? matchIndices.slice(1) : matchIndices;
+        }
+        return memo;
+      }, []);
   }
+  return [];
+};
 
-  handleInputChange(value, content) {
-    const options = {
-      keys: ["data.subHeadings.value", "data.title", "data.category"],
-      threshold: 0.2,
-      findAllMatches: true,
-      distance: 100
-    };
+const renderLinksList = ({
+  filterTerm = "",
+  filteredResults,
+  handleClearInput,
+  location
+}) => {
+  const filteredByCategory = {};
+  SECTION_CATEGORIES.map(sectionCategory => {
+    const filteredEdges = filteredResults.filter(
+      edge => edge.data.type === SECTION_TYPES[sectionCategory]
+    );
 
-    const fuse = new Fuse(this.props.content, options);
+    return (filteredByCategory[sectionCategory] = filteredEdges.filter(edge =>
+      sectionCategory.includes(edge.data.category)
+    ));
+  });
 
-    this.setState({
-      filteredResults: value ? fuse.search(value) : content,
-      filterTerm: value
-    });
-  }
-
-  clearInput(content) {
-    this.setState({
-      filteredResults: content,
-      filterTerm: ""
-    });
-  }
-
-  renderLinksList(edges, type, category) {
-    const { location } = this.props;
-    let filteredEdges = edges.filter(edge => edge.data.type === type);
-
-    if (category) {
-      filteredEdges = filteredEdges.filter(edge =>
-        category.includes(edge.data.category)
-      );
-    }
-
-    const renderList = filteredEdges.map(edge => {
+  const renderList = {};
+  Object.keys(filteredByCategory).map(filteredCategoryKey => {
+    renderList[filteredCategoryKey] = filteredByCategory[
+      filteredCategoryKey
+    ].map(edge => {
       const link = edge.data;
 
       if (link.display === false) {
@@ -127,24 +142,17 @@ class Sidebar extends React.Component {
       // If link is currently active and not under the Introduction section,
       // then display its table of contents underneath it
       const active =
-        category !== "introduction" &&
+        filteredCategoryKey !== "introduction" &&
         location.pathname.includes(`/${link.type}/${link.slug}`)
           ? true
-          : this.state.filterTerm !== "";
+          : filterTerm !== "";
       const headings =
-        this.state.filterTerm !== ""
-          ? this.getMatchTree(link, this.state.filterTerm)
-          : link.subHeadings;
+        filterTerm !== "" ? getMatchTree(link, filterTerm) : link.subHeadings;
 
       return (
-        <SidebarListItem
-          key={link.slug}
-          onClick={() =>
-            this.setState({ content: this.state.content, filterTerm: "" })
-          }
-        >
+        <SidebarListItem key={link.slug} onClick={handleClearInput}>
           <SidebarListItemLink
-            to={getPathPrefix(link, location)}
+            to={getPathPrefix(link)}
             activeClassName={"is-active"}
             prefetch={"data"}
             exact
@@ -157,130 +165,108 @@ class Sidebar extends React.Component {
             link={link}
             headings={headings}
             location={location}
-            filterTerm={this.state.filterTerm}
+            filterTerm={filterTerm}
           />
         </SidebarListItem>
       );
     });
-    return renderList;
-  }
+  });
+  return renderList;
+};
 
-  getMatchTree(link, filterTerm) {
+const Sidebar = ({ className, content, location, onCloseClick }) => {
+  const [filteredResults, setFilteredResults] = useState(content);
+  const [filterTerm, setFilterTerm] = useState("");
+
+  const handleInputChange = value => {
     const options = {
-      keys: ["value", "subHeadings.value", "subHeadings.subHeadings.value"],
+      keys: ["data.subHeadings.value", "data.title", "data.category"],
       threshold: 0.2,
       findAllMatches: true,
       distance: 100
     };
-    const fuse = new Fuse(link.subHeadings, options);
-    const matches = fuse.search(filterTerm);
-    if (!isEmpty(matches)) {
-      const maxDepth = maxBy(matches, "depth").depth;
-      let matchIndices = matches.map(match =>
-        findIndex(link.subHeadings, heading =>
-          includes(heading.value, match.value)
-        )
-      );
 
-      matchIndices = matchIndices.sort((a, b) => a - b);
-      return link.subHeadings
-        .slice(0, last(matchIndices) + 1)
-        .reduce((memo, curr, i) => {
-          const useHeading =
-            i === matchIndices[0] ||
-            (i < matchIndices[0] && curr.depth < maxDepth);
-          if (useHeading && curr.value !== "Props") {
-            memo = memo.concat(curr);
-            matchIndices =
-              i === matchIndices[0] ? matchIndices.slice(1) : matchIndices;
-          }
-          return memo;
-        }, []);
-    }
-    return [];
-  }
+    const fuse = new Fuse(content, options);
 
-  renderNoResults() {
-    return <SidebarSectionHeading>No Results</SidebarSectionHeading>;
-  }
+    setFilteredResults(value ? fuse.search(value) : content);
+    setFilterTerm(value);
+  };
 
-  render() {
-    const { className, content, location, onCloseClick } = this.props;
-    const { filteredResults } = this.state;
+  const handleClearInput = () => {
+    setFilteredResults(content);
+    setFilterTerm("");
+  };
 
-    return (
-      <SidebarContainer className={className}>
-        <CloseButton onClick={onCloseClick}>&times;</CloseButton>
-        <VictoryLogo src={victoryLogo} />
-        <SearchInput
-          onHandleInputChange={this.handleInputChange}
-          content={content}
-          searchText={this.state.filterTerm}
-          onClearInput={this.clearInput.bind(this)}
-        />
-
-        {isEmpty(filteredResults) ? (
-          this.renderNoResults()
-        ) : (
-          <>
-            <Introduction
-              content={this.renderLinksList(
-                filteredResults,
-                "docs",
-                "introduction"
-              )}
-            />
-            <Category
-              title="Support"
-              content={this.renderLinksList(filteredResults, "docs", "support")}
-              location={location}
-            />
-            <Category
-              title="Guides"
-              content={this.renderLinksList(
-                filteredResults,
-                "guides",
-                "guides"
-              )}
-              location={location}
-            />
-            <Category
-              title="Documentation"
-              content={this.renderLinksList(
-                filteredResults,
-                "docs",
-                "documentation"
-              )}
-              location={location}
-              subCategories={[
-                {
-                  title: "Charts",
-                  content: this.renderLinksList(
-                    filteredResults,
-                    "docs",
-                    "charts"
-                  )
-                },
-                {
-                  title: "Containers",
-                  content: this.renderLinksList(
-                    filteredResults,
-                    "docs",
-                    "containers"
-                  )
-                },
-                {
-                  title: "More",
-                  content: this.renderLinksList(filteredResults, "docs", "more")
-                }
-              ]}
-            />
-          </>
-        )}
-      </SidebarContainer>
+  const defaultLinksLists = {
+    introduction: [],
+    documentation: [],
+    charts: [],
+    containers: [],
+    more: []
+  };
+  const [linksLists, setLinksLists] = useState(defaultLinksLists);
+  useEffect(() => {
+    setLinksLists(
+      renderLinksList({
+        filterTerm,
+        filteredResults,
+        handleClearInput,
+        location
+      })
     );
-  }
-}
+  }, [filteredResults]);
+
+  return (
+    <SidebarContainer className={className}>
+      <CloseButton onClick={onCloseClick}>&times;</CloseButton>
+      <VictoryLogo src={victoryLogo} />
+      <SearchInput
+        onHandleInputChange={handleInputChange}
+        content={content}
+        searchText={filterTerm}
+        onClearInput={handleClearInput}
+      />
+
+      {isEmpty(filteredResults) ? (
+        <SidebarSectionHeading>No Results</SidebarSectionHeading>
+      ) : (
+        <>
+          <Introduction content={linksLists.introduction} />
+          {/* I think support and guides can be deleted */}
+          <Category
+            title="Support"
+            content={linksLists.support}
+            location={location}
+          />
+          <Category
+            title="Guides"
+            content={linksLists.guides}
+            location={location}
+          />
+          <Category
+            title="Documentation"
+            content={linksLists.documentation}
+            location={location}
+            subCategories={[
+              {
+                title: "Charts",
+                content: linksLists.charts
+              },
+              {
+                title: "Containers",
+                content: linksLists.containers
+              },
+              {
+                title: "More",
+                content: linksLists.more
+              }
+            ]}
+          />
+        </>
+      )}
+    </SidebarContainer>
+  );
+};
 
 Sidebar.propTypes = {
   className: PropTypes.string,
