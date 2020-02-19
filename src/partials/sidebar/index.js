@@ -111,69 +111,6 @@ const getMatchTree = (link, filterTerm) => {
   return [];
 };
 
-const renderLinksList = ({
-  filterTerm = "",
-  filteredResults,
-  handleClearInput,
-  location
-}) => {
-  const filteredByCategory = {};
-  SECTION_CATEGORIES.map(sectionCategory => {
-    const filteredEdges = filteredResults.filter(
-      edge => edge.data.type === SECTION_TYPES[sectionCategory]
-    );
-
-    return (filteredByCategory[sectionCategory] = filteredEdges.filter(edge =>
-      sectionCategory.includes(edge.data.category)
-    ));
-  });
-
-  const renderList = {};
-  Object.keys(filteredByCategory).map(filteredCategoryKey => {
-    renderList[filteredCategoryKey] = filteredByCategory[
-      filteredCategoryKey
-    ].map(edge => {
-      const link = edge.data;
-
-      if (link.display === false) {
-        return null;
-      }
-
-      // If link is currently active and not under the Introduction section,
-      // then display its table of contents underneath it
-      const active =
-        filteredCategoryKey !== "introduction" &&
-        location.pathname.includes(`/${link.type}/${link.slug}`)
-          ? true
-          : filterTerm !== "";
-      const headings =
-        filterTerm !== "" ? getMatchTree(link, filterTerm) : link.subHeadings;
-
-      return (
-        <SidebarListItem key={link.slug} onClick={handleClearInput}>
-          <SidebarListItemLink
-            to={getPathPrefix(link)}
-            activeClassName={"is-active"}
-            prefetch={"data"}
-            exact
-            strict
-          >
-            {link.title}
-          </SidebarListItemLink>
-          <TableOfContents
-            active={active}
-            link={link}
-            headings={headings}
-            location={location}
-            filterTerm={filterTerm}
-          />
-        </SidebarListItem>
-      );
-    });
-  });
-  return renderList;
-};
-
 const Sidebar = ({ className, content, location, onCloseClick }) => {
   const [filteredResults, setFilteredResults] = useState(content);
   const [filterTerm, setFilterTerm] = useState("");
@@ -197,24 +134,64 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
     setFilterTerm("");
   };
 
-  const defaultLinksLists = {
-    introduction: [],
-    documentation: [],
-    charts: [],
-    containers: [],
-    more: []
-  };
-  const [linksLists, setLinksLists] = useState(defaultLinksLists);
-  useEffect(() => {
-    setLinksLists(
-      renderLinksList({
-        filterTerm,
-        filteredResults,
-        handleClearInput,
-        location
-      })
-    );
-  }, [filteredResults]);
+  // We need this to rerender every time a new item is clicked in the side nav until the visibility isn't tied to the currently selected item
+  const linksLists = (() => {
+    const filteredByCategory = {};
+    SECTION_CATEGORIES.map(sectionCategory => {
+      const filteredEdges = filteredResults.filter(
+        edge => edge.data.type === SECTION_TYPES[sectionCategory]
+      );
+
+      return (filteredByCategory[sectionCategory] = filteredEdges.filter(edge =>
+        sectionCategory.includes(edge.data.category)
+      ));
+    });
+
+    const renderList = {};
+    Object.keys(filteredByCategory).map(filteredCategoryKey => {
+      renderList[filteredCategoryKey] = filteredByCategory[
+        filteredCategoryKey
+      ].map(edge => {
+        const link = edge.data;
+
+        if (link.display === false) {
+          return null;
+        }
+
+        // If link is currently active and not under the Introduction section,
+        // then display its table of contents underneath it
+        const active =
+          filteredCategoryKey !== "introduction" &&
+          location.pathname.includes(`/${link.type}/${link.slug}`)
+            ? true
+            : filterTerm !== "";
+        const headings =
+          filterTerm !== "" ? getMatchTree(link, filterTerm) : link.subHeadings;
+
+        return (
+          <SidebarListItem key={link.slug} onClick={handleClearInput}>
+            <SidebarListItemLink
+              to={getPathPrefix(link)}
+              activeClassName={"is-active"}
+              prefetch={"data"}
+              exact
+              strict
+            >
+              {link.title}
+            </SidebarListItemLink>
+            <TableOfContents
+              active={active}
+              link={link}
+              headings={headings}
+              location={location}
+              filterTerm={filterTerm}
+            />
+          </SidebarListItem>
+        );
+      });
+    });
+    return renderList;
+  })();
 
   return (
     <SidebarContainer className={className}>
