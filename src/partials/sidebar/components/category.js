@@ -9,20 +9,21 @@ import {
 } from "../styles";
 
 const Category = ({ content, title, subCategories }) => {
-  if (isEmpty(subCategories) || isEmpty(content)) {
+  if (isEmpty(subCategories) && isEmpty(content)) {
     return null;
   }
-
-  const sectionContent = subCategories
-    .filter(category => category && !isEmpty(category.content))
-    .map((subcategory, index) => {
-      return (
-        <div key={index}>
-          <SidebarSectionHeading>{subcategory.title}</SidebarSectionHeading>
-          <SidebarSectionSublist>{subcategory.content}</SidebarSectionSublist>
-        </div>
-      );
-    });
+  const sectionContent =
+    !isEmpty(subCategories) &&
+    subCategories
+      .filter(category => category && !isEmpty(category.content))
+      .map((subcategory, index) => {
+        return (
+          <div key={index}>
+            <SidebarSectionHeading>{subcategory.title}</SidebarSectionHeading>
+            <SidebarSectionSublist>{subcategory.content}</SidebarSectionSublist>
+          </div>
+        );
+      });
 
   return (
     <>
