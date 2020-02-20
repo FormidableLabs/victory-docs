@@ -22,22 +22,24 @@ const theme = {
 
     inlineCodeBorder: "#d3d3d3",
 
+    // todo make sure this is a11y ok
     codeMirror: {
-      bgDim: "#fff1ef", // good
-      bg: "hotpink",
-      bgFocused: "#fffefc",
-      bgSelected: "#b3d4fc",
-      def: "#333333",
-      comment: "#708090",
-      function: "#cc2345",
-      keyword: "#07a",
-      number: "#905",
+      bgDim: "#FFF5EF",
+      bg: "#ffcec6",
+      bgFocused: "#ffcec6",
+      bgSelected: "#ffcec6",
+      fontColor: "#793D33",
+      def: "#242020", // updated
+      comment: "#4B5562",
+      function: "#C25E4D", // updated
+      keyword: "#40bcae", // updated
+      number: "#FF7171", // updated,
       operator: "#9a6e3a",
-      attribute: "#690",
+      attribute: "#ad1b11", // updated
       punctuation: "#999",
-      selector: "#007a71",
-      variable: "#e90",
-      tag: "#905"
+      selector: "#FF7171",
+      variable: "#C25E4D",
+      tag: "#FF7171" // updated
     }
   },
 

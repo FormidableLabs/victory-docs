@@ -13,15 +13,16 @@ const prism = css`
     code[class*="language-"],
     pre[class*="language-"] {
       font-size: 1.5rem;
-      color: ${theme.color.black};
+      color: ${theme.color.codeMirror.fontColor};
+      font-weight: 600;
       background: none;
-      text-shadow: 0 0.1rem ${theme.color.white};
       text-align: left;
       white-space: pre;
       word-spacing: normal;
       word-break: normal;
       word-wrap: normal;
-      line-height: 1.5;
+      line-height: 2;
+      border-radius: .4rem;
 
       -moz-tab-size: 4;
       -o-tab-size: 4;
@@ -65,13 +66,11 @@ const prism = css`
 
     /* Inline code */
     :not(pre) > code[class*="language-"] {
-      opacity: 0.8;
       font-size: 1.5rem;
-      border: 1px solid ${theme.color.inlineCodeBorder};
       border-image: initial;
-      padding: 0.5rem;
-      margin: 0px 0.5rem;
-      border-radius: .45rem;
+      padding: 0.25rem;
+      margin: 0.5rem 0;
+      border-radius: .4rem;
       white-space: normal;
       background: ${theme.color.codeMirror.bg};
     }
