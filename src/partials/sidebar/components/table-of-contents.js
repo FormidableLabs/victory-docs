@@ -39,15 +39,14 @@ SubItemListItem.propTypes = {
 
 const SubItemLink = styled(NavLink)(props => ({
   ...getLinkStylesByDepth(props.depth, props.theme),
-  "font-family": props.theme.font.bold,
-  display: props.isVisible ? "inherit" : "none"
+  "font-family": props.theme.font.bold
 }));
 SubItemLink.propTypes = {
   depth: PropTypes.number.isRequired
 };
 
 const TableOfContents = ({ active, link, headings, location }) => {
-  if (!active && isEmpty(headings)) {
+  if (!active || isEmpty(headings)) {
     return null;
   }
   const getTree = treeHeadings => {
@@ -113,17 +112,11 @@ const TableOfContents = ({ active, link, headings, location }) => {
           if (Array.isArray(item)) {
             return <li key={`${i}-${depth}`}>{getTOC(tocLink, item, i++)}</li>;
           }
-          if (item.depth <= 1) {
-            return null;
-          }
 
-          const isVisible = active || item.depth <= 1;
-
-          return (
+          return item.depth > 1 ? (
             <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}
-                isVisible={isVisible}
                 to={getPath(item, tocLink)}
                 prefetch={"data"}
                 strict
@@ -131,7 +124,7 @@ const TableOfContents = ({ active, link, headings, location }) => {
                 {item.value}
               </SubItemLink>
             </SubItemListItem>
-          );
+          ) : null;
         })}
       </SidebarSectionSublist>
     );
