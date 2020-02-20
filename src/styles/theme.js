@@ -23,8 +23,8 @@ const theme = {
     inlineCodeBorder: "#d3d3d3",
 
     codeMirror: {
-      bgDim: "#eeefee",
-      bg: "#fffefc",
+      bgDim: "#fff1ef", // good
+      bg: "hotpink",
       bgFocused: "#fffefc",
       bgSelected: "#b3d4fc",
       def: "#333333",

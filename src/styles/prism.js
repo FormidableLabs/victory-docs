@@ -73,7 +73,7 @@ const prism = css`
       margin: 0px 0.5rem;
       border-radius: .45rem;
       white-space: normal;
-      background: #f5f2f0;
+      background: ${theme.color.codeMirror.bg};
     }
 
     .token.comment,
