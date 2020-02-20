@@ -11,7 +11,7 @@ import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
 import TableOfContents from "./components/table-of-contents";
-import { SECTION_CATEGORIES, SECTION_TYPES } from "./constants";
+import { TABLE_OF_CONTENTS_SECTIONS } from "./constants";
 
 import {
   SidebarSectionHeading,
@@ -137,24 +137,30 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
   // We need this to rerender every time a new item is clicked in the side nav until the visibility isn't tied to the currently selected item
   const linksLists = (() => {
     const filteredByCategory = {};
-    SECTION_CATEGORIES.map(sectionCategory => {
-      const filteredEdges = filteredResults.filter(
-        edge => edge.data.type === SECTION_TYPES[sectionCategory]
-      );
-
-      return (filteredByCategory[sectionCategory] = filteredEdges.filter(edge =>
-        sectionCategory.includes(edge.data.category)
+    TABLE_OF_CONTENTS_SECTIONS.map(sectionCategory => {
+      const filteredEdges =
+        filteredResults &&
+        filteredResults.filter(edge => {
+          return edge.data && edge.data.type === sectionCategory.type;
+        });
+      return (filteredByCategory[
+        [sectionCategory.category]
+      ] = filteredEdges.filter(edge =>
+        sectionCategory.category.includes(edge.data.category)
       ));
     });
 
     const renderList = {};
-    Object.keys(filteredByCategory).map(filteredCategoryKey => {
-      renderList[filteredCategoryKey] = filteredByCategory[
-        filteredCategoryKey
-      ].map(edge => {
-        const link = edge.data;
 
-        if (link.display === false) {
+    Object.entries(filteredByCategory).map(category => {
+      const filteredCategoryKey = category[0];
+      const filteredCategory = category[1];
+      renderList[filteredCategoryKey] = filteredCategory.map(edge => {
+        const link = edge.data;
+        // if (link.display === false) { // display isn't actually in all of the links we want, i'm not sure what happened with the data but we just want to return null if link isn't present
+        //   return null;
+        // }
+        if (!link) {
           return null;
         }
 
@@ -209,7 +215,6 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
       ) : (
         <>
           <Introduction content={linksLists.introduction} />
-          {/* I think support and guides can be deleted */}
           <Category
             title="Support"
             content={linksLists.support}
