@@ -45,17 +45,20 @@ SubItemLink.propTypes = {
   depth: PropTypes.number.isRequired
 };
 
-class TableOfContents extends React.Component {
-  getTree(headings) {
-    if (!headings || !headings.length) {
+const TableOfContents = ({ active, link, headings, location }) => {
+  if (!active || isEmpty(headings)) {
+    return null;
+  }
+  const getTree = treeHeadings => {
+    if (!treeHeadings || !treeHeadings.length) {
       return [];
     }
-    const depth = minBy(headings, "depth").depth;
-    const maxDepth = maxBy(headings, "depth").depth;
+    const depth = minBy(treeHeadings, "depth").depth;
+    const maxDepth = maxBy(treeHeadings, "depth").depth;
     if (depth === maxDepth) {
-      return headings;
+      return treeHeadings;
     }
-    const parentIndices = headings.reduce((memo, curr, index) => {
+    const parentIndices = treeHeadings.reduce((memo, curr, index) => {
       if (curr.depth === depth) {
         memo = memo.concat(index);
       }
@@ -66,58 +69,57 @@ class TableOfContents extends React.Component {
         index === parentIndices.length + 1
           ? undefined
           : parentIndices[index + 1];
-      const children = [headings.slice(curr + 1, lastChild)];
+      const children = [treeHeadings.slice(curr + 1, lastChild)];
       memo =
         children.length > 0
-          ? memo.concat(headings[curr], children)
-          : memo.concat(headings[curr]);
+          ? memo.concat(treeHeadings[curr], children)
+          : memo.concat(treeHeadings[curr]);
       return memo;
     }, []);
-  }
+  };
 
-  getTOC(link, headings, i = 0) {
-    const tree = this.getTree(headings);
-
-    if (!tree.length) {
-      return null;
-    }
-
+  const getPath = (item, itemLink) => {
     const toAnchor = content => {
       const baseContent = content.toLowerCase();
       const safeString = baseContent.replace(/[^\w]+/g, " ");
       return safeString.trim().replace(/\s/g, "-");
     };
+    // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
+    // it's a purely relative link hash, if it's from a search tem hit then we need the type and slug.
+    const hashPath = `#${toAnchor(item.value)}`;
+    const absPath = `/${itemLink.type}/${itemLink.slug}`;
+    // Normally I'd lean way back in a wicker chair on the porch, snap my suspenders, shake my head,
+    // and take a long sip from a mint julep while mumbling something about the brittleness of scope and the joys of
+    // referential transparency, but we're not generalizing this behavior and location-injection is table stakes
+    // for front-end routing
+    return location.pathname.includes(absPath)
+      ? hashPath
+      : `${absPath}${hashPath}`;
+  };
 
-    const depth = minBy(headings, "depth").depth;
+  const getTOC = (tocLink, tocHeadings, i = 0) => {
+    const tree = getTree(tocHeadings);
+
+    if (!tree.length) {
+      return null;
+    }
+
+    const depth = minBy(tocHeadings, "depth").depth;
 
     return (
       <SidebarSectionSublist>
         {tree.map((item, index) => {
           if (Array.isArray(item)) {
-            return (
-              <li key={`${i}-${depth}`}>{this.getTOC(link, item, i++)}</li>
-            );
+            return <li key={`${i}-${depth}`}>{getTOC(tocLink, item, i++)}</li>;
           }
-          // unfortunately we can't treat "active" and "search term hit" as the same -- if it's active then
-          // it's a purely relative link hash, if it's from a search tem hit then we need the type and slug.
-          const hashPath = `#${toAnchor(item.value)}`;
-          const absPath = `/${link.type}/${link.slug}`;
-          // Normally I'd lean way back in a wicker chair on the porch, snap my suspenders, shake my head,
-          // and take a long sip from a mint julep while mumbling something about the brittleness of scope and the joys of
-          // referential transparency, but we're not generalizing this behavior and location-injection is table stakes
-          // for front-end routing
-          const path = this.props.location.pathname.includes(absPath)
-            ? hashPath
-            : `${absPath}${hashPath}`;
 
           return item.depth > 1 ? (
             <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}
-                to={path}
+                to={getPath(item, tocLink)}
                 prefetch={"data"}
                 strict
-                scrollToTop
               >
                 {item.value}
               </SubItemLink>
@@ -126,13 +128,10 @@ class TableOfContents extends React.Component {
         })}
       </SidebarSectionSublist>
     );
-  }
+  };
 
-  render() {
-    const { active, link, headings } = this.props;
-    return active && !isEmpty(headings) ? this.getTOC(link, headings) : null;
-  }
-}
+  return getTOC(link, headings);
+};
 
 TableOfContents.propTypes = {
   active: PropTypes.bool,

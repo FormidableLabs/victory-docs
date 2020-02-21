@@ -19,18 +19,16 @@ const StyledInput = styled.input`
   font-family: ${({ theme }) => theme.font.secondary};
 `;
 
-const SidebarSearchInput = ({ content, onHandleInputChange, searchText }) => {
-  return (
-    <InputContainer>
-      <StyledInput
-        placeholder="Filter..."
-        type="search"
-        value={searchText}
-        onChange={e => onHandleInputChange(e.target.value, content)}
-      />
-    </InputContainer>
-  );
-};
+const SidebarSearchInput = ({ content, onHandleInputChange, searchText }) => (
+  <InputContainer>
+    <StyledInput
+      placeholder="Filter..."
+      type="search"
+      value={searchText}
+      onChange={e => onHandleInputChange(e.target.value, content)}
+    />
+  </InputContainer>
+);
 
 SidebarSearchInput.propTypes = {
   content: PropTypes.array,

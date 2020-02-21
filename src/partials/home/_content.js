@@ -23,10 +23,6 @@ const content = {
         location: "/docs"
       },
       {
-        text: "GUIDES",
-        location: "/guides"
-      },
-      {
         text: "GALLERY",
         location: "/gallery"
       },
