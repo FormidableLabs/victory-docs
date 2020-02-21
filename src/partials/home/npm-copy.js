@@ -35,7 +35,7 @@ const HeroNPMCopy = styled.p`
 const HeroNPMButton = styled.button`
   width: 8rem;
   height: 4rem;
-  background: ${({ theme }) => theme.color.red};
+  background: ${({ theme }) => theme.color.wildWatermelon};
   transition: background 0.4s;
   font-size: 1.4rem;
   font-weight: normal;
@@ -47,7 +47,7 @@ const HeroNPMButton = styled.button`
   text-transform: uppercase;
   cursor: copy;
   &:hover {
-    background: ${({ theme }) => theme.color.paleRed};
+    background: ${({ theme }) => theme.color.roseBud};
   }
 `;
 

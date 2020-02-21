@@ -18,7 +18,7 @@ import {
 } from "./styles";
 
 const SectionHeading = styled.h2`
-  color: ${({ theme }) => theme.color.darkBrown};
+  color: ${({ theme }) => theme.color.cabSav};
   font-size: 1.8rem;
   font-weight: bold;
   line-height: 1.58;

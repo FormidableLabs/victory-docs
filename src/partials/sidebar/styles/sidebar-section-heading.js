@@ -8,7 +8,7 @@ const SidebarSectionHeading = styled.p`
   font-size: 1.4rem;
   letter-spacing: 0.53px;
   line-height: ${({ theme }) => theme.typography.lineHeight.sidebarHeading};
-  color: ${({ theme }) => theme.color.linkHeadingRed};
+  color: ${({ theme }) => theme.color.grenadier};
   margin-top: 1.6rem;
   padding-left: ${({ theme }) => theme.spacing.sm};
 `;

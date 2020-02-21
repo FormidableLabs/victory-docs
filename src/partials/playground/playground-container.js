@@ -137,7 +137,7 @@ const PlaygroundContainer = styled.div`
     }
 
     .playgroundError {
-      background: ${theme.color.darkRed};
+      background: ${theme.color.tabasco};
       color: ${theme.color.white};
       font-family: ${theme.font.monospace};
       font-size: 1rem;

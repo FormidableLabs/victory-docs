@@ -245,7 +245,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.color.linkHeadingRed};
+    color: ${({ theme }) => theme.color.grenadier};
     text-decoration: none;
   }
 

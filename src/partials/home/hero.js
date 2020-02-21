@@ -24,7 +24,7 @@ const HeroContainer = styled.section`
 `;
 
 const Corner = styled.div`
-  background-color: ${({ theme }) => theme.color.red};
+  background-color: ${({ theme }) => theme.color.wildWatermelon};
   clip-path: polygon(0 0, 0 100%, 100% 0);
   height: 156px;
   padding: 15px 18px;
@@ -69,7 +69,7 @@ const CornerF = styled.img`
 `;
 
 const CenterWrapper = styled.div`
-  border-bottom: 2px solid ${({ theme }) => theme.color.red};
+  border-bottom: 2px solid ${({ theme }) => theme.color.wildWatermelon};
   display: grid;
 
   margin-top: 6rem;
@@ -239,7 +239,7 @@ const Hero = ({
             <NpmCopy text={code} />
             <StyledLinkButton
               to={link.location}
-              bg={importedTheme.color.red}
+              bg={importedTheme.color.wildWatermelon}
               width="100%"
               noMargin
             >

@@ -33,16 +33,16 @@ const StyledLandingSectionContent = styled(LandingSectionContent)`
 
 const GetStarted = ({ description, link }) => {
   return (
-    <LandingSectionWrapper bg={importedTheme.color.darkRed}>
+    <LandingSectionWrapper bg={importedTheme.color.tabasco}>
       <StyledLandingSectionContent color={importedTheme.color.white}>
         <SectionHeading>Get Started</SectionHeading>
         <SectionDescription>{description}</SectionDescription>
-        <LinkButton to={link.location} color={importedTheme.color.darkBrown}>
+        <LinkButton to={link.location} color={importedTheme.color.cabSav}>
           {link.text}
         </LinkButton>
       </StyledLandingSectionContent>
-      <Stripe bg={importedTheme.color.brown} />
-      <Stripe bg={importedTheme.color.otherBrown} />
+      <Stripe bg={importedTheme.color.rouge} />
+      <Stripe bg={importedTheme.color.crownOfThorns} />
     </LandingSectionWrapper>
   );
 };

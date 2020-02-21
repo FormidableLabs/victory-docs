@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 const StyledButton = styled.button`
   display: inline-block;
-  background: ${({ theme }) => theme.color.red};
-  color: ${({ theme }) => theme.color.darkBrown};
+  background: ${({ theme }) => theme.color.wildWatermelon};
+  color: ${({ theme }) => theme.color.cabSav};
   text-transform: uppercase;
   line-height: 4rem;
   text-align: center;

@@ -62,12 +62,12 @@ const stripeStyle = css`
 
 const RedStripe = styled.div`
   ${stripeStyle}
-  background-color: ${({ theme }) => theme.color.red};
+  background-color: ${({ theme }) => theme.color.wildWatermelon};
 `;
 
 const PaleRedStripe = styled.div`
   ${stripeStyle}
-  background-color: ${({ theme }) => theme.color.paleRed};
+  background-color: ${({ theme }) => theme.color.roseBud};
 `;
 
 const Sidebar = styled(_Sidebar)`

@@ -7,20 +7,20 @@ import NotFoundImage from "../../static/not-found.png";
 
 // the drop shadow style should be shared with `partials/home/styles/drop-shadow`
 const NotFoundImg = styled.img`
-  box-shadow: -1rem 1rem ${({ theme }) => theme.color.brown};
+  box-shadow: -1rem 1rem ${({ theme }) => theme.color.rouge};
   display: block;
   height: 25rem;
   margin: 5rem 0;
   @media ${({ theme }) => theme.mediaQuery.sm} {
-    box-shadow: -1.3rem 1.3rem ${({ theme }) => theme.color.brown};
+    box-shadow: -1.3rem 1.3rem ${({ theme }) => theme.color.rouge};
     height: 35rem;
   }
   @media ${({ theme }) => theme.mediaQuery.md} {
-    box-shadow: -1.5rem 1.5rem ${({ theme }) => theme.color.brown};
+    box-shadow: -1.5rem 1.5rem ${({ theme }) => theme.color.rouge};
     height: 40rem;
   }
   @media ${({ theme }) => theme.mediaQuery.lg} {
-    box-shadow: -1.7rem 1.7rem ${({ theme }) => theme.color.brown};
+    box-shadow: -1.7rem 1.7rem ${({ theme }) => theme.color.rouge};
     height: 50rem;
   }
 `;

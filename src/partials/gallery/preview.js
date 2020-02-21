@@ -6,8 +6,8 @@ import ReactDOMServer from "react-dom/server";
 import { transform } from "babel-standalone";
 
 const PreviewWrapper = styled.div`
-  box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.brown};
-  border: 6px solid ${({ theme }) => theme.color.accentBrown};
+  box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.rouge};
+  border: 6px solid ${({ theme }) => theme.color.brownDerby};
   padding: 2rem;
 
   @media ${({ theme }) => theme.mediaQuery.md} {

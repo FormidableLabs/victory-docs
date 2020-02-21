@@ -8,7 +8,7 @@ import { withRouteData } from "react-static";
 const Divider = styled.hr`
   height: 1px;
   border: none;
-  border-bottom: 1px solid ${({ theme }) => theme.color.paleRed};
+  border-bottom: 1px solid ${({ theme }) => theme.color.roseBud};
   margin: 2.8rem 0 3rem 0;
 `;
 

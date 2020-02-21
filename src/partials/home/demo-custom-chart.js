@@ -278,7 +278,7 @@ class MultipleAxes extends React.Component {
           y="0"
           width="10"
           height="30"
-          fill={importedTheme.color.red}
+          fill={importedTheme.color.wildWatermelon}
         />
         <rect
           x="420"

@@ -13,7 +13,7 @@ import styled from "styled-components";
 import importedTheme from "../../styles/theme";
 
 const HeroDemoContainer = styled.div`
-  background-color: ${({ theme }) => theme.color.deepBrown};
+  background-color: ${({ theme }) => theme.color.brownPod};
   height: 200px;
   display: none;
   font-size: 3rem;
@@ -77,7 +77,7 @@ const data = [
 ];
 
 const font = color => ({
-  fill: color || importedTheme.color.brown,
+  fill: color || importedTheme.color.rouge,
   fontSize: 20,
   fontFamily: "Helvetica"
 });
@@ -190,7 +190,7 @@ const HeroDemo = () => (
       />
       <VictoryAxis
         tickFormat={() => ""}
-        style={{ axis: { stroke: importedTheme.color.brown } }}
+        style={{ axis: { stroke: importedTheme.color.rouge } }}
         // style={{ axis: { stroke: "none" } }}
       />
       <VictoryAxis {...axisLineProps()} offsetX={80} />

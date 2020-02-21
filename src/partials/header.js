@@ -72,7 +72,7 @@ const NavLinksList = styled.ul`
 
 const navItemStyle = css`
   color: ${({ active, theme }) =>
-    active ? theme.color.linkHeadingRed : theme.color.darkBrown};
+    active ? theme.color.grenadier : theme.color.cabSav};
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   margin-right: 2rem;
@@ -92,7 +92,7 @@ const NavAnchor = styled(({ active, theme, ...rest }) => <a {...rest} />)`
 `;
 
 const FormidableIcon = styled(SVG)`
-  color: ${({ theme }) => theme.color.red};
+  color: ${({ theme }) => theme.color.wildWatermelon};
   display: flex;
 
   @media ${({ theme }) => theme.mediaQuery.md} {

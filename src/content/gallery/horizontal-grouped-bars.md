@@ -3,7 +3,7 @@ id: 5
 title: Horizontal Grouped Bars
 ---
 
-``` playground_norender
+```playground_norender
 class App extends React.Component {
   render() {
     return (
@@ -15,7 +15,7 @@ class App extends React.Component {
             <VictoryGroup horizontal
               offset={10}
               style={{ data: { width: 6 } }}
-              colorScale={["brown", "tomato", "gold"]}
+              colorScale={["rouge", "tomato", "gold"]}
             >
               <VictoryBar
                 data={[

@@ -18,7 +18,7 @@ import styled from "styled-components";
 
 // * the section headings could be extracted into generic style
 const SectionHeading = styled.h2`
-  color: ${({ theme }) => theme.color.darkBrown};
+  color: ${({ theme }) => theme.color.cabSav};
   font-size: 2.4rem;
   font-weight: bold;
   line-height: 1.06;
@@ -50,7 +50,7 @@ const GuideDemo = styled.div`
   margin: auto;
   width: 250px;
 
-  border: 6px solid ${({ theme }) => theme.color.accentBrown};
+  border: 6px solid ${({ theme }) => theme.color.brownDerby};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     height: 350px
@@ -59,7 +59,7 @@ const GuideDemo = styled.div`
 
 `;
 const GuideLink = styled(Link)`
-  color: ${({ theme }) => theme.color.darkBrown};
+  color: ${({ theme }) => theme.color.cabSav};
   display: block;
   font-size: 1.8rem;
   font-weight: bold;

@@ -11,7 +11,7 @@ const getLinkStylesByDepth = (depth, theme) => {
     return {
       "font-size": "1.4rem",
       height: "3rem",
-      color: theme.color.otherBrown,
+      color: theme.color.crownOfThorns,
       "letter-spacing": "0.53px"
     };
   }

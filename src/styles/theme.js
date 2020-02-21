@@ -1,14 +1,14 @@
 const theme = {
   color: {
-    paleRed: "#ffad9f",
-    red: "#ff684f", // passes a11y with #D62000 instead of #ff684f",
-    linkHeadingRed: "#D62000", // TODO rename once colors are sorted
-    darkRed: "#ad1b11", // #A21A10", // passes a11y with #A21A10 instead of #ad1b11",
-    brown: "#A34838", // passes a11y in nav with  #A34838 instead of #bc5240",
-    deepBrown: "#4a1b13",
-    otherBrown: "#793d33",
-    accentBrown: "#531f17",
-    darkBrown: "#4c2e29",
+    roseBud: "#ffad9f",
+    wildWatermelon: "#ff684f", // passes a11y with #D62000 instead of #ff684f",
+    grenadier: "#D62000", // TODO rename once colors are sorted
+    tabasco: "#ad1b11", // #A21A10", // passes a11y with #A21A10 instead of #ad1b11",
+    rouge: "#A34838", // passes a11y in nav with  #A34838 instead of #bc5240",
+    brownPod: "#4a1b13", // only used on homepage hero
+    crownOfThorns: "#793d33",
+    brownDerby: "#531f17",
+    cabSav: "#4c2e29",
 
     white: "#ffffff",
     nearWhite: "#f2f2f2",

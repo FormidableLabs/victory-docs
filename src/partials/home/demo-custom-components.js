@@ -83,7 +83,7 @@ export default class App extends React.Component {
     const colors = [
       ...importedTheme.color.homeCharts,
       importedTheme.color.red,
-      importedTheme.color.accentBrown
+      importedTheme.color.brownDerby
     ];
 
     const styles = this.getStyles();

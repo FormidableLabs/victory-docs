@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 
 const SidebarListItemLinkStyle = css`
-  color: ${({ theme }) => theme.color.brown};
+  color: ${({ theme }) => theme.color.rouge};
   font-family: ${({ theme }) => theme.font.bold};
   font-size: 1.4rem;
   letter-spacing: 0.53px;
