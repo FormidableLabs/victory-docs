@@ -55,7 +55,7 @@ const CompanyLogo = styled.img`
 `;
 
 const Companies = () => (
-  <LandingSectionWrapper bg={importedTheme.color.lightGray}>
+  <LandingSectionWrapper bg={importedTheme.color.nearWhite}>
     <LandingSectionContent>
       <SectionHeading>A Few of Our Fans</SectionHeading>
       <CompaniesList>

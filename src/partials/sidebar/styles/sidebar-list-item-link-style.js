@@ -10,7 +10,7 @@ const SidebarListItemLinkStyle = css`
   padding: 0.4rem 0.7rem 0.3rem 3.4rem;
   hyphens: auto;
   &.is-active {
-    background-color: ${({ theme }) => theme.color.darkGray};
+    background-color: ${({ theme }) => theme.color.lightGray};
   }
 `;
 
