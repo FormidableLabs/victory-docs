@@ -17,7 +17,6 @@ export default ({ Html, Head, Body, children }) => (
         href="https://fonts.googleapis.com/css?family=Andada"
         rel="stylesheet"
       />
-      {/* <script dangerouslySetInnerHTML={{ __html: scrollScript }} />*/}
 
       {/* CodeMirror for Component Playgrounds */}
       <link

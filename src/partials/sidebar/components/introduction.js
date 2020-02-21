@@ -41,6 +41,9 @@ const renderMobileSidebarLinks = mobileLinks => {
 };
 
 const Introduction = ({ content }) => {
+  if (isEmpty(content)) {
+    return null;
+  }
   const mobileLinks = [
     { slug: "/about", title: "About" },
     { slug: "/gallery", title: "Gallery" },
@@ -48,7 +51,7 @@ const Introduction = ({ content }) => {
     { slug: "https://github.com/FormidableLabs/victory", title: "Github" },
     { slug: "/docs/faq", title: "FAQs" }
   ];
-  return !isEmpty(content) ? (
+  return (
     <>
       <SidebarSectionHeading>Introduction</SidebarSectionHeading>
       <SidebarSectionList>
@@ -58,7 +61,7 @@ const Introduction = ({ content }) => {
         </MobileSidebarLinks>
       </SidebarSectionList>
     </>
-  ) : null;
+  );
 };
 
 Introduction.propTypes = {

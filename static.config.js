@@ -60,7 +60,7 @@ export default {
     const orderById = items => _.orderBy(items, ["data.id"], ["asc"]);
     const allSidebarItems = [
       ...introduction,
-      faqIntro,
+      ...faq,
       ...guides,
       commonPropsIntro,
       ...trueDocs
@@ -88,6 +88,7 @@ export default {
       const { charts, containers, more } = content;
       return [
         ...introduction,
+        ...faq,
         ...guides,
         commonPropsIntro,
         ...charts,
