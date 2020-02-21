@@ -47,7 +47,7 @@ const HeroNPMButton = styled.button`
   text-transform: uppercase;
   cursor: copy;
   &:hover {
-    background: ${({ theme }) => theme.color.lightGray};
+    background: ${({ theme }) => theme.color.paleRed};
   }
 `;
 

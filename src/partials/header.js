@@ -72,7 +72,7 @@ const NavLinksList = styled.ul`
 
 const navItemStyle = css`
   color: ${({ active, theme }) =>
-    active ? theme.color.red : theme.color.darkBrown};
+    active ? theme.color.linkHeadingRed : theme.color.darkBrown};
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   margin-right: 2rem;

@@ -115,7 +115,6 @@ const prism = css`
     .language-css .token.string,
     .style .token.string {
       color: ${theme.color.codeMirror.operator};
-      background: hsla(0, 0%, 100%, .5);
     }
 
     .token.atrule,

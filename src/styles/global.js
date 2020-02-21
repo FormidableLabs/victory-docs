@@ -245,7 +245,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: ${({ theme }) => theme.color.red};
+    color: ${({ theme }) => theme.color.linkHeadingRed};
     text-decoration: none;
   }
 

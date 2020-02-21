@@ -175,6 +175,8 @@ const PlaygroundContainer = styled.div`
       word-break: normal;
       word-spacing: normal;
       word-wrap: normal;
+      font-weight: 600;
+
     }
 
     .cm-s-elegant .CodeMirror-selected { /* text selection */
