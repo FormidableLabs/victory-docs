@@ -143,11 +143,13 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
         filteredResults.filter(edge => {
           return edge.data && edge.data.type === sectionCategory.type;
         });
-      return (filteredByCategory[
-        [sectionCategory.category]
-      ] = filteredEdges.filter(edge =>
-        sectionCategory.category.includes(edge.data.category)
-      ));
+      return filteredEdges
+        ? (filteredByCategory[
+            [sectionCategory.category]
+          ] = filteredEdges.filter(edge =>
+            sectionCategory.category.includes(edge.data.category)
+          ))
+        : null;
     });
 
     const renderList = {};
