@@ -42,15 +42,15 @@ const orderByIdAndAddThemesEntry = items => {
 };
 
 const slugMutation = mdData => {
-  mdData.data.slug = _.kebabCase(mdData.data.title)
+  return (mdData.data.slug = _.kebabCase(mdData.data.title)
     .toLowerCase()
-    .trim();
+    .trim());
 };
 
 // for sidebar purposes, guide type and guide category are the same, but we'd rather have
 // a consistent shape at the component layer than need an additional check there
 const sidebarTypeMutation = mdData => {
-  mdData.data.type = mdData.data.category;
+  return (mdData.data.type = mdData.data.category);
 };
 
 // You could also be like `yarn add --dev immutability-helper` and use its syntax, but introducing it adds a
@@ -91,6 +91,7 @@ const sidebarTreeMutation = mdData => {
         ]
       });
     }
+    return null;
   }, []);
 };
 
