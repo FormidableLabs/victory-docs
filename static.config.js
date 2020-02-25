@@ -51,7 +51,6 @@ export default {
 
     // sure we *happen* to sort by id as part of data ingestion right now, but it shouldn't create unexpected behavior
     // if we ever change that.
-    const guidesIntro = _.find(guides, g => g.data.id === 0);
     const homeIntro = _.find(introduction, intro => intro.data.id === 0);
     // only one file here, use a selector-style fn if that ever changes
     const faqIntro = faq[0];
@@ -111,10 +110,10 @@ export default {
         })
       },
       {
-        path: "/guides",
-        template: "src/pages/docs-template",
+        path: "/guides", // guides shares the 404 template because its children have their own docs-template getting used and there is no parent page to render, removing this will cause you build issues
+        template: "src/pages/404",
         getData: async () => ({
-          doc: guidesIntro,
+          docs: trueDocs,
           sidebarContent: sbContent
         }),
         children: generateGuideRoutes(guides, { sidebarContent: sbContent })
