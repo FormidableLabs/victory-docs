@@ -49,7 +49,7 @@ const SidebarContainer = styled.nav`
   background-color: ${({ theme }) => theme.color.nearWhite};
   overflow: scroll;
   overflow-x: hidden;
-  padding: 1.8rem 0;
+  padding: 1.8rem 0 4rem;
   position: relative;
   width: ${({ theme }) => theme.layout.sidebarWidth};
 `;
