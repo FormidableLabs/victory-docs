@@ -63,14 +63,14 @@ const theme = {
     stripesWidth: "2.8rem",
     sidebarWidth: "26rem",
 
-    pageGutterLeft: "2rem",
+    pageGutterLeft: "5.8rem", // account for stripesWidth
     pageGutterRight: "3rem",
     pageGutterTop: "2rem",
     pageGutterBottom: "5.5rem",
 
     // layout at md width and larger; use in conjunction with media query
     md: {
-      footerHeight: "25.6rem",
+      footerHeight: "36.5rem",
 
       pageGutterLeft: "6rem",
       pageGutterRight: "7.5rem",
