@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import _Header from "./header";
 import _Sidebar from "../partials/sidebar";
-import Footer from "./footer";
+import _Footer from "./footer";
 
 // sidebar logic is as follows:
 // if on large devices, sidebar is only shown if the `withSidebar` prop is
@@ -11,20 +11,8 @@ import Footer from "./footer";
 // if on small devices, sidebar is always hidden until toggled open, regardless
 // of the value of `withSidebar`
 
-// the PageContainer and Header components need to be nudged over to make space
-// for the sidebar only on large devices if `withSidebar` is `true`
-
 const PageContainer = styled.main`
-  position: relative;
-  margin-left: ${({ theme }) => theme.layout.stripesWidth};
-  margin-top: ${({ theme }) => theme.layout.headerHeight};
-
-  @media ${({ theme }) => theme.mediaQuery.md} {
-    margin-left: ${({ spaceForSidebar, theme }) =>
-      `calc(${theme.layout.stripesWidth} + ${
-        spaceForSidebar ? theme.layout.sidebarWidth : "0rem"
-      })`};
-  }
+  display: flex;
 `;
 
 const Header = styled(_Header)`
@@ -32,31 +20,27 @@ const Header = styled(_Header)`
   position: fixed;
   top: 0;
   width: ${({ theme }) => `calc(100% - ${theme.layout.stripesWidth})`};
-  z-index: 4;
+  width; 100%;
+  z-index: ${({ showSidebar }) => (showSidebar ? 4 : 7)};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     left: ${({ spaceForSidebar, theme }) =>
-      `calc(${theme.layout.stripesWidth} + ${
-        spaceForSidebar ? theme.layout.sidebarWidth : "0rem"
-      })`};
-    width: ${({ spaceForSidebar, theme }) =>
-      `calc(100% - ${theme.layout.stripesWidth} - ${
-        spaceForSidebar ? theme.layout.sidebarWidth : "0rem"
-      })`};
+      `calc(${spaceForSidebar ? theme.layout.sidebarWidth : "0rem"})`};
+    width: 100%;
   }
 `;
 
 const SidebarContainer = styled.aside`
   display: flex;
-  height: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
   z-index: 5;
+  height: 100vh;
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    width: ${({ theme, showMd }) => (showMd ? theme.layout.sidebarWidth : 0)};
+  }
 `;
 
 const stripeStyle = css`
-  height: 100%;
+  height: 100vh;
   width: ${({ theme }) => `calc(${theme.layout.stripesWidth} / 2)`};
 `;
 
@@ -72,7 +56,6 @@ const PaleRedStripe = styled.div`
 
 const Sidebar = styled(_Sidebar)`
   display: ${({ show }) => (show ? "block" : "none")};
-
   @media ${({ theme }) => theme.mediaQuery.md} {
     display: ${({ showMd }) => (showMd ? "block" : "none")};
   }
@@ -80,19 +63,35 @@ const Sidebar = styled(_Sidebar)`
 
 const ContentContainer = styled.article`
   display: flex;
+  height: 100vh;
+  overflow: scroll;
   justify-content: center;
   padding: ${({ theme }) =>
     `${theme.layout.pageGutterTop} ${theme.layout.pageGutterRight} ${theme.layout.pageGutterBottom} ${theme.layout.pageGutterLeft}`};
+  width: 100vw;
+  position: absolute;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     padding: ${({ theme }) =>
       `${theme.layout.md.pageGutterTop} ${theme.layout.md.pageGutterRight} ${theme.layout.md.pageGutterBottom} ${theme.layout.md.pageGutterLeft}`};
+    position: inherit;
   }
 `;
 
 const Content = styled.div`
+  margin-top: ${({ theme }) => theme.layout.headerHeight};
   max-width: ${({ theme }) => theme.layout.maxWidth};
   width: 100%;
+  & > div:first-of-type {
+    margin-bottom: 6rem;
+    @media ${({ theme }) => theme.mediaQuery.md} {
+      margin-bottom: 12.1rem;
+    }
+  }
+`;
+
+const Footer = styled(_Footer)`
+  width: 100vw;
 `;
 
 const Page = props => {
@@ -119,31 +118,32 @@ const Page = props => {
   });
 
   return (
-    <PageContainer spaceForSidebar={withSidebar} className="Page-content">
+    <>
       <Header
         location={location}
+        showSidebar={sidebarOpen}
         spaceForSidebar={withSidebar}
         onMenuClick={() => setSidebarOpen(true)}
       />
+      <PageContainer spaceForSidebar={withSidebar} className="Page-content">
+        <SidebarContainer ref={ref} showMd={withSidebar}>
+          <RedStripe />
+          <PaleRedStripe />
+          <Sidebar
+            location={location}
+            show={sidebarOpen}
+            showMd={withSidebar}
+            content={sidebarContent}
+            onCloseClick={() => setSidebarOpen(false)}
+          />
+        </SidebarContainer>
 
-      <SidebarContainer ref={ref}>
-        <RedStripe />
-        <PaleRedStripe />
-        <Sidebar
-          location={location}
-          show={sidebarOpen}
-          showMd={withSidebar}
-          content={sidebarContent}
-          onCloseClick={() => setSidebarOpen(false)}
-        />
-      </SidebarContainer>
-
-      <ContentContainer>
-        <Content>{children}</Content>
-      </ContentContainer>
-
+        <ContentContainer showMd={withSidebar}>
+          <Content>{children}</Content>
+        </ContentContainer>
+      </PageContainer>
       <Footer />
-    </PageContainer>
+    </>
   );
 };
 

@@ -9,6 +9,11 @@ const FooterContainer = styled.footer`
   color: ${({ theme }) => theme.color.white};
   display: flex;
   justify-content: center;
+  padding-left: 2.8rem;
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    padding: 12.7rem 29rem 13.3rem 0;
+    padding-left: ${({ theme }) => theme.layout.sidebarWidth};
+  }
 `;
 
 const InnerContainer = styled.div`
@@ -16,15 +21,11 @@ const InnerContainer = styled.div`
   flex-direction: column;
   height: ${({ theme }) => theme.layout.footerHeight};
   justify-content: center;
-  padding: 0 ${({ theme }) => theme.spacing.md};
   width: 100%;
 
   @media ${({ theme }) => theme.mediaQuery.md} {
     flex-direction: row;
-    height: ${({ theme }) => theme.layout.md.footerHeight};
-    max-width: ${({ theme }) => theme.layout.footerMaxWidth};
-    padding-bottom: ${({ theme }) => theme.spacing.lg};
-    padding-top: ${({ theme }) => theme.spacing.lg};
+    height: auto;
   }
 `;
 
@@ -55,6 +56,7 @@ const Icon = styled(SVG)`
 
 const Blurb = styled.p`
   margin: 0;
+  font-size: 1.6rem;
 `;
 
 const FormidableLink = styled.a`
