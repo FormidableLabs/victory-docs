@@ -94,14 +94,9 @@ const App = () => {
                       const Comp = getComponentForPath(routePath) || (
                         <NotFound />
                       );
-                      // Add react-router route props like location and history
-                      const CompWithRouteProps = React.cloneElement(
-                        Comp,
-                        props
-                      );
                       return (
                         <ScrollToCurrentSection {...props}>
-                          {CompWithRouteProps}
+                          {Comp}
                         </ScrollToCurrentSection>
                       );
                     }}

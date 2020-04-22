@@ -95,7 +95,7 @@ const Content = styled.div`
 `;
 
 const Page = props => {
-  const { children, sidebarContent, withSidebar, location } = props;
+  const { children, sidebarContent, withSidebar } = props;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const ref = useRef();
 
@@ -120,7 +120,6 @@ const Page = props => {
   return (
     <PageContainer spaceForSidebar={withSidebar} className="Page-content">
       <Header
-        location={location}
         spaceForSidebar={withSidebar}
         onMenuClick={() => setSidebarOpen(true)}
       />
@@ -129,7 +128,6 @@ const Page = props => {
         <RedStripe />
         <PaleRedStripe />
         <Sidebar
-          location={location}
           show={sidebarOpen}
           showMd={withSidebar}
           content={sidebarContent}
@@ -146,7 +144,6 @@ const Page = props => {
 
 Page.propTypes = {
   children: PropTypes.node,
-  location: PropTypes.object,
   sidebarContent: PropTypes.array,
   withSidebar: PropTypes.bool
 };

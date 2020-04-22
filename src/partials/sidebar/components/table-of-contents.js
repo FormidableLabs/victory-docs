@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
 
@@ -45,7 +45,8 @@ SubItemLink.propTypes = {
   depth: PropTypes.number.isRequired
 };
 
-const TableOfContents = ({ active, link, headings, location }) => {
+const TableOfContents = ({ active, link, headings }) => {
+  const location = useLocation();
   if (!active || isEmpty(headings)) {
     return null;
   }
@@ -137,7 +138,6 @@ TableOfContents.propTypes = {
   active: PropTypes.bool,
   headings: PropTypes.array,
   link: PropTypes.object,
-  location: PropTypes.object,
   searchTerm: PropTypes.string
 };
 

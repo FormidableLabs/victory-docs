@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
+import { useLocation } from "react-router-dom";
+
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
@@ -111,7 +113,8 @@ const getMatchTree = (link, filterTerm) => {
   return [];
 };
 
-const Sidebar = ({ className, content, location, onCloseClick }) => {
+const Sidebar = ({ className, content, onCloseClick }) => {
+  const location = useLocation();
   const [filteredResults, setFilteredResults] = useState(content);
   const [filterTerm, setFilterTerm] = useState("");
 
@@ -191,7 +194,6 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
               active={active}
               link={link}
               headings={headings}
-              location={location}
               filterTerm={filterTerm}
             />
           </SidebarListItem>
@@ -256,7 +258,6 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
-  location: PropTypes.shape({ pathname: PropTypes.string }),
   onCloseClick: PropTypes.func
 };
 

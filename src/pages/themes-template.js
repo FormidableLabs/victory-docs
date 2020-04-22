@@ -87,11 +87,11 @@ const ThemesTemplate = props => {
     );
   };
 
-  const { doc, sidebarContent, location } = props;
+  const { doc, sidebarContent } = props;
   const { title } = doc.data;
 
   return (
-    <Page withSidebar sidebarContent={sidebarContent} location={location}>
+    <Page withSidebar sidebarContent={sidebarContent}>
       <Helmet>
         <title>{`${config.siteTitle} |  ${title}`}</title>
         <meta name="description" content={config.siteDescription} />
@@ -135,7 +135,6 @@ ThemesTemplate.propTypes = {
   doc: PropTypes.shape({
     data: PropTypes.object
   }),
-  location: PropTypes.object,
   sidebarContent: PropTypes.array
 };
 

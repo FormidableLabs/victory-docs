@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { withRouteData } from "react-static";
 import styled from "styled-components";
 import Page from "../partials/page";
 import Showcase from "../partials/about/showcase";
-import { withRouteData } from "react-static";
 
 const Divider = styled.hr`
   height: 1px;
@@ -33,9 +33,9 @@ const GitHubIconContainer = styled.div`
   margin-bottom: 2.3rem;
 `;
 
-const About = ({ location, sidebarContent }) => {
+const About = ({ sidebarContent }) => {
   return (
-    <Page sidebarContent={sidebarContent} location={location}>
+    <Page sidebarContent={sidebarContent}>
       <PageHeader>Victory: Charting for React and React Native</PageHeader>
       <GitHubIconContainer>
         {/*
@@ -115,7 +115,6 @@ const About = ({ location, sidebarContent }) => {
 };
 
 About.propTypes = {
-  location: PropTypes.object,
   sidebarContent: PropTypes.array
 };
 
