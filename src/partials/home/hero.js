@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Link } from "react-scroll";
-
 import NpmCopy from "./npm-copy";
 import HeroDemo from "./hero-demo";
 import { LandingSectionContent, LinkButton } from "./styles";
 import importedTheme from "../../styles/theme";
+import createPath from "../../helpers/path-helpers";
 
 const HeroContainer = styled.section`
   background-image: url(${({ bg }) => bg});
@@ -238,7 +238,7 @@ const Hero = ({
           <GetStarted>
             <NpmCopy text={code} />
             <StyledLinkButton
-              to={link.location}
+              to={createPath(link.location)}
               bg={importedTheme.color.red}
               width="100%"
               noMargin
@@ -249,7 +249,7 @@ const Hero = ({
         </CenterWrapper>
         <LinkContainer>
           {linksArray.map(l => (
-            <LinkItem key={l.text} href={l.location}>
+            <LinkItem key={l.text} href={createPath(l.location)}>
               {l.text}
             </LinkItem>
           ))}

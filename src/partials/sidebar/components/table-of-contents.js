@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { NavLink, useLocation } from "react-router-dom";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
+import createPath from "../../../helpers/path-helpers";
 
 import { SidebarSectionSublist } from "../styles";
 
@@ -118,7 +119,7 @@ const TableOfContents = ({ active, link, headings }) => {
             <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}
-                to={getPath(item, tocLink)}
+                to={createPath(getPath(item, tocLink))}
                 prefetch={"data"}
                 strict
               >

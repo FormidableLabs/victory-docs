@@ -7,6 +7,8 @@ import {
   DropShadow
 } from "./styles";
 
+import createPath from "../../helpers/path-helpers";
+
 // Demos
 import DemoCustomChart from "./demo-custom-chart";
 import DemoSharedEvents from "./demo-shared-events";
@@ -87,19 +89,23 @@ const Guides = () => (
           <GuideDemo>
             <DemoCustomChart />
           </GuideDemo>
-          <GuideLink to="/guides/custom-charts">Custom Charts</GuideLink>
+          <GuideLink to={createPath("/guides/custom-charts")}>
+            Custom Charts
+          </GuideLink>
         </li>
         <li>
           <GuideDemo>
             <DemoZoom />
           </GuideDemo>
-          <GuideLink to="/guides/brush-and-zoom">Brush and Zoom</GuideLink>
+          <GuideLink to={createPath("/guides/brush-and-zoom")}>
+            Brush and Zoom
+          </GuideLink>
         </li>
         <li>
           <GuideDemo>
             <DemoCustomComponents />
           </GuideDemo>
-          <GuideLink to="/guides/custom-components">
+          <GuideLink to={createPath("/guides/custom-components")}>
             Custom Components
           </GuideLink>
         </li>
@@ -107,19 +113,21 @@ const Guides = () => (
           <GuideDemo>
             <DemoTooltips />
           </GuideDemo>
-          <GuideLink to="/guides/tooltips">Tooltips</GuideLink>
+          <GuideLink to={createPath("/guides/tooltips")}>Tooltips</GuideLink>
         </li>
         <li>
           <GuideDemo>
             <DemoSharedEvents />
           </GuideDemo>
-          <GuideLink to="/guides/events">Events</GuideLink>
+          <GuideLink to={createPath("/guides/events")}>Events</GuideLink>
         </li>
         <li>
           <GuideDemo>
             <DemoAnimation />
           </GuideDemo>
-          <GuideLink to="/guides/animations">Animations</GuideLink>
+          <GuideLink to={createPath("/guides/animations")}>
+            Animations
+          </GuideLink>
         </li>
       </GuidesList>
     </LandingSectionContent>

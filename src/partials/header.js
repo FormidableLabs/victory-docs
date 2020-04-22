@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
-
+import createPath from "../helpers/path-helpers";
 import config from "../../static-config-parts/site-data";
 import formidableIcon from "../../static/logos/logo-formidable-icon.svg";
 import formidableLogo from "../../static/logos/logo-formidable.svg";
@@ -116,6 +116,7 @@ const FormidableLogo = styled(SVG)`
   }
 `;
 
+
 const Header = ({ className = "", onMenuClick }) => {
   const location = useLocation();
   const pathname = location ? location.pathname : "";
@@ -129,7 +130,10 @@ const Header = ({ className = "", onMenuClick }) => {
           <VictoryLogoLink to="/">Victory</VictoryLogoLink>
 
           <NavLinksList>
-            <NavLink active={pathname.includes("about")} to="/about/">
+            <NavLink
+              active={pathname.includes("about")}
+              to={createPath("about")}
+            >
               About
             </NavLink>
             {/* /faq is nested under /docs but is at top-level for convenience
@@ -141,11 +145,14 @@ const Header = ({ className = "", onMenuClick }) => {
                 (pathname.includes("docs") || pathname.includes("guides")) &&
                 !pathname.includes("faq")
               }
-              to="/docs/"
+              to={createPath("docs")}
             >
               Docs
             </NavLink>
-            <NavLink active={pathname.includes("gallery")} to="/gallery/">
+            <NavLink
+              active={pathname.includes("gallery")}
+              to={createPath("gallery")}
+            >
               Gallery
             </NavLink>
 
@@ -155,7 +162,10 @@ const Header = ({ className = "", onMenuClick }) => {
               </NavAnchor>
             ))}
 
-            <NavLink active={pathname.includes("faq")} to="/docs/faq/">
+            <NavLink
+              active={pathname.includes("faq")}
+              to={createPath("docs/faq")}
+            >
               FAQs
             </NavLink>
           </NavLinksList>

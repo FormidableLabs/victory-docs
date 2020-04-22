@@ -11,20 +11,20 @@ const content = {
     code: "npm install victory",
     link: {
       text: "DOCUMENTATION",
-      location: "/docs"
+      location: "docs"
     },
     linksArray: [
       {
         text: "ABOUT",
-        location: "/about"
+        location: "about"
       },
       {
         text: "DOCS",
-        location: "/docs"
+        location: "docs"
       },
       {
         text: "GALLERY",
-        location: "/gallery"
+        location: "gallery"
       },
       {
         text: "SUPPORT",
@@ -36,7 +36,7 @@ const content = {
       },
       {
         text: "FAQS",
-        location: "https://github.com/FormidableLabs/victory"
+        location: "docs/faq"
       }
     ]
   },
@@ -66,7 +66,7 @@ const content = {
       "Victory is an opinionated, but fully overridable, ecosystem of composable React components. Check out the docs to see how you can get started building interactive data visualizations.",
     link: {
       text: "DOCUMENTATION",
-      location: "/docs"
+      location: "docs"
     }
   },
   oss: {

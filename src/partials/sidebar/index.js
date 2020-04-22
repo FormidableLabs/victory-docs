@@ -8,6 +8,8 @@ import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
 import SVG from "react-inlinesvg";
 
+import createPath from "../../helpers/path-helpers";
+
 import victoryLogo from "../../../static/logos/logo-victory.svg";
 import Introduction from "./components/introduction";
 import Category from "./components/category";
@@ -28,23 +30,23 @@ const documentationSubcategories = ["charts", "containers", "more"];
 const getPathPrefix = item => {
   // just a bunch of one-offs, elegance is harder to realize gains from
   if (item.title === "Getting Started" && item.category === "introduction") {
-    return "/docs/";
+    return "docs/";
   }
 
   if (item.title === "Native" && item.category === "introduction") {
-    return "/docs/native/";
+    return "docs/native/";
   }
 
   if (item.category === "support") {
-    return "/docs/faq/";
+    return "docs/faq/";
   }
   if (item.category === "documentation") {
-    return "/docs/common-props/";
+    return "docs/common-props/";
   }
   const checkedCategory = documentationSubcategories.includes(item.category)
     ? "docs"
     : item.category;
-  return `/${checkedCategory}/${item.slug}`;
+  return `${checkedCategory}/${item.slug}`;
 };
 
 const SidebarContainer = styled.nav`
@@ -182,7 +184,7 @@ const Sidebar = ({ className, content, onCloseClick }) => {
         return (
           <SidebarListItem key={link.slug} onClick={handleClearInput}>
             <SidebarListItemLink
-              to={getPathPrefix(link)}
+              to={createPath(getPathPrefix(link))}
               activeClassName={"is-active"}
               prefetch={"data"}
               exact
