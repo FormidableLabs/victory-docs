@@ -17,8 +17,8 @@ Victory renders components into responsive `svg` containers by default. Responsi
 Victory renders svg elements, so there is no concept of z-index. Instead the render order of components determines which elements will appear above others. Changing the order of rendered components can significantly alter the appearance of a chart. Compare the following charts. The only difference between the two is the order of the children in `VictoryChart`.
 
 ```playground
-  <div style={{ display: "flex", flexWrap: "wrap" }}>
-    <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <div>
+    <VictoryChart>
       <VictoryScatter
         y={(data) => Math.sin(2 * Math.PI * data.x)}
         samples={25}
@@ -33,7 +33,7 @@ Victory renders svg elements, so there is no concept of z-index. Instead the ren
       <VictoryAxis dependentAxis/>
     </VictoryChart>
 
-    <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+    <VictoryChart>
       <VictoryAxis/>
       <VictoryAxis dependentAxis/>
       <VictoryLine

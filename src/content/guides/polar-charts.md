@@ -40,7 +40,8 @@ In most cases, creating a polar chart is as easy as adding the `polar` prop to t
 ```playground
 <VictoryChart polar
   domain={{ x: [0, 360] }}
-  height={400} width={400}
+  height={250} width={250}
+  padding={30}
 >
   <VictoryBar
     style={{ data: { fill: "#c43a31", width: 50 }}}
@@ -54,7 +55,8 @@ To configure axes for polar charts, use the [`VictoryPolarAxis`][] component. `V
 ```playground
 <VictoryChart polar
   domain={{ x: [0, 360] }}
-  height={400} width={400}
+  height={250} width={250}
+  padding={30}
 >
   <VictoryPolarAxis dependentAxis
     style={{
@@ -78,7 +80,8 @@ To configure axes for polar charts, use the [`VictoryPolarAxis`][] component. `V
 ```playground
 <VictoryChart polar
   domain={{ x: [0, 360] }}
-  height={400} width={400}
+  height={250} width={250}
+  padding={30}
 >
   <VictoryPolarAxis dependentAxis
     style={{
@@ -106,7 +109,8 @@ Add interactivity to polar charts with standard events, or container components.
 ```playground
 <VictoryChart polar
   domain={{ x: [0, 360] }}
-  height={400} width={400}
+  height={250} width={250}
+  padding={30}
   containerComponent={<VictoryZoomContainer/>}
 >
   <VictoryPolarAxis dependentAxis

@@ -53,11 +53,6 @@ const sidebarTypeMutation = mdData => {
   return (mdData.data.type = mdData.data.category);
 };
 
-// You could also be like `yarn add --dev immutability-helper` and use its syntax, but introducing it adds a
-// learning curve that makes it less readable on first exposure + you end up using $apply a lot anyway + imo it's
-// not significantly cleaner for modifying multiple levels simultaneously. I like immutability-helper though, but
-// it feels more like the kind of thing we'd want to bring in as a cross-project standard rather than a one-off.
-
 const sidebarTreeMutation = mdData => {
   if (!mdData.data.subHeadings || !mdData.data.subHeadings.length) {
     mdData.data.sidebarTree = [];

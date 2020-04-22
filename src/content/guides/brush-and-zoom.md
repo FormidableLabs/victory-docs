@@ -80,7 +80,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-          <VictoryChart width={600} height={350} scale={{x: "time"}}
+          <VictoryChart
+            width={550}
+            height={300}
+            scale={{x: "time"}}
             containerComponent={
               <VictoryZoomContainer responsive={false}
                 zoomDimension="x"
@@ -108,8 +111,10 @@ class App extends React.Component {
           </VictoryChart>
 
           <VictoryChart
+            width={550}
+            height={90}
+            scale={{x: "time"}}
             padding={{top: 0, left: 50, right: 50, bottom: 30}}
-            width={600} height={90} scale={{x: "time"}}
             containerComponent={
               <VictoryBrushContainer responsive={false}
                 brushDimension="x"
@@ -125,7 +130,8 @@ class App extends React.Component {
                 new Date(1995, 1, 1),
                 new Date(2000, 1, 1),
                 new Date(2005, 1, 1),
-                new Date(2010, 1, 1)
+                new Date(2010, 1, 1),
+                new Date(2015, 1, 1)
               ]}
               tickFormat={(x) => new Date(x).getFullYear()}
             />

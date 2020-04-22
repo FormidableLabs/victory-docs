@@ -172,22 +172,22 @@ When no axes are supplied to `VictoryChart` it will render pair of default axes.
 
 ```playground
 <div style={{ display: "flex", flexWrap: "wrap" }}>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="Default Axes" x={225} y={30} textAnchor="middle"/>
     <VictoryLine/>
   </VictoryChart>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="Two VictoryAxis Children" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis/>
     <VictoryAxis dependentAxis/>
     <VictoryLine/>
   </VictoryChart>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="Single Dependent Axis" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis/>
     <VictoryLine/>
   </VictoryChart>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="Single Independent Axis" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis/>
     <VictoryLine/>
@@ -235,7 +235,7 @@ Long axis labels can be problematic. There are several ways to address the issue
 
 ```playground
 <div style={{ display: "flex", flexWrap: "wrap" }}>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}
+  <VictoryChart
     padding={{ left: 90, top: 50, right: 10, bottom: 50 }}
   >
     <VictoryLabel text="Altering padding" x={225} y={30} textAnchor="middle"/>
@@ -252,7 +252,7 @@ Long axis labels can be problematic. There are several ways to address the issue
     <VictoryLine/>
   </VictoryChart>
 
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="Multi-line labels" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis
       tickFormat={[
@@ -267,7 +267,7 @@ Long axis labels can be problematic. There are several ways to address the issue
     <VictoryLine/>
   </VictoryChart>
 
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="Angled labels" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis
       style={{ tickLabels: { angle: -60 } }}
@@ -283,7 +283,7 @@ Long axis labels can be problematic. There are several ways to address the issue
     <VictoryLine/>
   </VictoryChart>
 
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="overflowing labels with VictoryPortal" x={225} y={30} textAnchor="middle"/>
     <VictoryAxis dependentAxis
       tickLabelComponent={<VictoryPortal><VictoryLabel/></VictoryPortal>}
@@ -337,7 +337,7 @@ Bars in `VictoryBar` are centered around their corresponding value by default. Y
 
 ```playground
 <div style={{ display: "flex", flexWrap: "wrap" }}>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}
+  <VictoryChart
     domainPadding={{ x: 15 }}
   >
     <VictoryLabel text="domainPadding" x={225} y={30} textAnchor="middle"/>
@@ -345,7 +345,7 @@ Bars in `VictoryBar` are centered around their corresponding value by default. Y
       style={{ data: { fill: "gold", width: 30 } }}
     />
   </VictoryChart>
-  <VictoryChart style={{ parent: { maxWidth: "50%" } }}>
+  <VictoryChart>
     <VictoryLabel text="alignment" x={225} y={30} textAnchor="middle"/>
     <VictoryBar
       alignment="start"

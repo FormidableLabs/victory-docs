@@ -20,7 +20,7 @@ const PlaygroundContainer = styled.div`
   width: 100%;
 
   ${({ theme }) => `
-    @media ${theme.mediaQuery.md} {	
+    @media ${theme.mediaQuery.md} {
       .playgroundStage {
         height: ${STAGE_HEIGHT};
       }
@@ -33,18 +33,18 @@ const PlaygroundContainer = styled.div`
       flex-direction: column;
       flex-wrap: none;
       padding: 0;
-      margin: 4rem 0;
-      @media ${theme.mediaQuery.lg} {	
-          flex-direction: row;	
+      margin: 4rem -4rem;
+      @media ${theme.mediaQuery.lg} {
+          flex-direction: row;
       }
     }
 
     .playgroundCode {
       flex: 1 1 auto;
       order: 2;
-      margin: 4rem 0 ${theme.spacing.sm} 0;
+      margin: 4rem 0;
       position: relative;
-      @media ${theme.mediaQuery.md} {	
+      @media ${theme.mediaQuery.md} {
         margin-top: 4.3rem;
     }
     }
@@ -78,7 +78,11 @@ const PlaygroundContainer = styled.div`
       margin: 0 auto;
       resize: both;
       transition: background-color 195ms ease-in;
-      min-height: 60rem;
+      min-height: 40rem;
+      @media ${theme.mediaQuery.lg} {
+        width: 95%;
+        min-height: 110%;
+      }
     }
 
     .playgroundStage.ReactCodeMirror--focused {
@@ -96,8 +100,9 @@ const PlaygroundContainer = styled.div`
       position: relative;
       text-align: center;
       margin: 0 auto;
-      @media ${theme.mediaQuery.md} {	
-        min-width: 40rem;
+      min-width: 80%
+      @media ${theme.mediaQuery.lg} {
+        min-width: 50%;
       }
     }
 
@@ -109,7 +114,7 @@ const PlaygroundContainer = styled.div`
 
     .playgroundPreview > div:first-child {
       width: 100%;
-      margin: 0 auto;
+      margin: 1em auto;
     }
 
     .previewArea {
@@ -131,9 +136,8 @@ const PlaygroundContainer = styled.div`
 
     .playgroundPreview .VictoryContainer svg {
       margin: 0 auto;
-      max-height: calc(${STAGE_HEIGHT} - 4rem);
+      max-height: calc(${STAGE_HEIGHT});
       max-width: 100%;
-      width: auto !important; /* override default Victory inline styles */
     }
 
     .playgroundError {

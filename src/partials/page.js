@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import _Header from "./header";
 import _Sidebar from "../partials/sidebar";
-import Footer from "./footer";
 
 // sidebar logic is as follows:
 // if on large devices, sidebar is only shown if the `withSidebar` prop is
@@ -141,8 +140,6 @@ const Page = props => {
       <ContentContainer>
         <Content>{children}</Content>
       </ContentContainer>
-
-      <Footer />
     </PageContainer>
   );
 };
