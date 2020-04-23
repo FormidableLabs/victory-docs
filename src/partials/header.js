@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 import SVG from "react-inlinesvg";
 import createPath from "../helpers/path-helpers";
-import config from "../../static-config-parts/site-data";
+import config from "../../static-config-helpers/site-data";
 import formidableIcon from "../../static/logos/logo-formidable-icon.svg";
 import formidableLogo from "../../static/logos/logo-formidable.svg";
 import burgerIcon from "../../static/burger.svg";

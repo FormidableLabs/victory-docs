@@ -82,7 +82,7 @@ const App = () => {
   return (
     <Root>
       {/* TODO: create a better fallback component */}
-      <React.Suspense fallback={<h1>Loading</h1>}>
+      <React.Suspense fallback={<div />}>
         <Analytics id="UA-43290258-1">
           <ThemeProvider theme={theme}>
             <GlobalStyle />

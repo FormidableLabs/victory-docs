@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
 import Helmet from "react-helmet";
-import config from "../../static-config-parts/site-data";
-import Playground from "../partials/playground";
+import config from "../../static-config-helpers/site-data";
+import Markdown from "../partials/markdown";
 import Page from "../partials/page";
 
 const DocsTemplate = ({ doc, sidebarContent }) => {
@@ -17,7 +17,7 @@ const DocsTemplate = ({ doc, sidebarContent }) => {
       </Helmet>
       {/* TODO: Add edit this page link */}
       {/* <a className="SubHeading" href="">Edit this page</a> */}
-      <Playground html={content} scope={scope} playgroundTheme="elegant" />
+      <Markdown source={content} scope={scope} />
     </Page>
   );
 };

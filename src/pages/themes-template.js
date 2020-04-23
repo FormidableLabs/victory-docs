@@ -10,9 +10,9 @@ import createPath from "../helpers/path-helpers";
 
 import Button from "../partials/button";
 
-import config from "../../static-config-parts/site-data";
+import config from "../../static-config-helpers/site-data";
 import Page from "../partials/page";
-import PlaygroundContainer from "../partials/playground/playground-container";
+import PlaygroundContainer from "../partials/markdown/playground-container";
 import PureRender from "../partials/guides/themes/pure-render";
 import DemoComponent from "../partials/guides/themes/demo-component";
 import GrayscaleExample from "../partials/guides/themes/grayscale.example";

@@ -1,6 +1,6 @@
 const _ = require("lodash");
 const { createSharedData } = require("react-static/node");
-const siteData = require("./static-config-parts/site-data");
+const siteData = require("./static-config-helpers/site-data");
 const {
   getDocs,
   getFaq,
@@ -9,7 +9,7 @@ const {
   getGuides,
   getCommonProps
 } = require("./static-config-helpers/md-data-transforms");
-const { stage, landerBasePath } = require("./static-config-parts/constants");
+const { stage, landerBasePath } = require("./static-config-helpers/constants");
 
 // HMR for dev
 // TODO: enable after rewrite
