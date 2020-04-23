@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Playground from "../partials/playground";
 import config from "../../static-config-parts/site-data";
 import Page from "../partials/page";
+import createPath from "../helpers/path-helpers";
 
 const GalleryTemplate = ({ galleryItem }) => {
   const { content, data } = galleryItem;
@@ -17,7 +18,7 @@ const GalleryTemplate = ({ galleryItem }) => {
         <title>{`${config.siteTitle} |  ${title}`}</title>
         <meta name="description" content={config.siteDescription} />
       </Helmet>
-      <Link to="/gallery">Back to Gallery</Link>
+      <Link to={createPath("gallery")}>Back to Gallery</Link>
       <h1>{title}</h1>
       <Playground html={content} scope={scope} playgroundTheme="elegant" />
     </Page>

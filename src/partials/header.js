@@ -116,7 +116,6 @@ const FormidableLogo = styled(SVG)`
   }
 `;
 
-
 const Header = ({ className = "", onMenuClick }) => {
   const location = useLocation();
   const pathname = location ? location.pathname : "";
@@ -127,7 +126,7 @@ const Header = ({ className = "", onMenuClick }) => {
           <MenuButton onClick={onMenuClick}>
             <BurgerIcon src={burgerIcon} />
           </MenuButton>
-          <VictoryLogoLink to="/">Victory</VictoryLogoLink>
+          <VictoryLogoLink to={createPath("/")}>Victory</VictoryLogoLink>
 
           <NavLinksList>
             <NavLink

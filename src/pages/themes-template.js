@@ -6,6 +6,8 @@ import Helmet from "react-helmet";
 import { assign } from "lodash";
 import { withRouteData } from "react-static";
 import { Link } from "react-router-dom";
+import createPath from "../helpers/path-helpers";
+
 import Button from "../partials/button";
 
 import config from "../../static-config-parts/site-data";
@@ -103,7 +105,9 @@ const ThemesTemplate = props => {
       <h1>Themes</h1>
       <p>
         Try out the Victory themes and make your own. Check out the{" "}
-        <Link to="/docs/victory-theme/">VictoryTheme documentation</Link> for
+        <Link to={createPath("docs/victory-theme/")}>
+          VictoryTheme documentation
+        </Link>{" "}
         more details on themes.
       </p>
       {renderMenu()}

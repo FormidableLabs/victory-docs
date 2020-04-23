@@ -6,7 +6,8 @@ const createPath = path => {
   }
   const basePath = useBasepath();
   const head = basePath ? `/${basePath}/` : "/";
-  return `${head}${path}`;
+  const to = `${head}${path}`;
+  return to.replace("//", "/");
 };
 
 export default createPath;

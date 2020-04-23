@@ -6,6 +6,7 @@ import { withRouteData } from "react-static";
 import { Link } from "react-router-dom";
 import * as Victory from "victory";
 
+import createPath from "../helpers/path-helpers";
 import Page from "../partials/page";
 import Preview from "../partials/gallery/preview";
 
@@ -66,7 +67,7 @@ const Gallery = ({ gallery, sidebarContent }) => {
     const title = item.data.title;
 
     return (
-      <Link to={`/gallery/${slug}`}>
+      <Link to={createPath(`gallery/${slug}`)}>
         <Preview
           codeText={code}
           noRender={false}
