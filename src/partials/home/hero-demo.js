@@ -239,7 +239,8 @@ const HeroDemo = () => {
           }}
           labelComponent={
             <VictoryLabel
-              dy={7}
+              dx={({ datum }) => (datum.downloads < 60000 ? 15 : 0)}
+              dy={({ datum }) => (datum.downloads < 60000 ? -15 : 7)}
               lineHeight={1.3}
               style={[
                 {
