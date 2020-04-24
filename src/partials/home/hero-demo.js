@@ -119,7 +119,8 @@ const HeroDemo = () => (
   <HeroDemoContainer>
     <VictoryChart
       height={250}
-      width={1600}
+      width={1900}
+      padding={{ top: 50, bottom: 50, left: 200, right: 200 }}
       style={{
         parent: {
           boxSizing: "border-box",
@@ -140,28 +141,28 @@ const HeroDemo = () => (
         text="DEC 2015"
         textAnchor="end"
         style={font()}
-        x={40}
+        x={190}
         y={190}
       />
       <VictoryLabel
         text="PROJECT START"
         textAnchor="end"
         style={font()}
-        x={40}
+        x={190}
         y={215}
       />
       <VictoryLabel
         text="TODAY"
         textAnchor="start"
         style={font()}
-        x={1560}
+        x={1710}
         y={190}
       />
       <VictoryLabel
         text="v34.1.3"
         textAnchor="start"
         style={font()}
-        x={1560}
+        x={1710}
         y={215}
       />
       <VictoryAxis
