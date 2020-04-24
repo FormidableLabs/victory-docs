@@ -6,13 +6,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
-import { isEmpty } from "lodash";
 import { Link } from "react-router-dom";
 import ComponentPlayground from "component-playground";
 import * as Victory from "victory";
 import styled, { withTheme } from "styled-components";
 import scopeMap from "./scope-map";
 import PlaygroundContainer from "./playground-container";
+import createPath from "../../helpers/path-helpers";
 
 import Prism from "prismjs";
 import "prismjs/components/prism-bash";
@@ -140,28 +140,15 @@ renderHeading.propTypes = {
  * @returns {Object} link element
  */
 // eslint-disable-next-line react/no-multi-comp
-export const renderLink = (props, meta) => {
-  const { href, ...restProps } = props;
-  let linkUrl = href;
-  const isRelativeRepoUrl =
-    linkUrl && !linkUrl.startsWith("#") && !linkUrl.startsWith("http");
-
-  if (meta && !isEmpty(meta)) {
-    if (isRelativeRepoUrl) {
-      let baseUrl = meta.baseUrl || "";
-      if (!baseUrl.endsWith("/")) {
-        baseUrl = `${baseUrl}/`;
-      }
-      if (linkUrl.startsWith("./")) {
-        linkUrl = linkUrl.slice(2); // eslint-disable-line no-magic-numbers
-      }
-      if (linkUrl.startsWith("/")) {
-        linkUrl = linkUrl.slice(1); // eslint-disable-line no-magic-numbers
-      }
-      linkUrl = `${baseUrl}${linkUrl}`;
-    }
+export const renderLink = ({ href, children }) => {
+  if (/^\w+:/.test(href)) {
+    return (
+      <a rel="noopener noreferrer" target="_blank" href={href}>
+        {children}
+      </a>
+    );
   }
-  return <Link to={linkUrl} {...restProps} />;
+  return <Link to={createPath(href)}>{children}</Link>;
 };
 
 renderLink.propTypes = {
@@ -175,6 +162,7 @@ const Markdown = props => {
   /* eslint-disable react/prop-types, no-magic-numbers */
   const renderers = {
     link: renderLink,
+    linkReference: renderLink,
     heading: renderHeading,
     code: p => renderCodeBlock(p, scope, theme)
   };
