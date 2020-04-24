@@ -161,7 +161,9 @@ const HeroDemo = () => (
               strokeWidth: v.label ? 3 : 1
             }
           }}
-          labels={({ index }) => (v.label && index == 0 ? v.label : null)}
+          labels={({ index }) =>
+            v.label && Number(index) === 0 ? v.label : null
+          }
           groupComponent={<g />}
           labelComponent={<VictoryLabel y={50} />}
           samples={2}
