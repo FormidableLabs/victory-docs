@@ -236,6 +236,6 @@ of a given chart may trigger voronoi events. This prop should be given as a numb
 
 _example:_ `voronoiPadding={5}`
 
-[victorycontainer]: https://formidable.com/open-source/victory/docs/victory-container
+[victorycontainer]: /docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi
-[this example]: https://formidable.com/open-source/victory/gallery/voronoi-tooltips-grouped
+[this example]: /gallery/voronoi-tooltips-grouped

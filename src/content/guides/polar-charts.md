@@ -135,4 +135,4 @@ Add interactivity to polar charts with standard events, or container components.
 ```
 
 
-[`VictoryPolarAxis`]: https://formidable.com/open-source/victory/docs/victory-polar-axis
+[`VictoryPolarAxis`]: /docs/victory-polar-axis

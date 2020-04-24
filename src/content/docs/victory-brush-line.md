@@ -226,6 +226,6 @@ The `width` prop specified the width of both the `brush` and `brushArea`. When `
 
 _default:_ `width={10}`
 
-[`victorybrushcontainer`]: https://formidable.com/open-source/victory/docs/victory-brush-container
-[`box`]: https://formidable.com/open-source/victory/docs/victory-primitives#box
-[`axis`]: https://formidable.com/open-source/victory/docs/victory-primitives#axis
+[`victorybrushcontainer`]: /docs/victory-brush-container
+[`box`]: /docs/victory-primitives#box
+[`axis`]: /docs/victory-primitives#axis

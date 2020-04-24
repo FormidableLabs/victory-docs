@@ -170,5 +170,5 @@ The optional `onBrushDomainChangeEnd` prop accepts an function to be called only
 
 _example:_ `onBrushDomainChangeEnd={(domain, props) => handleDomainChangeEnd(domain, props)}`
 
-[brush and zoom guide]: https://formidable.com/open-source/victory/guides/brush-and-zoom
-[victorycontainer]: https://formidable.com/open-source/victory/docs/victory-container
+[brush and zoom guide]: /guides/brush-and-zoom
+[victorycontainer]: /docs/victory-container
