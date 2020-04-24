@@ -67,6 +67,8 @@ const ScrollToCurrentSection = ({ location, children }) => {
     if (checkScrollRoutes(pathname)) {
       scrollContent(hash);
     }
+    // scroll to top immediately if navigation is not to a sidebar page
+    scroll.scrollTo(0, { duration: 0 });
   }, [hash, pathname, pageContentHeight]);
 
   return children;
