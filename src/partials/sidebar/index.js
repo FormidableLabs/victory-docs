@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
-import SVG from "react-inlinesvg";
+import { FeaturedBadge } from "formidable-oss-badges";
 
 import createPath from "../../helpers/path-helpers";
-
-import victoryLogo from "../../../static/logos/logo-victory.svg";
 import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
@@ -70,7 +68,7 @@ const CloseButton = styled.button`
   }
 `;
 
-const VictoryLogo = styled(SVG)`
+const VictoryLogo = styled(Link)`
   display: flex;
   justify-content: center;
   margin-bottom: ${({ theme }) => theme.spacing.md};
@@ -208,7 +206,9 @@ const Sidebar = ({ className, content, onCloseClick }) => {
   return (
     <SidebarContainer className={className}>
       <CloseButton onClick={onCloseClick}>&times;</CloseButton>
-      <VictoryLogo src={victoryLogo} />
+      <VictoryLogo to={createPath("/")}>
+        <FeaturedBadge name="victory" isHoverable />
+      </VictoryLogo>
       <SearchInput
         onHandleInputChange={handleInputChange}
         content={content}

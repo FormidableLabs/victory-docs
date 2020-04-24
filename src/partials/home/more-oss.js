@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ProjectBadge } from "formidable-oss-badges";
+import { FeaturedBadge, ProjectBadge } from "formidable-oss-badges";
 import styled from "styled-components";
 import {
   LinkButton,
@@ -107,12 +107,12 @@ const MoreOSS = ({ ossArray, link }) => (
         {ossArray.map((card, index) => (
           <OSSItem key={card.link} index={index}>
             <OSSLink href={card.link}>
-              {card.hasOwnLogo ? (
-                <img src={card.logo} />
+              {card.featured ? (
+                <FeaturedBadge isHoverable name={card.title.toLowerCase()} />
               ) : (
                 <ProjectBadge
+                  isHoverable
                   color={card.color}
-                  number={card.number}
                   abbreviation={card.abbreviation}
                   description={card.title}
                 />
