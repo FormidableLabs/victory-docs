@@ -62,7 +62,7 @@ const Gallery = ({ gallery, sidebarContent }) => {
 
   // eslint-disable-next-line react/no-multi-comp
   const renderPreviewItem = item => {
-    const code = parseRaw(item.raw);
+    const code = parseRaw(item.content);
     const slug = item.data.slug;
     const title = item.data.title;
 

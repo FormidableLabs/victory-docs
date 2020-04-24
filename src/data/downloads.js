@@ -1,5 +1,5 @@
 export default {
-  downloads: [
+  data: [
     { downloads: 3, day: "2015-11-28" },
     { downloads: 4, day: "2015-11-29" },
     { downloads: 5, day: "2015-11-30" },
