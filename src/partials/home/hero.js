@@ -11,6 +11,7 @@ import createPath from "../../helpers/path-helpers";
 
 const HeroContainer = styled.section`
   background-image: url(${({ bg }) => bg});
+  background-size: cover;
   color: ${({ theme }) => theme.color.white};
   height: 650px;
   /* used to remove the 1px white border */
