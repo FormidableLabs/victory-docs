@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 // import PropTypes from "prop-types";
 
 // VComponents
@@ -37,7 +38,7 @@ const font = color => ({
 const numberWithCommas = x =>
   x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-export const groupDownloadsByWeek = dates => {
+const groupDownloadsByWeek = dates => {
   const downloadsGroupedByPeriod = {};
 
   dates.forEach(date => {
@@ -50,13 +51,17 @@ export const groupDownloadsByWeek = dates => {
       : date.downloads;
   });
 
-  return Object.entries(downloadsGroupedByPeriod).map(([key, value]) => ({
-    date: key,
-    downloads: value
-  }));
+  const weeklyDownloads = Object.entries(downloadsGroupedByPeriod).map(
+    ([key, value]) => ({
+      date: key,
+      downloads: value
+    })
+  );
+  // remove the last element in the array, as it may not be a full week
+  weeklyDownloads.pop();
+  return weeklyDownloads;
 };
 
-const downloadsPerWeek = groupDownloadsByWeek(downloads.data);
 const minorVersions = versions.data.filter(v => v.version.endsWith("0"));
 const voronoiBlacklist = minorVersions.map(v => `ignore-${v.version}`);
 
@@ -87,8 +92,8 @@ const LinkLabel = props => {
 // eslint-disable-next-line react/no-multi-comp
 const VoronoiLabel = props => {
   /* eslint-disable react/prop-types */
-  const { datum, x, y } = props;
-  if (last(downloadsPerWeek).downloads === datum.downloads) {
+  const { datum, x, y, data } = props;
+  if (last(data).downloads === datum.downloads) {
     return null;
   }
   /* eslint-disable react/prop-types*/
@@ -115,123 +120,151 @@ const VoronoiLabel = props => {
 };
 
 // eslint-disable-next-line react/no-multi-comp
-const HeroDemo = () => (
-  <HeroDemoContainer>
-    <VictoryChart
-      height={250}
-      width={1900}
-      padding={{ top: 50, bottom: 50, left: 200, right: 200 }}
-      style={{
-        parent: {
-          boxSizing: "border-box",
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: "2rem"
-        }
-      }}
-      containerComponent={
-        <VictoryVoronoiContainer
-          labels={({ datum }) => numberWithCommas(datum.downloads)}
-          voronoiBlacklist={voronoiBlacklist}
-          labelComponent={<VoronoiLabel />}
-        />
-      }
-    >
-      <VictoryLabel
-        text="DEC 2015"
-        textAnchor="end"
-        style={font()}
-        x={190}
-        y={190}
-      />
-      <VictoryLabel
-        text="PROJECT START"
-        textAnchor="end"
-        style={font()}
-        x={190}
-        y={215}
-      />
-      <VictoryLabel
-        text="TODAY"
-        textAnchor="start"
-        style={font()}
-        x={1710}
-        y={190}
-      />
-      <VictoryLabel
-        text="v34.1.3"
-        textAnchor="start"
-        style={font()}
-        x={1710}
-        y={215}
-      />
-      <VictoryAxis
-        tickFormat={() => ""}
-        style={{ axis: { stroke: importedTheme.color.brown, strokeWidth: 3 } }}
-        scale={{ x: "time" }}
-      />
+const HeroDemo = () => {
+  const lastDate = last(downloads.data).day;
+  const recentDate = moment()
+    .subtract(2, "days")
+    .format("YYYY-MM-DD");
+  const oldDownloads = groupDownloadsByWeek(downloads.data);
+  const [downloadsPerWeek, setData] = useState(oldDownloads);
+  const url = `https://api.npmjs.org/downloads/range/${lastDate}:${recentDate}/victory`;
 
-      {minorVersions.map(v => (
-        <VictoryLine
-          name={`ignore-${v.version}`}
-          key={v.version}
-          x={() => new Date(v.date)}
-          style={{
-            data: {
-              stroke: importedTheme.color.red,
-              strokeWidth: v.label ? 3 : 1
-            }
-          }}
-          labels
-          labelComponent={<LinkLabel version={v} />}
-          groupComponent={<g />}
-          samples={2}
-        />
-      ))}
-      <VictoryLine
-        data={downloadsPerWeek}
-        groupComponent={<g />}
-        y="downloads"
-        x={d => new Date(d.date)}
-        style={{ data: { stroke: importedTheme.color.white, strokeWidth: 4 } }}
-      />
-      <VictoryScatter
-        name="ignore-scatter"
-        data={[last(downloadsPerWeek)]}
-        y="downloads"
-        x={d => new Date(d.date)}
-        size={6}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await axios(url);
+        const freshData = result.data;
+        const allDownloads = downloads.data.concat(freshData.downloads);
+        setData(groupDownloadsByWeek(allDownloads));
+      } catch (error) {
+        setData(oldDownloads);
+      }
+    };
+    fetchData();
+  }, [url]);
+
+  return (
+    <HeroDemoContainer>
+      <VictoryChart
+        height={250}
+        width={1900}
+        padding={{ top: 50, bottom: 50, left: 200, right: 200 }}
         style={{
-          data: { fill: importedTheme.color.white },
-          labels: { verticalAnchor: "start" }
+          parent: {
+            boxSizing: "border-box",
+            display: "flex",
+            justifyContent: "center",
+            paddingTop: "2rem"
+          }
         }}
-        labelComponent={
-          <VictoryLabel
-            dy={7}
-            lineHeight={1.3}
-            style={[
-              {
-                fill: importedTheme.color.white,
-                fontSize: 20,
-                fontWeight: "bold",
-                fontFamily: "Helvetica",
-                textAnchor: "start"
-              },
-              {
-                fill: importedTheme.color.white,
-                fontSize: 15,
-                fontFamily: "Helvetica",
-                textAnchor: "start"
-              }
-            ]}
+        containerComponent={
+          <VictoryVoronoiContainer
+            labels={({ datum }) => numberWithCommas(datum.downloads)}
+            voronoiBlacklist={voronoiBlacklist}
+            labelComponent={<VoronoiLabel data={downloadsPerWeek} />}
           />
         }
-        labels={({ datum }) =>
-          `${numberWithCommas(datum.downloads)}\nDOWNLOADS / WEEK`
-        }
-      />
-    </VictoryChart>
-  </HeroDemoContainer>
-);
+      >
+        <VictoryLabel
+          text="DEC 2015"
+          textAnchor="end"
+          style={font()}
+          x={190}
+          y={190}
+        />
+        <VictoryLabel
+          text="PROJECT START"
+          textAnchor="end"
+          style={font()}
+          x={190}
+          y={215}
+        />
+        <VictoryLabel
+          text="TODAY"
+          textAnchor="start"
+          style={font()}
+          x={1710}
+          y={190}
+        />
+        <VictoryLabel
+          text="v34.1.3"
+          textAnchor="start"
+          style={font()}
+          x={1710}
+          y={215}
+        />
+        <VictoryAxis
+          tickFormat={() => ""}
+          style={{
+            axis: { stroke: importedTheme.color.brown, strokeWidth: 3 }
+          }}
+          scale={{ x: "time" }}
+        />
+
+        {minorVersions.map(v => (
+          <VictoryLine
+            name={`ignore-${v.version}`}
+            key={v.version}
+            x={() => new Date(v.date)}
+            style={{
+              data: {
+                stroke: importedTheme.color.red,
+                strokeWidth: v.label ? 3 : 1
+              }
+            }}
+            labels={() => v.label}
+            labelComponent={<LinkLabel version={v} />}
+            groupComponent={<g />}
+            samples={2}
+          />
+        ))}
+        <VictoryLine
+          data={downloadsPerWeek}
+          groupComponent={<g />}
+          y="downloads"
+          x={d => new Date(d.date)}
+          style={{
+            data: { stroke: importedTheme.color.white, strokeWidth: 4 }
+          }}
+        />
+        <VictoryScatter
+          name="ignore-scatter"
+          data={[last(downloadsPerWeek)]}
+          y="downloads"
+          x={d => new Date(d.date)}
+          size={6}
+          style={{
+            data: { fill: importedTheme.color.white },
+            labels: { verticalAnchor: "start" }
+          }}
+          labelComponent={
+            <VictoryLabel
+              dy={7}
+              lineHeight={1.3}
+              style={[
+                {
+                  fill: importedTheme.color.white,
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  fontFamily: "Helvetica",
+                  textAnchor: "start"
+                },
+                {
+                  fill: importedTheme.color.white,
+                  fontSize: 15,
+                  fontFamily: "Helvetica",
+                  textAnchor: "start"
+                }
+              ]}
+            />
+          }
+          labels={({ datum }) =>
+            `${numberWithCommas(datum.downloads)}\nDOWNLOADS / WEEK`
+          }
+        />
+      </VictoryChart>
+    </HeroDemoContainer>
+  );
+};
 
 export default HeroDemo;
