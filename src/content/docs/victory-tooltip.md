@@ -39,7 +39,6 @@ The `center` prop determines the position of the center of the tooltip flyout. T
 
 ```playground
 <VictoryBar
-  domain={{ y: [0, 10] }}
   data={sampleData}
   labels={() => "HELLO"}
   labelComponent={

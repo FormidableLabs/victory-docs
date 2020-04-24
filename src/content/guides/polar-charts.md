@@ -79,7 +79,7 @@ To configure axes for polar charts, use the [`VictoryPolarAxis`][] component. `V
 
 ```playground
 <VictoryChart polar
-  domain={{ x: [0, 360] }}
+  maxDomain={{ x: 360 }}
   height={250} width={250}
   padding={30}
 >
@@ -108,7 +108,7 @@ Add interactivity to polar charts with standard events, or container components.
 
 ```playground
 <VictoryChart polar
-  domain={{ x: [0, 360] }}
+  maxDomain={{ x: 360 }}
   height={250} width={250}
   padding={30}
   containerComponent={<VictoryZoomContainer/>}
