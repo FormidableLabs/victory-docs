@@ -16,7 +16,7 @@ import styled from "styled-components";
 import importedTheme from "../../styles/theme";
 import downloads from "../../data/downloads";
 import versions from "../../data/versions";
-import { maxBy, last } from "lodash";
+import { last } from "lodash";
 
 const HeroDemoContainer = styled.div`
   background-color: ${({ theme }) => theme.color.deepBrown};
@@ -33,6 +33,9 @@ const font = color => ({
   fontSize: 20,
   fontFamily: "Helvetica"
 });
+
+const numberWithCommas = x =>
+  x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
 export const groupDownloadsByWeek = dates => {
   const downloadsGroupedByPeriod = {};
@@ -57,28 +60,13 @@ const downloadsPerWeek = groupDownloadsByWeek(downloads.data);
 const minorVersions = versions.data.filter(v => v.version.endsWith("0"));
 const voronoiBlacklist = minorVersions.map(v => `ignore-${v.version}`);
 
-const isPeak = (datum, index, data) => {
-  if (index < 3 || index > data.length - 3) {
-    return false;
-  } else if (datum.downloads < 10000) {
-    return false;
-  } else if (maxBy(data, "downloads").downloads === datum.downloads) {
-    return true;
-  }
-  const threshold = 1.2;
-  const current = datum.downloads;
-  const lowerBefore =
-    current > data[index - 1].downloads &&
-    current > data[index - 2].downloads * threshold;
-  const lowerAfter =
-    current > data[index + 1].downloads &&
-    current > data[index + 2].downloads * threshold;
-  return lowerBefore && lowerAfter;
-};
-
-const downloadPeaks = downloadsPerWeek.filter(isPeak);
-
 const VoronoiLabel = props => {
+  /* eslint-disable react/prop-types */
+  const { datum, x, y } = props;
+  if (last(downloadsPerWeek).downloads === datum.downloads) {
+    return null;
+  }
+  /* eslint-disable react/prop-types*/
   const labelStyles = {
     fill: importedTheme.color.white,
     fontSize: 20,
@@ -88,10 +76,10 @@ const VoronoiLabel = props => {
   };
   return (
     <g>
-      <Point x={props.x} y={props.y} size={6} style={{ fill: "white" }} />
+      <Point x={x} y={y} size={6} style={{ fill: "white" }} />
       <rect
-        x={props.x - 30}
-        y={props.y - 30}
+        x={x - 30}
+        y={y - 30}
         width={60}
         height={20}
         fill={importedTheme.color.deepBrown}
@@ -99,7 +87,7 @@ const VoronoiLabel = props => {
       <VictoryLabel {...props} style={labelStyles} dy={-20} />
     </g>
   );
-}
+};
 
 // eslint-disable-next-line react/no-multi-comp
 const HeroDemo = () => (
@@ -117,7 +105,7 @@ const HeroDemo = () => (
       }}
       containerComponent={
         <VictoryVoronoiContainer
-          labels={({ datum }) => datum.downloads}
+          labels={({ datum }) => numberWithCommas(datum.downloads)}
           voronoiBlacklist={voronoiBlacklist}
           labelComponent={<VoronoiLabel />}
         />
@@ -186,24 +174,8 @@ const HeroDemo = () => (
         x={d => new Date(d.date)}
         style={{ data: { stroke: importedTheme.color.white, strokeWidth: 4 } }}
       />
-      {/* <VictoryScatter
-        data={downloadPeaks}
-        y="downloads"
-        x={d => new Date(d.date)}
-        size={6}
-        style={{
-          data: { fill: "white" },
-          labels: {
-            fill: importedTheme.color.white,
-            fontSize: 20,
-            fontFamily: "Helvetica",
-            textAnchor: "middle",
-            verticalAnchor: "end"
-          }
-        }}
-        labels={({ datum }) => datum.downloads}
-      /> */}
       <VictoryScatter
+        name="ignore-scatter"
         data={[last(downloadsPerWeek)]}
         y="downloads"
         x={d => new Date(d.date)}
@@ -214,7 +186,7 @@ const HeroDemo = () => (
         }}
         labelComponent={
           <VictoryLabel
-            dy={6}
+            dy={7}
             lineHeight={1.3}
             style={[
               {
@@ -233,7 +205,9 @@ const HeroDemo = () => (
             ]}
           />
         }
-        labels={({ datum }) => `${datum.downloads}\nDOWNLOADS / WEEK`}
+        labels={({ datum }) =>
+          `${numberWithCommas(datum.downloads)}\nDOWNLOADS / WEEK`
+        }
       />
     </VictoryChart>
   </HeroDemoContainer>
