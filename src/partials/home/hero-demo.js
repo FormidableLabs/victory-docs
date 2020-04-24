@@ -60,6 +60,31 @@ const downloadsPerWeek = groupDownloadsByWeek(downloads.data);
 const minorVersions = versions.data.filter(v => v.version.endsWith("0"));
 const voronoiBlacklist = minorVersions.map(v => `ignore-${v.version}`);
 
+const LinkLabel = props => {
+  /* eslint-disable react/prop-types */
+  const { x, index, version } = props;
+  /* eslint-disable react/prop-types*/
+  if (Number(index) || !version.label) {
+    return null;
+  }
+  const versionDate = `${version.version}-${version.date}`;
+  const hash = versionDate.replace(/[^\w-]+/g, "");
+  const linkStyle = font(importedTheme.color.red);
+  return (
+    <foreignObject x={x - 25} y={5} width={50} height={50}>
+      <a
+        href={`https://github.com/FormidableLabs/victory/blob/master/CHANGELOG.md#${hash}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={linkStyle}
+      >
+        {version.label}
+      </a>
+    </foreignObject>
+  );
+};
+
+// eslint-disable-next-line react/no-multi-comp
 const VoronoiLabel = props => {
   /* eslint-disable react/prop-types */
   const { datum, x, y } = props;
@@ -151,21 +176,14 @@ const HeroDemo = () => (
           key={v.version}
           x={() => new Date(v.date)}
           style={{
-            labels: {
-              fill: importedTheme.color.red,
-              fontSize: 20,
-              fontFamily: "Helvetica"
-            },
             data: {
               stroke: importedTheme.color.red,
               strokeWidth: v.label ? 3 : 1
             }
           }}
-          labels={({ index }) =>
-            v.label && Number(index) === 0 ? v.label : null
-          }
+          labels
+          labelComponent={<LinkLabel version={v} />}
           groupComponent={<g />}
-          labelComponent={<VictoryLabel y={50} />}
           samples={2}
         />
       ))}
@@ -183,7 +201,7 @@ const HeroDemo = () => (
         x={d => new Date(d.date)}
         size={6}
         style={{
-          data: { fill: "white" },
+          data: { fill: importedTheme.color.white },
           labels: { verticalAnchor: "start" }
         }}
         labelComponent={
