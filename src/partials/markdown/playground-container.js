@@ -12,7 +12,7 @@ import styled from "styled-components";
  *           |- div
  **/
 
-const STAGE_HEIGHT = "28rem";
+const STAGE_HEIGHT = "40rem";
 
 const PlaygroundContainer = styled.div`
   background-color: rgba(255, 254, 252, 0.5);
@@ -125,7 +125,7 @@ const PlaygroundContainer = styled.div`
       overflow-x: auto;
     }
 
-    .previewArea > div:first-child {
+    .previewArea {
       height: inherit;
       max-height: 100%;
       width: auto;
