@@ -93,9 +93,7 @@ const App = () => {
               render={({ routePath, getComponentForPath }) => (
                 <Route path="*">
                   {props => {
-                    const Comp = getComponentForPath(routePath) || (
-                      <NotFound />
-                    );
+                    const Comp = getComponentForPath(routePath) || <NotFound />;
                     return (
                       <ScrollToCurrentSection {...props}>
                         {Comp}
