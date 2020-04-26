@@ -20,7 +20,7 @@ scope: null
 
 `type: element`
 
-The `circleComponent` specifies the element to use when a `VictoryClipContainer` renders a circular clip path. By default, `VictoryClipContainer` uses the [Circle component][].
+The `circleComponent` prop specifies the element to use when a `VictoryClipContainer` renders a circular clip path. By default, `VictoryClipContainer` uses the [Circle component][].
 
 _default:_ `<Circle/>`
 
@@ -111,7 +111,7 @@ of the parent chart.
 
 `type: element`
 
-The `circleComponent` specifies the element to use when a `VictoryClipContainer` renders a rectangular clip path. By default, `VictoryClipContainer` uses the [Rect component][].
+The `rectComponent` prop specifies the element to use when a `VictoryClipContainer` renders a rectangular clip path. By default, `VictoryClipContainer` uses the [Rect component][].
 
 _default:_ `<Rect/>`
 

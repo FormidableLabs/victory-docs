@@ -63,7 +63,7 @@ Data accessors may also be given as path strings or arrays to specify deeply nes
     ...
   ]}
   x="employee.firstName"
-  y=["salary", "base"]
+  y={["salary", "base"]}
 />
 ```
 
