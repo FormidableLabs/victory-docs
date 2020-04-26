@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Root, Routes } from "react-static";
+import { Root, Routes, useBasepath } from "react-static";
 import { Route } from "react-router";
 import { ThemeProvider } from "styled-components";
 import { animateScroll as scroll } from "react-scroll";
@@ -81,33 +81,32 @@ ScrollToCurrentSection.propTypes = {
 
 // eslint-disable-next-line react/no-multi-comp
 const App = () => {
+  const basePath = useBasepath() || "";
   return (
     <Root>
       {/* TODO: create a better fallback component */}
       <React.Suspense fallback={<div />}>
-        <Analytics id="UA-43290258-1">
-          <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Analytics id="UA-43290258-1">
-              <Routes
-                render={({ routePath, getComponentForPath }) => (
-                  <Route path="*">
-                    {props => {
-                      const Comp = getComponentForPath(routePath) || (
-                        <NotFound />
-                      );
-                      return (
-                        <ScrollToCurrentSection {...props}>
-                          {Comp}
-                        </ScrollToCurrentSection>
-                      );
-                    }}
-                  </Route>
-                )}
-              />
-            </Analytics>
-          </ThemeProvider>
-        </Analytics>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Analytics id="UA-43290258-1" basename={`/${basePath}`}>
+            <Routes
+              render={({ routePath, getComponentForPath }) => (
+                <Route path="*">
+                  {props => {
+                    const Comp = getComponentForPath(routePath) || (
+                      <NotFound />
+                    );
+                    return (
+                      <ScrollToCurrentSection {...props}>
+                        {Comp}
+                      </ScrollToCurrentSection>
+                    );
+                  }}
+                </Route>
+              )}
+            />
+          </Analytics>
+        </ThemeProvider>
       </React.Suspense>
     </Root>
   );
