@@ -1,42 +1,28 @@
 import React from "react";
-import Footer from "../partials/footer";
-// Home Components
-import Benefits from "../partials/home/benefits";
+import styled from "styled-components";
+import Guides from "../partials/home/guides";
 import Companies from "../partials/home/companies";
 import Hero from "../partials/home/hero";
+import GetStarted from "../partials/home/get-started";
+import Features from "../partials/home/features";
+import Footer from "../partials/footer";
+import content from "../partials/home/_content";
+import MoreOss from "../partials/home/more-oss";
 
-class Index extends React.Component {
-  render() {
-    return (
-      <div className="Page-content without-content-sidebar">
-        <section className="Home playgroundsMaxHeight">
-          <Hero />
+const IndexWrapper = styled.div`
+  background-color: ${({ theme }) => theme.color.white};
+`;
 
-          <Companies />
-
-          <Benefits />
-
-          <div className="u-textCenter u-maxWidthPara u-marginAuto">
-            <h2>We are Formidable</h2>
-            <p>
-              Formidable is a Seattle-based consultancy and open-source shop,
-              with an emphasis on Node.js and React.js. We deploy a mixture of
-              consulting, staff augmentation, and training to level up teams and
-              solve engineering problems. Whether it’s transitioning walmart.com
-              to React, moving speedtest.net off Flash, or helping a startup
-              build and scale an MVP, we’re ready to help teams of any size.
-            </p>
-            <p>
-              Interested in hiring or working for us?{" "}
-              <a href="https://formidable.com/contact">Get in touch</a> or view
-              our <a href="https://formidable.com/careers">Careers Page</a>.
-            </p>
-          </div>
-        </section>
-        <Footer />
-      </div>
-    );
-  }
-}
+const Index = () => (
+  <IndexWrapper>
+    <Hero {...content.hero} />
+    <Features featureArray={content.features} />
+    <Companies />
+    <Guides />
+    <GetStarted {...content.getStarted} />
+    <MoreOss {...content.oss} />
+    <Footer />
+  </IndexWrapper>
+);
 
 export default Index;

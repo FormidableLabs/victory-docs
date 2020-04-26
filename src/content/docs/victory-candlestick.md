@@ -6,6 +6,7 @@ type: docs
 scope:
   - sampleDataDates
 ---
+
 # VictoryCandlestick
 
 VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandlestick can be composed with [`VictoryChart`][] to create candlestick charts.
@@ -25,13 +26,11 @@ VictoryCandlestick renders a dataset as a series of candlesticks. VictoryCandles
 </VictoryChart>
 ```
 
-## Props
-
-### animate
+## animate
 
 `type: boolean || object`
 
-`VictoryCandlestick` uses the standard `animate` prop. [Read about it https://formidable.com/open-source/victoryhere](/docs/common-props#animate)
+`VictoryCandlestick` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
@@ -42,13 +41,13 @@ animate={{
 }}
 ```
 
-### candleColors
+## candleColors
 
 `type: { positive: string, negative: string }`
 
 Candle colors are significant in candlestick charts, with colors indicating whether a market closed higher than it opened (positive), or closed lower than it opened (negative). The `candleColors` prop should be given as an object with color strings specified for positive and negative.
 
-*default (provided by default theme):* `candleColors={{positive: "white", negative: "black"}}`
+_default (provided by default theme):_ `candleColors={{positive: "white", negative: "black"}}`
 
 ```playground
 <VictoryCandlestick
@@ -57,7 +56,7 @@ Candle colors are significant in candlestick charts, with colors indicating whet
 />
 ```
 
-### candleRatio
+## candleRatio
 
 `type: number`
 
@@ -70,13 +69,13 @@ The `candleRatio` prop specifies an _approximate_ ratio between candle widths an
 />
 ```
 
-### candleWidth
+## candleWidth
 
 `type: number || function`
 
 The `candleWidth` prop is used to specify the width of each candle. This prop may be given as a number of pixels or as a function that returns a number. When this prop is given as a function, it will be evaluated with a single argument: an object containing all the props passed to the `Candle` component. When this value is not given, a default value will be calculated based on the overall dimensions of the chart, and the number of candles.
 
-*Note:* It is still possible to define candle width via the style prop with the `width` attribute, but `candleWidth` will take precedence.
+_Note:_ It is still possible to define candle width via the style prop with the `width` attribute, but `candleWidth` will take precedence.
 
 ```playground
 <VictoryCandlestick
@@ -85,17 +84,17 @@ The `candleWidth` prop is used to specify the width of each candle. This prop ma
 />
 ```
 
-### categories
+## categories
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
-`VictoryCandlestick` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryCandlestick` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 ```jsx
 categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
-### close
+## close
 
 `type: string || integer || array[string] || function`
 
@@ -103,21 +102,21 @@ Use `close` data accessor prop to define the close value of a candle.
 
 **string:** specify which property in an array of data objects should be used as the close value
 
-*examples:* `close="closing_value"`
+_examples:_ `close="closing_value"`
 
 **function:** use a function to translate each element in a data array into a close value
 
-*examples:* `close={() => 10}`
+_examples:_ `close={() => 10}`
 
 **array index:** specify which index of an array should be used as a close value when data is given as an array of arrays
 
-*examples:* `close={1}`
+_examples:_ `close={1}`
 
 **path string or path array:** specify which property in an array of nested data objects should be used as a close value
 
-*examples:* `close="bonds.close"`, `close={["bonds", "close"]}`
+_examples:_ `close="bonds.close"`, `close={["bonds", "close"]}`
 
-### closeLabelComponent
+## closeLabelComponent
 
 `type: element`
 
@@ -125,7 +124,7 @@ The `closeLabelComponent` prop takes a component instance which will be used to 
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
-*default:* `closeLabelComponent={<VictoryLabel/>}`
+_default:_ `closeLabelComponent={<VictoryLabel/>}`
 
 ```jsx
 closeLabelComponent={<VictoryLabel dy={20}/>}
@@ -144,28 +143,29 @@ closeLabelComponent={<VictoryLabel dy={20}/>}
 />
 ```
 
-### closeLabels
+## closeLabels
 
 `type: array || function || boolean`
 
 The `closeLabels` prop defines the labels that will correspond to the close value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
 
-*examples:*
+_examples:_
+
 - `closeLabels`
 - `closeLabels={["first", "second", "third"]}`
 - `closeLabels={({ datum }) => Math.round(datum.close)}`
 
-### containerComponent
+## containerComponent
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryCandlestick` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
 ```
 
-### data
+## data
 
 `type: array[object]`
 
@@ -183,57 +183,57 @@ Specify data via the `data` prop. By default, `VictoryCandlestick` expects data 
 />
 ```
 
-### dataComponent
+## dataComponent
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryCandlestick` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryCandlestick` supplies the following props to its `dataComponent`: `data`, `datum`, `index`, `padding`, `polar`, `origin`, `scale`, `style`, `candleHeight`, `x1`, `y1`, `y2`, `x2`
 
 See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
-*default:* `<Candle/>`
+_default:_ `<Candle/>`
 
 ```jsx
 dataComponent={<Candle events={{ onClick: handleClick }}/>}
 ```
 
-### domain
+## domain
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
-`VictoryCandlestick` uses the standard `domain` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domain)
+`VictoryCandlestick` uses the standard `domain` prop. [Read about it here](/docs/common-props#domain)
 
 ```jsx
 domain={{x: [0, 100], y: [0, 1]}}
 ```
 
-### domainPadding
+## domainPadding
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
-`VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryCandlestick` uses the standard `domainPadding` prop. [Read about it here](/docs/common-props#domainpadding)
 
 ```jsx
 domainPadding={{x: [10, -10], y: 5}}
 ```
 
-### eventKey
+## eventKey
 
 `type: string || integer || array[string] || function`
 
-`VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryCandlestick` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
-eventKey="x"
+eventKey = "x";
 ```
 
-### events
+## events
 
 `type: array[object]`
 
-`VictoryCandlestick` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryCandlestick` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -262,31 +262,31 @@ See the [Events Guide][] for more information on defining events.
 </div>
 ```
 
-### groupComponent
+## groupComponent
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryCandlestick` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
-*default:* `<g/>`
+_default:_ `<g/>`
 
 ```jsx
 groupComponent={<g transform="translate(10, 10)" />}
 ```
 
-### height
+## height
 
 `type: number`
 
-`VictoryCandlestick` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryCandlestick` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
-*default (provided by default theme):* `height={300}`
+_default (provided by default theme):_ `height={300}`
 
 ```jsx
 height={400}
 ```
 
-### high
+## high
 
 `type: string || integer || array[string] || function`
 
@@ -294,21 +294,21 @@ Use `high` data accessor prop to define the high value of a candle.
 
 **string:** specify which property in an array of data objects should be used as the high value
 
-*examples:* `high="highest_value"`
+_examples:_ `high="highest_value"`
 
 **function:** use a function to translate each element in a data array into a high value
 
-*examples:* `high={() => 10}`
+_examples:_ `high={() => 10}`
 
 **array index:** specify which index of an array should be used as a high value when data is given as an array of arrays
 
-*examples:* `high={1}`
+_examples:_ `high={1}`
 
 **path string or path array:** specify which property in an array of nested data objects should be used as a high value
 
-*examples:* `high="bonds.high"`, `high={["bonds", "high"]}`
+_examples:_ `high="bonds.high"`, `high={["bonds", "high"]}`
 
-### highLabelComponent
+## highLabelComponent
 
 `type: element`
 
@@ -316,7 +316,7 @@ The `highLabelComponent` prop takes a component instance which will be used to r
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
-*default:* `highLabelComponent={<VictoryLabel/>}`
+_default:_ `highLabelComponent={<VictoryLabel/>}`
 
 ```jsx
 highLabelComponent={<VictoryLabel dy={20}/>}
@@ -335,22 +335,23 @@ highLabelComponent={<VictoryLabel dy={20}/>}
 />
 ```
 
-### highLabels
+## highLabels
 
 `type: array || function || boolean`
 
 The `highLabels` prop defines the labels that will correspond to the high value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
 
-*examples:*
+_examples:_
+
 - `highLabels`
 - `highLabels={["first", "second", "third"]}`
 - `highLabels={({ datum }) => Math.round(datum.high)}`
 
-### horizontal
+## horizontal
 
 `type: boolean`
 
-`VictoryCandlestick` uses the standard `horizontal` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#horizontal)
+`VictoryCandlestick` uses the standard `horizontal` prop. [Read about it in detail](/docs/common-props#horizontal)
 
 ```playground
 <VictoryCandlestick horizontal
@@ -358,14 +359,13 @@ The `highLabels` prop defines the labels that will correspond to the high value 
 />
 ```
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
-`VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryCandlestick` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
-*default:* `<VictoryLabel/>`
-
+_default:_ `<VictoryLabel/>`
 
 ```playground
 <VictoryCandlestick
@@ -386,12 +386,11 @@ The `highLabels` prop defines the labels that will correspond to the high value 
 />
 ```
 
-### labelOrientation
+## labelOrientation
 
 `type: "top", "bottom", "left", "right" || { open, close, low, high }`
 
 The `labelOrientation` prop determines where a label should be placed in relation to the candle it corresponds to. This prop may be given as "top", "bottom", "left", "right", or as an object with an option defined for some or all of the labels.
-
 
 ```playground
 <VictoryCandlestick
@@ -410,13 +409,11 @@ The `labelOrientation` prop determines where a label should be placed in relatio
 />
 ```
 
-
-
-### labels
+## labels
 
 `type: array || function`
 
-`VictoryCandlestick` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
+`VictoryCandlestick` uses the standard `labels` prop. [Read about it here](/docs/common-props#labels)
 
 ```playground
 <VictoryCandlestick
@@ -425,7 +422,7 @@ The `labelOrientation` prop determines where a label should be placed in relatio
 />
 ```
 
-### low
+## low
 
 `type: string || integer || array[string] || function`
 
@@ -433,21 +430,21 @@ Use `low` data accessor prop to define the low value of a candle.
 
 **string:** specify which property in an array of data objects should be used as the low value
 
-*examples:* `low="lowest_value"`
+_examples:_ `low="lowest_value"`
 
 **function:** use a function to translate each element in a data array into a low value
 
-*examples:* `low={() => 10}`
+_examples:_ `low={() => 10}`
 
 **array index:** specify which index of an array should be used as a low value when data is given as an array of arrays
 
-*examples:* `low={1}`
+_examples:_ `low={1}`
 
 **path string or path array:** specify which property in an array of nested data objects should be used as a low value
 
-*examples:* `low="bonds.low"`, `low={["bonds", "low"]}`
+_examples:_ `low="bonds.low"`, `low={["bonds", "low"]}`
 
-### lowLabelComponent
+## lowLabelComponent
 
 `type: element`
 
@@ -455,7 +452,7 @@ The `lowLabelComponent` prop takes a component instance which will be used to re
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
-*default:* `lowLabelComponent={<VictoryLabel/>}`
+_default:_ `lowLabelComponent={<VictoryLabel/>}`
 
 ```jsx
 lowLabelComponent={<VictoryLabel dy={20}/>}
@@ -480,23 +477,23 @@ lowLabelComponent={<VictoryLabel dy={20}/>}
 />
 ```
 
-### lowLabels
+## lowLabels
 
 `type: array || function || boolean`
 
 The `lowLabels` prop defines the labels that will correspond to the low value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
 
-*examples:*
+_examples:_
+
 - `lowLabels`
 - `lowLabels={["first", "second", "third"]}`
 - `lowLabels={({ datum }) => Math.round(datum.low)}`
 
-### maxDomain
+## maxDomain
 
 `type: number || { x: number, y: number }`
 
-`VictoryCandlestick` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
-
+`VictoryCandlestick` uses the standard `maxDomain` prop. [Read about it in detail](/docs/common-props#maxDomain)
 
 ```playground
 <VictoryChart
@@ -509,12 +506,11 @@ The `lowLabels` prop defines the labels that will correspond to the low value fo
 </VictoryChart>
 ```
 
-### minDomain
+## minDomain
 
 `type: number || { x: number, y: number }`
 
-`VictoryCandlestick` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
-
+`VictoryCandlestick` uses the standard `minDomain` prop. [Read about it in detail](/docs/common-props#minDomain)
 
 ```playground
 <VictoryChart
@@ -527,18 +523,17 @@ The `lowLabels` prop defines the labels that will correspond to the low value fo
 </VictoryChart>
 ```
 
-
-### name
+## name
 
 `type: string`
 
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
-name="series-1"
+name = "series-1";
 ```
 
-### open
+## open
 
 `type: string || integer || array[string] || function`
 
@@ -546,21 +541,21 @@ Use `open` data accessor prop to define the open value of a candle.
 
 **string:** specify which property in an array of data objects should be used as the open value
 
-*examples:* `open="opening_value"`
+_examples:_ `open="opening_value"`
 
 **function:** use a function to translate each element in a data array into a open value
 
-*examples:* `open={() => 10}`
+_examples:_ `open={() => 10}`
 
 **array index:** specify which index of an array should be used as a open value when data is given as an array of arrays
 
-*examples:* `open={1}`
+_examples:_ `open={1}`
 
 **path string or path array:** specify which property in an array of nested data objects should be used as a open value
 
-*examples:* `open="bonds.open"`, `open={["bonds", "open"]}`
+_examples:_ `open="bonds.open"`, `open={["bonds", "open"]}`
 
-### openLabelComponent
+## openLabelComponent
 
 `type: element`
 
@@ -568,7 +563,7 @@ The `openLabelComponent` prop takes a component instance which will be used to r
 
 See the [Custom Components Guide][] for more detail on creating your own components
 
-*default:* `openLabelComponent={<VictoryLabel/>}`
+_default:_ `openLabelComponent={<VictoryLabel/>}`
 
 ```jsx
 openLabelComponent={<VictoryLabel dy={20}/>}
@@ -587,119 +582,118 @@ openLabelComponent={<VictoryLabel dy={20}/>}
 />
 ```
 
-### openLabels
+## openLabels
 
 `type: array || function || boolean`
 
 The `openLabels` prop defines the labels that will correspond to the open value for each candle. This prop should be given as a boolean, an array or as a function of the props corresponding to that label. When given as a boolean value, the max value of each datum will be used for the label.
 
-*examples:*
+_examples:_
+
 - `openLabels`
 - `openLabels={["first", "second", "third"]}`
 - `openLabels={({ datum }) => Math.round(datum.open)}`
 
-
-### origin
+## origin
 
 `type: { x: number, y: number }`
 
 **The `origin` prop is only used by polar charts, and is usually controlled by `VictoryChart`. It will not typically be necessary to set an `origin` prop manually**
 
-[Read about the `origin` prop in detailhttps://formidable.com/open-source/victory](/docs/common-props#origin)
+[Read about the `origin` prop in detail](/docs/common-props#origin)
 
-
-### padding
+## padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
-`VictoryCandlestick` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryCandlestick` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
-*default (provided by default theme):* `padding={50}`
+_default (provided by default theme):_ `padding={50}`
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### polar
+## polar
 
 `type: boolean`
 
-`VictoryCandlestick` uses the standard `polar` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#polar)
+`VictoryCandlestick` uses the standard `polar` prop. [Read about it here](/docs/common-props#polar)
 
 **Note:** Polar Charts are not yet supported for `VictoryCandlestick`
 
-### range
+## range
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
 **The `range` prop is usually controlled by `VictoryChart`. It will not typically be necessary to set a `range` prop manually**
 
-[Read about the `range` prop in detailhttps://formidable.com/open-source/victory](/docs/common-props#range)
+[Read about the `range` prop in detail](/docs/common-props#range)
 
-### samples
+## samples
 
 `type: number`
 
-`VictoryCandlestick` uses the standard `samples` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#samples)
+`VictoryCandlestick` uses the standard `samples` prop. [Read about it here](/docs/common-props#samples)
 
-*default:* `samples={50}`
+_default:_ `samples={50}`
 
 ```jsx
 samples={100}
 ```
 
-### scale
+## scale
 
 `type: scale || { x: scale, y: scale }`
 
-`VictoryCandlestick` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#scale)
+`VictoryCandlestick` uses the standard `scale` prop. [Read about it here](/docs/common-props#scale)
 Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
-*default:* `scale="linear"`
+_default:_ `scale="linear"`
 
 ```jsx
 scale={{x: "linear", y: "log"}}
 ```
 
-### sharedEvents
+## sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### singleQuadrantDomainPadding
+## singleQuadrantDomainPadding
 
 `type: boolean || { x: boolean, y: boolean }`
 
-`VictoryCandlestick` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
+`VictoryCandlestick` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](/docs/common-props#singlequadrantdomainpadding)
 
-### sortKey
+## sortKey
 
 `type: string || integer || array[string] || function`
 
-`VictoryCandlestick` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
+`VictoryCandlestick` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-sortKey="x"
+sortKey = "x";
 ```
 
-### sortOrder
+## sortOrder
 
 `type: "ascending" || "descending"`
 
 The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
 
-*default:* `sortOrder="ascending"`
+_default:_ `sortOrder="ascending"`
 
-### standalone
+## standalone
 
 `type: boolean`
 
-`VictoryCandlestick` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryCandlestick` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
 **note:** When `VictoryCandlestick` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
-*default:* `standalone={true}`
+_default:_ `standalone={true}`
 
 ```playground
 <svg width={300} height={300}>
@@ -712,7 +706,7 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 </svg>
 ```
 
-### style
+## style
 
 ```
 type: {
@@ -732,7 +726,7 @@ The `style` prop defines the style of the component. The style prop should be gi
 
 **note:** custom `angle` and `verticalAnchor` properties may be included in `labels` styles.
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
 <VictoryCandlestick
@@ -755,43 +749,43 @@ The `style` prop defines the style of the component. The style prop should be gi
 />
 ```
 
-### theme
+## theme
 
 `type: object`
 
-`VictoryCandlestick` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryCandlestick` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
-*default:* `theme={VictoryTheme.grayscale}`
+_default:_ `theme={VictoryTheme.grayscale}`
 
 ```jsx
 theme={VictoryTheme.material}
 ```
 
-### wickStrokeWidth
+## wickStrokeWidth
 
 `type: number`
 
 When the `wickStrokeWidth` prop is set, this value will be used to determine the stroke width for the candle wick. When this prop is not set, the `strokeWidth` set by the `style` prop will apply to both the candle and the wick.
 
-### width
+## width
 
 `type: number`
 
-`VictoryCandlestick` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryCandlestick` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
-*default (provided by default theme):* `width={450}`
+_default (provided by default theme):_ `width={450}`
 
 ```jsx
 width={400}
 ```
 
-### x
+## x
 
 `type: string || integer || array[string] || function`
 
-`VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
+`VictoryCandlestick` uses the standard `x` data accessor prop. [Read about it here](/docs/common-props#x)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -799,15 +793,15 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 x={(datum) => new Date(datum.day)}
 ```
 
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
-[`VictoryChart`]: https://formidable.com/open-source/victory/docs/victory-chart
-[`x`]: https://formidable.com/open-source/victory/docs/victory-candlestick#x
-[`open`]: https://formidable.com/open-source/victory/docs/victory-candlestick#open
-[`close`]: https://formidable.com/open-source/victory/docs/victory-candlestick#close
-[`high`]: https://formidable.com/open-source/victory/docs/victory-candlestick#high
-[`low`]: https://formidable.com/open-source/victory/docs/victory-candlestick#low
+[animations guide]: /guides/animations
+[data accessors guide]: /guides/data-accessors
+[custom components guide]: /guides/custom-components
+[events guide]: /guides/events
+[themes guide]: /guides/themes
+[`victorychart`]: /docs/victory-chart
+[`x`]: /docs/victory-candlestick#x
+[`open`]: /docs/victory-candlestick#open
+[`close`]: /docs/victory-candlestick#close
+[`high`]: /docs/victory-candlestick#high
+[`low`]: /docs/victory-candlestick#low
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js

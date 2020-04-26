@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import config from "../../../static-config-parts/site-data";
+import config from "../../../static-config-helpers/site-data";
 
 class SEO extends Component {
   generateTitle() {

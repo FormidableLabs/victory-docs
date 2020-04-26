@@ -6,6 +6,7 @@ type: docs
 scope:
   - sampleData
 ---
+
 # VictoryPie
 
 `VictoryPie` renders a dataset as a pie chart.
@@ -20,13 +21,11 @@ scope:
 />
 ```
 
-## Props
-
-### animate
+## animate
 
 `type: boolean || object`
 
-`VictoryPie` uses the standard `animate` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#animate)
+`VictoryPie` uses the standard `animate` prop. [Read about it here](/docs/common-props#animate)
 
 See the [Animations Guide][] for more detail on animations and transitions
 
@@ -36,23 +35,23 @@ animate={{
 }}
 ```
 
-### categories
+## categories
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
-`VictoryPie` uses the standard `categories` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#categories)
+`VictoryPie` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 ```jsx
 categories={{ x: ["dogs", "cats", "mice"] }}
 ```
 
-### colorScale
+## colorScale
 
 `type: array[string]`
 
 The `colorScale` prop defines a color scale to be applied to each slice of `VictoryPie`. This prop should be given as an array of CSS colors, or as a string corresponding to one of the built in color scales: "grayscale", "qualitative", "heatmap", "warm", "cool", "red", "green", "blue". `VictoryPie` will assign a color to each slice by index, unless they are explicitly specified in the data object. Colors will repeat when there are more slices than colors in the provided `colorScale`.
 
-*default (provided by default theme):* `colorScale="grayscale"`
+_default (provided by default theme):_ `colorScale="grayscale"`
 
 ```playground
 <VictoryPie
@@ -61,21 +60,21 @@ The `colorScale` prop defines a color scale to be applied to each slice of `Vict
 />
 ```
 
-### containerComponent
+## containerComponent
 
 `type: element`
 
-`VictoryPie` uses the standard `containerComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#containercomponent)
+`VictoryPie` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 **Note:** `VictoryPie` only works with the `VictoryContainer` component
 
-*default:* `containerComponent={<VictoryContainer/>}`
+_default:_ `containerComponent={<VictoryContainer/>}`
 
 ```jsx
 containerComponent={<VictoryContainer responsive={false}/>}
 ```
 
-### cornerRadius
+## cornerRadius
 
 `type: number || function`
 
@@ -88,14 +87,13 @@ The `cornerRadius` prop specifies the corner radius of the slices rendered in th
 />
 ```
 
-### data
+## data
 
 `type: array[object]`
 
-`VictoryPie` uses the standard `data` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#data)
+`VictoryPie` uses the standard `data` prop. [Read about it here](/docs/common-props#data)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
-
 
 ```playground
 <VictoryPie
@@ -107,30 +105,29 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 />
 ```
 
-### dataComponent
+## dataComponent
 
 `type: element`
 
-`VictoryPie` uses the standard `dataComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#datacomponent)
+`VictoryPie` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
 `VictoryPie` supplies the following props to its `dataComponent`: `data`, `datum`, `events`, `index`, `pathFunction`, `slice`, `style`
 
 See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
-*default:* `<Slice/>`
+_default:_ `<Slice/>`
 
 ```jsx
 dataComponent={<Slice events={{ onClick: handleClick }}/>}
 ```
 
-### endAngle
+## endAngle
 
 `type: number`
 
 The `endAngle` props defines the overall end angle of the pie in degrees. This prop is used in conjunction with `startAngle` to create a pie that spans only a segment of a circle, or to change overall rotation of the pie. This prop should be given as a number of degrees. Degrees are defined as starting at the 12 o'clock position, and proceeding clockwise.
 
-*default:* `endAngle={360}`
-
+_default:_ `endAngle={360}`
 
 ```playground
 <div>
@@ -147,21 +144,21 @@ The `endAngle` props defines the overall end angle of the pie in degrees. This p
 </div>
 ```
 
-### eventKey
+## eventKey
 
 `type: string || integer || array[string] || function`
 
-`VictoryPie` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](https://formidable.com/open-source/victory/docs/common-props#eventkey)
+`VictoryPie` uses the standard `eventKey` prop to specify how event targets are addressed. **This prop is not commonly used.** [Read about the `eventKey` prop in more detail here](/docs/common-props#eventkey)
 
 ```jsx
-eventKey="x"
+eventKey = "x";
 ```
 
-### events
+## events
 
 `type: array[object]`
 
-`VictoryPie` uses the standard `events` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#events)
+`VictoryPie` uses the standard `events` prop. [Read about it here](/docs/common-props#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -194,37 +191,37 @@ See the [Events Guide][] for more information on defining events.
 </div>
 ```
 
-### externalEventMutations
+## externalEventMutations
 
 `type: array[object]`
 
-`VictoryPie` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#externalEventsMutations)
+`VictoryPie` uses the standard `externalEventMutations` prop. [Read about it in detail](/docs/common-props#externalEventsMutations)
 
-### groupComponent
+## groupComponent
 
 `type: element`
 
-`VictoryPie` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryPie` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
-*default:* `<g/>`
+_default:_ `<g/>`
 
 ```jsx
 groupComponent={<g transform="rotate(90)" />}
 ```
 
-### height
+## height
 
 `type: number`
 
-`VictoryPie` uses the standard `height` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#height)
+`VictoryPie` uses the standard `height` prop. [Read about it here](/docs/common-props#height)
 
-*default (provided by default theme):* `height={400}`
+_default (provided by default theme):_ `height={400}`
 
 ```jsx
 height={400}
 ```
 
-### innerRadius
+## innerRadius
 
 `type: number || function`
 
@@ -237,13 +234,13 @@ The `innerRadius` prop determines the number of pixels between the center of the
 />
 ```
 
-### labelComponent
+## labelComponent
 
 `type: element`
 
-`VictoryPie` uses the standard `labelComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labelcomponent)
+`VictoryPie` uses the standard `labelComponent` prop. [Read about it here](/docs/common-props#labelcomponent)
 
-*default:* `<VictoryLabel/>`
+_default:_ `<VictoryLabel/>`
 
 ```playground
 <VictoryPie
@@ -253,11 +250,11 @@ The `innerRadius` prop determines the number of pixels between the center of the
 />
 ```
 
-### labelPosition
+## labelPosition
 
 `type "startAngle" || "endAngle" || "centroid"
 
-The `labelPosition` prop specifies the angular position of each label relative to its corresponding slice. When this prop is not given, the label will be positioned at the  centroid of each slice.
+The `labelPosition` prop specifies the angular position of each label relative to its corresponding slice. When this prop is not given, the label will be positioned at the centroid of each slice.
 
 ```playground
 <VictoryPie
@@ -267,7 +264,7 @@ The `labelPosition` prop specifies the angular position of each label relative t
 />
 ```
 
-### labelRadius
+## labelRadius
 
 `type: number || function`
 
@@ -283,11 +280,11 @@ The `labelRadius` prop defines the radius of the arc that will be used for posit
 />
 ```
 
-### labels
+## labels
 
 `type: array || function`
 
-`VictoryPie` uses the standard `labels` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#labels)
+`VictoryPie` uses the standard `labels` prop. [Read about it here](/docs/common-props#labels)
 
 ```playground
 <VictoryPie
@@ -296,17 +293,17 @@ The `labelRadius` prop defines the radius of the arc that will be used for posit
 />
 ```
 
-### name
+## name
 
 `type: string`
 
 The `name` prop is used to reference a component instance when defining shared events.
 
 ```jsx
-name="series-1"
+name = "series-1";
 ```
 
-### origin
+## origin
 
 `type: { x: number, y: number }`
 
@@ -320,7 +317,7 @@ The `origin` prop specifies coordinates for the center of the pie. When this pro
 />
 ```
 
-### padAngle
+## padAngle
 
 `type: number || function`
 
@@ -334,24 +331,23 @@ The `padAngle` prop defines the amount of separation between adjacent data slice
 />
 ```
 
-### padding
+## padding
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
-`VictoryPie` uses the standard `padding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#padding)
+`VictoryPie` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
-*default (provided by default theme):* `padding={50}`
+_default (provided by default theme):_ `padding={50}`
 
 ```jsx
 padding={{ top: 20, bottom: 60 }}
 ```
 
-### radius
+## radius
 
 `type: number || function`
 
 The `radius` prop specifies the radius of the pie. When this prop is not given, it will be calculated based on the `width`, `height`, and `padding` props. When this prop is given as a function it will be evaluated for each slice with the props corresponding to that slice.
-
 
 ```playground
 <VictoryPie
@@ -360,38 +356,37 @@ The `radius` prop specifies the radius of the pie. When this prop is not given, 
 />
 ```
 
-
-### sharedEvents
+## sharedEvents
 
 **The `sharedEvents` prop is used internally to coordinate events between components. It should not be set manually.**
 
-### sortKey
+## sortKey
 
 `type: string || integer || array[string] || function`
 
-`VictoryPie` uses the standard `sortKey` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#sortkey)
+`VictoryPie` uses the standard `sortKey` prop. [Read about it here](/docs/common-props#sortkey)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-sortKey="x"
+sortKey = "x";
 ```
 
-### sortOrder
+## sortOrder
 
 `type: "ascending" || "descending"`
 
 The `sortOrder` prop specifies whether sorted data should be returned in ascending or descending order.
 
-*default:* `sortOrder="ascending"`
+_default:_ `sortOrder="ascending"`
 
-### standalone
+## standalone
 
 `type: boolean`
 
-`VictoryPie` uses the standard `standalone` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#standalone)
+`VictoryPie` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
-*default:* `standalone={true}`
+_default:_ `standalone={true}`
 
 ```playground
 <svg width={300} height={300}>
@@ -405,14 +400,13 @@ The `sortOrder` prop specifies whether sorted data should be returned in ascendi
 </svg>
 ```
 
-### startAngle
+## startAngle
 
 `type: number`
 
 The `startAngle` props defines the overall start angle of the pie in degrees. This prop is used in conjunction with `endAngle` to create a pie that spans only a segment of a circle, or to change overall rotation of the pie. This prop should be given as a number of degrees. Degrees are defined as starting at the 12 o'clock position, and proceeding clockwise.
 
-*default:* `endAngle={0}`
-
+_default:_ `endAngle={0}`
 
 ```playground
 <div>
@@ -429,13 +423,13 @@ The `startAngle` props defines the overall start angle of the pie in degrees. Th
 </div>
 ```
 
-### style
+## style
 
 `type: { parent: object, data: object, labels: object }`
 
-`VictoryPie` uses the standard `style` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#style)
+`VictoryPie` uses the standard `style` prop. [Read about it here](/docs/common-props#style)
 
-*default (provided by default theme):* See [grayscale theme][] for more detail
+_default (provided by default theme):_ See [grayscale theme][] for more detail
 
 ```playground
   <VictoryPie
@@ -451,49 +445,49 @@ The `startAngle` props defines the overall start angle of the pie in degrees. Th
   />
 ```
 
-### theme
+## theme
 
 `type: object`
 
-`VictoryPie` uses the standard `theme` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#theme)
+`VictoryPie` uses the standard `theme` prop. [Read about it here](/docs/common-props#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
-*default:* `theme={VictoryTheme.grayscale}`
+_default:_ `theme={VictoryTheme.grayscale}`
 
 ```jsx
 theme={VictoryTheme.material}
 ```
 
-### width
+## width
 
 `type: number`
 
-`VictoryPie` uses the standard `width` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#width)
+`VictoryPie` uses the standard `width` prop. [Read about it here](/docs/common-props#width)
 
-*default (provided by default theme):* `width={400}`
+_default (provided by default theme):_ `width={400}`
 
 ```jsx
 width={400}
 ```
 
-### x
+## x
 
 `type: string || integer || array[string] || function`
 
-`VictoryPie` uses the standard `x` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#x)
+`VictoryPie` uses the standard `x` data accessor prop. [Read about it here](/docs/common-props#x)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
 ```jsx
-x="employee.name"
+x = "employee.name";
 ```
 
-### y
+## y
 
 `type: string || integer || array[string] || function`
 
-`VictoryPie` uses the standard `y` data accessor prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#y)
+`VictoryPie` uses the standard `y` data accessor prop. [Read about it here](/docs/common-props#y)
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -501,10 +495,9 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 y={(d) => d.value + d.error}
 ```
 
-
-[Animations Guide]: https://formidable.com/open-source/victory/guides/animations
-[Data Accessors Guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[Custom Components Guide]: https://formidable.com/open-source/victory/guides/custom-components
-[Events Guide]: https://formidable.com/open-source/victory/guides/events
-[Themes Guide]: https://formidable.com/open-source/victory/guides/themes
+[animations guide]: /guides/animations
+[data accessors guide]: /guides/data-accessors
+[custom components guide]: /guides/custom-components
+[events guide]: /guides/events
+[themes guide]: /guides/themes
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js

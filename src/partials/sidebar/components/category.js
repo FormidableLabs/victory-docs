@@ -1,41 +1,38 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { isEmpty } from "lodash";
+import isEmpty from "lodash/isEmpty";
 
-class Category extends React.Component {
-  renderSubCategories(subCategories) {
-    if (isEmpty(subCategories)) {
-      return;
-    }
-    const categories = subCategories.map((category, index) =>
-      !isEmpty(category.content) ? (
-        <div key={index}>
-          <p className="Sidebar-SubHeading SubHeading">{category.title}</p>
-          <ul className="Sidebar-List">{category.content}</ul>
-        </div>
-      ) : null
-    );
-    return categories.filter(Boolean);
+import {
+  SidebarSectionHeading,
+  SidebarSectionList,
+  SidebarSectionSublist
+} from "../styles";
+
+const Category = ({ content, title, subCategories }) => {
+  if (isEmpty(subCategories) && isEmpty(content)) {
+    return null;
   }
+  const sectionContent =
+    !isEmpty(subCategories) &&
+    subCategories
+      .filter(category => category && !isEmpty(category.content))
+      .map((subcategory, index) => {
+        return (
+          <div key={index}>
+            <SidebarSectionHeading>{subcategory.title}</SidebarSectionHeading>
+            <SidebarSectionSublist>{subcategory.content}</SidebarSectionSublist>
+          </div>
+        );
+      });
 
-  render() {
-    const subCategories = this.renderSubCategories(this.props.subCategories);
-
-    const { content, title } = this.props;
-
-    if (isEmpty(subCategories) && isEmpty(content)) {
-      return null;
-    }
-
-    return (
-      <div className="Sidebar-Grid-block">
-        <p className="Sidebar-Heading">{title}</p>
-        <ul className="Sidebar-List">{content}</ul>
-        {subCategories}
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      <SidebarSectionHeading>{title}</SidebarSectionHeading>
+      <SidebarSectionList>{content}</SidebarSectionList>
+      {sectionContent}
+    </>
+  );
+};
 
 Category.propTypes = {
   content: PropTypes.array,

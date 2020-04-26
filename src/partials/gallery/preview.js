@@ -1,17 +1,30 @@
-import React, { Component } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { render } from "react-dom";
 import ReactDOMServer from "react-dom/server";
 import { transform } from "babel-standalone";
 
-// <Preview> component from component-playground without updating
-class Preview extends Component {
-  componentDidMount() {
-    this.executeCode();
+const PreviewWrapper = styled.div`
+  box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.brown};
+  border: 6px solid ${({ theme }) => theme.color.accentBrown};
+  padding: 2rem;
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    height: 300px;
   }
 
-  compileCode() {
-    const { codeText, context, noRender, scope } = this.props;
+  @media ${({ theme }) => theme.mediaQuery.lg} {
+    height: 375px;
+  }
+`;
+
+// <Preview> component from component-playground without updating
+const Preview = props => {
+  let ref = useRef();
+
+  const compileCode = () => {
+    const { codeText, context, noRender, scope } = props;
     const generateContextTypes = c =>
       `{ ${Object.keys(c)
         .map(val => `${val}: PropTypes.any.isRequired`)
@@ -46,16 +59,16 @@ class Preview extends Component {
       `,
       { presets: ["es2015", "react", "stage-1"] }
     ).code;
-  }
+  };
 
-  executeCode() {
-    const mountNode = this.mount;
-    const { scope, noRender, previewComponent } = this.props;
+  const executeCode = () => {
+    const mountNode = ref;
+    const { scope, noRender, previewComponent } = props;
     const tempScope = [];
 
     Object.keys(scope).forEach(s => tempScope.push(scope[s]));
     tempScope.push(mountNode);
-    const compiledCode = this.compileCode();
+    const compiledCode = compileCode();
     if (noRender) {
       /* eslint-disable no-eval, prefer-spread */
       const Comp = React.createElement(
@@ -68,19 +81,20 @@ class Preview extends Component {
     } else {
       eval(compiledCode).apply(null, tempScope);
     }
-  }
+  };
 
-  render() {
-    return (
-      <div
-        ref={div => {
-          this.mount = div;
-        }}
-        className="Preview"
-      />
-    );
-  }
-}
+  useEffect(() => {
+    executeCode();
+  }, []);
+
+  return (
+    <PreviewWrapper
+      ref={div => {
+        ref = div;
+      }}
+    />
+  );
+};
 
 Preview.defaultProps = {
   previewComponent: "div"

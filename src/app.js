@@ -1,117 +1,113 @@
-import React, { Component } from "react";
+import React, { useLayoutEffect, useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { Router, Route, withRouter } from "react-static";
-import VictoryHeader from "./partials/header";
-/* "react-static-routes" is generated at runtime https://github.com/nozzle/react-static/issues/52 */
-// eslint-disable-next-line import/no-unresolved
-import Routes from "react-static-routes";
+import { Root, Routes, useBasepath } from "react-static";
+import { Route } from "react-router";
+import { ThemeProvider } from "styled-components";
+import { animateScroll as scroll } from "react-scroll";
+import { ResizeObserver as _ResizeObserver } from "@juggle/resize-observer";
+import get from "lodash/get";
+
+import GlobalStyle from "./styles/global";
+import theme from "./styles/theme";
 import Analytics from "./google-analytics";
-import "./app.css";
-//  If none of the base prism js themes are quite what we want for our site's aesthetic, we can use/extend any of these:
-// https://github.com/PrismJS/prism-themes
-// Note that themes also manage code block dimensions -- currently we don't use any theme, unclear if the current
-// look is by design, though. To bring in a theme, uncomment out the line below:
-// import "prismjs/themes/prism-coy.css"
+import NotFound from "./pages/404";
 
-const scrollContent = async ({ hash }, contentPaneClass = ".Page-content") => {
-  const item = document.querySelector(contentPaneClass + " " + hash);
-  if (item) {
-    item.scrollIntoView();
+const HEADER_PIXEL_HEIGHT = theme.layout.headerHeight.split("rem")[0] * 10;
+const SCROLL_PIXEL_OFFSET = 25;
+const DEFAULT_PAGE_CONTENT_CLASS = ".Page-content";
+const ROUTES = ["docs", "faq", "guides"];
+
+const scrollContent = async (
+  hash,
+  contentPaneClass = DEFAULT_PAGE_CONTENT_CLASS
+) => {
+  const item = document.querySelector(`${contentPaneClass} ${hash}`);
+
+  if (!item) {
+    return;
   }
+
+  const rect = item.getBoundingClientRect();
+  const truePosition =
+    (rect.top + window.pageYOffset || document.documentElement.scrollTop) -
+    HEADER_PIXEL_HEIGHT -
+    SCROLL_PIXEL_OFFSET;
+
+  scroll.scrollTo(truePosition, {
+    duration: 200,
+    delay: 0,
+    smooth: "easeOutQuad"
+  });
 };
 
-const scrollSidebar = async (location, activeItemClass = ".is-active") => {
-  const item = document.querySelector(activeItemClass);
-  if (item) {
-    item.scrollIntoView();
-  }
-};
-
-const checkScrollRoutes = (pathname, routes = ["docs", "faq", "guides"]) =>
+const checkScrollRoutes = (pathname, routes = ROUTES) =>
   routes.some(r => pathname.includes(r));
 
-class ScrollToTop extends Component {
-  componentDidMount() {
-    if (
-      typeof window !== "undefined" &&
-      checkScrollRoutes(this.props.location.pathname)
-    ) {
-      scrollContent(this.props.location);
-      scrollSidebar(this.props.location);
+const ScrollToCurrentSection = ({ location, children }) => {
+  const { pathname, hash = "" } = location;
+
+  const [pageContentHeight, setPageContentHeight] = useState(null);
+
+  const pageContentHeightObserver = new _ResizeObserver((element, observer) => {
+    const elementHeight = get(element, ["0", "contentRect", "height"], 0);
+    setPageContentHeight(elementHeight);
+    observer.disconnect();
+  });
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && pageContentHeight === null) {
+      const mainElement = document.querySelector(DEFAULT_PAGE_CONTENT_CLASS);
+      if (mainElement) {
+        pageContentHeightObserver.observe(mainElement);
+      }
     }
-  }
+  }, [pathname]);
 
-  componentDidUpdate() {
-    if (
-      typeof window !== "undefined" &&
-      checkScrollRoutes(this.props.location.pathname)
-    ) {
-      scrollContent(this.props.location);
-      scrollSidebar(this.props.location);
+  useLayoutEffect(() => {
+    if (checkScrollRoutes(pathname)) {
+      scrollContent(hash);
     }
-  }
+    // scroll to top immediately if navigation is not to a sidebar page
+    scroll.scrollTo(0, { duration: 0 });
+  }, [hash, pathname, pageContentHeight]);
 
-  render() {
-    return (
-      <div className="Page-wrapper u-fullHeight">{this.props.children}</div>
-    );
-  }
-}
+  return children;
+};
 
-ScrollToTop.propTypes = {
-  children: PropTypes.array,
+ScrollToCurrentSection.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   location: PropTypes.object
 };
 
-const WrappedScrollToTop = withRouter(ScrollToTop);
-
 // eslint-disable-next-line react/no-multi-comp
-const RenderRoutes = ({ getComponentForPath }) => (
-  // use a catch all route to receive the pathname
-  <Route
-    path="*"
-    render={props => {
-      // The pathname is used to retrieve the component for that path
-      const comp = getComponentForPath(props.location.pathname);
-      // The component is rendered w/ the possibility of remaining mounted if it passes component reconciliation
-      return comp && comp(props);
-    }}
-  />
-);
-
-RenderRoutes.propTypes = {
-  getComponentForPath: PropTypes.func,
-  location: PropTypes.object
+const App = () => {
+  const basePath = useBasepath() || "";
+  return (
+    <Root>
+      {/* TODO: create a better fallback component */}
+      <React.Suspense fallback={<div />}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <Analytics id="UA-43290258-1" basename={`/${basePath}`}>
+            <Routes
+              render={({ routePath, getComponentForPath }) => (
+                <Route path="*">
+                  {props => {
+                    const Comp = getComponentForPath(routePath) || <NotFound />;
+                    return (
+                      <ScrollToCurrentSection {...props}>
+                        {Comp}
+                      </ScrollToCurrentSection>
+                    );
+                  }}
+                </Route>
+              )}
+            />
+          </Analytics>
+        </ThemeProvider>
+      </React.Suspense>
+    </Root>
+  );
 };
-
-let history;
-let basename;
-if (typeof window !== "undefined") {
-  const createBrowserHistory = require("history").createBrowserHistory;
-  const { stage, landerBasePath } = require("../static-config-parts/constants");
-  basename = `/${landerBasePath}`;
-  history =
-    stage === "development"
-      ? createBrowserHistory()
-      : createBrowserHistory({ basename });
-}
-
-// eslint-disable-next-line react/no-multi-comp
-const App = () => (
-  <Router
-    showErrorsInProduction={false}
-    autoScrollToHash={false}
-    scrollToHashDuration={100}
-    autoScrollToTop
-    history={history}
-  >
-    <WrappedScrollToTop>
-      <VictoryHeader />
-      <Analytics id="UA-43290258-1" basename={basename}>
-        <Routes>{RenderRoutes}</Routes>
-      </Analytics>
-    </WrappedScrollToTop>
-  </Router>
-);
 
 export default App;

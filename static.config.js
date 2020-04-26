@@ -1,23 +1,24 @@
-import { reloadRoutes } from "react-static/node";
-import React from "react";
-import chokidar from "chokidar";
-import Document from "./src/html";
-import _ from "lodash";
-import staticWebpackConfig from "./static-config-parts/static-webpack-config";
-import siteData from "./static-config-parts/site-data";
-import {
+const _ = require("lodash");
+const { createSharedData } = require("react-static/node");
+const siteData = require("./static-config-helpers/site-data");
+const {
   getDocs,
   getFaq,
   getIntroduction,
   getGallery,
   getGuides,
   getCommonProps
-} from "./static-config-helpers/md-data-transforms";
-import { generateGuideRoutes } from "./static-config-parts/guide-routes";
-const { ServerStyleSheet } = require("styled-components");
-const { stage, landerBasePath } = require("./static-config-parts/constants");
+} = require("./static-config-helpers/md-data-transforms");
+const { stage, landerBasePath } = require("./static-config-helpers/constants");
 
-chokidar.watch("content").on("all", () => reloadRoutes());
+// HMR for dev
+// TODO: enable after rewrite
+// This is much slower when developing tons of things that _aren't_ content changes
+// if (stage === "development") {
+//   const { rebuildRoutes } = require("react-static/node");
+//   const chokidar = require("chokidar");
+//   chokidar.watch("src/content/**/*.md").on("all", () => rebuildRoutes());
+// }
 
 export default {
   getSiteData: () => siteData,
@@ -33,6 +34,11 @@ export default {
   basePath: landerBasePath,
   stagingBasePath: landerBasePath,
   devBasePath: "",
+  plugins: [
+    "react-static-plugin-react-router",
+    "react-static-plugin-sitemap",
+    "react-static-plugin-styled-components"
+  ],
   // eslint-disable-next-line max-statements
   getRoutes: async () => {
     const trueDocs = await getDocs();
@@ -44,7 +50,6 @@ export default {
 
     // sure we *happen* to sort by id as part of data ingestion right now, but it shouldn't create unexpected behavior
     // if we ever change that.
-    const guidesIntro = _.find(guides, g => g.data.id === 0);
     const homeIntro = _.find(introduction, intro => intro.data.id === 0);
     // only one file here, use a selector-style fn if that ever changes
     const faqIntro = faq[0];
@@ -53,11 +58,12 @@ export default {
     const orderById = items => _.orderBy(items, ["data.id"], ["asc"]);
     const allSidebarItems = [
       ...introduction,
-      faqIntro,
+      ...faq,
       ...guides,
       commonPropsIntro,
       ...trueDocs
     ];
+
     const sidebarContent = allSidebarItems.reduce((av, cv, i, arr) => {
       const category = cv.data.category;
       if (category && Array.isArray(av[category])) {
@@ -78,10 +84,10 @@ export default {
     const docSubroutes = commonProps.concat(introduction, trueDocs);
 
     const convertToSidebarArray = content => {
-      const { support, charts, containers, more } = content;
+      const { charts, containers, more } = content;
       return [
         ...introduction,
-        ...support,
+        ...faq,
         ...guides,
         commonPropsIntro,
         ...charts,
@@ -89,90 +95,76 @@ export default {
         ...more
       ];
     };
-
     const sbContent = convertToSidebarArray(sidebarContent);
+    const sharedSidebarContent = createSharedData(sbContent);
 
     return [
       {
         path: "/",
-        component: "src/pages/index"
+        template: "src/pages/index"
       },
       {
         path: "/about",
-        component: "src/pages/about"
+        template: "src/pages/about",
+        sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
-        path: "/guides",
-        component: "src/containers/doc",
-        getData: async () => ({
-          doc: guidesIntro,
-          sidebarContent: sbContent
-        }),
-        children: generateGuideRoutes(guides, { sidebarContent: sbContent })
+        path: "/guides", // guides shares the 404 template because its children have their own docs-template getting used and there is no parent page to render, removing this will cause you build issues
+        template: "src/pages/404",
+        getData: () => ({ docs: trueDocs }),
+        sharedData: { sidebarContent: sharedSidebarContent },
+        children: guides.map(g => ({
+          path: `/${g.data.slug}`,
+          template: g.component || "src/pages/docs-template",
+          getData: () => ({ doc: g, title: `Victory | ${g.name}` }),
+          sharedData: { sidebarContent: sharedSidebarContent }
+        }))
       },
-
       {
         path: "/docs",
-        component: "src/containers/doc",
-        getData: async () => ({
+        template: "src/pages/docs-template",
+        getData: () => ({
           doc: homeIntro,
-          docs: trueDocs,
-          sidebarContent: sbContent
+          docs: trueDocs
         }),
+        sharedData: { sidebarContent: sharedSidebarContent },
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
-          component: "src/containers/doc",
-          getData: async () => ({
-            doc,
-            sidebarContent: sbContent,
-            location: { pathname: doc.data.slug }
-          })
+          template: "src/pages/docs-template",
+          getData: () => ({ doc }),
+          sharedData: { sidebarContent: sharedSidebarContent }
         }))
       },
       {
         path: "docs/faq",
-        component: "src/containers/doc",
-        getData: async () => ({
-          doc: faqIntro,
-          sidebarContent: sbContent
-        })
+        template: "src/pages/docs-template",
+        getData: () => ({ doc: faqIntro }),
+        sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
         path: "docs/common-props",
-        component: "src/containers/doc",
-        getData: async () => ({
-          doc: commonPropsIntro,
-          sidebarContent: sbContent
-        })
+        template: "src/pages/docs-template",
+        getData: () => ({ doc: commonPropsIntro }),
+        sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
         path: "/gallery",
-        component: "src/pages/gallery",
-        getData: async () => ({
-          gallery
-        }),
+        template: "src/pages/gallery",
+        getData: () => ({ gallery }),
+        sharedData: { sidebarContent: sharedSidebarContent },
         children: gallery.map(galleryItem => ({
           path: `/${galleryItem.data.slug}/`,
-          component: "src/containers/gallery",
-          getData: async () => ({
-            galleryItem,
-            location: { pathname: galleryItem.data.slug }
-          })
+          template: "src/pages/gallery-item-template",
+          getData: () => ({ galleryItem })
         }))
+      },
+      // 404 Not Found
+      {
+        path: "/404",
+        template: "src/pages/404",
+        sharedData: { sidebarContent: sharedSidebarContent }
       }
     ];
   },
-  renderToHtml: (render, Comp, meta) => {
-    const sheet = new ServerStyleSheet();
-    const html = render(sheet.collectStyles(<Comp />));
-    // see https://github.com/nozzle/react-static/blob/v5/docs/config.md#rendertohtml
-    // you can stick whatever you want here, but it's mutable at build-time, not dynamic
-    // at run-time -- key difference!
-    meta.styleTags = sheet.getStyleElement();
-    return html;
-  },
-  Document,
-  // turn this on if it helps your local development workflow for build testing
-  bundleAnalyzer: false,
-  webpack: staticWebpackConfig
+  Document: require("./src/html").default
 };

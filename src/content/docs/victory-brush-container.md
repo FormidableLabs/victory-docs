@@ -5,6 +5,7 @@ category: containers
 type: docs
 scope: null
 ---
+
 # VictoryBrushContainer
 
 `VictoryBrushContainer` adds the ability to highlight a region of a chart, and interact with
@@ -38,27 +39,25 @@ However, the component that uses it must be standalone
 </VictoryChart>
 ```
 
-## Props
-
 `VictoryBrushContainer` uses a superset of props used by [VictoryContainer][]. All props are optional.
 
-### allowDrag
+## allowDrag
 
 `type: boolean`
 
 The optional `allowDrag` prop accepts a boolean that enables dragging behavior for the highlighted brush area. Resizing will still be enabled when the `allowDrag` prop is set to false.
 
-*default:* `allowDrag={true}`
+_default:_ `allowDrag={true}`
 
-### allowResize
+## allowResize
 
 `type: boolean`
 
 The optional `allowResize` prop accepts a boolean that enables resizing the highlighted brush area. Dragging will still be enabled when the `allowResize` prop is set to false, but the dimensions of the brush area will be fixed.
 
-*default:* `allowResize={true}`
+_default:_ `allowResize={true}`
 
-### brushComponent
+## brushComponent
 
 `type: element`
 
@@ -66,9 +65,9 @@ The `brushComponent` prop specifies the component to be rendered for the highlig
 This component will be supplied with the following props: x, y, width, height, and style.
 When this prop is not specified, a `<rect/>` will be rendered.
 
-*default:* `brushComponent={<rect/>}`
+_default:_ `brushComponent={<rect/>}`
 
-### brushDimension
+## brushDimension
 
 `type: "x" || "y"`
 
@@ -76,9 +75,9 @@ When the `brushDimension` prop is set, brushing will only be specific to the to 
 (either "x" or "y"), and the entire domain of the other dimension will be highlighted. When this prop
 is not specified, highlighting will occur along both dimensions.
 
-*example:* `brushDimension="x"`
+_example:_ `brushDimension="x"`
 
-### brushDomain
+## brushDomain
 
 `type: { x: [low, high], y: [low, high] }`
 
@@ -87,18 +86,18 @@ specifies separate arrays for `x` and `y`. Each array is a tuple that describes 
 values to render. If this prop is not provided initially, the chart will render with the entire
 domain highlighted. When this prop changes, the chart will render with a new highlighted domain.
 
-*example:* `brushDomain={{x: [50, 100], y: [0, 100]}`
+_example:_ `brushDomain={{x: [50, 100], y: [0, 100]}`
 
-### brushStyle
+## brushStyle
 
 `type: object`
 
 The `brushStyle` adds custom styles to the `brushComponent`. This prop should be given as
 an object of SVG style attributes.
 
-*default:* `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}`
+_default:_ `brushStyle={{stroke: "transparent", fill: "black", fillOpacity: 0.1}}`
 
-### defaultBrushArea
+## defaultBrushArea
 
 `type: "all", "none", "disable", "move"`
 
@@ -117,23 +116,23 @@ The `defaultBrushArea` prop specifies how the container will behave when a regio
 </VictoryChart>
 ```
 
-### disable
+## disable
 
 `type: boolean`
 
 When the `disable` prop is set to `true`, `VictoryBrushContainer` events will not fire.
 
-### handleComponent
+## handleComponent
 
 `type: element`
 
 The `handleComponent` prop specifies the component to be rendered for each handle for the highlighted
-area.  This component will be supplied with the following props: `x`, `y`, `width`, `height`, `cursor`, and `style`.
+area. This component will be supplied with the following props: `x`, `y`, `width`, `height`, `cursor`, and `style`.
 When this prop is not specified, a `<rect/>` will be rendered.
 
-*default:* `handleComponent={<rect/>}`
+_default:_ `handleComponent={<rect/>}`
 
-### handleStyle
+## handleStyle
 
 `type: object`
 
@@ -145,32 +144,31 @@ expanded. Only handles relevant to the given `dimension` will be rendered. For e
 `brushDimension="x"` only "left" and "right" handles will be rendered. Handles are automatically styled
 with cursors appropriate to their orientation.
 
-*default:* `handleStyle={{stroke: "transparent", fill: "transparent"}}
+_default:_ `handleStyle={{stroke: "transparent", fill: "transparent"}}
 
-### onBrushCleared
+## onBrushCleared
 
 `type: function`
 
 The optional `onBrushCleared` prop accepts an function to be called when tha active brush area is cleared. The function accepts the parameters of `domain` (the updated domain), and `props` (the props used by `VictoryBrushContainer`).
 
-*example:* `onBrushCleared={(domain, props) => handleBrushCleared(domain, props)}`
+_example:_ `onBrushCleared={(domain, props) => handleBrushCleared(domain, props)}`
 
-### onBrushDomainChange
+## onBrushDomainChange
 
 `type: function`
 
 The optional `onBrushDomainChange` prop accepts an function to be called on each update to the highlighted domain. The function accepts the parameters of `domain` (the updated domain), and `props` (the props used by `VictoryBrushContainer`).
 
-*example:* `onBrushDomainChange={(domain, props) => handleDomainChange(domain, props)}`
+_example:_ `onBrushDomainChange={(domain, props) => handleDomainChange(domain, props)}`
 
-### onBrushDomainChangeEnd
+## onBrushDomainChangeEnd
 
 `type: function`
 
 The optional `onBrushDomainChangeEnd` prop accepts an function to be called only on mouse up events. The function accepts the parameters of `domain` (the updated domain), and `props` (the props used by `VictoryBrushContainer`).
 
-*example:* `onBrushDomainChangeEnd={(domain, props) => handleDomainChangeEnd(domain, props)}`
+_example:_ `onBrushDomainChangeEnd={(domain, props) => handleDomainChangeEnd(domain, props)}`
 
-
-[brush and zoom guide]: https://formidable.com/open-source/victory/guides/brush-and-zoom
-[VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
+[brush and zoom guide]: /guides/brush-and-zoom
+[victorycontainer]: /docs/victory-container

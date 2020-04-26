@@ -396,6 +396,6 @@ In Victory Native tooltips are much more reliable when using `VictoryVoronoiCont
 </VictoryChart>
 ```
 
-[`VictoryTooltip`]: https://formidable.com/open-source/victory/docs/victory-tooltip
-[`VictoryLabel`]: https://formidable.com/open-source/victory/docs/victory-label
-[`Flyout`]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
+[`VictoryTooltip`]: /docs/victory-tooltip
+[`VictoryLabel`]: /docs/victory-label
+[`Flyout`]: /docs/victory-primitives#flyout
