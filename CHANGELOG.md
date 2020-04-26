@@ -1,5 +1,10 @@
 # Victory Docs Changelog
 
+## 9.0.0 (2020-04-26)
+
+Implement docs redesign and update to `react-static@7`
+-[#670](https://github.com/FormidableLabs/victory-docs/pull/670)
+
 ## 8.1.5 (2020-02-04)
 
 -[#653](https://github.com/FormidableLabs/victory-docs/pull/653) - Fix analytics
