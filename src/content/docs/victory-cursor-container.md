@@ -110,9 +110,9 @@ When the `disable` prop is set to `true`, `VictoryCursorContainer` events will n
 
 `type: function`
 
-If provided, the `onChange` function will be called every time the cursor value changes. `onCursorChange` is called with `value` (the updated cursor value) and `props` (the props used by `VictoryCursorContainer`). A common use for `onChange` is to save the cursor value to state and use it in another part of the view.
+If provided, the `onCursorChange` function will be called every time the cursor value changes. `onCursorChange` is called with `value` (the updated cursor value) and `props` (the props used by `VictoryCursorContainer`). A common use for `onCursorChange` is to save the cursor value to state and use it in another part of the view.
 
-*example:* `onChange={(value, props) => this.setState({cursorValue: value})}`
+*example:* `onCursorChange={(value, props) => this.setState({cursorValue: value})}`
 
 [VictoryVoronoiContainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
 [VictoryContainer]: https://formidable.com/open-source/victory/docs/victory-container
