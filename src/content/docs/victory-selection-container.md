@@ -132,4 +132,4 @@ _default:_ `selectionStyle={{stroke: "transparent", fill: "black", fillOpacity: 
 </VictoryChart>
 ```
 
-[victorycontainer]: https://formidable.com/open-source/victory/docs/victory-container
+[victorycontainer]: /docs/victory-container

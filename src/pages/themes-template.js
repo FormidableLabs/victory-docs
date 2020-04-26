@@ -6,11 +6,13 @@ import Helmet from "react-helmet";
 import { assign } from "lodash";
 import { withRouteData } from "react-static";
 import { Link } from "react-router-dom";
+import createPath from "../helpers/path-helpers";
+
 import Button from "../partials/button";
 
-import config from "../../static-config-parts/site-data";
+import config from "../../static-config-helpers/site-data";
 import Page from "../partials/page";
-import PlaygroundContainer from "../partials/playground/playground-container";
+import PlaygroundContainer from "../partials/markdown/playground-container";
 import PureRender from "../partials/guides/themes/pure-render";
 import DemoComponent from "../partials/guides/themes/demo-component";
 import GrayscaleExample from "../partials/guides/themes/grayscale.example";
@@ -87,11 +89,11 @@ const ThemesTemplate = props => {
     );
   };
 
-  const { doc, sidebarContent, location } = props;
+  const { doc, sidebarContent } = props;
   const { title } = doc.data;
 
   return (
-    <Page withSidebar sidebarContent={sidebarContent} location={location}>
+    <Page withSidebar sidebarContent={sidebarContent}>
       <Helmet>
         <title>{`${config.siteTitle} |  ${title}`}</title>
         <meta name="description" content={config.siteDescription} />
@@ -103,7 +105,9 @@ const ThemesTemplate = props => {
       <h1>Themes</h1>
       <p>
         Try out the Victory themes and make your own. Check out the{" "}
-        <Link to="/docs/victory-theme/">VictoryTheme documentation</Link> for
+        <Link to={createPath("docs/victory-theme/")}>
+          VictoryTheme documentation
+        </Link>{" "}
         more details on themes.
       </p>
       {renderMenu()}
@@ -135,7 +139,6 @@ ThemesTemplate.propTypes = {
   doc: PropTypes.shape({
     data: PropTypes.object
   }),
-  location: PropTypes.object,
   sidebarContent: PropTypes.array
 };
 

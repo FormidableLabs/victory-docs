@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withRouteData } from "react-static";
+import { Link, useLocation } from "react-router-dom";
+
 import styled from "styled-components";
 import Fuse from "fuse.js";
 import { maxBy, findIndex, includes, last, isEmpty } from "lodash";
-import SVG from "react-inlinesvg";
+import { FeaturedBadge } from "formidable-oss-badges";
 
-import victoryLogo from "../../../static/logos/logo-victory.svg";
+import createPath from "../../helpers/path-helpers";
 import Introduction from "./components/introduction";
 import Category from "./components/category";
 import SearchInput from "./components/search-input";
@@ -26,23 +28,23 @@ const documentationSubcategories = ["charts", "containers", "more"];
 const getPathPrefix = item => {
   // just a bunch of one-offs, elegance is harder to realize gains from
   if (item.title === "Getting Started" && item.category === "introduction") {
-    return "/docs/";
+    return "docs/";
   }
 
   if (item.title === "Native" && item.category === "introduction") {
-    return "/docs/native/";
+    return "docs/native/";
   }
 
   if (item.category === "support") {
-    return "/docs/faq/";
+    return "docs/faq/";
   }
   if (item.category === "documentation") {
-    return "/docs/common-props/";
+    return "docs/common-props/";
   }
   const checkedCategory = documentationSubcategories.includes(item.category)
     ? "docs"
     : item.category;
-  return `/${checkedCategory}/${item.slug}`;
+  return `${checkedCategory}/${item.slug}`;
 };
 
 const SidebarContainer = styled.nav`
@@ -66,7 +68,7 @@ const CloseButton = styled.button`
   }
 `;
 
-const VictoryLogo = styled(SVG)`
+const VictoryLogo = styled(Link)`
   display: flex;
   justify-content: center;
   margin-bottom: ${({ theme }) => theme.spacing.md};
@@ -111,7 +113,8 @@ const getMatchTree = (link, filterTerm) => {
   return [];
 };
 
-const Sidebar = ({ className, content, location, onCloseClick }) => {
+const Sidebar = ({ className, content, onCloseClick }) => {
+  const location = useLocation();
   const [filteredResults, setFilteredResults] = useState(content);
   const [filterTerm, setFilterTerm] = useState("");
 
@@ -179,7 +182,7 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
         return (
           <SidebarListItem key={link.slug} onClick={handleClearInput}>
             <SidebarListItemLink
-              to={getPathPrefix(link)}
+              to={createPath(getPathPrefix(link))}
               activeClassName={"is-active"}
               prefetch={"data"}
               exact
@@ -191,7 +194,6 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
               active={active}
               link={link}
               headings={headings}
-              location={location}
               filterTerm={filterTerm}
             />
           </SidebarListItem>
@@ -204,7 +206,9 @@ const Sidebar = ({ className, content, location, onCloseClick }) => {
   return (
     <SidebarContainer className={className}>
       <CloseButton onClick={onCloseClick}>&times;</CloseButton>
-      <VictoryLogo src={victoryLogo} />
+      <VictoryLogo to={createPath("/")}>
+        <FeaturedBadge name="victory" isHoverable />
+      </VictoryLogo>
       <SearchInput
         onHandleInputChange={handleInputChange}
         content={content}
@@ -256,7 +260,6 @@ Sidebar.propTypes = {
   className: PropTypes.string,
   content: PropTypes.array,
   hideCloseButton: PropTypes.bool,
-  location: PropTypes.shape({ pathname: PropTypes.string }),
   onCloseClick: PropTypes.func
 };
 

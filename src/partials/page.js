@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import _Header from "./header";
 import _Sidebar from "../partials/sidebar";
-import Footer from "./footer";
 
 // sidebar logic is as follows:
 // if on large devices, sidebar is only shown if the `withSidebar` prop is
@@ -96,7 +95,7 @@ const Content = styled.div`
 `;
 
 const Page = props => {
-  const { children, sidebarContent, withSidebar, location } = props;
+  const { children, sidebarContent, withSidebar } = props;
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const ref = useRef();
 
@@ -121,7 +120,6 @@ const Page = props => {
   return (
     <PageContainer spaceForSidebar={withSidebar} className="Page-content">
       <Header
-        location={location}
         spaceForSidebar={withSidebar}
         onMenuClick={() => setSidebarOpen(true)}
       />
@@ -130,7 +128,6 @@ const Page = props => {
         <RedStripe />
         <PaleRedStripe />
         <Sidebar
-          location={location}
           show={sidebarOpen}
           showMd={withSidebar}
           content={sidebarContent}
@@ -141,15 +138,12 @@ const Page = props => {
       <ContentContainer>
         <Content>{children}</Content>
       </ContentContainer>
-
-      <Footer />
     </PageContainer>
   );
 };
 
 Page.propTypes = {
   children: PropTypes.node,
-  location: PropTypes.object,
   sidebarContent: PropTypes.array,
   withSidebar: PropTypes.bool
 };

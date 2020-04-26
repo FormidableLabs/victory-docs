@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { isEmpty } from "lodash";
 import styled from "styled-components";
+import createPath from "../../../helpers/path-helpers";
 
 import {
   SidebarSectionHeading,
@@ -28,7 +29,7 @@ const renderMobileSidebarLinks = mobileLinks => {
           </SidebarListItemAnchorLink>
         ) : (
           <SidebarListItemLink
-            to={`${link.slug}`}
+            to={createPath(link.slug)}
             activeClassName={"is-active"}
             prefetch={"data"}
           >

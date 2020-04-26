@@ -29,21 +29,18 @@ const StyledLink = styled.a`
   margin-top: 2rem;
 `;
 
-const NotFound = props => (
-  <Page
-    withSidebar
-    sidebarContent={props.sidebarContent}
-    location={props.location}
-  >
-    <h1>Uh oh.</h1>
-    <p>Looks like that page doesn't exist. What a bummer.</p>
-    <StyledLink href={"/"}>Take me back to the good stuff.</StyledLink>
-    <NotFoundImg src={NotFoundImage} />
-  </Page>
-);
+const NotFound = props => {
+  return (
+    <Page withSidebar sidebarContent={props.sidebarContent}>
+      <h1>Uh oh.</h1>
+      <p>Looks like that page doesn't exist. What a bummer.</p>
+      <StyledLink href={"/"}>Take me back to the good stuff.</StyledLink>
+      <NotFoundImg src={NotFoundImage} />
+    </Page>
+  );
+};
 
 NotFound.propTypes = {
-  location: PropTypes.object,
   sidebarContent: PropTypes.arrayOf(PropTypes.object)
 };
 

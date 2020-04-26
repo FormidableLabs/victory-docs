@@ -7,7 +7,6 @@ const GlobalStyle = createGlobalStyle`
   ${prism}
 
   html {
-    background: ${({ theme }) => theme.color.black};
     box-sizing: border-box;
     font-size: 62.5%;
     overflow-x: hidden;

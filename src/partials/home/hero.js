@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Link } from "react-scroll";
-
+import { FeaturedBadge } from "formidable-oss-badges";
 import NpmCopy from "./npm-copy";
 import HeroDemo from "./hero-demo";
 import { LandingSectionContent, LinkButton } from "./styles";
 import importedTheme from "../../styles/theme";
+import createPath from "../../helpers/path-helpers";
 
 const HeroContainer = styled.section`
   background-image: url(${({ bg }) => bg});
+  background-size: cover;
   color: ${({ theme }) => theme.color.white};
   height: 650px;
   /* used to remove the 1px white border */
@@ -101,7 +103,7 @@ const CenterWrapper = styled.div`
   }
 `;
 
-const HeroBadge = styled.img`
+const HeroBadge = styled.div`
   align-self: center;
   justify-self: center;
   grid-area: badge;
@@ -216,7 +218,6 @@ const LearnMore = styled(Link)`
 
 const Hero = ({
   background,
-  badge,
   code,
   cornerIcon,
   cornerText,
@@ -232,13 +233,15 @@ const Hero = ({
       </Corner>
       <LandingSectionContent>
         <CenterWrapper>
-          <HeroBadge src={badge} />
+          <HeroBadge>
+            <FeaturedBadge name="victory" />
+          </HeroBadge>
           <SectionHeading>VICTORY</SectionHeading>
           <SectionSubHeading>{description}</SectionSubHeading>
           <GetStarted>
             <NpmCopy text={code} />
             <StyledLinkButton
-              to={link.location}
+              to={createPath(link.location)}
               bg={importedTheme.color.red}
               width="100%"
               noMargin
@@ -249,7 +252,7 @@ const Hero = ({
         </CenterWrapper>
         <LinkContainer>
           {linksArray.map(l => (
-            <LinkItem key={l.text} href={l.location}>
+            <LinkItem key={l.text} href={createPath(l.location)}>
               {l.text}
             </LinkItem>
           ))}
@@ -270,7 +273,6 @@ const linkPropType = PropTypes.shape({
 
 Hero.propTypes = {
   background: PropTypes.string,
-  badge: PropTypes.string,
   code: PropTypes.string,
   cornerIcon: PropTypes.string,
   cornerText: PropTypes.string,

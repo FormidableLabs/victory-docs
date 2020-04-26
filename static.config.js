@@ -1,5 +1,6 @@
 const _ = require("lodash");
-const siteData = require("./static-config-parts/site-data");
+const { createSharedData } = require("react-static/node");
+const siteData = require("./static-config-helpers/site-data");
 const {
   getDocs,
   getFaq,
@@ -8,8 +9,7 @@ const {
   getGuides,
   getCommonProps
 } = require("./static-config-helpers/md-data-transforms");
-const { generateGuideRoutes } = require("./static-config-parts/guide-routes");
-const { stage, landerBasePath } = require("./static-config-parts/constants");
+const { stage, landerBasePath } = require("./static-config-helpers/constants");
 
 // HMR for dev
 // TODO: enable after rewrite
@@ -30,7 +30,6 @@ export default {
     devDist: "tmp/dev-server", // The development scratch directory.
     public: "public" // The public directory (files copied to dist during build)
   },
-  siteRoot: "https://formidable.com",
   generateSourceMaps: false,
   basePath: landerBasePath,
   stagingBasePath: landerBasePath,
@@ -64,6 +63,7 @@ export default {
       commonPropsIntro,
       ...trueDocs
     ];
+
     const sidebarContent = allSidebarItems.reduce((av, cv, i, arr) => {
       const category = cv.data.category;
       if (category && Array.isArray(av[category])) {
@@ -96,6 +96,7 @@ export default {
       ];
     };
     const sbContent = convertToSidebarArray(sidebarContent);
+    const sharedSidebarContent = createSharedData(sbContent);
 
     return [
       {
@@ -105,72 +106,63 @@ export default {
       {
         path: "/about",
         template: "src/pages/about",
-        getData: async () => ({
-          sidebarContent: sbContent
-        })
+        sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
         path: "/guides", // guides shares the 404 template because its children have their own docs-template getting used and there is no parent page to render, removing this will cause you build issues
         template: "src/pages/404",
-        getData: async () => ({
-          docs: trueDocs,
-          sidebarContent: sbContent
-        }),
-        children: generateGuideRoutes(guides, { sidebarContent: sbContent })
+        getData: () => ({ docs: trueDocs }),
+        sharedData: { sidebarContent: sharedSidebarContent },
+        children: guides.map(g => ({
+          path: `/${g.data.slug}`,
+          template: g.component || "src/pages/docs-template",
+          getData: () => ({ doc: g, title: `Victory | ${g.name}` }),
+          sharedData: { sidebarContent: sharedSidebarContent }
+        }))
       },
       {
         path: "/docs",
         template: "src/pages/docs-template",
-        getData: async () => ({
+        getData: () => ({
           doc: homeIntro,
-          docs: trueDocs,
-          sidebarContent: sbContent
+          docs: trueDocs
         }),
+        sharedData: { sidebarContent: sharedSidebarContent },
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
           template: "src/pages/docs-template",
-          getData: async () => ({
-            doc,
-            sidebarContent: sbContent
-          })
+          getData: () => ({ doc }),
+          sharedData: { sidebarContent: sharedSidebarContent }
         }))
       },
       {
         path: "docs/faq",
         template: "src/pages/docs-template",
-        getData: async () => ({
-          doc: faqIntro,
-          sidebarContent: sbContent
-        })
+        getData: () => ({ doc: faqIntro }),
+        sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
         path: "docs/common-props",
         template: "src/pages/docs-template",
-        getData: async () => ({
-          doc: commonPropsIntro,
-          sidebarContent: sbContent
-        })
+        getData: () => ({ doc: commonPropsIntro }),
+        sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
         path: "/gallery",
         template: "src/pages/gallery",
-        getData: async () => ({
-          sidebarContent: sbContent,
-          gallery
-        }),
+        getData: () => ({ gallery }),
+        sharedData: { sidebarContent: sharedSidebarContent },
         children: gallery.map(galleryItem => ({
           path: `/${galleryItem.data.slug}/`,
           template: "src/pages/gallery-item-template",
-          getData: async () => ({ galleryItem })
+          getData: () => ({ galleryItem })
         }))
       },
       // 404 Not Found
       {
         path: "/404",
         template: "src/pages/404",
-        getData: async () => ({
-          sidebarContent: sbContent
-        })
+        sharedData: { sidebarContent: sharedSidebarContent }
       }
     ];
   },

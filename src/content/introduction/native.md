@@ -107,4 +107,4 @@ it("renders correctly", () => {
 
 **Note:** `renderer` must be imported _after_ `react-native` for tests to work.
 
-[getting started guide]: https://formidable.com/open-source/victory/docs/
+[getting started guide]: /docs/

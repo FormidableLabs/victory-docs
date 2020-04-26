@@ -67,13 +67,15 @@ const ScrollToCurrentSection = ({ location, children }) => {
     if (checkScrollRoutes(pathname)) {
       scrollContent(hash);
     }
+    // scroll to top immediately if navigation is not to a sidebar page
+    scroll.scrollTo(0, { duration: 0 });
   }, [hash, pathname, pageContentHeight]);
 
   return children;
 };
 
 ScrollToCurrentSection.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   location: PropTypes.object
 };
 
@@ -82,7 +84,7 @@ const App = () => {
   return (
     <Root>
       {/* TODO: create a better fallback component */}
-      <React.Suspense fallback={<h1>Loading</h1>}>
+      <React.Suspense fallback={<div />}>
         <Analytics id="UA-43290258-1">
           <ThemeProvider theme={theme}>
             <GlobalStyle />
@@ -94,14 +96,9 @@ const App = () => {
                       const Comp = getComponentForPath(routePath) || (
                         <NotFound />
                       );
-                      // Add react-router route props like location and history
-                      const CompWithRouteProps = React.cloneElement(
-                        Comp,
-                        props
-                      );
                       return (
                         <ScrollToCurrentSection {...props}>
-                          {CompWithRouteProps}
+                          {Comp}
                         </ScrollToCurrentSection>
                       );
                     }}

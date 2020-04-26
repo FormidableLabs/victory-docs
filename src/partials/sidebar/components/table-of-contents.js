@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { maxBy, minBy, isEmpty } from "lodash";
 import styled from "styled-components";
+import createPath from "../../../helpers/path-helpers";
 
 import { SidebarSectionSublist } from "../styles";
 
@@ -45,7 +46,8 @@ SubItemLink.propTypes = {
   depth: PropTypes.number.isRequired
 };
 
-const TableOfContents = ({ active, link, headings, location }) => {
+const TableOfContents = ({ active, link, headings }) => {
+  const location = useLocation();
   if (!active || isEmpty(headings)) {
     return null;
   }
@@ -117,7 +119,7 @@ const TableOfContents = ({ active, link, headings, location }) => {
             <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}
-                to={getPath(item, tocLink)}
+                to={createPath(getPath(item, tocLink))}
                 prefetch={"data"}
                 strict
               >
@@ -137,7 +139,6 @@ TableOfContents.propTypes = {
   active: PropTypes.bool,
   headings: PropTypes.array,
   link: PropTypes.object,
-  location: PropTypes.object,
   searchTerm: PropTypes.string
 };
 

@@ -22,23 +22,17 @@ const dataB = dataA.map((point) => {
 });
 
 const width = 500;
-const height = 500;
-const padding = { top: 80, bottom: 80, left: 20, right: 20 };
+const height = 300;
 
 class App extends React.Component {
 
   render() {
     return (
-      <svg viewBox={`0 0 ${width} ${height}`}
-        style={{ width: "100%", height: "auto" }}
+      <VictoryChart horizontal
+        height={height}
+        width={width}
       >
-        <VictoryStack horizontal
-          standalone={false}
-          /* setting a symmetric domain makes it much easier to center the axis  */
-          domain={{ y: [-60, 60] }}
-          padding={padding}
-          height={height}
-          width={width}
+        <VictoryStack
           style={{ data: { width: 20 }, labels: { fontSize: 11 } }}
         >
           <VictoryBar
@@ -54,10 +48,7 @@ class App extends React.Component {
           />
         </VictoryStack>
 
-        <VictoryAxis dependentAxis
-          height={height}
-          width={width}
-          padding={padding}
+        <VictoryAxis
           style={{
             axis: { stroke: "transparent" },
             ticks: { stroke: "transparent" },
@@ -69,10 +60,15 @@ class App extends React.Component {
             your tick labels in the center of the chart. The correct
             y values are still provided by VictoryAxis for each tick
           */
-          tickLabelComponent={<VictoryLabel x={250} textAnchor="middle"/>}
+          tickLabelComponent={
+            <VictoryLabel
+              x={width / 2}
+              textAnchor="middle"
+            />
+          }
           tickValues={dataA.map((point) => point.x).reverse()}
         />
-      </svg>
+      </VictoryChart>
     );
   }
 }

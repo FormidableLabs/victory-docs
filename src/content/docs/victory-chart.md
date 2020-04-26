@@ -57,7 +57,7 @@ animate={{
 
 `type: element`
 
-`VictoryChart` uses the standard `containerComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#containercomponent)
+`VictoryChart` uses the standard `containerComponent` prop. [Read about it in detail here](/docs/common-props/#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
@@ -67,7 +67,7 @@ containerComponent={<VictoryVoronoiContainer/>}
 
 `type: array[low, high] || { x: [low, high], y: [low, high] }`
 
-`VictoryChart` uses the standard `domain` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#domain)
+`VictoryChart` uses the standard `domain` prop. [Read about it in detail here](/docs/common-props/#domain)
 
 **note: `VictoryChart` controls the `domain` prop of its children.**
 
@@ -79,7 +79,7 @@ domain={{x: [0, 100], y: [0, 1]}}
 
 `type: number || array[left, right] || { x: [left, right], y: [bottom, top] }`
 
-`VictoryChart` uses the standard `domainPadding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props#domainpadding)
+`VictoryChart` uses the standard `domainPadding` prop. [Read about it in detail here](/docs/common-props#domainpadding)
 
 **note: `VictoryChart` controls the `domainPadding` prop of its children.**
 
@@ -144,7 +144,7 @@ _default:_ `endAngle={360}`
 
 `type: array[object]`
 
-`VictoryChart` uses the standard `events` prop. [Read about it in more detail here](https://formidable.com/open-source/victory/docs/common-props/#events)
+`VictoryChart` uses the standard `events` prop. [Read about it in more detail here](/docs/common-props/#events)
 
 See the [Events Guide][] for more information on defining events.
 
@@ -189,13 +189,13 @@ See the [Events Guide][] for more information on defining events.
 
 `type: array[object]`
 
-`VictoryChart` uses the standard `externalEventMutations` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props/#externalEventsMutations)
+`VictoryChart` uses the standard `externalEventMutations` prop. [Read about it in detail](/docs/common-props/#externalEventsMutations)
 
 ## groupComponent
 
 `type: element`
 
-`VictoryChart` uses the standard `groupComponent` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#groupcomponent)
+`VictoryChart` uses the standard `groupComponent` prop. [Read about it in detail here](/docs/common-props/#groupcomponent)
 
 _default:_ `<g/>`
 
@@ -207,7 +207,7 @@ groupComponent={<g transform="translate(10, 10)" />}
 
 `type: number`
 
-`VictoryChart` uses the standard `height` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#height)
+`VictoryChart` uses the standard `height` prop. [Read about it in detail here](/docs/common-props/#height)
 
 **note: `VictoryChart` controls the `height` prop of its children.**
 
@@ -259,7 +259,7 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 
 `type: number || { x: number, y: number }`
 
-`VictoryChart` uses the standard `maxDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#maxDomain)
+`VictoryChart` uses the standard `maxDomain` prop. [Read about it in detail](/docs/common-props#maxDomain)
 
 ```playground
 <VictoryChart maxDomain={{ y: 4.5 }}>
@@ -271,7 +271,7 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 
 `type: number || { x: number, y: number }`
 
-`VictoryChart` uses the standard `minDomain` prop. [Read about it in detail](https://formidable.com/open-source/victory/docs/common-props#minDomain)
+`VictoryChart` uses the standard `minDomain` prop. [Read about it in detail](/docs/common-props#minDomain)
 
 ```playground
 <VictoryChart minDomain={{ y: 0 }}>
@@ -283,7 +283,7 @@ When the `innerRadius` prop is set, polar charts will be hollow rather than circ
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
-`VictoryChart` uses the standard `padding` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#padding)
+`VictoryChart` uses the standard `padding` prop. [Read about it in detail here](/docs/common-props/#padding)
 
 **note: `VictoryChart` controls the `padding` prop of its children.**
 
@@ -297,7 +297,7 @@ padding={{ top: 20, bottom: 60 }}
 
 `type: boolean`
 
-`VictoryChart` uses the standard `polar` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#polar)
+`VictoryChart` uses the standard `polar` prop. [Read about it in detail here](/docs/common-props/#polar)
 
 **Notes:**
 
@@ -336,13 +336,13 @@ padding={{ top: 20, bottom: 60 }}
 
 **note: `VictoryChart` controls the `range` prop of its children.**
 
-[Read about the `range` prop in detail](https://formidable.com/open-source/victory/docs/common-props/#range)
+[Read about the `range` prop in detail](/docs/common-props/#range)
 
 ## scale
 
 `type: scale || { x: scale, y: scale }`
 
-`VictoryChart` uses the standard `scale` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props/#scale)
+`VictoryChart` uses the standard `scale` prop. [Read about it here](/docs/common-props/#scale)
 Options for scale include "linear", "time", "log", "sqrt" and the `d3-scale` functions that correspond to these options.
 
 **note: `VictoryChart` controls the `scale` prop of its children.**
@@ -361,13 +361,13 @@ scale={{x: "linear", y: "log"}}
 
 `type: boolean || { x: boolean, y: boolean }`
 
-`VictoryChart` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#singlequadrantdomainpadding)
+`VictoryChart` uses the standard `singleQuadrantDomainPadding` prop. [Read about it here](/docs/common-props#singlequadrantdomainpadding)
 
 ## standalone
 
 `type: boolean`
 
-`VictoryChart` uses the standard `standalone` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#standalone)
+`VictoryChart` uses the standard `standalone` prop. [Read about it in detail here](/docs/common-props/#standalone)
 
 **note:** `VictoryChart` sets `standalone={false} for all of its children.
 
@@ -440,7 +440,7 @@ _default:_ `startAngle={0}`
 
 `type: { parent: object }`
 
-`VictoryChart` uses the standard `style` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#style)
+`VictoryChart` uses the standard `style` prop. [Read about it in detail here](/docs/common-props/#style)
 
 _default (provided by default theme):_ See [grayscale theme][] for more detail
 
@@ -458,7 +458,7 @@ _default (provided by default theme):_ See [grayscale theme][] for more detail
 
 `type: object`
 
-`VictoryChart` uses the standard `theme` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#theme)
+`VictoryChart` uses the standard `theme` prop. [Read about it in detail here](/docs/common-props/#theme)
 
 See the [Themes Guide][] for information about creating custom themes.
 
@@ -472,7 +472,7 @@ theme={VictoryTheme.material}
 
 `type: number`
 
-`VictoryChart` uses the standard `width` prop. [Read about it in detail here](https://formidable.com/open-source/victory/docs/common-props/#width)
+`VictoryChart` uses the standard `width` prop. [Read about it in detail here](/docs/common-props/#width)
 
 **note: `VictoryChart` controls the `width` prop of its children.**
 
@@ -482,18 +482,18 @@ _default (provided by default theme):_ `width={450}`
 width={400}
 ```
 
-[victoryarea]: https://formidable.com/open-source/victory/docs/victory-area
-[victoryaxis]: https://formidable.com/open-source/victory/docs/victory-axis
-[victorypolaraxis]: https://formidable.com/open-source/victory/docs/victory-polar-axis
-[victorybar]: https://formidable.com/open-source/victory/docs/victory-bar
-[victorycandlestick]: https://formidable.com/open-source/victory/docs/victory-candlestick
-[victoryerrorbar]: https://formidable.com/open-source/victory/docs/victory-errorbar
-[victorygroup]: https://formidable.com/open-source/victory/docs/victory-group
-[victoryline]: https://formidable.com/open-source/victory/docs/victory-line
-[victoryscatter]: https://formidable.com/open-source/victory/docs/victory-scatter
-[victorystack]: https://formidable.com/open-source/victory/docs/victory-stack
-[victoryvoronoi]: https://formidable.com/open-source/victory/docs/victory-voronoi
+[victoryarea]: /docs/victory-area
+[victoryaxis]: /docs/victory-axis
+[victorypolaraxis]: /docs/victory-polar-axis
+[victorybar]: /docs/victory-bar
+[victorycandlestick]: /docs/victory-candlestick
+[victoryerrorbar]: /docs/victory-errorbar
+[victorygroup]: /docs/victory-group
+[victoryline]: /docs/victory-line
+[victoryscatter]: /docs/victory-scatter
+[victorystack]: /docs/victory-stack
+[victoryvoronoi]: /docs/victory-voronoi
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[animations guide]: https://formidable.com/open-source/victory/guides/animations
-[events guide]: https://formidable.com/open-source/victory/guides/events
-[themes guide]: https://formidable.com/open-source/victory/guides/themes
+[animations guide]: /guides/animations
+[events guide]: /guides/events
+[themes guide]: /guides/themes

@@ -516,7 +516,7 @@ _default:_ `<VictoryLabel/>`
 
 `type: array || function`
 
-The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function. When given as a function, `labels` will be called with a single argument: an object containing all the props supplied to the label component. A full list of props that will be passed to `VictoryLabel` is given [here](https://formidable.com/open-source/victory/docs/victory-label).
+The `labels` prop defines the labels that will appear above each point. This prop should be given as an array or as a function. When given as a function, `labels` will be called with a single argument: an object containing all the props supplied to the label component. A full list of props that will be passed to `VictoryLabel` is given [here](/docs/victory-label).
 
 _examples:_
 
@@ -978,26 +978,26 @@ y0="employees.salary"`, `y={["employees", "salary"]}
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
-[x]: https://formidable.com/open-source/victory/docs/common-props#x
-[y]: https://formidable.com/open-source/victory/docs/common-props#y
+[x]: #x
+[y]: #y
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
-[width]: https://formidable.com/open-source/victory/docs/common-props#width
-[height]: https://formidable.com/open-source/victory/docs/common-props#height
-[victorylabel]: https://formidable.com/open-source/victory/docs/victory-label
-[victorytooltip]: https://formidable.com/open-source/victory/docs/victory-tooltip
-[victoryportal]: https://formidable.com/open-source/victory/docs/victory-portal
-[victoryclipcontainer]: https://formidable.com/open-source/victory/docs/victory-clip-container
-[victorybrushcontainer]: https://formidable.com/open-source/victory/docs/victory-brush-container
-[victorycursorcontainer]: https://formidable.com/open-source/victory/docs/victory-cursor-container
-[victoryselectioncontainer]: https://formidable.com/open-source/victory/docs/victory-selection-container
-[victoryvoronoicontainer]: https://formidable.com/open-source/victory/docs/victory-voronoi-container
-[victoryzoomcontainer]: https://formidable.com/open-source/victory/docs/victory-zoom-container
-[createcontainer]: https://formidable.com/open-source/victory/docs/create-container
-[victoryanimation]: https://formidable.com/open-source/victory/docs/victory-animation
-[victorytransition]: https://formidable.com/open-source/victory/docs/victory-transition
+[width]: #width
+[height]: #height
+[victorylabel]: /docs/victory-label
+[victorytooltip]: /docs/victory-tooltip
+[victoryportal]: /docs/victory-portal
+[victoryclipcontainer]: /docs/victory-clip-container
+[victorybrushcontainer]: /docs/victory-brush-container
+[victorycursorcontainer]: /docs/victory-cursor-container
+[victoryselectioncontainer]: /docs/victory-selection-container
+[victoryvoronoicontainer]: /docs/victory-voronoi-container
+[victoryzoomcontainer]: /docs/victory-zoom-container
+[createcontainer]: /docs/create-container
+[victoryanimation]: /docs/victory-animation
+[victorytransition]: /docs/victory-transition
 [sortby]: https://lodash.com/docs/4.17.4#sortBy
-[animations guide]: https://formidable.com/open-source/victory/guides/animations
-[data accessors guide]: https://formidable.com/open-source/victory/guides/data-accessors
-[custom components guide]: https://formidable.com/open-source/victory/guides/custom-components
-[events guide]: https://formidable.com/open-source/victory/guides/events
-[themes guide]: https://formidable.com/open-source/victory/guides/themes
+[animations guide]: /guides/animations
+[data accessors guide]: /guides/data-accessors
+[custom components guide]: /guides/custom-components
+[events guide]: /guides/events
+[themes guide]: /guides/themes

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import createPath from "../../helpers/path-helpers";
+
 // Assets
 import VIACOM from "../../../static/logos/logo-viacom.svg";
 import FIVETHIRTYEIGHT from "../../../static/logos/logo-fivethirtyeight.svg";
@@ -84,7 +86,10 @@ const Companies = () => (
           <CompanyLogo src={TUNE} alt="Tune" />
         </Company>
       </CompaniesList>
-      <LinkButton to="/about#showcase" color={importedTheme.color.black}>
+      <LinkButton
+        to={createPath("about#showcase")}
+        color={importedTheme.color.black}
+      >
         SEE SHOWCASE
       </LinkButton>
     </LandingSectionContent>

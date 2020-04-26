@@ -231,4 +231,4 @@ class CustomDataComponent extends React.Component {
 ReactDOM.render(<CustomDataComponent/>, mountNode)
 ```
 
-[primitive components]: https://formidable.com/open-source/victory/docs/victory-primitives
+[primitive components]: /docs/victory-primitives

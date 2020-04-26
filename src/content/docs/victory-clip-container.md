@@ -83,7 +83,7 @@ _examples:_ `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 `type: element`
 
-`VictoryClipContainer` uses the standard `groupComponent` prop. [Read about it here](https://formidable.com/open-source/victory/docs/common-props#groupcomponent)
+`VictoryClipContainer` uses the standard `groupComponent` prop. [Read about it here](/docs/common-props#groupcomponent)
 
 _default:_ `<g/>`
 
@@ -131,6 +131,6 @@ The `translateY` prop determines the offset of the clip path from the base y coo
 should be given as a number. If this prop is not given, it will be calculated based on the padding
 of the parent chart.
 
-[clippath component]: https://formidable.com/open-source/victory/docs/victory-primitives#clippath
-[circle component]: https://formidable.com/open-source/victory/docs/victory-primitives#circle
-[rect component]: https://formidable.com/open-source/victory/docs/victory-primitives#rect
+[clippath component]: /docs/victory-primitives#clippath
+[circle component]: /docs/victory-primitives#circle
+[rect component]: /docs/victory-primitives#rect

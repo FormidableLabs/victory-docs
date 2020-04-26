@@ -39,7 +39,6 @@ The `center` prop determines the position of the center of the tooltip flyout. T
 
 ```playground
 <VictoryBar
-  domain={{ y: [0, 10] }}
   data={sampleData}
   labels={() => "HELLO"}
   labelComponent={
@@ -331,9 +330,9 @@ The `x` prop defines the x coordinate to use as a basis for positioning the tool
 
 The `y` prop defines the y coordinate to use as a basis for positioning the tooltip element.
 
-[flyout]: https://formidable.com/open-source/victory/docs/victory-primitives#flyout
-[victorylabel]: https://formidable.com/open-source/victory/docs/victory-label
-[victoryportal]: https://formidable.com/open-source/victory/docs/victory-portal
-[victorycontainer]: https://formidable.com/open-source/victory/docs/victory-container
+[flyout]: /docs/victory-primitives#flyout
+[victorylabel]: /docs/victory-label
+[victoryportal]: /docs/victory-portal
+[victorycontainer]: /docs/victory-container
 [portal]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-portal/portal.js
 [approximate text size]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-util/textsize.js
