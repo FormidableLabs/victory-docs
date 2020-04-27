@@ -251,11 +251,22 @@ const Hero = ({
           </GetStarted>
         </CenterWrapper>
         <LinkContainer>
-          {linksArray.map(l => (
-            <LinkItem key={l.text} href={createPath(l.location)}>
-              {l.text}
-            </LinkItem>
-          ))}
+          {linksArray.map(l => {
+            return l.external ? (
+              <LinkItem
+                key={l.text}
+                href={l.location}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {l.text}
+              </LinkItem>
+            ) : (
+              <LinkItem key={l.text} href={createPath(l.location)}>
+                {l.text}
+              </LinkItem>
+            );
+          })}
         </LinkContainer>
         <LearnMore to="Features" smooth offset={-25} duration={500}>
           LEARN MORE

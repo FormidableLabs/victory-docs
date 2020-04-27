@@ -106,7 +106,7 @@ const MoreOSS = ({ ossArray, link }) => (
       <OSSWrapper>
         {ossArray.map((card, index) => (
           <OSSItem key={card.link} index={index}>
-            <OSSLink href={card.link}>
+            <OSSLink href={card.link} target="_blank" rel="noopener noreferrer">
               {card.featured ? (
                 <FeaturedBadge isHoverable name={card.title.toLowerCase()} />
               ) : (
@@ -119,7 +119,11 @@ const MoreOSS = ({ ossArray, link }) => (
               )}
             </OSSLink>
             <OSSCopyContainer>
-              <OSSLink href={card.link}>
+              <OSSLink
+                href={card.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <OSSTitle>{card.title}</OSSTitle>
               </OSSLink>
               <OSSText>{card.description}</OSSText>

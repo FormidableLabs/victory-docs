@@ -106,6 +106,7 @@ const FormidableIcon = styled(SVG)`
 `;
 
 const FormidableLogo = styled(SVG)`
+  color: ${({ theme }) => theme.color.nearBlack};
   display: none;
   height: 2.8rem;
   position: relative;
@@ -156,7 +157,12 @@ const Header = ({ className = "", onMenuClick }) => {
             </NavLink>
 
             {config.projectLinks.map(link => (
-              <NavAnchor key={link.url} href={link.url}>
+              <NavAnchor
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {link.label}
               </NavAnchor>
             ))}
@@ -170,8 +176,20 @@ const Header = ({ className = "", onMenuClick }) => {
           </NavLinksList>
         </LeftContainer>
 
-        <FormidableIcon src={formidableIcon} />
-        <FormidableLogo src={formidableLogo} />
+        <a
+          href="https://formidable.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormidableIcon src={formidableIcon} />
+        </a>
+        <a
+          href="https://formidable.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FormidableLogo src={formidableLogo} />
+        </a>
       </InnerContainer>
     </HeaderContainer>
   );

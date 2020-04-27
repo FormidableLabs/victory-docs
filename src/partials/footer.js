@@ -57,31 +57,41 @@ const Blurb = styled.p`
   margin: 0;
 `;
 
-const FormidableLink = styled.a`
-  color: inherit;
-`;
-
 const Footer = ({ className = "" }) => (
   <FooterContainer className={className}>
     <InnerContainer>
       <IconAndContact>
-        <a href="https://formidable.com">
+        <a
+          href="https://formidable.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon src={formidableIcon} />
         </a>
         <Contact>
-          <a href="https://formidable.com/contact/">CONTACT</a>
-          <a href="https://formidable.com/careers/">CAREERS</a>
+          <a
+            href="https://formidable.com/contact/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CONTACT
+          </a>
+          <a
+            href="https://formidable.com/careers/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            CAREERS
+          </a>
         </Contact>
       </IconAndContact>
       <Blurb>
-        Formidable is a Seattle, Denver, Phoenix, and London-based engineering
+        Formidable is a Seattle, Denver, Phoenix and London-based engineering
         consultancy and open source software organization, specializing in
         React.js, React Native, GraphQL, Node.js, and the extended JavaScript
-        ecosystem. For more information about Formidable, please visit{" "}
-        <FormidableLink href="https://formidable.com" target="_blank">
-          formidable.com
-        </FormidableLink>
-        .
+        ecosystem. We build products for some of the world’s biggest companies,
+        while helping their internal teams develop smart, thoughtful, and
+        scalable systems.
       </Blurb>
     </InnerContainer>
   </FooterContainer>
