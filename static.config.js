@@ -128,9 +128,9 @@ export default {
         template: "src/pages/docs-template",
         getData: () => ({
           doc: homeIntro,
-          docs: trueDocs
+          docs: trueDocs,
+          sidebarContent: sbContent
         }),
-        sharedData: { sidebarContent: sharedSidebarContent },
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
           template: "src/pages/docs-template",
@@ -140,14 +140,12 @@ export default {
       {
         path: "docs/faq",
         template: "src/pages/docs-template",
-        getData: () => ({ doc: faqIntro }),
-        sharedData: { sidebarContent: sharedSidebarContent }
+        getData: () => ({ doc: faqIntro, sidebarContent: sbContent })
       },
       {
         path: "docs/common-props",
         template: "src/pages/docs-template",
-        getData: () => ({ doc: commonPropsIntro }),
-        sharedData: { sidebarContent: sharedSidebarContent }
+        getData: () => ({ doc: commonPropsIntro, sidebarContent: sbContent })
       },
       {
         path: "/gallery",
