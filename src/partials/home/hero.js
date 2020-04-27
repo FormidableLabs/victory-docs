@@ -229,7 +229,13 @@ const Hero = ({
     <HeroContainer bg={background}>
       <Corner>
         <CornerText>{cornerText}</CornerText>
-        <CornerF src={cornerIcon} />
+        <a
+          href="https://formidable.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CornerF src={cornerIcon} />
+        </a>
       </Corner>
       <LandingSectionContent>
         <CenterWrapper>

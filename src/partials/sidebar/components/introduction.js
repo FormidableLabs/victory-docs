@@ -24,7 +24,11 @@ const renderMobileSidebarLinks = mobileLinks => {
     return (
       <SidebarListItem key={link.slug}>
         {isExternal ? (
-          <SidebarListItemAnchorLink href={link.slug} target="_blank">
+          <SidebarListItemAnchorLink
+            href={link.slug}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {link.title}
           </SidebarListItemAnchorLink>
         ) : (
