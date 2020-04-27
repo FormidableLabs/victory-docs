@@ -229,7 +229,13 @@ const Hero = ({
     <HeroContainer bg={background}>
       <Corner>
         <CornerText>{cornerText}</CornerText>
-        <CornerF src={cornerIcon} />
+        <a
+          href="https://formidable.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CornerF src={cornerIcon} />
+        </a>
       </Corner>
       <LandingSectionContent>
         <CenterWrapper>
@@ -251,11 +257,22 @@ const Hero = ({
           </GetStarted>
         </CenterWrapper>
         <LinkContainer>
-          {linksArray.map(l => (
-            <LinkItem key={l.text} href={createPath(l.location)}>
-              {l.text}
-            </LinkItem>
-          ))}
+          {linksArray.map(l => {
+            return l.external ? (
+              <LinkItem
+                key={l.text}
+                href={l.location}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {l.text}
+              </LinkItem>
+            ) : (
+              <LinkItem key={l.text} href={createPath(l.location)}>
+                {l.text}
+              </LinkItem>
+            );
+          })}
         </LinkContainer>
         <LearnMore to="Features" smooth offset={-25} duration={500}>
           LEARN MORE

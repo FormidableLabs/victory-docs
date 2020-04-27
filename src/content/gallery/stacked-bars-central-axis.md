@@ -21,8 +21,8 @@ const dataB = dataA.map((point) => {
   return { ...point, y };
 });
 
-const width = 500;
-const height = 300;
+const width = 400;
+const height = 400;
 
 class App extends React.Component {
 
@@ -31,9 +31,10 @@ class App extends React.Component {
       <VictoryChart horizontal
         height={height}
         width={width}
+        padding={40}
       >
         <VictoryStack
-          style={{ data: { width: 20 }, labels: { fontSize: 11 } }}
+          style={{ data: { width: 25 }, labels: { fontSize: 15 } }}
         >
           <VictoryBar
             style={{ data: { fill: "tomato" } }}
@@ -52,7 +53,7 @@ class App extends React.Component {
           style={{
             axis: { stroke: "transparent" },
             ticks: { stroke: "transparent" },
-            tickLabels: { fontSize: 11, fill: "black" }
+            tickLabels: { fontSize: 15, fill: "black" }
           }}
           /*
             Use a custom tickLabelComponent with

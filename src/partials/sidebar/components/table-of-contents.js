@@ -115,7 +115,7 @@ const TableOfContents = ({ active, link, headings }) => {
             return <li key={`${i}-${depth}`}>{getTOC(tocLink, item, i++)}</li>;
           }
 
-          return item.depth > 1 ? (
+          return item.depth === 2 ? (
             <SubItemListItem key={index} depth={item.depth}>
               <SubItemLink
                 depth={item.depth}

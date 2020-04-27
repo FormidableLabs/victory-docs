@@ -116,8 +116,11 @@ export default {
         children: guides.map(g => ({
           path: `/${g.data.slug}`,
           template: g.component || "src/pages/docs-template",
-          getData: () => ({ doc: g, title: `Victory | ${g.name}` }),
-          sharedData: { sidebarContent: sharedSidebarContent }
+          getData: () => ({
+            doc: g,
+            title: `Victory | ${g.name}`,
+            sidebarContent: sbContent
+          })
         }))
       },
       {

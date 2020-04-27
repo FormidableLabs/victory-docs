@@ -27,11 +27,13 @@ const content = {
       },
       {
         text: "SUPPORT",
-        location: "https://spectrum.chat/victory"
+        location: "https://spectrum.chat/victory",
+        external: true
       },
       {
         text: "GITHUB",
-        location: "https://github.com/FormidableLabs/victory"
+        location: "https://github.com/FormidableLabs/victory",
+        external: true
       },
       {
         text: "FAQS",
