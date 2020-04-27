@@ -134,8 +134,7 @@ export default {
         children: docSubroutes.map(doc => ({
           path: `/${doc.data.slug}`,
           template: "src/pages/docs-template",
-          getData: () => ({ doc }),
-          sharedData: { sidebarContent: sharedSidebarContent }
+          getData: () => ({ doc, sidebarContent: sbContent })
         }))
       },
       {
