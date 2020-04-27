@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 9.0.2 (2020-04-27)
+
+-[#672](https://github.com/FormidableLabs/victory-docs/pull/672) - correct caching issue
+
 ## 9.0.1 (2020-04-27)
 
 -[#671](https://github.com/FormidableLabs/victory-docs/pull/671) - minor improvements
