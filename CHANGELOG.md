@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 9.0.1 (2020-04-27)
+
+-[#671](https://github.com/FormidableLabs/victory-docs/pull/671) - minor improvements
+
 ## 9.0.0 (2020-04-26)
 
 Implement docs redesign and update to `react-static@7`
