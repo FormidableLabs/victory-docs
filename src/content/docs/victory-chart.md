@@ -438,9 +438,11 @@ _default:_ `startAngle={0}`
 
 ## style
 
-`type: { parent: object }`
+`type: { parent: object, background: object }`
 
 `VictoryChart` uses the standard `style` prop. [Read about it in detail here](/docs/common-props/#style)
+
+note: custom valid svg style properties that are supported may be included in `background` styles.
 
 _default (provided by default theme):_ See [grayscale theme][] for more detail
 
@@ -449,6 +451,9 @@ _default (provided by default theme):_ See [grayscale theme][] for more detail
   style={{
     parent: {
       border: "1px solid #ccc"
+    },
+    background: {
+      fill: "pink"
     }
   }}
 />
