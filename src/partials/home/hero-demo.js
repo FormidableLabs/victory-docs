@@ -63,6 +63,7 @@ const groupDownloadsByWeek = dates => {
 };
 
 const minorVersions = versions.data.filter(v => v.version.endsWith("0"));
+const latestVersion = versions.data[0].version;
 const voronoiBlacklist = minorVersions.map(v => `ignore-${v.version}`);
 
 const LinkLabel = props => {
@@ -187,7 +188,7 @@ const HeroDemo = () => {
           y={190}
         />
         <VictoryLabel
-          text="v34.1.3"
+          text={`v${latestVersion}`}
           textAnchor="start"
           style={font()}
           x={1710}
@@ -239,8 +240,8 @@ const HeroDemo = () => {
           }}
           labelComponent={
             <VictoryLabel
-              dx={({ datum }) => (datum.downloads < 60000 ? 15 : 0)}
-              dy={({ datum }) => (datum.downloads < 60000 ? -15 : 7)}
+              dx={15}
+              dy={-15}
               lineHeight={1.3}
               style={[
                 {
