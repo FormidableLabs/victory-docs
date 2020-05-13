@@ -13,7 +13,6 @@ scope:
 
 An intro about new features! A link to the changelog
 
-
 ## Backgrounds for VictoryChart
 
 some intro copy. With links to things like the [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) prop
@@ -36,11 +35,12 @@ A simple example!
 ```
 
 A cool rainbow example
+
 ```playground
 <div>
   <svg>
     <defs>
-      <linearGradient id="linear-gradient">
+      <linearGradient id="linear_gradient">
         <stop offset="0%" stopColor="red" />
         <stop offset="15%" stopColor="orange" />
         <stop offset="30%" stopColor="yellow" />
@@ -54,7 +54,7 @@ A cool rainbow example
 
   <VictoryChart
     style={{
-      background: { fill: "url(#linear-gradient)" }
+      background: { fill: "url(#linear_gradient)" }
     }}
   >
     <VictoryLabel text={"WOW"} x={150} y={150} />
@@ -66,11 +66,10 @@ A cool rainbow example
 and a radial gradient on a polar chart!
 
 ```playground
-
 <div>
   <svg>
     <defs>
-      <radialGradient id="conic-gradient">
+      <radialGradient id="radial_gradient">
         <stop offset="10%" stopColor="red" />
         <stop offset="95%" stopColor="gold" />
         />
@@ -81,7 +80,7 @@ and a radial gradient on a polar chart!
   <VictoryChart
     polar
     style={{
-      background: { fill: "url(#conic-gradient)" }
+      background: { fill: "url(#radial_gradient)" }
     }}
   >
     <VictoryScatter />

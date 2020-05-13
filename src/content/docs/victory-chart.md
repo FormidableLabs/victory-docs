@@ -57,6 +57,18 @@ _default:_ `<Background/>`
 backgroundComponent={<Background/>}
 ```
 
+```playground
+<VictoryChart
+  height={300}
+  width={300}
+  domain={[-1, 1]}
+  style={{
+    background: { fill: "pink" }
+  }}
+  backgroundComponent={<Background y={20} height={100}/>}
+/>
+```
+
 ## children
 
 `type: element || array[element]`
