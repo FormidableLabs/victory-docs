@@ -15,7 +15,7 @@ An intro about new features! A link to the changelog
 
 ## Backgrounds for VictoryChart
 
-VictoryChart now includes an optional [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) prop. It will also render the new [`Background`](/docs/victory-primitives#backgroundcomponent) simple component as the default backgroundComponent when the "background" property is included in the VictoryChart style prop.
+VictoryChart now includes an optional [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) prop. It will also render the new [`Background`](/docs/victory-primitives#backgroundcomponent) simple component as the default `backgroundComponent` when the "background" property is included in the VictoryChart [`style`](/docs/victory-chart#style) prop.
 
 Try it out below!
 
@@ -88,12 +88,12 @@ and a radial gradient on a polar chart!
 </div>
 ```
 
-You can also pass `Background` as the backgroundComponent prop value on `VictoryChart` to override props calculated for the default rendered `Background`
+You can also pass `Background` as the `backgroundComponent` prop value on `VictoryChart` to override props calculated for the default rendered `Background`
 
 ```playground
   <VictoryChart
     style={{ background: { fill: "lavender" } }}
-    backgroundComponent={ <Background y={ "40%" } height={ "10%" }/> }
+    backgroundComponent={ <Background y={ "40%" } height={ "20%" }/> }
   >
     <VictoryScatter />
   </ VictoryChart>
