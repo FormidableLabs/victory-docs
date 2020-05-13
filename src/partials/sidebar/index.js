@@ -27,14 +27,9 @@ const documentationSubcategories = ["charts", "containers", "more"];
 
 const getPathPrefix = item => {
   // just a bunch of one-offs, elegance is harder to realize gains from
-  if (item.title === "Getting Started" && item.category === "introduction") {
-    return "docs/";
+  if (item.category === "introduction") {
+    return item.slug === "getting-started" ? "/docs" : `/docs/${item.slug}`;
   }
-
-  if (item.title === "Native" && item.category === "introduction") {
-    return "docs/native/";
-  }
-
   if (item.category === "support") {
     return "docs/faq/";
   }
