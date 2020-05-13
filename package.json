@@ -28,6 +28,7 @@
     "prismjs": "^1.15.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.0",
+    "react-cool-inview": "^0.5.14",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.8.0",
     "react-ga": "^2.4.1",

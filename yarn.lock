@@ -7765,6 +7765,11 @@ react-codemirror2@^5.0.0:
   resolved "https://registry.yarnpkg.com/react-codemirror2/-/react-codemirror2-5.1.0.tgz#62de4460178adea40eb52eabf7491669bf3794b8"
   integrity sha512-Cksbgbviuf2mJfMyrKmcu7ycK6zX/ukuQO8dvRZdFWqATf5joalhjFc6etnBdGCcPA2LbhIwz+OPnQxLN/j1Fw==
 
+react-cool-inview@^0.5.14:
+  version "0.5.14"
+  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-0.5.14.tgz#e6bc064dd1246796076dc25390dfbb399b96fb1d"
+  integrity sha512-2EQ9/seG5ROHlEU05TVII7aVWbC0GWvfCybG3wEPfQ/8q2rz03/Zxh8xPEJ8JPv58olYsMUr+/3aO8B279ld7w==
+
 react-copy-to-clipboard@^5.0.2:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.0.2.tgz#d82a437e081e68dfca3761fbd57dbf2abdda1316"
