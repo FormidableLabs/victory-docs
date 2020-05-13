@@ -15,15 +15,15 @@ An intro about new features! A link to the changelog
 
 ## Backgrounds for VictoryChart
 
-some intro copy. With links to things like the [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) prop
+VictoryChart now includes an optional [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) prop. It will also render the new [`Background`](/docs/victory-primitives#backgroundcomponent) simple component as the default backgroundComponent when the "background" property is included in the VictoryChart style prop.
 
-A simple example!
+Try it out below!
 
 ```playground
 <VictoryChart
   horizontal
   style={{
-    background: { fill: "cyan" }
+    background: { fill: "lavender" }
   }}
 >
   <VictoryGroup labels={["a", "b", "c"]} offset={20} colorScale={"qualitative"}>
@@ -57,7 +57,7 @@ A cool rainbow example
       background: { fill: "url(#linear_gradient)" }
     }}
   >
-    <VictoryLabel text={"WOW"} x={150} y={150} />
+    <VictoryLabel text={ "WOW" } x={ 150 } y={ 150 } />
     <VictoryScatter />
   </VictoryChart>
 </div>
@@ -85,5 +85,29 @@ and a radial gradient on a polar chart!
   >
     <VictoryScatter />
   </VictoryChart>
+</div>
+```
+
+You can also pass `Background` as the backgroundComponent prop value on `VictoryChart` to override props calculated for the default rendered `Background`
+
+```playground
+
+<div>
+  <svg>
+    <defs>
+      <radialGradient id="conic-gradient">
+        <stop offset="10%" stopColor="red" />
+        <stop offset="95%" stopColor="gold" />
+        />
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <VictoryChart
+    style={{ background: { fill: "lavender"} }}
+    backgroundComponent={ <Background y={ "40%" } height={ "10%" }/> }
+  >
+    <VictoryScatter />
+  </ VictoryChart>
 </div>
 ```
