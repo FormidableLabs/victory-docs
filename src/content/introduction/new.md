@@ -91,23 +91,10 @@ and a radial gradient on a polar chart!
 You can also pass `Background` as the backgroundComponent prop value on `VictoryChart` to override props calculated for the default rendered `Background`
 
 ```playground
-
-<div>
-  <svg>
-    <defs>
-      <radialGradient id="conic-gradient">
-        <stop offset="10%" stopColor="red" />
-        <stop offset="95%" stopColor="gold" />
-        />
-      </radialGradient>
-    </defs>
-  </svg>
-
   <VictoryChart
-    style={{ background: { fill: "lavender"} }}
+    style={{ background: { fill: "lavender" } }}
     backgroundComponent={ <Background y={ "40%" } height={ "10%" }/> }
   >
     <VictoryScatter />
   </ VictoryChart>
-</div>
 ```
