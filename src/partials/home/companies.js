@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import LazyImage from "../../partials/lazy-image";
 import createPath from "../../helpers/path-helpers";
 
 // Assets
@@ -52,7 +53,7 @@ const Company = styled.li`
   max-width: 200px;
 `;
 
-const CompanyLogo = styled.img`
+const CompanyLogo = styled(LazyImage)`
   width: 100%;
 `;
 
