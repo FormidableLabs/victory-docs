@@ -167,8 +167,8 @@ The `Background` component is used to render an SVG background on VictoryChart. 
   - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
   - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
   - `style` *object* the styles to apply to the rendered element
-  - `width` *number* the width of parent chart (used to calculate default bar width `style.width` is not supplied)
-  - `x` *number* the x coordinate of the top of the background
+  - `width` *number* the width of the `<rect/>` element
+  - `x` *number* the x coordinate of the upper-left corner of the background for non-polar charts and center of the background for polar charts
   - `y` *number* the y coordinate of the top of the background
 
 ### Bar
