@@ -25,7 +25,7 @@ Try it out!
     background: { fill: "lavender" }
   }}
 >
-  <VictoryLine />
+  <VictoryScatter />
 </VictoryChart>
 ```
 
@@ -65,7 +65,10 @@ As with other components Victory renders, you can add props directly to `Backgro
 ```playground_norender
 const CustomBackground = props => {
   return (
-    <image href={"https://i.picsum.photos/id/906/525/300.jpg"} {...props}/>
+    <image
+      href={"https://i.picsum.photos/id/906/525/300.jpg"}
+      {...props}
+    />
   );
 };
 
