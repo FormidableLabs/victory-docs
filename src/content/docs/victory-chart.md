@@ -45,6 +45,30 @@ animate={{
 }}
 ```
 
+## backgroundComponent
+
+`type: element`
+
+The `backgroundComponent` prop takes a component instance which will be responsible for rendering a background if the `VictoryChart`'s `style` component includes `background` styles. The new element created from the passed `backgroundComponent` will be provided with the following properties calculated by `VictoryChart`: `height`, `polar`, `scale`, `style`, `x`, `y`, `width`. All of these props on `Background` should take prececence over what `VictoryChart` is trying to set.
+
+_default:_ `<Background/>`
+
+```jsx
+backgroundComponent={<Background/>}
+```
+
+```playground
+<VictoryChart
+  height={300}
+  width={300}
+  domain={[-1, 1]}
+  style={{
+    background: { fill: "pink" }
+  }}
+  backgroundComponent={<Background y={20} height={100}/>}
+/>
+```
+
 ## children
 
 `type: element || array[element]`
@@ -438,9 +462,11 @@ _default:_ `startAngle={0}`
 
 ## style
 
-`type: { parent: object }`
+`type: { parent: object, background: object }`
 
 `VictoryChart` uses the standard `style` prop. [Read about it in detail here](/docs/common-props/#style)
+
+note: custom valid svg style properties that are supported may be included in `background` styles.
 
 _default (provided by default theme):_ See [grayscale theme][] for more detail
 
@@ -449,6 +475,9 @@ _default (provided by default theme):_ See [grayscale theme][] for more detail
   style={{
     parent: {
       border: "1px solid #ccc"
+    },
+    background: {
+      fill: "pink"
     }
   }}
 />

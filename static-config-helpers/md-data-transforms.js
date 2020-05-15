@@ -27,7 +27,8 @@ const orderByIdAndAddThemesEntry = items => {
 };
 
 const slugMutation = mdData => {
-  return (mdData.data.slug = _.kebabCase(mdData.data.title)
+  const base = mdData.data.slug || mdData.data.title;
+  return (mdData.data.slug = _.kebabCase(base)
     .toLowerCase()
     .trim());
 };

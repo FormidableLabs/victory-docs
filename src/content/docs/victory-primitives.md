@@ -15,7 +15,7 @@ Each of these primitive components renders SVG elements. The following component
 
 ### Circle
 
-Used by `VictoryClipContainer` and `Voronoi`
+Used by `Background`, `VictoryClipContainer`, and `Voronoi`
 
 ```jsx
 const Circle = (props) => <circle vectorEffect="non-scaling-stroke" {...props} />;
@@ -48,7 +48,7 @@ const Path = (props) => <path {...props} />;
 ```
 ### Rect
 
-Used by `VictoryClipPath`, `Border`, and `Candle`
+Used by `VictoryClipPath`, `Background`, `Border`, and `Candle`
 
 ```jsx
 const Rect = (props) => <rect vectorEffect="non-scaling-stroke" {...props} />;
@@ -148,6 +148,28 @@ const TSpan = (props) => <tspan {...props} />;
   - `x2` *number* the x coordinate of the end of the line
   - `y1` *number* the y coordinate of the beginning of the line
   - `y2` *number* the y coordinate of the end of the line
+
+### Background
+
+The `Background` component is used to render an SVG background on VictoryChart. `Background` will render a `<Circle>` for charts with `polar={true}` and a `<Rect>` element for all other charts. [View the source][background]
+
+**Props**
+
+  - `className` *string* the class name that will be applied to the rendered path
+  - `circleComponent` *element* the rendered circle element  *default* `<Circle/>`
+  - `events` *object* events to attach to the rendered element
+  - `height` *number* the height of the `<rect/>` element
+  - `id` *string or number* an id to apply to the rendered component
+  - `origin` *object* the svg coordinates of the center point of a polar chart
+  - `polar` *boolean* a flag specifying whether the component is part of a polar chart
+  - `rectComponent` *element* the rendered rect element  *default* `<Rect/>`
+  - `role` *string* the aria role to assign to the element
+  - `scale` *object* the x and y scale of the parent chart with `domain` and `range` applied
+  - `shapeRendering` *string* the shape rendering attribute to apply to the rendered path
+  - `style` *object* the styles to apply to the rendered element
+  - `width` *number* the width of the `<rect/>` element
+  - `x` *number* the x coordinate of the upper-left corner of the background for non-polar charts and center of the background for polar charts
+  - `y` *number* the y coordinate of the top of the background
 
 ### Bar
 
@@ -429,6 +451,7 @@ const TSpan = (props) => <tspan {...props} />;
 [VictoryPolarAxis]: /docs/victory-polar-axis
 [area]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/area.js
 [VictoryArea]: /docs/victory-area
+[background]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/background.js
 [bar]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/bar.js
 [border]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-primitives/border.js
 [VictoryBar]: /docs/victory-bar
