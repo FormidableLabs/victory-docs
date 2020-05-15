@@ -1,5 +1,15 @@
 # Victory Docs Changelog
 
+## 9.1.0 (2020-05-15)
+
+
+- [#679](https://github.com/FormidableLabs/victory-docs/pull/679) - Fix react-static node_modules resolution
+- [#678](https://github.com/FormidableLabs/victory-docs/pull/678) - Document `VictoryLabel` `id` prop update
+- [#677](https://github.com/FormidableLabs/victory-docs/pull/677) - Tweak hero demo chart
+- [#676](https://github.com/FormidableLabs/victory-docs/pull/676) - Document new `backgroundComponent` prop on `VictoryChart` and add `/docs/new` route for new features
+- [#674](https://github.com/FormidableLabs/victory-docs/pull/674) - Tweak polar char examples
+
+
 ## 9.0.3 (2020-04-27)
 
 -[#673](https://github.com/FormidableLabs/victory-docs/pull/673) - correct additional caching issue
