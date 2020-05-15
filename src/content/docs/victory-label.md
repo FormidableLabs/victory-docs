@@ -88,6 +88,12 @@ _example:_ `events={{onClick: (evt) => alert("x: " + evt.clientX)}}`
 
 This prop refers to the height of the `svg` that `VictoryLabel` is rendered within. **This prop is passed from parents of `VictoryLabel`, and should not be set manually.**
 
+## id
+
+`type: string || number || function`
+
+The `id` prop specifies a HTML ID that will be applied to the rendered text element.
+
 ## index
 
 `type: string || number`
