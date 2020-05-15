@@ -11,59 +11,25 @@ scope:
 
 # New Features
 
-An intro about new features! A link to the changelog
+Victory is actively developed. You can read about some of our newest feature here. For more information on improvements and bug fixes, check out our [changelog](https://github.com/FormidableLabs/victory/blob/master/CHANGELOG.md).
 
 ## Backgrounds for VictoryChart
 
-VictoryChart now includes an optional [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) prop. It will also render the new [`Background`](/docs/victory-primitives#backgroundcomponent) simple component as the default `backgroundComponent` when the "background" property is included in the VictoryChart [`style`](/docs/victory-chart#style) prop.
+We wanted to make it easier to style the chart backgrounds, so we added a [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) for `VictoryChart`. Now, when you include `background` styles, `VictoryChart` will render [`Background`](/docs/victory-primitives#background),  a styled element that fills the area between your axes.
 
-Try it out below!
+Try it out!
 
 ```playground
 <VictoryChart
-  horizontal
   style={{
     background: { fill: "lavender" }
   }}
 >
-  <VictoryGroup labels={["a", "b", "c"]} offset={20} colorScale={"qualitative"}>
-    <VictoryBar data={[{ x: 1, y: 1 }, { x: 2, y: 2 }, { x: 3, y: 5 }]} />
-    <VictoryBar data={[{ x: 1, y: 2 }, { x: 2, y: 1 }, { x: 3, y: 7 }]} />
-    <VictoryBar data={[{ x: 1, y: 3 }, { x: 2, y: 4 }, { x: 3, y: 9 }]} />
-  </VictoryGroup>
+  <VictoryLine />
 </VictoryChart>
 ```
 
-A cool rainbow example
-
-```playground
-<div>
-  <svg>
-    <defs>
-      <linearGradient id="linear_gradient">
-        <stop offset="0%" stopColor="red" />
-        <stop offset="15%" stopColor="orange" />
-        <stop offset="30%" stopColor="yellow" />
-        <stop offset="45%" stopColor="lime" />
-        <stop offset="60%" stopColor="aqua" />
-        <stop offset="75%" stopColor="blue" />
-        <stop offset="100%" stopColor="magenta" />
-      </linearGradient>
-    </defs>
-  </svg>
-
-  <VictoryChart
-    style={{
-      background: { fill: "url(#linear_gradient)" }
-    }}
-  >
-    <VictoryLabel text={ "WOW" } x={ 150 } y={ 150 } />
-    <VictoryScatter />
-  </VictoryChart>
-</div>
-```
-
-and a radial gradient on a polar chart!
+Polar charts are also supported, with `Background` rendering a `circle` instead of a `rect` element`:
 
 ```playground
 <div>
@@ -84,17 +50,44 @@ and a radial gradient on a polar chart!
     }}
   >
     <VictoryScatter />
+    <VictoryPolarAxis
+      style={{
+        tickLabels: { angle: 0 }
+      }}
+    	tickValues={[0, 90, 180, 270]}
+    />
   </VictoryChart>
 </div>
 ```
 
-You can also pass `Background` as the `backgroundComponent` prop value on `VictoryChart` to override props calculated for the default rendered `Background`
+As with other components Victory renders, you can add props directly to `Background`, or create your own custom `backgroundComponent`.
 
-```playground
-  <VictoryChart
-    style={{ background: { fill: "lavender" } }}
-    backgroundComponent={ <Background y={ "40%" } height={ "20%" }/> }
-  >
-    <VictoryScatter />
-  </ VictoryChart>
+```playground_norender
+const CustomBackground = props => {
+  return (
+    <image
+      href={"https://i.picsum.photos/id/425/525/300.jpg"}
+      {...props}
+    />
+  );
+};
+
+const App = props => {
+  return (
+    <VictoryChart
+      domainPadding={{x: 20 }}
+      style={{ background: { opacity: 0.6} }}
+      backgroundComponent={<CustomBackground />}
+    >
+      <VictoryBar
+      	barWidth={40}
+        style={{
+         data: { strokeWidth: 4, fillOpacity: 0.2 }
+       }}
+      />
+    </VictoryChart>
+  )
+};
+
+ReactDOM.render(<App/>, mountNode);
 ```
