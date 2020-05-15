@@ -627,16 +627,16 @@ The boolean `polar` prop specifies whether a chart should be plotted on a polar 
 <div>
 <VictoryBar polar
   data={sampleData}
-  labels={(d) => d.x}
+  labels={(d) => d.x.toFixed(0)}
   width={400} height={400}
-  domain={{ y: [0, 7] }}
+  domain={{ x: [0, 7], y: [0, 7] }}
   style={{ data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 } }}
 />
 <VictoryBar
   data={sampleData}
-  labels={(d) => d.x}
+  labels={(d) => d.x.toFixed(0)}
   width={400} height={400}
-  domain={{ y: [0, 7] }}
+  domain={{ x: [0, 7], y: [0, 7] }}
   style={{ data: { fill: "#c43a31", stroke: "black", strokeWidth: 2 } }}
 />
 </div>
