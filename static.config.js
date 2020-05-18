@@ -109,9 +109,14 @@ export default {
         sharedData: { sidebarContent: sharedSidebarContent }
       },
       {
-        path: "/guides", // guides shares the 404 template because its children have their own docs-template getting used and there is no parent page to render, removing this will cause you build issues
-        template: "src/pages/404",
-        getData: () => ({ docs: trueDocs }),
+        // The "/guides" URL used to be a page, but is no longer. Because it is linked to from other documentation,
+        // do a redirect to the first guide.
+        path: "/guides",
+        template: "src/pages/redirect",
+        getData: () => {
+          const firstGuidePath = `/guides/${guides[0].data.slug}`;
+          return { redirect: firstGuidePath };
+        },
         sharedData: { sidebarContent: sharedSidebarContent },
         children: guides.map(g => ({
           path: `/${g.data.slug}`,
