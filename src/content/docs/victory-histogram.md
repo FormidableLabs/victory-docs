@@ -50,12 +50,11 @@ animate={{
 
 _default:_ `undefined`
 
-**`VictoryHistogram` uses `d3.bin()` to do binning.**
+**`VictoryHistogram` uses [`d3.bin`](https://observablehq.com/@d3/d3-bin) to do binning.**
 
-``
-The `bins` prop is used to specify how the data will be binned. There are a few options for this, the first being passing no value, ie the default behavior, which is letting `d3.bin` generate the buckets based on the data. The second is passing a number, which specifies _approximately_ the number of bins to generate, this is not a guarantee (see `d3.bin` for more details). The last options are passing an array of numbers or dates (depending on your data), this array represents an array of thresholds. So for example if you passed `[0, 10, 20, 35]`, you'd get 4 bins, that would look like [0, 10) , [10, 20), \[20, 35\].
+The `bins` prop is used to specify how the data will be binned. There are a few options for this, the first being passing no value, ie the default behavior, which is letting `d3.bin` generate the buckets based on the data. The second is passing a number, which specifies _approximately_ the number of bins to generate, this is not a guarantee (see `d3.bin` for more details). The last options are passing an array of numbers or dates (depending on your data), this array represents an array of thresholds. So for example if you passed `[0, 10, 20, 35]`, you'd get 3 bins, that would look like [0, 10) , [10, 20), \[20, 35\].
 
-This prop allows for a lot of flexibility in how you display your data. For example if you want to have uneven sized bins, you can do that. If you want to group your data by days, weeks, or years, you can do that too.
+This prop allows for a lot of flexibility in how you display your data. For example if you want to have uneven sized bins, you can do that. If you want to group your data by days, weeks, or years, you can do that as well.
 
 ```playground
 <VictoryChart
@@ -100,6 +99,7 @@ const App = () => {
     .domain(d3Array.extent(sampleHistogramDateData, ({ x }) => x))
     .nice();
 
+  // get thresholds to bin data by months
   const bins = niceTimeScale.ticks(d3Time.utcMonth); // try utcDay
 
   return (
@@ -203,7 +203,7 @@ See the [Data Accessors Guide][] for more detail on formatting and processing da
 
 `VictoryHistogram` uses the standard `dataComponent` prop. [Read about it here](/docs/common-props#datacomponent)
 
-`VictoryHistogram` supplies the following props to its `dataComponent`: `barWidth`, `cornerRadius`, `data`, `datum`, `horizontal`, `index`, `padding`, `origin`, `scale`, `style`, `width`, `height`, `x`, `y`, `y0`, `x0`
+`VictoryHistogram` supplies the following props to its `dataComponent`: `barWidth`, `cornerRadius`, `data`, `datum`, `horizontal`, `index`, `padding`, `origin`, `scale`, `style`, `width`, `height`, `x`, `y`, `y0`, `x0`.
 
 See the [Custom Components Guide][] for more detail on creating your own `dataComponents`
 
@@ -411,7 +411,7 @@ padding={{ top: 20, bottom: 60 }}
 
 `type: boolean`
 
-Note: Polar Charts are not yet supported for VictoryCandlestick
+**Note:** Polar Charts are not yet supported for `VictoryHistogram`
 
 ## range
 
