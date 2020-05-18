@@ -6,6 +6,9 @@ type: docs
 scope:
   - sampleHistogramData
   - sampleHistogramDateData
+  - d3Scale
+  - d3Time
+  - d3Array
 ---
 
 # VictoryHistogram
@@ -90,39 +93,32 @@ This prop allows for a lot of flexibility in how you display your data. For exam
 </VictoryChart>
 ```
 
-```playground
-<VictoryChart
-  theme={VictoryTheme.material}
-  domainPadding={{ x: 20 }}
->
-  <VictoryHistogram
-    style={{
-      data: { fill: "#c43a31" }
-    }}
-    data={sampleHistogramDateData}
-    bins={[
-      new Date(2020, 1, 1),
-      new Date(2020, 4, 1),
-      new Date(2020, 8, 1),
-      new Date(2020, 11, 1)
-    ]}
-  />
-</VictoryChart>
-```
+```playground_norender
+const App = () => {
+  const niceTimeScale = d3Scale
+    .scaleTime()
+    .domain(d3Array.extent(sampleHistogramDateData, ({ x }) => x))
+    .nice();
 
-```playground
-<VictoryChart
-  theme={VictoryTheme.material}
-  domainPadding={{ x: 20 }}
->
-  <VictoryHistogram
-    style={{
-      data: { fill: "#c43a31" }
-    }}
-    data={sampleHistogramDateData}
-    bins={(() => [])()}
-  />
-</VictoryChart>
+  const bins = niceTimeScale.ticks(d3Time.utcMonth); // try utcDay
+
+  return (
+    <VictoryChart
+      theme={VictoryTheme.material}
+      domainPadding={{ x: 20 }}
+    >
+      <VictoryHistogram
+        style={{
+          data: { fill: "#c43a31" }
+        }}
+        data={sampleHistogramDateData}
+        bins={bins}
+      />
+    </VictoryChart>
+  );
+}
+
+ReactDOM.render(<App/>, mountNode);
 ```
 
 ## binSpacing

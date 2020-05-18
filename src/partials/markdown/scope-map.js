@@ -1,12 +1,19 @@
 import _ from "lodash";
+import * as d3Array from "d3-array";
+import * as d3Scale from "d3-scale";
+import * as d3Time from "d3-time";
 
 const { assign, random, range, round } = _;
+
 const scopeMap = {
   _,
   assign,
   random,
   range,
   round,
+  d3Array,
+  d3Scale,
+  d3Time,
   sampleData: [
     {
       x: 1,
@@ -44,6 +51,12 @@ const scopeMap = {
     { x: 10 }
   ],
   sampleHistogramDateData: [
+    { x: new Date(2020, 0, 10) },
+    { x: new Date(2020, 0, 1) },
+    { x: new Date(2020, 0, 1) },
+    { x: new Date(2020, 1, 29) },
+    { x: new Date(2020, 1, 1) },
+    { x: new Date(2020, 2, 1) },
     { x: new Date(2020, 2, 1) },
     { x: new Date(2020, 2, 3) },
     { x: new Date(2020, 3, 20) },
