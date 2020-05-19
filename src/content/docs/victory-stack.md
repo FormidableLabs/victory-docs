@@ -16,6 +16,8 @@ scope:
 
 `VictoryStack` _should not_ be used with [VictoryAxis][] children.
 
+`VictoryStack` when being used with `VictoryHistogram`s, all children must be `VictoryHistogram`s.
+
 ```playground
 <VictoryStack>
   <VictoryArea
