@@ -15,11 +15,10 @@ scope:
 
 VictoryHistogram renders a dataset as series of bars representing "bins", allowing you to see the distribution of your data. The data you pass in will be "binned" according to the `bin` prop you pass, allowing for flexibility in how these bins are determined. VictoryHistogram can be composed with [`VictoryChart`][] to create histogram charts.
 
-Because each bar represents a bin rather than a particular data point (like you would have with `VictoryScatter` for example), when accessing `datum` via a prop that passes `datum` such as `style`, datum will have properties `x`, `x0`, `x1`, `y`, and `binnedData`. `x` is the midpoint between the bin, `x0` is the beginning of the bin, `x1` is the end of the bin, `y` is the aggregate amount of data points within that bin, and `binnedData` is an array of the original data points that were grouped into this bin.
+Compared to [`VictoryBar`][], which is good for plotting quantitative data, if you are looking to plot data that is qualitative, then use `VictoryHistogram`.
 
 ```playground
 <VictoryChart
-  theme={VictoryTheme.material}
   domainPadding={10}
 >
   <VictoryHistogram
@@ -58,7 +57,6 @@ This prop allows for a lot of flexibility in how you display your data. For exam
 
 ```playground
 <VictoryChart
-  theme={VictoryTheme.material}
   domainPadding={{ x: 20 }}
 >
   <VictoryHistogram
@@ -74,7 +72,6 @@ This prop allows for a lot of flexibility in how you display your data. For exam
 
 ```playground
 <VictoryChart
-  theme={VictoryTheme.material}
   domainPadding={{ x: 20 }}
 >
   <VictoryHistogram
@@ -104,7 +101,6 @@ const App = () => {
 
   return (
     <VictoryChart
-      theme={VictoryTheme.material}
       domainPadding={{ x: 20 }}
     >
       <VictoryHistogram
@@ -125,11 +121,10 @@ ReactDOM.render(<App/>, mountNode);
 
 `type: number`
 
-The `binSpacing` prop is used to specify space between each bin. `binSpacing` represents the number of pixels that will be between each bin (including at the beginning and end of the bins).
+The `binSpacing` prop is used to specify space between each bin. `binSpacing` represents the number of pixels that will be between each bin (including at the beginning and end of the bins). By default, bins are rendered with no spacing.
 
 ```playground
 <VictoryChart
-  theme={VictoryTheme.material}
   domainPadding={{ x: 20 }}
 >
   <VictoryHistogram
@@ -160,7 +155,6 @@ The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is
 
 ```playground
 <VictoryChart
-  theme={VictoryTheme.material}
   domainPadding={{ x: 15 }}
 >
   <VictoryHistogram
@@ -181,6 +175,12 @@ The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is
 `type: array[object]`
 
 `VictoryHistogram` uses the standard `data` prop, except for it only expects each object within the array to have `x` properties. You can use the `x` data accessor prop to defined a custom data format. [Read about it here](/docs/common-props#data)
+
+Because each bar represents a bin rather than a particular data point (like you would have with `VictoryScatter` for example), when accessing `datum` via a prop that passes `datum` such as `style`, datum will have properties `x`, `x0`, `x1`, `y`, and `binnedData`. `x` is the midpoint between the bin, `x0` is the beginning of the bin, `x1` is the end of the bin, `y` is the aggregate amount of data points within that bin, and `binnedData` is an array of the original data points that were grouped into this bin.
+
+`VictoryHistogram` does not support passing preprocessed data to the `data` prop.
+
+If you are looking to plot data that is qualitative data, rather than quantitative, use [`VictoryBar`][].
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
@@ -319,7 +319,6 @@ _default:_ horizontal={false}
 
 ```playground
 <VictoryChart
-  theme={VictoryTheme.material}
   domainPadding={{ x: 10 }}
 >
   <VictoryHistogram horizontal
@@ -357,7 +356,7 @@ _default:_ `<VictoryLabel/>`
 ```playground
 <VictoryHistogram
   data={sampleHistogramData}
-  labels={({ datum }) => `Total binned values: ${datum.y}`}
+  labels={({ datum }) => `Bin count:\n ${datum.y}`}
 />
 ```
 
@@ -556,4 +555,5 @@ x = "employee.name";
 [events guide]: /guides/events
 [themes guide]: /guides/themes
 [`victorychart`]: /docs/victory-chart
+[`victorybar`]: /docs/victory-bar
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
