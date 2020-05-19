@@ -9,6 +9,8 @@ import * as Victory from "victory";
 import createPath from "../helpers/path-helpers";
 import Page from "../partials/page";
 import Preview from "../partials/gallery/preview";
+import Slider from "../partials/gallery/slider";
+import basketballData from "../data/basketball-data";
 
 const GalleryWrapper = styled.div`
   display: flex;
@@ -75,9 +77,12 @@ const Gallery = ({ gallery, sidebarContent }) => {
           scope={{
             ...Victory,
             _: require("lodash"),
+            styled,
             React,
             ReactDOM,
-            PropTypes
+            PropTypes,
+            Slider,
+            basketballData
           }}
         />
         <Title>{title}</Title>
