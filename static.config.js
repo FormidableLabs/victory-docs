@@ -12,13 +12,12 @@ const {
 const { stage, landerBasePath } = require("./static-config-helpers/constants");
 
 // HMR for dev
-// TODO: enable after rewrite
 // This is much slower when developing tons of things that _aren't_ content changes
-// if (stage === "development") {
-//   const { rebuildRoutes } = require("react-static/node");
-//   const chokidar = require("chokidar");
-//   chokidar.watch("src/content/**/*.md").on("all", () => rebuildRoutes());
-// }
+if (stage === "development") {
+  const { rebuildRoutes } = require("react-static/node");
+  const chokidar = require("chokidar");
+  chokidar.watch("src/content/**/*.md").on("all", () => rebuildRoutes());
+}
 
 export default {
   getSiteData: () => siteData,
