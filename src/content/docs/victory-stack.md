@@ -12,7 +12,7 @@ scope:
 `VictoryStack` is a wrapper component that renders a given set of children in a stacked layout. Like other wrapper components, `VictoryStack` also reconciles the domain and layout for all its children, and coordinates animations and shared events.
 
 `VictoryStack` works with:
-[VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][],[VictoryLine][], and [VictoryScatter][]
+[VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][],[VictoryLine][], [VictoryScatter][], [VictoryHistogram][]
 
 `VictoryStack` _should not_ be used with [VictoryAxis][] children.
 
@@ -398,6 +398,7 @@ The `xOffset` prop is used for grouping stacks of bars. This prop will be set by
 [victorygroup]: /docs/victory-group
 [victoryline]: /docs/victory-line
 [victoryscatter]: /docs/victory-scatter
+[victoryhistogram]: /docs/victory-histogram
 [victorystack]: /docs/victory-stack
 [victoryvoronoi]: /docs/victory-voronoi
 [victorylabel]: /docs/victory-label

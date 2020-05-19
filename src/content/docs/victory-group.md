@@ -12,7 +12,7 @@ scope:
 `VictoryGroup` is a wrapper component that renders a given set of children with some shared props. `VictoryGroup` reconciles the domain and layout for all its children, and coordinates animations and shared events. `VictoryGroup` may also be used to supply common data and styles to all its children. This is especially useful when adding markers to a line, or adding voronoi tooltips to data. `VictoryGroup` may also be used to apply an offset to a group of children, as with grouped bar charts, or may be used to stack several components on the same level, _e.g.,_ stacked area charts with data markers.
 
 `VictoryGroup` works with:
-[VictoryArea][], [VictoryBar][], [VictoryBoxPlot][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][].
+[VictoryArea][], [VictoryBar][], [VictoryBoxPlot][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryHistogram][], [VictoryStack][], and [VictoryVoronoi][].
 
 `VictoryGroup` _should not_ be used with [VictoryAxis][] children. Use [VictoryChart][] instead.
 
@@ -67,7 +67,7 @@ categories={["dogs", "cats", "mice"]}
 
 `type: element || array[element]`
 
-`VictoryGroup` works with any combination of the following children: [VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
+`VictoryGroup` works with any combination of the following children: [VictoryArea][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryLine][], [VictoryScatter][], [VictoryHistogram][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryGroup` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
 ## color
 
@@ -537,6 +537,7 @@ y0={() => 10}
 [victoryerrorbar]: /docs/victory-errorbar
 [victoryline]: /docs/victory-line
 [victoryscatter]: /docs/victory-scatter
+[victoryhistogram]: /docs/victory-histogram
 [victorystack]: /docs/victory-stack
 [victoryvoronoi]: /docs/victory-voronoi
 [victorylabel]: /docs/victory-label

@@ -73,7 +73,7 @@ backgroundComponent={<Background/>}
 
 `type: element || array[element]`
 
-`VictoryChart` works with any combination of the following children: [VictoryArea][], [VictoryAxis][] / [VictoryPolarAxis][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][], [VictoryLine][], [VictoryScatter][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryChart` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
+`VictoryChart` works with any combination of the following children: [VictoryArea][], [VictoryAxis][] / [VictoryPolarAxis][], [VictoryBar][], [VictoryCandlestick][], [VictoryErrorBar][], [VictoryGroup][], [VictoryLine][], [VictoryScatter][], [VictoryHistogram][], [VictoryStack][], and [VictoryVoronoi][]. Children supplied to `VictoryChart` will be cloned and rendered with new props so that all children share common props such as `domain` and `scale`.
 
 **Note: polar charts must use `VictoryPolarAxis` rather than `VictoryAxis`**
 
@@ -520,6 +520,7 @@ width={400}
 [victorygroup]: /docs/victory-group
 [victoryline]: /docs/victory-line
 [victoryscatter]: /docs/victory-scatter
+[victoryhistogram]: /docs/victory-histogram
 [victorystack]: /docs/victory-stack
 [victoryvoronoi]: /docs/victory-voronoi
 [grayscale theme]: https://github.com/FormidableLabs/victory/blob/master/packages/victory-core/src/victory-theme/grayscale.js
