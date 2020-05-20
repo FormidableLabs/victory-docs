@@ -13,9 +13,9 @@ scope:
 
 # VictoryHistogram
 
-VictoryHistogram renders a dataset as series of bars representing "bins", allowing you to see the distribution of your data. The data you pass in will be "binned" according to the `bin` prop you pass, allowing for flexibility in how these bins are determined. VictoryHistogram can be composed with [`VictoryChart`][] to create histogram charts.
+VictoryHistogram renders a dataset as series of bars representing "bins", allowing the ability to view distribution of the data. The data passed in will be "binned" according to the `bin` prop that is provided (if any), allowing for flexibility in how these bins are determined. VictoryHistogram can be composed with [`VictoryChart`][] to create histogram charts.
 
-Compared to [`VictoryBar`][], which is good for plotting quantitative data, if you are looking to plot data that is qualitative, then use `VictoryHistogram`.
+`VictoryHistogram` is intended to be used with quantitative data. Please use [`VictoryBar`][] for qualitative or categorical data.
 
 ```playground
 <VictoryChart
@@ -51,9 +51,9 @@ _default:_ `undefined`
 
 **`VictoryHistogram` uses [`d3.bin`](https://observablehq.com/@d3/d3-bin) to do binning.**
 
-The `bins` prop is used to specify how the data will be binned. There are a few options for this, the first being passing no value, ie the default behavior, which is letting `d3.bin` generate the buckets based on the data. The second is passing a number, which specifies _approximately_ the number of bins to generate, this is not a guarantee (see `d3.bin` for more details). The last options are passing an array of numbers or dates (depending on your data), this array represents an array of thresholds. So for example if you passed `[0, 10, 20, 35]`, you'd get 3 bins, that would look like [0, 10) , [10, 20), \[20, 35\].
+The `bins` prop is used to specify how the data will be binned. There are a few options for this, the first being passing no value, ie the default behavior, which is letting `d3.bin` generate the buckets based on the data. The second is passing a number, which specifies _approximately_ the number of bins to generate, this is not a guarantee (see `d3.bin` for more details). The last options are passing an array of numbers or dates (depending on the data), this array represents an array of thresholds. So for example if the bin prop provided is `[0, 10, 20, 35]`, this would result in 3 bins, that would look like [0, 10) , [10, 20), \[20, 35\].
 
-This prop allows for a lot of flexibility in how you display your data. For example if you want to have uneven sized bins, you can do that. If you want to group your data by days, weeks, or years, you can do that as well.
+This prop allows for a lot of flexibility in how the data is displayed. For example it is possible to have uneven sized bins if so desired. It is also possible to group the data by days, weeks, or years.
 
 ```playground
 <VictoryChart
@@ -174,13 +174,11 @@ The `cornerRadius` prop specifies a radius to apply to each bar. If this prop is
 
 `type: array[object]`
 
-`VictoryHistogram` uses the standard `data` prop, except for it only expects each object within the array to have `x` properties. You can use the `x` data accessor prop to defined a custom data format. [Read about it here](/docs/common-props#data)
+`VictoryHistogram` uses the standard `data` prop, except for it only expects each object within the array to have `x` properties. The `x` data accessor prop can be used to defined a custom data format. [Read about it here](/docs/common-props#data)
 
-Because each bar represents a bin rather than a particular data point (like you would have with `VictoryScatter` for example), when accessing `datum` via a prop that passes `datum` such as `style`, datum will have properties `x`, `x0`, `x1`, `y`, and `binnedData`. `x` is the midpoint between the bin, `x0` is the beginning of the bin, `x1` is the end of the bin, `y` is the aggregate amount of data points within that bin, and `binnedData` is an array of the original data points that were grouped into this bin.
+Because each bar represents a bin rather than a particular data point (like with `VictoryScatter` for example), when accessing `datum` via a prop that passes `datum` such as `style`, datum will have properties `x`, `x0`, `x1`, `y`, and `binnedData`. `x` is the midpoint between the bin, `x0` is the beginning of the bin, `x1` is the end of the bin, `y` is the aggregate amount of data points within that bin, and `binnedData` is an array of the original data points that were grouped into this bin.
 
-`VictoryHistogram` does not support passing preprocessed data to the `data` prop.
-
-If you are looking to plot data that is qualitative data, rather than quantitative, use [`VictoryBar`][].
+`VictoryHistogram` is intended to be used with quantitative data. Please use [`VictoryBar`][] for qualitative or categorical data.
 
 See the [Data Accessors Guide][] for more detail on formatting and processing data.
 
