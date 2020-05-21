@@ -63,7 +63,7 @@ The `boxWidth` prop specifies how wide each box should be. If the `whiskerWidth`
 
 `type: array[string] || { x: array[string], y: array[string] }`
 
-`VictoryBar` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
+`VictoryBoxPlot` uses the standard `categories` prop. [Read about it here](/docs/common-props#categories)
 
 ```jsx
 categories={{ x: ["dogs", "cats", "mice"] }}
@@ -73,7 +73,7 @@ categories={{ x: ["dogs", "cats", "mice"] }}
 
 `type: element`
 
-`VictoryBar` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
+`VictoryBoxPlot` uses the standard `containerComponent` prop. [Read about it here](/docs/common-props#containercomponent)
 
 ```jsx
 containerComponent={<VictoryVoronoiContainer/>}
@@ -556,7 +556,7 @@ name = "series-1";
 
 `type: number || { top: number, bottom: number, left: number, right: number }`
 
-`VictoryBar` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
+`VictoryBoxPlot` uses the standard `padding` prop. [Read about it here](/docs/common-props#padding)
 
 _default (provided by default theme):_ `padding={50}`
 
@@ -791,7 +791,7 @@ _default:_ `sortOrder="ascending"`
 
 `VictoryBoxPlot` uses the standard `standalone` prop. [Read about it here](/docs/common-props#standalone)
 
-**note:** When `VictoryBar` is nested within a component like `VictoryChart`, this prop will be set to `false`
+**note:** When `VictoryBoxPlot` is nested within a component like `VictoryChart`, this prop will be set to `false`
 
 _default:_ `standalone={true}`
 

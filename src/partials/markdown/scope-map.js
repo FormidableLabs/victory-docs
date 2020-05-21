@@ -1,12 +1,19 @@
 import _ from "lodash";
+import * as d3Array from "d3-array";
+import * as d3Scale from "d3-scale";
+import * as d3Time from "d3-time";
 
 const { assign, random, range, round } = _;
+
 const scopeMap = {
   _,
   assign,
   random,
   range,
   round,
+  d3Array,
+  d3Scale,
+  d3Time,
   sampleData: [
     {
       x: 1,
@@ -28,6 +35,47 @@ const scopeMap = {
       x: 5,
       y: 7
     }
+  ],
+  sampleHistogramData: [
+    { x: 0 },
+    { x: 1 },
+    { x: 1 },
+    { x: 1 },
+    { x: 1 },
+    { x: 2 },
+    { x: 2 },
+    { x: 3 },
+    { x: 4 },
+    { x: 7 },
+    { x: 7 },
+    { x: 10 }
+  ],
+  sampleHistogramDateData: [
+    { x: new Date(2020, 0, 10) },
+    { x: new Date(2020, 0, 1) },
+    { x: new Date(2020, 0, 1) },
+    { x: new Date(2020, 1, 29) },
+    { x: new Date(2020, 1, 1) },
+    { x: new Date(2020, 2, 1) },
+    { x: new Date(2020, 2, 1) },
+    { x: new Date(2020, 2, 3) },
+    { x: new Date(2020, 3, 20) },
+    { x: new Date(2020, 3, 22) },
+    { x: new Date(2020, 4, 29) },
+    { x: new Date(2020, 4, 1) },
+    { x: new Date(2020, 8, 7) },
+    { x: new Date(2020, 8, 13) },
+    { x: new Date(2020, 9, 21) },
+    { x: new Date(2020, 9, 10) },
+    { x: new Date(2020, 9, 17) },
+    { x: new Date(2020, 9, 19) },
+    { x: new Date(2020, 10, 9) },
+    { x: new Date(2020, 11, 10) },
+    { x: new Date(2020, 11, 20) },
+    { x: new Date(2020, 11, 1) },
+    { x: new Date(2020, 11, 3) },
+    { x: new Date(2020, 11, 21) },
+    { x: new Date(2020, 11, 25) }
   ],
   sampleErrorData: [
     {
