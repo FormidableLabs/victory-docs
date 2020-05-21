@@ -8,20 +8,18 @@ scope:
 ---
 
 ```playground_norender
-const LIGHT_GREY = "hsl(342.7, 20%, 90%)";
-const PINK = "hsl(342.7, 90%, 72.2%)";
+const LIGHT_GREY = "hsl(355, 20%, 90%)";
+const PRIMARY_COLOR = "hsl(355, 92%, 67%)";
 const Container = styled.div``;
 
 const Card = styled.div`
-  background-color: #24232a;
+  background-color: #2b2a31;
+  padding: 40px 36px 30px;
   border-radius: 5px;
-  padding: 32px 25px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  border-left: 8px solid ${PINK};
 
   // when rendered in the gallery preview
   a & {
-    padding: 20px;
+    padding: 24px 20px 10px;
   }
 `;
 
@@ -64,12 +62,12 @@ const sharedAxisStyles = {
   },
   tickLabels: {
     fill: LIGHT_GREY,
-    fontSize: 13
+    fontSize: 14
   },
   axisLabel: {
     fill: LIGHT_GREY,
     padding: 36,
-    fontSize: 14,
+    fontSize: 15,
     fontStyle: "italic"
   }
 };
@@ -88,8 +86,8 @@ const App = () => {
         <defs>
           <linearGradient id="gradient1" x1="0%" y1="0%" x2="50%" y2="100%">
             <stop offset="0%" stopColor="#FFE29F" />
-            <stop offset="47%" stopColor="#FFA99F" />
-            <stop offset="100%" stopColor={PINK} />
+            <stop offset="40%" stopColor="#FFA99F" />
+            <stop offset="100%" stopColor={PRIMARY_COLOR} />
           </linearGradient>
         </defs>
       </GradientSvg>
@@ -109,21 +107,21 @@ const App = () => {
                   }}
                   flyoutStyle={{
                     fill: "#24232a",
-                    stroke: PINK,
+                    stroke: PRIMARY_COLOR,
                     strokeWidth: 0.5
                   }}
                 />
               }
             />
           }
-          height={270}
+          height={280}
         >
           <VictoryLabel
             text={`3pt Attempts Per Game Averages (${yearToSeason(year)})`}
             x={225}
             y={18}
             textAnchor="middle"
-            style={{ fill: LIGHT_GREY }}
+            style={{ fill: LIGHT_GREY, fontSize: 16 }}
           />
           <VictoryAxis
             style={{
@@ -147,7 +145,7 @@ const App = () => {
           />
           <VictoryHistogram
             cornerRadius={2}
-            domain={{ y: [0, 120] }}
+            domain={{ y: [0, 125] }}
             animate={{ duration: 300 }}
             data={basketballData[year]}
             bins={_.range(0, 16, 2)}
@@ -176,7 +174,7 @@ const SliderContainer = styled.div`
 
   // when rendered in the gallery preview
   a & {
-    padding: 36px 36px 0px;
+    padding: 24px 36px 0px;
   }
 `;
 
@@ -199,7 +197,7 @@ const YearSlider = ({ year, setYear }) => {
             setYear(calculatedYear);
           }
         }}
-        color={PINK}
+        color={PRIMARY_COLOR}
         value={value}
         maxValue={100}
         tooltipValues={SEASONS}

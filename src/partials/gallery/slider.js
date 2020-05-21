@@ -5,8 +5,8 @@ import clamp from "lodash/clamp";
 import styled from "styled-components";
 
 const BAR_HEIGHT = 8;
-const LIGHT_GREY = "hsl(342.7, 35%, 87%)";
-const GREY = "hsl(342.7, 10%, 60%)";
+const LIGHT_GREY = "hsl(355, 32%, 87%)";
+const GREY = "hsl(355, 10%, 60%)";
 
 const isTouchEvent = event => {
   return event.touches !== undefined;
@@ -55,6 +55,7 @@ const CircleTransitionContainer = styled.div.attrs(({ value }) => ({
   width: 100%;
   height: ${BAR_HEIGHT}px;
   position: relative;
+  margin-top: 1px;
 `;
 
 const Circle = styled.div`
@@ -70,14 +71,19 @@ const Circle = styled.div`
   user-select: none;
   z-index: 10;
   transform: translate(-50%, -50%);
+
+  a & {
+    height: 20px;
+    width: 20px;
+  }
 `;
 
 const BiggerCircle = styled.div`
   position: absolute;
   left: 0;
   top: 50%;
-  height: 48px;
-  width: 48px;
+  height: 42px;
+  width: 42px;
   border-radius: 50%;
   cursor: ${({ dragging }) => (dragging ? "grabbing" : "grab")};
   background-color: ${LIGHT_GREY};
@@ -88,6 +94,11 @@ const BiggerCircle = styled.div`
   :hover,
   ${Circle}:hover + & {
     opacity: ${({ dragging }) => (dragging ? 0.3 : 0.2)};
+  }
+
+  a & {
+    height: 36px;
+    width: 36px;
   }
 `;
 
@@ -114,8 +125,8 @@ const Tooltip = styled.div`
   font-size: 16px;
 
   a & {
-    padding: 7px;
-    font-size: 13px;
+    padding: 6px;
+    font-size: 12px;
   }
 `;
 
