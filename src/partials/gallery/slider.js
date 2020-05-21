@@ -1,6 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React, { useLayoutEffect, useState, useRef, useCallback } from "react";
-import _ from "lodash";
+import PropTypes from "prop-types";
+import clamp from "lodash/clamp";
 import styled from "styled-components";
 
 const BAR_HEIGHT = 8;
@@ -161,7 +162,7 @@ const Slider = ({ tooltipValues, color, value, maxValue, onChange }) => {
           ? ev.touches[0].clientX - left
           : ev.clientX - left;
 
-        const newPercentage = _.clamp(location / sliderWidth, 0, 1);
+        const newPercentage = clamp(location / sliderWidth, 0, 1);
 
         window.requestAnimationFrame(() => {
           setPercentage(newPercentage);
@@ -256,6 +257,14 @@ const Slider = ({ tooltipValues, color, value, maxValue, onChange }) => {
       </CircleTransitionContainer>
     </Container>
   );
+};
+
+Slider.propTypes = {
+  color: PropTypes.string.isRequired,
+  maxValue: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  tooltipValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.number.isRequired
 };
 
 export default Slider;
