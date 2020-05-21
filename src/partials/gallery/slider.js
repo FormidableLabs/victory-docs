@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useLayoutEffect, useState, useRef, useCallback } from "react";
 import _ from "lodash";
 import styled from "styled-components";
 
@@ -62,7 +62,7 @@ const Circle = styled.div`
   top: 50%;
   height: 25px;
   width: 25px;
-  cursor: pointer;
+  cursor: ${({ dragging }) => (dragging ? "grabbing" : "grab")};
   border-radius: 50%;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: ${({ color }) => color};
@@ -78,7 +78,7 @@ const BiggerCircle = styled.div`
   height: 48px;
   width: 48px;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: ${({ dragging }) => (dragging ? "grabbing" : "grab")};
   background-color: ${LIGHT_GREY};
   opacity: ${({ dragging }) => (dragging ? 0.3 : 0)};
   z-index: 9;
@@ -111,6 +111,11 @@ const Tooltip = styled.div`
   border-radius: 3px;
   font-weight: bold;
   font-size: 16px;
+
+  a & {
+    padding: 7px;
+    font-size: 13px;
+  }
 `;
 
 const Triangle = styled.div`
@@ -193,7 +198,7 @@ const Slider = ({ tooltipValues, color, value, maxValue, onChange }) => {
     return tooltipValues[index];
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener("mousemove", handleDrag);
     window.addEventListener("touchmove", handleDrag);
     window.addEventListener("touchend", handleDragDone);
@@ -238,6 +243,7 @@ const Slider = ({ tooltipValues, color, value, maxValue, onChange }) => {
 
       <CircleTransitionContainer value={percentage * 100}>
         <Circle
+          dragging={dragging}
           color={color}
           onMouseDown={handleDragStart}
           onTouchStart={handleDragStart}

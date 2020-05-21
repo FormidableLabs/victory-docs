@@ -64,12 +64,12 @@ const sharedAxisStyles = {
   },
   tickLabels: {
     fill: LIGHT_GREY,
-    fontSize: 12
+    fontSize: 13
   },
   axisLabel: {
     fill: LIGHT_GREY,
     padding: 36,
-    fontSize: 13,
+    fontSize: 14,
     fontStyle: "italic"
   }
 };
@@ -105,7 +105,7 @@ const App = () => {
                   constrainToVisibleArea
                   style={{
                     fill: LIGHT_GREY,
-                    fontSize: 10
+                    fontSize: 11
                   }}
                   flyoutStyle={{
                     fill: "#24232a",
@@ -116,12 +116,12 @@ const App = () => {
               }
             />
           }
-          height={260}
+          height={270}
         >
           <VictoryLabel
             text={`3pt Attempts Per Game Averages (${yearToSeason(year)})`}
             x={225}
-            y={20}
+            y={18}
             textAnchor="middle"
             style={{ fill: LIGHT_GREY }}
           />
@@ -156,7 +156,6 @@ const App = () => {
                 stroke: "transparent",
                 fill: "url(#gradient1)",
                 strokeWidth: 1,
-                filter: "drop-shadow(10px 10px 3px #4444dd)"
               },
               labels: {
                 fill: "red"
@@ -173,11 +172,11 @@ const App = () => {
 };
 
 const SliderContainer = styled.div`
-  padding: 64px 42px 10px;
+  padding: 64px 25px 10px;
 
   // when rendered in the gallery preview
   a & {
-    padding: 32px 36px 10px;
+    padding: 36px 36px 0px;
   }
 `;
 
