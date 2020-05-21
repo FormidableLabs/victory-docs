@@ -1,5 +1,11 @@
 # Victory Docs Changelog
 
+### 9.2.0 (2020-05-21)
+
+- [#682](https://github.com/FormidableLabs/victory-docs/pull/682) Document VictoryHistogram
+- [#683](https://github.com/FormidableLabs/victory-docs/pull/683) Gallery examples for VictoryHistogram
+- [#684](https://github.com/FormidableLabs/victory-docs/pull/684) Add VictoryHistogram examples to new features page
+
 ## 9.1.0 (2020-05-15)
 
 
