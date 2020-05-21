@@ -1,6 +1,6 @@
 ---
 id: 21
-title: Histogram Slider
+title: Histogram with Slider
 scope:
   - styled
   - basketballData
