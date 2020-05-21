@@ -5,6 +5,7 @@ import * as d3Time from "d3-time";
 
 import styled from "styled-components";
 import basketballData from "../../data/basketball-data";
+import listeningData from "../../data/listening-data";
 import Slider from "../gallery/slider";
 const { assign, random, range, round } = _;
 
@@ -18,8 +19,9 @@ const scopeMap = {
   d3Scale,
   d3Time,
   styled,
-  basketballData,
   Slider,
+  basketballData,
+  listeningData,
   sampleData: [
     {
       x: 1,

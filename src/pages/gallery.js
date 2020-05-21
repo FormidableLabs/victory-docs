@@ -11,6 +11,7 @@ import Page from "../partials/page";
 import Preview from "../partials/gallery/preview";
 import Slider from "../partials/gallery/slider";
 import basketballData from "../data/basketball-data";
+import listeningData from "../data/listening-data";
 
 const GalleryWrapper = styled.div`
   display: flex;
@@ -82,7 +83,8 @@ const Gallery = ({ gallery, sidebarContent }) => {
             ReactDOM,
             PropTypes,
             Slider,
-            basketballData
+            basketballData,
+            listeningData
           }}
         />
         <Title>{title}</Title>
