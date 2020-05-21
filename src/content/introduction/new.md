@@ -13,9 +13,104 @@ scope:
 
 Victory is actively developed. You can read about some of our newest feature here. For more information on improvements and bug fixes, check out our [changelog](https://github.com/FormidableLabs/victory/blob/master/CHANGELOG.md).
 
+## VictoryHistogram
+
+We've added a new charting component to allow you to easily create histogram charts. With [`VictoryHistogram`](/docs/victory-histogram) you can create beautiful and interactive histograms.
+
+```playground
+<VictoryChart>
+  <VictoryHistogram
+    style={{ data: { fill: '#F1737F' }}}
+    cornerRadius={3}
+    data={[
+      { x: 0 },
+      { x: 1 },
+      { x: 1 },
+      { x: 1 },
+      { x: 1 },
+      { x: 2 },
+      { x: 2 },
+      { x: 3 },
+      { x: 4 },
+      { x: 7 },
+      { x: 7 },
+      { x: 10 }
+    ]}
+  />
+</VictoryChart>
+```
+
+Using the [`bins`](/docs/victory-histogram#bins) prop, you have flexibility in how your data is binned, allowing you to specify specific bin ranges, or an approximate count of how many bins you want.
+
+```playground
+<VictoryChart>
+  <VictoryHistogram
+    style={{ data: { fill: '#F1737F' }}}
+    cornerRadius={3}
+    bins={[0, 2, 8, 15]}
+    data={[
+      { x: 0 },
+      { x: 1 },
+      { x: 1 },
+      { x: 1 },
+      { x: 1 },
+      { x: 2 },
+      { x: 2 },
+      { x: 3 },
+      { x: 4 },
+      { x: 7 },
+      { x: 7 },
+      { x: 10 }
+    ]}
+  />
+</VictoryChart>
+```
+
+You can stack `VictoryHistogram` too, just wrap it in [`VictoryStack`](/docs/victory-stack)!
+
+```playground
+<VictoryChart>
+  <VictoryStack colorScale="qualitative">
+    <VictoryHistogram
+      data={[
+        { x: 0 },
+        { x: 1 },
+        { x: 1 },
+        { x: 1 },
+        { x: 1 },
+        { x: 2 },
+        { x: 2 },
+        { x: 3 },
+        { x: 4 },
+        { x: 7 },
+        { x: 7 },
+        { x: 10 }
+      ]}
+    />
+
+    <VictoryHistogram
+      cornerRadius={3}
+      data={[
+        { x: 0 },
+        { x: 1 },
+        { x: 1 },
+        { x: 1 },
+        { x: 2 },
+        { x: 2 },
+        { x: 3 },
+        { x: 4 },
+        { x: 5 },
+        { x: 7 },
+        { x: 8 }
+      ]}
+    />
+  </VictoryStack>
+</VictoryChart>
+```
+
 ## Backgrounds for VictoryChart
 
-We wanted to make it easier to style the chart backgrounds, so we added a [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) for `VictoryChart`. Now, when you include `background` styles, `VictoryChart` will render [`Background`](/docs/victory-primitives#background),  a styled element that fills the area between your axes.
+We wanted to make it easier to style the chart backgrounds, so we added a [`backgroundComponent`](/docs/victory-chart#backgroundcomponent) for `VictoryChart`. Now, when you include `background` styles, `VictoryChart` will render [`Background`](/docs/victory-primitives#background), a styled element that fills the area between your axes.
 
 Try it out!
 
