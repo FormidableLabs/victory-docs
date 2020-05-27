@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import useInView from "react-cool-inview";
 
-const LazyImage = props => {
+const LazyImage = ({ height, width, minHeight, ...props }) => {
   const ref = useRef();
   const { inView } = useInView(ref, {
     // Stop observe when the target enters the viewport, so the "inView" only triggered once
@@ -10,7 +10,11 @@ const LazyImage = props => {
     rootMargin: "20px"
   });
 
-  return <div ref={ref}>{inView && <img {...props} />}</div>;
+  return (
+    <div style={{ width, height, minHeight }} ref={ref}>
+      {inView && <img {...props} />}
+    </div>
+  );
 };
 
 export default LazyImage;
