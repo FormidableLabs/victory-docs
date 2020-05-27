@@ -56,10 +56,9 @@ const GuideDemo = styled.div`
   border: 6px solid ${({ theme }) => theme.color.accentBrown};
 
   @media ${({ theme }) => theme.mediaQuery.md} {
-    height: 350px
+    height: 350px;
     width: 450px;
   }
-
 `;
 const GuideLink = styled(Link)`
   color: ${({ theme }) => theme.color.darkBrown};
