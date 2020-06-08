@@ -12,6 +12,7 @@ import Preview from "../partials/gallery/preview";
 import Slider from "../partials/gallery/slider";
 import basketballData from "../data/basketball-data";
 import listeningData from "../data/listening-data";
+import LazyRender from "../partials/lazy-render";
 
 const GalleryWrapper = styled.div`
   display: flex;
@@ -31,6 +32,20 @@ const GalleryWrapper = styled.div`
     > * + * {
       margin-top: 0;
     }
+  }
+`;
+
+const StyledLazyRender = styled(LazyRender)`
+  box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.brown};
+  border: 6px solid ${({ theme }) => theme.color.accentBrown};
+  padding: 2rem;
+
+  @media ${({ theme }) => theme.mediaQuery.md} {
+    height: 300px;
+  }
+
+  @media ${({ theme }) => theme.mediaQuery.lg} {
+    height: 375px;
   }
 `;
 
@@ -71,21 +86,25 @@ const Gallery = ({ gallery, sidebarContent }) => {
 
     return (
       <Link to={createPath(`gallery/${slug}`)}>
-        <Preview
-          codeText={code}
-          noRender={false}
-          theme="elegant"
-          scope={{
-            ...Victory,
-            _: require("lodash"),
-            styled,
-            React,
-            ReactDOM,
-            PropTypes,
-            Slider,
-            basketballData,
-            listeningData
-          }}
+        <StyledLazyRender
+          LazyRenderedComponent={() => (
+            <Preview
+              codeText={code}
+              noRender={false}
+              theme="elegant"
+              scope={{
+                ...Victory,
+                _: require("lodash"),
+                styled,
+                React,
+                ReactDOM,
+                PropTypes,
+                Slider,
+                basketballData,
+                listeningData
+              }}
+            />
+          )}
         />
         <Title>{title}</Title>
       </Link>

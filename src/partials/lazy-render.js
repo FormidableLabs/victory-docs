@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import useInView from "react-cool-inview";
 
-const LazyRender = ({ LazyRenderedComponent, ...rest }) => {
+const LazyRender = ({ LazyRenderedComponent, className, ...rest }) => {
   const ref = useRef();
   const { inView } = useInView(ref, {
     // Stop observe when the target enters the viewport, so the "inView" only triggered once
@@ -11,11 +11,16 @@ const LazyRender = ({ LazyRenderedComponent, ...rest }) => {
     rootMargin: "20px"
   });
 
-  return <div ref={ref}>{inView && <LazyRenderedComponent {...rest} />}</div>;
+  return (
+    <div className={className} ref={ref}>
+      {inView && <LazyRenderedComponent {...rest} />}
+    </div>
+  );
 };
 
 LazyRender.propTypes = {
-  LazyRenderedComponent: PropTypes.elementType.isRequired
+  LazyRenderedComponent: PropTypes.elementType.isRequired,
+  className: PropTypes.string.isRequired
 };
 
 export default LazyRender;
