@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import LazyImage from "../lazy-image";
 
-const Img = styled.img`
+const Img = styled(LazyImage)`
   max-width: 100%;
   box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.brown};
   margin: 0 0 1.2rem 1.2rem;
@@ -29,7 +30,11 @@ const ShowcaseApp = props => {
         <Company>{props.company}</Company>
         {props.description}
       </div>
-      <Img alt={props.screenshot.alt} src={props.screenshot.src} />
+      <Img
+        minHeight={200}
+        alt={props.screenshot.alt}
+        src={props.screenshot.src}
+      />
     </Grid>
   );
 };

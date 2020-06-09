@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Element } from "react-scroll";
+
+import LazyImage from "../lazy-image";
 import {
   LandingSectionWrapper,
   LandingSectionContent,
@@ -43,7 +45,7 @@ const Feature = styled.li`
   }
 `;
 
-const FeatureImg = styled.img`
+const FeatureImg = styled(LazyImage)`
   ${DropShadow}
   display: block;
   margin: auto;

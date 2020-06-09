@@ -101,7 +101,10 @@ const PlaygroundContainer = styled.div`
       text-align: center;
       margin: 0 auto;
       min-width: 80%
-      @media ${theme.mediaQuery.lg} {
+    }
+
+    @media ${theme.mediaQuery.lg} {
+      .playgroundPreview {
         min-width: 50%;
       }
     }

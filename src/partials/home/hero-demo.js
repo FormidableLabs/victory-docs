@@ -12,12 +12,12 @@ import {
   VictoryVoronoiContainer,
   Point
 } from "victory";
-import moment from "moment";
 import styled from "styled-components";
 import importedTheme from "../../styles/theme";
 import downloads from "../../data/downloads";
 import versions from "../../data/versions";
 import { last } from "lodash";
+import { format, startOfWeek, parse, subDays } from "date-fns";
 
 const HeroDemoContainer = styled.div`
   background-color: ${({ theme }) => theme.color.deepBrown};
@@ -40,11 +40,13 @@ const numberWithCommas = x =>
 
 const groupDownloadsByWeek = dates => {
   const downloadsGroupedByPeriod = {};
+  const today = new Date();
 
   dates.forEach(date => {
-    const start = moment(date.day)
-      .startOf("week")
-      .format("YYYY-MM-DD");
+    const start = format(
+      startOfWeek(parse(date.day, "yyyy-MM-dd", today)),
+      "yyyy-MM-dd"
+    );
 
     downloadsGroupedByPeriod[start] = downloadsGroupedByPeriod[start]
       ? downloadsGroupedByPeriod[start] + date.downloads
@@ -120,13 +122,12 @@ const VoronoiLabel = props => {
   );
 };
 
+const lastDate = last(downloads.data).day;
+const recentDate = format(subDays(new Date(), 2), "yyyy-MM-dd");
+const oldDownloads = groupDownloadsByWeek(downloads.data);
+
 // eslint-disable-next-line react/no-multi-comp
 const HeroDemo = () => {
-  const lastDate = last(downloads.data).day;
-  const recentDate = moment()
-    .subtract(2, "days")
-    .format("YYYY-MM-DD");
-  const oldDownloads = groupDownloadsByWeek(downloads.data);
   const [downloadsPerWeek, setData] = useState(oldDownloads);
   const url = `https://api.npmjs.org/downloads/range/${lastDate}:${recentDate}/victory`;
 

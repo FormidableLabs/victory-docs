@@ -5,19 +5,7 @@ import { render } from "react-dom";
 import ReactDOMServer from "react-dom/server";
 import { transform } from "babel-standalone";
 
-const PreviewWrapper = styled.div`
-  box-shadow: -1.2rem 1.2rem 0px 0px ${({ theme }) => theme.color.brown};
-  border: 6px solid ${({ theme }) => theme.color.accentBrown};
-  padding: 2rem;
-
-  @media ${({ theme }) => theme.mediaQuery.md} {
-    height: 300px;
-  }
-
-  @media ${({ theme }) => theme.mediaQuery.lg} {
-    height: 375px;
-  }
-`;
+const PreviewWrapper = styled.div``;
 
 // <Preview> component from component-playground without updating
 const Preview = props => {
