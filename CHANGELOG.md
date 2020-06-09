@@ -1,5 +1,9 @@
 # Victory Docs Changelog
 
+## 9.3.0 (2020-06-09)
+
+- [#686](https://github.com/FormidableLabs/victory-docs/pull/686) Update to styled-components 5 and implement perf improvements including lazy loading images and playgrounds
+
 ### 9.2.0 (2020-05-21)
 
 - [#682](https://github.com/FormidableLabs/victory-docs/pull/682) Document VictoryHistogram
