@@ -6,7 +6,7 @@ import config from "../../static-config-helpers/site-data";
 import Markdown from "../partials/markdown";
 import Page from "../partials/page";
 
-const DocsTemplate = ({ doc, sidebarContent }) => {
+const DocsTemplate = React.memo(({ doc, sidebarContent }) => {
   const { content, data } = doc;
   const { title, scope } = data;
   return (
@@ -20,7 +20,7 @@ const DocsTemplate = ({ doc, sidebarContent }) => {
       <Markdown source={content} scope={scope} />
     </Page>
   );
-};
+});
 
 DocsTemplate.propTypes = {
   children: PropTypes.array,
