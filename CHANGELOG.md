@@ -1,5 +1,11 @@
 # Victory Docs Changelog
 
+## 9.3.1 (2020-06-16)
+
+- [#688](https://github.com/FormidableLabs/victory-docs/pull/688) - Fix broken voronoi example link. Thanks @thesauri!
+
+- [#687](https://github.com/FormidableLabs/victory-docs/pull/687) - Speed up page section transitions
+
 ## 9.3.0 (2020-06-09)
 
 - [#686](https://github.com/FormidableLabs/victory-docs/pull/686) Update to styled-components 5 and implement perf improvements including lazy loading images and playgrounds
