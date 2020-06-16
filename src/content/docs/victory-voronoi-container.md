@@ -238,4 +238,4 @@ _example:_ `voronoiPadding={5}`
 
 [victorycontainer]: /docs/victory-container
 [voronoi diagram]: https://github.com/d3/d3-voronoi
-[this example]: /gallery/voronoi-tooltips-grouped
+[this example]: /gallery/voronoi-tooltips-with-grouped-components
