@@ -1,11 +1,6 @@
-<h1 align="center">victory documentation site</h1>
+<h1 align="center">victory documentation site (DEPRECATED)</h1>
 
-[![Build Status](https://travis-ci.com/FormidableLabs/victory-docs.svg?branch=master)](https://travis-ci.com/FormidableLabs/victory-docs)
-
-***
-
-[Documentation site](https://formidable.com/open-source/victory/) for [victory](https://github.com/FormidableLabs/victory). `victory-docs` is running on [react-static](https://github.com/nozzle/react-static).
-
+**Code related to publishing docs for Victory has been moved into the main repo. Please see: https://github.com/FormidableLabs/victory/tree/main/docs**
 
 ## Getting Started
 
