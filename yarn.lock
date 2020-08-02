@@ -7750,8 +7750,8 @@ react-codemirror2@^5.0.0:
 
 react-cool-inview@^1.1.2:
   version "1.1.2"
-  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-1.1.2.tgz#e6bc064dd1246796076dc25390dfbb399b96fb1d"
-  integrity sha512-2EQ9/seG5ROHlEU05TVII7aVWbC0GWvfCybG3wEPfQ/8q2rz03/Zxh8xPEJ8JPv58olYsMUr+/3aO8B279ld7w==
+  resolved "https://registry.yarnpkg.com/react-cool-inview/-/react-cool-inview-1.1.2.tgz#0513d2770847557b73d73b63303b971877f2cd17"
+  integrity sha512-0LsRA8YVDvHUNTu8o1z43HYrlQsTEc2pCzul93thbCopCTX4PGb9StjJGhArFMBH/n2N+aciqixfEHcjGLhPxQ==
 
 react-copy-to-clipboard@^5.0.2:
   version "5.0.2"
