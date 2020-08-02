@@ -1,10 +1,9 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import useInView from "react-cool-inview";
 
 const LazyRender = ({ LazyRenderedComponent, className, ...rest }) => {
-  const ref = useRef();
-  const { inView } = useInView(ref, {
+  const { ref, inView } = useInView({
     unobserveOnEnter: true,
     rootMargin: "20px"
   });
